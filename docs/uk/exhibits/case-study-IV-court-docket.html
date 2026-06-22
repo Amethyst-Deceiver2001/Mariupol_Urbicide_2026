@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Справа IV — Судовий реєстр справ: 28 суддів, 2,666 рішень, без адреси</title>
+<link rel="icon" type="image/png" href="../../favicon.png">
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="description" content="2,666 рішень окупаційних судів, що перетворили маріупольські будинки на муніципальну власність: 28 поіменованих суддів, які їх підписали, дві розібрані справи з вихідних карток справ, і структурний висновок про те, що жоден із 2,666 записів не вказує адресу.">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{max-width:64ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  .lead{font-size:1.15rem;color:var(--paper);max-width:64ch}
+  .mono{font-family:var(--font-mono)}
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.6rem;display:block;line-height:1.6;max-width:70ch}
+
+  .hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,5vw,3.5rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.1rem,6vw,3.9rem);line-height:1.02;margin:.4rem 0 1.4rem;max-width:20ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2.2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.blue{color:var(--s1)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:.5rem;display:block;line-height:1.4}
+
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+  .badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;border:1px solid var(--rail);border-radius:2px;
+    padding:.32rem .55rem;color:var(--muted);white-space:nowrap}
+  .badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .badge.gap{background:var(--evidence);color:var(--ink);border-color:var(--evidence);font-weight:800}
+
+  table.data{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:1.2rem}
+  table.data th,table.data td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.data th{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;
+    position:sticky;top:0;background:var(--ink)}
+  table.data td:first-child{color:var(--paper);font-weight:700}
+  table.data tbody tr:hover{background:var(--ink-2)}
+  table.data td.num{text-align:right;font-weight:700}
+  table.data td.muted{color:var(--muted)}
+  .tbl-wrap{max-height:560px;overflow-y:auto;border:1px solid var(--rail);border-radius:4px;margin-top:1.2rem}
+  .tbl-wrap table.data{margin-top:0}
+  .tbl-wrap table.data th{top:-1px}
+
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1.8rem 0 0;font-family:var(--font-mono)}
+  .chain .step{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.7rem .9rem;flex:1;min-width:150px}
+  .chain .step .t{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .chain .step .v{font-size:12.5px;color:var(--paper-dim);margin-top:.35rem;line-height:1.4}
+  .chain .step.red{border-left:3px solid var(--evidence)}
+  .chain .step.stamp{border-left:3px solid var(--stamp)}
+  .chain .step.blue{border-left:3px solid var(--s1)}
+  .chain .arrow{align-self:center;color:var(--muted);font-family:var(--font-serif)}
+
+  .timeline{margin:1.8rem 0 0;border-left:2px solid var(--rail);padding-left:1.3rem;display:grid;gap:1rem}
+  .tl-ev{position:relative}
+  .tl-ev::before{content:"";position:absolute;left:-1.62rem;top:.3rem;width:8px;height:8px;border-radius:50%;background:var(--rail-2)}
+  .tl-ev.mark::before{background:var(--stamp)}
+  .tl-ev.bad::before{background:var(--evidence)}
+  .tl-ev .d{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted)}
+  .tl-ev .e{font-size:15px;color:var(--paper-dim);margin-top:.15rem}
+  .tl-ev .e b{color:var(--paper)}
+
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.6rem 0;max-width:72ch}
+  .callout.hot{border-left-color:var(--evidence)}
+  .callout .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
+  .callout.hot .h{color:var(--evidence)}
+  .callout p{margin:0;font-size:15.5px}
+
+  .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding:.2rem 0 .2rem 1rem;margin:1.4rem 0;max-width:66ch}
+
+  .figcap{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.6rem 0 0;max-width:72ch}
+  .fio{display:block;font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-top:1px}
+
+  .bars{display:flex;align-items:flex-end;gap:.5rem;height:140px;margin-top:1.6rem;
+    padding:0 .2rem;border-bottom:1px solid var(--rail)}
+  .bars .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bars .bar .fill{width:100%;background:var(--stamp);border-radius:2px 2px 0 0;min-height:2px}
+  .bars .bar.closing .fill{background:var(--muted)}
+  .bars .bar .v{font-family:var(--font-mono);font-size:10px;color:var(--paper-dim);margin-bottom:.3rem}
+  .bars .bar .q{font-family:var(--font-mono);font-size:9px;color:var(--muted);margin-top:.4rem;text-align:center;line-height:1.3}
+
+  details.prov{margin-top:1rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--stamp);padding:.4rem 0}
+  .srclist{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.9rem}
+  .srclist li{border-left:2px solid var(--rail);padding-left:1rem}
+  .srclist .ty{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
+  .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
+  .srclist .ti b{color:var(--paper)}
+  .banner{background:var(--ink-3);border-bottom:1px solid var(--rail);font-family:var(--font-mono);
+    font-size:11.5px;letter-spacing:.04em;color:var(--muted);padding:9px clamp(1rem,4vw,2.4rem);text-align:center}
+  .banner a{color:var(--stamp);text-decoration:none;border-bottom:1px dotted var(--stamp)}
+</style>
+</head>
+<body>
+
+<div class="banner">Чорновий машинний переклад, не перевірений людиною · <a href="../../exhibits/case-study-IV-court-docket.html">English original</a> &middot; <a href="../../ru/exhibits/case-study-IV-court-docket.html">Русский</a></div>
+
+<div class="exhibit-bar">
+  <span>Справа IV &middot; <b>Судовий реєстр справ</b></span>
+  <span><a href="../index.html">&larr; на головну проєкту</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier.html">головне досьє</a>
+    &nbsp;&middot;&nbsp; <a href="about.html">про проєкт</a> &nbsp;&middot;&nbsp; <a href="stakeholder-network.html">мережа учасників</a> &middot; <a href="sources.html">джерела</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="sub">Справа IV &middot; нині закритий судовий маршрут &middot; окупований Маріуполь</div>
+    <div class="eyebrow" title="ГПК РФ гл. 33 — особое производство">Окреме провадження, ЦПК РФ глава 33</div>
+    <h1>Суд, що забрав право власності, жодного разу не назвавши будинок.</h1>
+    <p class="lead">Із середини 2024 до початку 2026 року чотири окупаційні суди Маріуполя
+      ухвалили рішення за 2,666 клопотаннями про перетворення «безхазяйних» будинків на
+      муніципальну власність. Двадцять вісім суддів підписали ці рішення. Жодна з 2,666
+      карток справ — публічної картки кожного рішення — не вказує вулицю, номер будинку чи
+      кадастровий номер. Справі проти будинку ніколи не доводилося говорити, де цей будинок
+      знаходиться.</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n red">2,666</span><span class="l">рішень · 4 районні суди<br>середина 2024 &ndash; початок 2026</span></div>
+      <div class="stat"><span class="n">28</span><span class="l">поіменованих суддів<br>підписали хоча б одне рішення</span></div>
+      <div class="stat"><span class="n blue">82.2%</span><span class="l">задоволено на першому засіданні<br>2,192 з 2,666</span></div>
+      <div class="stat"><span class="n">42 дні</span><span class="l">медіана подання&rarr;рішення<br>задоволені справи</span></div>
+      <div class="stat"><span class="n red">2,666 / 2,666</span><span class="l">карток справ без вказання<br>адреси вулиці</span></div>
+    </div>
+  </section>
+
+  <!-- 00 -->
+  <section>
+    <div class="eyebrow">00 &middot; Інструмент</div>
+    <h2>Позов, де позивач — місто, а відповідача немає взагалі</h2>
+    <p>Кожна з цих 2,666 справ заведена за однією й тією ж процесуальною статтею:
+      <b title="ГПК РФ гл. 33 — особое производство">Цивільний процесуальний кодекс РФ,
+      гл. 33 — «окреме провадження»</b>, вимагаючи
+      <b title="о признании движимой вещи бесхозяйной и признании права муниципальной собственности на бесхозяйную недвижимую вещь">визнання муніципальної власності на «безхазяйну»
+      нерухому річ</b>. Заявником у всіх без винятку справах цього набору даних виступає
+      окупаційна міська адміністрація (<span class="mono" title="Администрация городского округа Мариуполь Донецкой Народной Республики">Адміністрація міського округу Маріуполь ДНР</span>,
+      ІПН 9310011256, або її попередник). Єдиний інший поіменований учасник — зазвичай
+      регіональне управління кадастру та реєстрації — ніколи мешканець, ніколи власник,
+      ніколи хтось з іменем, яке впізнала б вимушено переселена сім'я.</p>
+    <p>Ця відсутність — не недогляд; це весь задум процедури. «Окреме провадження» —
+      процесуальний шлях для фактів без протилежної сторони — визнання людини померлою
+      заочно, встановлення юридичного факту. Застосування його до населеного міста після
+      примусового масового переселення перетворює відсутність власника — відсутність,
+      спричинену самою окупацією: облогою, вимогами примусової паспортизації, закритим і
+      ворожим кордоном — на юридичну відсутність будь-якої сторони, здатної заперечити.</p>
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6</span>
+      <span class="badge rome">Римський статут &middot; 8(2)(a)(iv)</span>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section>
+    <div class="eyebrow">01 &middot; Поіменовані, з їхньою історією</div>
+    <h2>Двадцять вісім суддів. Кожне рішення враховано.</h2>
+    <p>Це не анонімні адміністративні акти. Російський цивільний процес вимагає вказівки
+      поіменованого головуючого судді в кожній картці справи, і публічний портал карток справ
+      окупаційних судів (<span class="mono">sudrf.ru</span>) публікує це ім'я, дати подання
+      та рішення, а також результат — для всіх, хто заглляне. Таблиця нижче — це всі судді,
+      що підписали хоча б одне рішення в цьому наборі даних, ранжовані за обсягом, із повною
+      історією рішень за підсумками.</p>
+
+    <div class="tbl-wrap">
+      <table class="data">
+        <thead><tr>
+          <th>Суддя</th><th>Суд</th><th>Справ</th><th>Задоволено</th>
+          <th>Спір / відкликано</th><th>Перше подання</th><th>Останнє рішення</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Романов Дмитро Сергійович<span class="fio">Dmitry Romanov</span></td><td>Жовтневий</td><td class="num">288</td><td class="num">258</td><td class="num muted">26</td><td>12.07.2024</td><td>15.01.2026</td></tr>
+          <tr><td>Мяконька Тетяна Олександрівна<span class="fio">Tatiana Myakonkaya</span></td><td>Жовтневий</td><td class="num">201</td><td class="num">170</td><td class="num muted">24</td><td>08.08.2024</td><td>17.02.2026</td></tr>
+          <tr><td>Гревцова Вікторія Олексіївна<span class="fio">Viktoria Grevtsova</span></td><td>Приморський</td><td class="num">188</td><td class="num">152</td><td class="num muted">35</td><td>12.07.2024</td><td>09.02.2026</td></tr>
+          <tr><td>Кралініна Наталія Геннадіївна<span class="fio">Natalia Kralinina</span></td><td>Жовтневий</td><td class="num">173</td><td class="num">161</td><td class="num muted">11</td><td>21.06.2024</td><td>25.12.2025</td></tr>
+          <tr><td>Бєлоусов Павло Валерійович<span class="fio">Pavel Belousov</span></td><td>Жовтневий</td><td class="num">162</td><td class="num">102</td><td class="num muted">57</td><td>07.06.2024</td><td>20.03.2026</td></tr>
+          <tr><td>Тлеужанова Ботагоз Єлеусизівна<span class="fio">Botagoz Tleuzhanova</span></td><td>Приморський</td><td class="num">146</td><td class="num">119</td><td class="num muted">25</td><td>17.07.2024</td><td>09.02.2026</td></tr>
+          <tr><td>Струнов Микита Іванович<span class="fio">Nikita Strunov</span></td><td>Жовтневий</td><td class="num">143</td><td class="num">123</td><td class="num muted">17</td><td>08.08.2024</td><td>22.05.2026</td></tr>
+          <tr><td>Резніченко Володимир Олексійович<span class="fio">Vladimir Reznichenko</span></td><td>Приморський</td><td class="num">138</td><td class="num">89</td><td class="num muted">46</td><td>11.06.2024</td><td>27.04.2026</td></tr>
+          <tr><td>Нідзієва Наталія Миколаївна<span class="fio">Natalia Nidzieva</span></td><td>Приморський</td><td class="num">128</td><td class="num">98</td><td class="num muted">29</td><td>12.07.2024</td><td>26.12.2025</td></tr>
+          <tr><td>Леонов Олександр Юрійович<span class="fio">Alexander Leonov</span></td><td>Жовтневий</td><td class="num">127</td><td class="num">108</td><td class="num muted">18</td><td>03.06.2024</td><td>17.12.2025</td></tr>
+          <tr><td>Сазонова Юлія Юріївна<span class="fio">Yulia Sazonova</span></td><td>Жовтневий</td><td class="num">118</td><td class="num">83</td><td class="num muted">34</td><td>14.05.2024</td><td>15.01.2026</td></tr>
+          <tr><td>Павленко Денис Костянтинович<span class="fio">Denis Pavlenko</span></td><td>Орджонікідзевський</td><td class="num">93</td><td class="num">86</td><td class="num muted">7</td><td>07.08.2024</td><td>02.03.2026</td></tr>
+          <tr><td>Ахтямова Ельвіра Саматівна<span class="fio">Elvira Akhtyamova</span></td><td>Орджонікідзевський</td><td class="num">90</td><td class="num">74</td><td class="num muted">16</td><td>22.07.2024</td><td>08.12.2025</td></tr>
+          <tr><td>Бойко Вікторія Олегівна<span class="fio">Viktoria Boyko</span></td><td>Приморський</td><td class="num">85</td><td class="num">66</td><td class="num muted">19</td><td>10.10.2024</td><td>11.02.2026</td></tr>
+          <tr><td>Сахапова Рената Рамілівна<span class="fio">Renata Sakhapova</span></td><td>Орджонікідзевський</td><td class="num">83</td><td class="num">72</td><td class="num muted">11</td><td>23.07.2024</td><td>09.12.2025</td></tr>
+          <tr><td>Логвінов Олег Валентинович<span class="fio">Oleg Logvinov</span></td><td>Іллічівський</td><td class="num">80</td><td class="num">75</td><td class="num muted">5</td><td>04.12.2024</td><td>11.12.2025</td></tr>
+          <tr><td>Кенжегаріна Даметкен Максутівна<span class="fio">Dametken Kenzhegarina</span></td><td>Жовтневий</td><td class="num">74</td><td class="num">58</td><td class="num muted">16</td><td>24.06.2025</td><td>27.04.2026</td></tr>
+          <tr><td>Дулькіна Наталія Вікторівна<span class="fio">Natalia Dulkina</span></td><td>Жовтневий</td><td class="num">66</td><td class="num">54</td><td class="num muted">12</td><td>04.07.2025</td><td>05.02.2026</td></tr>
+          <tr><td>Мартинов Олександр Анатолійович<span class="fio">Alexander Martynov</span></td><td>Іллічівський</td><td class="num">66</td><td class="num">57</td><td class="num muted">9</td><td>04.12.2024</td><td>19.12.2025</td></tr>
+          <tr><td>Степанова Катерина Василівна<span class="fio">Ekaterina Stepanova</span></td><td>Іллічівський</td><td class="num">59</td><td class="num">52</td><td class="num muted">7</td><td>25.10.2024</td><td>19.12.2025</td></tr>
+          <tr><td>Мітерєв Ельдар Євгенович<span class="fio">Eldar Miterev</span></td><td>Орджонікідзевський</td><td class="num">57</td><td class="num">57</td><td class="num muted">0</td><td>21.08.2024</td><td>20.11.2025</td></tr>
+          <tr><td>Головченко Юлія Миколаївна<span class="fio">Yulia Golovchenko</span></td><td>Іллічівський</td><td class="num">46</td><td class="num">41</td><td class="num muted">5</td><td>17.12.2024</td><td>19.12.2025</td></tr>
+          <tr><td>Климова Світлана Юріївна<span class="fio">Svetlana Klimova</span></td><td>Орджонікідзевський</td><td class="num">17</td><td class="num">13</td><td class="num muted">4</td><td>24.07.2024</td><td>29.04.2025</td></tr>
+          <tr><td>Таубаєва Айжан Умирзагівна<span class="fio">Aizhan Taubayeva</span></td><td>Жовтневий</td><td class="num">10</td><td class="num">9</td><td class="num muted">1</td><td>12.07.2024</td><td>06.09.2024</td></tr>
+          <tr><td>Ремпе Марія Василівна<span class="fio">Maria Rempe</span></td><td>Орджонікідзевський</td><td class="num">9</td><td class="num">8</td><td class="num muted">1</td><td>21.08.2024</td><td>29.01.2025</td></tr>
+          <tr><td>Маркова Олена Володимирівна<span class="fio">Elena Markova</span></td><td>Іллічівський</td><td class="num">4</td><td class="num">2</td><td class="num muted">2</td><td>07.11.2025</td><td>18.03.2026</td></tr>
+          <tr><td>Гаврилюк Євгенія Анатоліївна<span class="fio">Evgenia Gavrilyuk</span></td><td>Орджонікідзевський</td><td class="num">4</td><td class="num">4</td><td class="num muted">0</td><td>21.11.2024</td><td>21.02.2025</td></tr>
+          <tr><td>Гузаірова Ельвіра Ільдарівна<span class="fio">Elvira Guzairova</span></td><td>Жовтневий</td><td class="num">2</td><td class="num">1</td><td class="num muted">1</td><td>15.12.2025</td><td>15.04.2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="figcap">Повне ПІБ показано над латинською транслітерацією кожного судді, де
+      зафіксовано. «Спір / відкликано» об'єднує наслідки «залишено без розгляду», «закрито
+      провадження», «повернуто», «передано за підсудністю» та «відмовлено». 9 із 2,666 справ
+      не містять імені судді у вихідній картці справи і виключені з цієї таблиці; вони
+      включені до всіх інших підрахунків на цій сторінці.</p>
+    <span class="src">Джерело: публічний портал карток справ кожного суду
+      (<span class="mono">{court}.sudrf.ru</span>, поле «Судья»), зафіксований за
+      стандартним ланцюгом зберігання проєкту. Окремі судді, вказані безпосередньо в полі
+      картки справи — не виведені, не агреговані з вторинного джерела.</span>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="eyebrow">02 &middot; Розібрана справа &middot; формула</div>
+    <h2>Двадцять сім днів, без відповідача, вирішено за одне засідання</h2>
+    <p>Справа №<b class="mono">2-4974/2025</b> (єдиний ID
+      <span class="mono">93RS0006-01-2025-006636-02</span>), Жовтневий районний
+      суд, головуючий суддя <b title="Романов Дмитрий Сергеевич">Дмитро Романов</b>
+      — розібрана безпосередньо з зафіксованої картки справи, точно як опубліковано:</p>
+
+    <div class="timeline">
+      <div class="tl-ev"><div class="d">07.11.2025</div><div class="e">Клопотання подано та зареєстровано. Заявник: <b>Адміністрація міського округу Маріуполь ДНР</b> (ІПН 9310011256). Заінтересована особа: управління кадастру та реєстрації ДНР.</div></div>
+      <div class="tl-ev"><div class="d">10.11.2025</div><div class="e">Прийнято до провадження; справу призначено до слухання — <b>того ж дня</b>, що й процесуальну ухвалу про її призначення.</div></div>
+      <div class="tl-ev mark"><div class="d">04.12.2025, 09:15</div><div class="e">Проведено єдине засідання. Винесено рішення: <b title="Иск (заявление, жалоба) УДОВЛЕТВОРЕН">ЗАДОВОЛЕНО</b>.</div></div>
+      <div class="tl-ev"><div class="d">08.12.2025</div><div class="e">Мотивоване рішення оформлено в письмовому вигляді.</div></div>
+      <div class="tl-ev"><div class="d">15.12.2025</div><div class="e">Справу закрито та передано до відділу справочинства.</div></div>
+    </div>
+    <p style="margin-top:1.4rem">Двадцять сім днів від подання до задоволеного рішення, одне
+      засідання, без зафіксованої появи будь-кого, хто оскаржує клопотання — тому що не було
+      названо нікого, хто міг би це зробити. Картка справи містить категорію, суддю, двох
+      інституційних учасників і результат. У ній не вказано, що було вилучено.</p>
+    <span class="src">Джерело: портал карток справ mar-zhovt&ndash;&ndash;dnr.sudrf.ru,
+      case_uid c33e847b-2167-4ecd-b0d6-471090c7efd3, зафіксовано 08.06.2026 —
+      хеш у справі, див. Походження §06.</span>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="eyebrow">03 &middot; Виняток &middot; 4 справи з 2,666</div>
+    <h2>Єдиний збій системи: хтось має з'явитися двічі</h2>
+    <p>У системі рівно одна зафіксована точка тертя, і вона спрацьовує лише якщо до справи
+      надходить зустрічний позов про справжній спір про право власності. За весь час
+      існування цього набору даних це сталося чотири рази (0.15%). Одна справа, розібрана
+      повністю:</p>
+
+    <div class="timeline">
+      <div class="tl-ev"><div class="d">02.12.2025</div><div class="e">Клопотання подано (справа №<b class="mono">2-239/2026</b>, єдиний ID
+        93RS0006-01-2024-004862-70 — сама є повторним поданням більш ранньої справи,
+        первісна реєстрація № 2-3742/2024). Той самий заявник, той самий суддя, <span title="Романов Дмитрий Сергеевич">Дмитро Романов</span>.</div></div>
+      <div class="tl-ev"><div class="d">23.12.2025, 10:15</div><div class="e">Перше засідання призначено — відкладено. Зафіксована причина: <b>неявка самого заявника</b>.</div></div>
+      <div class="tl-ev bad"><div class="d">15.01.2026, 10:00</div><div class="e">Проведено друге засідання. Рішення: <b title="Иск (заявление, жалоба) ОСТАВЛЕН БЕЗ РАССМОТРЕНИЯ. Установлено НАЛИЧИЕ СПОРА О ПРАВЕ">ЗАЛИШЕНО БЕЗ РОЗГЛЯДУ — встановлено наявність спору про право</b>.</div></div>
+    </div>
+    <p style="margin-top:1.4rem">Це найближче до змагального засідання, що є в наборі даних,
+      і воно все одно ніколи не призводить до поіменованого мешканця, адреси чи змістовного
+      рішення про право власності будь-кого — лише до процесуального припинення, що залишає
+      основну вимогу на повторне подання. Решта 337 наслідків «залишено без розгляду» та 88
+      «закрито провадження» не містять зіставного пояснення в полі картки справи; це єдиний
+      випадок, коли основна причина була хоч якось видима.</p>
+    <span class="src">Джерело: портал карток справ mar-zhovt&ndash;&ndash;dnr.sudrf.ru,
+      case_uid aed20aff-85c4-4069-90ec-8c1c453164c0, зафіксовано 08.06.2026 —
+      хеш у справі, див. Походження §06.</span>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="eyebrow">04 &middot; Що спільного у 2,666 записів</div>
+    <h2>Прогалина в адресі</h2>
+    <p>Цей проєкт перехресно звіряє кожен документований об'єкт власності із середнім
+      показником у два чи більше незалежних джерела — реєстри, постанови, супутникові оцінки
+      збитків, оголошення про перепродаж. Для судового реєстру справ ця прив'язка наштовхується
+      на стіну, закладену в самому джерелі: <b>запис картки справи — єдиний публічний слід
+      рішення — не містить назви вулиці, номера будинку чи кадастрового посилання в жодній
+      із 2,666 справ.</b> Що вона містить — це номер справи, суддю, двох інституційних
+      учасників, категорію вимоги та результат.</p>
+    <div class="callout hot">
+      <div class="h">Що це означає на практиці</div>
+      <p>Можна публічно й перевірюваним чином показати, що суд позбавив права власності
+        2,666 будинків — і публічний запис про те, як він це зробив, сам по собі не дозволяє
+        нікому визначити, які саме це 2,666 будинки. Зіставлення конкретного рішення з
+        конкретною адресою вимагає або повного тексту основного рішення (окремого, важче
+        доступного документа, який цей проєкт ще не отримав у масовому масштабі), або
+        незалежної триангуляції через дані реєстру та постанов, які цей проєкт відстежує в
+        іншому місці. Саме для цього набору даних ця триангуляція ще не закрила прогалину:
+        із 2,666 судових справ <b>жодна</b> наразі не прив'язана до поіменованого об'єкта в
+        базі доказів цього проєкту.</p>
+    </div>
+    <p>Ця прогалина — не недолік того, як цей проєкт читає запис. Це сам запис. Ім'я судді,
+      дата подання та одне слово результату — це рівно стільки, скільки система була
+      побудована зробити видимим — усе інше про сам будинок залишається всередині файлу, який
+      для вимушено переселеної сім'ї, яка намагається дізнатися, що сталося з її адресою,
+      невидимий за задумом.</p>
+    <div class="badges">
+      <span class="badge gap">0 / 2,666 прив'язано до адреси</span>
+      <span class="badge rd4u">RD4U &middot; A3.6</span>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="eyebrow">05 &middot; Обсяг і закриття</div>
+    <h2>Маршрут, що відкрився, досяг піку та був закритий</h2>
+    <p>Подання за кварталами простежують життя всього цього правового механізму: повільний
+      старт у середині 2024 року, пік у другому та третьому кварталах 2025 року, потім різкий
+      обвал після того, як Федеральний конституційний закон №4 (15 грудня 2025) повністю
+      скасував судовий етап — замінивши його прямим включенням до реєстру як титулу, без
+      потрібного рішення.</p>
+    <div class="bars" role="img" aria-label="Квартальні подання: 21, 389, 498, 296, 650, 633, 150, 18, 2, пік у 2-3 кварталах 2025, потім обвал після закону грудня 2025.">
+      <div class="bar"><div class="v">21</div><div class="fill" style="height:5%"></div><div class="q">2кв<br>&rsquo;24</div></div>
+      <div class="bar"><div class="v">389</div><div class="fill" style="height:60%"></div><div class="q">3кв<br>&rsquo;24</div></div>
+      <div class="bar"><div class="v">498</div><div class="fill" style="height:77%"></div><div class="q">4кв<br>&rsquo;24</div></div>
+      <div class="bar"><div class="v">296</div><div class="fill" style="height:46%"></div><div class="q">1кв<br>&rsquo;25</div></div>
+      <div class="bar"><div class="v">650</div><div class="fill" style="height:100%"></div><div class="q">2кв<br>&rsquo;25</div></div>
+      <div class="bar"><div class="v">633</div><div class="fill" style="height:97%"></div><div class="q">3кв<br>&rsquo;25</div></div>
+      <div class="bar closing"><div class="v">150</div><div class="fill" style="height:23%"></div><div class="q">4кв<br>&rsquo;25</div></div>
+      <div class="bar closing"><div class="v">18</div><div class="fill" style="height:4%"></div><div class="q">1кв<br>&rsquo;26</div></div>
+      <div class="bar closing"><div class="v">2</div><div class="fill" style="height:2%"></div><div class="q">2кв<br>&rsquo;26</div></div>
+    </div>
+    <p class="figcap">Подання за кварталами (дата подання до суду). Обвал у 4кв 2025&ndash;2кв
+      2026 — це закриття судового маршруту, а не зупинка самої практики — ті самі призначення
+      «безхазяйності» тривають безпосередньо через реєстр. Див.
+      <a href="dispossession-pipeline.html">експонат «Конвеєр позбавлення власності»</a>,
+      етап B, про те, як цей маршрут вписується в більш широку систему, та реєстр із
+      12,948 записів, що відтоді взяв на себе цю функцію.</p>
+  </section>
+
+  <!-- 06 provenance -->
+  <section>
+    <div class="eyebrow">06 &middot; Походження</div>
+    <h2>Джерела</h2>
+    <p>Кожна цифра на цій сторінці обчислена безпосередньо з власного структурованого набору
+      даних судових справ цього проєкту, побудованого шляхом фіксації публічного порталу
+      карток справ кожного суду за стандартною практикою ланцюга зберігання (хеш SHA-256 та
+      позначка часу UTC при отриманні, вихідний HTML збережений до аналізу). Агреговані
+      підрахунки відтворювані будь-ким із доступом до бази даних проєкту; дві розібрані справи
+      вище відтворювані будь-ким із веб-браузером, на діючих судових порталах, за допомогою
+      наведених номерів справ та єдиних ID.</p>
+    <details class="prov">
+      <summary>Повний каталог джерел і примітки щодо методології</summary>
+      <ul class="srclist">
+        <li><span class="ty">Первинне джерело</span><span class="ti">
+          Публічні портали карток справ чотирьох окупаційних районних судів Маріуполя
+          (Жовтневий, Приморський, Орджонікідзевський, Іллічівський), шаблон домену
+          <span class="mono">{court}--dnr.sudrf.ru</span>. Зафіксовано 2,666 карток справ,
+          розібрані на суд, суддю, номер справи, дати подання/рішення та наслідок.</span></li>
+        <li><span class="ty">Розібрані справи</span><span class="ti">
+          Декодовані безпосередньо з захопленого вихідного HTML (у кодуванні cp1251), а не з
+          розібраних полів бази даних, щоб перевірити відповідність вихідного запису
+          структурованим даним і відновити деталі — події на рівні засідань, імена сторін,
+          причину відкладення у спірній справі — не збережені в стандартній схемі проєкту.
+          Справа 2-4974/2025 (case_uid c33e847b-2167-4ecd-b0d6-471090c7efd3): SHA-256
+          4d56565294e8c8606b89bc1af308ed96f44cf2a57d2e13132e6cac866d953d74. Справа
+          2-239/2026 (case_uid aed20aff-85c4-4069-90ec-8c1c453164c0): SHA-256
+          e779bfabef898563a7ecc245f6884db1af3c46d6a105b9be7d65cb490cccf020.</span></li>
+        <li><span class="ty">Що поки не зафіксовано</span><span class="ti">
+          Повний текст мотивованих рішень («мотивированное решение»), на які посилається
+          журнал подій кожної справи, — окремий документ, який цей проєкт не отримав у
+          масовому масштабі — він може містити відомості про адресу, відсутні в самій картці
+          справи. Закриття цієї прогалини — основне відкрите завдання для цього набору даних;
+          див. внутрішній реєстр прогалин проєкту.</span></li>
+        <li><span class="ty">Правові підстави, як зафіксовано</span><span class="ti">
+          Клопотання посилаються на поєднання: ознак безхазяйності (2,657 із 2,666 справ);
+          неявки власника (775 справ); відсутності кадастрової реєстрації в ЄДРН (297 справ);
+          та Закону ДНР №66-РЗ (444 справи) як основного закону про безхазяйне майно.</span></li>
+      </ul>
+    </details>
+    <p class="figcap" style="margin-top:1.2rem">Таксономія наслідків: задоволено 2,192
+      (82.2%) &middot; залишено без розгляду 338 (12.7%) &middot; закрито провадження
+      88 (3.3%) &middot; повернуто 29 &middot; передано за підсудністю 5 &middot;
+      відмовлено 3 &middot; без позначки 11. Відсотки — від усіх 2,666 справ.</p>
+  </section>
+
+</div>
+</body>
+</html>
