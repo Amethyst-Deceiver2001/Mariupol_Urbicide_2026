@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study IV — The Court Docket: 28 Judges, 2,666 Rulings, No Address</title>
+<meta name="description" content="The 2,666 occupation-court rulings that converted Mariupol homes to municipal title: the 28 named judges who signed them, two worked cases decoded from the original docket cards, and the structural finding that none of the 2,666 records name a street address.">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{max-width:64ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  .lead{font-size:1.15rem;color:var(--paper);max-width:64ch}
+  .mono{font-family:var(--font-mono)}
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.6rem;display:block;line-height:1.6;max-width:70ch}
+
+  .hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,5vw,3.5rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.1rem,6vw,3.9rem);line-height:1.02;margin:.4rem 0 1.4rem;max-width:20ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2.2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.blue{color:var(--s1)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:.5rem;display:block;line-height:1.4}
+
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+  .badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;border:1px solid var(--rail);border-radius:2px;
+    padding:.32rem .55rem;color:var(--muted);white-space:nowrap}
+  .badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .badge.gap{background:var(--evidence);color:var(--ink);border-color:var(--evidence);font-weight:800}
+
+  table.data{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:1.2rem}
+  table.data th,table.data td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.data th{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;
+    position:sticky;top:0;background:var(--ink)}
+  table.data td:first-child{color:var(--paper);font-weight:700}
+  table.data tbody tr:hover{background:var(--ink-2)}
+  table.data td.num{text-align:right;font-weight:700}
+  table.data td.muted{color:var(--muted)}
+  .tbl-wrap{max-height:560px;overflow-y:auto;border:1px solid var(--rail);border-radius:4px;margin-top:1.2rem}
+  .tbl-wrap table.data{margin-top:0}
+  .tbl-wrap table.data th{top:-1px}
+
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1.8rem 0 0;font-family:var(--font-mono)}
+  .chain .step{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.7rem .9rem;flex:1;min-width:150px}
+  .chain .step .t{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .chain .step .v{font-size:12.5px;color:var(--paper-dim);margin-top:.35rem;line-height:1.4}
+  .chain .step.red{border-left:3px solid var(--evidence)}
+  .chain .step.stamp{border-left:3px solid var(--stamp)}
+  .chain .step.blue{border-left:3px solid var(--s1)}
+  .chain .arrow{align-self:center;color:var(--muted);font-family:var(--font-serif)}
+
+  .timeline{margin:1.8rem 0 0;border-left:2px solid var(--rail);padding-left:1.3rem;display:grid;gap:1rem}
+  .tl-ev{position:relative}
+  .tl-ev::before{content:"";position:absolute;left:-1.62rem;top:.3rem;width:8px;height:8px;border-radius:50%;background:var(--rail-2)}
+  .tl-ev.mark::before{background:var(--stamp)}
+  .tl-ev.bad::before{background:var(--evidence)}
+  .tl-ev .d{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted)}
+  .tl-ev .e{font-size:15px;color:var(--paper-dim);margin-top:.15rem}
+  .tl-ev .e b{color:var(--paper)}
+
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.6rem 0;max-width:72ch}
+  .callout.hot{border-left-color:var(--evidence)}
+  .callout .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
+  .callout.hot .h{color:var(--evidence)}
+  .callout p{margin:0;font-size:15.5px}
+
+  .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding:.2rem 0 .2rem 1rem;margin:1.4rem 0;max-width:66ch}
+
+  .figcap{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.6rem 0 0;max-width:72ch}
+  .fio{display:block;font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-top:1px}
+
+  .bars{display:flex;align-items:flex-end;gap:.5rem;height:140px;margin-top:1.6rem;
+    padding:0 .2rem;border-bottom:1px solid var(--rail)}
+  .bars .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bars .bar .fill{width:100%;background:var(--stamp);border-radius:2px 2px 0 0;min-height:2px}
+  .bars .bar.closing .fill{background:var(--muted)}
+  .bars .bar .v{font-family:var(--font-mono);font-size:10px;color:var(--paper-dim);margin-bottom:.3rem}
+  .bars .bar .q{font-family:var(--font-mono);font-size:9px;color:var(--muted);margin-top:.4rem;text-align:center;line-height:1.3}
+
+  details.prov{margin-top:1rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--stamp);padding:.4rem 0}
+  .srclist{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.9rem}
+  .srclist li{border-left:2px solid var(--rail);padding-left:1rem}
+  .srclist .ty{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
+  .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
+  .srclist .ti b{color:var(--paper)}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Case Study IV &middot; <b>The court docket</b></span>
+  <span><a href="../index.html">&larr; project home</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier.html">master dossier</a>
+    &nbsp;&middot;&nbsp; <a href="about.html">about</a> &nbsp;&middot;&nbsp; <a href="stakeholder-network.html">stakeholder network</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="sub">Case Study IV &middot; the now-closed court route &middot; occupied Mariupol</div>
+    <div class="eyebrow" title="ГПК РФ гл. 33 — особое производство">Special proceeding, Russian Civil Procedure Code ch. 33</div>
+    <h1>The court that took title without ever naming the house.</h1>
+    <p class="lead">Between mid-2024 and early 2026, four occupation courts in Mariupol
+      ruled on 2,666 petitions converting &ldquo;ownerless&rdquo; homes into municipal
+      title. Twenty-eight judges signed those rulings. Not one of the 2,666 docket
+      records — the public-facing case card for each ruling — names a street, a
+      building, or a cadastral number. The case against the house never had to say
+      where the house was.</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n red">2,666</span><span class="l">rulings · 4 district courts<br>mid-2024 &ndash; early 2026</span></div>
+      <div class="stat"><span class="n">28</span><span class="l">named judges<br>signed at least one ruling</span></div>
+      <div class="stat"><span class="n blue">82.2%</span><span class="l">granted on first hearing<br>2,192 of 2,666</span></div>
+      <div class="stat"><span class="n">42 days</span><span class="l">median filing&rarr;ruling<br>granted cases</span></div>
+      <div class="stat"><span class="n red">2,666 / 2,666</span><span class="l">docket cards naming<br>no street address</span></div>
+    </div>
+  </section>
+
+  <!-- 00 -->
+  <section>
+    <div class="eyebrow">00 &middot; The instrument</div>
+    <h2>A lawsuit with a city as plaintiff and no one as defendant</h2>
+    <p>Every one of these 2,666 cases is filed under the same procedural article:
+      <b title="ГПК РФ гл. 33 — особое производство">Russian Civil Procedure Code,
+      ch. 33 &mdash; &ldquo;special proceeding&rdquo;</b>, seeking
+      <b title="о признании движимой вещи бесхозяйной и признании права муниципальной собственности на бесхозяйную недвижимую вещь">recognition of municipal ownership over an &ldquo;ownerless&rdquo;
+      immovable thing</b>. The petitioner, in every single case in this dataset, is
+      the occupation city administration (<span class="mono" title="Администрация городского округа Мариуполь Донецкой Народной Республики">Administration of the Mariupol Urban Okrug, DNR</span>,
+      INN 9310011256, or its predecessor entity). The only other named participant is
+      typically the regional cadastre and registration office &mdash; never a resident,
+      never an owner, never anyone with a name a displaced family would recognize.</p>
+    <p>That absence is not an oversight; it is the procedure&rsquo;s entire design.
+      &ldquo;Special proceeding&rdquo; is the civil-procedure track for facts with no
+      opposing party &mdash; declaring someone dead in absentia, establishing a legal
+      fact. Applying it to an inhabited city after a forced mass displacement converts
+      the absence of the owner &mdash; an absence the occupation itself caused, by siege,
+      by forced passportization requirements, by a closed and hostile border &mdash;
+      into the legal absence of any party to object.</p>
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(a)(iv)</span>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section>
+    <div class="eyebrow">01 &middot; Named, with their record</div>
+    <h2>Twenty-eight judges. Every ruling counted.</h2>
+    <p>These are not anonymous administrative acts. Russian civil procedure requires a
+      named presiding judge on every case card, and the occupation courts&rsquo; public
+      docket portal (<span class="mono">sudrf.ru</span>) publishes that name, the filing
+      and decision dates, and the result &mdash; for anyone who looks. The table below is
+      every judge who has signed at least one ruling in this dataset, ranked by volume,
+      with their full ruling record broken out by outcome.</p>
+
+    <div class="tbl-wrap">
+      <table class="data">
+        <thead><tr>
+          <th>Judge</th><th>Court</th><th>Cases</th><th>Granted</th>
+          <th>Disputed / withdrawn</th><th>First filing</th><th>Last ruling</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Dmitry Romanov<span class="fio">Романов Дмитрий Сергеевич</span></td><td>Zhovtnevyi</td><td class="num">288</td><td class="num">258</td><td class="num muted">26</td><td>12.07.2024</td><td>15.01.2026</td></tr>
+          <tr><td>Tatiana Myakonkaya<span class="fio">Мяконькая Татьяна Александровна</span></td><td>Zhovtnevyi</td><td class="num">201</td><td class="num">170</td><td class="num muted">24</td><td>08.08.2024</td><td>17.02.2026</td></tr>
+          <tr><td>Viktoria Grevtsova<span class="fio">Гревцова Виктория Алексеевна</span></td><td>Primorsky</td><td class="num">188</td><td class="num">152</td><td class="num muted">35</td><td>12.07.2024</td><td>09.02.2026</td></tr>
+          <tr><td>Natalia Kralinina<span class="fio">Кралинина Наталья Геннадьевна</span></td><td>Zhovtnevyi</td><td class="num">173</td><td class="num">161</td><td class="num muted">11</td><td>21.06.2024</td><td>25.12.2025</td></tr>
+          <tr><td>Pavel Belousov<span class="fio">Белоусов Павел Валериевич</span></td><td>Zhovtnevyi</td><td class="num">162</td><td class="num">102</td><td class="num muted">57</td><td>07.06.2024</td><td>20.03.2026</td></tr>
+          <tr><td>Botagoz Tleuzhanova<span class="fio">Тлеужанова Ботагоз Елеусизовна</span></td><td>Primorsky</td><td class="num">146</td><td class="num">119</td><td class="num muted">25</td><td>17.07.2024</td><td>09.02.2026</td></tr>
+          <tr><td>Nikita Strunov<span class="fio">Струнов Никита Иванович</span></td><td>Zhovtnevyi</td><td class="num">143</td><td class="num">123</td><td class="num muted">17</td><td>08.08.2024</td><td>22.05.2026</td></tr>
+          <tr><td>Vladimir Reznichenko<span class="fio">Резниченко Владимир Алексеевич</span></td><td>Primorsky</td><td class="num">138</td><td class="num">89</td><td class="num muted">46</td><td>11.06.2024</td><td>27.04.2026</td></tr>
+          <tr><td>Natalia Nidzieva<span class="fio">Нидзиева Наталья Николаевна</span></td><td>Primorsky</td><td class="num">128</td><td class="num">98</td><td class="num muted">29</td><td>12.07.2024</td><td>26.12.2025</td></tr>
+          <tr><td>Alexander Leonov<span class="fio">Леонов Александр Юрьевич</span></td><td>Zhovtnevyi</td><td class="num">127</td><td class="num">108</td><td class="num muted">18</td><td>03.06.2024</td><td>17.12.2025</td></tr>
+          <tr><td>Yulia Sazonova<span class="fio">Сазонова Юлия Юрьевна</span></td><td>Zhovtnevyi</td><td class="num">118</td><td class="num">83</td><td class="num muted">34</td><td>14.05.2024</td><td>15.01.2026</td></tr>
+          <tr><td>Denis Pavlenko<span class="fio">Павленко Денис Константинович</span></td><td>Ordzhonikidzevsky</td><td class="num">93</td><td class="num">86</td><td class="num muted">7</td><td>07.08.2024</td><td>02.03.2026</td></tr>
+          <tr><td>Elvira Akhtyamova<span class="fio">Ахтямова Эльвира Саматовна</span></td><td>Ordzhonikidzevsky</td><td class="num">90</td><td class="num">74</td><td class="num muted">16</td><td>22.07.2024</td><td>08.12.2025</td></tr>
+          <tr><td>Viktoria Boyko<span class="fio">Бойко Виктория Олеговна</span></td><td>Primorsky</td><td class="num">85</td><td class="num">66</td><td class="num muted">19</td><td>10.10.2024</td><td>11.02.2026</td></tr>
+          <tr><td>Renata Sakhapova<span class="fio">Сахапова Рената Рамилевна</span></td><td>Ordzhonikidzevsky</td><td class="num">83</td><td class="num">72</td><td class="num muted">11</td><td>23.07.2024</td><td>09.12.2025</td></tr>
+          <tr><td>Oleg Logvinov<span class="fio">Логвинов Олег Валентинович</span></td><td>Ilyichevsky</td><td class="num">80</td><td class="num">75</td><td class="num muted">5</td><td>04.12.2024</td><td>11.12.2025</td></tr>
+          <tr><td>Dametken Kenzhegarina<span class="fio">Кенжегарина Даметкен Максутовна</span></td><td>Zhovtnevyi</td><td class="num">74</td><td class="num">58</td><td class="num muted">16</td><td>24.06.2025</td><td>27.04.2026</td></tr>
+          <tr><td>Natalia Dulkina<span class="fio">Дулькина Наталия Викторовна</span></td><td>Zhovtnevyi</td><td class="num">66</td><td class="num">54</td><td class="num muted">12</td><td>04.07.2025</td><td>05.02.2026</td></tr>
+          <tr><td>Alexander Martynov<span class="fio">Мартынов Александр Анатольевич</span></td><td>Ilyichevsky</td><td class="num">66</td><td class="num">57</td><td class="num muted">9</td><td>04.12.2024</td><td>19.12.2025</td></tr>
+          <tr><td>Ekaterina Stepanova<span class="fio">Степанова Екатерина Васильевна</span></td><td>Ilyichevsky</td><td class="num">59</td><td class="num">52</td><td class="num muted">7</td><td>25.10.2024</td><td>19.12.2025</td></tr>
+          <tr><td>Eldar Miterev<span class="fio">Митерев Эльдар Евгеньевич</span></td><td>Ordzhonikidzevsky</td><td class="num">57</td><td class="num">57</td><td class="num muted">0</td><td>21.08.2024</td><td>20.11.2025</td></tr>
+          <tr><td>Yulia Golovchenko<span class="fio">Головченко Юлия Николаевна</span></td><td>Ilyichevsky</td><td class="num">46</td><td class="num">41</td><td class="num muted">5</td><td>17.12.2024</td><td>19.12.2025</td></tr>
+          <tr><td>Svetlana Klimova<span class="fio">Климова Светлана Юрьевна</span></td><td>Ordzhonikidzevsky</td><td class="num">17</td><td class="num">13</td><td class="num muted">4</td><td>24.07.2024</td><td>29.04.2025</td></tr>
+          <tr><td>Aizhan Taubayeva<span class="fio">Таубаева Айжан Умырзаговна</span></td><td>Zhovtnevyi</td><td class="num">10</td><td class="num">9</td><td class="num muted">1</td><td>12.07.2024</td><td>06.09.2024</td></tr>
+          <tr><td>Maria Rempe<span class="fio">Ремпе Мария Васильевна</span></td><td>Ordzhonikidzevsky</td><td class="num">9</td><td class="num">8</td><td class="num muted">1</td><td>21.08.2024</td><td>29.01.2025</td></tr>
+          <tr><td>Elena Markova<span class="fio">Маркова Елена Владимировна</span></td><td>Ilyichevsky</td><td class="num">4</td><td class="num">2</td><td class="num muted">2</td><td>07.11.2025</td><td>18.03.2026</td></tr>
+          <tr><td>Evgenia Gavrilyuk<span class="fio">Гаврилюк Евгения Анатольевна</span></td><td>Ordzhonikidzevsky</td><td class="num">4</td><td class="num">4</td><td class="num muted">0</td><td>21.11.2024</td><td>21.02.2025</td></tr>
+          <tr><td>Elvira Guzairova<span class="fio">Гузаирова Эльвира Ильдаровна</span></td><td>Zhovtnevyi</td><td class="num">2</td><td class="num">1</td><td class="num muted">1</td><td>15.12.2025</td><td>15.04.2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="figcap">Full ФИО (given name + patronymic + surname) shown below each
+      judge&rsquo;s name above, where captured. &ldquo;Disputed / withdrawn&rdquo;
+      aggregates left-without-consideration, discontinued, returned,
+      transferred-jurisdiction and rejected outcomes. 9 of the 2,666 cases carry no
+      judge name in the source docket card and are excluded from this table; they
+      are included in every other count on this page.</p>
+    <span class="src">Source: each court&rsquo;s public case-card portal
+      (<span class="mono">{court}.sudrf.ru</span>, &sect;&ldquo;Судья&rdquo; field),
+      captured per the project&rsquo;s standard chain of custody. Distinct judges
+      named in the docket field itself &mdash; not inferred, not aggregated from a
+      secondary source.</span>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="eyebrow">02 &middot; A worked case &middot; the formula</div>
+    <h2>Twenty-seven days, no defendant, decided in one sitting</h2>
+    <p>Case No. <b class="mono">2-4974/2025</b> (unified ID
+      <span class="mono">93RS0006-01-2025-006636-02</span>), Zhovtnevyi District
+      Court, presiding judge <b title="Романов Дмитрий Сергеевич">Dmitry Romanov</b>
+      &mdash; decoded directly from the captured docket card, exactly as published:</p>
+
+    <div class="timeline">
+      <div class="tl-ev"><div class="d">07.11.2025</div><div class="e">Petition filed and registered. Petitioner: <b>Administration of the Mariupol Urban Okrug, DNR</b> (INN 9310011256). Interested party: the DNR cadastre &amp; registration office.</div></div>
+      <div class="tl-ev"><div class="d">10.11.2025</div><div class="e">Accepted to proceedings; case assigned for hearing &mdash; <b>same day</b> as the procedural order setting it down.</div></div>
+      <div class="tl-ev mark"><div class="d">04.12.2025, 09:15</div><div class="e">Single hearing held. Ruling rendered: <b title="Иск (заявление, жалоба) УДОВЛЕТВОРЕН">GRANTED</b>.</div></div>
+      <div class="tl-ev"><div class="d">08.12.2025</div><div class="e">Reasoned decision finalized in writing.</div></div>
+      <div class="tl-ev"><div class="d">15.12.2025</div><div class="e">Case closed and filed to the records department.</div></div>
+    </div>
+    <p style="margin-top:1.4rem">Twenty-seven days from filing to a granted ruling, one
+      hearing, no recorded appearance by anyone contesting the petition &mdash; because
+      no one was named who could. The case card lists a category, a judge, two
+      institutional parties, and a result. It does not list what was taken.</p>
+    <span class="src">Source: mar-zhovt&ndash;&ndash;dnr.sudrf.ru case-card portal,
+      case_uid c33e847b-2167-4ecd-b0d6-471090c7efd3, captured 08.06.2026 &mdash;
+      hash on file, see Provenance &sect;06.</span>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="eyebrow">03 &middot; The exception &middot; 4 cases of 2,666</div>
+    <h2>The one failure mode: someone has to show up twice</h2>
+    <p>The system has exactly one recorded friction point, and it only fires if a
+      counter-claim of an actual ownership dispute reaches the file. It happened four
+      times in this entire dataset (0.15%). One, decoded in full:</p>
+
+    <div class="timeline">
+      <div class="tl-ev"><div class="d">02.12.2025</div><div class="e">Petition filed (case No. <b class="mono">2-239/2026</b>, unified ID
+        93RS0006-01-2024-004862-70 &mdash; itself a re-filing of an earlier matter,
+        prior registration No. 2-3742/2024). Same petitioner, same judge, <span title="Романов Дмитрий Сергеевич">Dmitry Romanov</span>.</div></div>
+      <div class="tl-ev"><div class="d">23.12.2025, 10:15</div><div class="e">First hearing scheduled &mdash; adjourned. Recorded reason: <b>non-appearance of the petitioner itself</b>.</div></div>
+      <div class="tl-ev bad"><div class="d">15.01.2026, 10:00</div><div class="e">Second hearing held. Ruling: <b title="Иск (заявление, жалоба) ОСТАВЛЕН БЕЗ РАССМОТРЕНИЯ. Установлено НАЛИЧИЕ СПОРА О ПРАВЕ">LEFT WITHOUT CONSIDERATION &mdash; existence of a dispute over title established</b>.</div></div>
+    </div>
+    <p style="margin-top:1.4rem">This is the closest thing to a contested hearing in
+      the dataset, and it still never produces a named resident, an address, or a
+      substantive ruling on anyone&rsquo;s ownership &mdash; only a procedural
+      dismissal, leaving the underlying claim to be re-filed. The other 337
+      &ldquo;left without consideration&rdquo; and 88 &ldquo;discontinued&rdquo;
+      outcomes carry no comparable explanation in the docket field; this is the one
+      instance where the underlying reason was visible at all.</p>
+    <span class="src">Source: mar-zhovt&ndash;&ndash;dnr.sudrf.ru case-card portal,
+      case_uid aed20aff-85c4-4069-90ec-8c1c453164c0, captured 08.06.2026 &mdash;
+      hash on file, see Provenance &sect;06.</span>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="eyebrow">04 &middot; What 2,666 records have in common</div>
+    <h2>The address gap</h2>
+    <p>This project cross-references every property it documents against an average
+      of two or more independent sources &mdash; registries, decrees, satellite
+      damage assessments, resale listings. For the court docket, that linkage runs
+      into a wall built into the source itself: <b>the case-card record &mdash; the
+      only public trace of the ruling &mdash; does not contain a street name, a
+      building number, or a cadastral reference, in any of the 2,666 cases.</b> What
+      it contains is a case number, a judge, two institutional parties, a category of
+      claim, and a result.</p>
+    <div class="callout hot">
+      <div class="h">What this means in practice</div>
+      <p>A court can be shown, publicly and verifiably, to have stripped title from
+        2,666 homes &mdash; and the public record of how it did so does not, on its
+        own, let anyone determine which 2,666 homes. Matching a specific ruling to a
+        specific address requires either the full text of the underlying decision
+        (a separate, harder-to-obtain document this project has not yet retrieved at
+        scale) or independent triangulation through the registry and decree data this
+        project tracks elsewhere. For this dataset specifically, that triangulation
+        has not yet closed the gap: of 2,666 court cases, <b>zero</b> are currently
+        linked to a named property on this project&rsquo;s evidence spine.</p>
+    </div>
+    <p>That gap is not a flaw in how this project reads the record. It is the record.
+      A judge&rsquo;s name, a filing date, and a one-word result are exactly as much
+      as the system was built to make visible &mdash; everything else about the home
+      itself stays inside a file that, for a displaced family trying to find out what
+      happened to their address, is invisible by design.</p>
+    <div class="badges">
+      <span class="badge gap">0 / 2,666 address-linked</span>
+      <span class="badge rd4u">RD4U &middot; A3.6</span>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="eyebrow">05 &middot; Volume &amp; closure</div>
+    <h2>A route that opened, peaked, and was retired</h2>
+    <p>Filings by quarter trace the life of this entire legal mechanism: a slow start
+      in mid-2024, a peak in the second and third quarters of 2025, then a sharp
+      collapse after Federal Constitutional Law No. 4 (15 Dec 2025) abolished the
+      court stage outright &mdash; replacing it with direct registry inclusion as
+      title, no ruling required.</p>
+    <div class="bars" role="img" aria-label="Quarterly filings: 21, 389, 498, 296, 650, 633, 150, 18, 2, peaking Q2-Q3 2025 then collapsing after the December 2025 law.">
+      <div class="bar"><div class="v">21</div><div class="fill" style="height:5%"></div><div class="q">Q2<br>&rsquo;24</div></div>
+      <div class="bar"><div class="v">389</div><div class="fill" style="height:60%"></div><div class="q">Q3<br>&rsquo;24</div></div>
+      <div class="bar"><div class="v">498</div><div class="fill" style="height:77%"></div><div class="q">Q4<br>&rsquo;24</div></div>
+      <div class="bar"><div class="v">296</div><div class="fill" style="height:46%"></div><div class="q">Q1<br>&rsquo;25</div></div>
+      <div class="bar"><div class="v">650</div><div class="fill" style="height:100%"></div><div class="q">Q2<br>&rsquo;25</div></div>
+      <div class="bar"><div class="v">633</div><div class="fill" style="height:97%"></div><div class="q">Q3<br>&rsquo;25</div></div>
+      <div class="bar closing"><div class="v">150</div><div class="fill" style="height:23%"></div><div class="q">Q4<br>&rsquo;25</div></div>
+      <div class="bar closing"><div class="v">18</div><div class="fill" style="height:4%"></div><div class="q">Q1<br>&rsquo;26</div></div>
+      <div class="bar closing"><div class="v">2</div><div class="fill" style="height:2%"></div><div class="q">Q2<br>&rsquo;26</div></div>
+    </div>
+    <p class="figcap">Filings by quarter (court-of-filing date). The Q4 2025&ndash;Q2
+      2026 collapse is the court route closing, not the underlying practice
+      stopping &mdash; the same &ldquo;ownerless&rdquo; designations continue
+      directly through the registry. See the
+      <a href="dispossession-pipeline.html">Dispossession Pipeline exhibit</a>,
+      Stage B, for how this route fits the wider system, and the 12,948-entry
+      registry that has absorbed the function since.</p>
+  </section>
+
+  <!-- 06 provenance -->
+  <section>
+    <div class="eyebrow">06 &middot; Provenance</div>
+    <h2>Sourcing</h2>
+    <p>Every figure on this page is computed directly from this project&rsquo;s own
+      structured court-case dataset, built by capturing each court&rsquo;s public
+      case-card portal under standard chain-of-custody practice (SHA-256 hash and
+      UTC timestamp at retrieval, raw HTML preserved before parsing). Aggregate
+      counts are reproducible by anyone with database access to the project; the two
+      worked cases above are reproducible by anyone with a web browser, against the
+      live court portals, using the case numbers and unified IDs given.</p>
+    <details class="prov">
+      <summary>Full source catalogue &amp; methodology notes</summary>
+      <ul class="srclist">
+        <li><span class="ty">Primary source</span><span class="ti">
+          Public case-card portals of Mariupol&rsquo;s four occupation district
+          courts (Zhovtnevyi, Primorsky, Ordzhonikidzevsky, Ilyichevsky), domain
+          pattern <span class="mono">{court}--dnr.sudrf.ru</span>. 2,666 case cards
+          captured, parsed for court, judge, case number, filing/decision dates, and
+          outcome.</span></li>
+        <li><span class="ty">Worked cases</span><span class="ti">
+          Decoded directly from the raw captured HTML (cp1251-encoded) rather than
+          from the parsed database fields, to verify the underlying record matches
+          the structured data and to recover detail &mdash; hearing-level events,
+          party names, the dispute-case&rsquo;s adjournment reason &mdash; not
+          retained in the project&rsquo;s standard schema. Case 2-4974/2025
+          (case_uid c33e847b-2167-4ecd-b0d6-471090c7efd3): SHA-256
+          4d56565294e8c8606b89bc1af308ed96f44cf2a57d2e13132e6cac866d953d74. Case
+          2-239/2026 (case_uid aed20aff-85c4-4069-90ec-8c1c453164c0): SHA-256
+          e779bfabef898563a7ecc245f6884db1af3c46d6a105b9be7d65cb490cccf020.</span></li>
+        <li><span class="ty">What is not yet captured</span><span class="ti">
+          The full text of the reasoned decisions (&laquo;мотивированное
+          решение&raquo;) referenced in each case&rsquo;s event log is a separate
+          document this project has not retrieved at scale &mdash; it may contain the
+          address information absent from the case card itself. Closing that gap is
+          the main open item for this dataset; see the project&rsquo;s internal gap
+          register.</span></li>
+        <li><span class="ty">Legal grounds, as recorded</span><span class="ti">
+          Petitions cite combinations of: signs of ownerlessness (&ldquo;признаки
+          бесхозяйности&rdquo;, 2,657 of 2,666 cases); the owner&rsquo;s failure to
+          appear (775 cases); absence of an EGRN cadastral registration (297 cases);
+          and DNR Law No. 66-РЗ (444 cases) as the underlying ownerless-property
+          statute.</span></li>
+      </ul>
+    </details>
+    <p class="figcap" style="margin-top:1.2rem">Outcome taxonomy: granted 2,192
+      (82.2%) &middot; left without consideration 338 (12.7%) &middot; discontinued
+      88 (3.3%) &middot; returned 29 &middot; transferred jurisdiction 5 &middot;
+      rejected 3 &middot; unlabeled 11. Percentages are of all 2,666 cases.</p>
+  </section>
+
+</div>
+</body>
+</html>

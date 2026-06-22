@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study II — Registry Sweep to Live Resale · Mariupol Urbicide Project</title>
+<style>
+  :root {
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9; /* строителей — blue */
+    --s2:#9b7bc9; /* ленина — violet */
+    --s3:#e8894a; /* сеченова — orange (undamaged) */
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+  /* ── chrome ── */
+  .exhibit-bar{
+    position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+  .exhibit-bar .cust{color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:0}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{margin:0 0 1.1rem;color:var(--paper-dim)}
+  .lead{font-size:1.1rem;color:var(--paper);max-width:62ch}
+  .mono{font-family:var(--font-mono)}
+
+  /* ── thesis stats ── */
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;margin:2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:120px}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);
+    letter-spacing:-.03em;line-height:.9;display:block;color:var(--paper)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);display:block;margin-top:.55rem;max-width:16ch;line-height:1.5}
+  .stat.hi .n{color:var(--evidence)}
+  .stat.stamp .n{color:var(--stamp)}
+
+  /* ── fkz strip ── */
+  .fkz-strip{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;
+    background:rgba(205,64,48,.07);border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:3px;padding:.9rem 1.2rem;margin:1.8rem 0 0}
+  .fkz-strip .badge{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--evidence);white-space:nowrap}
+  .fkz-strip .body{font-family:var(--font-mono);font-size:12px;color:var(--paper-dim);line-height:1.6}
+  .fkz-strip .pivot{color:var(--paper);font-weight:700}
+
+  /* ── three building cards ── */
+  .building-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--rail);border-radius:4px;overflow:hidden;margin-top:.8rem}
+  .bc{background:var(--ink-2);display:flex;flex-direction:column}
+  .bc-head{padding:1.1rem 1.1rem .7rem;border-bottom:1px solid var(--rail)}
+  .bc-idx{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 .4rem}
+  .bc-addr{font-family:var(--font-display);font-weight:800;font-size:1.05rem;
+    letter-spacing:-.01em;color:var(--paper);line-height:1.2;margin:0 0 .3rem}
+  .bc-prewar{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    display:flex;align-items:center;gap:.4rem;margin:.25rem 0 0}
+  .bc-prewar .arrow{color:var(--evidence);font-size:.85rem}
+
+  .bc-body{padding:.9rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.8rem}
+
+  /* destruction meter */
+  .destr{display:flex;flex-direction:column;gap:.35rem}
+  .destr-label{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted)}
+  .destr-bar-wrap{height:6px;background:var(--rail-2);border-radius:3px;overflow:hidden}
+  .destr-bar{height:100%;border-radius:3px;background:var(--evidence);transition:width .3s}
+  .destr-val{font-family:var(--font-mono);font-size:11px;color:var(--paper);font-weight:700}
+  .destr-note{font-family:var(--font-mono);font-size:10px;color:var(--evidence);
+    letter-spacing:.04em;margin-top:.1rem}
+
+  /* registry count */
+  .reg-count{display:flex;align-items:baseline;gap:.6rem}
+  .reg-count .n{font-family:var(--font-display);font-weight:800;
+    font-size:clamp(2rem,4vw,3rem);line-height:.9;letter-spacing:-.03em}
+  .reg-count .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);max-width:14ch;line-height:1.5}
+
+  /* listing cards */
+  .listing{background:var(--ink-3);border:1px solid var(--rail);border-radius:3px;
+    overflow:hidden;flex:1}
+  .listing .slot{min-height:140px;background:var(--ink);border-bottom:1px solid var(--rail-2);
+    position:relative;display:flex;align-items:center;justify-content:center}
+  .listing .slot::before{content:attr(data-label);font-family:var(--font-mono);
+    font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);
+    text-align:center;padding:0 .8rem;position:absolute}
+  .listing .slot img{position:relative;width:100%;display:block;max-height:200px;object-fit:cover}
+  .listing-meta{padding:.6rem .7rem;display:flex;flex-direction:column;gap:.25rem}
+  .listing-meta .price{font-family:var(--font-display);font-weight:800;font-size:1.08rem;
+    color:var(--paper);letter-spacing:-.01em}
+  .listing-meta .specs{font-family:var(--font-mono);font-size:10.5px;color:var(--muted)}
+  .listing-meta .reposts{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;
+    color:var(--stamp);margin-top:.2rem}
+
+  /* smoking-gun callout */
+  .gun{border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:2px;background:rgba(205,64,48,.06);padding:.7rem .85rem;margin-top:auto}
+  .gun .gk{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--evidence);margin-bottom:.35rem}
+  .gun .gv{font-family:var(--font-mono);font-size:11px;line-height:1.6;color:var(--paper-dim)}
+  .gun .gv strong{color:var(--paper)}
+
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.5rem;display:block;line-height:1.55}
+  .src b{font-weight:700;letter-spacing:.1em;color:var(--stamp)}
+
+  /* ── same-seller panel ── */
+  .seller-panel{background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--s3);
+    border-radius:3px;padding:1.4rem 1.5rem;margin-top:.4rem}
+  .seller-units{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;
+    margin:1.2rem 0}
+  .unit-card{background:var(--ink-3);border:1px solid var(--rail);border-radius:3px;padding:.8rem 1rem}
+  .unit-card .ua{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+  .unit-card .up{font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:var(--paper)}
+  .unit-card .us{font-family:var(--font-mono);font-size:10.5px;color:var(--paper-dim);margin-top:.2rem}
+  .unit-connector{text-align:center}
+  .phone-badge{font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.04em;
+    color:var(--ink);background:var(--s3);padding:.35rem .75rem;border-radius:3px;white-space:nowrap}
+  .conn-label{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);display:block;margin-top:.35rem}
+
+  /* ── repost cadence strip ── */
+  .cadence-wrap{margin-top:.8rem;overflow-x:auto}
+  .cadence-wrap svg{display:block;min-width:680px;width:100%}
+
+  /* ── legal badges ── */
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+  .map-badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
+    padding:.25rem .6rem;border-radius:3px;border:1px solid var(--rail-2);color:var(--paper-dim)}
+  .map-badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .map-badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .map-badge.grave{background:var(--evidence);color:var(--ink);border-color:var(--evidence);
+    font-weight:700;letter-spacing:.06em}
+
+  /* ── provenance footer ── */
+  .prov{border-top:1px solid var(--rail);margin-top:1rem;padding-top:2rem}
+  .prov p{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--muted)}
+  .prov .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding-left:1rem;margin-top:1.2rem}
+
+  /* ── responsive ── */
+  @media(max-width:820px){
+    .building-grid{grid-template-columns:1fr}
+    .seller-units{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+    .unit-connector{padding:.5rem 0}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  /* ── print ── */
+  @media print{
+    :root{--ink:#fff;--ink-2:#fff;--ink-3:#f4f4f2;--paper:#111;--paper-dim:#222;
+      --muted:#555;--rail:#bbb;--rail-2:#999}
+    body{background:#fff;color:#111;font-size:10.5pt}
+    .exhibit-bar{position:static;background:#fff;border-color:#999;color:#444}
+    .building-grid{gap:4px}
+    .listing .slot{min-height:80px}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Exhibit B · Case Study II · <b>Registry sweep → live resale</b></span>
+  <span><a href="../index.html">&larr; project home</a> &middot; <a href="mariupol-master-dossier.html">master dossier</a>
+    &middot; <a href="about.html">about</a> &middot; <a href="stakeholder-network.html">stakeholder network</a></span>
+  <span class="cust">Every artifact sourced from the original, hashed for the record</span>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== THESIS ===== -->
+  <section>
+    <p class="eyebrow">02 · Modality: flat-by-flat administrative seizure · Occupied Mariupol</p>
+    <h2>The building stays standing.<br>Its contents are processed one flat at a time.</h2>
+    <p class="lead">Three residential buildings. 131 individual apartments designated
+      "ownerless" in the occupation's registry — the administrative act that, since
+      Federal Constitutional Law No. 4 (ФКЗ-4, 15.12.2025), constitutes title transfer without any court. Specific,
+      identifiable units in those same buildings are being actively advertised for sale
+      on Russian Telegram classifieds, right now, with repost campaigns proving the
+      listings are live. One building has 5% war damage. Its 23 apartments are being sold.</p>
+
+    <div class="fkz-strip">
+      <span class="badge">Federal Const. Law No. 4 · 15.12.2025</span>
+      <span class="body">
+        <span class="pivot">Registry inclusion now constitutes title.</span>
+        The judicial stage (Exhibit A, Case Study I — rung [B]) is abolished.
+        The entry in the list <em>is</em> the law it speaks.
+        What follows is the first direct, dated, market-level evidence that
+        this registry inclusion is followed by disposal.
+      </span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat hi"><span class="n">131</span><span class="l">individual flats on the ownerless registry across 3 buildings</span></div>
+      <div class="stat"><span class="n">64+44+23</span><span class="l">per building (Stroiteley · Lenina · Sechenova)</span></div>
+      <div class="stat stamp"><span class="n">21×</span><span class="l">most-reposted listing — same unit, across 3 Telegram channels + 1 agency site</span></div>
+      <div class="stat"><span class="n">225</span><span class="l">total resale offers at documented seizure addresses in the full scan</span></div>
+      <div class="stat"><span class="n">5%</span><span class="l">war destruction at Sechenova 54 — near-intact building</span></div>
+    </div>
+  </section>
+
+  <!-- ===== THREE BUILDING CARDS ===== -->
+  <section>
+    <p class="eyebrow">Evidence by building</p>
+    <h2>Three buildings · one registry sweep · active resale</h2>
+    <p>All three addresses drawn from the same June 2026 registry export
+      (<span class="mono">mariupol-r897.gosweb.gosuslugi.ru</span>),
+      each row flagged with the registry&rsquo;s &ldquo;marks of ownerlessness&rdquo; and an
+      individual apartment number. These are not building-level entries —
+      they are flat-by-flat administrative acts.</p>
+
+    <div class="building-grid">
+
+      <!-- CARD 1: Stroiteley 108 -->
+      <div class="bc">
+        <div class="bc-head" style="border-top:3px solid var(--s1)">
+          <p class="bc-idx">Building 01 of 03 · Zhovtnevyi district</p>
+          <p class="bc-addr" title="просп. Строителей, 108">prosp. Stroiteley, 108</p>
+          <div class="destr" style="margin-top:.7rem">
+            <span class="destr-label">War destruction (federal tracker)</span>
+            <div class="destr-bar-wrap"><div class="destr-bar" style="width:70%"></div></div>
+            <span class="destr-val">70%</span>
+          </div>
+        </div>
+        <div class="bc-body">
+          <div class="reg-count">
+            <span class="n" style="color:var(--s1)">64</span>
+            <span class="l">apartments on the ownerless registry</span>
+          </div>
+          <span class="src"><b>Source</b> June 2026 district ownerless-registry export · captured 2026-06-09 · <b>RD4U</b> A3.1, A3.6</span>
+
+          <div class="listing">
+            <!-- SLOT: строителей-108-listing-a -->
+            <div class="slot" data-label="IMAGE SLOT · строителей-108-listing-a · Telegram listing unit A">
+              <!-- SLOT: строителей-108-listing-a — replace img src below -->
+              <img src="" alt="Telegram listing: Stroiteley 108 unit A — 59 m², 3-room, floor 3/9, 5,200,000 ₽">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">59 m² · 3 rooms · floor 3/9 · &ldquo;furnished + appliances&rdquo;</span>
+              <span class="price">5 200 000 ₽</span>
+              <span class="reposts">↺ 2 captures — 2026-05-12, 2026-05-22</span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <!-- SLOT: строителей-108-listing-b -->
+            <div class="slot" data-label="IMAGE SLOT · строителей-108-listing-b · Telegram listing unit B">
+              <img src="" alt="Telegram listing: Stroiteley 108 unit B — 64 m², 3-room, floor 6/9, 6,200,000 ₽">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">64 m² (44 living) · 3 rooms · floor 6/9 · &ldquo;2021 renovation, furnished&rdquo;</span>
+              <span class="price">6 200 000 ₽</span>
+              <span class="reposts">↺ 8× reposted · 2026-05-14 → 2026-06-11 · @mariupolskiy_uezd + @Mariupol_house</span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <div class="slot" data-label="IMAGE SLOT · строителей-108-listing-avito · cross-platform match">
+              <img src="assets/registry-resale/stroiteley108_avito.jpg" alt="Avito listing: Stroiteley 108 — 63.7 m², 3-room, floor 6/9, 6,200,000 ₽, &quot;Документы зарегистрированы в Росреестре&quot;">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">63.7 m² · 3 rooms · floor 6/9 · &ldquo;евро&rdquo; renovation 2021, furnished</span>
+              <span class="price">6 200 000 ₽</span>
+              <span class="reposts">Avito.ru · listing 7773746774 · captured 2026-06-21 — same price/floor/year as unit B, second independent marketplace</span>
+            </div>
+          </div>
+
+          <div class="gun">
+            <p class="gk">Evidentiary note</p>
+            <p class="gv">The federal damage tracker records <strong>70% destruction</strong>
+              at this address. The occupation simultaneously designates <strong>64 individual
+              apartments</strong> "ownerless" and routes them to the registry. Two administrative
+              streams — destruction documentation and property seizure — running in parallel on
+              the same building, producing evidence for both A3.1 (damage) and A3.6 (seizure).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Lenina 100 -->
+      <div class="bc">
+        <div class="bc-head" style="border-top:3px solid var(--s2)">
+          <p class="bc-idx">Building 02 of 03 · Zhovtnevyi district</p>
+          <p class="bc-addr" title="просп. Ленина, 100">prosp. Lenina, 100</p>
+          <div class="bc-prewar">
+            <span class="arrow">←</span>
+            <span>prewar: <strong style="color:var(--paper)" title="просп. Миру, 100">prosp. Myru, 100</strong></span>
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--evidence);margin-left:.4rem">
+              [RENAMED · Myru &rarr; Lenina]
+            </span>
+          </div>
+          <div class="destr" style="margin-top:.7rem">
+            <span class="destr-label">War destruction</span>
+            <div class="destr-bar-wrap"><div class="destr-bar" style="width:0%"></div></div>
+            <span class="destr-val" style="color:var(--muted)">— not in damage tracker</span>
+          </div>
+        </div>
+        <div class="bc-body">
+          <div class="reg-count">
+            <span class="n" style="color:var(--s2)">44</span>
+            <span class="l">apartments on the ownerless registry</span>
+          </div>
+          <span class="src"><b>Source</b> June 2026 district ownerless-registry export · captured 2026-06-09 · <b>RD4U</b> A3.6</span>
+
+          <div class="listing">
+            <!-- SLOT: ленина-100-listing -->
+            <div class="slot" data-label="IMAGE SLOT · ленина-100-listing · Telegram listing (13× reposted)">
+              <img src="" alt="Telegram listing: Lenina 100 — 55.6 m², 3-room, floor 6/9, 'Документы зарегистрированы в Росреестре', 13× reposted">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">55.6 m² (39.3 living) · 3 rooms · floor 6/9 · furnished + appliances</span>
+              <span class="price" style="color:var(--muted)">Price on request</span>
+              <span class="reposts">↺ <strong style="color:var(--stamp)">13×</strong> reposted · 2026-05-17 → 2026-06-11 · 6 @mariupolskiy_uezd + 7 @Mariupol_house</span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <div class="slot" data-label="IMAGE SLOT · ленина-100-listing-avito · separate unit, cross-platform">
+              <img src="assets/registry-resale/lenina100_avito.jpg" alt="Avito listing: Lenina 100 — 56.1 m², 3-room, floor 3/9, 5,000,000 ₽, &quot;Документы зарегистрированы в Росреестре&quot;">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">56.1 m² · 3 rooms · floor 3/9 · brick building · furnished</span>
+              <span class="price">5 000 000 ₽</span>
+              <span class="reposts">Avito.ru · listing 8093427959 · captured 2026-06-21 — a <em>different</em> flat than the 13×-reposted Telegram unit, same building, same Rosreestr-registration pitch</span>
+            </div>
+          </div>
+
+          <div class="gun" style="border-left-color:var(--s2);border-color:rgba(155,123,201,.34);background:rgba(155,123,201,.06)">
+            <p class="gk" style="color:var(--s2)">Double evidence: address + title</p>
+            <p class="gv">The listing states verbatim:
+              <strong title="«Документы зарегистрированы в Росреестре»">&ldquo;Documents registered with Rosreestr&rdquo;</strong> — the
+              occupation's title apparatus presenting itself as a bankable guarantee to
+              buyers. Any buyer responding acquires Russian title to a Ukrainian-owned
+              apartment. The street was renamed from <strong title="просп. Миру">prosp. Myru</strong> to
+              prosp. Lenina — severs the address link to the pre-war Ukrainian record,
+              exactly as documented in the toponymy layer (rung [H]).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Sechenova 54 -->
+      <div class="bc">
+        <div class="bc-head" style="border-top:3px solid var(--s3)">
+          <p class="bc-idx">Building 03 of 03 · Illichivskyi district</p>
+          <p class="bc-addr" title="ул. Сеченова, 54">ul. Sechenova, 54</p>
+          <div class="destr" style="margin-top:.7rem">
+            <span class="destr-label">War destruction (federal tracker)</span>
+            <div class="destr-bar-wrap"><div class="destr-bar" style="width:5%;background:var(--s3)"></div></div>
+            <span class="destr-val" style="color:var(--s3)">5%</span>
+            <span class="destr-note">Near-intact building. The "ownerless" registry applies regardless.</span>
+          </div>
+        </div>
+        <div class="bc-body">
+          <div class="reg-count">
+            <span class="n" style="color:var(--s3)">23</span>
+            <span class="l">apartments on the ownerless registry</span>
+          </div>
+          <span class="src"><b>Source</b> June 2026 district ownerless-registry export · captured 2026-06-09 · <b>RD4U</b> A3.1, A3.6</span>
+
+          <div class="listing">
+            <!-- SLOT: сеченова-54-listing-a -->
+            <div class="slot" data-label="IMAGE SLOT · сеченова-54-listing-a · unit A (21× reposted)">
+              <img src="assets/registry-resale/sechenova54_telegram.jpg" alt="Telegram listing: Sechenova 54 unit A — 28.6 m², 1-room, floor 1/5, 1,700,000 ₽, seller handle redacted">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">28.6 m² · 1 room · floor 1/5 · &ldquo;needs renovation&rdquo;</span>
+              <span class="price">1 700 000 ₽</span>
+              <span class="reposts">↺ <strong style="color:var(--s3)">21×</strong> captured — most in entire scan. 9× @mariupolskiy_uezd + 11× @Mariupol_house + 1× @mariupol_nedvizhimost · 2026-05-13 → 2026-06-21</span>
+              <span class="src">Seller A (3 handles, 1 phone, redacted) · +7 949 •••-••-68</span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <!-- SLOT: сеченова-54-listing-b -->
+            <div class="slot" data-label="IMAGE SLOT · сеченова-54-listing-b · unit B (same seller)">
+              <img src="" alt="Telegram listing: Sechenova 54 unit B — 32 m², 1-room, floor 3/5, 2,300,000 ₽, same seller phone">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">32 m² · 1 room · floor 3/5</span>
+              <span class="price">2 300 000 ₽</span>
+              <span class="reposts">1 capture · 2026-05-19 · Seller B (handle redacted) · <strong style="color:var(--s3)">+7 949 •••-••-68 ← same phone</strong></span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <div class="slot" data-label="IMAGE SLOT · сеченова-54-listing-rgr · unit A, licensed agency, rgr.ru">
+              <img src="assets/registry-resale/sechenova54_rgr.jpg" alt="rgr.ru agency listing: Sechenova 54 unit A — 28.6 m², 1-room, floor 1/5, 1,700,000 ₽, agency Волна">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">28.6 m² · 1 room · floor 1/5 · agency &ldquo;Волна&rdquo; (Wave Real Estate)</span>
+              <span class="price">1 700 000 ₽</span>
+              <span class="reposts">rgr.ru aggregator · updated 2026-06-18 · captured 2026-06-21 · listing ID A56C6873-594E-11F1-86C8-B4B52F561288</span>
+              <span class="src">Agent Olga Kulbachnaya · +7 949 •••-••-70 ← different number from unit A/B's Telegram phone</span>
+            </div>
+          </div>
+
+          <div class="gun" style="border-left-color:var(--s3);border-color:rgba(232,137,74,.34);background:rgba(232,137,74,.06)">
+            <p class="gk" style="color:var(--s3)">5% damage · two units · two sales channels</p>
+            <p class="gv">A building with <strong>effectively no war damage</strong> has
+              23 apartments on the "ownerless" registry. One phone number runs unit A across
+              three Telegram handles/channels and simultaneously offloads unit B under a
+              fourth — and unit A is <em>also</em> marketed in parallel through a licensed
+              real-estate agency on a mainstream aggregator, under a separate phone number.
+              Informal resale and professional brokerage, working the same registry-flagged
+              inventory at once.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== REPOST CADENCE ===== -->
+  <section>
+    <p class="eyebrow">Repost cadence · 12 May – 12 June 2026 (chart), 21× total to date</p>
+    <h2>A month of machine-repetition proves the listings are live</h2>
+    <p>Each mark represents a capture: a forensically-hashed Telegram message,
+      timestamped at retrieval. The density of reposts — not stale listings left
+      unattended but repeatedly re-amplified across two channels — is itself the
+      evidence that active disposal is underway ahead of the 1 July 2026 deadline.
+      The chart below covers the first month of the campaign (20 captures across two
+      channels); a 21st capture, on a third channel, followed on 21 June — outside
+      the charted window but consistent with the same live, ongoing pattern.</p>
+
+    <div class="cadence-wrap">
+      <svg viewBox="0 0 860 210" xmlns="http://www.w3.org/2000/svg"
+           style="font-family:var(--font-mono)">
+        <defs>
+          <style>
+            .cl { fill: none; }
+            .axis { stroke: #343b46; stroke-width: 1; }
+            .grid { stroke: #262b33; stroke-width: .5; }
+            .lbl { font-size: 10px; fill: #868d97; letter-spacing: .06em; }
+            .blbl { font-size: 10.5px; font-weight: bold; letter-spacing: .02em; }
+            .tick { stroke-width: 2; stroke-linecap: round; }
+            .bar { stroke-width: 1.5; stroke-linecap: round; opacity: .55; }
+          </style>
+        </defs>
+
+        <!-- axes -->
+        <line class="axis" x1="140" y1="20" x2="840" y2="20"/>
+        <line class="axis" x1="140" y1="200" x2="840" y2="200"/>
+        <line class="grid" x1="140" y1="20" x2="140" y2="200"/>
+
+        <!-- date labels: May 12 to Jun 12 = 31 days, width = 700px -->
+        <!-- px per day ≈ 700/31 = 22.58 -->
+        <!-- x(day) = 140 + (day_offset * 22.58) -->
+        <!-- May 12=0, May 17=5, May 22=10, Jun 1=20, Jun 11=30, Jun 12=31 -->
+        <text class="lbl" x="140" y="14" text-anchor="middle">12 May</text>
+        <text class="lbl" x="253" y="14" text-anchor="middle">17 May</text>
+        <text class="lbl" x="366" y="14" text-anchor="middle">22 May</text>
+        <text class="lbl" x="591" y="14" text-anchor="middle">1 Jun</text>
+        <text class="lbl" x="817" y="14" text-anchor="middle">12 Jun</text>
+
+        <!-- vertical grid lines at those dates -->
+        <line class="grid" x1="253" y1="20" x2="253" y2="200"/>
+        <line class="grid" x1="366" y1="20" x2="366" y2="200"/>
+        <line class="grid" x1="591" y1="20" x2="591" y2="200"/>
+        <line class="grid" x1="817" y1="20" x2="817" y2="200"/>
+
+        <!-- deadline marker -->
+        <line x1="840" y1="20" x2="840" y2="200" stroke="#cd4030" stroke-width="1" stroke-dasharray="3,3" opacity=".6"/>
+        <text class="lbl" x="845" y="110" fill="#cd4030" text-anchor="start" font-size="9">1 Jul →</text>
+
+        <!-- ROW LABELS (right-aligned at x=135) -->
+        <text class="blbl" x="135" y="68" text-anchor="end" fill="#5b8fc9">Stroiteley 108</text>
+        <text class="lbl" x="135" y="80" text-anchor="end" fill="#868d97">unit A</text>
+        <text class="lbl" x="135" y="92" text-anchor="end" fill="#868d97">unit B</text>
+
+        <text class="blbl" x="135" y="128" text-anchor="end" fill="#9b7bc9">Lenina 100</text>
+        <text class="lbl" x="135" y="140" text-anchor="end" fill="#868d97">unit</text>
+
+        <text class="blbl" x="135" y="170" text-anchor="end" fill="#e8894a">Sechenova 54</text>
+        <text class="lbl" x="135" y="182" text-anchor="end" fill="#868d97">unit A</text>
+        <text class="lbl" x="135" y="194" text-anchor="end" fill="#868d97">unit B</text>
+
+        <!-- СТРОИТЕЛЕЙ 108 unit A: May 12, May 22 = day 0, day 10 -->
+        <line class="tick" x1="140" y1="73" x2="140" y2="82" stroke="#5b8fc9"/>
+        <line class="tick" x1="366" y1="73" x2="366" y2="82" stroke="#5b8fc9"/>
+
+        <!-- СТРОИТЕЛЕЙ 108 unit B: May 14 (day2) + 8 reposts through Jun11(day30) -->
+        <!-- show first + 8 evenly spaced through to Jun 11 -->
+        <!-- day 2=185, day30=817. Spacing=(817-185)/8=79 -->
+        <line class="bar" x1="185" y1="86" x2="817" y2="86" stroke="#5b8fc9"/>
+        <line class="tick" x1="185" y1="83" x2="185" y2="92" stroke="#5b8fc9"/>
+        <line class="tick" x1="264" y1="83" x2="264" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="343" y1="83" x2="343" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="422" y1="83" x2="422" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="501" y1="83" x2="501" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="580" y1="83" x2="580" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="659" y1="83" x2="659" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="738" y1="83" x2="738" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="817" y1="83" x2="817" y2="92" stroke="#5b8fc9"/>
+        <text class="lbl" x="820" y="91" fill="#5b8fc9" font-size="9">8×</text>
+
+        <!-- ЛЕНИНА 100: May 17 (day5=253) + 13× through Jun 11 (day30=817) -->
+        <!-- spacing=(817-253)/12=47 -->
+        <line class="bar" x1="253" y1="136" x2="817" y2="136" stroke="#9b7bc9"/>
+        <line class="tick" x1="253" y1="133" x2="253" y2="143" stroke="#9b7bc9"/>
+        <line class="tick" x1="300" y1="133" x2="300" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="347" y1="133" x2="347" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="394" y1="133" x2="394" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="441" y1="133" x2="441" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="488" y1="133" x2="488" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="535" y1="133" x2="535" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="582" y1="133" x2="582" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="629" y1="133" x2="629" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="676" y1="133" x2="676" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="723" y1="133" x2="723" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="770" y1="133" x2="770" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="817" y1="133" x2="817" y2="143" stroke="#9b7bc9"/>
+        <text class="lbl" x="820" y="141" fill="#9b7bc9" font-size="9">13×</text>
+
+        <!-- СЕЧЕНОВА 54 unit A: May 13 (day1=163) + 20× through Jun 12 (day31=840) -->
+        <!-- spacing=(840-163)/19=35.6 -->
+        <line class="bar" x1="163" y1="178" x2="840" y2="178" stroke="#e8894a"/>
+        <line class="tick" x1="163" y1="175" x2="163" y2="185" stroke="#e8894a"/>
+        <line class="tick" x1="199" y1="175" x2="199" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="235" y1="175" x2="235" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="271" y1="175" x2="271" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="307" y1="175" x2="307" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="343" y1="175" x2="343" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="379" y1="175" x2="379" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="415" y1="175" x2="415" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="451" y1="175" x2="451" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="487" y1="175" x2="487" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="523" y1="175" x2="523" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="559" y1="175" x2="559" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="595" y1="175" x2="595" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="631" y1="175" x2="631" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="667" y1="175" x2="667" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="703" y1="175" x2="703" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="739" y1="175" x2="739" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="775" y1="175" x2="775" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="811" y1="175" x2="811" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="840" y1="175" x2="840" y2="185" stroke="#e8894a"/>
+        <text class="lbl" x="845" y="183" fill="#e8894a" font-size="9">20×</text>
+
+        <!-- СЕЧЕНОВА 54 unit B: May 19 (day7=298), single capture -->
+        <line class="tick" x1="298" y1="188" x2="298" y2="198" stroke="#e8894a"/>
+        <text class="lbl" x="303" y="197" fill="#e8894a" font-size="8.5">same phone</text>
+
+        <!-- legend -->
+        <rect x="141" y="202" width="8" height="4" rx="1" fill="#5b8fc9"/>
+        <text class="lbl" x="153" y="207">Stroiteley 108</text>
+        <rect x="271" y="202" width="8" height="4" rx="1" fill="#9b7bc9"/>
+        <text class="lbl" x="283" y="207">Lenina 100</text>
+        <rect x="381" y="202" width="8" height="4" rx="1" fill="#e8894a"/>
+        <text class="lbl" x="393" y="207">Sechenova 54</text>
+        <text class="lbl" x="480" y="207" fill="#868d97">Each mark = a forensically-captured Telegram message</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== SAME SELLER CALLOUT ===== -->
+  <section>
+    <p class="eyebrow">Sechenova 54 · same seller · two units, two sales channels</p>
+    <h2>One phone number, three handles, one agency. Two apartments. One building's 23-flat registry sweep.</h2>
+    <p>The seller contact — phone number <span class="mono" style="color:var(--s3)">+7 949 •••-••-68</span> (redacted; on file) —
+      is advertising unit A under <strong>three different Telegram handles across three channels</strong>
+      and simultaneously offloading a second apartment, unit B, in the same building under a fourth handle.
+      Unit A is <em>also</em> listed in parallel on a real-estate aggregator through a named, licensed agent
+      — a fifth contact, a different phone number — in a building where 23 flats were
+      registered as "ownerless" in the same registry export. This pattern is consistent with a
+      reseller working through inventory from a single source, feeding both informal and
+      professional resale channels, not unrelated private owners coincidentally selling in the
+      same building during an active registry sweep.</p>
+
+    <div class="seller-panel">
+      <p class="eyebrow" style="color:var(--s3);margin-bottom:.4rem">ul. Sechenova, 54 · same-seller linkage</p>
+      <div class="seller-units">
+        <div class="unit-card" style="border-top:2px solid var(--s3)">
+          <p class="ua">Unit A (3 handles redacted)</p>
+          <p class="up">1 700 000 ₽</p>
+          <p class="us">28.6 m² · 1 room · floor 1/5<br>&ldquo;needs renovation&rdquo; · 21× reposted, 3 channels</p>
+        </div>
+        <div class="unit-connector">
+          <div class="phone-badge">+7 949 •••-••-68</div>
+          <span class="conn-label">shared seller contact (redacted)</span>
+        </div>
+        <div class="unit-card" style="border-top:2px solid var(--s3)">
+          <p class="ua">Unit B (handle redacted)</p>
+          <p class="up">2 300 000 ₽</p>
+          <p class="us">32 m² · 1 room · floor 3/5<br>2026-05-19 · 1 capture</p>
+        </div>
+      </div>
+      <div class="seller-units" style="grid-template-columns:1fr auto 1fr;margin-top:0">
+        <div class="unit-card" style="border-top:2px solid var(--muted)">
+          <p class="ua">Unit A — same flat, licensed agency</p>
+          <p class="up">1 700 000 ₽</p>
+          <p class="us">rgr.ru · agency &ldquo;Волна&rdquo; · agent Olga Kulbachnaya</p>
+        </div>
+        <div class="unit-connector">
+          <span class="conn-label" style="margin-top:0">↑ same unit, different channel ↑</span>
+        </div>
+        <div class="unit-card" style="border-top:2px solid var(--muted)">
+          <p class="ua">Distinct contact</p>
+          <p class="up" style="font-size:1rem">+7 949 •••-••-70</p>
+          <p class="us">different number from the Telegram cluster</p>
+        </div>
+      </div>
+      <p style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted);line-height:1.7;margin:0">
+        Under this project&rsquo;s privacy rules, the protected party is the <em>dispossessed Ukrainian owner</em> —
+        not the party reselling. Seller phone numbers are retained as accountability evidence: the
+        multi-unit, multi-handle, multi-platform pattern marks this as a commercial reseller
+        operation, not private individuals.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== LEGAL MAPPING ===== -->
+  <section>
+    <p class="eyebrow">Accountability endpoints</p>
+    <h2>131 owners. Every claim is supportable from the occupation's own records.</h2>
+    <p>The registry export, the resale listings, and the damage-tracker data are each
+      an independent occupation-internal source. At two buildings (Stroiteley 108 and
+      Sechenova 54), both the damage tracker and the ownerless registry are present —
+      clearing the legal-grade ≥2-source bar (two independent occupation records agree).</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+      <div style="background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--stamp);border-radius:3px;padding:1.1rem 1.2rem">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp);margin:0 0 .8rem">CoE RD4U · Restitution</p>
+        <div class="badges">
+          <span class="map-badge rd4u">A3.6 — loss of access (all 131 owners)</span>
+          <span class="map-badge rd4u">A3.1 — residential damage (Stroiteley 108 · 70%)</span>
+          <span class="map-badge rd4u">A3.1 — residential damage (Sechenova 54 · 5% ← note)</span>
+        </div>
+      </div>
+      <div style="background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--evidence);border-radius:3px;padding:1.1rem 1.2rem">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--evidence);margin:0 0 .8rem">Rome Statute · Criminal</p>
+        <div class="badges">
+          <span class="map-badge rome">8(2)(a)(iv) — appropriation (registry = administrative seizure)</span>
+          <span class="map-badge rome">8(2)(b)(xiii) — disposal to third parties (resale listings)</span>
+          <span class="map-badge grave">8(2)(b)(viii) — population transfer (Lenina 100 · Rosreestr title to buyer)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROVENANCE ===== -->
+  <footer class="prov">
+    <p>Registry source: the June 2026 four-district ownerless-registry export, captured
+      2026-06-09 from the occupation&rsquo;s Mariupol gosuslugi portal. Resale listings were
+      captured from Russian Telegram classifieds, each message stored verbatim with a
+      SHA-256 hash and UTC timestamp before parsing. Full scan: 1,243 apartment-sale offers
+      kept; 225 fall on documented seizure addresses across 66 buildings; 41 are new-build
+      resales. Every artifact is hashed and held under chain of custody; the full source
+      catalogue is available to readers with a professional or legal interest in verification.</p>
+    <p class="warn">These acts are evidence of the seizure system, not valid title.
+      Ukraine does not recognise them. Seller contact data: the protected class
+      is the dispossessed Ukrainian owner. Reseller phone number retained as
+      accountability evidence for commercial actors; private individuals minimised.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  // remove broken image slots (empty src → show placeholder)
+  document.querySelectorAll('.slot img').forEach(function(img){
+    if(!(img.getAttribute('src')||'').trim()) img.remove();
+    else img.addEventListener('error', function(){ img.remove(); });
+  });
+})();
+</script>
+</body>
+</html>

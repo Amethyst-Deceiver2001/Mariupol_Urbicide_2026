@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exhibit C — pr. Lenina (Myru) 104/106/108/110 · Restoration Without Restitution · Mariupol Urbicide Project</title>
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --testimony:#5a7d9a; --testimony-dim:rgba(90,125,154,.34);
+    --measure:760px;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+  /* ---------- chrome ---------- */
+  .exhibit-bar{
+    position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar .cust{color:var(--stamp)}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  /* ---------- layout ---------- */
+  .wrap{display:grid;grid-template-columns:210px minmax(0,1fr);
+    gap:clamp(1.5rem,5vw,5rem);max-width:1180px;margin:0 auto;
+    padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  .main{max-width:var(--measure)}
+  section{padding:clamp(2.6rem,6vw,4.6rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:0}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.3rem}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;
+    font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.1;margin:0 0 1.1rem}
+  h3{font-family:var(--font-display);font-weight:700;font-size:1.12rem;
+    letter-spacing:-.01em;margin:1.8rem 0 .6rem;color:var(--paper)}
+  p{margin:0 0 1.1rem;color:var(--paper-dim)}
+  .lead{font-size:1.1rem;color:var(--paper)}
+  .mono{font-family:var(--font-mono)}
+  a{color:var(--testimony)}
+
+  /* ---------- left index rail ---------- */
+  .rail{position:relative}
+  .rail-inner{position:sticky;top:84px}
+  .rail-title{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 1.2rem;
+    padding-bottom:.8rem;border-bottom:1px solid var(--rail)}
+  .spine{list-style:none;margin:0;padding:0}
+  .spine li{position:relative;padding:.5rem 0 .5rem 1.6rem}
+  .spine a{text-decoration:none;color:var(--muted);font-family:var(--font-mono);
+    font-size:12px;letter-spacing:.04em;display:flex;gap:.5rem;align-items:baseline;
+    transition:color .25s}
+  .spine a:hover{color:var(--paper)}
+  .spine .num{color:var(--rail-2);transition:color .25s}
+  .spine li::before{content:"";position:absolute;left:.32rem;top:.95rem;
+    width:6px;height:6px;border-radius:50%;background:var(--rail-2);
+    transition:background .25s,box-shadow .25s}
+  .spine li::after{content:"";position:absolute;left:.59rem;top:1.5rem;
+    width:1px;height:calc(100% - .8rem);background:var(--rail)}
+  .spine li:last-child::after{display:none}
+  .spine li.active a{color:var(--paper)}
+  .spine li.active .num{color:var(--evidence)}
+  .spine li.active::before{background:var(--evidence);box-shadow:0 0 0 4px var(--evidence-dim)}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:clamp(2.4rem,6vw,4rem)}
+  .plate{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;
+    font-size:clamp(1.7rem,5.4vw,2.9rem);line-height:1.04;margin:.2rem 0 .2rem}
+  .plate small{display:block;font-family:var(--font-mono);font-weight:400;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin-top:.7rem}
+  .thesis{font-size:clamp(1.04rem,2.2vw,1.2rem);line-height:1.55;color:var(--paper);
+    border-left:2px solid var(--evidence);padding-left:1.2rem;margin:1.7rem 0 0}
+  .thesis b{color:var(--paper);font-weight:700}
+
+  /* ---------- four-up hero grid ---------- */
+  .four-up{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;
+    background:var(--rail);border-radius:3px;overflow:hidden;margin:2rem 0 .4rem}
+  .fu{background:var(--ink-2);display:flex;flex-direction:column}
+  .fu-media{position:relative;aspect-ratio:3/4;background:var(--ink);overflow:hidden}
+  .fu-media img,.fu-media video{width:100%;height:100%;object-fit:cover;display:block}
+  .fu-cap{padding:.6rem .7rem .75rem}
+  .fu-cap .a{font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--paper)}
+  .fu-cap .r{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;display:block;margin-top:.3rem}
+  .r.siege{color:var(--evidence)} .r.restored{color:var(--testimony)}
+  .r.demo{color:var(--stamp)} .r.prewar{color:var(--muted)}
+
+  /* ---------- data table ---------- */
+  .tbl-wrap{overflow-x:auto;margin:1.2rem 0 .4rem;border:1px solid var(--rail);border-radius:3px}
+  table.data{border-collapse:collapse;width:100%;font-family:var(--font-mono);
+    font-size:12px;min-width:660px}
+  table.data th,table.data td{text-align:left;padding:.6rem .8rem;
+    border-bottom:1px solid var(--rail);vertical-align:top;line-height:1.5}
+  table.data th{color:var(--muted);font-weight:400;letter-spacing:.08em;
+    text-transform:uppercase;font-size:10px;background:var(--ink-2)}
+  table.data td{color:var(--paper-dim)}
+  table.data tr:last-child td{border-bottom:0}
+  table.data .pid{color:var(--stamp);font-weight:700}
+  table.data .addr{color:var(--paper)}
+  .fate-siege{color:var(--evidence)} .fate-restored{color:var(--testimony)}
+  .fate-demo{color:var(--stamp)} .fate-none{color:var(--muted)}
+
+  /* ---------- track blocks ---------- */
+  .track{border-left:3px solid var(--rail-2);padding:.2rem 0 .2rem 1.3rem;margin:1.8rem 0}
+  .track.stamp{border-left-color:var(--stamp)}
+  .track.testimony{border-left-color:var(--testimony)}
+  .track.evidence{border-left-color:var(--evidence)}
+  .track .tk{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 .5rem}
+  .track.stamp .tk{color:var(--stamp)}
+  .track.testimony .tk{color:var(--testimony)}
+  .track.evidence .tk{color:var(--evidence)}
+
+  /* pull quotes */
+  blockquote{margin:1.2rem 0;padding:0 0 0 1.1rem;border-left:2px solid var(--testimony-dim);
+    font-family:var(--font-serif);font-size:1.08rem;line-height:1.5;color:var(--paper)}
+  blockquote .tr{display:block;font-family:var(--font-serif);font-style:italic;
+    font-size:.96rem;color:var(--paper-dim);margin-top:.4rem}
+  blockquote cite{display:block;font-family:var(--font-mono);font-size:10.5px;
+    font-style:normal;letter-spacing:.04em;color:var(--muted);margin-top:.5rem}
+
+  /* big numeral */
+  .bignum{display:flex;align-items:baseline;gap:1rem;margin:1.4rem 0}
+  .bignum .n{font-family:var(--font-display);font-weight:800;
+    font-size:clamp(3.4rem,9vw,5.4rem);line-height:.82;letter-spacing:-.04em;
+    color:var(--evidence)}
+  .bignum .l{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);max-width:22ch;line-height:1.55}
+  .aptlist{font-family:var(--font-mono);font-size:11px;line-height:1.7;
+    color:var(--muted);background:var(--ink-2);border:1px solid var(--rail);
+    border-radius:3px;padding:.8rem 1rem;margin:.4rem 0 0;word-spacing:.1em}
+
+  /* image / video figures */
+  figure{margin:1.4rem 0 .4rem}
+  .fig-media{position:relative;border:1px solid var(--rail);background:var(--ink-2);
+    border-radius:3px;overflow:hidden}
+  .fig-media img,.fig-media video{width:100%;display:block;max-height:560px;
+    object-fit:contain;background:#000}
+  .fig-media.doc img{max-height:820px;object-fit:contain}
+  /* video poster that links out to the public source (YouTube) */
+  .fu-media .vlink,.destr-gallery .dg .vlink{position:absolute;inset:0;display:block}
+  .fig-media .vlink{position:relative;display:block;text-decoration:none}
+  .vbadge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:54px;height:54px;border-radius:50%;background:rgba(12,14,17,.66);
+    border:2px solid var(--paper);color:var(--paper);font-size:18px;line-height:1;
+    display:flex;align-items:center;justify-content:center;padding-left:3px;
+    pointer-events:none;transition:background .15s,border-color .15s}
+  .vlink:hover .vbadge,.vlink:focus-visible .vbadge{background:var(--evidence);border-color:var(--evidence)}
+  .vsrc{font-style:normal;color:var(--muted)}
+  .vsrc a{color:var(--testimony);text-decoration:none;border-bottom:1px dotted var(--testimony)}
+  .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .media-grid .fig-media{border-radius:0}
+  figcaption{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.02em;
+    color:var(--muted);margin:.7rem 0 0;line-height:1.55}
+  figcaption b{color:var(--paper-dim);font-weight:600}
+  figcaption .sha{color:var(--stamp)}
+
+  /* casualty list — deliberately restrained */
+  .casualty{list-style:none;margin:1.4rem 0 .4rem;padding:0;
+    border-top:1px solid var(--rail)}
+  .casualty li{padding:.95rem 0;border-bottom:1px solid var(--rail);
+    display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.1rem}
+  .casualty .nm{font-family:var(--font-display);font-weight:700;font-size:1rem;
+    color:var(--paper);grid-column:1/-1}
+  .casualty .dt{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;
+    color:var(--muted);grid-column:1/-1;margin-top:-.1rem}
+  .casualty .ci{font-family:var(--font-serif);font-size:.97rem;color:var(--paper-dim);
+    grid-column:1/-1;margin-top:.2rem}
+  .casualty .src{font-family:var(--font-mono);font-size:10px;color:var(--testimony);
+    grid-column:1/-1;margin-top:.1rem}
+
+  /* caveat box */
+  .caveat{border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    background:rgba(205,64,48,.06);border-radius:3px;padding:1rem 1.2rem;margin:1.4rem 0}
+  .caveat .ck{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--evidence);margin:0 0 .5rem}
+  .caveat p{font-family:var(--font-mono);font-size:12px;line-height:1.65;
+    color:var(--paper-dim);margin:0}
+  .caveat strong{color:var(--paper)}
+  .note{border:1px solid var(--rail);border-left:3px solid var(--rail-2);
+    background:var(--ink-2);border-radius:3px;padding:.9rem 1.1rem;margin:1.2rem 0}
+  .note p{font-family:var(--font-mono);font-size:11.5px;line-height:1.65;
+    color:var(--muted);margin:0}
+
+  /* resale listing cards (HTML-only captures, no screenshot) */
+  .listing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--rail);border-radius:3px;overflow:hidden;margin:1.2rem 0 .4rem}
+  .lc{background:var(--ink-2);padding:1.1rem 1.1rem 1.2rem;display:flex;flex-direction:column}
+  .lc .lc-a{font-family:var(--font-display);font-weight:800;font-size:1.05rem;
+    color:var(--paper);margin:0 0 .15rem}
+  .lc .lc-src{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 .9rem}
+  .lc .lc-price{font-family:var(--font-display);font-weight:800;font-size:1.5rem;
+    color:var(--paper);letter-spacing:-.02em}
+  .lc .lc-specs{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);
+    line-height:1.65;margin:.5rem 0 .8rem}
+  .lc .lc-flag{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--testimony);margin-top:auto}
+  .lc .lc-sha{font-family:var(--font-mono);font-size:9.5px;color:var(--stamp);margin-top:.4rem}
+  .lc .lc-novis{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--rail-2);border:1px dashed var(--rail-2);
+    border-radius:2px;padding:.3rem .5rem;text-align:center;margin-bottom:.8rem}
+
+  /* legal mapping */
+  .legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0 .4rem}
+  .legal-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:1.1rem 1.2rem}
+  .legal-card.rd4u{border-top:2px solid var(--stamp)}
+  .legal-card.rome{border-top:2px solid var(--evidence)}
+  .legal-card .lk{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;margin:0 0 .8rem}
+  .legal-card.rd4u .lk{color:var(--stamp)} .legal-card.rome .lk{color:var(--evidence)}
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem}
+  .map-badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;
+    padding:.3rem .6rem;border-radius:3px;border:1px solid var(--rail-2);
+    color:var(--paper-dim);line-height:1.4}
+  .map-badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .map-badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .map-badge.grave{background:var(--evidence);color:var(--ink);border-color:var(--evidence);
+    font-weight:700}
+
+  /* ---------- transliteration (click-to-reveal original Cyrillic) ---------- */
+  .xlit{position:relative;cursor:help;border-bottom:1px dotted var(--rail-2);
+    white-space:nowrap}
+  .xlit:hover,.xlit.open{border-bottom-color:var(--testimony)}
+  .xlit .pop{position:absolute;left:0;bottom:calc(100% + 6px);z-index:30;
+    display:none;white-space:nowrap;background:var(--ink-3);
+    border:1px solid var(--testimony-dim);border-radius:3px;
+    padding:.35rem .6rem;font-family:var(--font-serif);font-size:13px;
+    color:var(--paper);box-shadow:0 6px 18px rgba(0,0,0,.4)}
+  .xlit .pop::after{content:"";position:absolute;left:10px;top:100%;
+    border:5px solid transparent;border-top-color:var(--testimony-dim)}
+  .xlit.open .pop{display:block}
+  .xlit.wide .pop{white-space:normal;max-width:280px}
+  .xlit.wide{white-space:normal}
+  .pop-line{display:block;margin:.15rem 0;font-size:12.5px}
+  .pop-line b{color:var(--testimony);font-weight:700;font-size:10.5px;
+    letter-spacing:.04em;text-transform:uppercase;margin-right:.35rem}
+  .xlit-note{font-family:var(--font-mono);font-size:10px;color:var(--muted);
+    letter-spacing:.04em;margin:.3rem 0 0}
+
+  /* ---------- legal-instrument chips / sidebar strip ---------- */
+  .leg-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 .4rem;
+    padding:1rem 1.1rem;background:var(--ink-2);border:1px solid var(--rail);
+    border-left:3px solid var(--stamp);border-radius:3px}
+  .leg-strip .ls-label{flex:0 0 100%;font-family:var(--font-mono);font-size:10px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--stamp);margin:0 0 .3rem}
+  a.leg-chip{font-family:var(--font-mono);font-size:11px;letter-spacing:.02em;
+    padding:.32rem .65rem;border-radius:3px;border:1px solid var(--stamp-dim);
+    color:var(--stamp);text-decoration:none;transition:background .2s,color .2s}
+  a.leg-chip:hover{background:var(--stamp);color:var(--ink)}
+  a.leg-chip .rung{opacity:.7;margin-right:.3rem}
+  a.stake-link{color:var(--testimony);text-decoration:none;border-bottom:1px dotted var(--testimony-dim)}
+  a.stake-link:hover{border-bottom-style:solid}
+
+  /* ---------- de-ukrainization callout ---------- */
+  .topo-callout{border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    background:rgba(205,64,48,.06);border-radius:3px;padding:1rem 1.2rem;margin:1.4rem 0}
+  .topo-callout .tck{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--evidence);margin:0 0 .6rem}
+  .topo-callout p{font-size:.97rem;color:var(--paper-dim);margin:0 0 .6rem}
+  .topo-callout p:last-child{margin-bottom:0}
+  .topo-swap{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+    font-family:var(--font-mono);font-size:13px;margin:.6rem 0}
+  .topo-swap .old{color:var(--evidence);text-decoration:line-through;opacity:.7}
+  .topo-swap .arrow{color:var(--muted)}
+  .topo-swap .new{color:var(--paper);font-weight:700}
+
+  /* ---------- destruction gallery (track 1) ---------- */
+  .destr-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;
+    margin:1.2rem 0 .4rem;background:var(--rail);border-radius:3px;overflow:hidden}
+  .destr-gallery .dg{position:relative;aspect-ratio:4/3;background:var(--ink)}
+  .destr-gallery .dg img,.destr-gallery .dg video{width:100%;height:100%;
+    object-fit:cover;display:block}
+  .destr-gallery .dg .dg-tag{position:absolute;left:0;bottom:0;right:0;
+    padding:.4rem .55rem .45rem;background:linear-gradient(transparent,rgba(0,0,0,.82));
+    font-family:var(--font-mono);font-size:9.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--paper)}
+
+  /* provenance */
+  .prov details{border-top:1px solid var(--rail);margin-top:1rem;padding-top:1.4rem}
+  .prov summary{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);cursor:pointer;margin-bottom:1rem}
+  .prov table.data{font-size:11px}
+  .prov .warn{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;
+    color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding-left:1rem;margin-top:1.4rem}
+
+  @media(max-width:880px){
+    .wrap{grid-template-columns:1fr}
+    .rail{display:none}
+    .four-up{grid-template-columns:1fr 1fr}
+    .listing-grid,.legal-grid{grid-template-columns:1fr}
+    .media-grid{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  @media print{
+    :root{--ink:#fff;--ink-2:#fff;--ink-3:#f4f4f2;--paper:#111;--paper-dim:#222;
+      --muted:#555;--rail:#bbb;--rail-2:#999}
+    body{background:#fff;color:#111;font-size:10.5pt}
+    .exhibit-bar{position:static}.rail{display:none}
+    .wrap{grid-template-columns:1fr;display:block}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Exhibit C · Case Study · <b>Restoration without restitution</b></span>
+  <span><a href="../index.html">&larr; project home</a> &middot; <a href="mariupol-master-dossier.html">master dossier</a>
+    &middot; <a href="about.html">about</a> &middot; <a href="stakeholder-network.html">stakeholder network</a></span>
+  <span class="cust">Every artifact sourced from the original, hashed for the record</span>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== LEFT INDEX RAIL ===== -->
+  <nav class="rail">
+    <div class="rail-inner">
+      <p class="rail-title">пр. Ленина<br>104·106·108·110</p>
+      <ul class="spine">
+        <li data-sec="s0"><a href="#s0"><span class="num">00</span><span>Four buildings, one decree</span></a></li>
+        <li data-sec="s1"><a href="#s1"><span class="num">01</span><span>The four properties</span></a></li>
+        <li data-sec="s2"><a href="#s2"><span class="num">02</span><span>The contradiction</span></a></li>
+        <li data-sec="s3"><a href="#s3"><span class="num">03</span><span>The human cost</span></a></li>
+        <li data-sec="s4"><a href="#s4"><span class="num">04</span><span>Residents' own record</span></a></li>
+        <li data-sec="s5"><a href="#s5"><span class="num">05</span><span>Paper trail, continued</span></a></li>
+        <li data-sec="s6"><a href="#s6"><span class="num">06</span><span>Reallocation, demand side</span></a></li>
+        <li data-sec="s7"><a href="#s7"><span class="num">07</span><span>Legal mapping</span></a></li>
+        <li data-sec="s8"><a href="#s8"><span class="num">08</span><span>Provenance</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main">
+
+  <!-- ===== 00 · HERO ===== -->
+  <section id="s0" class="hero">
+    <p class="eyebrow">00 · Four buildings, one decree · Occupied Mariupol</p>
+    <h1 class="plate">Restoration without restitution
+      <small><span class="xlit wide" tabindex="0">pr. Lenina<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>просп. Миру</span><span class="pop-line"><b>Occupation (RU)</b>просп. Ленина</span></span></span>
+      104 · 106 · 108 · 110 ·
+      <span class="xlit wide" tabindex="0">Zhovtnevyi District<span class="pop"><span class="pop-line"><b>Ukrainian</b>Жовтневий район</span><span class="pop-line"><b>Russian</b>Жовтневый район</span></span></span></small>
+    </h1>
+    <p class="thesis">Four contiguous war-damaged buildings, all four named in one
+      demolition decree, with <b>wildly different physical fates</b> — 106 restored
+      in place, scaffolded and re-plastered with the original residents physically
+      barred from the site; 108 only partially demolished (one entrance/section torn
+      down, the rest of the tower left standing); 104/110 not confirmed razed at all
+      — yet hundreds of apartments across <b>all four</b> are individually stripped
+      via the ownerless registry regardless of which of these very different physical
+      realities actually applies.</p>
+
+    <div class="leg-strip">
+      <p class="ls-label">Legal instruments cited in this exhibit — click to open in the dispossession pipeline (hover for the Russian original)</p>
+      <a class="leg-chip" href="dispossession-pipeline.html#card-C" target="_blank" title="Распоряжение ГКО ДНР №56 от 29.09.2022"><span class="rung">[C]</span>Demolition Decree No. 56 (29.09.2022)</a>
+      <a class="leg-chip" href="dispossession-pipeline.html#card-A" target="_blank" title="Включение в реестр бесхозяйного имущества"><span class="rung">[A]</span>Ownerless-registry inclusion</a>
+      <a class="leg-chip" href="dispossession-pipeline.html#card-A" target="_blank" title="Распоряжение №619 от 12.10.2023"><span class="rung">[A]</span>Order No. 619 (12.10.2023) — title-document demand</a>
+      <a class="leg-chip" href="dispossession-pipeline.html#card-B" target="_blank" title="Федеральный конституционный закон №4 от 15.12.2025"><span class="rung">[B]</span>Federal Constitutional Law No. 4 — court stage abolished</a>
+      <a class="leg-chip" href="dispossession-pipeline.html#card-G" target="_blank" title="Закон ДНР от 18.12.2024 №141-РЗ"><span class="rung">[G]</span>DNR Law No. 141-RZ — compensation-housing allocation</a>
+      <a class="leg-chip" href="dispossession-pipeline.html#card-H" target="_blank" title="Мира → Ленина"><span class="rung">[H]</span>Street renaming — Myru → Lenina</a>
+    </div>
+
+    <div class="four-up">
+      <figure class="fu">
+        <div class="fu-media">
+          <img loading="lazy" src="assets/lenina/104/verified_siege_damage/courtyard_siege_damage_a.jpg" alt="104 courtyard siege damage — burnt, blown-out balconies">
+        </div>
+        <figcaption class="fu-cap"><span class="a">104</span><span class="r siege">Siege damage · 2022</span></figcaption>
+      </figure>
+      <figure class="fu">
+        <div class="fu-media">
+          <img loading="lazy" src="assets/lenina/106/construction/2023-10-05_construction.jpg" alt="106 restoration in progress — plastering underway, October 2023">
+        </div>
+        <figcaption class="fu-cap"><span class="a">106</span><span class="r restored">Restored in place · 2023</span></figcaption>
+      </figure>
+      <figure class="fu">
+        <div class="fu-media">
+          <a class="vlink" href="https://youtube.com/shorts/Bzq5QnarNAo" target="_blank" rel="noopener" aria-label="Watch source video: 108 partial demolition (opens YouTube)"><img loading="lazy" src="assets/lenina/posters/108_demolition.jpg" alt="108 — long-reach excavator demolishing one entrance, rest of tower intact"><span class="vbadge">&#9654;</span></a>
+        </div>
+        <figcaption class="fu-cap"><span class="a">108</span><span class="r demo">Partial demolition · video</span></figcaption>
+      </figure>
+      <figure class="fu">
+        <div class="fu-media">
+          <img loading="lazy" src="assets/lenina/110/prewar_baseline/1979_prewar_baseline_pastvu.jpg" alt="110 prewar baseline — 1979 Pastvu photo">
+        </div>
+        <figcaption class="fu-cap"><span class="a">110</span><span class="r prewar">Prewar baseline · 1979</span></figcaption>
+      </figure>
+    </div>
+    <figcaption>Four buildings, four deliberately different visual registers — siege
+      damage, restoration, partial demolition, prewar baseline. The point of the case
+      is that the registry mechanism does not distinguish between them.</figcaption>
+  </section>
+
+  <!-- ===== 01 · THE FOUR PROPERTIES ===== -->
+  <section id="s1">
+    <p class="eyebrow">01 · The four properties</p>
+    <h2>All four named individually in one demolition order</h2>
+    <p>All four buildings are named individually in
+      <span class="xlit" tabindex="0">Demolition Decree No. 56 (29.09.2022)<span class="pop">Распоряжение ГКО ДНР № 56 от 29.09.2022</span></span>
+      and collectively in the residents' joint letter (§04). All four sit in the same
+      district.</p>
+
+    <div class="tbl-wrap">
+      <table class="data">
+        <thead><tr>
+          <th>Address</th><th>RD4U category</th><th>Apartments stripped via the registry</th>
+          <th>Confirmed physical fate</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="addr"><span class="xlit wide" tabindex="0">pr. Lenina 104<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>просп. Миру 104</span><span class="pop-line"><b>Occupation (RU)</b>просп. Ленина 104</span></span></span></td>
+            <td>A3.1, A3.6</td><td>71</td>
+            <td class="fate-siege">Siege damage confirmed (2022, video); demolition NOT confirmed</td>
+          </tr>
+          <tr>
+            <td class="addr"><span class="xlit wide" tabindex="0">pr. Lenina 106<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>просп. Миру 106</span><span class="pop-line"><b>Occupation (RU)</b>просп. Ленина 106</span></span></span></td>
+            <td>A3.1, A3.6</td><td>72</td>
+            <td class="fate-restored">Siege damage confirmed; restored in place, never razed</td>
+          </tr>
+          <tr>
+            <td class="addr"><span class="xlit wide" tabindex="0">pr. Lenina 108<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>просп. Миру 108</span><span class="pop-line"><b>Occupation (RU)</b>просп. Ленина 108</span></span></span></td>
+            <td>A3.1, A3.6</td><td>76</td>
+            <td class="fate-demo">Partially demolished (1 entrance/section, video-confirmed) — NOT fully razed</td>
+          </tr>
+          <tr>
+            <td class="addr"><span class="xlit wide" tabindex="0">pr. Lenina 110<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>просп. Миру 110</span><span class="pop-line"><b>Occupation (RU)</b>просп. Ленина 110</span></span></span></td>
+            <td>A3.1, A3.6</td><td>64</td>
+            <td class="fate-none">No visual evidence yet</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption><b>283 apartments across the four buildings</b> individually
+      declared "ownerless" and stripped from their owners — all four buildings tied to
+      the same demolition order dated <b>29 September 2022</b>. 106 has the deepest
+      evidence: 125 individual apartment disappearances independently matched against
+      dated snapshots of the registry over time.</figcaption>
+  </section>
+
+  <!-- ===== 02 · THE CONTRADICTION ===== -->
+  <section id="s2">
+    <p class="eyebrow">02 · The contradiction at the center of the case</p>
+    <h2>Demolished on paper · restored on the ground · erased flat-by-flat regardless</h2>
+
+    <div class="track stamp">
+      <p class="tk">Track 1 — on paper, demolished</p>
+      <p><span class="xlit" tabindex="0">Demolition Decree No. 56<span class="pop">Распоряжение ГКО ДНР № 56 от 29.09.2022</span></span>
+        lists building 106 by its full street address, marked for demolition, dated
+        29 September 2022. Source: the DNR Ministry of Construction's own open-data
+        demolition register, official snapshot dated 16 March 2026.</p>
+
+      <div class="destr-gallery">
+        <figure class="dg"><img loading="lazy" src="assets/lenina/104/verified_siege_damage/courtyard_siege_damage_b.jpg" alt="104 courtyard — close-range burnt facade, sheared balcony rail"><span class="dg-tag">104 · courtyard · close-range</span></figure>
+        <figure class="dg"><img loading="lazy" src="assets/lenina/104/verified_siege_damage/courtyard_siege_damage_c.jpg" alt="104 courtyard — wide multi-floor blown-out windows"><span class="dg-tag">104 · courtyard · wide angle</span></figure>
+        <figure class="dg"><a class="vlink" href="https://www.youtube.com/shorts/5fuqt-M5S6I" target="_blank" rel="noopener" aria-label="Watch source video: 104 full facade, May 2022 (opens YouTube)"><img loading="lazy" src="assets/lenina/posters/104_facade.jpg" alt="104 — full facade, multiple floors fire-scorched, May 2022"><span class="vbadge">&#9654;</span></a><span class="dg-tag">104 · full facade · May 2022</span></figure>
+        <figure class="dg"><a class="vlink" href="https://www.youtube.com/watch?v=oPTXL9Gluq0" target="_blank" rel="noopener" aria-label="Watch source video: 106 former ATB supermarket (opens YouTube)"><img loading="lazy" src="assets/lenina/posters/106_former_atb.jpg" alt="106 — destroyed ground-floor former ATB supermarket"><span class="vbadge">&#9654;</span></a><span class="dg-tag">106 · former ATB supermarket</span></figure>
+        <figure class="dg"><a class="vlink" href="https://www.youtube.com/watch?v=QBS9qOT-_RM" target="_blank" rel="noopener" aria-label="Watch source video: 106 burnt balconies, May 2022 (opens YouTube)"><img loading="lazy" src="assets/lenina/posters/106_balconies.jpg" alt="106 — burnt-out upper-floor balconies, May 2022"><span class="vbadge">&#9654;</span></a><span class="dg-tag">106 · burnt balconies · May 2022</span></figure>
+        <figure class="dg"><a class="vlink" href="https://www.youtube.com/watch?v=iDKIvw-2q_c" target="_blank" rel="noopener" aria-label="Watch source video: whole 104-110 stretch, Feb 2023 (opens YouTube)"><img loading="lazy" src="assets/lenina/posters/104_110_stretch.jpg" alt="Whole 104-110 stretch, snow on ground, burnt facades, Feb 2023"><span class="vbadge">&#9654;</span></a><span class="dg-tag">whole stretch · snow on ground · Feb 2023</span></figure>
+      </div>
+      <figcaption>Six independent angles across the decree's own four addresses —
+        not a single damage source, but courtyard, street, and aerial-stretch footage
+        converging on the same buildings the decree names.</figcaption>
+
+      <div class="topo-callout">
+        <p class="tck">Connective rung [H] — toponymy as de-Ukrainization</p>
+        <p>The address itself is occupation-renamed. The building group's pre-war
+          Ukrainian address was <span class="xlit" data-orig="просп. Миру" tabindex="0">prosp. Myru<span class="pop">просп. Миру</span></span>
+          ("Peace Avenue") — the occupation's own street signage and this case
+          study's title both still carry it parenthetically as "(Mira)" because the
+          rename is recent enough that residents and even occupation paperwork have
+          not fully converged on it. Renamed to
+          <span class="xlit" data-orig="просп. Ленина" tabindex="0">prosp. Lenina<span class="pop">просп. Ленина</span></span>
+          under the same occupation street-renaming layer already documented for
+          prosp. Myru 100 &rarr; prosp. Lenina 100 (rung [H]). As the system map notes,
+          the specific Mariupol renaming decree is not itself on any public register;
+          the rename is documented from independent reporting.</p>
+        <div class="topo-swap">
+          <span class="old" title="просп. Миру">prosp. Myru (Peace Ave.)</span>
+          <span class="arrow">→</span>
+          <span class="new" title="просп. Ленина">prosp. Lenina</span>
+        </div>
+        <p>This is not incidental record-keeping — severing the address from its
+          pre-war Ukrainian name is part of the same erasure this case documents at
+          the level of ownership: a building's link to its Ukrainian past is cut on
+          the map at the same time its individual apartments are cut from their
+          owners in the registry. See
+          <a class="leg-chip" href="dispossession-pipeline.html#card-H" target="_blank" style="margin-top:.4rem;display:inline-block"><span class="rung">[H]</span>Toponymy / address laundering rung</a>.</p>
+      </div>
+    </div>
+
+    <div class="track testimony">
+      <p class="tk">Track 2 — on the ground, restored, not razed</p>
+      <p>The building's own residents' Telegram chat (<span class="mono">@Lenina106_Mariupol</span>)
+        shows restoration work in progress thirteen months after the demolition
+        decree — not a cleared lot, not a new construction site:</p>
+
+      <blockquote>
+        «Строители говорят закончат тепловой контур к концу года. Уже в некоторых
+        квартирах ведутся штукатурные работы. В сам дом никого не впускают.»
+        <span class="tr">"Builders say they'll finish the thermal envelope by year's
+        end. Plastering is already underway in some apartments. Nobody is let into
+        the building itself."</span>
+        <cite>Resident chat, with photo · 2023-10-05</cite>
+      </blockquote>
+
+      <blockquote>
+        «Почему вам не вернут вашу квартиру? Если вы собственник и есть документы…
+        дом то не сносили…»
+        <span class="tr">"Why won't they give you back your apartment? If you're the
+        owner and have the documents… the building wasn't even demolished…"</span>
+        <cite>Resident chat · 2023-10-05</cite>
+      </blockquote>
+
+      <div class="media-grid">
+        <figure><div class="fig-media">
+          <img loading="lazy" src="assets/lenina/106/construction/2023-10-05_construction.jpg" alt="106 restoration, plastering underway, Oct 2023">
+        </div></figure>
+        <figure><div class="fig-media">
+          <img loading="lazy" src="assets/lenina/106/construction/2023-10-18_construction.jpg" alt="106 fenced off from courtyard, Oct 2023">
+        </div></figure>
+      </div>
+      <figcaption>106 under restoration, October 2023 — scaffolded and re-plastered,
+        residents barred from even the yard.</figcaption>
+    </div>
+
+    <div class="track evidence">
+      <p class="tk">Track 3 — on paper again, erased flat-by-flat anyway</p>
+      <p>Independent of which of Tracks 1/2 is physically true, the ownerless registry
+        processed these apartments in 106 as &ldquo;ownerless&rdquo; (бесхозяйные) across four dated snapshots,
+        all while residents were demonstrably alive, organized, and petitioning for
+        their homes:</p>
+      <div class="bignum">
+        <span class="n">91</span>
+        <span class="l">distinct apartments in building 106 alone, individually
+          declared "ownerless" and erased from their owners' names</span>
+      </div>
+      <p class="aptlist">Apartments affected (by number): 3,4,5,6,7,9,10,11,12,13,14,15,16,19,20,21,
+        24,25,26,27,28,29,30,31,32,34,42,44,47,48,49,51,52,54,56,58,60,62,63,64,65,66,67,68,71,72,
+        73,76,78,79,80,82,83,84,85,88,89,92,93,94,95,96,97,99,100,101,102,103,105,110,111,113,114,
+        116,121,124,125,126,128,129,132,133,137,138,140,143,145,148,149,150,153,157.</p>
+      <figcaption>The registry continued processing apartments in a building its own
+        demolition order claims no longer exists. Source: the Zhovtnevyi-district
+        ownerless-property registry, an official Mariupol municipal record, compared
+        across multiple dated snapshots over time.</figcaption>
+    </div>
+
+    <p>Three different buildings, three different physical outcomes (restored /
+      partially razed / unconfirmed), but <b>all processed identically through the
+      registry</b>. This is the project's reference example of a second seizure
+      modality: <b>administrative erasure that outruns and ignores physical reality —
+      even when that reality itself varies building-to-building within the same
+      decree.</b></p>
+  </section>
+
+  <!-- ===== 03 · THE HUMAN COST ===== -->
+  <section id="s3">
+    <p class="eyebrow">03 · Track 4 — the human cost</p>
+    <h2>At least seven recorded deaths across the four buildings</h2>
+    <p>Independent of any of the paper tracks above, residents of these buildings died
+      during the siege and in the months after, while the buildings' legal status was
+      being contested on paper. A 6-person casualty record — titled "Погибшие 6ч. Мира,
+      110," attributed to mariupoldestruction.com — was supplied 2026-06-19 and
+      corroborated against the named individuals' own memorial posts; a seventh,
+      unidentified death is documented separately by the makeshift grave dug in 106's
+      own courtyard.</p>
+
+    <ul class="casualty">
+      <li>
+        <span class="nm">
+          <span class="xlit" data-orig="Глушко Анатолий Петрович" tabindex="0">Glushko Anatoliy Petrovich<span class="pop">Глушко Анатолий Петрович</span></span>
+        </span>
+        <span class="dt">01.07.1937 – 17.03.2022</span>
+        <span class="ci">Died in a basement from a blast head injury; the body was
+          moved to the apartment but could not be buried due to ongoing shelling.</span>
+        <span class="src">Source: t.me/mariupolRIP/36979</span>
+      </li>
+      <li>
+        <span class="nm">
+          <span class="xlit" data-orig="Хильдунин Евгений Александрович" tabindex="0">Khildunin Yevgeniy Aleksandrovich<span class="pop">Хильдунин Евгений Александрович</span></span>
+        </span>
+        <span class="dt">b. 17.05.1985</span>
+        <span class="ci">Died in the building; body moved to a shoe shop, collected by
+          emergency services before Easter.</span>
+        <span class="src">Source: t.me/mariupolRIP/37382</span>
+      </li>
+      <li>
+        <span class="nm">
+          <span class="xlit" data-orig="Малюха Анатолий" tabindex="0">Malyukha Anatoliy<span class="pop">Малюха Анатолий</span></span> (unconfirmed surname spelling)
+        </span>
+        <span class="dt">b. 1943 · disabled</span>
+        <span class="ci">"Burned alive," per a neighbor's account; no independent
+          source link supplied beyond the relayed quote.</span>
+      </li>
+      <li>
+        <span class="nm">Sister of
+          <span class="xlit" data-orig="Коваленко Инга Евг." tabindex="0">Kovalenko Inga Yevg.<span class="pop">Коваленко Инга Евг.</span></span>
+        </span>
+        <span class="dt">unnamed · 24.03.2022</span>
+        <span class="ci">Sniper-killed near the 3rd entrance; body lay in place three
+          days. Her identity documents and phone were later sold and used (16.04.2022)
+          to fraudulently obtain humanitarian aid in her name.</span>
+      </li>
+      <li>
+        <span class="nm">
+          <span class="xlit" data-orig="Афонин Пётр" tabindex="0">Afonin Pyotr<span class="pop">Афонин Пётр</span></span> ·
+          <span class="xlit" data-orig="Афонина Клавдия" tabindex="0">Afonina Klavdiya<span class="pop">Афонина Клавдия</span></span>
+        </span>
+        <span class="dt">residents of pr. Lenina 110, apt 127</span>
+        <span class="ci">Named in the same casualty record for this building group.</span>
+      </li>
+      <li>
+        <span class="nm">Unidentified — makeshift courtyard grave</span>
+        <span class="dt">building 106 · date of burial not recorded</span>
+        <span class="ci">A seventh death, distinct from the six named above: a
+          makeshift grave dug in 106's own courtyard during the siege, never
+          formally registered or identified. Counted separately because it is not
+          one of the six names in the casualty record and its location (106) does
+          not match where most of the six named individuals lived (110).</span>
+      </li>
+    </ul>
+
+    <div class="note"><p>The document title and five of the six named individuals
+      point to building 110; the grave is at 106. We treat the named-six record as a
+      <strong>shared finding across all four buildings</strong>, not pinned to one;
+      the grave is recorded against 106 specifically. These are named deceased
+      civilians from a public memorial dataset; naming them is the documentary point
+      and is outside this project's privacy protections for living property owners.</p></div>
+    <figcaption>Source: residents' memorial posts and a public memorial map maintained
+      by mariupoldestruction.com. A not-yet-located video lead is kept off the record
+      until its original source is found and is deliberately not cited here.</figcaption>
+  </section>
+
+  <!-- ===== 04 · RESIDENTS' OWN RECORD ===== -->
+  <section id="s4">
+    <p class="eyebrow">04 · The residents' own collective record</p>
+    <h2>A letter to Putin, on-camera testimony, and a fenced-but-idle site</h2>
+    <p>A joint petition, captured verbatim from the residents' chat (dated
+      2023-10-18), signed "Residents of 104, 106, 108 and 110 prosp. Lenina,
+      Mariupol" and addressed to:</p>
+
+    <p style="font-family:var(--font-mono);font-size:12px;line-height:1.9;color:var(--paper-dim)">
+      President of Russia <a class="stake-link" href="stakeholder-network.html" target="_blank" title="Путин Владимир Владимирович">Vladimir Putin</a> ·
+      Russian Minister of Construction <a class="stake-link" href="stakeholder-network.html" target="_blank" title="Файзуллин Ирек Энварович">Irek Faizullin</a> ·
+      DNR Minister of Construction <a class="stake-link" href="stakeholder-network.html" target="_blank" title="Цыганов Николай Михайлович">Nikolai Tsyganov</a> ·
+      Mariupol City Prosecutor <a class="stake-link" href="stakeholder-network.html" target="_blank" title="Поліщук Андрій">Andrii Polishchuk</a> ·
+      Mariupol Mayor <a class="stake-link" href="stakeholder-network.html" target="_blank" title="Моргун Олег Валериевич">Oleg Morgun</a>
+    </p>
+    <p style="font-family:var(--font-mono);font-size:11px;color:var(--muted);line-height:1.6">
+      Polishchuk is not an imported Russian official — he is a pre-war Ukrainian district prosecutor who was
+      wanted in Ukraine for separatism from 2014, fled to the DNR, self-declared "chief prosecutor" of occupied
+      Horlivka, and was later installed as Mariupol's occupation prosecutor: a collaborator, not a transplant.
+      (<a class="stake-link" href="https://zradomir.com.ua/offenders/polishchuk-andrii" target="_blank">zradomir.com.ua</a>;
+      patronymic not yet confirmed in any source.)</p>
+    <p>It names the responsible construction-chain parties directly:</p>
+
+    <blockquote style="border-left-color:var(--testimony)">
+      Developer: <b><a class="stake-link" href="stakeholder-network.html" target="_blank" title="Министерство строительства РФ">Russian Ministry of Construction</a></b> · Client:
+      <b><a class="stake-link" href="stakeholder-network.html" target="_blank" title="ППК «Единый заказчик в сфере строительства»">Public Corporation "Unified Construction Client"</a></b> · General contractor:
+      <b><a class="stake-link" href="stakeholder-network.html" target="_blank" title="ООО «РКС-НР»">LLC "RKS-NR"</a></b>
+      <cite>From the joint letter — the same federal contractor chain already in this
+        project's stakeholder network, click any name to open it</cite>
+    </blockquote>
+
+    <figure>
+      <div class="fig-media doc">
+        <img loading="lazy" src="assets/lenina/shared/documents/letter_to_authorities_p1.jpg" alt="First page of the residents' joint letter to Putin and ministries, with embedded photos">
+      </div>
+      <figcaption>First page of the residents' letter to the authorities, with
+        embedded photos. The residents document nine months of renovation with no
+        resident access: facades and roofs redone while burned-out interiors are left
+        untouched, makeshift worker latrines inside apartments, a fire on site, a
+        heating riser downsized, windows installed with un-sealable gaps, a leaking
+        roof. Dated 2023-10-18.</figcaption>
+    </figure>
+
+    <h3>On-camera, a year later — same complaint</h3>
+    <p>Residents repeat the same complaint directly to camera: work halted with no
+      explanation, repeated new subcontractors who do nothing, ground-floor commercial
+      space already let to a bank / flower shop / pelmennaya while residents still
+      can't access their own apartments, and — a claim not in the written letter —
+      apartment square footage/wall layout altered during the works ("квадратура
+      изменилась").</p>
+
+    <figure>
+      <div class="fig-media">
+        <a class="vlink" href="https://www.youtube.com/watch?v=CHrEXXI8CK0" target="_blank" rel="noopener" aria-label="Watch the residents' public appeal on YouTube"><img loading="lazy" src="assets/lenina/posters/resident_testimony.jpg" alt="Residents of 104/106/108/110 gathered in the courtyard to address the camera; faces obscured"><span class="vbadge">&#9654;</span></a>
+      </div>
+      <figcaption><b>Resident testimony to camera</b> (all four buildings). Residents'
+        faces are obscured here; the unaltered video is their own public appeal —
+        <span class="vsrc"><a href="https://www.youtube.com/watch?v=CHrEXXI8CK0" target="_blank" rel="noopener">watch on YouTube ↗</a></span>.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="fig-media">
+        <a class="vlink" href="https://www.youtube.com/watch?v=pmb7BIl-Atw" target="_blank" rel="noopener" aria-label="Watch the stalled-reconstruction walkthrough on YouTube"><img loading="lazy" src="assets/lenina/posters/stalled_reconstruction.jpg" alt="Walkthrough of the fenced but idle 104-110 stretch, rusty perimeter fencing, idle hoist"><span class="vbadge">&#9654;</span></a>
+      </div>
+      <figcaption><b>Fenced-but-idle walkthrough</b> of the whole 104–110 stretch —
+        rusty perimeter fencing, an idle construction hoist mounted on one facade with
+        no workers or staging visible, directly corroborating the "halted work" claim.
+        <span class="vsrc"><a href="https://www.youtube.com/watch?v=pmb7BIl-Atw" target="_blank" rel="noopener">Watch on YouTube ↗</a></span>.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===== 05 · PAPER TRAIL, CONTINUED ===== -->
+  <section id="s5">
+    <p class="eyebrow">05 · Paper trail, continued</p>
+    <h2 title="Решение № I/3-3">Ruling No. I/3-3 — a compensation-housing list for someone else's claimants</h2>
+    <p>A second document, <span class="xlit" tabindex="0">Ruling No. I/3-3 of 13.02.2026<span class="pop">Решение № I/3-3 от 13.02.2026</span></span>
+      (captured from an official Mariupol information channel), was previously a
+      scanned ruling with no extractable text layer. Now legible (2026-06-19) via a
+      first-page render plus a full 23-page text-recognition pass: it is the
+      <b><span class="xlit" tabindex="0">Mariupol City Council's<span class="pop">Мариупольский городской совет ДНР</span></span> decision
+      to include specific municipally-owned residential units into the list of
+      housing that may be issued as <em>compensation</em></b> to OTHER displaced
+      claimants — not returned to these units' original owners — citing
+      <span class="xlit" tabindex="0">DNR Law No. 141-RZ (18.12.2024)<span class="pop">Закон ДНР от 18.12.2024 № 141-РЗ</span></span>.</p>
+
+    <figure>
+      <div class="fig-media doc">
+        <img loading="lazy" src="assets/lenina/shared/documents/Reshenie_I_3_3_ot_13.02.2026_p1-01.jpg" alt="First page of Решение № I/3-3, Mariupol city council compensation-housing decision">
+      </div>
+      <figcaption>First page of the ruling. Captured 2026-02-14, made legible by
+        text-recognition pass 2026-06-19.</figcaption>
+    </figure>
+
+    <div class="caveat">
+      <p class="ck">Unverified OCR lead — not a confirmed figure</p>
+      <p>OCR across the full appendix found <strong>roughly 10 units at 104, 8 at 106,
+        and 8 at 108</strong> (cadastral numbers recovered per-row); 110 did not show
+        a clean match. <strong>This count is from raw OCR on a dense multi-column
+        table and has NOT been manually verified row-by-row.</strong> Treat as a
+        strong lead, not a confirmed figure. Next step: a structured per-row
+        re-extraction before this count is cited as evidence-grade.</p>
+    </div>
+
+    <p><b>If confirmed, this is the missing reallocation endpoint for 104/106/108</b>
+      — the apartments these buildings' own residents were registry-stripped from
+      being redirected into a compensation pool for a <em>different</em> population of
+      claimants, dated barely four months before this find. That would directly
+      support the Rome Statute art. 8(2)(b)(viii) population-transfer reading with a
+      specific dated instrument rather than an inferred pattern.</p>
+  </section>
+
+  <!-- ===== 06 · REALLOCATION, DEMAND SIDE ===== -->
+  <section id="s6">
+    <p class="eyebrow">06 · Reallocation, demand side</p>
+    <h2>The same stripped flats, advertised for sale</h2>
+    <p>Resale evidence is now on record for 106, 108, and 110. These captures are
+      HTML-only (Telegram widget metadata or an anti-bot listing page) — there is no
+      screenshot asset, so each is rendered below from the captured listing detail,
+      not a fabricated image. 104 still has no identified resale activity.</p>
+
+    <div class="listing-grid">
+      <div class="lc">
+        <div class="lc-novis">HTML capture · no screenshot</div>
+        <p class="lc-a" title="пр. Ленина 106">pr. Lenina 106</p>
+        <p class="lc-src">t.me/Mariupol_house/84850 · listed 2024-01-24</p>
+        <p class="lc-price">5 mln ₽ <span style="font-size:.7rem;color:var(--muted)">negotiable</span></p>
+        <p class="lc-specs">2-room w/ a &ldquo;perekhod&rdquo; (extra room) · 47.8 / 26.3 / 6.3 m² ·
+          4/9 floor · full contractor renovation · <b style="color:var(--paper)">entered
+          on Rosreestr</b></p>
+        <p class="lc-flag">First demand-side resale evidence for 106</p>
+      </div>
+      <div class="lc">
+        <div class="lc-novis">HTML capture · no screenshot</div>
+        <p class="lc-a" title="пр. Ленина 108">pr. Lenina 108</p>
+        <p class="lc-src">dnr.red · listed 2026-06-08 · user-saved (anti-bot site)</p>
+        <p class="lc-price">4 500 000 ₽</p>
+        <p class="lc-specs">3-room, renovate to taste · total 61.3 m² (living 42.9, kitchen
+          5.3) · 4/9 floor · ceilings 2.50 m · balcony 0.8 m²</p>
+        <p class="lc-flag">dnr.domick.ru companion listing still outstanding (VPS only)</p>
+      </div>
+      <div class="lc">
+        <div class="lc-novis">HTML capture · no screenshot</div>
+        <p class="lc-a" title="пр. Ленина 110">pr. Lenina 110</p>
+        <p class="lc-src">t.me/Mariupol_house/676643 · listed 2025-12-29</p>
+        <p class="lc-price">3 mln ₽ <span style="font-size:.7rem;color:var(--muted)">reduced</span></p>
+        <p class="lc-specs">3-room · 63.4 m² · 7/9 floor · needs renovation · new
+          wiring/water/gas/screed · <b style="color:var(--paper)">entered on
+          Rosreestr (single owner)</b></p>
+        <p class="lc-flag">Corrected 2026-06-19 — earlier misattributed to 108</p>
+      </div>
+    </div>
+    <figcaption>Two of these listings advertise Rosreestr registration as a bankable
+      guarantee to buyers — the occupation's title apparatus presenting a
+      Ukrainian-owned apartment as cleanly transferable. The compensation-housing
+      decision (§05) may represent a different, more consequential reallocation
+      channel than individual resale for 104/106/108.</figcaption>
+  </section>
+
+  <!-- ===== 07 · LEGAL MAPPING ===== -->
+  <section id="s7">
+    <p class="eyebrow">07 · Accountability endpoints</p>
+    <h2>Every claim is supportable from the occupation's own records</h2>
+    <div class="legal-grid">
+      <div class="legal-card rd4u">
+        <p class="lk">CoE RD4U · Restitution</p>
+        <div class="badges">
+          <span class="map-badge rd4u">A3.1 — residential damage (siege/demolition decree)</span>
+          <span class="map-badge rd4u">A3.6 — loss of access (physical exclusion + 91 registry actions in 106)</span>
+        </div>
+        <p style="font-family:var(--font-mono);font-size:11px;color:var(--muted);
+          line-height:1.6;margin:.9rem 0 0">Residents cannot get inside, let alone
+          reassert title, regardless of which paper track is "true."</p>
+      </div>
+      <div class="legal-card rome">
+        <p class="lk">Rome Statute · Criminal</p>
+        <div class="badges">
+          <span class="map-badge rome">8(2)(a)(iv) — unlawful appropriation (registry seizure of 91 named flats)</span>
+          <span class="map-badge rome">8(2)(b)(xiii) — disposal to third parties (resale listings, 106/108/110)</span>
+          <span class="map-badge grave">8(2)(b)(viii) — population transfer (Ruling No. I/3-3 compensation pool · lead)</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:1.4rem"><b>Civilian harm, independent of either paper track:</b>
+      six residents of this building group are documented as having died during the
+      siege and its aftermath (§03) while the buildings' legal status was contested
+      across conflicting demolition / restoration / registry tracks. This does not
+      change the property-law analysis — it is the human cost underlying it.</p>
+  </section>
+
+  <!-- ===== 08 · PROVENANCE ===== -->
+  <section id="s8" class="prov">
+    <p class="eyebrow">08 · Provenance · chain of custody</p>
+    <h2>Reproducible from raw → DB</h2>
+    <p>Every claim in this exhibit is drawn directly from an original document,
+      video, or registry record. Each one is hashed and timestamped at the moment it
+      was captured, so its authenticity can be independently verified later. The
+      table below is that full chain-of-custody catalogue — the original source,
+      capture date, and cryptographic hash for every artifact used above — kept here
+      for anyone with a professional or legal interest in verifying the underlying
+      evidence.</p>
+
+    <details>
+      <summary>Full chain-of-custody catalogue — 22 artifacts</summary>
+      <div class="tbl-wrap">
+        <table class="data">
+          <thead><tr><th>Claim</th><th>Source artifact</th><th>SHA-256</th><th>Captured</th></tr></thead>
+          <tbody>
+            <tr><td>Demolition decree №56</td><td>minstroy reestr-snosa_16_03_2026.csv</td><td class="sha">d431a530…42ea37</td><td>2026-06-09</td></tr>
+            <tr><td>72 apartments entered on the ownerless registry</td><td>Zhovtnevyi_r_n.xlsx (gosweb.gosuslugi.ru)</td><td class="sha">add72b41…85cfeae</td><td>pre-session</td></tr>
+            <tr><td>Residents barred, restoration in progress</td><td>@Lenina106_Mariupol chat photos, msgs 35/77</td><td class="sha">61be44fe…, 3aa8d569…</td><td>2023-10</td></tr>
+            <tr><td>"дом то не сносили" (rebuts demolition)</td><td>same chat, msg 37 (re-verified)</td><td class="sha">b20d2bf2…</td><td>2023-10-05</td></tr>
+            <tr><td>Joint letter to Putin / ministries / прокурор / мэр</td><td>Письмо в инстанции.pdf (+ p1 thumbnail)</td><td class="sha">fe670bca…77f8f36</td><td>2023-10-18</td></tr>
+            <tr><td>125 apartment-level disappearances matched to demolition event</td><td>ownerless snapshots 2024-09 → 2025-11</td><td class="sha">per-row jsonl</td><td>2026-06</td></tr>
+            <tr><td>ФКРМО abandoned 106 repairs (prosecutor complaint)</td><td>@Lenina106_Mariupol msg 986</td><td class="sha">74b97bb3…8997bde05</td><td>2025-06-02</td></tr>
+            <tr><td>Распоряжение №619 door notice (title docs demanded)</td><td>@Lenina106_Mariupol msg 269</td><td class="sha">1ca8ed3d…361627e05</td><td>2024-03-27</td></tr>
+            <tr><td>Siege damage 104 (ground-floor storefront)</td><td>YouTube "2022.03.04 пр. Миру 104" (Near You)</td><td class="sha">3215e47c…604d8f5</td><td>2022-03-04</td></tr>
+            <tr><td>Siege damage 104 (full facade)</td><td>YouTube shorts/5fuqt-M5S6I</td><td class="sha">b1313dae…69fc9822</td><td>2022-05</td></tr>
+            <tr><td>Courtyard siege damage 104 (2nd source, 3 frames)</td><td>YouTube fzN0pI8alEY</td><td class="sha">867ab498…398749ae7</td><td>2026-06-19</td></tr>
+            <tr><td>Siege damage 106 (former АТБ supermarket)</td><td>YouTube @MARIUPOLNOW</td><td class="sha">b32d1544…109506a2c</td><td>2022-06-25</td></tr>
+            <tr><td>Siege damage 106 (burnt balconies)</td><td>YouTube "Пр-т Мира 106 Май 22г"</td><td class="sha">c7ffa6b0…1ba8d18c</td><td>2022-05</td></tr>
+            <tr><td>Courtyard view 106 (less severe — consistent w/ restoration)</td><td>YouTube fzN0pI8alEY</td><td class="sha">867ab498…398749ae7</td><td>2026-06-19</td></tr>
+            <tr><td>108 partially demolished (1 entrance, rest standing)</td><td>YouTube shorts/Bzq5QnarNAo "снос дома"</td><td class="sha">ea535398…2bb3ccab</td><td>undated</td></tr>
+            <tr><td>108 distant restoration-in-progress view</td><td>YouTube Korzhov Vlog (single frame)</td><td class="sha">4cb9fe0f…f961173</td><td>2023-08-23</td></tr>
+            <tr><td>1979 prewar baseline, 110</td><td>Pastvu p/1167758 (~25m from 4423)</td><td class="sha">10d33e28…313dc821</td><td>1979</td></tr>
+            <tr><td>On-camera resident testimony (all 4)</td><td>YouTube CHrEXXI8CK0</td><td class="sha">a8e0e253…1ecf4934</td><td>2026-06-19</td></tr>
+            <tr><td>Fenced-but-idle stalled-reconstruction walkthrough</td><td>YouTube pmb7BIl-Atw (cropped 1:09-6:42)</td><td class="sha">8867e667…e5e9b117</td><td>2026-06-19</td></tr>
+            <tr><td>Resale 106 (2-room «переход», 5 млн ₽)</td><td>t.me/Mariupol_house/84850 (widget meta)</td><td class="sha">2537366d…8bef8c45c</td><td>2024-01-24</td></tr>
+            <tr><td>Resale 108 (61.3 m², 4.5 млн ₽)</td><td>dnr.red, user-saved (anti-bot)</td><td class="sha">53a2850b…550f628b</td><td>2026-06-08</td></tr>
+            <tr><td>Resale 110 (3-room, 63.4 m², 3 млн ₽) — corrected from 108</td><td>t.me/Mariupol_house/676643 (widget meta)</td><td class="sha">5a9171bd…b700aaa0</td><td>2025-12-29</td></tr>
+            <tr><td>Civilian casualty record, 6 named deceased (shared)</td><td>mariupolRIP/36979, /37382 + GMyMaps "Погибшие"</td><td class="sha">5c018486…, 40fec819…, c1f20d23…</td><td>2026-06-19</td></tr>
+            <tr><td>Решение №I/3-3 — compensation-housing list (OCR lead, UNVERIFIED)</td><td>Reshenie_I_3_3_ot_13.02.2026.pdf (+ p1 thumb)</td><td class="sha">02048976…6889e215bd</td><td>2026-02-14</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <p class="warn">Occupation registrations, rulings, and demolition decrees are
+      evidence of the seizure act, NOT valid title. Ukraine does not recognise them,
+      and neither do we. Lawful owners who are living private individuals are
+      minimised; the named deceased civilians here are from a public memorial dataset
+      and are recorded by name as the documentary point. The unverified OCR count in
+      §05 is flagged as a lead, not a confirmed figure.</p>
+  </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  // drop any image/video whose source fails to load, leaving the figure frame
+  document.querySelectorAll('.fig-media img,.fu-media img,.fig-media video,.fu-media video').forEach(function(m){
+    m.addEventListener('error',function(){ m.style.display='none'; });
+  });
+  // click-to-reveal original Cyrillic for transliterated names/toponyms
+  document.querySelectorAll('.xlit').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var wasOpen = el.classList.contains('open');
+      document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!wasOpen) el.classList.add('open');
+    });
+    el.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); el.click(); }
+    });
+  });
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+  });
+
+  // scroll-spy for the left index rail
+  var lis = Array.prototype.slice.call(document.querySelectorAll('.spine li'));
+  var map = {}; lis.forEach(function(li){ map[li.getAttribute('data-sec')] = li; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        lis.forEach(function(li){ li.classList.remove('active'); });
+        var li = map[e.target.id]; if(li) li.classList.add('active');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section[id]').forEach(function(s){ obs.observe(s); });
+})();
+</script>
+</body>
+</html>

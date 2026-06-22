@@ -1,0 +1,192 @@
+{
+  "type": "FeatureCollection",
+  "name": "case_studies_and_casualties",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "pr. Nakhimova 82",
+        "case": "Nakhimova 82 → Chernomorsky 1B",
+        "kind": "case_study",
+        "role": "destroyed",
+        "href": "nakhimova-82-exhibit.html",
+        "summary": "36-flat building destroyed March 2022, demolished by occupation order. Same footprint rebuilt under a new address.",
+        "source": "project spine, property_id 5865, geocode confidence high",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5125162,
+          47.076027
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "per. Chernomorsky 1B",
+        "case": "Nakhimova 82 → Chernomorsky 1B",
+        "kind": "case_study",
+        "role": "rebuilt",
+        "href": "nakhimova-82-exhibit.html",
+        "summary": "51-flat building, new address and cadastral number, ~10m from the original footprint. 94.3% sold, overwhelmingly to Russian buyers.",
+        "source": "project spine, property_id 6333, geocode confidence high",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5126,
+          47.0761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "pr. Lenina (Myru) 104",
+        "case": "Lenina 104–110",
+        "kind": "case_study",
+        "role": "restoration_without_restitution",
+        "href": "lenina-104-106-108-110-exhibit.html",
+        "summary": "Named in one demolition decree with 106/108/110. Fate: not confirmed razed, but ownership stripped via the registry regardless.",
+        "source": "project spine, property_id 4417, geocode confidence high",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5225087,
+          47.0981236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "pr. Lenina (Myru) 106",
+        "case": "Lenina 104–110",
+        "kind": "case_study",
+        "role": "restoration_without_restitution",
+        "href": "lenina-104-106-108-110-exhibit.html",
+        "summary": "Decreed for demolition, restored in place instead, residents barred from the site. Courtyard recorded as a makeshift grave site, 2022.",
+        "source": "project spine, property_id 4419, geocode confidence high",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5211384,
+          47.0982211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "pr. Lenina (Myru) 108",
+        "case": "Lenina 104–110",
+        "kind": "case_study",
+        "role": "restoration_without_restitution",
+        "href": "lenina-104-106-108-110-exhibit.html",
+        "summary": "Only partially demolished — one entrance/section torn down, the rest of the tower left standing. Apartments stripped via the registry regardless.",
+        "source": "project spine, property_id 4421, geocode confidence high",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5193585,
+          47.098342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "pr. Lenina (Myru) 110",
+        "case": "Lenina 104–110",
+        "kind": "case_study",
+        "role": "restoration_without_restitution",
+        "href": "lenina-104-106-108-110-exhibit.html",
+        "summary": "Not confirmed razed at all. Hundreds of apartments across all four buildings stripped via the ownerless registry regardless of physical fate.",
+        "source": "project spine, property_id 4423, geocode confidence high",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5180284,
+          47.0984355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "prosp. Stroiteley 108",
+        "case": "Registry sweep → live resale",
+        "kind": "case_study",
+        "role": "registry_resale",
+        "href": "case-study-II-registry-resale.html",
+        "summary": "64 of its flats registered “ownerless”; specific units actively reposted on Russian Telegram classifieds.",
+        "source": "OpenStreetMap Nominatim address lookup — not yet geocoded on the project spine itself",
+        "confidence": "approximate"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5232961,
+          47.1029716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "pr. Lenina (Myru) 100",
+        "case": "Registry sweep → live resale",
+        "kind": "case_study",
+        "role": "registry_resale",
+        "href": "case-study-II-registry-resale.html",
+        "summary": "44 flats registered “ownerless” in the same sweep as Stroiteley 108 and Sechenova 54.",
+        "source": "project spine, property_id 7242, geocode confidence high",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5257016,
+          47.0979023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ul. Sechenova 54",
+        "case": "Registry sweep → live resale",
+        "kind": "case_study",
+        "role": "registry_resale",
+        "href": "case-study-II-registry-resale.html",
+        "summary": "Only 5% war damage — sold anyway. 23 flats registered “ownerless”; one phone number sells two separate units here.",
+        "source": "OpenStreetMap Nominatim address lookup — not yet geocoded on the project spine itself",
+        "confidence": "approximate"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.563122,
+          47.1335545
+        ]
+      }
+    }
+  ]
+}

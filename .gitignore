@@ -1,0 +1,29 @@
+# Secrets & environment
+.env
+*.pem
+*.key
+*.session
+*.session-journal
+
+# Evidence store & state — NEVER commit raw evidence or owner PII
+data/
+!data/raw/.gitkeep
+*.sqlite
+parsed_cases.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv*/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# OS / editor
+.DS_Store
+
+# Local tool config (not project-relevant for collaborators)
+.claude/

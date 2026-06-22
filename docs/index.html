@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mariupol Property Seizures — A Documented Evidence Base</title>
+<meta name="description" content="A forensic, source-hashed evidence base linking specific seized Mariupol properties to specific unlawful seizure acts by named Russian occupation actors — built to feed restitution claims and criminal accountability.">
+<meta property="og:title" content="Mariupol Property Seizures — A Documented Evidence Base">
+<meta property="og:description" content="How Russia's occupation administration converts the homes of displaced and killed Mariupol residents into state and resold property — documented, hashed, and mapped to the people who signed for it.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --ink:#0a0c0f; --ink-1:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97; --muted-2:#5e646e;
+    --evidence:#cd4030; --stamp:#c79a44; --testimony:#5a7d9a;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+    --measure:760px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);line-height:1.62;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .measure{max-width:var(--measure)}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- hero ---------- */
+  header.hero{border-bottom:1px solid var(--rail);
+    background:radial-gradient(120% 80% at 70% -10%,rgba(199,154,68,.06),transparent 60%),var(--ink-1);
+    padding:62px 0 30px}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);
+    font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--evidence);
+    box-shadow:0 0 0 0 rgba(205,64,48,.6);animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(205,64,48,.5)}70%{box-shadow:0 0 0 7px rgba(205,64,48,0)}100%{box-shadow:0 0 0 0 rgba(205,64,48,0)}}
+  h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
+    font-size:clamp(30px,5vw,52px);line-height:1.04;margin:.5em 0 .35em;max-width:16ch}
+  .lede{font-size:clamp(17px,2.1vw,21px);color:var(--paper);max-width:42ch;margin:0 0 .2em}
+  .sub{font-size:16px;color:var(--paper-dim);max-width:54ch;margin:.6em 0 0}
+
+  /* ---------- stat band ---------- */
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+    background:var(--rail);border:1px solid var(--rail);margin:34px 0 6px}
+  .stat{background:var(--ink-1);padding:16px 14px}
+  .stat .n{font-family:var(--font-mono);font-weight:600;font-size:clamp(20px,2.6vw,27px);
+    color:var(--paper);display:block;letter-spacing:-.01em}
+  .stat .l{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+    color:var(--muted);display:block;margin-top:5px;line-height:1.35}
+  .stat.cd .n{color:var(--evidence)}
+  .stat.cd .l{color:var(--paper-dim)}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.stat.cd{grid-column:1/-1}}
+
+  /* ---------- sections ---------- */
+  section{padding:50px 0;border-bottom:1px solid var(--rail)}
+  h2{font-family:var(--font-display);font-weight:800;font-size:clamp(22px,3vw,30px);
+    letter-spacing:-.01em;margin:.2em 0 .5em}
+  p{margin:0 0 1em}
+  .findings p{font-size:17px}
+  .findings b{color:var(--paper);font-weight:700}
+  .lead-rule{border-left:3px solid var(--stamp);padding-left:18px}
+
+  /* ---------- exhibit cards ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{display:block;text-decoration:none;border:1px solid var(--rail);
+    background:var(--ink-2);padding:22px 22px 20px;border-radius:4px;
+    transition:border-color .16s,transform .16s,background .16s;position:relative;overflow:hidden}
+  .card:hover{border-color:var(--accent,var(--stamp));transform:translateY(-2px);background:var(--ink-3)}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent,var(--rail-2))}
+  .card .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent,var(--muted))}
+  .card h3{font-family:var(--font-display);font-weight:800;font-size:19px;margin:.5em 0 .35em;color:var(--paper)}
+  .card p{font-size:14.5px;color:var(--paper-dim);margin:0 0 .2em}
+  .card .go{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:12px;display:inline-block}
+  .card:hover .go{color:var(--accent,var(--paper))}
+  .c-dossier{--accent:var(--stamp)} .c-pipeline{--accent:var(--paper-dim)}
+  .c-evidence{--accent:var(--evidence)} .c-network{--accent:var(--testimony)}
+
+  /* ---------- method strip ---------- */
+  .meth{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rail);
+    border:1px solid var(--rail);margin-top:10px}
+  @media(max-width:760px){.meth{grid-template-columns:1fr 1fr}}
+  .mcell{background:var(--ink-1);padding:18px 16px}
+  .mcell .h{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:6px}
+  .mcell .d{font-size:13.5px;color:var(--paper-dim);line-height:1.5}
+
+  .callout{border:1px solid var(--rail);border-left:3px solid var(--evidence);
+    background:var(--ink-2);padding:18px 20px;border-radius:3px;margin-top:8px}
+  .callout p{margin:0;font-size:15px;color:var(--paper-dim)}
+  .callout b{color:var(--paper)}
+
+  footer{padding:44px 0 60px;color:var(--muted)}
+  footer .wrap{font-family:var(--font-mono);font-size:12px;line-height:1.7}
+  footer a{color:var(--paper-dim);text-decoration:none;border-bottom:1px dotted var(--muted-2)}
+  footer .purpose{font-family:var(--font-serif);font-size:15px;color:var(--paper-dim);
+    max-width:60ch;margin-bottom:18px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker"><span class="dot"></span>Forensic evidence base · compiled June 2026
+      &nbsp;·&nbsp; <a href="exhibits/about.html" style="color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted)">About this project &rarr;</a></span>
+    <h1>The paper trail of a city taken apart.</h1>
+    <p class="lede">In occupied Mariupol, the homes of residents who fled or were
+      killed are being declared &ldquo;ownerless,&rdquo; signed over to the state, and
+      resold &mdash; through an administrative machine that documents itself.</p>
+    <p class="sub">This is a verifiable record of that machine: specific properties,
+      tied to specific seizure acts, signed by named occupation officials &mdash; every
+      source captured from the original and cryptographically hashed, built to support
+      both restitution claims and criminal accountability.</p>
+
+    <div class="stats">
+      <div class="stat"><span class="n" data-to="6084">6,084</span><span class="l">properties on the evidence spine</span></div>
+      <div class="stat"><span class="n" data-to="12948">12,948</span><span class="l">&ldquo;ownerless&rdquo; registry entries</span></div>
+      <div class="stat"><span class="n" data-to="2666">2,666</span><span class="l">occupation court cases</span></div>
+      <div class="stat"><span class="n" data-to="1155">1,155</span><span class="l">legal-grade · 2+ independent sources</span></div>
+      <div class="stat cd"><span class="n" id="cd-days">—</span><span class="l">days to the 1 July 2026 re-registration deadline</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="findings">
+  <div class="wrap measure lead-rule">
+    <p class="eyebrow">What this shows</p>
+    <p>After the 2022 siege, Russia's occupation administration built a legal
+      assembly line for taking property. A home is cut off from utilities, listed as
+      <b>&ldquo;ownerless&rdquo;</b>, inspected, and &mdash; until a December 2025 law
+      abolished even that step &mdash; handed to the municipality by an occupation
+      court. The displaced owner is required to appear <b>in person, with a Russian
+      passport, within a fixed window</b> to stop it: a condition designed to be
+      impossible to meet.</p>
+    <p>What makes this documentable is that <b>each stage leaves a dated, signed
+      record</b>. The same registries, decrees, and court dockets meant to legitimize
+      the seizures are the evidence of them. This project assembles those records into
+      one queryable spine, cross-checks each property against independent sources
+      &mdash; including a UN satellite damage assessment &mdash; and maps the chain of
+      signatures from the city administration up to the Russian ministries and the
+      developers who receive the cleared land.</p>
+    <p style="color:var(--muted);font-size:15px">Start with the <a href="exhibits/mariupol-master-dossier.html" style="color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)">master dossier</a>
+      for the whole picture, or open a single documented case below.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The exhibits</p>
+    <h2 class="measure">Nine ways into the record.</h2>
+    <div class="grid">
+
+      <a class="card c-dossier" href="exhibits/mariupol-master-dossier.html">
+        <span class="tag">Overview</span>
+        <h3>The Master Dossier</h3>
+        <p>The full picture in one document: the timeline from invasion to the
+          re-registration deadline, the seizure machine stage by stage, who operates
+          it, and how the evidence holds together.</p>
+        <span class="go">Open the dossier →</span>
+      </a>
+
+      <a class="card c-pipeline" href="exhibits/dispossession-pipeline.html">
+        <span class="tag">System map</span>
+        <h3>The Dispossession Pipeline</h3>
+        <p>The machine itself, rung by rung — from &ldquo;ownerless&rdquo; designation
+          through court transfer, demolition, land reallocation, rebuild and resale —
+          each step tied to the decree that authorizes it.</p>
+        <span class="go">Trace the pipeline →</span>
+      </a>
+
+      <a class="card c-evidence" href="exhibits/lenina-104-106-108-110-exhibit.html">
+        <span class="tag">Case · restoration without restitution</span>
+        <h3>Lenina (Myru) 104&ndash;110</h3>
+        <p>Four buildings decreed for demolition, then restored rather than razed —
+          while ownership was stripped through the registry anyway, the apartments
+          re-listed as compensation housing for others, and residents shut out.</p>
+        <span class="go">Open the case →</span>
+      </a>
+
+      <a class="card c-evidence" href="exhibits/nakhimova-82-exhibit.html">
+        <span class="tag">Case · address laundering</span>
+        <h3>Nakhimova 82</h3>
+        <p>A demolished building reborn under a new address on the same footprint,
+          its apartments sold into a subsidized-mortgage market — the
+          demolish&rarr;rebuild&rarr;resell pattern, documented end to end.</p>
+        <span class="go">Open the case →</span>
+      </a>
+
+      <a class="card c-evidence" href="exhibits/case-study-II-registry-resale.html">
+        <span class="tag">Case · registry to resale</span>
+        <h3>From &ldquo;Ownerless&rdquo; to For-Sale</h3>
+        <p>Three buildings, scores of individual flats registered as
+          &ldquo;ownerless,&rdquo; specific units then reposted again and again on
+          occupation resale channels within weeks.</p>
+        <span class="go">Open the case →</span>
+      </a>
+
+      <a class="card c-evidence" href="exhibits/case-study-III-stroiteley.html">
+        <span class="tag">Case · graves beneath new construction</span>
+        <h3>A Burial Ground, Rebranded</h3>
+        <p>Five consecutive buildings, each with a documented courtyard grave from the
+          2022 siege, demolished and reallocated under five sequential decrees to one
+          developer for one branded condominium complex — no exhumation recorded.</p>
+        <span class="go">Open the case →</span>
+      </a>
+
+      <a class="card c-evidence" href="exhibits/case-study-IV-court-docket.html">
+        <span class="tag">Case · the court route</span>
+        <h3>The Court Docket</h3>
+        <p>2,666 rulings that converted &ldquo;ownerless&rdquo; homes into municipal
+          title, 28 named judges with their full ruling record, two cases decoded
+          end to end — and the finding that none of the 2,666 records name a street
+          address.</p>
+        <span class="go">Open the case →</span>
+      </a>
+
+      <a class="card c-network" href="exhibits/interactive-map.html">
+        <span class="tag">Interactive · geospatial</span>
+        <h3>The Interactive Map</h3>
+        <p>Every documented case study, grave site, and recorded mass-casualty
+          courtyard, plotted against the full geocoded property-seizure spine —
+          click any marker for sourcing and a link to the full exhibit.</p>
+        <span class="go">Open the map →</span>
+      </a>
+
+      <a class="card c-network" href="exhibits/stakeholder-network.html">
+        <span class="tag">Interactive · who operates it</span>
+        <h3>The Stakeholder Network</h3>
+        <p>The command chain and beneficiaries as a navigable graph — officials,
+          judges, contractors and developer companies — with overlays for the
+          relevant Rome Statute provisions.</p>
+        <span class="go">Explore the network →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">How it was built</p>
+    <h2 class="measure">Documented to an evidentiary standard.</h2>
+    <div class="meth">
+      <div class="mcell"><div class="h">Capture before parse</div><div class="d">Every source page and document is saved verbatim the moment it is retrieved, before anything is read from it. The raw store is append-only.</div></div>
+      <div class="mcell"><div class="h">Hashed for the record</div><div class="d">Every artifact carries a SHA-256 fingerprint and a UTC retrieval timestamp — any later alteration is detectable. ~211,900 artifacts held under chain of custody.</div></div>
+      <div class="mcell"><div class="h">Two independent sources</div><div class="d">A property-to-seizure link is treated as legal-grade only when at least two independent record families agree — fuzzy matches are confidence-scored, not assumed.</div></div>
+      <div class="mcell"><div class="h">Berkeley Protocol</div><div class="d">Methods follow the Berkeley Protocol on Digital Open Source Investigations, so the chain from raw source to finished claim is reproducible.</div></div>
+    </div>
+
+    <div class="callout">
+      <p><b>Occupation records are evidence of the act of seizure — never valid title.</b>
+        Ukraine does not recognize the occupation's registrations, courts, or decrees,
+        and neither does this project. They are presented here as self-incriminating
+        documentation of an unlawful process, not as lawful ownership.</p>
+    </div>
+    <div class="callout" style="border-left-color:var(--testimony);margin-top:14px">
+      <p>Lawful owners who are living private individuals are <b>not named</b> in these
+        materials; identifying detail is minimized and held separately as sensitive
+        personal data. Named occupation officials, judges, and beneficiaries acting in
+        an official capacity are in scope for accountability. The deceased shown in the
+        casualty records are drawn from public memorial sources.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="purpose">This record is built to feed two endpoints: <b style="color:var(--paper)">restitution</b> —
+      the Council of Europe Register of Damage for Ukraine and a future claims
+      commission — and <b style="color:var(--paper)">criminal accountability</b> under
+      the Rome Statute, for the unlawful appropriation of property and the transfer of
+      the occupying power's own population into occupied territory.</p>
+    <p>Mariupol Property-Seizure Documentation · evidence compiled June 2026 ·
+      every figure on this page is a snapshot of an evolving dataset.<br>
+      Toponyms appear in their pre-war Ukrainian and occupation-imposed Russian forms;
+      the renaming is itself part of the record.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // days to the 1 July 2026 re-registration deadline
+  var el=document.getElementById('cd-days');
+  if(el){
+    var now=new Date();
+    var target=new Date(Date.UTC(2026,6,1));
+    var days=Math.max(0,Math.ceil((target-now)/86400000));
+    el.textContent=days;
+  }
+  // count-up the headline figures once, on first view
+  function countUp(el){
+    var to=parseInt(el.getAttribute('data-to'),10);
+    if(!to){return;}
+    var dur=1100, t0=null;
+    function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min(1,(ts-t0)/dur);
+      var v=Math.floor((1-Math.pow(1-p,3))*to);
+      el.textContent=v.toLocaleString('en-US');
+      if(p<1)requestAnimationFrame(step); else el.textContent=to.toLocaleString('en-US');
+    }
+    requestAnimationFrame(step);
+  }
+  var seen=false;
+  var band=document.querySelector('.stats');
+  if(band&&'IntersectionObserver'in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting&&!seen){seen=true;
+          document.querySelectorAll('.stat .n[data-to]').forEach(countUp);}
+      });
+    },{threshold:.4});
+    io.observe(band);
+  }
+})();
+</script>
+</body>
+</html>

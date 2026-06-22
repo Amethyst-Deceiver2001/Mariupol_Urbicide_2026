@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Stage 1: crawl (VPS only)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/scripts/01_crawl.py",
+      "console": "integratedTerminal", "envFile": "${workspaceFolder}/.env",
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" }
+    },
+    {
+      "name": "Stage 2: parse (offline)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/scripts/02_parse.py",
+      "console": "integratedTerminal", "envFile": "${workspaceFolder}/.env",
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" }
+    },
+    {
+      "name": "Stage 3: load (PostGIS)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/scripts/03_load.py",
+      "console": "integratedTerminal", "envFile": "${workspaceFolder}/.env",
+      "env": { "PYTHONPATH": "${workspaceFolder}/src" }
+    }
+  ]
+}

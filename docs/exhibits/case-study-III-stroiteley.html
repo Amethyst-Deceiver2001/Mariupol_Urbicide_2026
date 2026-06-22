@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study III — prosp. Stroiteley: "Rezidentsiya" on a Burial Ground</title>
+<meta name="description" content="Five demolished apartment buildings on prosp. Stroiteley, Mariupol, each with a documented courtyard grave from the 2022 siege, reallocated under five consecutive decrees to one developer for one branded condominium complex.">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;
+    align-items:center;gap:1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{max-width:64ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  .lead{font-size:1.15rem;color:var(--paper);max-width:64ch}
+  .mono{font-family:var(--font-mono)}
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.6rem;display:block;line-height:1.6;max-width:70ch}
+
+  .hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,5vw,3.5rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.1rem,6vw,3.9rem);line-height:1.02;margin:.4rem 0 1.4rem;max-width:18ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2.2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.blue{color:var(--s1)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:.5rem;display:block;line-height:1.4}
+
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+  .badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;border:1px solid var(--rail);border-radius:2px;
+    padding:.32rem .55rem;color:var(--muted);white-space:nowrap}
+  .badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .badge.grave{background:var(--evidence);color:var(--ink);border-color:var(--evidence);font-weight:800}
+
+  table.data{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:1.2rem}
+  table.data th,table.data td{text-align:left;padding:.55rem .65rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.data th{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  table.data td:first-child{color:var(--paper);font-weight:700}
+
+  .jux{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rail);
+    border:1px solid var(--rail);border-radius:4px;overflow:hidden;margin:2rem 0 0}
+  .jux > div{background:var(--ink-2);padding:1.4rem 1.5rem}
+  .jux .ground{background:rgba(205,64,48,.05)}
+  .jux h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    margin:0 0 1rem;font-weight:700}
+  .jux .promo h4{color:var(--s1)} .jux .ground h4{color:var(--evidence)}
+  .jux p{font-size:15px;margin:0 0 .9rem;max-width:none}
+  .jux .q{font-family:var(--font-serif);font-style:italic;color:var(--paper);
+    border-left:2px solid var(--s1);padding-left:.9rem;margin:0 0 .9rem}
+  .jux .ground .q{border-left-color:var(--evidence)}
+  @media(max-width:720px){.jux{grid-template-columns:1fr}}
+
+  .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding:.2rem 0 .2rem 1rem;margin:1.4rem 0;max-width:66ch}
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.6rem 0;max-width:72ch}
+  .callout .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
+  .callout p{margin:0;font-size:15.5px}
+
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1.8rem 0 0;font-family:var(--font-mono)}
+  .chain .step{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.7rem .9rem;flex:1;min-width:150px}
+  .chain .step .t{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .chain .step .v{font-size:12.5px;color:var(--paper-dim);margin-top:.35rem;line-height:1.4}
+  .chain .step.red{border-left:3px solid var(--evidence)}
+  .chain .step.stamp{border-left:3px solid var(--stamp)}
+  .chain .step.blue{border-left:3px solid var(--s1)}
+  .chain .arrow{align-self:center;color:var(--muted);font-family:var(--font-serif)}
+
+  .blockmap{width:100%;height:auto;margin:1.8rem 0 .4rem;border:1px solid var(--rail);
+    border-radius:4px;background:var(--ink-2)}
+  .figcap{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.2rem 0 0}
+
+  details.prov{margin-top:1rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--stamp);padding:.4rem 0}
+  .srclist{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.9rem}
+  .srclist li{border-left:2px solid var(--rail);padding-left:1rem}
+  .srclist .ty{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
+  .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
+  .srclist .ti b{color:var(--paper)}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Case Study III &middot; <b title="просп. Строителей">prosp. Stroiteley — &ldquo;Rezidentsiya Select&rdquo;</b></span>
+  <span><a href="../index.html">&larr; project home</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier.html">master dossier</a>
+    &nbsp;&middot;&nbsp; <a href="about.html">about</a> &nbsp;&middot;&nbsp; <a href="stakeholder-network.html">stakeholder network</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="sub">Case Study III &middot; Left Bank district &middot; Mariupol</div>
+    <div class="eyebrow" title="проспект Строителей · проспект Будівельників">prosp. Stroiteley (Builders&rsquo; Avenue)</div>
+    <h1>The courtyards became graves. Then they became foundations.</h1>
+    <p class="lead">A single Mariupol avenue, demolished block by block under occupation
+      decrees, is being rebuilt as branded condominiums — on the same ground where its
+      residents buried their dead during the 2022 siege, and where no exhumation is
+      recorded to have taken place first.</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n red">5</span><span class="l">consecutive buildings<br>nos. 74&ndash;88, one operation</span></div>
+      <div class="stat"><span class="n blue">828</span><span class="l">new flats planned<br>&ldquo;Rezidentsiya Select&rdquo;</span></div>
+      <div class="stat"><span class="n">390&ndash;394</span><span class="l">sequential land decrees<br>one signatory</span></div>
+      <div class="stat"><span class="n red">5</span><span class="l">courtyard grave-sites<br>recorded at these addresses</span></div>
+      <div class="stat"><span class="n">~10,300</span><span class="l">new graves citywide<br>(AP estimate, 2022)</span></div>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section>
+    <div class="eyebrow">01 &middot; The avenue</div>
+    <h2>A workers&rsquo; avenue, now a construction brand</h2>
+    <p><span title="просп. Строителей">prosp. Stroiteley</span> (Ukrainian:
+      <span title="проспект Будівельників">prosp. Budivelnykiv</span> — &ldquo;Builders&rsquo;
+      Avenue&rdquo;) runs north through Mariupol&rsquo;s Left Bank district. It was laid out
+      in the 1970s as rows of standard nine-storey panel blocks built to house workers from
+      the Illich Iron &amp; Steel Works and the Azovstal plant — the same plant whose
+      defence became the symbol of the city&rsquo;s resistance in 2022.</p>
+    <p>After the siege, the avenue became one of the most active demolition-and-rebuild
+      corridors in the occupied city. Demolition orders naming addresses on this avenue
+      include <span title="Распоряжение ГКО ДНР №56">DNR State-Committee Directive No. 56</span>
+      (29 Sept 2022, naming nos. 78, 80, 88, 112) and
+      <span title="Распоряжение №172">Directive No. 172</span> (18 Apr 2023, naming nos. 72
+      and 117). On the cleared lots, a single state-linked developer is raising two branded
+      complexes: <b title="«Резиденция Селект»">&ldquo;Rezidentsiya Select&rdquo;</b>
+      (under construction) and <b title="«Резиденция II»">&ldquo;Rezidentsiya II&rdquo;</b>
+      (already commissioned and occupied).</p>
+    <span class="src">Sources: official decree texts (No. 172, No. 56); the Unified
+      Housing-Construction Registry (ЕИСЖС / наш.дом.рф); Ukrainian Wikipedia, street
+      history. All figures below trace to the project&rsquo;s own pipeline unless
+      otherwise attributed.</span>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="eyebrow">02 &middot; The five-building block</div>
+    <h2>Nos. 74&ndash;88: one coordinated seizure</h2>
+    <p>Five consecutive residential buildings — nos. 74, 76, 78, 80 and 88 — were
+      demolished under occupation orders and re-registered as five cadastral parcels
+      granted to the same company, <b title="ООО «СЗ-1 «Порфир»» · ИНН 9310009271">LLC
+      &ldquo;SZ-1 Porfir&rdquo;</b>, for one branded development,
+      &ldquo;Rezidentsiya Select.&rdquo; The land-grant decrees are numbered <b>390, 391,
+      392, 393, 394</b> — five consecutive numbers issued as a single administrative
+      package, signed by the same official. This is the documentary signature of a
+      pre-planned block-level seizure, not five separate condition-based decisions.</p>
+
+    <svg class="blockmap" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" role="img"
+      aria-label="Schematic of the nos. 74-88 block: demolition orders above, land-grant decrees and new flats below.">
+      <defs>
+        <style>
+          .lbl{font-family:ui-monospace,Menlo,monospace;fill:#868d97;font-size:11px;letter-spacing:.5px}
+          .addr{font-family:Helvetica,Arial,sans-serif;font-weight:800;fill:#e9e7e1;font-size:15px}
+          .dec{font-family:ui-monospace,Menlo,monospace;fill:#c79a44;font-size:11px}
+          .new{font-family:ui-monospace,Menlo,monospace;fill:#5b8fc9;font-size:11px}
+          .flat{font-family:Helvetica,Arial,sans-serif;font-weight:800;fill:#5b8fc9;font-size:13px}
+        </style>
+      </defs>
+      <line x1="40" y1="150" x2="960" y2="150" stroke="#343b46" stroke-width="1.5"/>
+      <text x="40" y="28" class="lbl" fill="#c79a44">DEMOLITION ORDER ↑</text>
+      <text x="40" y="288" class="lbl" fill="#5b8fc9">LAND-GRANT DECREE + NEW FLATS ↓</text>
+      <g><rect x="70" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="130" y="156" class="addr" text-anchor="middle">no. 74</text>
+        <text x="130" y="78" class="dec" text-anchor="middle">Admin. decree</text>
+        <text x="130" y="94" class="dec" text-anchor="middle">12.12.2022</text>
+        <text x="130" y="232" class="new" text-anchor="middle">No. 394</text>
+        <text x="130" y="250" class="flat" text-anchor="middle">180</text></g>
+      <g><rect x="250" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="310" y="156" class="addr" text-anchor="middle">no. 76</text>
+        <text x="310" y="78" class="dec" text-anchor="middle">Admin. decree</text>
+        <text x="310" y="94" class="dec" text-anchor="middle">12.12.2022</text>
+        <text x="310" y="232" class="new" text-anchor="middle">No. 393</text>
+        <text x="310" y="250" class="flat" text-anchor="middle">180</text></g>
+      <g><rect x="430" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="490" y="156" class="addr" text-anchor="middle">no. 78</text>
+        <text x="490" y="78" class="dec" text-anchor="middle">Directive No. 56</text>
+        <text x="490" y="94" class="dec" text-anchor="middle">29.09.2022</text>
+        <text x="490" y="232" class="new" text-anchor="middle">No. 392</text>
+        <text x="490" y="250" class="flat" text-anchor="middle">108</text></g>
+      <g><rect x="610" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="670" y="156" class="addr" text-anchor="middle">no. 80</text>
+        <text x="670" y="78" class="dec" text-anchor="middle">Directive No. 56</text>
+        <text x="670" y="94" class="dec" text-anchor="middle">29.09.2022</text>
+        <text x="670" y="232" class="new" text-anchor="middle">No. 391</text>
+        <text x="670" y="250" class="flat" text-anchor="middle">126</text></g>
+      <g><rect x="790" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="850" y="156" class="addr" text-anchor="middle">no. 88</text>
+        <text x="850" y="78" class="dec" text-anchor="middle">Directive No. 56</text>
+        <text x="850" y="94" class="dec" text-anchor="middle">29.09.2022</text>
+        <text x="850" y="232" class="new" text-anchor="middle">No. 390</text>
+        <text x="850" y="250" class="flat" text-anchor="middle">234</text></g>
+    </svg>
+    <p class="figcap">Demolition orders (top) preceded the developer land-grants (bottom)
+      by months, but both issued from the same occupation apparatus. New-build flat
+      counts shown below each parcel; combined total 828.</p>
+
+    <div class="callout">
+      <div class="h">UN satellite damage assessment, 12 May 2022</div>
+      <p>UNOSAT assessed all five buildings as <b>&ldquo;Moderate Damage&rdquo;</b>
+        (WorldView-3 imagery, Very High confidence) — damaged but standing — weeks after
+        the siege ended. The demolitions that followed were administrative decisions, not
+        the collapse of unsalvageable structures. Residents had been sheltering in these
+        basements and burying their dead in the surrounding courtyards at exactly that
+        time.</p>
+    </div>
+
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.1</span>
+      <span class="badge rd4u">A3.3 &middot; 27 households displaced</span>
+      <span class="badge rd4u">A3.6</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(b)(viii)</span>
+      <span class="badge grave">5 grave-sites</span>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="eyebrow">03 &middot; What the documentation records</div>
+    <h2>Burials, recorded in place</h2>
+    <p>A civilian documentation channel — a Telegram channel that logged deaths and
+      burials street by street as they happened in 2022, before any seizure proceedings
+      existed — records five separate courtyard burials specifically at the addresses
+      of these five buildings during the siege. These are open-source, third-party
+      records of human presence and civilian harm, not legal title documents; they are
+      presented here as corroboration that the buildings were inhabited up to the point
+      of demolition.</p>
+    <p>All five entries are classified as grave-site records, not merely deaths at an
+      address — meaning burial in place is explicitly logged, not inferred. The source
+      material identifies the addresses and the burial type; it does not give the
+      individual names for these five specific burials, so none are claimed here. The
+      same documentation channel does name individuals at other buildings on this same
+      avenue and elsewhere in the city (see the companion case-study notes), establishing
+      the channel&rsquo;s general reliability for this kind of record.</p>
+
+    <table class="data">
+      <thead><tr><th>Address</th><th>Demolition order</th><th>Date</th><th>New-build (flats)</th><th>Land decree</th></tr></thead>
+      <tbody>
+        <tr><td>no. 74</td><td>Mariupol admin. decree</td><td>12.12.2022</td><td>&ldquo;Rezidentsiya Select&rdquo; (180)</td><td>No. 394</td></tr>
+        <tr><td>no. 76</td><td>Mariupol admin. decree</td><td>12.12.2022</td><td>&ldquo;Rezidentsiya Select&rdquo; (180)</td><td>No. 393</td></tr>
+        <tr><td>no. 78</td><td>DNR Directive No. 56</td><td>29.09.2022</td><td>&ldquo;Rezidentsiya Select&rdquo; (108)</td><td>No. 392</td></tr>
+        <tr><td>no. 80</td><td>DNR Directive No. 56</td><td>29.09.2022</td><td>&ldquo;Rezidentsiya Select&rdquo; (126)</td><td>No. 391</td></tr>
+        <tr><td>no. 88</td><td>DNR Directive No. 56</td><td>29.09.2022</td><td>&ldquo;Rezidentsiya Select&rdquo; (234)</td><td>No. 390</td></tr>
+      </tbody>
+    </table>
+    <span class="src">Demolition register and land-grant decrees: the project&rsquo;s own
+      pipeline (DNR Construction-Ministry demolition register; DNR land-grant orders).
+      Burial records: a civilian Telegram documentation channel, captured to the project&rsquo;s
+      archive where available.</span>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="eyebrow">04 &middot; The juxtaposition</div>
+    <h2>What is being sold, and what lies beneath it</h2>
+    <p>&ldquo;Rezidentsiya Select&rdquo; began construction in early 2026, marketed by a
+      state-linked development corporation. The promotional language sells the
+      development on lifestyle and investment value. It is placed here beside the
+      documentary record of the same ground.</p>
+
+    <div class="jux">
+      <div class="promo">
+        <h4>The developer&rsquo;s materials promise</h4>
+        <p class="q">&ldquo;&hellip;proximity to the sea and developed infrastructure&rdquo;</p>
+        <p>A ten-storey building, 180 flats, over 8,000&nbsp;m&sup2; of living space. The
+          &ldquo;Rezidentsiya&rdquo; brand is marketed on the monumentality and refinement
+          of its architecture. Its smallest flats are pitched as &ldquo;investment in real
+          estate in the New Territories&rdquo;; larger units are suggested for family life
+          — or for letting out to holidaymakers, on what the marketing copy frames as a
+          seaside resort.</p>
+        <span class="src" style="color:var(--s1)">Developer press materials; new-build
+          listing aggregators.</span>
+      </div>
+      <div class="ground">
+        <h4>The ground holds</h4>
+        <p>Five courtyard grave-sites, recorded at the five addresses now inside the
+          development&rsquo;s cadastral footprint. The buildings were assessed as standing
+          and repairable in May 2022; the people who never left them were buried metres
+          from their doors.</p>
+        <p>No forensic exhumation, no notification to Ukrainian authorities, and no
+          international access is recorded at any step before demolition. Human Rights
+          Watch has documented that across Mariupol the remains of some victims were left
+          in the rubble of damaged buildings and were lost to demolition and
+          reconstruction before they could be identified.</p>
+        <p class="q">The Associated Press, surveying the same reconstruction, concluded
+          that whatever Russia builds, it is &ldquo;building upon a city of death.&rdquo;</p>
+        <span class="src" style="color:var(--evidence)">HRW, &ldquo;Counting the
+          Dead&rdquo; (2024); AP Special Projects, &ldquo;Russia scrubs Mariupol&rsquo;s
+          Ukraine identity, builds on death&rdquo; (Dec 2022).</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="eyebrow">05 &middot; One street within a documented practice</div>
+    <h2>The pattern prosp. Stroiteley belongs to</h2>
+    <p>The Stroiteley stretch is not an anomaly; it is one corridor of a citywide process
+      documented by independent investigators:</p>
+
+    <div class="chain">
+      <div class="step red"><div class="t">Scale of death</div>
+        <div class="v">AP: ~10,300 new graves citywide; toll possibly 3&times; the
+          25,000+ early estimate.</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step red"><div class="t">Bodies in the rubble</div>
+        <div class="v">A mayoral adviser estimated as many as 100 bodies per destroyed
+          building; basements with 100&ndash;200 dead.</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step stamp"><div class="t">Demolition programme</div>
+        <div class="v">The federal &ldquo;Unified Customer&rdquo; agency: 407 buildings
+          slated, 321 already demolished by March 2023; 50,000+ homes to go (AP).</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step blue"><div class="t">Rebuilt &amp; sold</div>
+        <div class="v">New branded complexes marketed to incoming buyers as resort-side
+          investment property.</div></div>
+    </div>
+
+    <div class="warn">
+      A Mariupol resident seeking compensation was told by the city housing department
+      that her building had been demolished and the site bought up by a private
+      developer — and that because she had received the flat originally from the city,
+      she was owed nothing.
+      <span class="src">Independent Russian-language journalism, Jan 2024.</span>
+    </div>
+
+    <p>One family buried two children — aged five and seven, killed by shelling in March
+      2022 — in a yard, then fled. When they returned months later to rebury them
+      properly, they learned the bodies had already been dug up and taken to a warehouse.
+      Across the city, makeshift courtyard graves were the rule during the siege, because
+      reaching a cemetery under bombardment was impossible.</p>
+    <span class="src">AP Special Projects (Dec 2022); HRW, &ldquo;Counting the Dead&rdquo;
+      (2024), monitoring Starokrymske, Vynohradne, Novotroitske, Manhush and Pavlov
+      Street cemeteries.</span>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <div class="eyebrow">06 &middot; What this case establishes</div>
+    <h2>Demolition as erasure of two records at once</h2>
+    <p>The prosp. Stroiteley block demonstrates, in one continuous documentary chain,
+      that:</p>
+    <p><b>1. The buildings were inhabited when seized.</b> UNOSAT &ldquo;Moderate
+      Damage&rdquo; (not &ldquo;Destroyed&rdquo;), the occupation&rsquo;s own displacement
+      list (27 households), and the on-site death records together establish active
+      civilian presence up to the demolition order. The legal predicate of
+      &ldquo;ownerlessness&rdquo; is contradicted by the seizing authority&rsquo;s own
+      data.</p>
+    <p><b>2. The seizure was coordinated.</b> Five consecutive land-grant decrees
+      (390&ndash;394) to one developer for one brand is the signature of a planned
+      block-level operation.</p>
+    <p><b>3. Demolition destroyed evidence and the dead together.</b> No exhumation or
+      forensic notification is recorded. Where remains lay in courtyards or rubble, the
+      clearance that prepared these lots for construction is the same act that removed
+      potential war-crime evidence — consistent with HRW&rsquo;s finding that remains
+      were lost to demolition before identification.</p>
+
+    <div class="badges" style="margin-top:1.6rem">
+      <span class="badge rd4u">A3.1 — unlawful demolition + seizure</span>
+      <span class="badge rd4u">A3.3 — forced displacement</span>
+      <span class="badge rd4u">A3.6 — loss of access in occupied territory</span>
+      <span class="badge rome">8(2)(a)(iv) — wanton destruction of property</span>
+      <span class="badge rome">8(2)(b)(viii) — settlement / transfer of population</span>
+    </div>
+    <p class="warn" style="margin-top:1.6rem">Evidentiary note: the death and burial
+      records are open-source corroboration of civilian presence and harm, not legal
+      title or forensically exhumed remains. They establish that the seized buildings
+      were occupied; they do not, on their own, prove individual bodies remain beneath
+      specific new foundations. That distinction is preserved deliberately, and matters
+      for both the restitution and the criminal track.</p>
+  </section>
+
+  <!-- 07 provenance -->
+  <section>
+    <div class="eyebrow">07 &middot; Provenance</div>
+    <h2>Sourcing</h2>
+    <p>Every artifact behind this case study is sourced from the original and hashed for
+      the record under the project&rsquo;s standard chain-of-custody practice. The table
+      below is the full source catalogue, kept here for anyone with a professional or
+      legal interest in independently verifying the underlying evidence.</p>
+    <details class="prov">
+      <summary>Full source catalogue — by category</summary>
+      <ul class="srclist">
+        <li><span class="ty">Occupation primary — decrees</span><span class="ti">
+          DNR State-Committee Directive No. 56 (29.09.2022) and No. 172 (18.04.2023),
+          demolition lists naming prosp. Stroiteley nos. 72, 78, 80, 88, 112, 117.
+          Land-grant decrees <b>390&ndash;394</b> (signed by the DNR head) to LLC
+          &ldquo;SZ-1 Porfir,&rdquo; captured in the project&rsquo;s land-orders dataset.</span></li>
+        <li><span class="ty">Occupation primary — developer / state</span><span class="ti">
+          Unified Housing-Construction Registry (наш.дом.рф) object records 65280, 69427,
+          69749, 69751, 70142, 70147; developer press materials; new-build listing
+          aggregators.</span></li>
+        <li><span class="ty">Civilian documentation</span><span class="ti">
+          A civilian Telegram documentation channel and an independent online memorial
+          register — street-by-street death and burial records, 2022.</span></li>
+        <li><span class="ty">Independent journalism</span><span class="ti">
+          A gravedigger feature (June 2022); independent Russian-language reporting on a
+          resident&rsquo;s compensation claim (Jan 2024); AP Special Projects,
+          &ldquo;Russia scrubs Mariupol&rsquo;s Ukraine identity, builds on death&rdquo;
+          (Dec 2022).</span></li>
+        <li><span class="ty">Human rights / forensic</span><span class="ti">
+          Human Rights Watch, &ldquo;Counting the Dead: Documenting Loss in Mariupol&rdquo;
+          (2024); UNOSAT WorldView-3 damage assessment (12 May 2022); satellite-confirmed
+          cemetery expansion (Starokrymske, Manhush).</span></li>
+        <li><span class="ty">Context</span><span class="ti">
+          Ukrainian Wikipedia, prosp. Budivelnykiv (street history); public statements by
+          a Mariupol mayoral adviser on rubble clearance and body counts, 2022.</span></li>
+      </ul>
+    </details>
+    <p class="figcap" style="margin-top:1.2rem">External quotations are reproduced at
+      paraphrase length for citation purposes; full sources are listed for verification.
+      Decree numbers, cadastral parcels, flat counts, and household counts trace to the
+      project&rsquo;s own structured evidence base with chain-of-custody hashing.</p>
+  </section>
+
+</div>
+</body>
+</html>
