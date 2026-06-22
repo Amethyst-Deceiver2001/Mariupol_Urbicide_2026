@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>О проекте — Mariupol Urbicide Project</title>
+<link rel="icon" type="image/png" href="../../favicon.png">
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<meta name="description" content="Author's statement for the Mariupol Urbicide Project, in English, Russian, and Ukrainian.">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.68;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;
+    align-items:center;gap:1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:720px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+
+  .hero{padding:clamp(2.4rem,6vw,4rem) 0 1.6rem}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--stamp);margin:0 0 .9rem}
+  h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;
+    font-size:clamp(1.9rem,4.4vw,2.6rem);line-height:1.08;margin:0 0 .6rem}
+  .byline{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+
+  /* language tabs */
+  .langs{position:sticky;top:39px;z-index:30;display:flex;gap:.4rem;
+    padding:.8rem clamp(1rem,4vw,2.4rem);margin:0 calc(-1*clamp(1rem,4vw,2.4rem));
+    background:rgba(13,15,19,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail)}
+  .lang-btn{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;cursor:pointer;
+    background:var(--ink-2);color:var(--paper-dim);border:1px solid var(--rail-2);border-radius:3px;
+    padding:.5rem .9rem;transition:all .2s}
+  .lang-btn:hover{border-color:var(--muted);color:var(--paper)}
+  .lang-btn[aria-pressed="true"]{color:var(--paper);background:var(--ink-3);border-color:var(--stamp)}
+
+  .panel{display:none;padding-top:2rem}
+  .panel.active{display:block}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
+    font-size:1.3rem;margin:2rem 0 .8rem}
+  p{margin:0 0 1.1rem}
+  .lead{font-size:1.1rem;color:var(--paper)}
+  ul{margin:0 0 1.1rem;padding-left:1.3rem}
+  li{margin-bottom:.5rem}
+  .grounding{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.4rem 0}
+  .grounding h2{margin-top:0}
+  .src-note{font-family:var(--font-mono);font-size:11px;color:var(--muted);
+    border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:1.2rem;line-height:1.7}
+
+  .memorial-banner{position:relative;margin:0 0 2rem;min-height:62vh;display:flex;
+    align-items:flex-end;overflow:hidden;border-top:1px solid var(--rail);border-bottom:1px solid var(--rail)}
+  .memorial-banner::before{content:'';position:absolute;inset:0;z-index:0;
+    background:url('../../exhibits/assets/about/theatre_deti_2022.jpg') center 38%/cover no-repeat;
+    filter:grayscale(.15) brightness(1.05) contrast(1.05);opacity:.62}
+  .memorial-banner::after{content:'';position:absolute;inset:0;z-index:0;
+    background:linear-gradient(180deg,rgba(13,15,19,.15) 0%,rgba(13,15,19,.55) 60%,rgba(13,15,19,.92) 100%)}
+  .memorial-banner figcaption{position:relative;z-index:1;font-family:var(--font-mono);font-size:11px;
+    line-height:1.7;color:var(--paper-dim);max-width:720px;margin:0 auto;width:100%;
+    padding:0 clamp(1rem,4vw,2.4rem) 1.8rem}
+  .memorial-banner .cap-label{display:block;font-size:12px;color:var(--stamp);letter-spacing:.04em;margin-bottom:.4rem}
+  .memorial-banner b{color:var(--paper);font-weight:600}
+  @media (max-width:560px){.memorial-banner{min-height:46vh}}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span><a href="../index.html">&larr; на главную проекта</a></span>
+  <span><a href="mariupol-master-dossier.html">главное досье</a> &middot;
+    <a href="stakeholder-network.html">сеть участников</a> &middot; <a href="sources.html">источники</a></span>
+</div>
+<div style="background:#1b1f26;border-bottom:1px solid #262b33;font-family:ui-monospace,SF Mono,Menlo,monospace;font-size:11.5px;letter-spacing:.04em;color:#868d97;padding:9px clamp(1rem,4vw,2.4rem);text-align:center">Черновой машинный перевод интерфейса, не проверен человеком · <a href="../../exhibits/about.html" style="color:#c79a44;text-decoration:none;border-bottom:1px dotted #c79a44">English original</a> &middot; <a href="../../uk/exhibits/about.html" style="color:#c79a44;text-decoration:none;border-bottom:1px dotted #c79a44">Українська</a></div>
+
+<div class="wrap">
+  <div class="hero">
+    <p class="eyebrow">About this project</p>
+    <h1>Why this archive exists, in the author's own words</h1>
+    <p class="byline">Author's statement &middot; written by Alexey Kovalev &middot;
+      available in English, Russian, and Ukrainian</p>
+  </div>
+</div>
+
+<figure class="memorial-banner">
+  <figcaption><span class="cap-label">The Mariupol Drama Theatre, after the 16 March 2022 airstrike</span>
+    The word &laquo;<b>ДЕТИ</b>&raquo; (&ldquo;CHILDREN&rdquo;) — painted in giant letters on the ground in
+    front of and behind the building so it would be visible from the air — survived the strike that killed
+    hundreds of the civilians sheltering inside. <b>Satellite imagery &copy; Airbus</b>, via Google Earth.</figcaption>
+</figure>
+
+<div class="wrap">
+  <div class="langs">
+    <button class="lang-btn" id="btn-en" aria-pressed="false">EN — English</button>
+    <button class="lang-btn" id="btn-ru" aria-pressed="true">RU — Русский</button>
+    <button class="lang-btn" id="btn-uk" aria-pressed="false">UK — Українська</button>
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div class="panel" id="panel-en" lang="en">
+    <p class="lead">I am Alexey Kovalev, a journalist. On 24 February 2022, my country —
+      Russia — invaded Ukraine. My first reaction, I remember, was a sense of the absurd:
+      missiles fired by my own countrymen were slamming into buildings exactly like the
+      ones around me in Moscow, in the middle of neighbourhoods exactly like mine —
+      because their blueprints came from the same Soviet architectural bureaus.</p>
+    <p>What kept me from losing my mind to the monstrousness of it was the work of a
+      journalist. I interviewed victims of my country's crimes and defenders of Ukraine,
+      edited my colleagues' dispatches, wrote my own reporting on the invasion. It seemed
+      to me that if I could not prevent this, then my moral duty as a Russian was at
+      least to help record the names of the criminals who carry the same red passport
+      as I do.</p>
+
+    <h2>About the project</h2>
+    <p>The first victim of my country — and an ominously precise omen of what would
+      befall many other Ukrainian cities over the next nearly four years — was Mariupol.
+      I have never been to Ukraine myself, apart from school holidays in Crimea. And the
+      Ukraine in which the city of Mariupol existed, I will never reach now. That city
+      still appears on the map of the world only out of habit — like Bakhmut,
+      Sieverodonetsk, and the other ghost towns destroyed one after another by my
+      country's army.</p>
+    <p>From February to May 2022, Mariupol was shelled so savagely that the footage
+      looked like the most apocalyptic battles of the Second World War. By various
+      estimates, tens of thousands of civilians were killed; the exact number we may
+      never know. The scale of one of the largest mass killings of the civilian
+      population of a single city can still only be gauged from the fresh graves at
+      Starokrymske cemetery, visible from space. What happened — and is still happening
+      — to the Mariupol residents who survived is what this project sets out to
+      document.</p>
+
+    <h2>Method: bureaucratic self-incrimination</h2>
+    <p>Russia's crimes in Mariupol did not end when the indiscriminate carpet shelling
+      of densely populated residential districts stopped. They simply became different
+      war crimes — far less visible, and stretched out over time. Urbicide, the killing
+      of a city, can be carried out without bombers or multiple-rocket batteries.</p>
+    <p>At the end of 2022, the bureaucrats of the occupation administration briskly
+      inventoried the surviving housing stock, jotting notes in the margins like
+      "building completely burned out, corpse in the courtyard, site clearance
+      required." It was they who compiled and published the list of "objects damaged as
+      a result of combat operations" slated for demolition. And it was they who signed
+      the demolition orders — often for apartment blocks and entire neighbourhoods that
+      were still largely intact. That makes them every bit as culpable as the divisional
+      commander who gave the order to shell residential quarters.</p>
+    <p>But demolition is only one of the two modes of this urbicide. The second, quieter
+      one is dispossession by paperwork. The homes of Mariupol residents who survived
+      but had fled, or who were killed, are declared "ownerless" (<em>bezkhozyaynaya</em>)
+      by the occupation administration, entered into a registry, passed through the
+      occupation courts that have taken the place of Ukrainian justice, and handed to
+      new owners. By Human Rights Watch's count, roughly 8,100 such cases have already
+      moved through those courts. The same principle holds here: every one of these
+      rulings is a numbered decree, signed by a named individual.</p>
+    <p>In the course of this investigation I ran into a paradox that the French
+      philosopher Jacques Derrida called "archive fever" — the perpetrator's wholly
+      irrational compulsion to document his own crimes in meticulous detail. Every
+      demolished house is a specific order with a specific number. Every decree
+      stripping people of their own ruins bears a specific person's signature.</p>
+    <p>After Meduza — where from 2019 to 2022 I headed the investigations desk — I spent
+      two years gathering material for future war-crimes cases as an open-source (OSINT)
+      consultant for the Clooney Foundation for Justice (CFJ). Drawing those threads
+      together, I built my own evidence-collection system. For now it is an experimental
+      prototype, but it already yields tangible results. The system comprises:</p>
+    <ul>
+      <li><b>Automated evidence collection.</b> Python scripts systematically harvest
+        official documents from the websites and other public resources of the
+        occupation administration. For every file, link, and document, a SHA-256 hash
+        and a timestamp are recorded — establishing an unbroken chain of custody.</li>
+      <li><b>A spatiotemporal PostgreSQL/PostGIS database</b> holds source-enriched data
+        on each property: its administrative unit, street, building, and its legal and
+        physical status at every stage of its life.</li>
+      <li><b>A normalisation layer.</b> Every address is reconciled across all plausible
+        spellings of each toponym (Cyrillic in Russian and Ukrainian, Latin in English
+        transcription) and across three temporal layers (Ukrainian toponyms before and
+        after the 2015–2016 decommunisation, and the occupation-era renamings). Most
+        addresses are geocoded via the Google Maps API. The system also catches scanning
+        errors, mixed-language strings, and corrupted spellings.</li>
+      <li><b>A cross-referencing pipeline.</b> Satellite imagery, official documents, and
+        damage assessments are drawn together and tied to specific properties and
+        specific perpetrators, forming court-ready evidence packages — for restitution
+        claims to the Council of Europe's Register of Damage and for criminal
+        proceedings under the Rome Statute.</li>
+    </ul>
+    <p>The same normalised data is meant to underpin a public resource where displaced
+      Mariupol residents can look up their own address and learn the fate of their
+      home.</p>
+
+    <div class="grounding">
+      <h2>Theoretical grounding</h2>
+      <p>In this work I have drawn on ideas formulated by the classics of critical
+        theory:</p>
+      <ul>
+        <li><b>Hannah Arendt's "banality of evil"</b> — how bureaucratic procedure makes
+          mass atrocity possible;</li>
+        <li><b>Jacques Derrida's "archive fever"</b> — how compulsive documentation
+          becomes self-incrimination;</li>
+        <li><b>Zygmunt Bauman's "liquid modernity"</b> — how bureaucracy enables moral
+          distance from violence;</li>
+        <li><b>Giorgio Agamben's "state of exception"</b> — how occupation law creates
+          zones beyond ordinary legal protection.</li>
+      </ul>
+    </div>
+
+    <div class="grounding">
+      <h2>Legal grounding</h2>
+      <p>The documentation is anchored in the following provisions of international
+        humanitarian law:</p>
+      <ul>
+        <li><b>Fourth Geneva Convention, Article 53</b> — prohibiting the destruction of
+          property without military necessity;</li>
+        <li><b>Hague Convention (1907), Article 46</b> — protecting private property
+          under occupation;</li>
+        <li><b>Rome Statute, Article 8(2)(a)(iv)</b> — the unlawful, wanton, and
+          large-scale destruction and appropriation of property not justified by
+          military necessity;</li>
+        <li><b>Berkeley Protocol</b> — standards for handling digital evidence in human
+          rights investigations.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ RUSSIAN ============ -->
+  <div class="panel active" id="panel-ru" lang="ru">
+    <p class="lead">Я Алексей Ковалёв, журналист. 24 февраля 2022 года моя страна —
+      Россия — вторглась в Украину. Помню, что первым моим ощущением был абсурд: ракеты,
+      выпущенные моими соотечественниками, врезались в точно такие же дома и посреди
+      точно таких же микрорайонов, как те, что окружали меня в Москве, — потому что их
+      прототипы разрабатывались в одних и тех же советских архитектурных бюро.</p>
+    <p>Не сойти с ума от чудовищности происходящего мне помогала работа журналиста. Я
+      брал интервью у жертв преступлений моей страны и у защитников Украины,
+      редактировал репортажи коллег, писал собственные материалы о вторжении. Мне
+      казалось: если я не смог это предотвратить, то мой моральный долг как
+      россиянина — хотя бы помочь записать имена преступников с таким же красным
+      паспортом, как у меня.</p>
+
+    <h2>О проекте</h2>
+    <p>Первой жертвой моей страны — и зловеще точным предзнаменованием судьбы многих
+      других украинских городов в последующие почти четыре года — стал Мариуполь. Сам я
+      никогда не был в Украине, если не считать школьных каникул в Крыму. И в ту Украину,
+      где был город Мариуполь, я уже не попаду никогда. Этот город до сих пор существует
+      на карте мира лишь по привычке — как Бахмут, Северодонецк и другие
+      города-призраки, один за другим уничтоженные армией моей страны.</p>
+    <p>С февраля по май 2022 года Мариуполь подвергался таким жестоким обстрелам, что
+      кадры репортажей напоминали самые апокалиптические сражения Второй мировой. По
+      разным оценкам, погибли десятки тысяч мирных жителей; точное число мы, возможно,
+      не узнаем уже никогда. О масштабах одного из самых массовых убийств гражданского
+      населения в отдельно взятом городе мы пока можем судить лишь по свежим могилам на
+      Старокрымском кладбище, видным из космоса. А о том, что случилось и продолжает
+      случаться с выжившими мариупольцами, рассказывает мой проект.</p>
+
+    <h2>Метод: бюрократическое саморазоблачение</h2>
+    <p>Преступления России в Мариуполе не прекратились вместе с неприцельными ковровыми
+      обстрелами густонаселённых жилых кварталов. Просто теперь это другие военные
+      преступления — куда менее заметные и сильно растянутые во времени. Урбицид,
+      убийство города, можно совершать и без бомбардировщиков и батарей залпового
+      огня.</p>
+    <p>В конце 2022 года бюрократы оккупационной администрации деловито провели
+      инвентаризацию уцелевшего жилого фонда, делая на полях пометки вроде «Дом
+      полностью выгорел, во дворе труп, требуется уборка территории». Именно они
+      составили и опубликовали список «объектов, пострадавших в результате боевых
+      действий» и подлежащих сносу. И они же подписали приказы о сносе — часто ещё
+      вполне целых многоэтажек и целых кварталов. Поэтому они такие же преступники, как
+      командир дивизии, отдававший приказ обстреливать жилые кварталы.</p>
+    <p>Но снос — лишь одна из двух модальностей урбицида. Вторая, ещё более тихая, — это
+      бюрократическое лишение собственности. Жильё уцелевших, но уехавших или погибших
+      мариупольцев оккупационная администрация объявляет «бесхозяйным», вносит в
+      реестр, проводит через оккупационные суды, занявшие место украинского правосудия,
+      и передаёт новым владельцам. По подсчётам Human Rights Watch, через эти суды уже
+      прошло около 8 100 таких дел. И здесь действует тот же принцип: каждое такое
+      решение — это пронумерованное постановление, подписанное конкретным человеком.</p>
+    <p>В ходе расследования я столкнулся с парадоксом, который французский философ Жак
+      Деррида называл «архивной лихорадкой», — иррациональной одержимостью преступника
+      дотошной документацией собственных преступлений. Каждый снесённый дом — это
+      конкретный приказ с конкретным номером. Каждое постановление, лишающее людей их
+      родных руин, подписано конкретным человеком.</p>
+    <p>После работы в «Медузе», где с 2019 по 2022 год я возглавлял отдел
+      расследований, я два года собирал материалы для будущих судебных дел о военных
+      преступлениях как консультант по работе с открытыми источниками (OSINT) для Фонда
+      справедливости Клуни (CFJ). Синтезировав этот опыт, я разработал собственную
+      систему сбора доказательств. Пока она существует в виде экспериментального
+      прототипа, но уже даёт осязаемые результаты. Система включает:</p>
+    <ul>
+      <li><b>Автоматизированный сбор доказательств.</b> Python-скрипты систематически
+        собирают официальные документы с сайтов и других публичных ресурсов
+        оккупационной администрации. Для каждого файла, ссылки и документа фиксируются
+        SHA-256-хэш и таймстамп — это обеспечивает непрерывную цепочку хранения
+        доказательств (chain of custody).</li>
+      <li><b>Пространственно-временная база данных</b> на PostgreSQL/PostGIS хранит
+        обогащённые из разных источников сведения о каждом объекте: административной
+        единице, улице, доме, его правовом и физическом статусе на каждом этапе.</li>
+      <li><b>Система нормализации.</b> Каждый адрес приводится ко всем возможным
+        написаниям топонима (кириллицей по-русски и по-украински, латиницей в
+        английской транскрипции) и к трём временным слоям (украинские топонимы до и
+        после декоммунизации 2015–2016 годов и оккупационные переименования).
+        Большинство адресов геокодированы через Google Maps API. Система распознаёт
+        ошибки сканирования, смешение языков и искажённые написания.</li>
+      <li><b>Конвейер перекрёстных ссылок.</b> Спутниковые снимки, официальные документы
+        и оценки ущерба сводятся воедино и привязываются к конкретным объектам и
+        конкретным виновным, образуя готовые пакеты доказательств — для исков о
+        реституции в Реестр убытков Совета Европы и для уголовных дел по Римскому
+        статуту.</li>
+    </ul>
+    <p>Эти же нормализованные данные должны лечь в основу общедоступного ресурса, где
+      вынужденно покинувшие город мариупольцы смогут найти свой адрес и узнать судьбу
+      своего дома.</p>
+
+    <div class="grounding">
+      <h2>Теоретическая основа</h2>
+      <p>Работая над проектом, я опирался на концепции классиков критической теории:</p>
+      <ul>
+        <li><b>«банальность зла» Ханны Арендт</b> — как бюрократические процедуры делают
+          возможными массовые злодеяния;</li>
+        <li><b>«архивная лихорадка» Жака Деррида</b> — как навязчивое документирование
+          оборачивается саморазоблачением;</li>
+        <li><b>«текучая современность» Зигмунта Баумана</b> — как бюрократия позволяет
+          морально дистанцироваться от насилия;</li>
+        <li><b>«чрезвычайное положение» Джорджо Агамбена</b> — как оккупационное право
+          создаёт зоны вне обычной правовой защиты.</li>
+      </ul>
+    </div>
+
+    <div class="grounding">
+      <h2>Правовая основа</h2>
+      <p>Документация опирается на следующие нормы международного гуманитарного
+        права:</p>
+      <ul>
+        <li><b>Четвёртая Женевская конвенция, статья 53</b> — запрет уничтожения
+          собственности без военной необходимости;</li>
+        <li><b>Гаагская конвенция (1907), статья 46</b> — защита частной собственности
+          на оккупированной территории;</li>
+        <li><b>Римский статут, статья 8(2)(a)(iv)</b> — незаконное, бессмысленное и
+          крупномасштабное уничтожение и присвоение имущества, не оправданное военной
+          необходимостью;</li>
+        <li><b>Протокол Беркли</b> — стандарты работы с цифровыми доказательствами при
+          расследовании нарушений прав человека.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ UKRAINIAN ============ -->
+  <div class="panel" id="panel-uk" lang="uk">
+    <p class="lead">Я Олексій Ковальов, журналіст. 24 лютого 2022 року моя країна —
+      Росія — вторглася в Україну. Пам'ятаю, що першим моїм відчуттям був абсурд:
+      ракети, випущені моїми співвітчизниками, влучали в точно такі самі будинки й
+      посеред точно таких самих мікрорайонів, як ті, що оточували мене в Москві, — бо
+      їхні прототипи розробляли ті самі радянські архітектурні бюро.</p>
+    <p>Не збожеволіти від жахіття того, що відбувалося, мені допомагала журналістська
+      робота. Я брав інтерв'ю у жертв злочинів моєї країни та в захисників України,
+      редагував репортажі колег, писав власні матеріали про вторгнення. Мені здавалося:
+      якщо я не зміг цьому запобігти, то мій моральний обов'язок як росіянина — бодай
+      допомогти записати імена злочинців із таким самим червоним паспортом, як у
+      мене.</p>
+
+    <h2>Про проєкт</h2>
+    <p>Першою жертвою моєї країни — і моторошно точним провістям долі багатьох інших
+      українських міст у наступні майже чотири роки — став Маріуполь. Сам я ніколи не
+      був в Україні, якщо не рахувати шкільних канікул у Криму. І до тієї України, де
+      було місто Маріуполь, я вже не потраплю ніколи. Це місто досі існує на карті
+      світу лише за звичкою — як Бахмут, Сєвєродонецьк та інші міста-привиди, знищені
+      одне за одним армією моєї країни.</p>
+    <p>З лютого по травень 2022 року Маріуполь зазнавав таких жорстоких обстрілів, що
+      кадри репортажів нагадували найбільш апокаліптичні битви Другої світової. За
+      різними оцінками, загинули десятки тисяч мирних жителів; точного числа ми,
+      можливо, не дізнаємося вже ніколи. Про масштаб одного з наймасовіших убивств
+      цивільного населення окремо взятого міста ми поки що можемо судити лише з нових
+      могил на Старокримському кладовищі, помітних із космосу. А про те, що сталося — і
+      досі стається — з уцілілими маріупольцями, розповідає мій проєкт.</p>
+
+    <h2>Метод: бюрократичне самовикриття</h2>
+    <p>Злочини Росії в Маріуполі не припинилися разом із неприцільними килимовими
+      обстрілами густонаселених житлових кварталів. Просто тепер це інші воєнні
+      злочини — куди менш помітні й сильно розтягнуті в часі. Урбіцид, убивство міста,
+      можна чинити й без бомбардувальників та батарей залпового вогню.</p>
+    <p>Наприкінці 2022 року бюрократи окупаційної адміністрації заклопотано провели
+      інвентаризацію вцілілого житлового фонду, роблячи на полях помітки на кшталт
+      «Будинок повністю вигорів, у дворі труп, потрібне прибирання території». Саме
+      вони склали й оприлюднили перелік «об'єктів, що постраждали внаслідок бойових
+      дій» і підлягають знесенню. І саме вони підписали накази про знесення — часто ще
+      цілком цілих багатоповерхівок і цілих кварталів. Тому вони такі самі злочинці, як
+      командир дивізії, що віддавав наказ обстрілювати житлові квартали.</p>
+    <p>Але знесення — лише одна з двох модальностей урбіциду. Друга, ще тихіша, — це
+      бюрократичне позбавлення власності. Житло маріупольців, які вціліли, але виїхали
+      з міста або загинули, окупаційна адміністрація оголошує «безхазяйним» (рос.
+      «бесхозяйная»), вносить до реєстру, проводить через окупаційні суди, що посіли
+      місце українського правосуддя, і передає новим власникам. За підрахунками Human
+      Rights Watch, через ці суди вже пройшло близько 8 100 таких справ. І тут діє той
+      самий принцип: кожне таке рішення — це пронумерована постанова, підписана
+      конкретною людиною.</p>
+    <p>Під час розслідування я зіткнувся з парадоксом, який французький філософ Жак
+      Дерріда називав «архівною гарячкою», — ірраціональною одержимістю злочинця
+      ретельним документуванням власних злочинів. Кожен знесений будинок — це
+      конкретний наказ із конкретним номером. Кожна постанова, що позбавляє людей
+      їхніх рідних руїн, підписана конкретною людиною.</p>
+    <p>Після роботи в «Медузі», де з 2019 по 2022 рік я очолював відділ розслідувань, я
+      два роки збирав матеріали для майбутніх судових справ про воєнні злочини як
+      консультант з роботи з відкритими джерелами (OSINT) для Фонду справедливості
+      Клуні (CFJ). Спираючись на цей досвід, я розробив власну систему збору доказів.
+      Поки вона існує як експериментальний прототип, але вже дає відчутні результати.
+      Система охоплює:</p>
+    <ul>
+      <li><b>Автоматизований збір доказів.</b> Python-скрипти систематично збирають
+        офіційні документи із сайтів та інших публічних ресурсів окупаційної
+        адміністрації. Для кожного файлу, посилання й документа фіксуються SHA-256-хеш
+        і часова позначка — це забезпечує безперервний ланцюг зберігання доказів (chain
+        of custody).</li>
+      <li><b>Просторово-часова база даних</b> на PostgreSQL/PostGIS зберігає збагачені
+        з різних джерел відомості про кожен об'єкт: адміністративну одиницю, вулицю,
+        будинок, його правовий і фізичний статус на кожному етапі.</li>
+      <li><b>Система нормалізації.</b> Кожну адресу зведено до всіх можливих написань
+        топоніма (кирилицею російською та українською, латиницею в англійській
+        транскрипції) і до трьох часових шарів (українські топоніми до та після
+        декомунізації 2015–2016 років і окупаційні перейменування). Більшість адрес
+        геокодовано через Google Maps API. Система розпізнає помилки сканування,
+        змішування мов та спотворені написання.</li>
+      <li><b>Конвеєр перехресних посилань.</b> Супутникові знімки, офіційні документи й
+        оцінки збитків зводяться докупи та прив'язуються до конкретних об'єктів і
+        конкретних винуватців, утворюючи готові пакети доказів — для позовів про
+        реституцію до Реєстру збитків Ради Європи та для кримінальних справ за Римським
+        статутом.</li>
+    </ul>
+    <p>Ці самі нормалізовані дані мають лягти в основу загальнодоступного ресурсу, де
+      вимушено переселені маріупольці зможуть знайти свою адресу й дізнатися про долю
+      свого дому.</p>
+
+    <div class="grounding">
+      <h2>Теоретичне підґрунтя</h2>
+      <p>Працюючи над проєктом, я спирався на концепції класиків критичної теорії:</p>
+      <ul>
+        <li><b>«банальність зла» Ганни Арендт</b> — як бюрократичні процедури
+          уможливлюють масові злодіяння;</li>
+        <li><b>«архівна гарячка» Жака Дерріди</b> — як нав'язливе документування
+          обертається самовикриттям;</li>
+        <li><b>«плинна сучасність» Зиґмунта Баумана</b> — як бюрократія дозволяє
+          морально дистанціюватися від насильства;</li>
+        <li><b>«надзвичайний стан» Джорджо Аґамбена</b> — як окупаційне право створює
+          зони поза звичайним правовим захистом.</li>
+      </ul>
+    </div>
+
+    <div class="grounding">
+      <h2>Правове підґрунтя</h2>
+      <p>Документація спирається на такі норми міжнародного гуманітарного права:</p>
+      <ul>
+        <li><b>Четверта Женевська конвенція, стаття 53</b> — заборона знищення
+          власності без воєнної необхідності;</li>
+        <li><b>Гаазька конвенція (1907), стаття 46</b> — захист приватної власності на
+          окупованій території;</li>
+        <li><b>Римський статут, стаття 8(2)(a)(iv)</b> — незаконне, безглузде й
+          широкомасштабне знищення та привласнення майна, не виправдане воєнною
+          необхідністю;</li>
+        <li><b>Протокол Берклі</b> — стандарти роботи з цифровими доказами під час
+          розслідування порушень прав людини.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="src-note">Source text written in Russian by Alexey Kovalev; adapted to the
+    current iteration of the project and translated into English and Ukrainian. This
+    page is the project's first trilingual exhibit — the full HTML/visual layer remains
+    English-first pending a full trilingual rollout.</p>
+
+  <p class="src-note">If you have a professional interest in this archive, you can get
+    in touch with the author at <a href="mailto:kovalever@gmail.com">kovalever@gmail.com</a>.
+    You can also donate to help keep this project alive and regularly updated, to
+    <a href="mailto:kovalever@googlemail.com">kovalever@googlemail.com</a> (PayPal), or,
+    if you are US-based, to the Building Democracy Foundation, a 501(c)(3) registered
+    NGO, via <a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" rel="noopener">PayPal</a>.</p>
+</div>
+
+<script>
+(function(){
+  var btns={en:document.getElementById('btn-en'),ru:document.getElementById('btn-ru'),uk:document.getElementById('btn-uk')};
+  var panels={en:document.getElementById('panel-en'),ru:document.getElementById('panel-ru'),uk:document.getElementById('panel-uk')};
+  function show(key){
+    Object.keys(panels).forEach(function(k){
+      panels[k].classList.toggle('active', k===key);
+      btns[k].setAttribute('aria-pressed', String(k===key));
+    });
+  }
+  Object.keys(btns).forEach(function(k){ btns[k].addEventListener('click', function(){ show(k); }); });
+})();
+</script>
+</body>
+</html>
