@@ -45,14 +45,16 @@
   .progress{position:fixed;top:0;left:0;height:2px;background:var(--evidence);width:0;z-index:90}
   .topbar{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;flex-wrap:wrap;justify-content:space-between;
     align-items:center;gap:.4rem 1rem;row-gap:6px;padding:.55rem clamp(1.1rem,4vw,2.6rem);
-    background:rgba(10,12,15,0);border-bottom:1px solid transparent;transition:background .3s,border-color .3s;
-    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+    background:rgba(10,12,15,.55);backdrop-filter:blur(8px);border-bottom:1px solid rgba(38,43,51,.6);
+    transition:background .3s,border-color .3s;text-shadow:0 1px 4px rgba(0,0,0,.85);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--paper-dim)}
   .topbar.solid{background:rgba(10,12,15,.92);backdrop-filter:blur(10px);border-color:var(--rail)}
   .topbar>*{flex-shrink:1;min-width:0;white-space:nowrap}
-  .topbar b{color:var(--paper-dim);font-weight:600}
+  .topbar a{color:var(--paper-dim)}
+  .topbar b{color:var(--paper);font-weight:700}
   .topbar .cust{color:var(--stamp)}
   .topbar .nav{display:flex;flex-wrap:wrap;gap:.7rem 1.1rem;flex-shrink:1;min-width:0}
-  .topbar .nav a{color:var(--muted);border:0;letter-spacing:.1em;white-space:nowrap}
+  .topbar .nav a{color:var(--paper-dim);border:0;letter-spacing:.1em;white-space:nowrap;font-weight:600}
   .topbar .nav a:hover{color:var(--paper)}
   @media(max-width:1300px){.topbar .nav{font-size:9.5px;letter-spacing:.08em;gap:.55rem .85rem}}
   @media(max-width:720px){.topbar .nav{display:none}}
@@ -81,9 +83,9 @@
   .reframe{font-size:clamp(1.05rem,2.1vw,1.32rem);line-height:1.55;color:var(--paper);max-width:40ch;
     margin:2.4rem 0 0;opacity:0;animation:fade 1s 1.25s forwards}
   .reframe .red{color:var(--evidence)}
-  .scale-teaser{font-family:var(--font-mono);font-size:clamp(11.5px,1.5vw,13px);line-height:1.7;
-    color:var(--muted);max-width:62ch;margin:1.8rem 0 0;opacity:0;animation:fade 1s 1.55s forwards}
-  .scale-teaser b{color:var(--paper-dim);font-weight:600}
+  .scale-teaser{font-family:var(--font-mono);font-size:clamp(13.5px,1.75vw,15.5px);line-height:1.75;
+    color:var(--paper-dim);max-width:62ch;margin:1.8rem 0 0;opacity:0;animation:fade 1s 1.55s forwards}
+  .scale-teaser b{color:var(--stamp);font-weight:700}
   .scroll-cue{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);
     font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);
     opacity:0;animation:fade 1s 2s forwards;text-align:center}
@@ -150,6 +152,8 @@
   .person-body{font-size:.96rem;line-height:1.55;color:var(--paper-dim);margin:0}
   .person-body b{color:var(--paper)}
   .people-foot{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin:1.4rem 0 0;text-align:center}
+  .people-foot--lead{font-size:14.5px;line-height:1.65;color:var(--paper-dim);max-width:62ch;margin:1.4rem auto 0}
+  .people-foot--lead b{color:var(--stamp)}
   @media(max-width:760px){.people-grid{grid-template-columns:1fr}}
 
   /* ---------- timeline (signature) ---------- */
@@ -342,9 +346,11 @@
   .sq{border-left:2px solid var(--stamp);padding:.3rem 0 .3rem 1rem}
   .sq .q{font-family:var(--font-serif);font-style:italic;font-size:1rem;line-height:1.4;color:var(--paper);margin-bottom:.6rem}
   .sq .a{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.04em;color:var(--muted);line-height:1.55}
-  .sp-foot{border-top:1px solid var(--rail);padding:1rem 1.7rem;font-family:var(--font-mono);
-    font-size:10.5px;color:var(--muted);line-height:1.7}
-  .sp-foot b{color:var(--paper-dim)}
+  .sp-foot{border-top:1px solid var(--rail);border-left:3px solid var(--stamp);
+    background:rgba(199,154,68,.05);padding:1rem 1.4rem 1rem 1.4rem;font-family:var(--font-mono);
+    font-size:12.5px;color:var(--paper-dim);line-height:1.75}
+  .sp-foot b{color:var(--stamp)}
+  .sp-foot span{color:var(--muted);font-size:11px}
   .razrushka{background:rgba(199,154,68,.06);border:1px solid var(--stamp-dim);border-radius:4px;
     padding:1.1rem 1.3rem;margin-top:1.4rem}
   .razrushka .rk{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
@@ -594,9 +600,10 @@
         <div class="bt">≈75 streets renamed sever the address itself, so a destroyed or seized property &ldquo;no longer exists&rdquo;
           against the pre-war Ukrainian record — defeating compensation by erasing the name.</div></div>
     </div>
-    <p class="reveal" style="margin-top:1.6rem;font-family:var(--font-mono);font-size:12px;color:var(--muted)">
-      → The full pipeline — every legal instrument, three-tier sourcing, and the evidence still to be retrieved —
-      is mapped in the interactive <a href="dispossession-pipeline.html">Dispossession Pipeline exhibit</a>.</p>
+    <p class="reveal" style="margin-top:1.6rem;border-left:3px solid var(--stamp);padding-left:1rem;
+      font-family:var(--font-mono);font-size:13.5px;line-height:1.7;color:var(--paper-dim)">
+      <span style="color:var(--stamp)">→</span> The full pipeline — every legal instrument, three-tier sourcing, and the evidence still to be retrieved —
+      is mapped in the interactive <a href="dispossession-pipeline.html" style="color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)">Dispossession Pipeline exhibit</a>.</p>
   </div>
 </section>
 
@@ -630,8 +637,8 @@
       </div>
     </div>
   </div>
-  <p class="people-foot" style="margin-bottom:1.4rem">Neither is a local collaborator — both were career officials moved in from
-    mainland Russia to staff Mariupol&rsquo;s occupation institutions: a Tver magistrate handed a courtroom,
+  <p class="people-foot people-foot--lead">Neither is a local collaborator — both were <b>career officials moved in from
+    mainland Russia</b> to staff Mariupol&rsquo;s occupation institutions: a Tver magistrate handed a courtroom,
     a Lipetsk-oblast prosecutor handed a city.</p>
   <p class="people-foot">Named from this project&rsquo;s stakeholder-network graph (52 persons, sourced from
     court-case records and decree signatures) — see the full <a href="stakeholder-network.html">Stakeholder Network exhibit</a>.</p>
