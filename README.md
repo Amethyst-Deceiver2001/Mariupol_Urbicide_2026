@@ -22,8 +22,9 @@ demolition onto one developer,
 [the court docket](./docs/exhibits/case-study-IV-court-docket.html) — 28 judges, 2,666
 rulings, no named address), the deep-dive
 [Lenina 104–110 exhibit](./docs/exhibits/lenina-104-106-108-110-exhibit.html), an
-interactive [stakeholder network](./docs/exhibits/stakeholder-network.html), and an
-[about/methodology page](./docs/exhibits/about.html). Entry point:
+interactive [stakeholder network](./docs/exhibits/stakeholder-network.html), a
+[sources catalogue](./docs/exhibits/sources.html) of every source category behind the
+archive, and an [about/methodology page](./docs/exhibits/about.html). Entry point:
 [`docs/index.html`](./docs/index.html). Presentation rules in
 [`docs/exhibits/STYLE_GUIDE.md`](./docs/exhibits/STYLE_GUIDE.md).
 

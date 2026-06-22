@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sources — Mariupol Urbicide Project</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="Every category of source behind this archive — occupation court portals, registries, normative acts, developer and corporate-ownership records, Telegram, resale marketplaces, satellite imagery, and the international legal/journalistic frameworks used for context — with counts drawn from the project's own chain-of-custody log.">
+<meta property="og:title" content="Sources — Mariupol Urbicide Project">
+<meta property="og:description" content="Every category of source behind this archive, with counts drawn from the project's own chain-of-custody log.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.2rem,5vw,3.6rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.4rem,3.2vw,1.95rem);line-height:1.1;margin:0 0 .3rem}
+  h3{font-family:var(--font-display);font-weight:700;font-size:1.02rem;color:var(--paper-dim);margin:1.8rem 0 .6rem}
+  p{max-width:68ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 .8rem}
+  .lead{font-size:1.1rem;color:var(--paper);max-width:68ch}
+  .note{color:var(--muted);font-size:14.5px;max-width:68ch}
+  .mono{font-family:var(--font-mono)}
+
+  .hero{padding:clamp(2.6rem,7vw,4.6rem) 0 clamp(1.6rem,4vw,2.6rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2rem,5.5vw,3.3rem);line-height:1.04;margin:.4rem 0 1.2rem;max-width:22ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.85rem 1.1rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.55rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.gold{color:var(--stamp)}
+  .stat .l{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);margin-top:.45rem;display:block;line-height:1.4}
+
+  .toc{display:flex;flex-wrap:wrap;gap:.5rem .7rem;margin-top:1.6rem;font-family:var(--font-mono);font-size:11px}
+  .toc a{color:var(--muted);text-decoration:none;border:1px solid var(--rail);border-radius:2px;padding:.3rem .6rem;
+    text-transform:uppercase;letter-spacing:.06em}
+  .toc a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  table.src{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:.6rem}
+  table.src th,table.src td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.src th{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  table.src td:first-child{color:var(--paper);font-weight:700;min-width:160px}
+  table.src tbody tr:hover{background:var(--ink-2)}
+  table.src td.num{text-align:right;font-weight:700;white-space:nowrap}
+  table.src td.muted{color:var(--muted);font-size:11.5px;line-height:1.5}
+  table.src a.h{color:var(--stamp);word-break:break-all}
+
+  .pillbar{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
+  .pill{font-family:var(--font-mono);font-size:10.5px;border:1px solid var(--rail);border-radius:2px;
+    padding:.28rem .55rem;color:var(--muted)}
+  .pill b{color:var(--paper-dim);font-weight:700}
+
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:0 3px 3px 0;padding:1rem 1.2rem;margin-top:1.2rem;font-size:14.5px;color:var(--paper-dim);max-width:70ch}
+  .callout.red{border-left-color:var(--evidence)}
+
+  .src-list{margin:.6rem 0 0;padding:0;list-style:none}
+  .src-list li{padding:.5rem 0;border-bottom:1px solid var(--rail);display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:baseline}
+  .src-list .name{font-weight:700;color:var(--paper);min-width:220px}
+  .src-list .role{color:var(--muted);font-size:13.5px;flex:1}
+
+  footer{padding:2.4rem clamp(1rem,4vw,2.4rem) 3rem;font-family:var(--font-mono);font-size:11px;color:var(--muted);
+    border-top:1px solid var(--rail)}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Methodology &middot; <b>sources</b></span>
+  <span><a href="../index.html">&larr; project home</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier.html">master dossier</a>
+    &nbsp;&middot;&nbsp; <a href="about.html">about</a> &nbsp;&middot;&nbsp; <a href="stakeholder-network.html">stakeholder network</a></span>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <p class="sub">Methodology &middot; provenance</p>
+  <h1>Every source, catalogued.</h1>
+  <p class="lead">This page lists every distinct source behind the archive — occupation government
+    portals, developer and corporate-ownership records, Telegram, resale marketplaces, satellite
+    imagery providers, and the international legal/journalistic material used for context. Counts
+    below are pulled directly from this project&rsquo;s own chain-of-custody log — every artifact
+    is SHA-256 hashed and timestamped at capture, before any parsing — not assembled from memory.</p>
+  <div class="stat-row">
+    <div class="stat"><span class="n red">211,732</span><span class="l">hashed source artifacts in the raw store</span></div>
+    <div class="stat"><span class="n">47</span><span class="l">distinct hostnames/portals crawled</span></div>
+    <div class="stat"><span class="n gold">37</span><span class="l">distinct Telegram channels captured</span></div>
+    <div class="stat"><span class="n">11,521</span><span class="l">corroboration rows tying sources to properties</span></div>
+  </div>
+  <div class="toc">
+    <a href="#courts">Occupation courts</a><a href="#registry">Registry &amp; decrees</a>
+    <a href="#acts">Normative acts</a><a href="#federal">Federal trackers</a>
+    <a href="#corporate">Corporate &amp; developer</a><a href="#telegram">Telegram</a>
+    <a href="#resale">Resale marketplaces</a><a href="#geo">Satellite &amp; geospatial</a>
+    <a href="#video">Video</a><a href="#frameworks">Legal &amp; journalistic context</a>
+  </div>
+</header>
+
+<section id="courts">
+  <p class="eyebrow">01 &middot; Primary government sources</p>
+  <h2>Occupation court portals</h2>
+  <p>ГАС &laquo;Правосудие&raquo; (the Russian state judicial-records system), mirrored onto DNR
+    domains. Each case is a self-incriminating, dated lifecycle record: utility cut-off &rarr;
+    &ldquo;ownerless&rdquo; notice &rarr; inspection &rarr; designation &rarr; municipal-ownership
+    petition &rarr; transfer. <strong>This case type is now closed</strong> — ФКЗ-4 (15 Dec 2025)
+    abolished the court stage in favor of direct registry inclusion.</p>
+  <table class="src">
+    <tr><th>Court</th><th>Host</th><th>Captures</th><th>Role</th></tr>
+    <tr><td>Zhovtnevyi (Jовтневый) District Court</td><td class="mono">mar-zhovt&#8203;--dnr.sudrf.ru</td><td class="num">10,518</td><td class="muted">Largest of the four saturated Mariupol district dockets</td></tr>
+    <tr><td>Primorskyi District Court</td><td class="mono">mar-prim&#8203;--dnr.sudrf.ru</td><td class="num">1,520</td><td class="muted">Saturated docket</td></tr>
+    <tr><td>Ordzhonikidzevskyi District Court</td><td class="mono">mar-ordzh&#8203;--dnr.sudrf.ru</td><td class="num">416</td><td class="muted">Saturated docket</td></tr>
+    <tr><td>Illichivskyi District Court</td><td class="mono">mar-ilich&#8203;--dnr.sudrf.ru</td><td class="num">291</td><td class="muted">Saturated docket</td></tr>
+    <tr><td>2nd Cassation Court of General Jurisdiction</td><td class="mono">2kas.sudrf.ru</td><td class="num">1</td><td class="muted">Appeal-chain capture, Тро­янда-М demolition-challenge case study</td></tr>
+  </table>
+  <p class="note" style="margin-top:1rem">2,666 cases total across the four district dockets; 2,657 carry no street address on the docket card itself (see <a href="case-study-IV-court-docket.html">Case Study IV</a>).</p>
+</section>
+
+<section id="registry">
+  <p class="eyebrow">01 &middot; Primary government sources</p>
+  <h2>The ownerless-property registry &amp; municipal decrees</h2>
+  <p>The live front line since ФКЗ-4: direct registry inclusion has replaced the court stage ahead
+    of the 1 July 2026 re-registration deadline.</p>
+  <table class="src">
+    <tr><th>Source</th><th>Host</th><th>Captures</th><th>Role</th></tr>
+    <tr><td>Mariupol municipal gosuslugi portal</td><td class="mono">mariupol-r897.gosweb&#8203;.gosuslugi.ru</td><td class="num">332</td><td class="muted">12,948-entry &ldquo;ownerless&rdquo; registry, 968 decrees, housing-distribution lists</td></tr>
+  </table>
+</section>
+
+<section id="acts">
+  <p class="eyebrow">01 &middot; Primary government sources</p>
+  <h2>Normative acts &amp; official decrees</h2>
+  <table class="src">
+    <tr><th>Source</th><th>Host</th><th>Captures</th><th>Role</th></tr>
+    <tr><td>Official internet portal of legal information</td><td class="mono">publication.pravo.gov.ru</td><td class="num">802</td><td class="muted">Federal gazette — amendments, including the 15 Dec 2025 ФКЗ-4 package</td></tr>
+    <tr><td>Office of the head of the DNR (Denis Pushilin)</td><td class="mono">denis-pushilin.ru</td><td class="num">2,883</td><td class="muted">Decrees, orders, archive (2,894 PDFs recovered, incl. Указ &#8470;301)</td></tr>
+    <tr><td>DNR normative-acts portal</td><td class="mono">npa.dnronline.su / нпа.днронлайн.рф</td><td class="num">64</td><td class="muted">DNR/federal scaffolding instruments, Law 66-RZ</td></tr>
+  </table>
+</section>
+
+<section id="federal">
+  <p class="eyebrow">01 &middot; Primary government sources</p>
+  <h2>Federal damage, construction &amp; ownership trackers</h2>
+  <table class="src">
+    <tr><th>Source</th><th>Host</th><th>Captures</th><th>Role</th></tr>
+    <tr><td>наш.дом.рф (ЕИСЖС)</td><td class="mono">xn--80az8a.xn--d1aqf.xn--p1ai</td><td class="num">292</td><td class="muted">Federal Unified Information System of Housing Construction — 91-object new-build registry</td></tr>
+    <tr><td>MinStroy DNR demolition register</td><td class="mono">minstroy-dpr.gosuslugi.ru</td><td class="num">6</td><td class="muted">637-row CSV, 525 Mariupol buildings</td></tr>
+    <tr><td>EGRUL mirror</td><td class="mono">egrul.org</td><td class="num">10</td><td class="muted">Corporate-ownership lookups (nalog.ru is geoblocked); 17 developer INNs resolved</td></tr>
+  </table>
+  <p class="note" style="margin-top:1rem">Russian federal damage/reconstruction tracker (1,941 buildings) and the housing-queue/distribution lists were supplied as downloadable XLSX, not crawled live; both are hashed in the raw store under <span class="mono">damage_assessment_xlsx</span> / <span class="mono">housing_distribution_list</span>.</p>
+</section>
+
+<section id="corporate">
+  <p class="eyebrow">02 &middot; Corporate &amp; developer sources</p>
+  <h2>Developer, land-grant &amp; demand-side sites</h2>
+  <p>The reallocation end of the pipeline: companies receiving Mariupol land grants without
+    auction, and the marketing sites selling the resulting new-build apartments.</p>
+  <table class="src">
+    <tr><th>Site</th><th>Host</th><th>Captures</th><th>Identified entity</th></tr>
+    <tr><td>ВСК / vskmo.ru</td><td class="mono">vskmo.ru</td><td class="num">373</td><td class="muted">VSK &rarr; Олимпситистрой &rarr; Оборонспецстрой chain; ЖК Невский 1011</td></tr>
+    <tr><td>проектинвест.рф</td><td class="mono">проектинвест.рф</td><td class="num">101</td><td class="muted">ГК Проект Инвест (Voronezh) — candidate parent of ЖК Нахимовский/Зелинского zone</td></tr>
+    <tr><td>Мира-Полис</td><td class="mono">mira-polis.com</td><td class="num">101</td><td class="muted">Developer marketing site</td></tr>
+    <tr><td>Садовое кольцо</td><td class="mono">sadovoe-kolco.ru</td><td class="num">43</td><td class="muted">Developer marketing site</td></tr>
+    <tr><td>УСИ Мариуполь</td><td class="mono">usi-mariupol.ru</td><td class="num">37</td><td class="muted">Порфир / ЮгСтройИнвест (ИНН 9310009271); 3 demolish-rebuild matches</td></tr>
+    <tr><td>npa &amp; legal scaffolding portal (DNR-wide)</td><td class="mono">vertikal-ug.ru</td><td class="num">18</td><td class="muted">Developer marketing site</td></tr>
+    <tr><td>ЭВОЛДОМ</td><td class="mono">evoinfo.ru / evopartners.ru</td><td class="num">27</td><td class="muted">ЭВОЛДОМ-5 and sister developer entities receiving Mariupol land grants</td></tr>
+    <tr><td>МАР-С</td><td class="mono">mar-s.group</td><td class="num">17</td><td class="muted">ООО &laquo;СЗ ТЕМП&raquo; / &laquo;СЗ ТЕМП 80&raquo;</td></tr>
+    <tr><td>РСК ДНР</td><td class="mono">rskdnr.ru</td><td class="num">6</td><td class="muted">Developer/contractor site</td></tr>
+    <tr><td>Other single-hit developer/utility sites</td><td class="mono">sz-antares.ru, mariupol.ayax.ru, dnr.red, ркс-дв.рф, жк-ленинградский-квартал.рф, lazurnieberega.ru</td><td class="num">9</td><td class="muted">One-off marketing/utility leads, individually hashed</td></tr>
+  </table>
+</section>
+
+<section id="telegram">
+  <p class="eyebrow">03 &middot; Telegram</p>
+  <h2>Telegram</h2>
+  <p>~190,000 individually hashed captures across 37 distinct channels, split into two categories
+    with different publication rules.</p>
+
+  <h3>28 building-chat resident channels (~145,000 messages)</h3>
+  <p class="note">These are private or semi-private resident chat groups for specific Mariupol
+    apartment buildings — the project&rsquo;s primary-source intelligence on day-to-day occupation,
+    seizures, evictions, and demolition as residents experienced them. Per this project&rsquo;s
+    privacy rule, invite links to these private chats are <strong>not republished here</strong>;
+    each channel is documented internally against the property it covers
+    (<span class="mono">src/mariupol_seizures/chat_buildings.py</span>) and cited address-by-address
+    in the relevant case studies. A sample of the buildings covered:</p>
+  <div class="pillbar">
+    <span class="pill"><b>Stroiteley</b> 92, 152, 163, 166, 171, 175, 177</span>
+    <span class="pill"><b>pr. Lenina</b> 106, 133</span>
+    <span class="pill"><b>Nakhimova</b> &amp; Lavitskogo block</span>
+    <span class="pill"><b>Morskoy</b> 30, 36, 38, 48</span>
+    <span class="pill"><b>Olimpiyskaya</b> 71&ndash;79</span>
+    <span class="pill"><b>Azovstalskaya</b> 31</span>
+    <span class="pill"><b>Metallurgov</b> 89, 91</span>
+    <span class="pill"><b>Shevchenko</b> 74, 77, 79</span>
+    <span class="pill"><b>Kronshtadtskaya</b> block</span>
+    <span class="pill"><b>Mira</b> 111</span>
+    <span class="pill"><b>Mitropolitskaya</b> 102</span>
+    <span class="pill"><b>Bakhchivandzhi</b> 13&ndash;17</span>
+    <span class="pill"><b>Meotidy</b> 15, 20</span>
+    <span class="pill"><b>Kuprina</b> 33</span>
+  </div>
+
+  <h3>Public channels (news, journalism, real estate)</h3>
+  <table class="src">
+    <tr><th>Channel</th><th>Role</th></tr>
+    <tr><td><a href="https://t.me/mariupol_nash" class="h">t.me/mariupol_nash</a></td><td class="muted">&ldquo;Mariupol 24&rdquo; — occupation-aligned local news; source of the dated Nakhimova 82 video</td></tr>
+    <tr><td><a href="https://t.me/mariupol24tv" class="h">t.me/mariupol24tv</a></td><td class="muted">Local news</td></tr>
+    <tr><td><a href="https://t.me/nemariupol" class="h">t.me/nemariupol</a></td><td class="muted">Local community channel</td></tr>
+    <tr><td><a href="https://t.me/mariupolskiy_uezd" class="h">t.me/mariupolskiy_uezd</a></td><td class="muted">Local community channel</td></tr>
+    <tr><td><a href="https://t.me/mariupolRIP" class="h">t.me/mariupolRIP</a></td><td class="muted">Pre-war &rarr; post-war memorial/comparison channel</td></tr>
+    <tr><td><a href="https://t.me/olegtsarov" class="h">t.me/olegtsarov</a></td><td class="muted">Occupation-aligned official channel</td></tr>
+    <tr><td><a href="https://t.me/rieltorspivak" class="h">t.me/rieltorspivak</a></td><td class="muted">Resale/realtor listings, cross-referenced against the registry-to-resale case study</td></tr>
+    <tr><td>Mariupol_house, budivelnikiv, ssaniaworld</td><td class="muted">Smaller community/construction channels</td></tr>
+  </table>
+</section>
+
+<section id="resale">
+  <p class="eyebrow">04 &middot; Resale marketplaces</p>
+  <h2>Apartment resale marketplaces</h2>
+  <p>The demand-side endpoint: where seized/registry-stripped flats reappear for sale. Avito.ru
+    enforces a hard IP-level geoblock against non-Russian-routed traffic, so most Avito evidence
+    in this archive is screenshot capture provided directly by the project&rsquo;s Russia-routed
+    research rather than an automated crawl — each screenshot is still hashed on intake.</p>
+  <table class="src">
+    <tr><th>Site</th><th>Host</th><th>Role</th></tr>
+    <tr><td>ЦИАН</td><td class="mono">mariupol.cian.ru</td><td class="muted">65 automated captures</td></tr>
+    <tr><td>Avito</td><td class="mono">www.avito.ru</td><td class="muted">Geoblocked — screenshot-sourced; cross-platform confirmation for Stroiteley 108 &amp; Lenina 100</td></tr>
+    <tr><td>rgr.ru / Волна agency</td><td class="mono">rgr.ru</td><td class="muted">Agency listing, screenshot-sourced — Sechenova 54</td></tr>
+    <tr><td>МирКвартир, Аякс, ДомКлик</td><td class="mono">mariupol.mirkvartir.ru, mariupol.ayax.ru, domclick.ru</td><td class="muted">One-off automated captures</td></tr>
+  </table>
+</section>
+
+<section id="geo">
+  <p class="eyebrow">05 &middot; Satellite, geospatial &amp; archival imagery</p>
+  <h2>Satellite &amp; geospatial sources</h2>
+  <table class="src">
+    <tr><th>Source</th><th>Role</th></tr>
+    <tr><td><a href="https://unosat-maps.web.cern.ch/UA/CE20220223UKR/" class="h">UNOSAT</a> (UNITAR), via <a href="https://data.humdata.org/" class="h">HDX</a></td><td class="muted">Building-level damage assessment, 12 May 2022 — 594 corroboration rows, 30.3% hit rate against the spine</td></tr>
+    <tr><td>Sentinel-2 L2A, via AWS Earth Search STAC</td><td class="muted">Free, non-geoblocked imagery for siege-end-anchored before/after pairs (10 properties, 24 clips fetched)</td></tr>
+    <tr><td>Esri World Imagery Wayback</td><td class="muted">~0.81 m/px archival hi-res tiles, releases pinned by date (2022-02-24 pre-war, 2026-05-28 current) — both the live interactive map&rsquo;s satellite layers and the Nakhimova 82 case-study chips</td></tr>
+    <tr><td>pastvu.com</td><td class="muted">Archival street photography (e.g. pr. Nakhimova 82, 1991&ndash;92)</td></tr>
+    <tr><td>Yandex Panorama</td><td class="muted">2012 street-level imagery of pre-destruction buildings</td></tr>
+    <tr><td>OpenStreetMap / Nominatim &amp; Overpass</td><td class="muted">Geocoding backbone for the property spine</td></tr>
+    <tr><td>Google Maps / My Maps API</td><td class="muted">Supplementary geocoding</td></tr>
+  </table>
+</section>
+
+<section id="video">
+  <p class="eyebrow">06 &middot; Video</p>
+  <h2>YouTube &amp; video</h2>
+  <p>Used sparingly and verified address-by-address — this project&rsquo;s own review found
+    title/caption-based video matching unreliable, so every video citation in a case study was
+    manually confirmed against the full file, not the title alone.</p>
+  <table class="src">
+    <tr><th>Source</th><th>Role</th></tr>
+    <tr><td>YouTube</td><td class="muted">Occupation-published and resident-published footage, individually verified per video</td></tr>
+    <tr><td>Telegram-native video (t.me CDN)</td><td class="muted">e.g. the 13.07.2023 &ldquo;Nakhimova 82 на продаже&rdquo; clip — forensically captured, cropped, re-hashed before embedding</td></tr>
+  </table>
+</section>
+
+<section id="frameworks">
+  <p class="eyebrow">07 &middot; Legal &amp; journalistic context</p>
+  <h2>International legal frameworks &amp; reporting</h2>
+  <p>Not crawled sources — the legal and journalistic record this project's findings are mapped
+    against, and that supplied the original investigative lead.</p>
+  <ul class="src-list">
+    <li><span class="name">Human Rights Watch</span><span class="role">&ldquo;Ukraine: Russia Illegally Seizing Property in Occupied Areas,&rdquo; 26 May 2026 — ~8,116 cases across 25 occupation court sites, the originating lead for the court-docket stream</span></li>
+    <li><span class="name">UN OHCHR</span><span class="role">43rd periodic report on Ukraine, 9 Dec 2025</span></li>
+    <li><span class="name">Council of Europe — Register of Damage for Ukraine</span><span class="role"><a href="https://rd4u.coe.int" class="h">rd4u.coe.int</a> — RD4U claim categories (A3.1/A3.2/A3.3/A3.6) used to classify every property on the spine</span></li>
+    <li><span class="name">Rome Statute, International Criminal Court</span><span class="role">Art. 8(2)(b)(viii) — transfer of the occupier&rsquo;s own population; the criminal-accountability framework this archive is structured to feed</span></li>
+    <li><span class="name">BBC Verify, Kyiv Independent, Euromaidan Press, NV, CEPA, Mezha, Russian Life / Dossier Center, rg.ru, mrpl.news</span><span class="role">2025&ndash;2026 reporting consulted for context and cross-referencing; full citation list in <span class="mono">docs/reconceptualization_2026.md</span></span></li>
+  </ul>
+</section>
+
+<section id="note-end">
+  <p class="eyebrow">A note on completeness</p>
+  <div class="callout">
+    This list reflects the project&rsquo;s chain-of-custody log as of the most recent capture run.
+    It will grow as new sources are crawled — the live front line, as of mid-2026, is weekly
+    re-snapshotting of the ownerless registry ahead of the 1 July 2026 deadline. Nothing here is
+    presented as exhaustive of what exists, only of what has been captured, hashed, and is on file.
+  </div>
+  <div class="callout red">
+    Occupation government records (court rulings, registry entries, decrees) are catalogued here
+    as <strong>evidence of the act of seizure</strong>, never as valid title. Ukraine does not
+    recognize them; neither does this project.
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    Mariupol Urbicide Project &middot; <a href="../index.html">project home</a> &middot;
+    <a href="mariupol-master-dossier.html">master dossier</a> &middot; <a href="about.html">about &amp; methodology</a>
+  </div>
+</footer>
+
+</body>
+</html>
