@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mariupol Urbicide Project — The Archons' House</title>
+<title>The Master Dossier — Mariupol Urbicide Project</title>
 <meta name="description" content="The master dossier: the full evidentiary spine of Mariupol's documented property seizures — the actors, the mechanisms, and the case studies.">
 <meta property="og:title" content="Mariupol Urbicide Project — The Archons' House">
 <meta property="og:description" content="The master dossier: the full evidentiary spine of Mariupol's documented property seizures — the actors, the mechanisms, and the case studies.">
@@ -43,16 +43,18 @@
 
   /* ---------- progress + nav ---------- */
   .progress{position:fixed;top:0;left:0;height:2px;background:var(--evidence);width:0;z-index:90}
-  .topbar{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;justify-content:space-between;
-    align-items:center;padding:.55rem clamp(1.1rem,4vw,2.6rem);
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;flex-wrap:wrap;justify-content:space-between;
+    align-items:center;gap:.4rem 1rem;row-gap:6px;padding:.55rem clamp(1.1rem,4vw,2.6rem);
     background:rgba(10,12,15,0);border-bottom:1px solid transparent;transition:background .3s,border-color .3s;
     font-family:var(--font-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
   .topbar.solid{background:rgba(10,12,15,.92);backdrop-filter:blur(10px);border-color:var(--rail)}
+  .topbar>*{flex-shrink:1;min-width:0;white-space:nowrap}
   .topbar b{color:var(--paper-dim);font-weight:600}
   .topbar .cust{color:var(--stamp)}
-  .topbar .nav{display:flex;gap:1.1rem}
-  .topbar .nav a{color:var(--muted);border:0;letter-spacing:.1em}
+  .topbar .nav{display:flex;flex-wrap:wrap;gap:.7rem 1.1rem;flex-shrink:1;min-width:0}
+  .topbar .nav a{color:var(--muted);border:0;letter-spacing:.1em;white-space:nowrap}
   .topbar .nav a:hover{color:var(--paper)}
+  @media(max-width:1300px){.topbar .nav{font-size:9.5px;letter-spacing:.08em;gap:.55rem .85rem}}
   @media(max-width:720px){.topbar .nav{display:none}}
 
   /* ---------- hero ---------- */
@@ -1051,7 +1053,15 @@
   // reveal on scroll
   if(!reduce && "IntersectionObserver" in window){
     var rio = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); rio.unobserve(e.target); } });
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          var t=e.target;
+          t.style.willChange="opacity,transform";
+          t.classList.add("in");
+          t.addEventListener("transitionend", function(){ t.style.willChange=""; }, {once:true});
+          rio.unobserve(t);
+        }
+      });
     }, {rootMargin:"0px 0px -8% 0px", threshold:0.08});
     document.querySelectorAll(".reveal").forEach(function(el){ rio.observe(el); });
   } else {

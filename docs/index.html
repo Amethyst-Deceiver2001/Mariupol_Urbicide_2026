@@ -302,10 +302,12 @@
     el.textContent=days;
   }
   // count-up the headline figures once, on first view
+  var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function countUp(el){
     var to=parseInt(el.getAttribute('data-to'),10);
     if(!to){return;}
-    var dur=1100, t0=null;
+    if(reduceMotion){el.textContent=to.toLocaleString('en-US');return;}
+    var dur=700, t0=null;
     function step(ts){
       if(!t0)t0=ts;
       var p=Math.min(1,(ts-t0)/dur);

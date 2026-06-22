@@ -98,7 +98,12 @@
     from you &mdash; check a point&rsquo;s popup before citing it.</p>
 </div>
 
-<div id="map" role="img" aria-label="Interactive map of Mariupol showing documented case studies against the property-seizure spine."></div>
+<div class="map-shell" style="position:relative">
+  <div id="map" role="img" aria-label="Interactive map of Mariupol showing documented case studies against the property-seizure spine."></div>
+  <div id="map-skeleton" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:#0a0c0f;color:var(--muted);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;pointer-events:none;transition:opacity .4s;z-index:5">Loading map tiles&hellip;</div>
+</div>
 
 <div class="panel">
   <div class="legend">
@@ -142,6 +147,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function(){
+  L.Popup.mergeOptions({autoPanPaddingTopLeft:[20,90], autoPanPaddingBottomRight:[20,20]});
   var map = L.map('map', {scrollWheelZoom:true, attributionControl:true})
     .setView([47.095, 37.545], 12);
 
@@ -149,6 +155,12 @@
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd', maxZoom: 19
   }).addTo(map);
+
+  var skeleton = document.getElementById('map-skeleton');
+  function hideSkeleton(){ if(skeleton){ skeleton.style.opacity='0'; setTimeout(function(){ skeleton.style.display='none'; }, 400); } }
+  darkBase.once('load', hideSkeleton);
+  // safety net in case the tile 'load' event never fires (e.g. all tiles cached/instant)
+  setTimeout(hideSkeleton, 3000);
 
   var ESRI_ATTR = 'Imagery: <a href="https://livingatlas.arcgis.com/wayback/">Esri World Imagery Wayback</a> &mdash; Esri, Maxar, Earthstar Geographics';
   // Release numbers from waybackconfig.json — 10312 = "World Imagery (Wayback 2022-02-24)",
@@ -170,8 +182,18 @@
   function setBasemap(key){
     if(key === activeBase) return;
     map.removeLayer(basemaps[activeBase]);
-    basemaps[key].addTo(map);
+    var next = basemaps[key];
+    next.addTo(map);
     activeBase = key;
+    if(skeleton && skeleton.style.display !== 'none'){
+      skeleton.style.display='';
+      skeleton.style.opacity='1';
+      next.once('load', hideSkeleton);
+      setTimeout(hideSkeleton, 3000);
+    }
+    if(caseLayer.getLayers().length){
+      map.fitBounds(caseLayer.getBounds(), {padding:[20,20], maxZoom: map.getZoom()});
+    }
   }
   document.getElementById('base-dark').addEventListener('change', function(){ setBasemap('dark'); });
   document.getElementById('base-prewar').addEventListener('change', function(){ setBasemap('prewar'); });
