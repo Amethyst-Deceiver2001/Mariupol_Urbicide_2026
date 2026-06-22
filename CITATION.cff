@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use or reference this archive in research, journalism, or legal
+  filings, please cite it as below.
+title: >-
+  Mariupol Property Seizures: A Forensic, Source-Hashed Evidence Base of
+  Russian Occupation Property Appropriation
+type: dataset
+authors:
+  - name: "Mariupol Urbicide Project"
+    email: kovalever@gmail.com
+repository-code: >-
+  https://github.com/Amethyst-Deceiver2001/Mariupol_Urbicide_2026
+url: "https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/"
+abstract: >-
+  A forensic, source-hashed evidence base linking specific seized Mariupol
+  properties to specific unlawful seizure acts by named Russian occupation
+  actors, structured to feed restitution claims (Council of Europe Register
+  of Damage for Ukraine) and criminal accountability (Rome Statute art.
+  8(2)(b)(viii)). Built from occupation court records, the Mariupol
+  ownerless-property registry, municipal decrees, federal damage trackers,
+  demolition registers, land-grant orders, EGRUL corporate ownership data,
+  and a deep-mined building-chat Telegram corpus.
+keywords:
+  - ukraine
+  - mariupol
+  - human rights
+  - war crimes
+  - property restitution
+  - open source intelligence
+  - osint
+license: CC-BY-4.0
+date-released: "2026-06-21"

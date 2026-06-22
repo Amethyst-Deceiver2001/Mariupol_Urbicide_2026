@@ -1,0 +1,39 @@
+Mariupol Property-Seizure Documentation
+Copyright (c) 2026 the author(s)
+
+This work — including the case studies, exhibits, documentation, and the
+processed evidentiary dataset published under docs/ — is licensed under the
+Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+You are free to:
+  - Share — copy and redistribute the material in any medium or format
+  - Adapt — remix, transform, and build upon the material for any purpose,
+    including commercially
+
+Under the following terms:
+  - Attribution — You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made. You may do so in any
+    reasonable manner, but not in any way that suggests the licensor
+    endorses you or your use.
+
+No additional restrictions — You may not apply legal terms or technological
+measures that legally restrict others from doing anything the license
+permits.
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+---
+
+Notes specific to this project:
+
+- Lawful property owners who are living private individuals are minimized
+  or pseudonymized in all published material per CLAUDE.md's privacy rule.
+  Named occupation officials, judges, and beneficiaries acting in an
+  official capacity are not minimized and are documented for accountability
+  purposes.
+- The raw evidence store (data/) is not part of this repository and is not
+  covered by this license; it is retained privately under chain-of-custody
+  rules described in CLAUDE.md.
+- Source code under src/ and scripts/ is provided as part of this same
+  CC BY 4.0 license; if you require a separate permissive code license
+  (e.g. MIT) for reuse of the pipeline itself, contact the author.
