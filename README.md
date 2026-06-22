@@ -123,3 +123,12 @@ make verify
   beneficiaries in official capacity are in scope for accountability.
 - Occupation rulings are evidence of the *act of seizure*, never valid title.
 - Claude does not run the crawler — only the user, from their VPS.
+
+## Contact & support
+
+If you have a professional interest in this archive, you can get in touch with the
+author at [kovalever@gmail.com](mailto:kovalever@gmail.com). You can also donate to
+help keep this project alive and regularly updated, to
+[kovalever@googlemail.com](mailto:kovalever@googlemail.com) (PayPal), or, if you are
+US-based, to the Building Democracy Foundation, a 501(c)(3) registered NGO, via
+[PayPal](https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW).
