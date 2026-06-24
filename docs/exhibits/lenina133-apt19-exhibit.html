@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study V — The Sealed Door · Mariupol Urbicide Project</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="A 73-year-old resident, a power of attorney the administration won't recognize, and two printed 'SEALED' notices on an apartment door — the first dated, photographed enforcement act this project has documented following an 'ownerless' designation.">
+<meta property="og:title" content="Case Study V — The Sealed Door · Mariupol Urbicide Project">
+<meta property="og:description" content="A 73-year-old resident, a power of attorney the administration won't recognize, and two printed 'SEALED' notices on an apartment door — the first dated, photographed enforcement act this project has documented following an 'ownerless' designation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/lenina133-apt19-exhibit.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Study V — The Sealed Door">
+<meta name="twitter:description" content="A 73-year-old resident, a power of attorney the administration won't recognize, and a sealed apartment door — documented enforcement, not just paperwork.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root {
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --t1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+  .exhibit-bar{
+    position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+  .exhibit-bar .cust{color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:0}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.01em;
+    font-size:1.2rem;color:var(--paper);margin:0 0 .7rem}
+  p{margin:0 0 1.1rem;color:var(--paper-dim)}
+  .lead{font-size:1.1rem;color:var(--paper);max-width:62ch}
+  .mono{font-family:var(--font-mono)}
+  em{color:var(--paper);font-style:italic}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;margin:2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:120px}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);
+    letter-spacing:-.03em;line-height:.9;display:block;color:var(--paper)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);display:block;margin-top:.55rem;max-width:18ch;line-height:1.5}
+  .stat.hi .n{color:var(--evidence)}
+  .stat.stamp .n{color:var(--stamp)}
+
+  .fkz-strip{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;
+    background:rgba(205,64,48,.07);border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:3px;padding:.9rem 1.2rem;margin:1.8rem 0 0}
+  .fkz-strip .badge{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--evidence);white-space:nowrap}
+  .fkz-strip .body{font-family:var(--font-mono);font-size:12px;color:var(--paper-dim);line-height:1.6}
+  .fkz-strip .pivot{color:var(--paper);font-weight:700}
+
+  /* ── photo + notice panel ── */
+  .photo-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--rail);
+    border-radius:5px;overflow:hidden;margin-top:1rem}
+  .photo-cell{background:#000;position:relative;min-height:280px}
+  .photo-cell img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.04)}
+  .photo-cell .credit{position:absolute;left:0;right:0;bottom:0;padding:.55rem .8rem;
+    background:linear-gradient(transparent,rgba(6,8,11,.92));font-family:var(--font-mono);
+    font-size:9.5px;letter-spacing:.04em;color:var(--muted);line-height:1.5}
+  .notice-cell{background:var(--ink-2);padding:1.5rem 1.6rem;display:flex;flex-direction:column;justify-content:center}
+  .notice-kicker{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--evidence);margin-bottom:.8rem}
+  .notice-text{background:var(--ink-3);border:1px solid var(--rail-2);border-radius:3px;
+    padding:1rem 1.1rem;font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--paper-dim)}
+  .notice-text b{color:var(--paper)}
+  .notice-text .opechatano{color:var(--evidence);font-weight:700;letter-spacing:.08em}
+  .notice-translation{margin-top:.9rem;font-style:italic;font-family:var(--font-serif);font-size:.95rem;color:var(--paper);line-height:1.5}
+  .deadline-row{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+  .deadline-pill{font-family:var(--font-mono);font-size:11px;color:var(--ink);background:var(--evidence);
+    padding:.3rem .65rem;border-radius:3px;font-weight:700}
+  @media(max-width:760px){.photo-grid{grid-template-columns:1fr}.photo-cell{min-height:220px}}
+
+  /* ── testimony quotes ── */
+  .quote-stack{display:flex;flex-direction:column;gap:1.1rem;margin-top:1rem}
+  .tq{border-left:2px solid var(--stamp);padding:.4rem 0 .4rem 1.2rem;background:var(--ink-2);
+    border-radius:0 3px 3px 0;padding-right:1.2rem;padding-top:.9rem;padding-bottom:.9rem}
+  .tq .q{font-family:var(--font-serif);font-style:italic;color:var(--paper);font-size:1rem;line-height:1.55;margin-bottom:.5rem}
+  .tq .a{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);line-height:1.6}
+
+  /* ── what was already documented ── */
+  .onfile{background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--t1);
+    border-radius:4px;padding:1.3rem 1.5rem;margin-top:1rem}
+  .onfile ul{margin:0;padding-left:1.2rem}
+  .onfile li{font-size:.97rem;color:var(--paper-dim);line-height:1.7;margin-bottom:.5rem}
+  .onfile li b{color:var(--paper)}
+
+  /* ── photo strip (building lifecycle) ── */
+  .lifecycle-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rail);
+    border-radius:5px;overflow:hidden;margin-top:1.2rem}
+  .lc-cell{background:var(--ink);position:relative}
+  .lc-cell img{width:100%;height:230px;object-fit:cover;display:block;filter:contrast(1.04)}
+  .lc-cap{padding:.7rem .85rem;background:var(--ink-2)}
+  .lc-cap .lcd{font-family:var(--font-mono);font-size:10.5px;color:var(--stamp);letter-spacing:.06em;margin-bottom:.3rem}
+  .lc-cap .lct{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);line-height:1.55}
+  @media(max-width:820px){.lifecycle-strip{grid-template-columns:1fr}.lc-cell img{height:200px}}
+
+  /* ── chronology table ── */
+  .chrono{width:100%;border-collapse:collapse;margin-top:1.2rem;font-family:var(--font-mono);font-size:12px}
+  .chrono th{text-align:left;padding:.6rem .8rem;background:var(--ink-3);color:var(--stamp);
+    letter-spacing:.06em;text-transform:uppercase;font-size:10px;border-bottom:1px solid var(--rail-2)}
+  .chrono td{padding:.65rem .8rem;border-bottom:1px solid var(--rail);color:var(--paper-dim);vertical-align:top}
+  .chrono tr:last-child td{border-bottom:0}
+  .chrono td:first-child{color:var(--paper);white-space:nowrap;font-weight:600}
+
+
+  /* ── resolved-tension callout ── */
+  .gun{border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:2px;background:rgba(205,64,48,.06);padding:1rem 1.1rem;margin-top:1.2rem}
+  .gun .gk{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--evidence);margin-bottom:.5rem}
+  .gun .gv{font-size:.97rem;line-height:1.65;color:var(--paper-dim)}
+  .gun .gv strong{color:var(--paper)}
+
+  /* ── legal mapping ── */
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+  .map-badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
+    padding:.25rem .6rem;border-radius:3px;border:1px solid var(--rail-2);color:var(--paper-dim)}
+  .map-badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .map-badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+
+  /* ── provenance footer ── */
+  .prov{border-top:1px solid var(--rail);margin-top:1rem;padding-top:2rem}
+  .prov p{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--muted)}
+  .prov .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding-left:1rem;margin-top:1.2rem}
+  .prov details{margin-top:1.2rem}
+  .prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11px;color:var(--stamp);letter-spacing:.04em}
+  .prov table{width:100%;border-collapse:collapse;margin-top:1rem;font-family:var(--font-mono);font-size:11px}
+  .prov th{text-align:left;padding:.5rem .6rem;color:var(--stamp);border-bottom:1px solid var(--rail-2);letter-spacing:.04em}
+  .prov td{padding:.5rem .6rem;border-bottom:1px solid var(--rail);color:var(--muted)}
+
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  @media print{
+    :root{--ink:#fff;--ink-2:#fff;--ink-3:#f4f4f2;--paper:#111;--paper-dim:#222;
+      --muted:#555;--rail:#bbb;--rail-2:#999}
+    body{background:#fff;color:#111;font-size:10.5pt}
+    .exhibit-bar{position:static;background:#fff;border-color:#999;color:#444}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Exhibit B · Case Study V · <b>Registry designation &rarr; physical sealing</b></span>
+  <span><a href="../index.html">&larr; project home</a> &middot; <a href="mariupol-master-dossier.html">master dossier</a>
+    &middot; <a href="about.html">about</a> &middot; <a href="stakeholder-network.html">stakeholder network</a> &middot; <a href="sources.html">sources</a></span>
+  <span class="cust">Every artifact sourced from the original, hashed for the record</span>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== THESIS ===== -->
+  <section>
+    <p class="eyebrow">05 &middot; The registry, ground level &middot; prosp. Lenina (Myru), 133 &middot; Occupied Mariupol</p>
+    <h2>The registry entry was paperwork. This is what it looks like enforced.</h2>
+    <p class="lead">Every other case study in this dossier documents the seizure system
+      through decrees, registry exports, and resale listings — the paper trail.
+      This one documents the moment the paper trail reaches a door: two printed
+      &ldquo;SEALED&rdquo; notices, a handwritten vacate deadline, and a 73-year-old
+      woman who has lived in the apartment for years, holding a power of attorney
+      the administration will not recognize.</p>
+
+    <div class="fkz-strip">
+      <span class="badge">Power of attorney &middot; not recognized</span>
+      <span class="body">
+        The printed notice itself states only that the apartment is now
+        <span class="pivot">municipal property</span> and forbids entry. When the
+        resident asked why, officials told her — according to her own account —
+        that a <span class="pivot">2024 court ruling on &laquo;бесхозяйность&raquo;</span>
+        already settled the matter, even though the apartment can otherwise be
+        registered with Rosreestr until <span class="pivot">2028</span>.
+      </span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat hi"><span class="n">4</span><span class="l">apartments named in one post as facing the same eviction &mdash; 2, 19, 20, 33</span></div>
+      <div class="stat"><span class="n">73</span><span class="l">age of the resident sealed out of apt. 19, living there under her daughter&rsquo;s power of attorney</span></div>
+      <div class="stat stamp"><span class="n">2</span><span class="l">printed &laquo;ОПЕЧАТАНО&raquo; (sealed) notices, two different handwritten vacate dates</span></div>
+      <div class="stat"><span class="n">2024</span><span class="l">year of the court ruling officials cited verbally &mdash; sealing followed about 18 months later</span></div>
+      <div class="stat"><span class="n">2028</span><span class="l">statutory Rosreestr registration deadline, overridden here in practice</span></div>
+    </div>
+  </section>
+
+  <!-- ===== THE PHOTO + NOTICE ===== -->
+  <section>
+    <p class="eyebrow">The evidence &middot; 23 October 2025</p>
+    <h2>Two notices, two deadlines, one door</h2>
+    <p>Posted to a Russian-language, occupation-critical Telegram channel relaying
+      resident complaints, captured before any parsing or analysis, as is standard
+      for every Telegram-sourced artifact in this project. The photograph shows two
+      near-identical printed notices stacked on the same door, each carrying a
+      different handwritten vacate date — most likely either a re-posting after
+      the first deadline lapsed, or two separate sealed openings (door and
+      window or balcony) closed on different visits. Either reading places active
+      enforcement squarely in the week of 20&ndash;25 October 2025.</p>
+
+    <div class="photo-grid">
+      <div class="photo-cell">
+        <img src="assets/lenina133/sealed_door_apt19_oct2025.jpg" alt="Two printed 'ОПЕЧАТАНО' (sealed) notices on the door of проспект Ленина, 133, apartment 19, with handwritten vacate dates 22.10.2025 and 25.10.2025">
+        <span class="credit">prosp. Lenina, 133, apt. 19 &middot; photographed 23 Oct 2025</span>
+      </div>
+      <div class="notice-cell">
+        <p class="notice-kicker">Printed notice text (translated)</p>
+        <div class="notice-text">
+          Объект является муниципальной собственностью городского округа Мариуполь<br>
+          <b>пр. Ленина д. 133 кв. 19</b> [handwritten]<br>
+          <b>Освободить до 25.10.2025 / 22.10.2025</b> [handwritten, two notices]<br><br>
+          ВХОД СТРОГО ВОСПРЕЩЁН!<br>
+          <span class="opechatano">ОПЕЧАТАНО</span><br><br>
+          Без представителя собственника в лице Управления имущественных и
+          земельных отношений не вскрывать. Повреждение запорных устройств, дверей,
+          окон, инженерных систем объекта, а также несанкционированное проникновение
+          повлекут ответственность, в т.ч. статьями 139, 168 УК РФ.<br><br>
+          Тел.: +7 (949) 814-63-64
+        </div>
+        <p class="notice-translation">&ldquo;This property is the municipal property of Mariupol urban
+          district&hellip; Vacate by 25.10.2025 / 22.10.2025&hellip; ENTRY STRICTLY FORBIDDEN! SEALED. Do
+          not open without a representative of the Department of Property and Land Relations.
+          Damage&hellip; or unauthorized entry will result in liability, including under Articles 139
+          and 168 of the Russian Criminal Code.&rdquo;</p>
+        <div class="deadline-row">
+          <span class="deadline-pill">Notice 1: vacate by 22.10.2025</span>
+          <span class="deadline-pill">Notice 2: vacate by 25.10.2025</span>
+        </div>
+        <p style="margin-top:1rem;font-size:.92rem">Note what the notice does <em>not</em> say: no case
+          number, no ruling date, no reference to a court at all. The 2024 ruling is something
+          officials told the resident in person, not anything printed here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONY ===== -->
+  <section>
+    <p class="eyebrow">Testimony &middot; same post, same channel</p>
+    <h2>&ldquo;They sealed the apartment and asked us to leave.&rdquo;</h2>
+    <p>The post that carries the photograph also quotes a subscriber&rsquo;s first-person
+      account, and frames apartment 19 as one of four in the same building facing
+      the same process — apartments 2, 19, 20, and 33, all said to have court
+      rulings dated to 2024.</p>
+
+    <div class="quote-stack">
+      <div class="tq">
+        <p class="q">&ldquo;Court [rulings] for apartments 2, 19, 20, 33 in the building at Lenin
+          Avenue 133 already happened back in 2024. Some owners didn&rsquo;t manage to register
+          with Rosreestr in time, some couldn&rsquo;t return from Belarus, others didn&rsquo;t manage
+          to complete inheritance paperwork because of queues and notary delays. And now people
+          WITH RESIDENCY REGISTRATION are being smoked out of their apartments.&rdquo;</p>
+        <p class="a">&mdash; post body, 23 Oct 2025</p>
+      </div>
+      <div class="tq">
+        <p class="q">&ldquo;We have an apartment on the list too. Mom lives there and is
+          registered, but the owner is in Belarus. There&rsquo;s a power of attorney, but they
+          don&rsquo;t take that into account. They sealed the apartment and asked [us] to leave.
+          A 73-year-old mother lives in the apartment. All utilities are paid, and every
+          utility company has agreements on file under the power of attorney&hellip; By law the
+          apartment can be registered with Rosreestr up until 2028. The administration said
+          there was a court ruling on бесхоз [ownerlessness] in 2024 and it belongs to the
+          municipality.&rdquo;</p>
+        <p class="a">&mdash; quoted subscriber, apartment 19, specifically</p>
+      </div>
+      <div class="tq">
+        <p class="q">&ldquo;In the same building 133 on Lenin Avenue, people live in apartments
+          2, 19, 20, 33. All of them are directly connected to the owners, but all were told to
+          vacate. This is bureaucratic lawlessness.&rdquo;</p>
+        <p class="a">&mdash; post body, closing line</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.4rem;font-size:.92rem">This is not a single, unverifiable post.
+      The same four apartments &mdash; 2, 19, 20, 33 &mdash; and the same 2024 timing are
+      independently reported by Ukrainian outlets citing <span title="Петро Андрющенко">Petro
+      Andryushchenko</span>, head of Mariupol&rsquo;s Center for Studying Occupation, who
+      describes the practice as &ldquo;direct raiding under the cover of pseudo-administration.&rdquo;
+      One of those reports separately names a door-to-door inventory under way at
+      <b>ul. Chornomorska, 10</b> &mdash; the same address flagged as an open lead below,
+      now corroborated from an entirely separate source.</p>
+  </section>
+
+  <!-- ===== WHAT WAS ALREADY DOCUMENTED ===== -->
+  <section>
+    <p class="eyebrow">The building</p>
+    <h2>This wasn&rsquo;t a fresh discovery. The building was already documented.</h2>
+    <p>What makes this case study possible is that the photograph and testimony name
+      a building, an apartment number, and an administrative designation this project
+      had already independently documented — allowing the new material to corroborate
+      an existing record rather than stand as a stray, unverifiable claim.</p>
+
+    <div class="onfile">
+      <ul>
+        <li><b>Five apartments</b> already on the occupation&rsquo;s &ldquo;ownerless&rdquo; registry
+          at this address: <b>2, 9, 14, 15, 19</b>.</li>
+        <li><b>Satellite damage assessment</b> (UNOSAT): Moderate Damage recorded as of
+          12 May 2022, high-confidence match to this building.</li>
+        <li><b>Russian federal damage/reconstruction tracker:</b> lists this building at
+          <b>100% destruction</b>, marked for full demolition and reconstruction — see the
+          resolved tension below.</li>
+        <li>Pre-war address <b title="просп. Миру, 133">prosp. Myru, 133</b> &rarr;
+          occupation address <b title="проспект Ленина, 133">prosp. Lenina, 133</b> —
+          renamed, the same toponymy pattern documented across this dossier.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== THE "100% DESTRUCTION" RESOLUTION ===== -->
+  <section>
+    <p class="eyebrow">Resolved tension &middot; cross-checked against the building&rsquo;s own resident chat</p>
+    <h2>The federal tracker says &ldquo;100% destroyed.&rdquo; The residents&rsquo; own photos say otherwise.</h2>
+    <p>A 73-year-old resident living in a building the occupation&rsquo;s own federal tracker
+      lists as 100% destroyed and slated for full reconstruction is, on its face, a
+      contradiction. A residents&rsquo; Telegram chat for this exact building — running since
+      November 2022 — resolves it, and supplies dated photographs of its own.</p>
+
+    <div class="lifecycle-strip">
+      <div class="lc-cell">
+        <img src="assets/lenina133/reglazing_25nov2022.jpg" alt="Fire-damaged balcony side of the building at prosp. Lenina 133, photographed 25 November 2022, showing extensive but non-collapse siege damage">
+        <div class="lc-cap"><div class="lcd">25 Nov 2022</div><div class="lct">Fire-damaged balcony side. Severe but non-collapse siege damage — the building is standing.</div></div>
+      </div>
+      <div class="lc-cell">
+        <img src="assets/lenina133/passport_sign_09dec2022.jpg" alt="An official project-information sign ('ПАСПОРТ ОБЪЕКТА') mounted on the still-standing, fire-scarred facade of prosp. Lenina 133, listing builder, contractor, floor area, and a construction timeframe under the heading 'СТРОИТЕЛЬСТВО' (construction) — photographed 9 December 2022">
+        <div class="lc-cap"><div class="lcd">9 Dec 2022</div><div class="lct">An official project sign goes up &mdash; builder, contractor, floor count, a construction timeframe. It says &ldquo;construction,&rdquo; not demolition; residents argued for weeks over what that meant.</div></div>
+      </div>
+      <div class="lc-cell">
+        <img src="assets/lenina133/repaired_facade_10dec2022.jpg" alt="The same facade at prosp. Lenina 133, repaired with new windows and a renewed entrance canopy, photographed 10 December 2022 — one day after the project sign was posted" loading="lazy">
+        <div class="lc-cap"><div class="lcd">10 Dec 2022</div><div class="lct">The same facade, repaired — new windows, a renewed entrance canopy. One day after the sign went up.</div></div>
+      </div>
+    </div>
+
+    <table class="chrono">
+      <tr><th>Date</th><th>Evidence</th></tr>
+      <tr><td>9 May 2022</td><td>Building standing intact (satellite imagery).</td></tr>
+      <tr><td>Spring 2022</td><td>Severe fire damage to part of the facade and balconies.</td></tr>
+      <tr><td>21&ndash;28 Nov 2022</td><td>Resident chat opens — &ldquo;Welcome home!!!&rdquo;; temporary roof patches, building-wide window replacement, electrical and plumbing restored by an outside repair-fund contractor.</td></tr>
+      <tr><td>9 Dec 2022</td><td>An official project-information sign is posted, listing builder, contractor, area, floor count, and a construction timeframe under the heading &ldquo;construction.&rdquo; It does not use the word &ldquo;demolition.&rdquo; Residents immediately ask whether it means new construction or repair — &ldquo;two very different things.&rdquo;</td></tr>
+      <tr><td>21 Dec 2022</td><td>Residents conclude the sign really does say &ldquo;construction,&rdquo; and allege an outside commission had separately cited weak floor slabs — with no resident meeting or notice beforehand.</td></tr>
+      <tr><td>2022&ndash;2024</td><td>A two-year contractor &ldquo;restoration&rdquo; effort runs, contested by residents throughout on quality and safety grounds — see below.</td></tr>
+      <tr><td>Sep 2024</td><td>Restoration work formally halted: cracks found in load-bearing basement walls, no approved project, no funding. Monitoring sensors installed on the cracks.</td></tr>
+      <tr><td>Oct 2025</td><td>Individual apartments sealed as &laquo;бесхоз&raquo; one at a time, on the separate ownerless-registry track, regardless of the unresolved structural question.</td></tr>
+    </table>
+
+    <div class="gun">
+      <p class="gk">What this means</p>
+      <p class="gv">The federal tracker&rsquo;s &ldquo;100% destruction&rdquo; entry is real, but it
+        records a <strong>plan</strong>, not a built fact: residents document reoccupation and
+        repair both before <em>and</em> after the sign was posted, the same structure still
+        stands today, and the occupation pursued <strong>individual-apartment &laquo;ownerless&raquo;
+        seizure instead of the demolition the tracker anticipated</strong>. Worth being precise
+        about what is and isn&rsquo;t on file: there is no numbered demolition decree for this
+        building in either of the project&rsquo;s demolition-order datasets, and the sign itself
+        &mdash; despite being read by residents at the time as possibly meaning new construction
+        &mdash; only states project metadata (builder, contractor, timeframe) under a generic
+        &ldquo;construction&rdquo; heading; it never mentions demolition. The only place &ldquo;under
+        demolition&rdquo;-grade language appears is in residents&rsquo; later account of a verbal,
+        unminuted assessment from an outside commission (see below) — not in anything printed or
+        numbered. A demolition the tracker recorded as planned never visibly happened; a
+        flat-by-flat seizure proceeded instead, on an unrelated track.</p>
+    </div>
+  </section>
+
+  <!-- ===== THE REPAIR ITSELF ===== -->
+  <section>
+    <p class="eyebrow">The same resident chat &middot; Dec 2022 &ndash; Oct 2024</p>
+    <h2>Two years of &ldquo;restoration,&rdquo; then a halt &mdash; over the same defect a commission had flagged at the start</h2>
+    <p>The sign said &ldquo;construction.&rdquo; What residents got, and documented as it
+      happened, was a contested, multi-year repair effort that several agencies described
+      to them in three different and conflicting ways &mdash; and that the building&rsquo;s own
+      paper trail eventually called unsafe.</p>
+
+    <div class="quote-stack">
+      <div class="tq">
+        <p class="q">&ldquo;Apartments 25, 27, 31, 42 &mdash; the foam sealing is bad, this isn&rsquo;t
+          proper insulation, it&rsquo;s a botch job!!!&rdquo;</p>
+        <p class="a">&mdash; resident, 2 Dec 2022, on the contractor&rsquo;s window/door work</p>
+      </div>
+      <div class="tq">
+        <p class="q">&ldquo;If you express dissatisfaction in the &lsquo;RKS-NR&rsquo; group chat&hellip;
+          you get blocked&hellip; that&rsquo;s how that group&rsquo;s admins deal with people who tell
+          the truth about substandard restoration of residents&rsquo; housing.&rdquo;</p>
+        <p class="a">&mdash; resident, 24 Aug 2023</p>
+      </div>
+      <div class="tq">
+        <p class="q">&ldquo;Such a crack in the pipe inside the basement wall&hellip; the basement was
+          dry before the contractor&rsquo;s work began, and this is the condition it was handed
+          back to us in once the restoration work was &lsquo;finished.&rsquo;&rdquo;</p>
+        <p class="a">&mdash; resident, 8 Nov 2023</p>
+      </div>
+    </div>
+
+    <p>By the building&rsquo;s own correspondence, three different agencies gave three different
+      answers about what was even happening to it: <span title="Министерство строительства ДНР">DNR
+      Minstroy</span> told residents, in autumn 2022, that capital repair was planned. The
+      sign three months later said &ldquo;construction.&rdquo; A later letter from
+      <span title="Государственное бюджетное учреждение Московской области «Управление технического надзора капитального ремонта»">GBU MO UTNKR</span>,
+      the Moscow-region technical-oversight body now involved, said only that the thermal
+      envelope had been closed and the building was being used as temporary group housing.</p>
+
+    <p>Residents separately allege that before the contractor &mdash;
+      <span title="МК ГРУПП">MK Group</span>, working for the
+      <span title="Фонд капитального ремонта Московской области">Moscow Oblast Capital Repair
+      Fund (FKRMO)</span> &mdash; took on the restoration work, an inspecting commission from
+      Moscow had already told them the floor slabs were weak and the building qualified for
+      <b>hazard category &ldquo;a&rdquo;</b> &mdash; the same category used for demolition
+      candidates. No resident meeting or formal notice preceded the work starting anyway.
+      Project leads named in the chat rotated repeatedly over the next two years &mdash;
+      <span title="Татаренко В.">Tatarenko V.</span>, then
+      <span title="Пономарев О.">Ponomarev O.</span>, then Belitsky, then Burlakov.</p>
+
+    <p>The work ran for roughly two years under that team, with residents documenting balcony
+      doors that wouldn&rsquo;t open in 40&deg;C heat, a non-functioning elevator, a basement
+      flooded for over six months, and recurring sewage problems. In <b>September 2024</b>, the
+      work was formally halted: cracks were found in load-bearing basement walls, monitoring
+      sensors were installed, and residents were told there was no approved project and no
+      funding to continue. One resident pointed out that the diagnostic core-sampling used to
+      assess the structure was reportedly done at the <em>end</em> of the two years of work
+      rather than at the start &mdash; the reverse of normal practice, where an inspection
+      precedes the repair it is meant to inform.</p>
+
+    <p style="font-size:.92rem">One resident, writing on 5 July 2024, described the conditions
+      as unlivable and said she believed the stress of them had contributed to a family
+      member&rsquo;s death months earlier &mdash; a connection this project has no way to verify
+      independently. It is included here only because it conveys how strongly at least one
+      resident experienced the two years described above, not as a verified causal claim.</p>
+
+    <div class="gun">
+      <p class="gk">Why this matters for the case</p>
+      <p class="gv">This building was, by its own paperwork, declared structurally hazardous
+        &mdash; a demolition-candidate category &mdash; in the middle of a two-year repair effort
+        that proceeded regardless, and was eventually halted for the very defect a commission
+        had flagged before it began. None of that affected the timeline of the &laquo;ownerless&raquo;
+        registry process: apartments 2, 19, 20, and 33 were run through a 2024 court ruling and
+        physically sealed in October 2025 on a track that never references the structural
+        question at all. The repair track and the seizure track ran in parallel, answerable to
+        different agencies, and never had to reconcile with each other &mdash; which is exactly
+        how a resident with a valid power of attorney and paid utility bills ends up sealed out
+        of a building no one can say, on the record, is actually unsafe to occupy.</p>
+    </div>
+  </section>
+
+
+  <!-- ===== LEGAL MAPPING ===== -->
+  <section>
+    <p class="eyebrow">Accountability endpoints</p>
+    <h2>From a registry line to a sealed door: the gap this case study closes</h2>
+    <p>Every other &ldquo;ownerless&rdquo; designation this project has documented is a paper
+      record — an administrative act with no further trace of consequence. This is the first
+      time the project can show, with a date and a photograph, what that paper record looks
+      like once it is physically enforced against a resident who is still living there. The
+      statutory basis for that paper record is
+      <span title="Закон ДНР № 66-РЗ от 21.03.2024 «Об особенностях выявления, использования и признания права на бесхозяйное недвижимое имущество»">DNR Law No. 66-RZ (21 March 2024)</span>,
+      &ldquo;On the specifics of identifying, using, and recognizing rights to ownerless real
+      property&rdquo; — the printed notice on this door cites none of this; it states only
+      that the apartment is municipal property.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+      <div style="background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--stamp);border-radius:3px;padding:1.1rem 1.2rem">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp);margin:0 0 .8rem">CoE RD4U &middot; Restitution</p>
+        <div class="badges">
+          <span class="map-badge rd4u">A3.6 &mdash; loss of access to property in occupied territory (now physically enforced, not just designated)</span>
+        </div>
+      </div>
+      <div style="background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--evidence);border-radius:3px;padding:1.1rem 1.2rem">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--evidence);margin:0 0 .8rem">Rome Statute &middot; Criminal</p>
+        <div class="badges">
+          <span class="map-badge rome">8(2)(a)(iv) &mdash; unlawful appropriation</span>
+          <span class="map-badge rome">Art. 28 &mdash; command responsibility (the executing property authority)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROVENANCE ===== -->
+  <footer class="prov">
+    <p>Every artifact behind this case study — the post, the sealing photograph, and the
+      three resident-chat photographs above — was captured verbatim from the original,
+      hashed, and timestamped before any parsing, under this project&rsquo;s standard
+      chain-of-custody practice.</p>
+    <details>
+      <summary>Full source catalogue &amp; hashes</summary>
+      <table>
+        <tr><th>Artifact</th><th>SHA-256</th><th>Captured</th></tr>
+        <tr><td>Post (Telegram, &laquo;ssaniaworld&raquo; channel, 23 Oct 2025)</td><td>01adb154&hellip;e80b49</td><td>2026-06-13</td></tr>
+        <tr><td>Photo — two &laquo;ОПЕЧАТАНО&raquo; notices</td><td>8b354c87&hellip;07f6ae7</td><td>2026-06-13</td></tr>
+        <tr><td>Photo — fire damage, 25 Nov 2022</td><td>data/raw, sha indexed under @Lenina133/51 media</td><td>2026-06-13</td></tr>
+        <tr><td>Photo — project-information sign, 9 Dec 2022</td><td>data/raw, sha indexed under @Lenina133/91 media</td><td>2026-06-13</td></tr>
+        <tr><td>Photo — repaired facade, 10 Dec 2022</td><td>data/raw, sha indexed under @Lenina133/99 media</td><td>2026-06-13</td></tr>
+        <tr><td colspan="3" style="padding-top:.6rem;color:var(--paper-dim);font-style:italic">External corroboration (not project-captured; cited for context, checked 2026-06-24)</td></tr>
+        <tr><td>Resident quality-of-repair complaints, 9 messages</td><td>@Lenina133 chat, msgs 70, 298, 341, 528, 533, 561, 578, 583, 627</td><td>2022-12-02 &ndash; 2024-10-05</td></tr>
+        <tr><td>Independent report naming apts. 2/19/20/33 and Chornomorska 10</td><td>tribun.com.ua, comments.ua (citing Petro Andryushchenko)</td><td>checked 2026-06-24</td></tr>
+        <tr><td>DNR Law No. 66-RZ + scale context (~600 decisions in effect, Apr 2025)</td><td>verstka.media (citing Oleg Morgun)</td><td>checked 2026-06-24</td></tr>
+      </table>
+    </details>
+    <p class="warn">As with all Telegram-sourced material, this is primary-source dated
+      photography plus first-person testimony — not an independently audited fact. It
+      corroborates, rather than stands alone, because it directly names a building,
+      apartment, and administrative designation already independently documented by this
+      project. The printed notice is evidence of the seizure system in action, not valid
+      title; Ukraine does not recognize it. The 73-year-old resident named in the testimony
+      is a living private individual and is referred to only by age and relationship in
+      this exhibit, consistent with this project&rsquo;s privacy rules — her identity is not
+      published.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
