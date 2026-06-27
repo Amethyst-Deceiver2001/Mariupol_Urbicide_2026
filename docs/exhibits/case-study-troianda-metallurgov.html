@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Metallurgov 47: The Residents Who Fought the Seizure in the Occupier's Own Courts</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="Sixty residents of a nine-story building on Metallurgov Avenue in occupied Mariupol fought their home's seizure through three levels of Russian courts and lost each time — and the losing record is the most detailed account of the seizure that exists, including a demolition contract dated two years after the building was already rubble.">
+<meta property="og:title" content="Case Study — Metallurgov 47: The Residents Who Fought the Seizure in the Occupier's Own Courts">
+<meta property="og:description" content="Three courts, three losses, one backdated demolition contract: how the occupation's own paperwork documents the demolish-and-resell playbook while denying the residents everything.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/case-study-troianda-metallurgov.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Study — Metallurgov 47: The Residents Who Fought the Seizure in the Occupier's Own Courts">
+<meta name="twitter:description" content="Three courts, three losses, one backdated demolition contract: how the occupation's own paperwork documents the demolish-and-resell playbook while denying the residents everything.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{max-width:64ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  .lead{font-size:1.15rem;color:var(--paper);max-width:64ch}
+  .mono{font-family:var(--font-mono)}
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.6rem;display:block;line-height:1.6;max-width:70ch}
+
+  .hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,5vw,3.5rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.1rem,6vw,3.9rem);line-height:1.02;margin:.4rem 0 1.4rem;max-width:22ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2.2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.blue{color:var(--s1)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:.5rem;display:block;line-height:1.4}
+
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+  .badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;border:1px solid var(--rail);border-radius:2px;
+    padding:.32rem .55rem;color:var(--muted);white-space:nowrap}
+  .badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .badge.gap{background:var(--evidence);color:var(--ink);border-color:var(--evidence);font-weight:800}
+
+  table.data{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:1.2rem}
+  table.data th,table.data td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.data th{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  table.data td:first-child{color:var(--paper);font-weight:700}
+  table.data tbody tr:hover{background:var(--ink-2)}
+  table.data td.muted{color:var(--muted)}
+  table.data td .lose{color:var(--evidence);font-weight:700}
+
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1.8rem 0 0;font-family:var(--font-mono)}
+  .chain .step{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.7rem .9rem;flex:1;min-width:150px}
+  .chain .step .t{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .chain .step .v{font-size:12.5px;color:var(--paper-dim);margin-top:.35rem;line-height:1.4}
+  .chain .step.red{border-left:3px solid var(--evidence)}
+  .chain .step.stamp{border-left:3px solid var(--stamp)}
+  .chain .step.blue{border-left:3px solid var(--s1)}
+  .chain .arrow{align-self:center;color:var(--muted);font-family:var(--font-serif)}
+
+  .timeline{margin:1.8rem 0 0;border-left:2px solid var(--rail);padding-left:1.3rem;display:grid;gap:1rem}
+  .tl-ev{position:relative}
+  .tl-ev::before{content:"";position:absolute;left:-1.62rem;top:.3rem;width:8px;height:8px;border-radius:50%;background:var(--rail-2)}
+  .tl-ev.mark::before{background:var(--stamp)}
+  .tl-ev.bad::before{background:var(--evidence)}
+  .tl-ev .d{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted)}
+  .tl-ev .e{font-size:15px;color:var(--paper-dim);margin-top:.15rem}
+  .tl-ev .e b{color:var(--paper)}
+
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.6rem 0;max-width:72ch}
+  .callout.hot{border-left-color:var(--evidence)}
+  .callout .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
+  .callout.hot .h{color:var(--evidence)}
+  .callout p{margin:0;font-size:15.5px}
+
+  .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding:.2rem 0 .2rem 1rem;margin:1.4rem 0;max-width:66ch}
+
+  .figcap{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.6rem 0 0;max-width:72ch}
+
+  /* ---------- figures: satellite triptych + panorama embed ---------- */
+  figure{margin:1.8rem 0 .4rem}
+  .trip{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .trip .cell{position:relative;background:var(--ink-2);border:1px solid var(--rail);overflow:hidden;aspect-ratio:1/2}
+  .trip .cell img{width:100%;height:100%;object-fit:cover;display:block}
+  .trip .cell .tag{position:absolute;left:0;top:0;font-family:var(--font-mono);
+    font-size:10px;letter-spacing:.06em;background:rgba(8,10,13,.82);color:var(--paper-dim);
+    padding:.3rem .5rem;border-bottom-right-radius:3px}
+  .trip .cell.bad .tag{color:var(--evidence)}
+  .embed{position:relative;border:1px solid var(--rail);background:var(--ink-2);border-radius:3px;overflow:hidden}
+  .embed iframe{display:block;width:100%;height:420px;border:0}
+
+  /* ---------- profile cards (named officials, full ФИО visible) ---------- */
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.6rem 0 .4rem}
+  .who .card{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;padding:1rem 1.1rem}
+  .who .card .nm{font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--paper);line-height:1.2}
+  .who .card .fio{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);margin-top:.2rem;display:block}
+  .who .card .ro{font-size:13.5px;color:var(--paper-dim);margin-top:.55rem;line-height:1.5}
+
+  /* ---------- transliteration (click-to-reveal original Cyrillic) ---------- */
+  .xlit{position:relative;cursor:help;border-bottom:1px dotted var(--rail-2);white-space:nowrap}
+  .xlit:hover,.xlit.open{border-bottom-color:var(--stamp)}
+  .xlit .pop{position:absolute;left:0;bottom:calc(100% + 6px);z-index:30;
+    display:none;white-space:nowrap;background:var(--ink-3);
+    border:1px solid var(--stamp-dim);border-radius:3px;
+    padding:.35rem .6rem;font-family:var(--font-serif);font-size:13px;
+    color:var(--paper);box-shadow:0 6px 18px rgba(0,0,0,.4)}
+  .xlit .pop::after{content:"";position:absolute;left:10px;top:100%;
+    border:5px solid transparent;border-top-color:var(--stamp-dim)}
+  .xlit.open .pop{display:block}
+  .xlit.wide .pop{white-space:normal;max-width:280px}
+  .xlit.wide{white-space:normal}
+  .pop-line{display:block;margin:.15rem 0;font-size:12.5px}
+  .pop-line b{color:var(--stamp);font-weight:700;font-size:10.5px;
+    letter-spacing:.04em;text-transform:uppercase;margin-right:.35rem}
+
+  details.prov{margin-top:1rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--stamp);padding:.4rem 0}
+  .srclist{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.9rem}
+  .srclist li{border-left:2px solid var(--rail);padding-left:1rem}
+  .srclist .ty{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
+  .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
+  .srclist .ti b{color:var(--paper)}
+
+  @media(max-width:680px){
+    .trip{grid-template-columns:1fr}
+    .who{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Case Study &middot; <b>Metallurgov 47</b> &middot; the residents who fought back</span>
+  <span><a href="../index.html">&larr; project home</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier.html">master dossier</a>
+    &nbsp;&middot;&nbsp; <a href="case-study-IV-court-docket.html">court docket</a> &nbsp;&middot;&nbsp; <a href="about.html">about</a> &middot; <a href="sources.html">sources</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="sub">Case Study &middot; one building, three courts &middot; occupied Mariupol</div>
+    <div class="eyebrow">Special proceeding &rarr; appeal &rarr; federal cassation</div>
+    <h1>They fought the seizure in the occupier&rsquo;s own courts. They lost three times.</h1>
+    <p class="lead">Sixty residents of a nine-story building on
+      <span class="xlit wide" tabindex="0">Metallurgov Avenue<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>проспект Металургів</span><span class="pop-line"><b>Occupation (RU)</b>проспект Металлургов</span></span></span>
+      spent nearly two years losing the same case at three levels of Russian courts. The
+      losing is the point. To deny them, the courts had to enter into the record the entire
+      administrative sequence that took their homes &mdash; and that record now contains a
+      demolition contract dated <b>two years after</b> the building was already rubble. A
+      court file is harder to dismiss as activist reconstruction when the occupier wrote it.</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n">60</span><span class="l">residents filed<br>the collective claim</span></div>
+      <div class="stat"><span class="n red">3 / 3</span><span class="l">courts ruled<br>against them</span></div>
+      <div class="stat"><span class="n">22</span><span class="l">of 60 had compensation<br>approved &mdash; 38 had not</span></div>
+      <div class="stat"><span class="n red">~103M&nbsp;&#8381;</span><span class="l">demolition contract dated<br>2 yrs after the demolition</span></div>
+      <div class="stat"><span class="n blue">45k vs 53k</span><span class="l">comp rate vs market floor<br>per m&sup2; (&#8381;)</span></div>
+    </div>
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(a)(iv)</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(b)(viii)</span>
+    </div>
+  </section>
+
+  <!-- 00 -->
+  <section>
+    <div class="eyebrow">00 &middot; The address</div>
+    <h2>A nine-story building in the center of the city</h2>
+    <p>The building stood at
+      <span class="xlit wide" tabindex="0">Metallurgov Avenue, 47<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>проспект Металургів, 47</span><span class="pop-line"><b>Occupation (RU)</b>проспект Металлургов, 47</span></span></span>,
+      in central Mariupol &mdash; about 800 metres from the Drama Theatre, beside the central
+      market, on one of the city&rsquo;s longest avenues where it crosses
+      <span class="xlit wide" tabindex="0">Soborna Street<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>вулиця Соборна</span><span class="pop-line"><b>Occupation (RU)</b>улица Соборная</span></span></span>.
+      Nine floors, two entrances, ordinary Soviet-era housing. After the siege it became one
+      of the buildings war correspondents photographed: a single entrance section punched out
+      through the middle, the rest still standing. People kept living in it, and in its
+      basement, after the fighting passed.</p>
+
+    <figure>
+      <div class="embed">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://yandex.com/map-widget/v1/?l=stv%2Csta&ll=37.546303%2C47.099283&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNDQ3OTY5NzMwEj_Qo9C60YDQsNGX0L3QsCwg0JzQsNGA0ZbRg9C_0L7Qu9GMLCDQodC-0LHQvtGA0L3QsCDQstGD0LvQuNGG0Y8iCg2dLRZCFfhkPEI%2C&panorama%5Bdirection%5D=111.732306%2C18.478272&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=37.545396%2C47.099468&panorama%5Bspan%5D=110.457688%2C60.000000&z=18"></iframe>
+      </div>
+      <figcaption class="figcap">Pre-war street-level panorama (Yandex Maps, imagery c. 2012),
+        looking from Soborna Street toward the Metallurgov frontage. The intact streetscape
+        before the siege &mdash; the same vantage the satellite sequence below tracks from
+        above.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 01 -->
+  <section>
+    <div class="eyebrow">01 &middot; From above &middot; three dates</div>
+    <h2>Intact, then hit, then gone</h2>
+    <p>The same footprint, from orbit, across four years. In June 2021 the long apartment
+      block sits whole behind its row of street trees. By March 2022 one entrance section has
+      imploded &mdash; the dark collapsed gap is visible from space, consistent with a
+      17 March 2022 explosion the residents and local press both describe. By August 2024 the
+      building is gone and the lot is cleared to bare ground; the street trees survive the
+      building they once shaded.</p>
+
+    <figure>
+      <div class="trip">
+        <div class="cell">
+          <span class="tag">Jun 2021 &middot; intact</span>
+          <img src="assets/troianda/metallurgov47_2021-06_intact.png" alt="Satellite view, June 2021: the nine-story apartment block on Metallurgov Avenue 47 intact, with vehicles parked alongside and a row of street trees.">
+        </div>
+        <div class="cell bad">
+          <span class="tag">Mar 2022 &middot; entrance imploded</span>
+          <img src="assets/troianda/metallurgov47_2022-03_imploded.png" alt="Satellite view, March 2022: the same building with one entrance section collapsed into a dark gap, snow on the ground.">
+        </div>
+        <div class="cell">
+          <span class="tag">Aug 2024 &middot; cleared lot</span>
+          <img src="assets/troianda/metallurgov47_2024-08_cleared.png" alt="Satellite view, August 2024: the building demolished, the rectangular lot cleared to bare ground, the street trees still standing.">
+        </div>
+      </div>
+      <figcaption class="figcap">Metallurgov Avenue 47, June 2021 &rarr; March 2022 &rarr;
+        August 2024. Demolition was completed by 18 September 2024, the date local press gives
+        for the start of work on the replacement building on the same lot.</figcaption>
+    </figure>
+
+    <p style="margin-top:1.8rem">The same March 2022 moment, from the street. Two stills from
+      independent footage show the identical entrance section the satellite frame above
+      captures from orbit &mdash; the gap punched straight through the building, fire-scorched
+      concrete and exposed rebar on either side, residents&rsquo; balconies and air-conditioning
+      units intact one floor away from the collapse.</p>
+    <figure>
+      <div class="trip" style="grid-template-columns:1fr 1fr">
+        <div class="cell bad">
+          <span class="tag">Mar 2022 &middot; street level</span>
+          <img src="assets/troianda/metallurgov47_2022-03_implosion_still1.png" alt="Street-level photograph, March 2022: the same nine-story building seen through bare winter trees, one entrance section collapsed clean through, exposing sky between the two remaining wings.">
+        </div>
+        <div class="cell bad">
+          <span class="tag">Mar 2022 &middot; closer angle</span>
+          <img src="assets/troianda/metallurgov47_2022-03_implosion_still2.png" alt="Closer street-level photograph, March 2022: fire-scorched facade either side of the collapsed entrance section, blown-out windows, balconies stripped to bare concrete.">
+        </div>
+      </div>
+      <figcaption class="figcap">Stills from independent footage of the March 2022 strike,
+        ground level &mdash; the same collapse the satellite frame above records from above.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="eyebrow">02 &middot; The litigation ladder</div>
+    <h2>The same case, lost at three levels</h2>
+    <p>The building&rsquo;s homeowners&rsquo; association &mdash;
+      <span class="xlit" tabindex="0">HOA &ldquo;Troianda-M&rdquo;<span class="pop">ТСЖ «Троянда-М» &mdash; товарищество собственников жилья</span></span>,
+      the post-2022 re-registration of the same pre-war Ukrainian condominium association &mdash;
+      had to register as a Russian legal entity in July 2024 merely to be recognized as a party.
+      It then carried the residents&rsquo; claim up the full ladder of Russian civil courts, and
+      lost at every rung.</p>
+
+    <table class="data">
+      <thead><tr><th>Court</th><th>Case No.</th><th>Presiding / reporting judge</th><th>Date</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Zhovtnevyi District Court (DNR)</td>
+          <td>2-259/2025</td>
+          <td><span class="xlit" tabindex="0">Yulia Sazonova<span class="pop">Сазонова Юлия Юрьевна</span></span></td>
+          <td>21.07.2025</td>
+          <td><span class="lose">Denied</span></td>
+        </tr>
+        <tr>
+          <td>DNR &ldquo;Supreme Court&rdquo; (appeal)</td>
+          <td>33-2575/2025</td>
+          <td><span class="xlit" tabindex="0">N.&nbsp;N. Guridova<span class="pop">Гуридова Н.Н. (reporting judge)</span></span></td>
+          <td>13.11.2025</td>
+          <td><span class="lose">Upheld below</span></td>
+        </tr>
+        <tr>
+          <td>2nd Cassation Court of General Jurisdiction (federal)</td>
+          <td>8&#1043;-12687/2026</td>
+          <td><span class="xlit" tabindex="0">Tatiana Vasilyeva<span class="pop">Васильева Т.Г.</span></span></td>
+          <td>05.05.2026</td>
+          <td><span class="lose">Denied</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="figcap">Unified case ID 93RS0006-01-2024-005922-91. Press reporting (early 2026)
+      records that the residents pressed on past the federal cassation denial with a further
+      complaint to the Supreme Court of Russia itself &mdash; the domestic-remedy track was
+      still live into 2026, not closed at the dates this file once treated as final.</p>
+    <p>The appellate court&rsquo;s stated ground for denial is worth reading slowly, because it
+      is circular. Before HOA &ldquo;Troianda-M&rdquo; re-registered in 2024, the demolished
+      property had been formally assigned to the
+      <span class="xlit" tabindex="0">Public-Law Company &ldquo;Unified Construction Client&rdquo;<span class="pop">ППК «Единый заказчик» — публично-правовая компания</span></span>,
+      the state demolition operator. The court held that this custodial assignment <em>predates</em>
+      the residents&rsquo; association regaining the legal standing to contest it &mdash; so the
+      very gap the occupation created, between tearing the building down and letting the
+      residents organize to object, became the reason their objection arrived too late.</p>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="eyebrow">03 &middot; The record, in its own words</div>
+    <h2>The paperwork the denial had to spell out</h2>
+    <p>Court rulings are usually read for their holding. This one is more useful read for its
+      findings of fact: to explain why the residents lose, the appellate court laid out the
+      full administrative sequence that produced the loss. Every date below is drawn directly
+      from the captured ruling text.</p>
+
+    <div class="timeline">
+      <div class="tl-ev"><div class="d">Feb&ndash;Mar 2022</div><div class="e">Building sustains combat damage in the siege; one entrance section destroyed by an explosion residents date to 17 March 2022. People continue living in the building and its basement.</div></div>
+      <div class="tl-ev mark"><div class="d">29.09.2022</div><div class="e">Commission conclusion No. 118 declares the building <b>unfit for habitation</b> and condemns it for demolition &mdash; under a procedure (<span class="xlit" tabindex="0">DNR State Defense Committee Resolution No. 162<span class="pop">Постановление ГКО ДНР № 162 от 23.07.2022</span></span>) the residents say was never followed: three of the case documents list three different commission rosters.</div></div>
+      <div class="tl-ev bad"><div class="d">10&ndash;25.12.2022</div><div class="e">Building <b>physically demolished</b> &mdash; dated to the day by the residents&rsquo; own contemporaneous video, which shows it coming down section by section, only rubble left by 20 December.</div></div>
+      <div class="tl-ev"><div class="d">26.07.2023</div><div class="e">Formal act recording the completed demolition names <span class="xlit" tabindex="0">OOO &ldquo;RKS-NR&rdquo;<span class="pop">ООО «РКС-НР»</span></span> as the party that carried out the dismantling.</div></div>
+      <div class="tl-ev mark"><div class="d">07.09.2023</div><div class="e"><span class="xlit" tabindex="0">Decree of the Head of the DNR No. 291<span class="pop">Указ Главы ДНР № 291 от 07.09.2023</span></span> grants the developer municipal land parcels <b>without auction</b> &mdash; one of them 3,136 m&sup2; at the Metallurgov intersection &mdash; for the investment project <span class="xlit" tabindex="0">&ldquo;Novoe vremya 2&rdquo;<span class="pop">«Новое время 2» — «New Time 2»</span></span>. Residents say their address was &ldquo;annulled&rdquo; at this point.</div></div>
+      <div class="tl-ev"><div class="d">28.10.2024</div><div class="e">The collective lawsuit is filed.</div></div>
+      <div class="tl-ev bad"><div class="d">27.12.2024</div><div class="e">A demolition <b>contract</b> between the Unified Construction Client and RKS-NR, worth roughly <b>103 million rubles</b>, is signed &mdash; and disclosed by the judge in an April 2025 hearing. Its date is <b>two years after</b> the building the residents&rsquo; own video had already shown reduced to rubble in December 2022.</div></div>
+    </div>
+
+    <div class="callout hot">
+      <div class="h">The detail that does the work</div>
+      <p>A contract to demolish a building, signed two years after that building was demolished,
+        for 103 million rubles. The occupation court did not hide it &mdash; a judge read its date
+        into an open hearing. The residents&rsquo; lead representative, who had filmed the actual
+        demolition in December 2022, was in the room to hear a contract dated December 2024
+        described as its legal basis. The sequence is not alleged by the dispossessed; it is
+        recorded by the court that ruled against them.</p>
+    </div>
+    <p>Two further irregularities sit in the same file. The technical report underlying the
+      condemnation was challenged by residents for carrying no approval signature; the appellate
+      court noted the objection and relied on the report anyway. And the condemnation paperwork
+      names <b>three different commission rosters across three documents</b> &mdash; a composition
+      the governing procedure does not permit, raised on appeal, and left unaddressed in the
+      result.</p>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="eyebrow">04 &middot; The contractor, named on camera</div>
+    <h2>&ldquo;KrashMash demolishes Metallurgov 47&rdquo;</h2>
+    <p>Who physically tore the building down is not left to inference. A video uploaded on
+      14 December 2022 &mdash; inside the residents&rsquo; confirmed demolition window, by an
+      independent third party, not the contractor&rsquo;s own channel &mdash; carries on-screen
+      text reading <span class="xlit" tabindex="0">&ldquo;KrashMash demolishes Metallurgov 47&rdquo;<span class="pop">«…рашМаш» сносит Металлургов 47»</span></span>:
+      contractor name and street address in the same frame. A second video, the demolition
+      firm&rsquo;s own production, opens on a title card &mdash;
+      <span class="xlit" tabindex="0">&ldquo;Demolition of buildings in Mariupol&rdquo;<span class="pop">«СНОС ДОМОВ В МАРИУПОЛЕ»</span></span> &mdash;
+      over its corporate logo. A Ukrainian-language channel&rsquo;s October 2022 footage labels
+      the same facade, pre-demolition, &ldquo;проспект Металургів, 47.&rdquo; Independent sources,
+      different languages, one address.</p>
+    <p>The physical contractor is <span class="xlit" tabindex="0">KrashMash Group<span class="pop">ООО «ГК КрашМаш» (ИНН 7842525925)</span></span>,
+      a St. Petersburg demolition company whose own website describes a 2022 contract to demolish
+      &ldquo;37 destroyed objects in the center&rdquo; of Mariupol under the reconstruction
+      program.</p>
+
+    <p>A second, independent KrashMash source goes further than the company&rsquo;s own web copy:
+      a Russian construction-trade-press magazine feature carries an on-the-record interview with
+      general director
+      <span class="xlit" tabindex="0">Viktor Kazakov<span class="pop">Виктор Александрович Казаков</span></span>.
+      He states the company&rsquo;s Mariupol work began <b>October 2022</b>, that panel buildings
+      up to 40 metres tall are demolished only after Emergencies Ministry and Defense Ministry
+      inspection and resettlement, and that the company runs its own equipment exclusively &mdash;
+      never rented &mdash; even while managing up to 50 projects nationwide at once. No individual
+      address appears in this feature; it corroborates KrashMash&rsquo;s scale and method in the
+      city, not this specific building.</p>
+    <div class="stat-row" style="margin-top:1.2rem">
+      <div class="stat"><span class="n">Oct 2022</span><span class="l">KrashMash&rsquo;s own stated start date for Mariupol work</span></div>
+      <div class="stat"><span class="n blue">35 / 25</span><span class="l">specialists / equipment units on site, per the director</span></div>
+      <div class="stat"><span class="n">60m</span><span class="l">boom reach, the only excavator of its kind in Russia</span></div>
+      <div class="stat"><span class="n">5&ndash;12 days</span><span class="l">stated typical demolition timeline</span></div>
+    </div>
+
+    <p style="margin-top:1.2rem">That leaves <span class="xlit" tabindex="0">&ldquo;Severny Veter&rdquo;<span class="pop">«Северный Ветер» — «North Wind»</span></span> &mdash;
+      a name the residents attach to the disputed <em>paperwork</em> side of the story &mdash; as
+      the open question, not KrashMash&rsquo;s role. The most coherent reading across all sources:
+      KrashMash operated the equipment on site in December 2022; the paper trail naming other
+      entities was assembled afterward, the 27 December 2024 contract among it.</p>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="eyebrow">05 &middot; Who benefits, and the loop</div>
+    <h2>A federal developer, and compensation paid in someone else&rsquo;s home</h2>
+    <p>The land under the cleared lot went, without auction, to the specialized developer
+      <span class="xlit" tabindex="0">SZ &ldquo;RKS-NR&rdquo;<span class="pop">ООО СЗ «РКС-НР» (ИНН 9310007980, «РКС-Девелопмент»)</span></span>,
+      part of a chain that runs up through <span class="xlit" tabindex="0">Roskapstroy<span class="pop">ФАУ «РосКапСтрой» — a federal autonomous institution under the Russian Ministry of Construction</span></span>,
+      a federal institution under the Russian Ministry of Construction. The chain has names and a
+      ceiling:</p>
+
+    <div class="who">
+      <div class="card">
+        <div class="nm">Ildar Radikovich Sharipov</div>
+        <span class="fio">Шарипов Ильдар Радикович</span>
+        <div class="ro">Director of RKS-NR, the developer of &ldquo;Novoe vremya 2&rdquo; on the Metallurgov 47 lot. Investigative reporting places him simultaneously on the payroll of Moscow&rsquo;s Moskapstroy.</div>
+      </div>
+      <div class="card">
+        <div class="nm">Marat Shakirzyanovich Khusnullin</div>
+        <span class="fio">Хуснуллин Марат Шакирзянович</span>
+        <div class="ro">Russian Deputy Prime Minister with formal oversight of occupied-territory reconstruction; the federal official to whom the construction chain over Mariupol ultimately reports.</div>
+      </div>
+    </div>
+    <p class="figcap">Named officials and beneficiaries acting in official capacity. See the
+      project&rsquo;s <a href="../stakeholder_network.md">stakeholder network</a> for the wider
+      developer&ndash;ministry graph.</p>
+
+    <p>The compensation arithmetic is where the system closes on itself. The occupation&rsquo;s
+      own compensation rate is <b>45,000 rubles per square metre</b>; one press report puts the
+      cheapest apartments on the Mariupol market at <b>53,000</b> &mdash; a roughly 15% shortfall
+      on that single quoted figure. This project checked that claim against its own resale
+      corpus rather than rely on one journalist&rsquo;s number, and the shortfall is larger:
+      across 266 independently-captured existing-apartment listings, cleaned of duplicate
+      reposts and obvious parsing errors, the compensation rate undershoots even the
+      <b>cheapest 5%</b> of them by <b>19%</b>, and the citywide median by <b>43%</b>. And it
+      pays, when it pays at
+      all, in housing drawn from the
+      <span class="xlit" tabindex="0">&ldquo;ownerless&rdquo;<span class="pop">«бесхозяйное» — the ownerless-property designation</span></span>
+      stock: the apartments of <em>other</em> displaced Ukrainians who left and have not returned
+      to claim title under Russian jurisdiction. One set of dispossessed residents is offered, as
+      redress, the seized homes of another.</p>
+    <div class="stat-row" style="margin-top:1.2rem">
+      <div class="stat"><span class="n">45,000</span><span class="l">RUB/m&sup2; &mdash; the occupation&rsquo;s stated compensation rate</span></div>
+      <div class="stat"><span class="n blue">55,769</span><span class="l">RUB/m&sup2; &mdash; cheapest 5% of this project&rsquo;s own captured listings</span></div>
+      <div class="stat"><span class="n red">&minus;19%</span><span class="l">compensation rate vs. that cheapest 5%, across 266 listings</span></div>
+      <div class="stat"><span class="n red">&minus;43%</span><span class="l">compensation rate vs. the citywide median</span></div>
+    </div>
+
+    <div class="chain">
+      <div class="step red"><div class="t">Building condemned &amp; demolished</div><div class="v">Metallurgov 47, Dec 2022</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step stamp"><div class="t">Land granted without auction</div><div class="v">Decree No. 291 &rarr; RKS-NR, &ldquo;Novoe vremya 2&rdquo;</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step blue"><div class="t">New flats sold</div><div class="v">subsidized 2% mortgages, Russian buyers</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step red"><div class="t">Original owners &ldquo;compensated&rdquo;</div><div class="v">below market, in others&rsquo; seized homes &mdash; if at all</div></div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <div class="eyebrow">06 &middot; Why this case matters</div>
+    <h2>The one file where the dispossessed are on the record fighting</h2>
+    <p>Every other case study in this project documents a seizure the occupier recorded without
+      resistance &mdash; a registry entry, a demolition decree, a docket card with no one on the
+      other side. This one documents what happens when residents use the only system left to them.
+      They lost. But in losing they forced the occupation&rsquo;s own courts to write down the
+      most detailed account of the seizure that exists: a condemnation run with three inconsistent
+      rosters; a technical report a resident flagged as defective and the court leaned on anyway; a
+      contractor relationship formalized by a 103-million-ruble contract two years after the work
+      it supposedly authorized; and a compensation-housing entitlement the administration&rsquo;s
+      own correspondence concedes went unmet.</p>
+
+    <p>It also establishes something a damage assessment or a registry entry cannot:
+      <b>exhaustion of domestic remedies</b> &mdash; first instance, appeal, federal cassation, and
+      a further push to Russia&rsquo;s Supreme Court. That exhaustion is the procedural precondition
+      restitution mechanisms, and the European Court of Human Rights&rsquo; own jurisprudence going
+      back to <em>Loizidou</em>, require before a claim becomes admissible. These residents did not
+      skip the step. The occupation courts made a record that they did not.</p>
+
+    <div class="callout">
+      <div class="h">On the record, from the rubble</div>
+      <p>On camera at the site, residents addressed the Russian authorities by name. A woman from
+        apartment 116, a group-2 disability holder who had survived the siege in the basement, said
+        she was now living &ldquo;on the street.&rdquo; A mother of two young children asked only to
+        be rehoused near the site, so that when the new building rises there, her family might be
+        given a flat in it. &ldquo;Total lawlessness,&rdquo; one of them says at the end.
+        &ldquo;Human-rights violations in favor of business.&rdquo;</p>
+    </div>
+    <p class="figcap">Residents who are living private individuals are not named here; their words
+      are kept, their identities minimized, per this project&rsquo;s privacy rule. Named officials,
+      judges, and beneficiaries acting in official capacity are in scope and are named.</p>
+
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6 &middot; loss of access</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(a)(iv) &middot; appropriation of property</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(b)(viii) &middot; transfer of population</span>
+    </div>
+  </section>
+
+  <!-- 07 provenance -->
+  <section>
+    <div class="eyebrow">07 &middot; Provenance</div>
+    <h2>Sourcing</h2>
+    <p>Every document, photograph, and video referenced on this page was captured from its
+      original source under this project&rsquo;s standard chain of custody &mdash; a SHA-256 hash
+      and UTC timestamp recorded at retrieval, the raw file preserved before any analysis. The
+      court ruling&rsquo;s findings of fact are reproducible against the captured ruling text; the
+      address and developer chain are corroborated across press, Telegram, and video sources that
+      do not depend on one another.</p>
+    <details class="prov">
+      <summary>Full source catalogue &amp; verification notes</summary>
+      <ul class="srclist">
+        <li><span class="ty">Primary &middot; court record</span><span class="ti">
+          Appellate ruling, case <b>33-2575/2025</b> (DNR &ldquo;Supreme Court,&rdquo; 13.11.2025);
+          docket cards for first-instance case 2-259/2025 and federal cassation 8Г-12687/2026.
+          Unified ID 93RS0006-01-2024-005922-91. The ruling redacts the street address throughout,
+          per nationwide judicial-depersonalization practice (Russian Federal Law No. 262-FZ) &mdash;
+          the address is established independently of the court record, below.</span></li>
+        <li><span class="ty">Address &middot; six independent sources</span><span class="ti">
+          Press (Agents.Media, on the 60-resident cassation filing; KP Donetsk, on the replacement
+          build) and Telegram channels (<b>@metallgov</b>, <b>@mariupollnew</b>,
+          <b>@novosti_mariupol1</b>, <b>@allmarinews</b>) converge on Metallurgov Avenue 47 with no
+          contradiction. The address also matches the &ldquo;Novoe vremya 2&rdquo; project named in
+          the ruling text.</span></li>
+        <li><span class="ty">Satellite &middot; before / during / after</span><span class="ti">
+          Overhead imagery of the Metallurgov Avenue 47 footprint at three dates &mdash; June 2021
+          (intact), March 2022 (entrance section collapsed), August 2024 (cleared lot). Demolition
+          completed by 18.09.2024 per KP Donetsk.</span></li>
+        <li><span class="ty">Demolition contractor &middot; on-screen text</span><span class="ti">
+          Video uploaded 14.12.2022 by an independent third party, on-screen text
+          &ldquo;KrashMash demolishes Metallurgov 47&rdquo;; KrashMash&rsquo;s own demolition video
+          and corporate site; a Ukrainian-language channel&rsquo;s 12.10.2022 footage labeling the
+          facade &ldquo;проспект Металургів, 47.&rdquo; KrashMash Group, ИНН 7842525925,
+          St. Petersburg. Two user-supplied street-level stills of the March 2022 strike, same
+          footage as the 17.03.2022 video cited above.</span></li>
+        <li><span class="ty">Demolition contractor &middot; named director, trade press</span><span class="ti">
+          A one-page Russian construction-trade-press magazine feature hosted on KrashMash&rsquo;s
+          own site, on-the-record interview with general director Viktor Aleksandrovich Kazakov:
+          Mariupol work began October 2022; 35 specialists, 25 equipment units, a unique
+          60-metre-boom Caterpillar 390DLME; typical demolition 5&ndash;12 days; company-owned
+          equipment only. No address named &mdash; corroborates scale and method, not this
+          specific building.</span></li>
+        <li><span class="ty">Developer chain &middot; federal backer</span><span class="ti">
+          RKS-Development / RKS-NR &rarr; Roskapstroy (Russian Ministry of Construction); RKS-NR
+          director Ildar Radikovich Sharipov; Dossier Center&rsquo;s investigation
+          &ldquo;Мариупольский передел&rdquo; (captured via mirror) ties Sharipov to Moskapstroy and
+          Deputy PM Marat Khusnullin. Land grant: Decree of the Head of the DNR No. 291
+          (07.09.2023). Compensation rate 45,000 ₽/m&sup2; per Agents.Media, against both a
+          53,000 ₽/m&sup2; press-quoted floor and this project&rsquo;s own resale-corpus floor,
+          below.</span></li>
+        <li><span class="ty">Market-floor check &middot; this project&rsquo;s own resale corpus</span><span class="ti">
+          Computed independently from this project&rsquo;s own collection of Mariupol apartment
+          resale listings gathered from Telegram and the open web (1,243 listings in total),
+          filtered to existing (non-new-build) sales with both a price and a floor area, with
+          duplicate reposts removed and implausible records excluded &mdash; 266 listings
+          survive. Building this check surfaced and corrected two genuine errors in this
+          project&rsquo;s own price-reading logic, affecting 18 of the 1,243 listings, including
+          two of the worst outliers in the resulting price-per-area figures; full method and
+          before/after figures are documented in the project&rsquo;s internal case-study
+          record.</span></li>
+        <li><span class="ty">Resident testimony</span><span class="ti">
+          A June 2025 video by the litigants&rsquo; lead representative, disclosing documents from an
+          open judicial proceeding she is entitled to publish; and a second site video of residents
+          addressing camera near the rubble. Read as the dispossessed parties&rsquo; sworn account,
+          corroborated by the ruling text where the two overlap. Living private individuals are
+          minimized; their statements are retained, their names withheld.</span></li>
+        <li><span class="ty">Macro-context</span><span class="ti">
+          Per Dossier Center (as of 01.11.2025): 22,667 apartments across 366 demolished buildings;
+          a 5,141-unit replacement shortfall the administration states it intends to fill from the
+          &ldquo;ownerless&rdquo; registry; seized units distributed with documented priority to
+          security-service personnel and &ldquo;SVO veterans.&rdquo;</span></li>
+      </ul>
+    </details>
+    <p class="figcap" style="margin-top:1.2rem">Related: the
+      <a href="case-study-IV-court-docket.html">court-docket case study</a> (the uncontested mass
+      route this case is the contested exception to), the
+      <a href="mariupol-master-dossier.html">master dossier</a>, and the project&rsquo;s
+      <a href="../stakeholder_network.md">stakeholder network</a>.</p>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  // drop any embed/image whose source fails to load, leaving the frame
+  document.querySelectorAll('.trip img').forEach(function(m){
+    m.addEventListener('error',function(){ m.style.opacity='0'; });
+  });
+  // click-to-reveal original Cyrillic for transliterated names/toponyms/terms
+  document.querySelectorAll('.xlit').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var wasOpen = el.classList.contains('open');
+      document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!wasOpen) el.classList.add('open');
+    });
+    el.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); el.click(); }
+    });
+  });
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
+</html>

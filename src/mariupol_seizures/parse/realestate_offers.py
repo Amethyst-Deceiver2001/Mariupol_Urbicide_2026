@@ -101,10 +101,16 @@ _RE_AGENCY = re.compile(r"агентств|риэлтор|риелтор|\bАН\
 _RE_PRIVATE = re.compile(r"без\s+посредник|от\s+собственник|от\s+хозяин|собственник", re.I)
 
 # Price: handle "3 500 000 ₽", "3,5 млн", "3.5 млн руб", "3500000 рублей", "2 800 т.р."
+# Composite additive form "3 млн 800 тыс" / "3.млн.800тыс" = 3,800,000 — млн and
+# тыс combine additively here, unlike every other branch where they are mutually
+# exclusive alternative units. Checked FIRST: without this, the plain млн branch
+# below grabs only the "3" and silently drops the "800 тыс" remainder.
+_RE_PRICE_MLN_TYS = re.compile(
+    r"(\d{1,2})[.,]?\s*млн[.\s]+(\d{2,3})\s*тыс", re.I)
 _RE_PRICE_MLN = re.compile(r"(\d{1,3}(?:[.,]\d{1,3})?)\s*млн", re.I)
 _RE_PRICE_TYS = re.compile(r"(\d{2,4}(?:[.,]\d{1,3})?)\s*(?:тыс|т\.?\s*р)", re.I)
 _RE_PRICE_FULL = re.compile(
-    r"(\d{1,3}(?:[  ]\d{3}){1,3}|\d{6,9})\s*(?:₽|руб|р\.|рублей)?", re.I)
+    r"(\d{1,4}(?:[  ]\d{3}){1,3}|\d{6,9})\s*(?:₽|руб|р\.|рублей)?", re.I)
 
 # Street addressing.
 _STREET_PREFIX = (
@@ -262,6 +268,13 @@ def extract_price(text: str, structured: dict) -> tuple[int | None, str | None]:
                 return v, str(structured["price"])
         except ValueError:
             pass
+    # Composite "X млн Y тыс" — additive, must be checked before the plain
+    # млн branch below or the "Y тыс" remainder is silently dropped.
+    m = _RE_PRICE_MLN_TYS.search(text)
+    if m:
+        v = int(m.group(1)) * 1_000_000 + int(m.group(2)) * 1_000
+        if _PRICE_BAND[0] <= v <= _PRICE_BAND[1]:
+            return v, m.group(0)
     # "X млн" is only trustworthy within the plausible band — malformed
     # source text like "Стоимость 3 200 млн" (likely meant 3,200,000) otherwise
     # matches on the trailing "200" and yields a nonsense 200,000,000.
