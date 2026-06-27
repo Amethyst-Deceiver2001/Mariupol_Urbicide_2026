@@ -33,12 +33,28 @@ never valid title.
 | **ПСК «Строймонолит» / АО «УК Новый Капитал»** | Contractors, **121** joint + 30/91 separate | 〃 |
 | **Крокус Групп** | Contractor, **114** buildings | 〃 |
 | **Спецснабтранс** | Contractor, **54** buildings | 〃 |
+| **ООО «ГК КрашМаш»** (ИНН 7842525925, St. Petersburg, director Казаков Виктор Александрович) | Demolition contractor, confirmed at pr. Metallurgov 47 (Troianda-M case) via on-screen video text independent of company's own promotional material; director on record in trade press (Oct 2022 Mariupol start date, 35 specialists, 25 equipment units, unique 60m-boom Caterpillar 390DLME) | `troianda_m_demolition_challenge.md`; `scripts/169`, `scripts/180` |
 | **Московский политех** | Listed as executing entity, **120** buildings | 〃 |
 | **АО «ДОМ.РФ»** | Federal housing operator: 2% mortgage programme (rung [F] resale), lift-replacement financing | region80 ЖКХ programme; [REPORTED] demand-side docs |
+| **ФАУ «РосКапСтрой»** (Roskapstroy) | Federal autonomous institution, Ministry of Construction; parent of RKS-NR | RKS-NR/Roskapstroy own sites, captured `scripts/170` (2026-06-26) |
+| **ООО «РКС-НР»** | Founded 05.2022; general contractor for DNR/LNR repair-restoration; director Шарипов Ильдар Радикович (also paid by Moscow's Москапстрой); confirmed physical demolition contractor link via `lenina_104_106_108_110` AND `troianda_m_demolition_challenge` (paper-trail role; physical demolition at Metallurgov 47 itself attributed to KrashMash, see Tier 4) | Roskapstroy site; appellate ruling 33-2575/2025 |
+| **Хуснуллин М.Ш.** (Marat Shakirzyanovich Khusnullin) — Deputy PM | Federal oversight of occupied-territory reconstruction generally; Russian business media associate Moscow's Москапстрой (which pays Sharipov) with his domain; prior Moscow construction deputy-mayor scheme per Dossier Center | Dossier Center "Мариупольский передел" (Echo FM mirror, `scripts/170`) — **candidate, not yet independently cross-checked against an official government source beyond government.ru's bio page** |
 
 Working hypothesis to verify: contractor assignment by district follows the
 shef-region split — joinable per-building via `damage_assessment.jsonl`
 district keys.
+
+**New candidates from Dossier Center "Мариупольский передел"
+(2026-06-26, see [[dossier_center_mariupol_peredel]] in memory) —
+not yet cross-checked against EGRUL or added to the formal actor table:**
+Anton Koltsov (already tracked above as Кольцов А.В.); Evgeny Balitsky
+(Zaporizhzhia occupation "governor," quoted authorizing transfer of seized
+property to security forces); Dmitry Sablin (Russian MP, reported GRU
+links); Roman Tesluk (named as a cryptocurrency intermediary in a
+retroactive-ownership resale scheme). These are accountability-track leads
+from independent journalism, not yet verified against a primary document
+this project controls — treat as sourced-but-unverified pending further
+research.
 
 ## Tier 2 — DNR republic (legal framework, land allocation, adjudication)
 
@@ -140,7 +156,8 @@ seemingly for the purpose of receiving the grants.**
 | СЗ «Корпорация СМУ-5» | 1 | 9310017508 (EISGHS match, EGRUL pending) | — | — |
 | СЗ «СИРИУС БИЛД» | 1 | 9310014320 (EISGHS match, EGRUL pending) | — | — |
 | СЗ «Антарес» | 1 | 9310014480 / 2024-05-28 | Радченко М.Р. | Радченко М.Р. **90%** (ИНН 771991715001, Moscow — same person as director) + Гуливер А.В. **10%** (ИНН 772021556533, Moscow) |
-| СЗ «РКС-Девелопмент» | 1 | 9310007980 (decree text, EGRUL pending) | — | — |
+| СЗ «РКС-Девелопмент» | 1 (decree №291 — note: decree bundles ≥2 separate parcels, see below) | 9310007980 (decree text, EGRUL pending) | — | — |
+| СЗ «Новое время 2» | 1 (decree №291, same decree as RKS-Devel. above — 3,136 m² parcel, Troianda-M/Metallurgov 47 footprint) | EGRUL not yet pulled — **caution: a directory search for this name also returns an unrelated Ufa/Bashkortostan company building in Khimki; do not conflate** | — | — |
 | ООО «СГМ МОНТАЖ» | (registry) | 9310018029 / 2025-03-19 | Харламова Т.С. | Чернов А.И. **100%** (ИНН 771002232940, Moscow) |
 
 ### Founders / ownership chains (script 41, 2026-06-12)
