@@ -137,8 +137,8 @@
         "role": "registry_resale",
         "href": "case-study-II-registry-resale.html",
         "summary": "64 of its flats registered “ownerless”; specific units actively reposted on Russian Telegram classifieds.",
-        "source": "OpenStreetMap Nominatim address lookup — not yet geocoded on the project spine itself",
-        "confidence": "approximate"
+        "source": "OpenStreetMap Nominatim address lookup, confirmed via Overpass building tag (\"108 Строителей проспект\") within 80m",
+        "confidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -177,8 +177,8 @@
         "role": "registry_resale",
         "href": "case-study-II-registry-resale.html",
         "summary": "Only 5% war damage — sold anyway. 23 flats registered “ownerless”; one phone number sells two separate units here.",
-        "source": "OpenStreetMap Nominatim address lookup — not yet geocoded on the project spine itself",
-        "confidence": "approximate"
+        "source": "OpenStreetMap Nominatim address lookup, confirmed via Overpass building tag (\"54 Сєченова вулиця\") on-point",
+        "confidence": "high"
       },
       "geometry": {
         "type": "Point",
