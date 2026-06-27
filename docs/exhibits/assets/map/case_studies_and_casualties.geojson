@@ -187,6 +187,26 @@
           47.1335545
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "pr. Metallurgov 47",
+        "case": "Troianda-M demolition challenge",
+        "kind": "case_study",
+        "role": "destroyed",
+        "href": "case-study-troianda-metallurgov.html",
+        "summary": "Demolished by KrashMash, March 2022. The one case in this set where the building's own residents' association filed a court challenge to the demolition.",
+        "source": "project spine, property_id 4529, geocode confirmed via Google Earth (DMS 47°05'57.11\"N 37°32'44.37\"E), ~5m from existing geom",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.545658,
+          47.099197
+        ]
+      }
     }
   ]
 }
