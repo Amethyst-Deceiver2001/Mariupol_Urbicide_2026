@@ -161,9 +161,17 @@ not closable. **Deferred** = low marginal value.
    `actor`/`court_case` tables (no DB rows to back them), so they don't yet
    appear in the rendered stakeholder-network exhibit graph; that would need
    a manual insert into the graph data, not just the markdown doc.
-3. **Lifecycle QA cross-check** — validate decree-signing date ranges in
-   `ownerless_decrees.jsonl` / `demolition_decrees.jsonl` against the now-known
-   tenure windows (Иващенко/Моргун/Кольцов) as a corroboration pass. (Never run.)
+3. ~~**Lifecycle QA cross-check**~~ — **DONE 2026-06-28.**
+   `scripts/193_lifecycle_tenure_qa.py` checked all 988 decree rows
+   (`ownerless_decrees.jsonl` + `demolition_decrees.jsonl`) against the three
+   heads' tenure windows. **825 rows matched to Иващенко/Моргун/Кольцов by
+   signing_official; 0 fell outside that signer's tenure window** —
+   corroborates the appointment chronology (script 44) with no
+   contradictions found. The other 163 rows are signed by subordinate
+   officials (Перепечай 70, Дмитриев 55, Краснолуцкая 25, Матейко 8, 5
+   unsigned) who aren't heads-of-administration and so are out of this
+   check's scope, not failures. Violations (none found) would have written
+   to `data/reports/lifecycle_tenure_qa_violations.jsonl`.
 4. **Re-parse EGRUL founders** for the full 17-INN set (currently 14 founder
    records vs 17 lookups) and take the one open ownership hop: **ООО «УК БРИК
    ИНВЕСТ»** (ИНН 9310017730, 100% owner of НОВОЕ ВРЕМЯ 3) — its own founders
