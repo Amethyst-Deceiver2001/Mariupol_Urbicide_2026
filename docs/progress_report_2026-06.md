@@ -316,6 +316,31 @@ not closable. **Deferred** = low marginal value.
 
 ### C. Tier-3 corroboration layers never built (reconceptualization §3, Tier 3)
 
+0. ~~**Bellingcat "Civilian Harm in Ukraine" timemap**~~ — **BUILT + LOADED
+   2026-06-28** (user-supplied URL, not from the gap register — a new
+   corroboration family). `scripts/198` captures the full feed (2,517
+   records, country-wide, 2022-02-24→2025-07-09, hosted on a plain
+   DigitalOcean CDN — not geoblocked, ran directly, no VPS handoff needed).
+   `scripts/199` filters to the 21 Mariupol-tagged records and spatially
+   joins to `property.geom`: **14 matched** within 100m (drama theatre,
+   maternity hospital, "School 33," a kindergarten, several unnamed
+   residential strikes — all March–June 2022, siege period), **7 correctly
+   skipped** (mass graves, the airport, the seaport, a filtration camp, the
+   Kuyindzhi gallery — all genuinely 150m–18km from the nearest spine
+   property; force-matching these to a "nearest" property would have been
+   false precision the source data doesn't support, so they're logged and
+   excluded, not guessed). Loaded as `corroboration(kind='bellingcat_civharm')`,
+   confidence capped at 0.4–0.6 (lower than UNOSAT's 0.8–0.95 — Bellingcat's
+   geocoding is city-wide-approximate for most entries, not building-precise;
+   this is corroborating *context* — independently OSINT-confirmed war damage
+   near a property around a date — not a building-identity confirmation).
+   `docs/STATS.md` regenerated: legal-grade 1,154→**1,156** (two properties
+   newly cross the ≥2-source threshold). **This is the project's third fully
+   independent provenance family**, alongside UNOSAT satellite analysis and
+   the occupation/court/registry paper trail — sourced to Telegram/social-
+   media/video evidence, with no relationship to either the occupier or to UN
+   satellite imagery. Modest scope (siege-period general civilian harm, not
+   seizure-specific) but genuinely new and already paying off at the margins.
 13. **Satellite before/after** (Sentinel-2 free) for demolition + re-addressing
     cases — would physically confirm the paper transfers (esp. Нахимова 82 →
     Черноморский 1Б). Only the *paper* damage-tracker mirror is used today.
