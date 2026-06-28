@@ -116,15 +116,26 @@ not closable. **Deferred** = low marginal value.
 
 ### A. Build-ready (clear, bounded next steps)
 
-0. **Disaggregate the 9 remaining absorbed-jurisdiction towns** (Aleksandrovsk,
-   Dobropolye, Novogrodovka, Selydove → Voroshilovsky; Velyka Novosilka → Kirovsky;
-   Toretsk, Lyman → Yenakievo; Druzhkivka, Kostiantynivka → Horlivka) the way
-   `scripts/186` already did for Avdiivka (8 cases recovered inside Yasynuvata's
-   docket). Zero hits so far for these 9 under the current anchored-regex method —
-   inconclusive, not proof those territories produce no bezkhoz activity; worth a
-   closer read of a sample of each absorbing court's full caseload by hand before
-   concluding either way. Source: ВС ДНР venue-reassignment notice, captured
-   2026-06-28 (`data/raw/6bb873cb...` + `.meta.json`).
+0. ~~**Disaggregate the 9 remaining absorbed-jurisdiction towns**~~ — **SETTLED
+   2026-06-28, negative.** `scripts/186`'s anchored-regex method found zero
+   hits for these 9 (Aleksandrovsk, Dobropolye, Novogrodovka, Selydove →
+   Voroshilovsky; Velyka Novosilka → Kirovsky; Toretsk, Lyman → Yenakievo;
+   Druzhkivka, Kostiantynivka → Horlivka), unlike Avdiivka (8 cases recovered
+   inside Yasynuvata's docket via the same method) — left inconclusive at the
+   time pending a closer hand-read. That hand-read is now done: an unanchored
+   substring scan (weaker than the anchored regex, so it would catch anything
+   the anchor missed) was run against the **full population**, not a sample —
+   all 503 vr--dnr, 184 kir--dnr, 478 enak--dnr, and 451 cg-gorl--dnr case
+   texts, 1,616 cards total. Result: genuinely zero real hits for all 9 towns.
+   vr--dnr and kir--dnr show no mention of their target towns in any form.
+   enak--dnr's only "hits" are the venue-notice boilerplate itself (already a
+   known false positive per `scripts/186`'s own comments). cg-gorl--dnr has
+   exactly one hit for Konstantinovka, and it's a deceased party's
+   *birthplace* — the identical false-positive shape `scripts/186` already
+   flagged and excluded for the same town. Unlike Avdiivka's repeated,
+   address-anchored signal, these 9 towns produce no real evidentiary trace
+   in the absorbing courts' dockets at all. Source: ВС ДНР venue-reassignment
+   notice, captured 2026-06-28 (`data/raw/6bb873cb...` + `.meta.json`).
 0a. ~~`court_case` table stuck at the original 2,666/28-judge snapshot~~ —
    **DONE 2026-06-28.** `scripts/188_backfill_court_case_into_district.py`
    normalized the 5,646 net-new district cases' judge/petitioner data
@@ -406,8 +417,7 @@ detail the four-district XLSX doesn't.
    redirect remaining effort on those islands to Tier-3 corroboration
    (satellite/registry) instead.
 3. ~~**Close the build-ready cluster**~~ — **DONE 2026-06-28** (§5 items
-   1, 2, 3, 4, 5, 6, 8 — see each item above). Only item 0 (the 9
-   absorbed-jurisdiction towns, needs hand review) remains open in §5A.
+   0, 1, 2, 3, 4, 5, 6, 8 — see each item above). §5A is now fully closed.
 4. **Capture the two biggest uncaptured federal norms** (§5 items 10–11: 25 m² cap,
    2% mortgage law) — the remaining [REPORTED] holes in rungs [F]/[G].
 5. **Prototype the per-property RD4U dossier export** (§5 item 20) — turns the spine
