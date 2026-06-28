@@ -83,7 +83,8 @@ records; "Norm" = the enabling instrument's primary text.
 | **[D] Land reallocation** | 51 land orders | ✅ №39-РЗ + ГКО №282 | Good; 1 new grant unadded (§5) |
 | **[E] Rebuild** | 20 ЕИСЖС objects | ✅ Указ №290 + ГКО №175 §5.3 | Good (small N — few completed rebuilds exist yet) |
 | **[F] Resale** | sold-out % per object | ⚠️ 2% mortgage law [REPORTED] only | Federal norm uncaptured |
-| **[G] Housing** | 5,822/1,889 lists | ✅ ГКО №175/263 + №93-2/93-3 | Good; 25 m² cap still [REPORTED] |
+| **[G] Housing** | 5,822/1,889 lists | ✅ ГКО №175/263 + №93-2/93-3 + Закон №269-РЗ | Good; 269-РЗ [CAPTURED] 2026-06-28 — note its 25 m² term is a max-excess cap on equivalent housing, not a flat ceiling (corrected from press reports, §5 item 10) |
+
 | **[H] Toponymy** | toponyms.csv | ✅ Указ №301 | Decrees themselves not on any portal |
 
 **The command chain is fully dated and primary-sourced:** Пушилин (apex; every
@@ -261,30 +262,44 @@ not closable. **Deferred** = low marginal value.
    parties (Администрация ГО Мариуполь + прокуратура). No attached
    исковое-заявление/решение PDF is exposed on this page either. This isn't a
    redaction *of* an address field — the field doesn't exist on this page type.
-10. ~~**25 m² compensation cap**~~ — **SOURCE LOCATED 2026-06-28.** It is
-    Закон ДНР №269-РЗ, signed by Pushilin 03.04.2026, published 06.04.2026 —
-    "Об особенностях распоряжения жилыми помещениями, имевшими признаки
-    бесхозяйного имущества... а также условиях и порядке предоставления
-    компенсации... и о внесении изменений в Закон ДНР №141-РЗ." Confirmed via
-    press (mrpl.news, 0629.com.ua, mariupol-news.ru) AND independently via the
-    **federal** official-publication portal
-    (`publication.pravo.gov.ru/document/8000202604060001`) — already
-    satisfies the ≥2-source rule before even capturing the PDF. Sets a flat
-    25 m² cap on compensatory housing *regardless of the lost unit's original
-    size* (replacing ГКО №175's graduated 33/42/+18/150 m² norms for this
-    purpose) and a **1 January 2028 deadline** for using seized/"abandoned"
-    Mariupol housing stock as служебное жилье for occupation officials,
-    Russian military/police, and Russian-recruited medical/teaching staff —
-    a direct, dated instrument for the Rome Statute art. 8(2)(b)(viii)
-    population-transfer framing. `scripts/197_crawl_zakon269_and_mortgage_decree.py`
-    captures both the DNR-side PDF and the federal mirror; **run from the
-    VPS** (untested domains, treat as geoblocked by default):
-    `PYTHONPATH=src python scripts/197_crawl_zakon269_and_mortgage_decree.py`
+10. ~~**25 m² compensation cap**~~ — **CAPTURED + READ IN FULL 2026-06-28;
+    CORRECTS the press paraphrase.** Source is Закон ДНР №269-РЗ, signed by
+    Pushilin 03.04.2026, published 06.04.2026 — "Об особенностях
+    распоряжения жилыми помещениями, имевшими признаки бесхозяйного
+    имущества... а также условиях и порядке предоставления компенсации... и
+    о внесении изменений в Закон ДНР №141-РЗ." Captured + OCR'd in full
+    (`scripts/197`, both the DNR-side PDF and the federal `pravo.gov.ru`
+    mirror — already ≥2-source before parsing). **Reading the primary text
+    overturns the press framing** (mrpl.news/0629.com.ua/ZI.ua's "25 m²
+    regardless of how large the destroyed home was" is a mischaracterization
+    — flagged here so the project doesn't repeat it as fact): Статья 6 п.2
+    and the Статья 10 amendment to №141-РЗ both define 25 m² as the maximum
+    *excess* the replacement unit's area may exceed the lost unit's area by
+    — i.e. equivalent-or-larger replacement, capped at +25 m² over the lost
+    footprint, not a flat 25 m² ceiling on compensatory housing overall.
+    Still a real, citable instrument, just a narrower claim than initially
+    reported — update any case-study prose citing the press version. What
+    the primary text **does** confirm exactly as reported: Статья 4 п.2
+    permits using bezkhoz/"abandoned" housing acquired under 5-ФКЗ §21 as
+    служебное жилье for officials/civil servants/military/police (incl.
+    участковый уполномоченный) and education/medical staff, **until 1
+    January 2028** — a direct, dated instrument for the Rome Statute art.
+    8(2)(b)(viii) population-transfer framing; this part needs no
+    correction. Also surfaces two new federal cross-references worth a
+    future capture: Постановление Правительства РФ от 29.12.2022 №2501
+    (DNR/LNR/Zaporizhzhia/Kherson federal-municipal property demarcation —
+    the legal basis for transferring bezkhoz housing to *federal* ownership
+    in some cases, Статья 3 п.2) and №2255 от 22.12.2023 (the federal
+    reconstruction subsidy program funding the per-m² compensation rate,
+    Статья 7 п.3) — not yet captured, not yet prioritized.
 11. ~~**2% subsidized-mortgage law + Promsvyazbank trail**~~ — **PARTIALLY
     LOCATED 2026-06-28.** Confirmed: the program runs under federal
     government resolutions, with **Постановление Правительства РФ от
     15.12.2023 № 2166** verified on `pravo.gov.ru`
-    (`publication.pravo.gov.ru/document/0001202312150019`) as an amendment to
+    (`publication.pravo.gov.ru/document/0001202312150019`, captured
+    `scripts/197` — confirms title/number/date only, the page is a JS
+    document-index shell, not the full text; full text needs the PDF
+    download link, not yet chased) as an amendment to
     the housing/mortgage-lending rules covering ДНР/ЛНР/Запорожская/
     Херсонская — Промсвязьбанк confirmed as primary program operator
     (alongside Сбербанк/ВТБ), 2% rate, ≤6M ₽, ≥10% down, term extended (per
