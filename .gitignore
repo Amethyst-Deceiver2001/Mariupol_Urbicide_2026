@@ -27,3 +27,6 @@ venv/
 
 # Local tool config (not project-relevant for collaborators)
 .claude/
+
+# Personal notes, not project deliverables
+docs/master-dossier-rus.docx
