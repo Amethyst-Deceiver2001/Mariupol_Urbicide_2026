@@ -212,8 +212,17 @@ not closable. **Deferred** = low marginal value.
    `scripts/183` (89 named judges region-wide with ≥30 decided cases, grant
    rates 65–100%; 33 named judges in Mariupol specifically, up from ~27). See
    `docs/dnr_district_first_instance_2026-06.md`.
-8. **Screen the unreviewed `ukazy_glavy` 64-entry slice** of script 46's "remaining
-   100" non-priority lexicon entries — lower yield expected, but unscreened.
+8. ~~**Screen the unreviewed `ukazy_glavy` 64-entry slice**~~ — **DONE
+   2026-06-28** (title/description read, no OCR needed — already full text
+   in script 43's index). **Confirmed low yield as expected**: pension/
+   social-benefit payments, ministry liquidations (Industry & Trade,
+   Prosecutor's Office), civil-service procedure (service IDs, performance
+   reviews, bonuses), war-veteran/anniversary payments. Three borderline
+   urban-planning-procedure decrees (№156/2023, №304/2023, №572/2025 —
+   master-plan/градостроительная-documentation procedure) are generic
+   planning regulation, not a seizure mechanism. **No new property-seizure
+   or demolition pathway found** — script 46's priority/non-priority split
+   holds up; nothing here needs folding into `legal_mechanisms_review.md`.
 
 ### B. Discovery questions (feasibility unknown — investigate before building)
 
