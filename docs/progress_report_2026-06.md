@@ -172,11 +172,17 @@ not closable. **Deferred** = low marginal value.
    unsigned) who aren't heads-of-administration and so are out of this
    check's scope, not failures. Violations (none found) would have written
    to `data/reports/lifecycle_tenure_qa_violations.jsonl`.
-4. **Re-parse EGRUL founders** for the full 17-INN set (currently 14 founder
-   records vs 17 lookups) and take the one open ownership hop: **ООО «УК БРИК
-   ИНВЕСТ»** (ИНН 9310017730, 100% owner of НОВОЕ ВРЕМЯ 3) — its own founders
-   unknown. *(Phase-2 INN lookups themselves are now DONE — supersedes the stale
-   "9 pending" note in memory.)*
+4. ~~**Re-parse EGRUL founders**~~ — **DONE 2026-06-28.** Added БРИК ИНВЕСТ
+   (ИНН 9310017730) to `egrul_manual_inns.json`, user ran `scripts/20`
+   (egrul.org fetch+capture) then `scripts/41` (local re-parse) — 30 founder
+   records now captured (was 14/17, now the full set incl. this last hop).
+   БРИК ИНВЕСТ's own founders: **Власов П.Н.** (70%, region-33) and
+   **Лопухов К.К.** (30%, region-71) — both mainland Russia. Found a new
+   cross-link along the way: Лопухов К.К. also founds ООО СЗ
+   «РКС-Девелопмент» (2%) — the first individual-level link between two
+   otherwise separate grant-recipient chains. Written up in
+   `docs/stakeholder_network.md` "Founders / ownership chains"; not yet
+   pushed into the rendered graph (doc-only, same as items 0a/2's caveat).
 5. **OCR Указ №40/2022's amendments** (№657/2024, №513/2025) to resolve its
    relationship to ГКО №162/205/245 in rung [C]. Titles indexed; PDFs not yet OCR'd.
 6. **Decree-letterhead OCR** to recover position titles for the 6 ownerless-decree

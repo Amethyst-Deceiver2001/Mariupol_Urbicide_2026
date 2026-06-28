@@ -188,17 +188,27 @@ in the basic extract).
   where Коршаков Д.А. and Соболев А.Д. hold the rest).
 - **СЗ «НОВОЕ ВРЕМЯ 3» is 100% owned by ООО «УК «БРИК ИНВЕСТ»»** (ИНН
   9310017730, region-93/DNR registration) — a holding company, not an
-  individual. Its own founders are unknown; БРИК ИНВЕСТ's INN does not match
-  any of the 17 developer-company INNs (no cross-link to another grant
-  recipient found yet). **Candidate for a follow-up EGRUL lookup** to extend
-  the ownership chain one more hop.
+  individual. **One more hop resolved 2026-06-28** (`scripts/20`+`41`):
+  БРИК ИНВЕСТ's own founders are **Власов П.Н.** (70%, ИНН 330575733219,
+  region-33/Bryansk) and **Лопухов К.К.** (30%, ИНН 713200271746,
+  region-71/Tula) — both mainland Russia, no DNR individual founder.
+- **Cross-link found via that hop: Лопухов К.К. founds both ООО «УК «БРИК
+  ИНВЕСТ»» (30%) *and* ООО СЗ «РКС-Девелопмент» (2%)** — the first
+  confirmed individual-level link between two otherwise separate
+  grant-recipient chains (НОВОЕ ВРЕМЯ 3 ↔ РКС-Девелопмент), via a shared
+  mainland-Russia founder rather than a shared SPV director. New stakeholder
+  node/edge, not yet pushed into the rendered graph (doc-only so far, same
+  caveat as the Никоноров/Оперштаб additions above).
 - **Director-founder overlap**: Сарибекян А.В. (Олимпстрой НР) and Радченко
   М.Р. (Антарес, 90%) are both director *and* majority founder of their
   respective SPVs — i.e. not pure nominees, personally exposed.
 
-Remaining 9 developers' founders pending the captcha-free EGRUL Phase-2 run
-below (`scripts/41_parse_egrul_founders.py` is local-only and re-runnable
-against the expanded set once captured).
+All 17 developer companies' founders are now captured (30 founder records
+total, `data/parsed/egrul_founders.jsonl`) — see also the region-by-region
+breakdown logged by `scripts/41` (Moscow 8 individuals, Moscow Oblast 4,
+single-individual founders in regions 23/26/33/36/46/48/56/61/71/97; org
+founders incl. БРИК ИНВЕСТ, СТРОИТЕЛЬНОЕ УПРАВЛЕНИЕ-2007, РЕСПУБЛИКАНСКАЯ
+СТРОИТЕЛЬНАЯ КОМПАНИЯ, РКС-НР).
 
 ## Edge taxonomy (graph model, script 40)
 
