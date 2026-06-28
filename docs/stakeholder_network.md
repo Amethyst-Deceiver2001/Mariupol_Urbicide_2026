@@ -240,10 +240,12 @@ Graph: **52 persons + 53 orgs, 138 relations, ~8,100 evidenced acts.**
 - **Кольцов А.В. is the operational center of gravity**: 652 ownerless
   decrees + 16 demolition decrees signed — 668 instruments, vs 157 for the
   next signer (Моргун О.В.).
-- **Judges ranked** (cases from the DB): Романов Д.С. **288**, Мяконькая
-  Т.А. **201**, Гревцова В.А. **188**, Кралинина Н.Г. **173**, Белоусов П.В.
-  **162**, Тлеужанова Б.Е. **146**, Струнов Н.И. **143**, Резниченко В.А.
-  **138**, Нидзиева Н.Н. **128** — ~27 named judges in total.
+- **Judges ranked** (Mariupol bezkhoz-confirmed cases, `scripts/182`,
+  refreshed 2026-06-28): Романов Д.С. **291**, Мяконькая Т.А. **195**,
+  Гревцова В.А. **188**, Кралинина Н.Г. **178**, Белоусов П.В. **170**,
+  Тлеужанова Б.Е. **145**, Струнов Н.И. **140**, Резниченко В.А. **139**,
+  Нидзиева Н.Н. **129** — 33 named judges in total (was ~27, region-wide
+  district-court crawl, see `docs/dnr_district_first_instance_2026-06.md`).
 - **The prosecutor petitions too**: Прокуратура города Мариуполя appears as
   petitioner-of-record in особое-производство transfers, once naming the
   officeholder — **Гнездилов Д.В., старший советник юстиции**. A

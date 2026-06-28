@@ -3,7 +3,10 @@
 *A full-project review of collected assets, coverage by pipeline rung, linkage
 state, and the remaining gaps / open follow-ups. Companion to
 `docs/reconceptualization_2026.md` (strategy) and `docs/legal_mechanisms_review.md`
-(instrument catalogue). Compiled 2026-06-12.*
+(instrument catalogue). Compiled 2026-06-12, last figures refresh 2026-06-28 —
+all project-total numbers below are sourced from `docs/STATS.md`
+(`scripts/187_generate_stats.py`); re-run that script and re-sync this section
+after any load script rather than hand-editing a number here.*
 
 ---
 
@@ -17,10 +20,13 @@ tracker, demolition registers, DNR land-grant orders, housing-distribution lists
 the ЕИСЖС new-build registry, a 30+-instrument legal-mechanism catalogue (rungs
 [A]–[H]) now backed by primary captured text, a 111-node stakeholder network, and
 EGRUL ownership extracts — all loaded onto the canonical `property` spine in
-PostgreSQL/PostGIS, all forensically captured (39,061 raw artifacts / 5.6 GB,
-6,784 registered source documents, SHA-256 + custody throughout). **5,964 properties
-sit on the spine; 819 clear the ≥2-source legal-grade bar; every property is
-RD4U-categorized.** The four Mariupol district court dockets are saturated. The
+PostgreSQL/PostGIS, all forensically captured (**353,587** raw artifacts / 91 GB
+on disk, **8,655** DB-registered source documents, SHA-256 + custody throughout —
+see `docs/STATS.md` for the full breakdown and the raw-store-vs-DB-registered
+distinction). **11,730 properties sit on the spine; 1,156 clear the ≥2-source
+legal-grade bar; 206 remain RD4U-uncategorized** (not "every property," as an
+earlier draft of this paragraph claimed). The four original Mariupol district
+court dockets are saturated; the layer has since expanded region-wide (§2). The
 dominant remaining limits are *structural* (court-record address redaction) rather
 than *coverage* — but several discrete, build-ready follow-ups remain, and the
 1 July 2026 re-registration deadline (≈3 weeks out) will open a new capture wave.
@@ -32,8 +38,8 @@ than *coverage* — but several discrete, build-ready follow-ups remain, and the
 ### Raw / custody layer
 | Asset | Count | Notes |
 |---|---|---|
-| Raw artifacts (`data/raw/`) | **39,061 files / 5.6 GB** | append-only, SHA-256-keyed, `.meta.json` sidecars |
-| Registered source documents (`state.sqlite`) | **6,784** | chain-of-custody, incl. derived OCR artifacts |
+| Raw artifacts (`data/raw/`) | **353,587 files / 91 GB** | append-only, SHA-256-keyed, `.meta.json` sidecars (was 39,061/5.6GB — stale, see `docs/STATS.md`) |
+| Registered source documents (`source_document` table) | **8,655** | chain-of-custody, incl. derived OCR artifacts (was 6,784) |
 | PostgreSQL/PostGIS | **live** (loaded) | spine populated; script 33 runs read-only against it |
 
 ### Primary occupation sources (the four independent streams + extensions)
@@ -53,8 +59,8 @@ than *coverage* — but several discrete, build-ready follow-ups remain, and the
 |---|---|---|
 | Address registry | 3,150 | normalized + raw, confidence-scored |
 | Geocoded buildings | 2,027 | + 53 low-confidence held back |
-| RD4U-categorized properties | **5,964** | A3.1/A3.2/A3.3/A3.6 comma-sets (script 36) |
-| Legal-grade properties (≥2 sources) | **819** | corroboration report (script 33) |
+| RD4U-categorized properties | **11,524** of 11,730 | A3.1/A3.2/A3.3/A3.6 comma-sets (script 36); 206 uncategorized, mostly new reallocation-stage rows — re-run script 36 |
+| Legal-grade properties (≥2 sources) | **1,156** | corroboration report (script 33), re-run 2026-06-28 post district-load |
 | Stakeholder network | **111 nodes / 138 edges** | 52 persons + 53 orgs + bridge nodes |
 | DNR region80 normative index / relevant subset | 2,221 / **395** | enabling-norm layer (scripts 35/37) |
 | denis-pushilin.ru archive index | **2,878 / 2,894 PDFs** | full Акты Главы ДНР archive |
@@ -90,8 +96,11 @@ strongest part of the Rome Statute art. 28 / 25(3)(b) case.
 
 ## 4. Linkage / corroboration state
 
-- **5,964** properties on spine · **819** legal-grade (≥2 independent families) ·
-  **2,657** court-record islands · **150** with no source family yet.
+- **11,730** properties on spine · **1,156** legal-grade (≥2 independent families) ·
+  **8,303** court-record islands · **117** with no source family yet. (Court-islands
+  jumped from 2,657 to 8,303 with the June 2026 district-court load — almost all
+  net-new district-court properties are single-source islands, which is why
+  legal-grade barely moved despite the spine nearly doubling.)
 - Strongest co-occurrences: damage_assessment ⋈ ownerless_registry (514),
   damage_assessment ⋈ housing_distribution (226), demolition ⋈ housing_distribution
   (184).
@@ -116,6 +125,16 @@ not closable. **Deferred** = low marginal value.
    closer read of a sample of each absorbing court's full caseload by hand before
    concluding either way. Source: ВС ДНР venue-reassignment notice, captured
    2026-06-28 (`data/raw/6bb873cb...` + `.meta.json`).
+0a. **`court_case` table is stuck at the original 2,666/28-judge snapshot** and
+   was never touched by the June 2026 district load (`scripts/182`–`185` write
+   to `seizure_event.detail`, a different table entirely). This backs
+   `scripts/40_build_stakeholder_network.py` and the public stakeholder-network
+   exhibit/doc, so the judge rankings shown there are stale (e.g. Романов
+   288→291, 28→33 named judges region-wide-Mariupol). Either write a new loader
+   pass into `court_case` from the district population, or rewrite script 40 to
+   read `seizure_event.detail->>'judge'` instead, then rebuild the exhibit's JS
+   bundle (esbuild). `docs/stakeholder_network.md`'s prose numbers were
+   hand-corrected 2026-06-28; the exhibit's embedded bundle data was not.
 1. **Add ВЕРТИКАЛЬ ФОРТ-2 land grant** (Распоряжение №203/09.06.2026, просп. Победы
    127, cadastral 93:27:0010311:572) as the 52nd row of `dnr_land_orders.jsonl` —
    confirmed NEW beneficiary, still unadded. *(verified absent 2026-06-12.)*
@@ -134,8 +153,10 @@ not closable. **Deferred** = low marginal value.
    relationship to ГКО №162/205/245 in rung [C]. Titles indexed; PDFs not yet OCR'd.
 6. **Decree-letterhead OCR** to recover position titles for the 6 ownerless-decree
    signers (Перепечай, Дмитриев, Краснолуцкая, Матейко, …). Raw scans in store.
-7. **Per-judge grant/denial rates** from the DB (counts exist; rates not computed)
-   — sharpens the judicial-actor accountability lane (~27 named judges).
+7. ~~**Per-judge grant/denial rates** from the DB~~ — **DONE** 2026-06-28,
+   `scripts/183` (89 named judges region-wide with ≥30 decided cases, grant
+   rates 65–100%; 33 named judges in Mariupol specifically, up from ~27). See
+   `docs/dnr_district_first_instance_2026-06.md`.
 8. **Screen the unreviewed `ukazy_glavy` 64-entry slice** of script 46's "remaining
    100" non-priority lexicon entries — lower yield expected, but unscreened.
 
@@ -186,7 +207,13 @@ not closable. **Deferred** = low marginal value.
     geometry *via this portal*. They stand as primary evidence on the case record
     itself. (Item 9 is the only possible escape hatch.)
 19. **The "already-transferred-via-court" population is invisible to the
-    ownerless registry, by construction — not by overlap.** Of the 2,657 islands,
+    ownerless registry, by construction — not by overlap.** *(Note: this item's
+    base population is the original 2,657 Mariupol court islands, computed
+    before the June 2026 district-court load grew court-islands to 8,303
+    region-wide — the finding's logic likely still holds region-wide but has
+    not been recomputed against the larger population; treat the specific
+    counts below as the Mariupol-only historical figure, not current.)* Of the
+    2,657 islands,
     **2,192 reached `court_transfer`** (court ruled in favor of "признание права
     муниципальной собственности" — i.e. the unit left "ownerless" status via the
     now-abolished court route, *before* the live 12,948-entry / 1,637-property

@@ -115,7 +115,7 @@ nationalization track, out of scope for this property pipeline. **[CAPTURED]**
 
 | Mechanism | Role | Status |
 |---|---|---|
-| **ГПК РФ гл. 33** (особое производство) — *признание права муниципальной собственности на бесхозяйную недвижимую вещь* | The case type. Self-incriminating lifecycle, dated, signed by named judges. | [CAPTURED] (script 03; 2,666 cases; `court_petition`/`court_transfer`/`appeal`) |
+| **ГПК РФ гл. 33** (особое производство) — *признание права муниципальной собственности на бесхозяйную недвижимую вещь* | The case type. Self-incriminating lifecycle, dated, signed by named judges. | [CAPTURED] (scripts 03/178/182–185; **8,271 cases across 26 DNR courts**, 87.1% granted; `court_petition`/`court_transfer`/`appeal`) |
 | Occupation court rulings | Per-property transfer act. | [CAPTURED] |
 
 → Superseded going forward by ФКЗ-4 (Dec 2025) but governs the 2022–2025 stock.
