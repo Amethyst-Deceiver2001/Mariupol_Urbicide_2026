@@ -348,6 +348,52 @@ to **1 July 2026 — ≈3 weeks from this report** — and abolished the court s
 - **Removal decrees («снятие с учёта»)** are accelerating (9 found Mar–Jun 2026) and
   mark the transfer-consummated endpoint — worth a dedicated watch.
 
+### 6a. Registry/decree feed freeze, 2026-06-06→06-28 — DOUBLE-CONFIRMED, unexplained
+
+Two independent lines now agree: as of this report's writing (2026-06-28), the
+expected pre-deadline acceleration (+100–200/week, §6 above) **has not materialized
+— the opposite has happened.**
+
+- **Mechanical (this project's own re-crawl, 2026-06-28).** Re-running
+  `scripts/05_crawl_ownerless_lists.py` 19 days after the prior capture
+  (2026-06-09) found **zero new content**: all four district registry XLSX
+  files are byte-identical (same SHA-256 hashes, only `captured_at` advanced);
+  every decree-type `source_document` count is unchanged (designation=36,
+  removal=39, procedure=23, unknown=46, demolition_declaration=3), with raw
+  capture timestamps still pinned at 2026-06-09. (The crawl log's "N new
+  decrees" pagination counter is a within-run dedup artifact, not a novelty
+  signal — see `src/mariupol_seizures/crawl/ownerless_lists.py`'s
+  `forensics.is_done()` skip-logic; verified by direct code read, not
+  assumption.) A follow-up OCR backlog pass (`scripts/06a_ocr_decrees.py`)
+  confirms this: the 23 PDFs it OCR'd for the first time were all *already
+  captured* on 2026-06-09 (dated mostly 2024–early 2025, two removal decrees
+  dated 9 June 2026) — clearing a derived-text backlog, not discovering new
+  source material.
+- **Independent (user-sourced, Telegram).** The `@mariupol_nash` channel
+  — not currently a tracked source in this project (absent from
+  `src/mariupol_seizures/chat_buildings.py` and the channel docs) — last
+  posted a fresh batch of "ownerless" (бесхозяйный) property listings on
+  **2026-06-06**. The user confirmed this via a direct, бесхозяйный-scoped
+  search of the channel (not a casual skim), and reports **no explanation
+  given** for the silence since.
+
+Two independent sources, three weeks apart in coverage, converge on the same
+window. The one nuance the OCR pass surfaces: two removal decrees are dated
+9 June 2026 — three days *after* mariupol_nash's last designation batch — so
+the freeze appears specific to **new designations** (the front end of the
+pipeline that mariupol_nash and the registry XLSX both track), not to
+**removals** (the back end, transfer-consummation), which may still be
+processing previously-designated cases. Neither source explains *why* new
+designations stopped. Candidate explanations — administrative pause ahead of
+the 1 July transition, a backlog being held for a post-deadline bulk release,
+an unrelated publication outage — are all unverified speculation; this section
+records the finding, not a cause. **Action:** keep the weekly re-snapshot
+cadence (§6) running through and past 1 July specifically to catch whichever
+of these it turns out to be — a sudden post-deadline surge would itself be
+informative. Flag `@mariupol_nash` as a candidate addition to the tracked-channel
+list — it independently corroborates the registry feed and may carry decree
+detail the four-district XLSX doesn't.
+
 ---
 
 ## 7. Recommended priority order
