@@ -197,8 +197,17 @@ not closable. **Deferred** = low marginal value.
    ГКО №75 (2022) → Указ №157 (2023) re-creation, same body — folded into
    `docs/stakeholder_network.md`'s entry for that actor (added per item 2
    above).
-6. **Decree-letterhead OCR** to recover position titles for the 6 ownerless-decree
-   signers (Перепечай, Дмитриев, Краснолуцкая, Матейко, …). Raw scans in store.
+6. ~~**Decree-letterhead OCR**~~ — **DONE 2026-06-28**
+   (`scripts/195_ocr_decree_signer_titles.py`, local-only; raw scans were
+   already OCR'd from prior work, this read the signature blocks). All 4
+   remaining signers' titles recovered: **Перепечай Б.Н.** and **Дмитриев
+   А.В.** both "Начальник Управления ЖКХ" (Head, Housing & Utilities Dept.)
+   — but with **overlapping** signing date ranges (19.08–17.10.2024 vs.
+   16.08.2024–14.05.2025), not a clean handover, flagged for a closer look;
+   **Краснолуцкая Т.Ю.** = Deputy Head of the same department; **Матейко
+   В.А.** = Начальник Управления имущественных и земельных отношений (Head,
+   Property & Land Relations Dept.) — a different department entirely.
+   Written up in `docs/stakeholder_network.md` Tier 3.
 7. ~~**Per-judge grant/denial rates** from the DB~~ — **DONE** 2026-06-28,
    `scripts/183` (89 named judges region-wide with ≥30 decided cases, grant
    rates 65–100%; 33 named judges in Mariupol specifically, up from ~27). See

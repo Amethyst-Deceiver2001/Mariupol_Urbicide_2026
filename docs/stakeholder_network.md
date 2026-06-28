@@ -80,10 +80,21 @@ scans in store); names below are as-signed.
 |---|---|---|
 | **Кольцов А.В.** | Ownerless decrees **652/968**; demolition decrees **16/20**; Постановление №493 (05.03.2026, маневренный фонд — 18 buildings → МУП «УК Жилсервис»); **врио глава МО ГО Мариуполь since 13.06.2025** (Указ Главы ДНР №493/13.06.2025 — a different instrument from Постановление №493 above despite the matching number; see chronology below) | `ownerless_decrees.jsonl`, `demolition_decrees.jsonl` |
 | **Моргун О.В.** | Ownerless **156**; demolition **1**; глава администрации города Мариуполя 23.01.2023→06.11.2023, then врио главы МО ГО Мариуполь 06.11.2023→12.06.2025 (full chronology below) | 〃 |
-| **Перепечай Б.Н.** | Ownerless **70** | 〃 |
-| **Дмитриев А.В.** | Ownerless **55**; also demolition-commission member | 〃 |
-| **Краснолуцкая Т.Ю.** | Ownerless **25** | 〃 |
-| **Матейко В.А.** | Ownerless **8** | 〃 |
+| **Перепечай Б.Н.** — Начальник Управления жилищно-коммунального хозяйства Администрации городского округа Мариуполь (Head, Housing & Utilities Dept.) | Ownerless **70**, signed 19.08.2024→17.10.2024 | 〃 |
+| **Дмитриев А.В.** — *same title*, Начальник Управления ЖКХ | Ownerless **55**, signed 16.08.2024→14.05.2025; also demolition-commission member | 〃 |
+| **Краснолуцкая Т.Ю.** — Заместитель начальника Управления ЖКХ (Deputy Head, same dept.) | Ownerless **25**, signed 11.12.2024→25.03.2025 | 〃 |
+| **Матейко В.А.** — Начальник Управления имущественных и земельных отношений Администрации городского округа Мариуполь (Head, Property & Land Relations Dept.) | Ownerless **8**, all signed 29.05.2024 | 〃 |
+
+Position titles recovered from decree signature-block OCR (`scripts/195`,
+2026-06-28; raw scans were already OCR'd from prior work, this just
+extracted+read the text). **Перепечай and Дмитриев hold the identical
+title** (Начальник Управления ЖКХ) with **overlapping signing date ranges**
+(19.08–17.10.2024 vs. 16.08.2024–14.05.2025) — not a clean handover; either
+a co-signing arrangement, an acting/врио substitution not visible on the
+decree text, or a numbering/dating irregularity worth a closer read of the
+two decree series side by side. Краснолуцкая's "Заместитель" title and her
+date range sitting inside Дмитриев's suggest she deputized for him during
+part of his tenure, consistent with normal department structure.
 | **Иващенко К.В.** | Распоряжение №61 (03.11.2022) — municipal property-lease rulebook, the [A]→[D]/[F]/[G] disposal bridge; глава администрации города Мариуполя 06.04.2022→22.01.2023 (full chronology below) | script 38 target ([CAPTURED]); appointment chronology confirmed 2026-06-12 |
 
 ### Command-chain chronology — heads of Mariupol administration (script 44, OCR'd 2026-06-12)
