@@ -73,11 +73,118 @@ KNOWN_CASES: list[tuple[int, str, str]] = [
         "РКС-Девелопмент without auction; replaced by ООО СЗ «Новое время 2» 9-storey МКД. "
         "DNR Supreme Court upheld denial. Ruling: 13.11.2025.",
     ),
+    (
+        1166152,
+        "33-641/2024 (1st instance 2-1099/2024)",
+        "CAPTURED + READ 2026-06-26. Found via @mrpl_besxozxata msg 84043 "
+        "(2026-02-26), posted as supporting evidence in a thread about foreign "
+        "(Ukrainian) citizens being deemed to have renounced ownerless-registry "
+        "rights for not appearing in person, per Закон ДНР №66-РЗ. Case: пр-т "
+        "Нахимова (house no. redacted), Приморский district court, owner Кривонос "
+        "Т.И., outside RF territory, utilities paid via trusted agent/POA, clean "
+        "registry title on file. 1st instance left admin's petition without "
+        "consideration (genuine dispute). ВС ДНР (Храпин/Черткова/Могутова, "
+        "02.04.2025) REVERSED and remanded for merits -- opposite outcome "
+        "direction from 1211787 -- on the ground the lower court never checked "
+        "(a) whether the owner personally appeared within 30 days with "
+        "'паспортом гражданина Российской Федерации' per Закон №66-РЗ ст.5(3)(а) "
+        "-- the ONLY ID document the statute names, no foreign-passport clause -- "
+        "and (b) the 6-month-outside-RF-territory trigger. DOCUMENT-CONFIRMED "
+        "STRUCTURAL MECHANISM: an RF-citizen-only personal-confirmation safety "
+        "valve forecloses the one procedural escape from bezkhoz designation for "
+        "non-RF-citizen owners specifically, regardless of POA or paid utilities. "
+        "Ruling text itself never states Кривонос Т.И.'s citizenship -- 'outside "
+        "RF territory' is confirmed, citizenship is inferred from the mechanism "
+        "the court applies, not asserted as fact. Differs from 1211787's reversal "
+        "ground (failure to join co-owners) -- matched outcome-direction pair, "
+        "not a matched doctrinal pair. See "
+        "memory/mrpl_besxozxata_deep_intel_2026-06-26.md.",
+    ),
+    (
+        1211787,
+        "33-689/2025 (1st instance 2-2030/2024)",
+        "CAPTURED + READ 2026-06-26. Originally flagged via an @mrpl_besxozxata chat "
+        "post as one side of an alleged citizenship double standard (Russian- vs. "
+        "Ukrainian-citizen owners treated oppositely) -- that framing did NOT hold up: "
+        "the ruling text never mentions citizenship at all (grepped, zero hits). Actual "
+        "holding is citizenship-neutral and procedural: admin decree no.130 "
+        "(27.02.2024) registered a Zhovtnevy-district flat as ownerless; 1st instance "
+        "granted municipal ownership 13.09.2024; DNR Supreme Court reversed because the "
+        "lower court failed to join all 4 co-owners as parties, and a genuine ownership "
+        "dispute (occupied, utilities paid, 2007 Ukrainian privatization title on file) "
+        "can't go through the simplified special-proceedings track at all -- left "
+        "without consideration, not decided on the merits; admin can re-file as an "
+        "ordinary suit. Genuinely new finding instead: one co-owner had ALREADY received "
+        "a war-damage compensation payment for this same flat (04.07.2024, 10,000 "
+        "RUB/sqm) while a different city-admin arm tried to register it as abandoned -- "
+        "an administrative self-contradiction. Judge Гуридова Н.Н. also sat on the "
+        "Troianda-M appeal (33-2575/2025). The alleged mirror-image foreign-citizen "
+        "case is still unconfirmed/unfound. See memory/mrpl_besxozxata_deep_intel_2026-06-26.md.",
+    ),
 ]
 
 # Arbitrary docket pages from other courts in the same case chain.
 # Tuple: (url, source_type, title, description)
 KNOWN_DOCKET_PAGES: list[tuple[str, str, str, str]] = [
+    (
+        "https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1"
+        "&name_op=case&case_id=1988037"
+        "&case_uid=32bca921-244a-4379-a3bc-766a469ecfd3&delo_id=5&new=5",
+        "dnr_supreme_court_docket_case",
+        "ВС ДНР — карточка дела №33-1731/2025 (Докучаевск) — non-Mariupol bezkhoz, user-supplied 2026-06-26",
+        "READ 2026-06-26. Дело №33-1731/2025 (1st instance 2-1065/2024, "
+        "Докучаевский городской суд). Ruling text embedded directly in the case-"
+        "card page (no separate doc_id needed). Owner Швець Н.Н., bought 2014, "
+        "evacuated due to combat July 2024, learned of bezkhoz designation March "
+        "2025 -- APPEARED on appeal in person, cited п.5 ч.1 ст.12 №5-ФКЗ "
+        "(right to register property until 01.01.2028). REVERSED for failure to "
+        "join her as a party -- WON (left without consideration). One of 4 "
+        "non-Mariupol comparison cases; see "
+        "memory/mrpl_besxozxata_deep_intel_2026-06-26.md.",
+    ),
+    (
+        "https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1"
+        "&name_op=case&case_id=1986749"
+        "&case_uid=71cd8992-4384-4c4f-a6fa-61e2b356f917&delo_id=5&new=5",
+        "dnr_supreme_court_docket_case",
+        "ВС ДНР — карточка дела №33-1590/2025 (Торез) — non-Mariupol bezkhoz, user-supplied 2026-06-26",
+        "READ 2026-06-26. Дело №33-1590/2025 (1st instance 2-8490/2024, "
+        "Харцызский межрайонный суд). Owner Елисеева С.Г., owner since 2006, "
+        "APPEARED on appeal, argued she wasn't properly notified, also cited "
+        "п.5 ч.1 ст.12 №5-ФКЗ. REVERSED for improper notice -- WON (admin's "
+        "claim denied outright). Pairs with case_id 1988037 -- both owners who "
+        "personally appeared, both won.",
+    ),
+    (
+        "https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1"
+        "&name_op=case&case_id=1986186"
+        "&case_uid=9802d0b1-eb0b-4542-8327-31e89bd78da5&delo_id=5&new=5",
+        "dnr_supreme_court_docket_case",
+        "ВС ДНР — карточка дела №33-1529/2025 (Донецк) — non-Mariupol bezkhoz, user-supplied 2026-06-26",
+        "READ 2026-06-26. Дело №33-1529/2025 (1st instance 2-4192/2024, "
+        "Ворошиловский межрайонный суд г. Донецка). Owner Шухнин А.С. -- ruling "
+        "text states EXPLICITLY 'находится за пределами Российской Федерации' "
+        "(outside RF territory); had title docs, prior use, paid utilities, legal "
+        "counsel (Galushko V.V.) but did NOT appear personally. Claim "
+        "GRANTED (ИСК УДОВЛЕТВОРЕН) -- LOST despite a complete paper trail. "
+        "Strongest comparator yet for the personal-appearance-defeats-absentee-"
+        "owners mechanism (Закон №66-РЗ ст.5(3)(а), case 1166152).",
+    ),
+    (
+        "https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1"
+        "&name_op=case&case_id=1985702"
+        "&case_uid=b887d09a-9a3a-4766-b9d6-bb3a35007911&delo_id=5&new=5",
+        "dnr_supreme_court_docket_case",
+        "ВС ДНР — карточка дела №33-1509/2025 (Володарское) — non-Mariupol bezkhoz, user-supplied 2026-06-26",
+        "READ 2026-06-26. Дело №33-1509/2025 (1st instance 2-66/2025, "
+        "Володарский районный суд). Owner Носенко Н.В. absent; tenant Мелихова "
+        "С.В. holds a Dec-2024 POA to manage/dispose, lives there since 2021, "
+        "pays utilities -- appealed for standing, REJECTED OUTRIGHT (оставлена "
+        "без рассмотрения), trial court's grant of municipal ownership AFFIRMED. "
+        "Confirms the pattern holds even for a present, paying, POA-holding "
+        "occupant -- only the absent TITLE OWNER's personal appearance counts, "
+        "not a representative's.",
+    ),
     (
         "https://mar-zhovt--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1"
         "&name_op=case&case_id=5346922"
@@ -127,6 +234,26 @@ SEARCH_PARAMS_LIST: list[dict] = [
         "name": "sud_delo", "srv_num": 1, "name_op": "sf",
         "delo_id": 5, "nc": 1,
         "text_namecase": "Мариуполь снос",
+    },
+    {
+        # Added 2026-06-26: doc_id 1211787 (case 2-2030/2024 -> appeal 33-689/2025)
+        # is this exact case type. A chat poster claimed a "mirror-image" sibling
+        # ruling exists involving a foreign(Ukrainian)-citizen owner, treated
+        # oppositely -- unconfirmed. The search field is case-subject text, not
+        # litigant nationality, so this casts the widest net over the same case
+        # type/period rather than guessing at a citizenship keyword that won't
+        # appear in the subject line.
+        "name": "sud_delo", "srv_num": 1, "name_op": "sf",
+        "delo_id": 5, "nc": 1,
+        "text_namecase": "признание права муниципальной собственности на бесхозяйную",
+    },
+    {
+        # Same rationale, narrower phrasing variant -- GAS Правосудие's search
+        # appears to do substring/stem matching, not always consistently, so two
+        # phrasings of the same case-type name catch different indexing quirks.
+        "name": "sud_delo", "srv_num": 1, "name_op": "sf",
+        "delo_id": 5, "nc": 1,
+        "text_namecase": "бесхозяйную недвижимую вещь",
     },
 ]
 
