@@ -32,7 +32,7 @@
 
 | Metric | Value |
 |---|---|
-| Raw artifact files (excl. `.meta.json` sidecars) | **353,641** |
+| Raw artifact files (excl. `.meta.json` sidecars) | **353,643** |
 | Disk size | **91G** |
 
 Note the gap between this and `source_document` above: the raw store is append-only and holds *everything ever captured*; `source_document` is the subset formally loaded into Postgres with a chain-of-custody link. Historical figures like "39,061 raw artifacts" or "211,900 registered artifacts" in older docs were accurate at an earlier snapshot — they are not current and should be replaced with the figures above on next revision of those docs.

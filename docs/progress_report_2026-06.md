@@ -82,7 +82,7 @@ records; "Norm" = the enabling instrument's primary text.
 | **[C] Demolition** | 20 decrees + 637 register | ✅ ГКО №162/205/245 + Указ №40 | Strong; №56 list internal/unrecoverable |
 | **[D] Land reallocation** | 51 land orders | ✅ №39-РЗ + ГКО №282 | Good; 1 new grant unadded (§5) |
 | **[E] Rebuild** | 20 ЕИСЖС objects | ✅ Указ №290 + ГКО №175 §5.3 | Good (small N — few completed rebuilds exist yet) |
-| **[F] Resale** | sold-out % per object | ⚠️ 2% mortgage law [REPORTED] only | Federal norm uncaptured |
+| **[F] Resale** | sold-out % per object | ✅ 2% mortgage law IDENTIFIED — founding Постановление №2565 (31.12.2022) + amendment №2166 (15.12.2023, captured) | №2565 capture staged scripts/207 (§5 item 11) |
 | **[G] Housing** | 5,822/1,889 lists | ✅ ГКО №175/263 + №93-2/93-3 + Закон №269-РЗ | Good; 269-РЗ [CAPTURED] 2026-06-28 — note its 25 m² term is a max-excess cap on equivalent housing, not a flat ceiling (corrected from press reports, §5 item 10) |
 
 | **[H] Toponymy** | toponyms.csv | ✅ Указ №301 | Decrees themselves not on any portal |
@@ -291,7 +291,16 @@ not closable. **Deferred** = low marginal value.
     the legal basis for transferring bezkhoz housing to *federal* ownership
     in some cases, Статья 3 п.2) and №2255 от 22.12.2023 (the federal
     reconstruction subsidy program funding the per-m² compensation rate,
-    Статья 7 п.3) — not yet captured, not yet prioritized.
+    Статья 7 п.3). **Both IDENTIFIED 2026-06-28** by the first outsourced
+    research batch (`docs/research_outsourcing/mariupol_urbicide_research_
+    aggregation.md`, Q2/Q3): №2501 = pravo.gov.ru publication
+    `0001202212300029`, housing routing to federal ownership via Приложение
+    №2 item 9 ("Жилищный фонд...") + Arts 6¹/7/19; №2255 = pravo.gov.ru
+    `0001202312290053`, per-m² rate deduced as **51,500 ₽/m²** *from an
+    amendment draft, NOT yet read from primary Приложение №4* (held as
+    UNCONFIRMED — same press-vs-primary discipline as item 10; see
+    OPEN_QUESTIONS.md Q3). Capture staged in `scripts/207` (user-run,
+    geoblocked).
 11. ~~**2% subsidized-mortgage law + Promsvyazbank trail**~~ — **PARTIALLY
     LOCATED 2026-06-28.** Confirmed: the program runs under federal
     government resolutions, with **Постановление Правительства РФ от
@@ -308,11 +317,21 @@ not closable. **Deferred** = low marginal value.
     Putin's 15.12.2022 strategic-council directive) — its number/date
     couldn't be pinned down from press coverage; №2166 is a confirmed later
     amendment, not the founding instrument. `scripts/197` also captures
-    №2166's federal-portal page; finding the launch decree's exact number
-    remains a residual sub-gap.
-12. **Распоряжение №61** (Mariupol municipal lease rulebook, [CITED]) — PDF
-    dead-linked on нпа.днронлайн; recoverable only via mariupol.gosuslugi.ru or the
-    горуправление юстиции registry.
+    №2166's federal-portal page. **Launch decree IDENTIFIED 2026-06-28**
+    (outsourced batch, Q1): the founding instrument is **Постановление
+    Правительства РФ от 31.12.2022 № 2565** (ДОМ.РФ subsidy rules — the
+    parent that №1123/08.07.2023 and №2166/15.12.2023 both amend),
+    pravo.gov.ru publication `0001202301030011` (published 03.01.2023,
+    matching the early-Jan-2023 press timing). Capture staged in
+    `scripts/207` (user-run). The residual sub-gap is now closed.
+12. ~~**Распоряжение №61** (Mariupol municipal lease rulebook, [CITED])~~ —
+    **MIRROR FOUND 2026-06-28** (outsourced batch, Q8). The PDF was
+    dead-linked on нпа.днронлайн, but a working HTML mirror of the full text
+    (both the Временный порядок передачи в аренду and the Временная методика
+    расчёта арендной платы; reg. №5351, 14.11.2022) exists on the same
+    platform's article route
+    (`npa.dnronline.su/2022-11-15/...-61-ot-03-11-2022-g.html`). Capture
+    staged in `scripts/207` (user-run).
 
 ### C. Tier-3 corroboration layers never built (reconceptualization §3, Tier 3)
 
@@ -413,9 +432,22 @@ not closable. **Deferred** = low marginal value.
 13. **Satellite before/after** (Sentinel-2 free) for demolition + re-addressing
     cases — would physically confirm the paper transfers (esp. Нахимова 82 →
     Черноморский 1Б). Only the *paper* damage-tracker mirror is used today.
-14. **Filtration / entry-ban data** (East SOS: 30k denied, 20–50-yr bans) — proves
-    the "appear in person within 30 days" requirement is *designed* to be
-    impossible. Central to the "sham process" argument; no data ingested.
+14. ~~**Filtration / entry-ban data**~~ — **SOURCED + ATTRIBUTION CORRECTED
+    2026-06-28** (outsourced batch, Q5; captured `scripts/206`). The
+    30,000-denied-entry / 20–50-yr-ban figure (Oct 2023–Apr 2025) is
+    **Russian authorities' own reporting** — a self-incrimination number,
+    *not* an East SOS estimate — quoted in HRW, "Ukraine: Russia Illegally
+    Seizing Property in Occupied Areas" (26 May 2026); East SOS is the
+    source of the separate **1-in-4** filtration ratio. Earlier project
+    docs (`reconceptualization_2026.md:85`) had wrongly attributed both to
+    East SOS — corrected. **Bonus:** the same HRW report independently
+    describes this project's exact ownerless→court→reassignment lifecycle,
+    states HRW reviewed **~8,000 such court cases (Mar 2024–Jan 2026)** —
+    external corroboration of our ~8,300-case court corpus — and cites the
+    UN's **>38,000 "potentially abandoned" properties (Nov 2025)** figure.
+    Still systemic context (no per-property join; East SOS publishes
+    narrative, not a structured dataset), but now properly sourced and
+    capture-grade. Central to the "sham process" argument.
 15. **Utility-disconnection signal** — leading indicator (recited inside inspection
     acts as "отсутствие потребления ресурсов"); the only realistic source is
     derived text, not a standalone series.

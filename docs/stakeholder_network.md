@@ -87,14 +87,24 @@ scans in store); names below are as-signed.
 
 Position titles recovered from decree signature-block OCR (`scripts/195`,
 2026-06-28; raw scans were already OCR'd from prior work, this just
-extracted+read the text). **Перепечай and Дмитриев hold the identical
-title** (Начальник Управления ЖКХ) with **overlapping signing date ranges**
-(19.08–17.10.2024 vs. 16.08.2024–14.05.2025) — not a clean handover; either
-a co-signing arrangement, an acting/врио substitution not visible on the
-decree text, or a numbering/dating irregularity worth a closer read of the
-two decree series side by side. Краснолуцкая's "Заместитель" title and her
-date range sitting inside Дмитриев's suggest she deputized for him during
-part of his tenure, consistent with normal department structure.
+extracted+read the text). The apparent **Перепечай/Дмитриев same-title
+overlap** (both shown above as Начальник Управления ЖКХ, signing ranges
+19.08–17.10.2024 vs. 16.08.2024–14.05.2025) was **RESOLVED 2026-06-28** as
+an **OCR title-normalization artifact, not a real overlap** (outsourced
+research batch, Q7 — see `docs/research_outsourcing/OPEN_QUESTIONS.md`):
+the two hold *distinct* offices. **Дмитриев А.В.** is the actual Начальник
+Управления ЖКХ (head of the УЖКХ legal entity, ИНН 9310011880, since
+08.01.2024) who signs sectoral acts declaring/transferring «бесхозное
+жильё». **Перепечай Б.Н.** is the **заместитель главы / сити-менеджера** of
+the city administration *with the ЖКХ portfolio* (e.g. signed постановление
+№135 on street-renaming) — supervising УЖКХ, not heading it. Collapsing his
+deputy-head signature block to the department title is what produced the
+illusory same-title overlap; the relationship is hierarchical and
+concurrent, not a co-holding. (The table rows above retain the OCR'd titles
+for traceability; this note is the correction.) Краснолуцкая's
+"Заместитель" title and her date range sitting inside Дмитриев's suggest she
+deputized for him during part of his tenure, consistent with normal
+department structure.
 | **Иващенко К.В.** | Распоряжение №61 (03.11.2022) — municipal property-lease rulebook, the [A]→[D]/[F]/[G] disposal bridge; глава администрации города Мариуполя 06.04.2022→22.01.2023 (full chronology below) | script 38 target ([CAPTURED]); appointment chronology confirmed 2026-06-12 |
 
 ### Command-chain chronology — heads of Mariupol administration (script 44, OCR'd 2026-06-12)
