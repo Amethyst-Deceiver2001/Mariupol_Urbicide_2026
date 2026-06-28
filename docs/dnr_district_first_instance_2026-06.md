@@ -129,7 +129,7 @@ Petitioner organisations and the judges below are occupation officials acting in
 - A **cadastral number** (a unique property identifier that links directly to the spine / Rosreestr) survived on **35** cards — the only reliable property-identity recovery here, and 4 of them exact-match existing spine properties (`scripts/184`).
 - The street-address extractor fired on 232 cards but is **unreliable** — spot-checking shows mostly utility-narrative false positives, not addresses. With the street redacted on 100% of rulings, the cadastral number is the linkage target; the loose street field should not be treated as claim-grade.
 
-This is itself a finding: the occupation court system **anonymises the property’s identity at source** — the same GAS «Правосудие» anonymiser that masks owners as ФИО1/ФИО2 masks the seized address as `<адрес>`. The court-islands address gap therefore persists not because the record wasn’t captured but because the address is redacted in the published ruling. The cadastral numbers that survive are the highest-value linkage targets recovered here.
+This redaction is **not occupation-specific** — it is standard depersonalization practice under Russian Federal Law No. 262-FZ, applied by the GAS «Правосудие» system the same way at any Russian court nationwide. It masks owners as ФИО1/ФИО2 and the address as `<адрес>` uniformly. What is specific to this dataset is the practical effect, not the rule: the court-islands address gap persists not because the record wasn’t captured but because a generic depersonalization rule, applied here as everywhere, redacts the address in the published ruling. The cadastral numbers that survive are the highest-value linkage targets recovered here.
 
 ## Scope and caveats
 
