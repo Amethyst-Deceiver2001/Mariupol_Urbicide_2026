@@ -183,8 +183,20 @@ not closable. **Deferred** = low marginal value.
    otherwise separate grant-recipient chains. Written up in
    `docs/stakeholder_network.md` "Founders / ownership chains"; not yet
    pushed into the rendered graph (doc-only, same as items 0a/2's caveat).
-5. **OCR Указ №40/2022's amendments** (№657/2024, №513/2025) to resolve its
-   relationship to ГКО №162/205/245 in rung [C]. Titles indexed; PDFs not yet OCR'd.
+5. ~~**OCR Указ №40/2022's amendments**~~ — **DONE 2026-06-28**
+   (`scripts/194_ocr_ukaz40_amendments.py`, local-only, both PDFs already in
+   the raw store). **№657 (03.12.2024)**: institutional renaming pass
+   (местная администрация → орган местного самоуправления) plus one
+   substantive addition — §1.4.7 now explicitly ties demolition to cadastral
+   de-registration/termination of recorded rights. **№513 (24.06.2025)**:
+   removes the Operational HQ's gatekeeper role over the demolition list,
+   replacing it with general "законодательству РФ и ДНР". Neither amendment
+   references ГКО №162/205/245 — that relationship question is **still
+   unresolved**, just no longer blocked on OCR. Side finding: confirmed
+   institutional continuity of the «Оперативный штаб по восстановлению» —
+   ГКО №75 (2022) → Указ №157 (2023) re-creation, same body — folded into
+   `docs/stakeholder_network.md`'s entry for that actor (added per item 2
+   above).
 6. **Decree-letterhead OCR** to recover position titles for the 6 ownerless-decree
    signers (Перепечай, Дмитриев, Краснолуцкая, Матейко, …). Raw scans in store.
 7. ~~**Per-judge grant/denial rates** from the DB~~ — **DONE** 2026-06-28,
