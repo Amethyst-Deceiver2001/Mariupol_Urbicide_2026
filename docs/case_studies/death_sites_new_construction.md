@@ -1,8 +1,8 @@
 # Case Study — Death Sites, Ad-Hoc Graves and New Construction
 
-**Cross-referencing the Mariupol deceased/missing register
-("Погибшие и Пропавшие на Карте Разрушений") against the 91
-ЕИСЖС (наш.дом.рф) new-construction objects.**
+**Cross-referencing the Mariupol deceased/missing register ("Pogibshie i
+Propavshie na Karte Razrushenii" — "the Dead and Missing on the Destruction
+Map") against the 91 EISZhS (nash.dom.rf) new-construction objects.**
 
 **Source file:** `Погибшие и Пропавшие на Карте Разрушений_Deceased and
 Missing on the Damage Map.xlsx` (4,506 records, 4,256 with parseable
@@ -16,7 +16,7 @@ burial location (explicit or inferred-courtyard) vs eisghs address.
 
 ---
 
-## Case 1 — пр-кт Строителей 70 → "Резиденция II" д.70Б
+## Case 1 — prosp. Stroiteley 70 → "Rezidentsiya II" d.70B
 **Exact address match: two deaths recorded at the predecessor building**
 
 | Attribute | Detail |
@@ -53,7 +53,7 @@ buried "в садике рядом с домом", cause: авиаудар (airs
 
 ---
 
-## Case 2 — ул. Зелинского: ЖК "Нахимовский" and ЖК (ПОРФИР) construction zone
+## Case 2 — ul. Zelinskogo: ZhK "Nakhimovsky" and ZhK (PORFIR) construction zone
 
 **New-build objects on ул. Зелинского** (8 objects, all
 `under_construction`):
@@ -177,7 +177,7 @@ Most recent ownerless decrees on this street: Кольцов decree №1806
 
 ---
 
-## Case 3 — ул. Куприна 9А «у Теплосетей»: documented mass ad-hoc burial site
+## Case 3 — ul. Kuprina 9A "by the heat-distribution substation": documented mass ad-hoc burial site
 
 **eisghs objects on ул. Куприна:**
 - 66293: ул. Куприна, д.77Б — СЗ ОЛИМПСТРОЙ НР (ИНН 9309027678), `under_construction`
@@ -222,7 +222,7 @@ to, or at, the new-build site.
 
 ---
 
-## Case 4 — б-р Шевченко: roadside burial strip
+## Case 4 — bul. Shevchenko: roadside burial strip
 
 **eisghs objects:**
 - 66545: б-р Шевченко, д.276а — СЗ ОЛИМПСТРОЙ НР, `under_construction`
@@ -255,7 +255,7 @@ found near Куприна).
 
 ---
 
-## Case 5 — ул. Латышева: death-without-medicine cluster
+## Case 5 — ul. Latysheva: death-without-medicine cluster
 
 **eisghs object:** 71674 — ул. Латышева — СЗ-1 ПОРФИР, `under_construction` (RPD №93-000084)
 
@@ -418,7 +418,7 @@ directly undermining the legal predicate for "бесхозяйность" (owner
 
 ---
 
-## Case 7 — пр-кт Строителей 74–88: the five-building block
+## Case 7 — prosp. Stroiteley 74–88: the five-building block
 
 **The clearest case in the dataset: five consecutive residential buildings, all with
 documented courtyard graves, all demolished under coordinated occupation orders, all

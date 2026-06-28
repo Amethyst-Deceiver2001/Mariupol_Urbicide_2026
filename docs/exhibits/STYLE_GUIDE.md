@@ -51,8 +51,9 @@ original-language) term is available on demand, not removed:
 
 Example: "Demolition Decree No. 56 (29.09.2022)" in the body, with
 "Распоряжение ГКО ДНР № 56 от 29.09.2022" as the popup/title. Institution names
-translate too: "Russian Ministry of Construction," "Public Corporation 'Unified
-Construction Client'," "Mariupol City Council."
+translate too: "Russian Ministry of Construction," "Public-Law Company 'Unified
+Construction Client'" (ППК — публично-правовая компания, a Russian legal form
+for state-created entities — not "Public Corporation"), "Mariupol City Council."
 
 ## 3. Sourcing — no inline hashes in the narrative
 

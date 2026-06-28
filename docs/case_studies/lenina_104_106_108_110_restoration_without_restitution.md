@@ -1,4 +1,4 @@
-# Case Study — пр. Ленина (Мира), 104/106/108/110 — Restoration Without Restitution
+# Case Study — prosp. Lenina (Myru), 104/106/108/110 — Restoration Without Restitution
 
 **Four contiguous war-damaged buildings, all four named in one demolition
 decree, with WILDLY DIFFERENT physical fates — 106 restored in place,
@@ -20,7 +20,7 @@ poppler) so a designer/reviewer never has to open a PDF to see what it is.
 
 The package contains: confirmed wartime-destruction imagery for 104
 (street-facade AND courtyard angles, March/May 2022 + 2023), 106
-(former АТБ supermarket + burnt balconies, May/June 2022, plus a less-severe
+(former ATB supermarket + burnt balconies, May/June 2022, plus a less-severe
 courtyard view consistent with its later restoration), and 108's partial
 demolition; a distant restoration-in-progress frame for 108; a 1979 prewar
 baseline photo for 110 (Pastvu); resale-listing evidence for 106, 108, and
@@ -30,7 +30,7 @@ altered apartment layouts, and ground-floor commercial space let to
 businesses while residents are locked out); and a fenced-but-idle
 stalled-reconstruction walkthrough that visually corroborates that halted-
 work claim. One candidate video was EXCLUDED despite a title mentioning
-house numbers 104/106: it turned out to be просп. Победы (Victory Avenue), a
+house numbers 104/106: it turned out to be prosp. Pobedy (Victory Avenue), a
 different street entirely that coincidentally shares house numbers — real
 siege damage, wrong building; see
 `memory/lifecycle_classifier_unreliable_siege_damage.md` for the full record
@@ -38,10 +38,10 @@ of caption/title-trust failures found across this case study's media review,
 including a Telegram resale listing originally misattributed to 108 by
 inference before its content was actually seen — it was 110.
 Non-chat corroboration on spine also includes `unosat_damage` rows for 104
-and 108, and a resident's own testimony text for 106 ("Дом был повреждён,
-после военных действий..." — `Lenina106_Mariupol/42`).
+and 108, and a resident's own testimony text for 106 ("The building was
+damaged, after the fighting..." — `Lenina106_Mariupol/42`).
 
-Unlike the demolish→rebuild→resell pattern documented for пр. Нахимова 82
+Unlike the demolish→rebuild→resell pattern documented for prosp. Nakhimova 82
 (`docs/case_studies/nakhimova_82_chernomorsky_1b.md`), **106** was never
 physically destroyed in the way its own paper trail says it was: the
 occupation's own demolition register lists a decree ordering it razed; the
@@ -65,16 +65,17 @@ decree.**
 
 ## The four properties
 
-All four are named individually in **Распоряжение ГКО ДНР № 56 от 29.09.2022**
-(each as a separate line item, "Здание жилого дома") and collectively in the
-residents' joint letter (below). District: Жовтневый for all four.
+All four are named individually in **State Defense Committee (GKO) DNR
+Directive No. 56, 29.09.2022** (each as a separate line item, "Zdanie
+zhilogo doma" — residential-building entry) and collectively in the
+residents' joint letter (below). District: Zhovtnevy for all four.
 
 | Address | property_id | building_id | RD4U | Registry-inclusion events | Demolition decree line | Geocode | Confirmed physical fate |
 |---|---|---|---|---|---|---|---|
-| пр. Ленина 104 | **4417** | `AVENUE:ленина\|104` | A3.1, A3.6 | 71 | "г. Мариуполь, пр-т Ленина, д. 104 (Здание жилого дома)" | 47.0981236, 37.5225087 | Siege damage confirmed (2022, video); demolition NOT confirmed |
-| пр. Ленина 106 | **4419** | `AVENUE:ленина\|106` | A3.1, A3.6 | 72 | "г. Мариуполь, пр-т Ленина, д. 106 (Здание жилого дома)" | 47.0982211, 37.5211384 | Siege damage confirmed (2022, video); restored in place, never razed |
-| пр. Ленина 108 | **4421** | `AVENUE:ленина\|108` | A3.1, A3.6 | 76 | "г. Мариуполь, пр-т. Ленина, д. 108 (Здание жилого дома)" | 47.098342, 37.5193585 | **Partially demolished** (1 entrance/section, video-confirmed) — NOT fully razed |
-| пр. Ленина 110 | **4423** | `AVENUE:ленина\|110` | A3.1, A3.6 | 64 | "г. Мариуполь, пр-т. Ленина, д. 110 (Здание жилого дома)" | 47.0984355, 37.5180284 | No visual evidence yet |
+| prosp. Lenina 104 | **4417** | `AVENUE:ленина\|104` | A3.1, A3.6 | 71 | "g. Mariupol, prosp. Lenina, d. 104 (Zdanie zhilogo doma)" | 47.0981236, 37.5225087 | Siege damage confirmed (2022, video); demolition NOT confirmed |
+| prosp. Lenina 106 | **4419** | `AVENUE:ленина\|106` | A3.1, A3.6 | 72 | "g. Mariupol, prosp. Lenina, d. 106 (Zdanie zhilogo doma)" | 47.0982211, 37.5211384 | Siege damage confirmed (2022, video); restored in place, never razed |
+| prosp. Lenina 108 | **4421** | `AVENUE:ленина\|108` | A3.1, A3.6 | 76 | "g. Mariupol, prosp. Lenina, d. 108 (Zdanie zhilogo doma)" | 47.098342, 37.5193585 | **Partially demolished** (1 entrance/section, video-confirmed) — NOT fully razed |
+| prosp. Lenina 110 | **4423** | `AVENUE:ленина\|110` | A3.1, A3.6 | 64 | "g. Mariupol, prosp. Lenina, d. 110 (Zdanie zhilogo doma)" | 47.0984355, 37.5180284 | No visual evidence yet |
 
 **283 registry_inclusion events across the four buildings** (apartments
 individually processed as "ownerless"), each backed by a `demolition`
@@ -98,8 +99,8 @@ already exists, just needs re-running scoped to these three building_ids).
 ## The contradiction at the center of the case
 
 ### Track 1 — On paper, demolished
-**Распоряжение ГКО ДНР № 56 от 29.09.2022** lists "г. Мариуполь, пр-т. Ленина,
-д. 106 (Здание жилого дома)" for demolition.
+**State Defense Committee (GKO) DNR Directive No. 56, 29.09.2022** lists "g.
+Mariupol, prosp. Lenina, d. 106 (Zdanie zhilogo doma)" for demolition.
 - **Source:** DNR MinStroy open-data demolition register (snapshot 16.03.2026).
 - **Artifact:** `minstroy-dpr.gosuslugi.ru/.../reestr-snosa_16_03_2026.csv` ·
   SHA-256 `d431a530…42ea37` · captured 2026-06-09.
@@ -139,11 +140,11 @@ presence, before being used in a case study.)*
 ### Track 3 — On paper again, 91 apartments individually erased anyway
 Independent of which of Tracks 1/2 is physically true, the ownerless registry
 mechanism processed **91 distinct apartments** in this building as
-"бесхозяйные" across four dated snapshots, all while residents were
+"ownerless" across four dated snapshots, all while residents were
 demonstrably alive, organized, and petitioning for their homes:
 
 - **72 apartments**: `registry_inclusion` events already on the spine
-  (source: Жовтневый-district ownerless registry XLSX,
+  (source: Zhovtnevy-district ownerless registry XLSX,
   `mariupol-r897.gosweb.gosuslugi.ru/.../Zhovtnevyi_r_n.xlsx`,
   SHA-256 `add72b41…85cfeae`).
 - **125 apartment-level entries** appear in the 2024-09-02 / 2025-01-13 /
@@ -170,21 +171,22 @@ status was being contested on paper. A 6-person casualty record — titled
 supplied 2026-06-19 and corroborated against the named individuals' own
 memorial posts:
 
-1. **Глушко Анатолий Петрович** (01.07.1937–17.03.2022) — died in a
-   basement from a blast head injury; the body was moved to the apartment
-   but could not be buried due to ongoing shelling. (`t.me/mariupolRIP/36979`)
-2. **Хильдунин Евгений Александрович** (b. 17.05.1985) — died in the
-   building; body moved to a shoe shop, collected by emergency services
-   before Easter. (`t.me/mariupolRIP/37382`)
-3. **Малюха Анатолий** (b. 1943, disabled) — "burned alive," per a
-   neighbor's account; no independent source link supplied beyond the
-   user-relayed quote.
-4. An unnamed sister of **Коваленко Инга Евг.** (b. 1975) — sniper-killed
-   near the 3rd entrance on 24.03.2022; body lay in place for three days;
-   her identity documents and phone were later sold and used (16.04.2022)
-   to fraudulently obtain humanitarian aid in her name.
-5–6. **Афонин Пётр** and **Афонина Клавдия** — residents of пр. Ленина 110,
-   кв. 127.
+1. **Anatoly Glushko** (Глушко Анатолий Петрович, 01.07.1937–17.03.2022) —
+   died in a basement from a blast head injury; the body was moved to the
+   apartment but could not be buried due to ongoing shelling.
+   (`t.me/mariupolRIP/36979`)
+2. **Yevgeny Khildunin** (Хильдунин Евгений Александрович, b. 17.05.1985) —
+   died in the building; body moved to a shoe shop, collected by emergency
+   services before Easter. (`t.me/mariupolRIP/37382`)
+3. **Anatoly Malyukha** (Малюха Анатолий, b. 1943, disabled) — "burned
+   alive," per a neighbor's account; no independent source link supplied
+   beyond the user-relayed quote.
+4. An unnamed sister of **Inga Kovalenko** (Коваленко Инга Евг., b. 1975) —
+   sniper-killed near the 3rd entrance on 24.03.2022; body lay in place for
+   three days; her identity documents and phone were later sold and used
+   (16.04.2022) to fraudulently obtain humanitarian aid in her name.
+5–6. **Pyotr Afonin** and **Klavdiya Afonina** (Афонин Пётр, Афонина
+   Клавдия) — residents of prosp. Lenina 110, apt. 127.
 
 A makeshift grave was separately documented in **106's courtyard**, and a
 not-yet-located video reportedly shows bodies wrapped in blankets in
@@ -209,27 +211,30 @@ documentary point.
 A joint petition, captured verbatim from the chat (`Письмо в инстанции.pdf`,
 SHA-256 `fe670bca…77f8f36`, 2023-10-18), addressed to:
 
-> Президенту Российской Федерации Путину В.В. · Министру строительства РФ
-> Файзулину Э.Ф. · Министру строительства ДНР Циганову Н.М. · Прокурору
-> г. Мариуполя Полищук А.В. · Мэру г. Мариуполя Моргуну О.В.
-> — signed "Жильцы дома 104, 106, 108, 110, Мариуполь, проспект Ленина"
+> President of the Russian Federation Vladimir Putin (Путину В.В.) · RF
+> Minister of Construction Irek Faizullin (Файзулину Э.Ф.) · DNR Minister of
+> Construction N.M. Tsyganov (Циганову Н.М.) · Mariupol City Prosecutor A.V.
+> Polishchuk (Полищук А.В.) · Mariupol Mayor O.V. Morgun (Моргуну О.В.)
+> — signed "Residents of buildings 104, 106, 108, 110, Mariupol, prospekt
+> Lenina" ("Жильцы дома 104, 106, 108, 110, Мариуполь, проспект Ленина")
 
 names the responsible parties directly:
 
-> Застройщик: **Министерство строительства РФ**
-> Заказчик: **ППК «Единый заказчик в сфере строительства»**
-> Генеральный подрядчик: **ООО «РКС-НР»**
+> Developer: **Ministry of Construction of the Russian Federation**
+> Client: **public-law company (PPK) «Edinyi zakazchik v sfere
+> stroitelstva»**
+> General contractor: **LLC (OOO) «RKS-NR»**
 
 and documents, in residents' own words, nine months of renovation with no
-resident access and no quality oversight: facades and roofs redone while
-"внутри квартир все также обгорелые остатки конструкций" (burned-out interior
-remains untouched); makeshift worker latrines installed inside apartments and
-kitchens; a fire on site; a 10cm heating riser replaced with thinner pipe;
+resident access and no quality oversight: facades and roofs redone while the
+burned-out interior remains untouched ("внутри квартир все также обгорелые
+остатки конструкций"); makeshift worker latrines installed inside apartments
+and kitchens; a fire on site; a 10cm heating riser replaced with thinner pipe;
 windows installed with gaps "such that no amount of foam sealant will fix it";
 a leaking roof in the rainy season.
 
-This is the same federal contractor chain (РКС-НР / ППК «Единый заказчик»)
-already named in this project's stakeholder network
+This is the same federal contractor chain (OOO RKS-NR / PPK «Edinyi
+zakazchik») already named in this project's stakeholder network
 (`memory/stakeholder_network.md`) — independent confirmation, from the
 residents' side, of the same actors this project has tracked through
 official decrees.
@@ -240,26 +245,29 @@ later: work halted with no explanation, repeated new subcontractors who do
 nothing, ground-floor commercial space already let to a bank/flower shop/
 pelmennaya while residents still can't access their own apartments, and —
 a claim not in the written letter — apartment square footage/wall layout
-altered during the works ("квадратура изменилась"), potentially relevant to
+altered during the works ("the floor area has changed" — "квадратура
+изменилась"), potentially relevant to
 RD4U unit-boundary valuation if independently corroborated. A separate,
 fenced-but-idle walkthrough video (`pmb7BIl-Atw`, cropped to the relevant
 1:09–6:42 segment) visually confirms the "halted" claim — rusty perimeter
 fencing around the whole stretch, an idle construction hoist mounted on one
 facade with no workers or material staging visible.
 
-A second document, `Решение № I/3-3 от 13.02.2026` (filename
-`Reshenie_I_3_3_ot_13.02.2026.pdf`, SHA-256 `02048976…6889e215bd`, captured
-from the `@invite_ooUT61cOOFZjMDcy` official-info channel) was previously
-flagged as a scanned ruling with no extractable text layer. **Now legible
-(2026-06-19)** via a first-page render (`pdftoppm`) plus a full 23-page OCR
-pass: it is the **Мариупольский городской совет ДНР's decision to include
-specific municipally-owned residential units into the «Перечень жилых
-помещений, которые могут быть предоставлены в качестве компенсационных»**
-(the list of housing units that may be issued as *compensation* — i.e. given
-to OTHER displaced claimants, not returned to these units' original owners),
-citing **Закон ДНР от 18.12.2024 № 141-РЗ** "О поддержке граждан, жилые
-помещения которых утрачены в результате боевых действий" (support for
-citizens whose housing was lost to combat). OCR across the full appendix
+A second document, **Resolution No. I/3-3, 13.02.2026** (Решение №I/3-3 от
+13.02.2026; filename `Reshenie_I_3_3_ot_13.02.2026.pdf`, SHA-256
+`02048976…6889e215bd`, captured from the `@invite_ooUT61cOOFZjMDcy`
+official-info channel) was previously flagged as a scanned ruling with no
+extractable text layer. **Now legible (2026-06-19)** via a first-page render
+(`pdftoppm`) plus a full 23-page OCR pass: it is the **Mariupol City Council
+(DNR)'s decision to include specific municipally-owned residential units
+into the "List of Residential Premises That May Be Provided as
+Compensation"** («Перечень жилых помещений, которые могут быть предоставлены
+в качестве компенсационных» — the list of housing units that may be issued
+as *compensation* — i.e. given to OTHER displaced claimants, not returned to
+these units' original owners), citing **DNR Law No. 141-RZ, 18.12.2024**, "On
+Supporting Citizens Whose Housing Was Lost as a Result of Combat Operations"
+(О поддержке граждан, жилые помещения которых утрачены в результате боевых
+действий). OCR across the full appendix
 found roughly **10 units at 104, 8 at 106, and 8 at 108** (cadastral numbers
 recovered per-row) — **this count is from raw OCR on a dense multi-column
 table and has NOT been manually verified row-by-row; treat as a strong lead,
@@ -284,7 +292,7 @@ exact apartment/cadastral numbers before citing this count as evidence-grade.**
 ## Why this matters — a second seizure modality
 
 Where Nakhimova 82 shows the occupation **physically erasing** a building and
-laundering its address to a new development, Ленина 106 shows the occupation
+laundering its address to a new development, Lenina 106 shows the occupation
 **administratively erasing ownership while the building still stands** —
 running a demolition decree, a restoration project, and an individual,
 apartment-by-apartment "ownerless" registry process simultaneously, none of
@@ -294,7 +302,8 @@ authorized the contractor doing the (poor-quality) work.
 
 - **RD4U restitution:** A3.1 (damage) is established by the siege/demolition
   decree; **A3.6** (loss of access) is independently established by the
-  documented physical exclusion ("в сам дом никого не впускают") plus the 91
+  documented physical exclusion ("nobody is let into the building itself" —
+  "в сам дом никого не впускают") plus the 91
   apartment-level registry actions — residents cannot get inside, let alone
   reassert title, regardless of which paper track is "true."
 - **Rome Statute:** The combination of (a) a demolition order that names a
@@ -328,26 +337,26 @@ authorized the contractor doing the (poor-quality) work.
 | 72 registry_inclusion events | events 37077+ | Zhovtnevyi_r_n.xlsx (gosweb.gosuslugi.ru) | `add72b41…85cfeae` | (loaded pre-session) |
 | Residents barred from entry, restoration in progress | corroboration (script 152, kind=lifecycle_media) | `@Lenina106_Mariupol` chat photos/video, msgs 35/36/77 | `61be44fe…`, `89a70c96…`, `3aa8d569…` | 2023-10-05 / 2023-10-18 |
 | "дом то не сносили" (rebuts demolition) | corroboration (lifecycle_media, manually re-verified) | same chat, msg 37 | `b20d2bf2…` | 2023-10-05 |
-| Joint letter to Putin / Минстрой РФ / ДНР / прокурор / мэр | chat_document_inventory (script 149) | `Письмо в инстанции.pdf` | `fe670bca…77f8f36` | captured from chat, dated 2023-10-18 |
+| Joint letter to Putin / RF & DNR construction ministries / prosecutor / mayor | chat_document_inventory (script 149) | `Письмо в инстанции.pdf` | `fe670bca…77f8f36` | captured from chat, dated 2023-10-18 |
 | 125 apartment-level disappearances matched to the demolition event | corroboration (script 152, kind=ownerless_disposition), classification=seized_court | ownerless snapshots 2024-09-02/2025-01-13/2025-11-09/2025-11-15 | per-row, see `data/parsed/ownerless_differential_records.jsonl` | 2026-06 |
-| ФКРМО abandoned 106's repairs after repeated delays from Aug 2024 | corroboration pending (manually verified, not yet loaded) | `@Lenina106_Mariupol` msg 986, handwritten complaint to prosecutor | `74b97bb3…8997bde05` | 2025-06-02 |
-| Распоряжение №619 (12.10.2023) enforced at 106 specifically | corroboration pending (manually verified, not yet loaded) | `@Lenina106_Mariupol` msg 269, door notice ("На каждой двери") | `1ca8ed3d…361627e05` | 2024-03-27 |
-| Siege damage at 104 (ground-floor storefront) | corroboration pending (manually verified, not yet loaded) | YouTube "2022.03.04 - пр. Миру, буд. 104" (Near You) | `3215e47c…04ce604d8f5` | 2022-03-04 |
+| FKRMO abandoned 106's repairs after repeated delays from Aug 2024 | corroboration pending (manually verified, not yet loaded) | `@Lenina106_Mariupol` msg 986, handwritten complaint to prosecutor | `74b97bb3…8997bde05` | 2025-06-02 |
+| Directive No. 619 (12.10.2023) enforced at 106 specifically | corroboration pending (manually verified, not yet loaded) | `@Lenina106_Mariupol` msg 269, door notice ("На каждой двери") | `1ca8ed3d…361627e05` | 2024-03-27 |
+| Siege damage at 104 (ground-floor storefront) | corroboration pending (manually verified, not yet loaded) | YouTube "2022.03.04 - prosp. Myru, d. 104" (Near You) | `3215e47c…04ce604d8f5` | 2022-03-04 |
 | Siege damage at 104 (full facade, multi-floor) | corroboration pending (manually verified, not yet loaded) | YouTube shorts/5fuqt-M5S6I | `b1313dae…69fc9822` | 2022-05 |
-| Siege damage at 106 (former АТБ supermarket) | corroboration pending (manually verified, not yet loaded) | YouTube "Мира, 106, бывший АТБ" (@MARIUPOLNOW) | `b32d1544…109506a2c` | 2022-06-25 |
-| Siege damage at 106 (burnt balconies) | corroboration pending (manually verified, not yet loaded) | YouTube "Пр-т Мира, 106. Май 22г." | `c7ffa6b0…1ba8d18c` | 2022-05 |
-| **108 partially demolished** (1 entrance/section, rest of tower standing) | corroboration pending (manually verified, not yet loaded) | YouTube shorts/Bzq5QnarNAo "снос дома" | `ea535398…2bb3ccab` | undated |
-| 108 distant restoration-in-progress view (courtyard, fenced off) | corroboration pending | YouTube "Мариуполь. Город-призрак!? пр-т Ленина,108." (Korzhov Vlog), single frame extracted | `4cb9fe0f…f961173` | 2023-08-23 |
-| 108 resale listing (61.3 m², 4/9 floor, 4.5 млн руб) | corroboration pending | dnr.red listing, manually saved by user (Save-As zip, anti-bot site) | `53a2850b…550f628b` | listed 2026-06-08, captured 2026-06-19 |
-| 108 resale listing (dnr.domick.ru) | **NOT YET captured** — geoblocked, must run from VPS (`scripts/158_*.py`) | dnr.domick.ru, "3-room, пр. Ленина 108" | pending | cited 2026-06-19 |
-| Resale listing, пр. Ленина 106 (2-room w/ "переход", 5 млн руб) | corroboration pending | `t.me/Mariupol_house/84850` (widget metadata-only; content from user's screenshot) | `2537366d…8bef8c45c` | listed 2024-01-24 |
-| Resale listing, пр. Ленина 110 (3-room, 63.4 m², 3 млн руб) | corroboration pending — **CORRECTED 2026-06-19, originally misattributed to 108** | `t.me/Mariupol_house/676643` (widget metadata-only; content from user's screenshot) | `5a9171bd…0b764d550f628b` | listed 2025-12-29 |
-| 1979 prewar baseline photo, пр. Ленина 110 | corroboration pending | Pastvu p/1167758, geotagged ~25m from property 4423 | `10d33e28…313dc821` | 1979, captured 2026-06-19 |
+| Siege damage at 106 (former ATB supermarket) | corroboration pending (manually verified, not yet loaded) | YouTube "Myra, 106, byvshyi ATB" (@MARIUPOLNOW) | `b32d1544…109506a2c` | 2022-06-25 |
+| Siege damage at 106 (burnt balconies) | corroboration pending (manually verified, not yet loaded) | YouTube "Prosp. Myra, 106. May 2022." | `c7ffa6b0…1ba8d18c` | 2022-05 |
+| **108 partially demolished** (1 entrance/section, rest of tower standing) | corroboration pending (manually verified, not yet loaded) | YouTube shorts/Bzq5QnarNAo "snos doma" (building demolition) | `ea535398…2bb3ccab` | undated |
+| 108 distant restoration-in-progress view (courtyard, fenced off) | corroboration pending | YouTube "Mariupol. A ghost town!? prosp. Lenina, 108." (Korzhov Vlog), single frame extracted | `4cb9fe0f…f961173` | 2023-08-23 |
+| 108 resale listing (61.3 m², 4/9 floor, 4.5 million rub) | corroboration pending | dnr.red listing, manually saved by user (Save-As zip, anti-bot site) | `53a2850b…550f628b` | listed 2026-06-08, captured 2026-06-19 |
+| 108 resale listing (dnr.domick.ru) | **NOT YET captured** — geoblocked, must run from VPS (`scripts/158_*.py`) | dnr.domick.ru, "3-room, prosp. Lenina 108" | pending | cited 2026-06-19 |
+| Resale listing, prosp. Lenina 106 (2-room w/ "pereход"/connecting room, 5 million rub) | corroboration pending | `t.me/Mariupol_house/84850` (widget metadata-only; content from user's screenshot) | `2537366d…8bef8c45c` | listed 2024-01-24 |
+| Resale listing, prosp. Lenina 110 (3-room, 63.4 m², 3 million rub) | corroboration pending — **CORRECTED 2026-06-19, originally misattributed to 108** | `t.me/Mariupol_house/676643` (widget metadata-only; content from user's screenshot) | `5a9171bd…0b764d550f628b` | listed 2025-12-29 |
+| 1979 prewar baseline photo, prosp. Lenina 110 | corroboration pending | Pastvu p/1167758, geotagged ~25m from property 4423 | `10d33e28…313dc821` | 1979, captured 2026-06-19 |
 | On-camera resident testimony (all 4 buildings): work halted, altered layouts, ground-floor units let to businesses | corroboration pending | YouTube CHrEXXI8CK0 | `a8e0e253…1ecf4934` | cited/captured 2026-06-19 |
 | Fenced-but-idle stalled-reconstruction walkthrough (visually corroborates the testimony above) | corroboration pending | YouTube pmb7BIl-Atw, cropped 1:09-6:42 | `8867e667…38bad019e5e9b117` | cited/captured 2026-06-19 |
 | Courtyard-side siege damage, 104 (2nd independent source, 3 frames) | corroboration pending | YouTube fzN0pI8alEY | `867ab498…398749ae7` | cited/captured 2026-06-19 |
 | Courtyard-side view, 106 (less severe than 104 — consistent with restoration) | corroboration pending | YouTube fzN0pI8alEY | `867ab498…398749ae7` | cited/captured 2026-06-19 |
-| **Civilian casualty record, 6 named deceased** (shared, all 4 buildings) | `corroboration` rows, kind=`civilian_casualty`, loaded 2026-06-19 | mariupolRIP/36979, /37382 + mariupoldestruction.com Google My Maps "Погибшие" layer | `5c018486…f69d`, `40fec819…d54de`, `c1f20d23…aa17f6` | events 2022, captured 2026-06-19 |
+| **Civilian casualty record, 6 named deceased** (shared, all 4 buildings) | `corroboration` rows, kind=`civilian_casualty`, loaded 2026-06-19 | mariupolRIP/36979, /37382 + mariupoldestruction.com Google My Maps "Pogibshie" ("the dead") layer | `5c018486…f69d`, `40fec819…d54de`, `c1f20d23…aa17f6` | events 2022, captured 2026-06-19 |
 | **Reshenie №I/3-3 (13.02.2026) — compensation-housing list, ~10/8/8 units at 104/106/108** (OCR lead, NOT manually verified) | chat_document_inventory | `Reshenie_I_3_3_ot_13.02.2026.pdf` + first-page thumbnail | `02048976…6889e215bd` | 2026-02-14, OCR'd 2026-06-19 |
 
 *Reproducible from raw → DB. Occupation registrations/rulings/demolition
@@ -400,25 +409,26 @@ recognize them, and neither do we.*
   hadn't surfaced through the lossy classifier pipeline. Both now have their
   own `106/key_artifacts/` folder in the visual package:
   - `2025-06-02_prosecutor_complaint_fkrmo.jpg` — a resident's handwritten
-    complaint to prosecutor Гнездилов Д.В. about ФКРМО (Фонд капитального
-    ремонта Московской области) repeatedly pushing back 106's repair
-    deadline since August 2024 before the site was abandoned outright
-    (sha256 `74b97bb3…8997bde05`, msg `Lenina106_Mariupol/986`,
-    dated 2025-06-02). This message had no caption at all and never
-    matched any classifier rule — pure manual discovery.
-  - `2024-03-27_decree619_door_notice.jpg` — the photographed "Уведомление"
-    citing **Распоряжение главы администрации г. Мариуполя №619
-    (12.10.2023)** (new [A]-rung entry in `docs/legal_mechanisms_review.md`)
-    requiring 106's Жовтневый-district residents to submit title documents
-    by 01.03.2024 (sha256 `1ca8ed3d…361627e05`, msg
-    `Lenina106_Mariupol/269`, dated 2024-03-27). **This one had been
-    actively miscaptured by script 151's manifest** — it inherited an
-    unrelated, off-topic caption from a different message entirely (the
-    real caption, recovered from the raw `.meta.json` sidecar, is "На
-    каждой двери" — "on every door" — exactly as expected) and was wrongly
-    excluded as off-topic chatter in correction pass 3. Restored via a new
-    `MANUAL_INCLUDES` mechanism in `scripts/156_*.py` that bypasses the
-    classifier/caption pipeline entirely for hand-verified items. The
-    standing lesson is now broader than "verify captions" — **even a
-    caption's *association* with a given file can be wrong; check the raw
-    `.meta.json`, not the manifest excerpt.**
+    complaint to prosecutor D.V. Gnezdilov (Гнездилов Д.В.) about FKRMO
+    (ФКРМО — Fond kapitalnogo remonta Moskovskoi oblasti, "Moscow Region
+    Capital Repair Fund") repeatedly pushing back 106's repair deadline
+    since August 2024 before the site was abandoned outright (sha256
+    `74b97bb3…8997bde05`, msg `Lenina106_Mariupol/986`, dated 2025-06-02).
+    This message had no caption at all and never matched any classifier
+    rule — pure manual discovery.
+  - `2024-03-27_decree619_door_notice.jpg` — the photographed notice
+    ("Uvedomlenie") citing **Mariupol City Administration Head's Directive
+    No. 619 (12.10.2023)** (new [A]-rung entry in
+    `docs/legal_mechanisms_review.md`) requiring 106's Zhovtnevy-district
+    residents to submit title documents by 01.03.2024 (sha256
+    `1ca8ed3d…361627e05`, msg `Lenina106_Mariupol/269`, dated 2024-03-27).
+    **This one had been actively miscaptured by script 151's manifest** —
+    it inherited an unrelated, off-topic caption from a different message
+    entirely (the real caption, recovered from the raw `.meta.json`
+    sidecar, is "on every door" — "На каждой двери" — exactly as expected)
+    and was wrongly excluded as off-topic chatter in correction pass 3.
+    Restored via a new `MANUAL_INCLUDES` mechanism in `scripts/156_*.py`
+    that bypasses the classifier/caption pipeline entirely for
+    hand-verified items. The standing lesson is now broader than "verify
+    captions" — **even a caption's *association* with a given file can be
+    wrong; check the raw `.meta.json`, not the manifest excerpt.**

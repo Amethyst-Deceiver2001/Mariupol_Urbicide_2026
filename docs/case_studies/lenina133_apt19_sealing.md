@@ -1,4 +1,4 @@
-# Case Study — проспект Ленина, 133, кв. 19: Registry Inclusion → Physical Sealing & Eviction
+# Case Study — prosp. Lenina, 133, apt. 19: Registry Inclusion → Physical Sealing & Eviction
 
 **The project's first dated, photographic evidence of the on-the-ground
 enforcement step that follows an "ownerless" registry entry — a sealed
@@ -9,11 +9,12 @@ Unlike the address-laundering case (`nakhimova_82_chernomorsky_1b.md`, a
 demolish→rebuild footprint) or the mass-resale case
 (`mass_registry_to_resale.md`, registry→market), this case documents the
 **enforcement act itself**: a Telegram post and photo, dated 23 Oct 2025,
-showing apartment 19 of проспект Ленина, 133 physically sealed
-("ОПЕЧАТАНО") by the occupation's Управление имущественных и земельных
-отношений, days after a 2024 court ruling on "бесхозяйность" — while a
-73-year-old registered resident, holding a power of attorney from the
-absent owner, is told to vacate.
+showing apartment 19 of prosp. Lenina, 133 physically sealed
+("OPECHATANO" — "sealed") by the occupation's Department of Property and
+Land Relations (Управление имущественных и земельных отношений), days after
+a 2024 court ruling on "ownerlessness" — while a 73-year-old registered
+resident, holding a power of attorney from the absent owner, is told to
+vacate.
 
 ---
 
@@ -22,21 +23,21 @@ absent owner, is told to vacate.
 | Field | Value |
 |---|---|
 | property.id | **4442** |
-| prewar_address | просп. Миру, 133 |
-| occupation_address | проспект Ленина, 133 |
+| prewar_address | prosp. Myru, 133 |
+| occupation_address | prosp. Lenina, 133 |
 | building_id | `AVENUE:ленина\|133` |
 | RD4U category | A3.1, A3.6 |
-| District | Жовтневый (Zhovtnevy) |
+| District | Zhovtnevy |
 
 **Already on the spine before this post:**
-- 5 apartments in `registry_inclusion` (seizure_event, "признаки
-  бесхозяйности"): **2, 9, 14, 15, 19** (ids 37358–37362).
+- 5 apartments in `registry_inclusion` (seizure_event, "signs of
+  ownerlessness"): **2, 9, 14, 15, 19** (ids 37358–37362).
 - `unosat_damage` corroboration (id 4867): Moderate Damage, 12 May 2022,
   14.8m from property point, confidence Very High.
 - `mirror_source` corroboration (id 1412): Russian federal
   damage/reconstruction tracker lists this building at **100% destruction,
-  Phase II**, contractor ГК Трансстройинвест, executor ППК «Единый
-  заказчик».
+  Phase II**, contractor GK Transstroiinvest, executor state development
+  company (PPK) «Edinyi zakazchik».
 
 That last point is worth holding onto: the occupation's *own* federal
 tracker describes this building as 100% destroyed and slated for full
@@ -53,14 +54,15 @@ earmarked for redevelopment.
 
 ## The post: t.me/ssaniaworld/3348 (23 Oct 2025, 19.3K views)
 
-Channel: "Министерство Счастья Сании Денисовой. Движение - СИЛА ДОБРА"
-(an occupation-critical Russian-language channel relaying resident
-complaints). Captured via `scripts/60_fetch_lenina133_sealing_notice.py`,
-SHA-256 `01adb154…e80b49`.
+Channel: "Saniya Denisova's Ministry of Happiness. Movement — the Power of
+Good" (Министерство Счастья Сании Денисовой. Движение - СИЛА ДОБРА; an
+occupation-critical Russian-language channel relaying resident complaints).
+Captured via `scripts/60_fetch_lenina133_sealing_notice.py`, SHA-256
+`01adb154…e80b49`.
 
-**Title:** «Проспект Ленина, 133: людей выкидывают из своих квартир на
-улицу» ("Lenin Avenue 133: people are being thrown out of their apartments
-onto the street").
+**Title:** "Lenin Avenue 133: people are being thrown out of their
+apartments onto the street" («Проспект Ленина, 133: людей выкидывают из
+своих квартир на улицу»).
 
 > Суды по квартирам **2, 19, 20, 33** в доме по проспекту **Ленина, 133**
 > прошли еще в 2024 году. Некоторые собственники не успели поставить в
@@ -155,8 +157,8 @@ Either reading places active enforcement squarely in the week of
 
 | Stage | Date | Source |
 |---|---|---|
-| `registry_inclusion` ("признаки бесхозяйности") | undated, ownerless registry export | seizure_event id 37362 (existing) |
-| Court ruling on бесхозяйность | 2024 (per post; not yet in `court_case`) | t.me/ssaniaworld/3348 (testimony) |
+| `registry_inclusion` ("signs of ownerlessness") | undated, ownerless registry export | seizure_event id 37362 (existing) |
+| Court ruling on ownerlessness | 2024 (per post; not yet in `court_case`) | t.me/ssaniaworld/3348 (testimony) |
 | Physical sealing + vacate notice | 22–25 Oct 2025 | corroboration id 5417 (`testimony_ref`, this session) |
 
 This is the first time the project has a **dated, photographed, on-the-ground
@@ -184,21 +186,21 @@ an as-built fact.** On **9 Dec 2022**, residents photographed an official
 
 | Field | Value |
 |---|---|
-| Многоквартирный дом | г. Мариуполь, проспект Мира, д. 133 |
-| Застройщик | Министерство строительства РФ |
-| Заказчик | ППК «Единый заказчик в сфере строительства» |
-| Генеральный подрядчик | ООО «РКС-НР» |
-| Общая площадь | 4440 м² |
-| Этажность | 9 |
-| Начало строительства | IV квартал 2022 г. |
-| Окончание строительства | III квартал 2023 г. |
+| Multi-apartment building | g. Mariupol, prosp. Myru, d. 133 |
+| Developer | Ministry of Construction of the Russian Federation |
+| Client | public-law company (PPK) «Edinyi zakazchik v sfere stroitelstva» |
+| General contractor | LLC (OOO) «RKS-NR» |
+| Total area | 4440 m² |
+| Floors | 9 |
+| Construction start | Q4 2022 |
+| Construction end | Q3 2023 |
 
-A sister passport for the neighboring **пр. Мира, 135** (5-story, 1900 m²,
+A sister passport for the neighboring **prosp. Myra, 135** (5-story, 1900 m²,
 same scheme, t.me/Lenina133/92) was posted the same day. Both list the
-project as **СТРОИТЕЛЬСТВО** (new construction, i.e. demolish-and-rebuild) —
-this is the source of the "group=4 (demolish), destruction_pct=100,
-priority_phase=II, ГК Трансстройинвест / ППК «Единый заказчик»" entry in the
-federal damage tracker (corroboration id 1412).
+project as **STROITELSTVO** ("construction" — new construction, i.e.
+demolish-and-rebuild) — this is the source of the "group=4 (demolish),
+destruction_pct=100, priority_phase=II, GK Transstroiinvest / PPK «Edinyi
+zakazchik»" entry in the federal damage tracker (corroboration id 1412).
 
 **But the building was never demolished — and residents had already moved
 back in and repaired it before the passport was even posted:**
@@ -207,12 +209,12 @@ back in and repaired it before the passport was even posted:**
 |---|---|
 | 9 May 2022 | Building standing intact (Google Earth, user-provided) |
 | spring 2022 | Severe fire damage to part of the facade/balconies (photographed later) |
-| **21–28 Nov 2022** | Chat opens — "Добро пожаловать домой!!!"; temp roof patches, building-wide window replacement, electrical/plumbing restored by МК ГРУПП / ФКРМО (Фонд капремонта Московской области) |
-| **25 Nov 2022** | Photo: "Остекление со стороны сгоревших балконов" — reglazing of the fire-damaged side actively underway (t.me/Lenina133/51) |
-| **9 Dec 2022** | "ПАСПОРТ ОБЪЕКТА" demolish-rebuild signs posted for 133 and 135 (above). Residents immediately ask: "Начало строительства или ремонтно-восстановительных работ? Ведь две большие разницы" |
+| **21–28 Nov 2022** | Chat opens — "Welcome home!!!" ("Добро пожаловать домой!!!"); temp roof patches, building-wide window replacement, electrical/plumbing restored by MK GRUPP / FKRMO (ФКРМО — Moscow Region Capital Repair Fund) |
+| **25 Nov 2022** | Photo: "glazing on the burned-balcony side" ("Остекление со стороны сгоревших балконов") — reglazing of the fire-damaged side actively underway (t.me/Lenina133/51) |
+| **9 Dec 2022** | "PASPORT OBEKTA" ("object passport") demolish-rebuild signs posted for 133 and 135 (above). Residents immediately ask: "new construction, or repair-and-restoration work? Those are two very different things" ("Начало строительства или ремонтно-восстановительных работ? Ведь две большие разницы") |
 | **10 Dec 2022** | Photo: repaired exterior, new windows + renewed entrance canopy (t.me/Lenina133/99-100) |
-| **21 Dec 2022** | Residents conclude the passport really does say "construction," not "капремонт," and allege a "commission from Moscow" cited weak floor slabs as the reason — but no resident meeting or notification preceded the designation (t.me/Lenina133/149-150) |
-| 2024–2026 | Ongoing structural-defect complaints (crack floors 5–9); building "сдан на баланс города"; **individual apartments** 2, 19, 33 sealed as "бесхоз" Oct 2025 (id 5417) — piecemeal seizure, not wholesale reconstruction |
+| **21 Dec 2022** | Residents conclude the passport really does say "construction," not "kapremont" (capital repair), and allege a "commission from Moscow" cited weak floor slabs as the reason — but no resident meeting or notification preceded the designation (t.me/Lenina133/149-150) |
+| 2024–2026 | Ongoing structural-defect complaints (crack floors 5–9); building "transferred to the city's books" ("сдан на баланс города"); **individual apartments** 2, 19, 33 sealed as "ownerless" Oct 2025 (id 5417) — piecemeal seizure, not wholesale reconstruction |
 
 **Conclusion:** corroboration id 1412 is not a wrong-building mismatch — it
 accurately reflects a real, dated Dec-2022 demolish-rebuild *designation* for
@@ -236,14 +238,14 @@ documentary origin.
   `registry_inclusion` rows (which cover only 2, 9, 14, 15, 19). Either the
   registry export used for loading doesn't cover these two, or they were
   processed through a different administrative track not yet captured.
-  Worth a targeted registry re-check for "Ленина (Мира), 133, 20" / "...,
+  Worth a targeted registry re-check for "Lenina (Myra), 133, 20" / "...,
   33".
-- **Черноморская, 10** — the same post separately quotes a subscriber
-  describing active door-to-door inventory/inspection
-  ("инвентаризация") at this address, the pre-petition stage. No property
-  on the spine has occupation_address exactly "улица Черноморская, 10"
-  (closest: Черноморская 1 = id 6048, Черноморская 22/10 = id 6058). Not
-  merged — flagged as a fresh address to watch for in the next registry/
+- **ul. Chernomorskaya, 10** — the same post separately quotes a subscriber
+  describing active door-to-door inventory/inspection ("inventarizatsiya")
+  at this address, the pre-petition stage. No property on the spine has
+  occupation_address exactly "ulitsa Chernomorskaya, 10" (closest:
+  Chernomorskaya 1 = id 6048, Chernomorskaya 22/10 = id 6058). Not merged —
+  flagged as a fresh address to watch for in the next registry/
   ownerless-decree update.
 
 ---
@@ -253,7 +255,7 @@ documentary origin.
 | Artifact | SHA-256 | Captured |
 |---|---|---|
 | Post HTML (t.me/ssaniaworld/3348, `?embed=1`) | `01adb154…e80b49` | 2026-06-13 |
-| Photo (two ОПЕЧАТАНО notices) | `8b354c87…07f6ae7` | 2026-06-13 |
+| Photo (two OPECHATANO "sealed" notices) | `8b354c87…07f6ae7` | 2026-06-13 |
 
 Both via `scripts/60_fetch_lenina133_sealing_notice.py` (public Telegram
 embed widget + cdn4.telesco.pe photo URL, non-geoblocked, same precedent as
@@ -267,6 +269,6 @@ loaded S5 (testimony_ref) row per `docs/tier3_corroboration_design.md`.
 *As with all Telegram-sourced material: this is a primary-source dated
 photo of an official document plus first-person testimony, not an
 independently audited fact — but it directly names the same building,
-apartment, and administrative designation ("бесхоз", 2024) already present
-in the registry-derived spine record, which is why it is loaded as
+apartment, and administrative designation ("ownerless", 2024) already
+present in the registry-derived spine record, which is why it is loaded as
 corroboration rather than left as a bare reference.*
