@@ -18,12 +18,21 @@ of scope. Full rationale: `docs/reconceptualization_2026.md`.
 ## Current state (June 2026) — see `docs/progress_report_2026-06.md` for the full review
 The project is now a **multi-source evidentiary spine** loaded to PostgreSQL/PostGIS,
 not a single court scraper. Snapshot: 11,730 properties on spine · 11,517
-corroboration rows · all RD4U-categorized · 39,061+ raw artifacts. The occupation
-court layer was expanded June 2026 from the 4 Mariupol district courts (2,666 cases)
-to **all 26 DNR original-jurisdiction courts that returned ownerless-property
-records** (`scripts/178`/`182`–`185`; 13 further front-line/“ghost” courts returned
-zero — destroyed cities with nothing to seize, or courts for territory Russia claims
-but never controlled). First-instance population: **8,271 бесхозяйная-недвижимость
+corroboration rows · 206 still uncategorized · 39,061+ raw artifacts (see
+progress report for the full reconciliation — several project-total figures
+including this one drift between docs and need a periodic re-sweep). The
+occupation court layer was expanded June 2026 from the 4 Mariupol district
+courts (2,666 cases) to **all 26 DNR original-jurisdiction courts that
+returned ownerless-property records** (`scripts/178`/`182`–`185`). Of the 15
+enabled courts that returned zero under their own domain, a ВС ДНР venue
+notice (captured 2026-06-28) shows **10 had their jurisdiction formally
+transferred** to an absorbing court already in the dataset — not truly
+zero-activity, just filed elsewhere (`scripts/186` recovers 8 confirmed
+Avdiivka cases hidden inside Yasynuvata's docket this way); the other **5 are
+genuine building-relocated courts** with no jurisdiction transfer, split
+between destroyed Russian-held cities (Bakhmut, Vuhledar) and “ghost” courts
+for Ukrainian-held territory Russia claims on paper (Sloviansk, Kramatorsk,
+Pokrovsk). First-instance population: **8,271 бесхозяйная-недвижимость
 cases**; **87.1% are granted** at first instance (the base rate the self-selected
 appellate layer hid), and **~⅓ of grants had a living owner named in the case file**
 (knowing dispossession). Net-new loaded to spine: **5,646 cases** (5,598 rest-of-DNR

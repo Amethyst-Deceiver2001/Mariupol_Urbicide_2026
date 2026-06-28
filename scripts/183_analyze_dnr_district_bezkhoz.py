@@ -273,12 +273,26 @@ def main() -> None:
     A("## Scope and caveats")
     A("")
     A("- **Base rate of the contested-or-not first-instance layer**, across the "
-      "26 productive courts only. The 15 enabled courts that returned zero "
-      "(Avdiivka, Bakhmut, Vuhledar, Kramatorsk, Sloviansk, Kostiantynivka, "
-      "…) split into two kinds: cities under Russian control but destroyed "
-      "/ depopulated (nothing left to seize) and “ghost” courts for "
-      "Donetsk-oblast territory Russia claims but has never controlled — "
-      "neither produces ownerless cases, for opposite reasons.")
+      "26 productive courts only. Of the 15 enabled courts that returned zero "
+      "under their OWN domain, a ВС ДНР venue notice (vs--dnr.sudrf.ru, "
+      "name=information&rid=5, captured 2026-06-28) shows 10 are not actually "
+      "“zero” — their jurisdiction was formally transferred to an absorbing "
+      "court already in this dataset (Авдеевский→Ясиноватский; "
+      "Александровский/Добропольский/Новогродовский/Селидовский→"
+      "Ворошиловский; Великоновоселковский→Кировский; "
+      "Дзержинский/Краснолиманский→Енакиевский; "
+      "Дружковский/Константиновский→Горловский). `scripts/186` recovers cases "
+      "attributable to the absorbed town from the ruling text where it names "
+      "the origin — confirmed for **Avdiivka (8 cases)** inside Yasynuvata’s "
+      "docket; no confirmed hits yet for the other 9 absorbed towns (absence "
+      "of a textual hit is inconclusive, not proof of zero). The remaining 5 "
+      "courts are genuine **building-only relocations with no jurisdiction "
+      "transfer** — the court nominally exists but its own domain produced no "
+      "or near-no cases, split between cities Russia holds but has destroyed "
+      "(Артемовский/Bakhmut, Угледарский/Vuhledar) and “ghost” courts for "
+      "Donetsk-oblast territory Russia claims but has never controlled "
+      "(Славянский/Sloviansk, Краматорский/Kramatorsk, "
+      "Красноармейский/Pokrovsk).")
     A("- A first-instance “grant” is the seizure consummated unless and "
       "until appealed; most are never appealed (see the appellate layer’s "
       "self-selection caveat).")

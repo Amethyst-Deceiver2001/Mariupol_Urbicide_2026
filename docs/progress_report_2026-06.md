@@ -39,7 +39,7 @@ than *coverage* — but several discrete, build-ready follow-ups remain, and the
 ### Primary occupation sources (the four independent streams + extensions)
 | Source | Parsed records | Status |
 |---|---|---|
-| Occupation court docket (26 DNR courts) | **8,271 cases** | Expanded June 2026 from 4 Mariupol courts to all 26 DNR courts returning records; 5,646 net-new loaded (`scripts/182`–`185`, no double-count). **87.1% granted** at first instance; spine now holds 8,303 `court_petition` + 7,052 `court_transfer` events. 13 front-line/ghost courts returned zero |
+| Occupation court docket (26 DNR courts) | **8,271 cases** | Expanded June 2026 from 4 Mariupol courts to all 26 DNR courts returning records; 5,646 net-new loaded (`scripts/182`–`185`, no double-count). **87.1% granted** at first instance; spine now holds 8,303 `court_petition` + 7,052 `court_transfer` events. Of 15 enabled-but-zero courts: 10 had jurisdiction formally transferred elsewhere (cases not actually zero — `scripts/186` recovers 8 confirmed Avdiivka cases hidden in Yasynuvata's docket), 5 are genuine building-relocated ghost/destroyed courts (venue notice captured 2026-06-28, see §5) |
 | Mariupol ownerless registry (4-district master list) | **12,948** | the ФКЗ-4 registry-as-title master list |
 | Mariupol ownerless decrees (постановления) | **968** | signers identified (Кольцов 652, Моргун 156, …) |
 | Demolition decrees (Mariupol admin) | **20** | + MinStroy register **637** rows (525 Mariupol buildings) |
@@ -107,6 +107,15 @@ not closable. **Deferred** = low marginal value.
 
 ### A. Build-ready (clear, bounded next steps)
 
+0. **Disaggregate the 9 remaining absorbed-jurisdiction towns** (Aleksandrovsk,
+   Dobropolye, Novogrodovka, Selydove → Voroshilovsky; Velyka Novosilka → Kirovsky;
+   Toretsk, Lyman → Yenakievo; Druzhkivka, Kostiantynivka → Horlivka) the way
+   `scripts/186` already did for Avdiivka (8 cases recovered inside Yasynuvata's
+   docket). Zero hits so far for these 9 under the current anchored-regex method —
+   inconclusive, not proof those territories produce no bezkhoz activity; worth a
+   closer read of a sample of each absorbing court's full caseload by hand before
+   concluding either way. Source: ВС ДНР venue-reassignment notice, captured
+   2026-06-28 (`data/raw/6bb873cb...` + `.meta.json`).
 1. **Add ВЕРТИКАЛЬ ФОРТ-2 land grant** (Распоряжение №203/09.06.2026, просп. Победы
    127, cadastral 93:27:0010311:572) as the 52nd row of `dnr_land_orders.jsonl` —
    confirmed NEW beneficiary, still unadded. *(verified absent 2026-06-12.)*
