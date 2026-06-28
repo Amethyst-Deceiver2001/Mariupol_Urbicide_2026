@@ -261,12 +261,40 @@ not closable. **Deferred** = low marginal value.
    parties (Администрация ГО Мариуполь + прокуратура). No attached
    исковое-заявление/решение PDF is exposed on this page either. This isn't a
    redaction *of* an address field — the field doesn't exist on this page type.
-10. **25 m² compensation cap** — confirmed a *different* instrument from ГКО №175
-    (whose norms are 33/42/+18/150 m²). Likely a служебное/маневренное-жильё
-    allocation norm. Needs primary capture; source not yet located.
-11. **2% subsidized-mortgage law + Promsvyazbank trail** ([F]/[F]-resale,
-    population-transfer engine) — [REPORTED] only. Federal pravo.gov.ru capture
-    target; the single biggest uncaptured *federal* norm in the chain.
+10. ~~**25 m² compensation cap**~~ — **SOURCE LOCATED 2026-06-28.** It is
+    Закон ДНР №269-РЗ, signed by Pushilin 03.04.2026, published 06.04.2026 —
+    "Об особенностях распоряжения жилыми помещениями, имевшими признаки
+    бесхозяйного имущества... а также условиях и порядке предоставления
+    компенсации... и о внесении изменений в Закон ДНР №141-РЗ." Confirmed via
+    press (mrpl.news, 0629.com.ua, mariupol-news.ru) AND independently via the
+    **federal** official-publication portal
+    (`publication.pravo.gov.ru/document/8000202604060001`) — already
+    satisfies the ≥2-source rule before even capturing the PDF. Sets a flat
+    25 m² cap on compensatory housing *regardless of the lost unit's original
+    size* (replacing ГКО №175's graduated 33/42/+18/150 m² norms for this
+    purpose) and a **1 January 2028 deadline** for using seized/"abandoned"
+    Mariupol housing stock as служебное жилье for occupation officials,
+    Russian military/police, and Russian-recruited medical/teaching staff —
+    a direct, dated instrument for the Rome Statute art. 8(2)(b)(viii)
+    population-transfer framing. `scripts/197_crawl_zakon269_and_mortgage_decree.py`
+    captures both the DNR-side PDF and the federal mirror; **run from the
+    VPS** (untested domains, treat as geoblocked by default):
+    `PYTHONPATH=src python scripts/197_crawl_zakon269_and_mortgage_decree.py`
+11. ~~**2% subsidized-mortgage law + Promsvyazbank trail**~~ — **PARTIALLY
+    LOCATED 2026-06-28.** Confirmed: the program runs under federal
+    government resolutions, with **Постановление Правительства РФ от
+    15.12.2023 № 2166** verified on `pravo.gov.ru`
+    (`publication.pravo.gov.ru/document/0001202312150019`) as an amendment to
+    the housing/mortgage-lending rules covering ДНР/ЛНР/Запорожская/
+    Херсонская — Промсвязьбанк confirmed as primary program operator
+    (alongside Сбербанк/ВТБ), 2% rate, ≤6M ₽, ≥10% down, term extended (per
+    Oct 2025 decision) to end-2030. **Still open:** the *original* launch
+    resolution (signed by Mishustin, reported early Jan 2023, following
+    Putin's 15.12.2022 strategic-council directive) — its number/date
+    couldn't be pinned down from press coverage; №2166 is a confirmed later
+    amendment, not the founding instrument. `scripts/197` also captures
+    №2166's federal-portal page; finding the launch decree's exact number
+    remains a residual sub-gap.
 12. **Распоряжение №61** (Mariupol municipal lease rulebook, [CITED]) — PDF
     dead-linked on нпа.днронлайн; recoverable only via mariupol.gosuslugi.ru or the
     горуправление юстиции registry.
@@ -418,8 +446,14 @@ detail the four-district XLSX doesn't.
    (satellite/registry) instead.
 3. ~~**Close the build-ready cluster**~~ — **DONE 2026-06-28** (§5 items
    0, 1, 2, 3, 4, 5, 6, 8 — see each item above). §5A is now fully closed.
-4. **Capture the two biggest uncaptured federal norms** (§5 items 10–11: 25 m² cap,
-   2% mortgage law) — the remaining [REPORTED] holes in rungs [F]/[G].
+4. ~~**Capture the two biggest uncaptured federal norms**~~ — **SOURCES
+   LOCATED 2026-06-28** (§5 items 10–11). The 25 m² cap is Закон №269-РЗ
+   (Rome Statute 8(2)(b)(viii)-relevant: 1 Jan 2028 deadline for issuing
+   seized housing to officials/military/imported staff), already
+   independently corroborated via the federal `pravo.gov.ru` mirror. The 2%
+   mortgage program's confirmed amendment (Постановление №2166, 15.12.2023)
+   is located; the original launch decree number is a residual sub-gap.
+   `scripts/197` captures both PDFs — **handoff to user (VPS), not yet run.**
 5. **Prototype the per-property RD4U dossier export** (§5 item 20) — turns the spine
    into the actual claimant deliverable.
 6. **Tier-3 corroboration** (§5 items 13–14) and **parallel-dataset outreach**
