@@ -341,6 +341,33 @@ not closable. **Deferred** = low marginal value.
    media/video evidence, with no relationship to either the occupier or to UN
    satellite imagery. Modest scope (siege-period general civilian harm, not
    seizure-specific) but genuinely new and already paying off at the margins.
+0a. ~~**Eyes on Russia (CIR/Bellingcat/GeoConfirmed) map**~~ — **BUILT +
+    LOADED 2026-06-28** (second user-supplied URL, same session). The
+    documented public export (`eyesonrussia.org/events.geojson`, the route
+    an archived community scraper repo relied on) is dead — that whole
+    domain now 301s to a generic info-res.org landing page. The live map
+    turned out to be an ArcGIS Experience Builder app; walked the public,
+    unauthenticated ArcGIS sharing REST API from the Experience item down
+    through its child web-map item to the actual data source — a public
+    Feature Service, `EoR_completed_entries/FeatureServer/0`
+    (services-eu1.arcgis.com), no API key or auth needed, not geoblocked.
+    `scripts/200` captures a server-side-filtered query (Town_or_City LIKE
+    Mariupol AND Primary_category='Civilian Infrastructure Damage' — 675
+    records at capture time, deliberately excluding this feed's military-
+    activity categories as out of scope for a property-seizure project).
+    `scripts/201` spatially joins at the same 100m radius as the Bellingcat
+    layer above, but with a higher confidence ceiling (0.5–0.7 vs 0.4–0.6)
+    justified by a measured distance distribution (median nearest-property
+    distance 28m, p90=121m — noticeably tighter geocoding than the
+    Bellingcat feed). **491 matched across 358 distinct properties**, 184
+    correctly skipped (beyond 100m, not force-matched). `docs/STATS.md`
+    regenerated: legal-grade holds at 1,156 (this feed mostly lands on
+    already-multi-sourced central-Mariupol properties rather than bridging
+    new ones — real added evidentiary weight, just not new legal-grade
+    crossings this round). **Fourth independent provenance family** —
+    different organization (CIR, not Bellingcat alone), different
+    underlying sourcing (mostly geolocated Twitter/X posts vs. Telegram),
+    same independence from the occupier and from UN satellite imagery.
 13. **Satellite before/after** (Sentinel-2 free) for demolition + re-addressing
     cases — would physically confirm the paper transfers (esp. Нахимова 82 →
     Черноморский 1Б). Only the *paper* damage-tracker mirror is used today.
