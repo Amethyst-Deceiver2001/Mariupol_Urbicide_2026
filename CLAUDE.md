@@ -17,12 +17,24 @@ of scope. Full rationale: `docs/reconceptualization_2026.md`.
 
 ## Current state (June 2026) — see `docs/progress_report_2026-06.md` for the full review
 The project is now a **multi-source evidentiary spine** loaded to PostgreSQL/PostGIS,
-not a single court scraper. Snapshot: 6,084 properties on spine · 11,517
-corroboration rows · all RD4U-categorized · 39,061+ raw artifacts. The four
-Mariupol district court dockets are **saturated** (2,666 cases) and, with
-ФКЗ-4 (Dec 2025) abolishing the court stage, that case type is closed going forward —
-the live front line has moved to the 12,948-entry **ownerless registry** ahead of the
-**1 July 2026** re-registration deadline. Gaps & follow-ups: progress report §5.
+not a single court scraper. Snapshot: 11,730 properties on spine · 11,517
+corroboration rows · all RD4U-categorized · 39,061+ raw artifacts. The occupation
+court layer was expanded June 2026 from the 4 Mariupol district courts (2,666 cases)
+to **all 26 DNR original-jurisdiction courts that returned ownerless-property
+records** (`scripts/178`/`182`–`185`; 13 further front-line/“ghost” courts returned
+zero — destroyed cities with nothing to seize, or courts for territory Russia claims
+but never controlled). First-instance population: **8,271 бесхозяйная-недвижимость
+cases**; **87.1% are granted** at first instance (the base rate the self-selected
+appellate layer hid), and **~⅓ of grants had a living owner named in the case file**
+(knowing dispossession). Net-new loaded to spine: **5,646 cases** (5,598 rest-of-DNR
++ 48 newer Mariupol), reconciled against the original harvest so the 2,625 overlapping
+Mariupol cases are not double-counted (`scripts/184`). The Mariupol court conveyor
+**shut down first** (filings/decisions → 0 by mid-2026) while the rest of DNR keeps
+running — the data signature of ФКЗ-4 (Dec 2025) abolishing the court stage, Mariupol
+being the Roskadastr pilot. The live front line has moved to the 12,948-entry
+**ownerless registry** ahead of the **1 July 2026** re-registration deadline. Appellate
+(ВС ДНР, 427) + cassation (2kas, 31) layers also captured. 100% of published rulings
+redact the street address (`<адрес>`) at source. Gaps & follow-ups: progress report §5.
 
 A 28-building-chat Telegram corpus (~145K messages) has been deep-mined
 (`scripts/148`–`151`) for cross-chat intel, primary-source documents posted by

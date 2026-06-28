@@ -99,7 +99,7 @@ Derrida pairs this archontic power with its shadow: a destructive drive within
 archiving itself — the "archiviolithic," the impulse that "operates in silence" and
 "never leaves any archives of its own." The Mariupol record shows both faces at once.
 The same apparatus that *inscribes* — 12,948 flats entered into an "ownerless" registry,
-2,666 court transfers, hundreds of land grants — also *erases*: it demolishes the
+8,271 court cases across 26 occupation courts, hundreds of land grants — also *erases*: it demolishes the
 building, renames the street, and breaks the address so that the destroyed property,
 on paper, no longer exists. The demolition list that ordered the clearing of one
 documented building (Распоряжение ГКО №56) is, fittingly, absent from every public

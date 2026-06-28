@@ -173,6 +173,31 @@
       <div class="stat"><span class="n">42 days</span><span class="l">median filing&rarr;ruling<br>granted cases</span></div>
       <div class="stat"><span class="n red">2,666 / 2,666</span><span class="l">docket cards naming<br>no street address</span></div>
     </div>
+
+    <div style="margin-top:2rem;padding:1.2rem 1.4rem;border:1px solid #b3322f;border-left-width:4px;background:rgba(179,50,47,.06);border-radius:6px">
+      <div class="eyebrow" style="margin-bottom:.5rem">Update, June 2026 &middot; this was never only Mariupol</div>
+      <p style="margin:0 0 .6rem">Mariupol&rsquo;s four courts were the first this project read in full. They are
+        not exceptional. Extending the same crawl to <b>every occupation court in
+        the Donetsk region</b> returned ownerless-property dockets from <b>26 courts</b>
+        &mdash; and the Mariupol pattern holds across all of them. (Thirteen further
+        courts returned nothing: cities Russia holds but has flattened, with nothing
+        left to seize, and &ldquo;ghost&rdquo; courts standing in for Donetsk-oblast
+        territory Russia claims on paper but has never controlled.)</p>
+      <div class="stat-row" style="margin-top:.4rem">
+        <div class="stat"><span class="n red">8,271</span><span class="l">first-instance cases<br>26 DNR courts</span></div>
+        <div class="stat"><span class="n blue">87.1%</span><span class="l">granted at first instance<br>region-wide, not Mariupol-only</span></div>
+        <div class="stat"><span class="n red">~⅓</span><span class="l">of grants had a living owner<br>named in the case file</span></div>
+        <div class="stat"><span class="n red">100%</span><span class="l">of published rulings redact<br>the address as &laquo;&lt;адрес&gt;&raquo;</span></div>
+      </div>
+      <p style="margin:.7rem 0 0">The no-address finding below is therefore not a Mariupol
+        quirk but a <b>region-wide design</b>: the occupation court system anonymises the
+        seized property&rsquo;s identity at source. And Mariupol&rsquo;s own court conveyor
+        has now <b>stopped</b> &mdash; filings and rulings fall to zero through early 2026
+        while the rest of the region keeps running &mdash; the data signature of the
+        December 2025 federal law (ФКЗ-4) abolishing the court stage, with Mariupol, the
+        Roskadastr pilot, finishing first. Full breakdown:
+        <span class="mono">docs/dnr_district_first_instance_2026-06.md</span>.</p>
+    </div>
   </section>
 
   <!-- 00 -->
@@ -333,19 +358,28 @@
         2,666 homes &mdash; and the public record of how it did so does not, on its
         own, let anyone determine which 2,666 homes. Matching a specific ruling to a
         specific address requires either the full text of the underlying decision
-        (a separate, harder-to-obtain document this project has not yet retrieved at
-        scale) or independent triangulation through the registry and decree data this
-        project tracks elsewhere. For this dataset specifically, that triangulation
-        has not yet closed the gap: of 2,666 court cases, <b>zero</b> are currently
-        linked to a named property on this project&rsquo;s evidence spine.</p>
+        or independent triangulation through the registry and decree data this
+        project tracks elsewhere. The region-wide crawl has since retrieved that
+        underlying ruling text at scale &mdash; it is embedded in the case card on
+        about 1,550 of the 8,271 region-wide cases &mdash; and it confirms the wall
+        rather than breaching it: <b>the street address is redacted to
+        &laquo;&lt;адрес&gt;&raquo; on 100% of published rulings.</b> The only
+        property identifier that survives the redaction is an occasional cadastral
+        number (it leaks on roughly 2% of texts); those have linked a <b>handful</b>
+        of cases &mdash; four so far, all Mariupol &mdash; to named properties on this
+        project&rsquo;s spine by exact cadastral match. The street-level address gap,
+        for the overwhelming majority, stays open by the occupier&rsquo;s own design.</p>
     </div>
-    <p>That gap is not a flaw in how this project reads the record. It is the record.
-      A judge&rsquo;s name, a filing date, and a one-word result are exactly as much
-      as the system was built to make visible &mdash; everything else about the home
-      itself stays inside a file that, for a displaced family trying to find out what
-      happened to their address, is invisible by design.</p>
+    <p>That gap is not unique to occupation courts &mdash; case cards published under
+      Russian Federal Law No. 262-FZ are depersonalized by standard nationwide
+      practice, the same rule any Russian court applies before posting a ruling
+      online. What is specific to this dataset is the practical effect: a
+      displaced family with no other route to the underlying decision text has no
+      way to confirm from the public record alone which home a given ruling
+      stripped title from. The redaction is routine; the consequence, for these
+      2,666 cases, is not.</p>
     <div class="badges">
-      <span class="badge gap">0 / 2,666 address-linked</span>
+      <span class="badge gap">4 / 2,666 address-linked (cadastral)</span>
       <span class="badge rd4u">RD4U &middot; A3.6</span>
     </div>
   </section>

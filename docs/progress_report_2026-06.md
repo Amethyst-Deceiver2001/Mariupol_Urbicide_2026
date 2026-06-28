@@ -10,7 +10,8 @@ state, and the remaining gaps / open follow-ups. Companion to
 ## 1. Where the project stands, in one paragraph
 
 The project has moved past its original framing as a single court-portal scraper.
-It is now a **multi-source evidentiary spine**: 2,666 occupation court cases, a
+It is now a **multi-source evidentiary spine**: 8,271 occupation court cases across
+26 DNR courts (the original 2,666 Mariupol cases + 5,646 net-new loaded June 2026), a
 12,948-entry ownerless registry, the 1,941-building Russian federal reconstruction
 tracker, demolition registers, DNR land-grant orders, housing-distribution lists,
 the ЕИСЖС new-build registry, a 30+-instrument legal-mechanism catalogue (rungs
@@ -38,7 +39,7 @@ than *coverage* — but several discrete, build-ready follow-ups remain, and the
 ### Primary occupation sources (the four independent streams + extensions)
 | Source | Parsed records | Status |
 |---|---|---|
-| Occupation court docket (4 Mariupol district courts) | **2,666 cases** | **SATURATED** — all особое производство (бесхозяйная вещь) cases captured + loaded; 11,259 `court_petition` + 8,795 `court_transfer` events |
+| Occupation court docket (26 DNR courts) | **8,271 cases** | Expanded June 2026 from 4 Mariupol courts to all 26 DNR courts returning records; 5,646 net-new loaded (`scripts/182`–`185`, no double-count). **87.1% granted** at first instance; spine now holds 8,303 `court_petition` + 7,052 `court_transfer` events. 13 front-line/ghost courts returned zero |
 | Mariupol ownerless registry (4-district master list) | **12,948** | the ФКЗ-4 registry-as-title master list |
 | Mariupol ownerless decrees (постановления) | **968** | signers identified (Кольцов 652, Моргун 156, …) |
 | Demolition decrees (Mariupol admin) | **20** | + MinStroy register **637** rows (525 Mariupol buildings) |
@@ -71,7 +72,7 @@ records; "Norm" = the enabling instrument's primary text.
 |---|---|---|---|
 | **Framework** | — | ✅ ГКО №1, Указ №73, №162/205, ФКЗ-4 implementing laws, №279-РЗ | Strong |
 | **[A] Ownerless** | 968 decrees + 12,948 registry | ✅ №66-РЗ family + ГКО №300/153/515 | Strong; pre-petition rungs thin (see §5) |
-| **[B] Court transfer** | 2,666 cases | ✅ ГПК гл.33 | **Saturated** for these 4 courts |
+| **[B] Court transfer** | 8,271 cases · 26 courts | ✅ ГПК гл.33 | Region-wide; 87.1% granted; Mariupol conveyor now shut down (ФКЗ-4) |
 | **[C] Demolition** | 20 decrees + 637 register | ✅ ГКО №162/205/245 + Указ №40 | Strong; №56 list internal/unrecoverable |
 | **[D] Land reallocation** | 51 land orders | ✅ №39-РЗ + ГКО №282 | Good; 1 new grant unadded (§5) |
 | **[E] Rebuild** | 20 ЕИСЖС objects | ✅ Указ №290 + ГКО №175 §5.3 | Good (small N — few completed rebuilds exist yet) |
@@ -227,8 +228,11 @@ The Dec-2025 federal amendment (ФКЗ-4) pulled the re-registration deadline fo
 to **1 July 2026 — ≈3 weeks from this report** — and abolished the court stage
 (registry inclusion now = title). Consequences for the project:
 
-- The **court docket is a closed corpus going forward** — that case type ends with
-  ФКЗ-4. The 2,666 cases are the historical 2022–2025 stock; do not expect more.
+- The **court docket is a closing corpus** — that case type ends with ФКЗ-4. In
+  Mariupol it has already stopped (filings/decisions → 0 by mid-2026, the registry
+  pivot); the rest of DNR is still producing first-instance cases as of mid-2026, so
+  the region-wide 8,271 will keep growing modestly until each municipality completes
+  the same transition. The historical Mariupol stock is the original 2,666.
 - The **new flow moves to the registry**: the 12,948-entry ownerless registry is
   now the live front line. Andriushchenko reports +100–200 designations/week and a
   designations spike is expected on/after 1 July. **The highest-value recurring

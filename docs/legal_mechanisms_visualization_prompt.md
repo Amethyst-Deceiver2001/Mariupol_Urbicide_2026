@@ -37,7 +37,7 @@ procedure); **ФКЗ-4 (15.12.2025) — abolishes the court stage, registry = ti
   ownerless_designation, registry_inclusion. RD4U A3.6 · Rome 8(2)(a)(iv).
 - **B · COURT TRANSFER** — "Judicial laundering of title". Instrument: ГПК РФ
   гл.33 особое производство (признание права муниципальной собственности на
-  бесхозяйную вещь); 2,666 cases. DB: court_petition, court_transfer, appeal.
+  бесхозяйную вещь); 8,271 cases across 26 DNR courts (2,666 Mariupol). DB: court_petition, court_transfer, appeal.
   RD4U A3.6 · Rome 8(2)(a)(iv). Note: superseded by ФКЗ-4 going forward.
 - **C · DEMOLITION** — "Erasing the building". Instrument: ГКО №162 framework +
   Распоряжение ГКО №56 (29.09.2022) + Mariupol «О сносе» decrees + MinStroy

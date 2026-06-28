@@ -66,7 +66,7 @@ research.
 | **Минимущества (МИЗО) ДНР** | Property/land administration acts (6 region80 acts) | `pravo_region80_relevant.jsonl` |
 | **Фонд государственного имущества ДНР** | State-property disposal acts (4) | 〃 |
 | **Минстрой ДНР** | Demolition register keeper; construction acts (3) | `minstroy_demolition_register.jsonl` |
-| **DNR courts (~25) + named judges** | Rung [B]: особое-производство ownerless transfers, 2,666 relevant cases; judges named per case | Postgres `actor` (role=judge, org=court), `court_case.judge` |
+| **DNR courts (26 returning records) + named judges** | Rung [B]: особое-производство ownerless transfers, 8,271 relevant cases across the region (89 judges with ≥30 decided cases; Попова И.К. alone signed 401 grants); judges named per case | Postgres `actor` (role=judge, org=court), `court_case.judge` |
 
 ## Tier 3 — Mariupol municipal (operational execution)
 
