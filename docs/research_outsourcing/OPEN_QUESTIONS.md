@@ -18,31 +18,6 @@ captured directly in `scripts/206`.
 
 ## Open
 
-### Q3. Постановление №2255 (22.12.2023) — per-m² rate, PRIMARY-TEXT confirmation needed
-**Question:** Read Приложение №4 of госпрограмма №2255 *in its own words* and
-confirm (or correct) the per-square-metre housing-loss compensation rate.
-**Why it matters:** Закон №269-РЗ Статья 7 п.3 defers the per-m² compensation
-figure to this annex — it is the actual money figure behind every monetary
-compensation case in the project.
-**Status — PARTIALLY RESOLVED, do not treat the number as fact yet:** The
-first research batch identified the instrument (Постановление №2255,
-pravo.gov.ru publication `0001202312290053`) and *deduced* the rate as
-**51,500 ₽/m²** (with per-person lump sums of 50,000 ₽ partial / 100,000 ₽
-total loss) — but **deduced from an amendment DRAFT that lists the old values
-being replaced, NOT read from the primary Приложение №4 text** (the draft
-proposes raising 51,5→70 thousand). This is exactly the press-paraphrase-vs-
-primary-text trap from RESEARCH_BRIEF.md §4 — the 25 m² cap turned out
-different once the primary text was read. `scripts/207` captures the parent
-resolution; the open task is to **read the actual annex** and verify the
-51,500 ₽/m² baseline against it.
-**What "done" looks like:** the per-m² rate quoted verbatim from Приложение
-№4 itself (not from an amendment draft or press), with the pravo.gov.ru /
-government.ru citation to the annex.
-**Domains likely to host the answer:** `publication.pravo.gov.ru`,
-`government.ru`, GARANT/CNTD reproductions of the full annex.
-
----
-
 ### Q6. СЗ ГСА ДЕВЕЛОПМЕНТ — land-allocation instrument for 10 ЕИСЖС objects
 **Question:** What DNR land-grant order allocated the Mariupol sites to
 ООО «СЗ ГСА ДЕВЕЛОПМЕНТ» (ИНН 9310009539), and does it carry street-level
@@ -72,6 +47,21 @@ paging — the search snippet was not directly retrievable).
 
 ## Closed (answered, for reference — see commit history for full citations)
 
+- ~~Q3. Постановление №2255 (22.12.2023) — per-m² rate~~ — **READ THE PRIMARY
+  TEXT 2026-06-29** (`scripts/208` captured the signed PDF; OCR'd to
+  `data/parsed/decree_2255_ocr.txt`, local-only) and **CORRECTED the first
+  research batch's deduced figure** — same press/secondary-paraphrase trap as
+  the 25 m² cap. Приложение №4, п.14 (the original, as-enacted 22.12.2023
+  formula, no amendment markers in the captured text) gives:
+  **Ру = 35,000 ₽/m²** for lost housing (NOT 51,500 ₽/m² — that number was
+  deduced from a *later* amendment draft, not the originally-enacted rate);
+  **Рп ≤ 7,000 ₽/m²** (capped) for repair of damaged housing — a new figure,
+  not previously known; **Ри = 50,000 ₽/person** (partial) / **100,000
+  ₽/person** (total) loss of essential property — these *did* match the
+  deduction. Compensable area is itself capped: 33 m² (single
+  person)/42 m² (family of 2)/+18 m² per additional member, never exceeding
+  the lost unit's actual area. See `docs/progress_report_2026-06.md` §5
+  item 10-adjacent note for the full citation.
 - ~~Q1. Original 2% subsidized-mortgage launch decree~~ — **Постановление
   Правительства РФ от 31.12.2022 № 2565** (ДОМ.РФ subsidy rules; founding
   instrument of the 2% program for DNR/LNR/Zaporizhzhia/Kherson, later

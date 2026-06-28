@@ -295,12 +295,20 @@ not closable. **Deferred** = low marginal value.
     research batch (`docs/research_outsourcing/mariupol_urbicide_research_
     aggregation.md`, Q2/Q3): №2501 = pravo.gov.ru publication
     `0001202212300029`, housing routing to federal ownership via Приложение
-    №2 item 9 ("Жилищный фонд...") + Arts 6¹/7/19; №2255 = pravo.gov.ru
-    `0001202312290053`, per-m² rate deduced as **51,500 ₽/m²** *from an
-    amendment draft, NOT yet read from primary Приложение №4* (held as
-    UNCONFIRMED — same press-vs-primary discipline as item 10; see
-    OPEN_QUESTIONS.md Q3). Capture staged in `scripts/207` (user-run,
-    geoblocked).
+    №2 item 9 ("Жилищный фонд...") + Arts 6¹/7/19, in force to 01.01.2027.
+    №2255 = pravo.gov.ru `0001202312290053`. **Both [CAPTURED] as signed
+    PDFs 2026-06-29** (`scripts/208`, OCR'd) — and №2255's read **corrected**
+    the first batch's deduced per-m² figure, same press-vs-primary pattern
+    as item 10: Приложение №4 п.14 (the original, as-enacted text, no
+    amendment markers in the captured PDF) gives a *formula*, not a flat
+    rate — **35,000 ₽/m²** for lost housing (not 51,500 ₽/m², which was
+    deduced from a *later* amendment draft, not the originally-enacted
+    rate), **≤7,000 ₽/m²** capped for repair of damaged housing (a new
+    figure), and **50,000 ₽/person** (partial) / **100,000 ₽/person**
+    (total) loss of essential property (these two *did* match the
+    deduction). Compensable area is itself capped: 33 m² (single person) /
+    42 m² (family of 2) / +18 m² per additional member, never exceeding the
+    lost unit's actual area. See OPEN_QUESTIONS.md (closed).
 11. ~~**2% subsidized-mortgage law + Promsvyazbank trail**~~ — **PARTIALLY
     LOCATED 2026-06-28.** Confirmed: the program runs under federal
     government resolutions, with **Постановление Правительства РФ от
