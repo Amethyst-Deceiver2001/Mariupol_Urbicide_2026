@@ -368,6 +368,48 @@ not closable. **Deferred** = low marginal value.
     different organization (CIR, not Bellingcat alone), different
     underlying sourcing (mostly geolocated Twitter/X posts vs. Telegram),
     same independence from the occupier and from UN satellite imagery.
+0b. ~~**GeoConfirmed Ukraine KML export**~~ — **BUILT + LOADED 2026-06-28**
+    (sourced via the `osint-geo-extractor` PyPI package's downloader code,
+    which documents the upstream feeds behind several of these maps —
+    that package's own documented Bellingcat endpoint matched ours exactly,
+    confirming both independently; its documented Cen4InfoRes/Eyes-on-
+    Russia endpoint is the same dead route already found above). The
+    package's documented GeoConfirmed endpoint
+    (`/api/map/ExportAsKml/Ukraine`) is *also* dead — GeoConfirmed rebuilt
+    their site as a Blazor app since that package's Jan-2024 release; the
+    live equivalent (`/api/map/export/Ukraine`, found by probing plausible
+    route variants) returns the same ZIP/KML shape. `scripts/202` captures
+    the full country-wide export (57,561 placemarks). GeoConfirmed's feed
+    is overwhelmingly front-line/military-movement tracking with no
+    category field — `scripts/203` applies a Mariupol filter (474
+    placemarks) AND a civilian-property-keyword filter
+    (school/hospital/apartment/residential/building/church/civilian + RU
+    equivalents) to stay in scope, narrowing to 94 candidates before any
+    spatial join. Distance distribution measured first (median 79m,
+    looser than Bellingcat/Eyes-on-Russia): confidence capped at 0.35–0.55.
+    **56 matched, 38 correctly skipped** beyond the 100m radius. **Fifth
+    independent provenance family.**
+0c. ~~**Texty.org.ua "Under attack" shelling log**~~ — **BUILT + LOADED
+    2026-06-28** (same package, `downloaders/texty.py`; public Google
+    Sheets CSV export, not geoblocked). `scripts/204` captures the full
+    country-wide CSV (~48,668 rows). `scripts/205` applies three filters
+    before any join: Mariupol-mention (360 rows), a precision filter
+    dropping whole-degree lat/lon rows (~21% of Mariupol rows are
+    city-level-rounded, e.g. "47,38" — joining those would be the exact
+    false-precision error this project's standing rule exists to prevent;
+    284 rows survive), and Texty's own `civilian objects` flag (drops the
+    airport and other military-infrastructure rows; 270 survive). Measured
+    distance distribution is the loosest of any Tier-3 layer to date
+    (median 161m, p90=1,504m — shelling-incident reporting, not
+    photo-verified geolocation), so confidence is capped lowest yet
+    (0.3–0.5). **98 matched, 172 correctly skipped.** The CSV's free-text
+    `adress` column is carried into `detail` as context, not yet used for
+    matching (candidate research-outsourcing task: a fuzzy-address pass
+    against this field). **Sixth independent provenance family.**
+    `docs/STATS.md` regenerated after all three new layers (202–205):
+    legal-grade holds at 1,156 — these layers add corroborating weight to
+    already-multi-sourced central-Mariupol properties rather than bridging
+    new ones into legal-grade this round, consistent with 0a above.
 13. **Satellite before/after** (Sentinel-2 free) for demolition + re-addressing
     cases — would physically confirm the paper transfers (esp. Нахимова 82 →
     Черноморский 1Б). Only the *paper* damage-tracker mirror is used today.
