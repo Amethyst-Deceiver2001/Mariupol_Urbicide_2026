@@ -226,11 +226,22 @@ not closable. **Deferred** = low marginal value.
 
 ### B. Discovery questions (feasibility unknown — investigate before building)
 
-9. **Full-text court rulings via `ej.sudrf.ru/?fromOa=93RS0006`** — the one
-   unexplored path that could close the **address gap on the 2,657 court islands**.
-   Open question (pre_petition_sourcing §4): do особое-производство full texts get
-   published online at all, or are they redacted/withheld for named individuals?
-   *Settle this before assuming the islands are permanently unbridgeable.*
+9. ~~**Full-text court rulings via `ej.sudrf.ru/?fromOa=93RS0006`**~~ —
+   **SETTLED 2026-06-28, dead end.** `scripts/196_probe_ej_sudrf_fulltext.py`
+   (run by user, geoblocked portal) fetched the page: it's not a public
+   full-text search form at all. Title "ГАС «Правосудие»", a single hidden
+   `need_auth=1` + base64 `redirect_url` login-bounce form, and body text
+   describing «Дела» (Cases) as where **a logged-in participant** tracks
+   "судебным делам, участником которых вы являетесь" (cases *you* are a
+   party to) — an authenticated personal-account portal, not a public
+   search engine. `/index.php?fromOa=...` 404s. **No full-text path exists
+   here for a non-party.** Combined with the 2026-06-13 finding (the
+   docket-card page itself has no address field), the address gap on the
+   2,657+ court islands is now **confirmed permanently unbridgeable through
+   any sudrf.ru-family source** — both routes this project could try are
+   closed. Future work on those islands needs an entirely different source
+   family (Tier-3 satellite/registry corroboration only), not more court-
+   portal crawling.
    **2026-06-13 update:** confirmed (sample case 9-36/2026, zhovtnevy_mariupol,
    property_id 1665) that the standard sudrf.ru docket-card page — the only page
    type captured for all 2,657 islands — has **no address field at all**: only
@@ -239,9 +250,6 @@ not closable. **Deferred** = low marginal value.
    parties (Администрация ГО Мариуполь + прокуратура). No attached
    исковое-заявление/решение PDF is exposed on this page either. This isn't a
    redaction *of* an address field — the field doesn't exist on this page type.
-   Item 9 (`ej.sudrf.ru` full-text search) remains the only possible escape
-   hatch; this finding just confirms the docket-card route is a dead end, not
-   that full-text search is.
 10. **25 m² compensation cap** — confirmed a *different* instrument from ГКО №175
     (whose norms are 33/42/+18/150 m²). Likely a служебное/маневренное-жильё
     allocation norm. Needs primary capture; source not yet located.
@@ -346,10 +354,14 @@ to **1 July 2026 — ≈3 weeks from this report** — and abolished the court s
 
 1. **Stand up the post-1-July registry re-snapshot cadence** (§6) — time-critical;
    the wave is imminent and the window to capture it as a *flow* is now.
-2. **Resolve the `ej.sudrf.ru` discovery question** (§5 item 9) — it gates whether
-   the 2,657-island address gap is closable; cheap to check, high payoff if yes.
-3. **Close the build-ready cluster** (§5 items 1–7) — bounded, no blockers, each
-   strengthens an existing lane (land grants, stakeholder net, QA, ownership chain).
+2. ~~**Resolve the `ej.sudrf.ru` discovery question**~~ — **SETTLED
+   2026-06-28, negative** (§5 item 9). The 2,657+-island address gap is
+   confirmed permanently unbridgeable through any sudrf.ru-family source;
+   redirect remaining effort on those islands to Tier-3 corroboration
+   (satellite/registry) instead.
+3. ~~**Close the build-ready cluster**~~ — **DONE 2026-06-28** (§5 items
+   1, 2, 3, 4, 5, 6, 8 — see each item above). Only item 0 (the 9
+   absorbed-jurisdiction towns, needs hand review) remains open in §5A.
 4. **Capture the two biggest uncaptured federal norms** (§5 items 10–11: 25 m² cap,
    2% mortgage law) — the remaining [REPORTED] holes in rungs [F]/[G].
 5. **Prototype the per-property RD4U dossier export** (§5 item 20) — turns the spine

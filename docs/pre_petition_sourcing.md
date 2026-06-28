@@ -166,14 +166,19 @@ must come entirely from the independent streams (§3).
    via the district↔court mapping); decree pages → dated, numbered,
    citable `ownerless_designation`/exclusion events with named signing
    officials → `actor(role='signing_official')`.
-3. **Verification (cheap, do in parallel from the VPS):** check (a) whether
-   `docum_sud` supports search/filter by case number or judge+date, and
-   (b) whether `ej.sudrf.ru/?fromOa=93RS0006` exposes per-case full texts for
-   this court code — settles whether court-ruling capture (closing the
-   address gap) is buildable at all. Don't build a crawler against an
-   unconfirmed target; (1)+(2) don't wait on this.
-4. **Derive `utility_cutoff`** only if (3) succeeds and inspection-act text
-   becomes available — it has no other public source.
+3. ~~**Verification**~~ — **(b) SETTLED 2026-06-28, negative.**
+   `scripts/196_probe_ej_sudrf_fulltext.py` confirmed `ej.sudrf.ru` is not a
+   public full-text search portal — it's an authenticated personal-account
+   system ("Дела" = cases *you* are a party to, gated behind `need_auth=1`),
+   structurally incapable of exposing rulings to a non-party. Combined with
+   the docket-card finding above (§4), **both routes to closing the address
+   gap on the 2,657+ court islands are now closed** — there is no public
+   path to per-case full texts through any sudrf.ru-family source. (a)
+   `docum_sud` case/judge/date filtering remains unchecked but is moot for
+   the address gap specifically, since it's the same generic-module problem
+   §4 already diagnosed, not a per-case lookup.
+4. **`utility_cutoff` has no public source** — (3)(b)'s negative result
+   closes this off too; not pursuing further through the court portals.
 5. **Schema touch:** record which source series each `seizure_event` came from
    (court ruling vs. published list vs. decree vs. Rosreestr) so the
    ≥2-source count is auditable per property.
