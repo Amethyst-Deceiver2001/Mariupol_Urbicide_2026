@@ -67,6 +67,8 @@ research.
 | **Фонд государственного имущества ДНР** | State-property disposal acts (4) | 〃 |
 | **Минстрой ДНР** | Demolition register keeper; construction acts (3) | `minstroy_demolition_register.jsonl` |
 | **DNR courts (26 returning records) + named judges** | Rung [B]: особое-производство ownerless transfers, 8,271 relevant cases across the region (89 judges with ≥30 decided cases; Попова И.К. alone signed 401 grants); judges named per case | Postgres `actor` (role=judge, org=court), `court_case.judge` |
+| **Никоноров А.Ю.** — Руководитель Администрации Главы ДНР | Named as the responsible official in Постановление ГКО №1 (06.04.2022) — the master predicate for the entire demolish→land→rebuild chain (§2.5: "authorised body" seizes land "for state needs" and hands it to contractors free of charge) | `docs/legal_mechanisms_review.md` row "Постановление ГКО ДНР №1"; `Post_GKO_1.pdf` (sha `378f56aa..`), OCR'd 2026-06-12 |
+| **«Оперативный штаб по восстановлению ДНР»** (Operational HQ for DNR Reconstruction) | Approves the "план застройки" (site plan) that triggers seizure of privately-owned plots under Постановление ГКО №282 (29.09.2022) — the land-for-reconstruction seizure procedure, predating закон №39-РЗ by ~15 months | `docs/legal_mechanisms_review.md` row "Постановление ГКО ДНР №282"; `Post_GKO_282.pdf` (sha `301263e3..`), OCR'd 2026-06-12 |
 
 ## Tier 3 — Mariupol municipal (operational execution)
 

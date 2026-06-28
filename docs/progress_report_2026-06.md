@@ -141,12 +141,26 @@ not closable. **Deferred** = low marginal value.
    updater, crashing under React 19 if mouseup fired mid-batch — fixed by
    capturing the values synchronously at event time. Visually verified
    (pan/zoom, node/edge counts) before commit.
-1. **Add ВЕРТИКАЛЬ ФОРТ-2 land grant** (Распоряжение №203/09.06.2026, просп. Победы
-   127, cadastral 93:27:0010311:572) as the 52nd row of `dnr_land_orders.jsonl` —
-   confirmed NEW beneficiary, still unadded. *(verified absent 2026-06-12.)*
-2. **Add Никоноров А.Ю. + «Оперативный штаб по восстановлению ДНР»** to
-   `docs/stakeholder_network.md` — new actors surfaced in the scaffolding scan
-   (ГКО №1 / №282), not yet in the network doc.
+1. ~~**Add ВЕРТИКАЛЬ ФОРТ-2 land grant**~~ — **DONE 2026-06-28.**
+   `scripts/192_append_fort2_land_order.py` parses the already-OCR'd decree
+   (Распоряжение №203/09.06.2026, просп. Победы 127, cadastral
+   93:27:0010311:572, area 3,225 m², `denis_pushilin_land_grants_202606.jsonl`)
+   and appends it as the 52nd row of `dnr_land_orders.jsonl` — this decree sits
+   outside `scripts/11`'s rebuild scope (different `source_type`, captured by
+   the Pushilin-site crawler not the land-order crawler), so it has to be
+   appended by hand rather than picked up by a re-run; no beneficiary
+   INN/OGRN found in the decree text or EGRUL, flagged `inn_missing`/
+   `ogrn_missing`. Idempotent — re-running is a no-op.
+2. ~~**Add Никоноров А.Ю. + «Оперативный штаб по восстановлению ДНР»**~~ —
+   **DONE 2026-06-28.** Both added to Tier 2 of `docs/stakeholder_network.md`:
+   Никоноров А.Ю. (Руководитель Администрации Главы ДНР) as the responsible
+   official named in ГКО №1 (06.04.2022, the master demolish→land→rebuild
+   predicate); the Operational HQ for DNR Reconstruction as the body that
+   approves the site plan triggering private-plot seizure under ГКО №282
+   (29.09.2022). Doc-only addition — neither actor is in the Postgres
+   `actor`/`court_case` tables (no DB rows to back them), so they don't yet
+   appear in the rendered stakeholder-network exhibit graph; that would need
+   a manual insert into the graph data, not just the markdown doc.
 3. **Lifecycle QA cross-check** — validate decree-signing date ranges in
    `ownerless_decrees.jsonl` / `demolition_decrees.jsonl` against the now-known
    tenure windows (Иващенко/Моргун/Кольцов) as a corroboration pass. (Never run.)
