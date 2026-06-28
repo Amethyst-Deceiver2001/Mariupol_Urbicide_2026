@@ -74,7 +74,93 @@ resolution alone may run hundreds of pages — find the right annex).
 
 ---
 
-### Q4. Распоряжение №61 — Mariupol municipal lease rulebook
+### Q5. East SOS filtration / entry-ban dataset — access and format
+**Question:** What exactly has East SOS (or another tracker — OHCHR HRMMU,
+Media Initiative for Human Rights) published on Russian "filtration"
+entry-bans for Ukrainians trying to (re-)enter occupied territory —
+specifically the cited figures of ~30,000 denied entry between October 2023
+and April 2025 with 20–50-year re-entry bans? We need the underlying
+publication(s), not just the headline number.
+**Why it matters:** progress_report_2026-06.md §5 item 14 /
+`tier3_corroboration_design.md` S7. This is the evidentiary backbone of the
+project's "sham process" argument — it shows the law's own "appear in person
+within 30 days to keep your property" requirement is *designed* to be
+impossible for a large share of displaced owners. It's systemic context (no
+per-property join), but it has to be sourced properly, not just cited as a
+remembered headline figure.
+**What we already know:** The ~30k/20–50-year figures are already written
+into `docs/reconceptualization_2026.md:85` as a recalled claim, with no
+citation attached — this task exists to find and attach one, or correct the
+figures if the recalled version is wrong (see RESEARCH_BRIEF.md §4 — we've
+already had one recalled/paraphrased figure turn out to need correction
+this session, treat this the same way until verified).
+**What "done" looks like:** the actual East SOS (or equivalent) report/page
+URL, publication date, exact figures as stated in the source (don't
+round-trip our own paraphrase back to us), and methodology notes (how "denied
+entry" and "ban length" are defined/counted). Note whether East SOS publishes
+structured/tabular data (a CSV/dataset) vs. narrative-only reporting — that
+determines whether this can ever become more than a citation.
+**Domains likely to host the answer:** East SOS's own site, OHCHR (`ohchr.org`
+HRMMU reports), Media Initiative for Human Rights, ZMINA.
+
+---
+
+### Q6. СЗ ГСА ДЕВЕЛОПМЕНТ — land-allocation instrument for 10 ЕИСЖС objects
+**Question:** ООО «СЗ ГСА ДЕВЕЛОПМЕНТ» (ИНН 9310009539) appears as the
+developer of record on 10 objects in the ЕИСЖС new-build registry, all with
+only a generic "г. Мариуполь" address (no street-level address recovered).
+What DNR land-grant order, decree, or auction record allocated these sites to
+this developer, and does it carry street-level addresses we don't have yet?
+**Why it matters:** This developer is currently a dead end in the
+demolish→land-grant→rebuild chain — every *other* major Mariupol developer
+in the project has a matching `dnr_land_orders` entry; this one doesn't,
+which is either a genuine sourcing gap or a sign this developer is using a
+different allocation mechanism worth understanding.
+**What we already know:** ИНН 9310009539; 10 objects in ЕИСЖС, all
+generic-address; zero matches in the project's existing `dnr_land_orders`
+captures (Denis Pushilin site archive, DNR scaffolding decrees).
+**What "done" looks like:** the specific decree/order/auction record (number,
+date, issuing authority) that allocated land to this developer, ideally with
+street addresses for the 10 sites. A confirmed "no public allocation record
+exists, this developer received land through an undisclosed/non-auction
+mechanism" is also a valid and useful answer.
+**Domains likely to host the answer:** `denis-pushilin.ru` archives,
+`glavadnr.ru`, EGRUL/EGRUL.org for the company's own filings (may disclose
+land-use rights), ЕИСЖС's own developer-disclosure documents (project
+declarations sometimes name the underlying site-allocation act).
+
+---
+
+### Q7. Перепечай Б.Н. / Дмитриев А.В. overlapping tenure — clarify the anomaly
+**Question:** Перепечай Б.Н. and Дмитриев А.В. both hold the identical title
+(Начальник Управления ЖКХ, Администрация городского округа Мариуполь) with
+overlapping decree-signing date ranges (Перепечай 19.08–17.10.2024; Дмитриев
+16.08.2024–14.05.2025). Is this a co-signing arrangement, an undisclosed
+врио/acting substitution, a department reorganization (e.g. two parallel
+ЖКХ units), or a dating/numbering error in the source decrees themselves?
+**Why it matters:** `docs/stakeholder_network.md` flags this as an unresolved
+anomaly. Two people holding the identical formal title with overlapping
+authority to sign binding municipal decrees is either an administrative
+irregularity worth documenting as such, or resolves cleanly into something
+mundane (e.g. one official covers two adjacent administrative zones) — we
+don't currently know which.
+**What we already know:** Titles + date ranges extracted from decree
+signature-block OCR (`scripts/195`, 2026-06-28). Краснолуцкая Т.Ю.
+(Заместитель начальника, same dept.) has a date range sitting inside
+Дмитриев's, consistent with normal deputization — that part is NOT the
+anomaly, only the Перепечай/Дмитриев overlap is.
+**What "done" looks like:** either (a) an official appointment
+order/decree that clarifies the two officials' actual scopes (e.g. each
+covers a different city district, or one was deputy-acting for the other
+under an unlisted title), with a citable source, or (b) a confirmed "no
+public clarifying record found" if genuinely unresolvable from open sources.
+**Domains likely to host the answer:** `glavadnr.ru` (Кольцов/Моргун-era
+appointment decrees), Mariupol administration's own staff/structure pages,
+press coverage of municipal personnel changes.
+
+---
+
+### Q8. Распоряжение №61 — Mariupol municipal lease rulebook
 **Question:** Full text of Распоряжение №61 (Mariupol municipal property-lease
 rulebook), currently only [CITED] (referenced inside other captured records,
 never directly retrieved).
