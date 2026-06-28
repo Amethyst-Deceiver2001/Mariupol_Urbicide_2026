@@ -321,8 +321,9 @@ this is a punch list of new content + where it should go.
 
 From the @Lenina133 resident-chat scrape (1311 msgs / 487 media, scripts
 62–63; see project memory `lenina133_resident_chat_scrape_2026-06`). Current
-network = **111 nodes / 138 edges / 52 persons**. New named individuals not
-yet present:
+network = **370 nodes / 395 edges / 184 persons** (updated 2026-06-28 region-wide
+district-court backfill, see `docs/progress_report_2026-06.md` item 0a). New named
+individuals not yet present:
 
 - **Татаренко Владислав Вячеславович** — ФКРМО ЦУП project lead (ООО
   «РКС-НР»). Identity now confirmed by **two independent sources**: the

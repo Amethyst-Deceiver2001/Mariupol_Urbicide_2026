@@ -18,7 +18,7 @@ It is now a **multi-source evidentiary spine**: 8,271 occupation court cases acr
 12,948-entry ownerless registry, the 1,941-building Russian federal reconstruction
 tracker, demolition registers, DNR land-grant orders, housing-distribution lists,
 the ЕИСЖС new-build registry, a 30+-instrument legal-mechanism catalogue (rungs
-[A]–[H]) now backed by primary captured text, a 111-node stakeholder network, and
+[A]–[H]) now backed by primary captured text, a 370-node stakeholder network, and
 EGRUL ownership extracts — all loaded onto the canonical `property` spine in
 PostgreSQL/PostGIS, all forensically captured (**353,587** raw artifacts / 91 GB
 on disk, **8,655** DB-registered source documents, SHA-256 + custody throughout —
@@ -61,7 +61,7 @@ than *coverage* — but several discrete, build-ready follow-ups remain, and the
 | Geocoded buildings | 2,027 | + 53 low-confidence held back |
 | RD4U-categorized properties | **11,524** of 11,730 | A3.1/A3.2/A3.3/A3.6 comma-sets (script 36); 206 uncategorized, mostly new reallocation-stage rows — re-run script 36 |
 | Legal-grade properties (≥2 sources) | **1,156** | corroboration report (script 33), re-run 2026-06-28 post district-load |
-| Stakeholder network | **111 nodes / 138 edges** | 52 persons + 53 orgs + bridge nodes |
+| Stakeholder network | **370 nodes / 395 edges** | 184 persons + 180 orgs + bridge nodes; backfilled into `court_case`/`actor` from the district load 2026-06-28 (scripts/188-191), was stuck at the original 111/138 Mariupol-only snapshot |
 | DNR region80 normative index / relevant subset | 2,221 / **395** | enabling-norm layer (scripts 35/37) |
 | denis-pushilin.ru archive index | **2,878 / 2,894 PDFs** | full Акты Главы ДНР archive |
 | Legal-mechanism instruments catalogued | **30+** | rungs [A]–[H]; 14 newly [CAPTURED] in the 2026-06-12 scaffolding scan |
@@ -125,16 +125,22 @@ not closable. **Deferred** = low marginal value.
    closer read of a sample of each absorbing court's full caseload by hand before
    concluding either way. Source: ВС ДНР venue-reassignment notice, captured
    2026-06-28 (`data/raw/6bb873cb...` + `.meta.json`).
-0a. **`court_case` table is stuck at the original 2,666/28-judge snapshot** and
-   was never touched by the June 2026 district load (`scripts/182`–`185` write
-   to `seizure_event.detail`, a different table entirely). This backs
-   `scripts/40_build_stakeholder_network.py` and the public stakeholder-network
-   exhibit/doc, so the judge rankings shown there are stale (e.g. Романов
-   288→291, 28→33 named judges region-wide-Mariupol). Either write a new loader
-   pass into `court_case` from the district population, or rewrite script 40 to
-   read `seizure_event.detail->>'judge'` instead, then rebuild the exhibit's JS
-   bundle (esbuild). `docs/stakeholder_network.md`'s prose numbers were
-   hand-corrected 2026-06-28; the exhibit's embedded bundle data was not.
+0a. ~~`court_case` table stuck at the original 2,666/28-judge snapshot~~ —
+   **DONE 2026-06-28.** `scripts/188_backfill_court_case_into_district.py`
+   normalized the 5,646 net-new district cases' judge/petitioner data
+   (previously only in `seizure_event.detail`) into `court_case`/`actor`,
+   then `scripts/40` regenerated the network (111→370 nodes, 138→395 edges,
+   28→33 judges), `scripts/189`/`191` re-embedded and re-bundled the exhibit
+   (esbuild). Along the way found+fixed two more bugs surfaced only at the
+   larger scale: (1) `scripts/40`'s petitioner fuzzy-matcher compared whole
+   templated strings (`token_set_ratio`), so absorbed-jurisdiction courts'
+   administrations (Торез, Дебальцево, Иловайск, Харцызск, ...) were wrongly
+   bucketed into "Администрация городского округа Мариуполь" at 0.82-0.99
+   similarity — fixed by isolating just the city token before fuzzing; (2)
+   the exhibit's pan handler read a mutable ref inside a deferred React state
+   updater, crashing under React 19 if mouseup fired mid-batch — fixed by
+   capturing the values synchronously at event time. Visually verified
+   (pan/zoom, node/edge counts) before commit.
 1. **Add ВЕРТИКАЛЬ ФОРТ-2 land grant** (Распоряжение №203/09.06.2026, просп. Победы
    127, cadastral 93:27:0010311:572) as the 52nd row of `dnr_land_orders.jsonl` —
    confirmed NEW beneficiary, still unadded. *(verified absent 2026-06-12.)*
@@ -202,32 +208,30 @@ not closable. **Deferred** = low marginal value.
 
 ### D. Structural hard limits (document, don't chase)
 
-16. **2,657 court-record islands** carry `<адрес>` redaction at source and no
-    non-court record references the case number — unbridgeable by address/cadastral/
-    geometry *via this portal*. They stand as primary evidence on the case record
-    itself. (Item 9 is the only possible escape hatch.)
+16. **8,303 court-record islands** (region-wide, see `docs/STATS.md`) carry
+    `<адрес>` redaction at source and no non-court record references the case
+    number — unbridgeable by address/cadastral/geometry *via this portal*. They
+    stand as primary evidence on the case record itself. (Item 9 is the only
+    possible escape hatch.)
 19. **The "already-transferred-via-court" population is invisible to the
-    ownerless registry, by construction — not by overlap.** *(Note: this item's
-    base population is the original 2,657 Mariupol court islands, computed
-    before the June 2026 district-court load grew court-islands to 8,303
-    region-wide — the finding's logic likely still holds region-wide but has
-    not been recomputed against the larger population; treat the specific
-    counts below as the Mariupol-only historical figure, not current.)* Of the
-    2,657 islands,
-    **2,192 reached `court_transfer`** (court ruled in favor of "признание права
+    ownerless registry, by construction — not by overlap.** *(Recomputed
+    2026-06-28 against the full region-wide population — supersedes the
+    original Mariupol-only figures below.)* Of the 8,303 court-record islands,
+    **7,052 reached `court_transfer`** (court ruled in favor of "признание права
     муниципальной собственности" — i.e. the unit left "ownerless" status via the
     now-abolished court route, *before* the live 12,948-entry / 1,637-property
-    ownerless registry was even queried). Because these 2,192 rows carry no
+    ownerless registry was even queried). Because these 7,052 rows carry no
     address (see item 9), they show **zero property overlap** with the
-    1,637-property registry_inclusion set — but that's an artifact of having
-    nothing to match on, not evidence the two populations are genuinely disjoint.
-    Net effect: **we can state a count (≥2,192 units already converted to
+    1,637-property registry_inclusion set — confirmed again at full scale, so
+    this is not an artifact of the smaller Mariupol-only sample: nothing to
+    match on, not evidence the two populations are genuinely disjoint.
+    Net effect: **we can state a count (≥7,052 units already converted to
     municipal property via the old route) but cannot map any of them to a
     specific address/RD4U category**, and the one register that could
     (Реестр муниципального имущества городского округа Мариуполь) is not
-    publicly accessible. This is the accountability-side fact ("at least 2,192
-    units stripped of owner status") that currently has no restitution-side
-    (per-property RD4U) counterpart. Closable only via item 9.
+    publicly accessible. This is the accountability-side fact ("at least 7,052
+    units stripped of owner status, region-wide") that currently has no
+    restitution-side (per-property RD4U) counterpart. Closable only via item 9.
 17. **Распоряжение ГКО №56** (Mariupol demolition list) — confirmed absent from all
     three normative-acts portals (region80, нпа.днронлайн, denis-pushilin); an
     internal operational order, likely no online primary text exists.

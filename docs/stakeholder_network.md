@@ -235,7 +235,10 @@ against the expanded set once captured).
 
 ## First-run findings (script 40, 2026-06-12)
 
-Graph: **52 persons + 53 orgs, 138 relations, ~8,100 evidenced acts.**
+Graph: **52 persons + 53 orgs, 138 relations, ~8,100 evidenced acts.** *(2026-06-12
+figures; region-wide district-court backfill on 2026-06-28 grew this to
+**184 persons + 180 orgs, 395 relations** — see `docs/progress_report_2026-06.md`
+item 0a.)*
 
 - **Кольцов А.В. is the operational center of gravity**: 652 ownerless
   decrees + 16 demolition decrees signed — 668 instruments, vs 157 for the

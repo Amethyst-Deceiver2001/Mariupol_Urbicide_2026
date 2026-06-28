@@ -479,42 +479,45 @@ _PROSECUTOR_PERSON_RE = re.compile(
     r"[Пп]рокурор.*?((?:[А-ЯЁ]\.\s*){1,2}[А-ЯЁ][а-яё-]+|"
     r"[А-ЯЁ][а-яё-]+\s+(?:[А-ЯЁ]\.\s*){1,2})", re.S)
 
-# Fuzzy fallback prototypes for clerk typos the keyword buckets miss
-# ('Адмиистрация', 'Мриуполь', 'М ариуполя', ...). Per CLAUDE.md, every
+# Fuzzy fallback for clerk typos the keyword buckets miss ('Адмиистрация',
+# 'Мриуполь', 'М ариуполя', ...). Compares ONLY the extracted city/raion
+# token against 'мариуполь', not the whole templated string -- the region's
+# many absorbed-jurisdiction courts (Торез, Дебальцево, Иловайск, ...) share
+# the same "Администрация городского округа <city>" boilerplate, so a
+# whole-string ratio (token_set_ratio against a 'мариуполь'-named prototype)
+# scored those at 0.82-0.99 even though the one token that actually
+# identifies the entity -- the city -- is completely different. Isolating
+# that token first fixed it: genuine Mariupol typos still score 0.94-1.00,
+# real other-city administrations score 0.14-0.32. Per CLAUDE.md, every
 # fuzzy match is confidence-scored; >=0.8 required.
-_PETITIONER_PROTOTYPES = [
-    ("администрация городского округа мариуполь днр",
-     "Администрация городского округа Мариуполь", "municipal"),
-    ("администрация города мариуполя",
-     "Администрация городского округа Мариуполь", "municipal"),
-]
+_CITY_TOKEN_RE = re.compile(
+    r"(?:городского округа|города)\s+(?:г\.\s*)?([А-Яа-яЁё-]+)", re.I)
 
 
 def canon_petitioner(raw: str) -> tuple[str | None, str, float]:
     """Bucket a raw petitioner string -> (canonical org, tier, confidence).
 
     Keyword-bucket hits are deterministic (confidence 1.0); otherwise a
-    rapidfuzz pass against the prototypes (claim-grade threshold 0.8).
+    rapidfuzz pass on the extracted city token (claim-grade threshold 0.8).
     Returns (None, '', 0.0) when nothing matches.
     """
     for pat, canonical, tier in _PETITIONER_BUCKETS:
         if pat.search(raw):
             return canonical, tier, 1.0
+    m = _CITY_TOKEN_RE.search(raw)
+    if not m:
+        return None, "", 0.0
     try:
         from rapidfuzz import fuzz
     except ImportError:
         log.warning("rapidfuzz unavailable — typo-variant petitioners "
                     "kept unconsolidated")
         return None, "", 0.0
-    best = max(
-        ((fuzz.token_set_ratio(raw.lower(), proto) / 100, canonical, tier)
-         for proto, canonical, tier in _PETITIONER_PROTOTYPES),
-        key=lambda t: t[0],
-    )
-    if best[0] >= 0.8:
-        log.info("fuzzy petitioner match (%.2f): %r -> %r",
-                 best[0], raw, best[1])
-        return best[1], best[2], best[0]
+    score = fuzz.ratio(m.group(1).lower(), "мариуполь") / 100
+    if score >= 0.8:
+        canonical = "Администрация городского округа Мариуполь"
+        log.info("fuzzy petitioner match (%.2f): %r -> %r", score, raw, canonical)
+        return canonical, "municipal", score
     return None, "", 0.0
 
 
