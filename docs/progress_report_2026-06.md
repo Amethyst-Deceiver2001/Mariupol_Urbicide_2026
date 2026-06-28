@@ -330,8 +330,13 @@ not closable. **Deferred** = low marginal value.
     Правительства РФ от 31.12.2022 № 2565** (ДОМ.РФ subsidy rules — the
     parent that №1123/08.07.2023 and №2166/15.12.2023 both amend),
     pravo.gov.ru publication `0001202301030011` (published 03.01.2023,
-    matching the early-Jan-2023 press timing). Capture staged in
-    `scripts/207` (user-run). The residual sub-gap is now closed.
+    matching the early-Jan-2023 press timing). **Signed PDF [CAPTURED] +
+    READ 2026-06-29** (`scripts/208`, OCR'd) — unlike item 10's 25 m² cap
+    and the §C item 0c per-m² rate above, every press-reported parameter
+    checks out exactly against the primary text, no correction needed: **2%
+    rate** ("не более 2 процентов годовых," Пр. 5к), **≤6 млн ₽ loan cap**,
+    **≥10% down payment** of contract price. The residual sub-gap is now
+    fully closed.
 12. ~~**Распоряжение №61** (Mariupol municipal lease rulebook, [CITED])~~ —
     **MIRROR FOUND 2026-06-28** (outsourced batch, Q8). The PDF was
     dead-linked on нпа.днронлайн, but a working HTML mirror of the full text
