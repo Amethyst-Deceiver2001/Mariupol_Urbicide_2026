@@ -177,9 +177,9 @@ seemingly for the purpose of receiving the grants.**
 | «Региональная строительная компания» | 2 | 9309026106 (EISGHS match, EGRUL pending) | — | — |
 | СЗ «Восход» | 2 | 9310013976 / 2024-04-17 | Майоров М.И. | Майоров М.И. **33.4%**, Скоркина О.А. **33.3%**, Романькова И.Н. **33.3%** — all Moscow ИНН (77x) |
 | СЗ «МираСтрой» | — | ОГРН 1239300010840, 2023 (EGRUL/INN pending) — same registered address cluster as МираСтрой 2/3/4 and ГСА ДЕВЕЛОПМЕНТ below | — | — |
-| СЗ «МираСтрой 2» | — | ОГРН 1249300004887, 2024 (EGRUL/INN pending) — same address cluster | — | — |
-| СЗ «МираСтрой 3» | 1 | 9303036524 / 2024-02-15 | **Василенко И.И.** | **Василенко И.И. 90%** (ИНН 505397224950, Moscow Oblast) + Сущёв А.Б. **10%** (ИНН 504793037222, Moscow Oblast) |
-| СЗ «МираСтрой 4» | 1 | 9303036531 / 2024-02-15 | **Василенко И.И.** ← same person, 2 LLCs | **Василенко И.И. 47.5%** + Сущёв А.Б. **10%** (same 2 as МираСтрой 3, Moscow Oblast) + Коршаков Д.А. **10%** + Соболев А.Д. **32.5%** (both Moscow) |
+| СЗ «МираСтрой 2» | — | ИНН 9303036549 / ОГРН 1249300004887, 2024-02-15 (rusprofile.ru, 2026-06-29) | **Василенко Игорь Игоревич**, с 22.11.2024 | — |
+| СЗ «МираСтрой 3» | 1 | 9303036524 / 2024-02-15 | **Василенко Игорь Игоревич**, с 22.11.2024 (full name confirmed via rusprofile.ru, 2026-06-29) | **Василенко И.И. 90%** (ИНН 505397224950, Moscow Oblast) + Сущёв А.Б. **10%** (ИНН 504793037222, Moscow Oblast) |
+| СЗ «МираСтрой 4» | 1 | 9303036531 / 2024-02-15 | **Василенко Игорь Игоревич** ← same person, с 14.05.2025 (later director-appointment date than МираСтрой 2/3 — worth noting, not yet explained) | **Василенко И.И. 47.5%** + Сущёв А.Б. **10%** (same 2 as МираСтрой 3, Moscow Oblast) + Коршаков Д.А. **10%** + Соболев А.Д. **32.5%** (both Moscow) |
 | СЗ «НОВОЕ ВРЕМЯ 3» | 1 | 9309028294 / 2024-09-20 | Митин С.В. | **100%** ООО «УК «БРИК ИНВЕСТ»» (ИНН 9310017730, region-93/DNR — holding co., own founders unknown) |
 | СЗ «Корпорация СМУ-5» | 1 | 9310017508 (EISGHS match, EGRUL pending) | — | — |
 | СЗ «СИРИУС БИЛД» | 1 | 9310014320 (EISGHS match, EGRUL pending) | — | — |
@@ -188,21 +188,33 @@ seemingly for the purpose of receiving the grants.**
 | СЗ «Новое время 2» | 1 (decree №291, same decree as RKS-Devel. above — 3,136 m² parcel, Troianda-M/Metallurgov 47 footprint) | EGRUL not yet pulled — **caution: a directory search for this name also returns an unrelated Ufa/Bashkortostan company building in Khimki; do not conflate** | — | — |
 | ООО «СГМ МОНТАЖ» | (registry) | 9310018029 / 2025-03-19 | Харламова Т.С. | Чернов А.И. **100%** (ИНН 771002232940, Moscow) |
 | СЗ «ГСА ДЕВЕЛОПМЕНТ» | (land order pending — Распоряжение Главы ДНР №297 lead, not yet captured, see `docs/research_outsourcing/OPEN_QUESTIONS.md` Q6) | 9310009539 / ОГРН 1239300009530, 2023-07-20 | **Вербовой Илья Алексеевич** (found via rusprofile.ru name search, 2026-06-29 — closes Q10's worked example; founders/shareholder breakdown not yet pulled) | — |
-| ООО «АВЕРС-ИНВЕСТ» | — | ОГРН 1229300139034, 2022 (EGRUL/INN pending) — same address cluster, **earliest registration of the six** (2022 vs. 2023–2024 for the rest); purpose not yet established | — | — |
+| ООО «АВЕРС-ИНВЕСТ» | — | ИНН 9310003872 / ОГРН 1229300139034, 2022-11-30 (rusprofile.ru, 2026-06-29) — **but EGRUL's own "Дата регистрации" field shows 24.05.2002**, predating DNR's existence entirely; уставный капитал **187,500 руб.**, far above the 10,000 руб. shell-minimum every other entity at this address uses | **Чентуков Евгений Юрьевич** — a different person from Василенко/Вербовой, i.e. NOT part of the МираСтрой/ГСА Девелопмент leadership | — |
 
-**Registration cluster (2026-06-29):** ГСА ДЕВЕЛОПМЕНТ, all four СЗ «МираСтрой»
-entities, and ООО «АВЕРС-ИНВЕСТ» are **all registered at the same address**
-— ул. Энгельса, д. 26/2, Мариуполь (per rusprofile.ru's "Еще N организаций по
-этому адресу" listing on the ГСА ДЕВЕЛОПМЕНТ page). This is the same pattern
-already documented for individual SPVs above (post-occupation entities
-created seemingly for the sole purpose of receiving land grants) but at the
-*address* level rather than just shared directors/founders — six separate
-legal entities sharing one registered address, spanning 2022–2024
-registration dates. АВЕРС-ИНВЕСТ's earlier 2022 registration is worth
-checking — it may be the cluster's anchor/registration-agent entity rather
-than a grant recipient in its own right. **Follow-up:** pull EGRUL for
-МираСтрой 1/2 and АВЕРС-ИНВЕСТ (director/founders), and check whether any of
-the six hold land orders not yet on this table.
+**Registration cluster, refined (2026-06-29):** ГСА ДЕВЕЛОПМЕНТ, all four СЗ
+«МираСтрой» entities, and ООО «АВЕРС-ИНВЕСТ» are all registered at the same
+address — ул. Энгельса, д. 26/2, Мариуполь — but the director lookups split
+this into two distinct groups, not one operator:
+- **МираСтрой 2/3/4 confirmed under one director, Василенко Игорь Игоревич**
+  (МираСтрой 1's director still unconfirmed) — this is the real single-
+  operator SPV cluster, consistent with the post-occupation-shell pattern
+  documented elsewhere on this table.
+- **ГСА ДЕВЕЛОПМЕНТ** has a different director (Вербовой Илья Алексеевич) —
+  same address, same shell-minimum 10,000 руб. charter capital and
+  post-occupation registration date, but not (yet) shown to be under
+  Василенко's control. Possibly a separate operator using the same
+  registration agent/address, or a still-undisclosed connection — founders
+  not yet pulled.
+- **АВЕРС-ИНВЕСТ is most likely unrelated to either group**: different
+  director (Чентуков Евгений Юрьевич), charter capital 187,500 руб.
+  (18.75× the shell-minimum), and an EGRUL "Дата регистрации" of 24.05.2002
+  — a genuine pre-occupation Ukrainian-era company, not a freshly-created
+  SPV. The address is shared but the entity itself doesn't fit the pattern;
+  treat it as a coincidental co-tenant unless evidence emerges otherwise.
+
+**Follow-up:** pull EGRUL for МираСтрой 1 (director/founders unconfirmed) and
+for ГСА ДЕВЕЛОПМЕНТ's founders (to check for a Василенко/Сущёв connection);
+check whether any of the confirmed Василенко-controlled entities hold land
+orders not yet on this table.
 
 ### Founders / ownership chains (script 41, 2026-06-12)
 
