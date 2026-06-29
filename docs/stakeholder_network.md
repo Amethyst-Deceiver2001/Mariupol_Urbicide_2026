@@ -176,6 +176,8 @@ seemingly for the purpose of receiving the grants.**
 | СЗ «Солнечная» | 2 | 9311026992 (EISGHS match, EGRUL pending) | — | — |
 | «Региональная строительная компания» | 2 | 9309026106 (EISGHS match, EGRUL pending) | — | — |
 | СЗ «Восход» | 2 | 9310013976 / 2024-04-17 | Майоров М.И. | Майоров М.И. **33.4%**, Скоркина О.А. **33.3%**, Романькова И.Н. **33.3%** — all Moscow ИНН (77x) |
+| СЗ «МираСтрой» | — | ОГРН 1239300010840, 2023 (EGRUL/INN pending) — same registered address cluster as МираСтрой 2/3/4 and ГСА ДЕВЕЛОПМЕНТ below | — | — |
+| СЗ «МираСтрой 2» | — | ОГРН 1249300004887, 2024 (EGRUL/INN pending) — same address cluster | — | — |
 | СЗ «МираСтрой 3» | 1 | 9303036524 / 2024-02-15 | **Василенко И.И.** | **Василенко И.И. 90%** (ИНН 505397224950, Moscow Oblast) + Сущёв А.Б. **10%** (ИНН 504793037222, Moscow Oblast) |
 | СЗ «МираСтрой 4» | 1 | 9303036531 / 2024-02-15 | **Василенко И.И.** ← same person, 2 LLCs | **Василенко И.И. 47.5%** + Сущёв А.Б. **10%** (same 2 as МираСтрой 3, Moscow Oblast) + Коршаков Д.А. **10%** + Соболев А.Д. **32.5%** (both Moscow) |
 | СЗ «НОВОЕ ВРЕМЯ 3» | 1 | 9309028294 / 2024-09-20 | Митин С.В. | **100%** ООО «УК «БРИК ИНВЕСТ»» (ИНН 9310017730, region-93/DNR — holding co., own founders unknown) |
@@ -186,6 +188,21 @@ seemingly for the purpose of receiving the grants.**
 | СЗ «Новое время 2» | 1 (decree №291, same decree as RKS-Devel. above — 3,136 m² parcel, Troianda-M/Metallurgov 47 footprint) | EGRUL not yet pulled — **caution: a directory search for this name also returns an unrelated Ufa/Bashkortostan company building in Khimki; do not conflate** | — | — |
 | ООО «СГМ МОНТАЖ» | (registry) | 9310018029 / 2025-03-19 | Харламова Т.С. | Чернов А.И. **100%** (ИНН 771002232940, Moscow) |
 | СЗ «ГСА ДЕВЕЛОПМЕНТ» | (land order pending — Распоряжение Главы ДНР №297 lead, not yet captured, see `docs/research_outsourcing/OPEN_QUESTIONS.md` Q6) | 9310009539 / ОГРН 1239300009530, 2023-07-20 | **Вербовой Илья Алексеевич** (found via rusprofile.ru name search, 2026-06-29 — closes Q10's worked example; founders/shareholder breakdown not yet pulled) | — |
+| ООО «АВЕРС-ИНВЕСТ» | — | ОГРН 1229300139034, 2022 (EGRUL/INN pending) — same address cluster, **earliest registration of the six** (2022 vs. 2023–2024 for the rest); purpose not yet established | — | — |
+
+**Registration cluster (2026-06-29):** ГСА ДЕВЕЛОПМЕНТ, all four СЗ «МираСтрой»
+entities, and ООО «АВЕРС-ИНВЕСТ» are **all registered at the same address**
+— ул. Энгельса, д. 26/2, Мариуполь (per rusprofile.ru's "Еще N организаций по
+этому адресу" listing on the ГСА ДЕВЕЛОПМЕНТ page). This is the same pattern
+already documented for individual SPVs above (post-occupation entities
+created seemingly for the sole purpose of receiving land grants) but at the
+*address* level rather than just shared directors/founders — six separate
+legal entities sharing one registered address, spanning 2022–2024
+registration dates. АВЕРС-ИНВЕСТ's earlier 2022 registration is worth
+checking — it may be the cluster's anchor/registration-agent entity rather
+than a grant recipient in its own right. **Follow-up:** pull EGRUL for
+МираСтрой 1/2 and АВЕРС-ИНВЕСТ (director/founders), and check whether any of
+the six hold land orders not yet on this table.
 
 ### Founders / ownership chains (script 41, 2026-06-12)
 
