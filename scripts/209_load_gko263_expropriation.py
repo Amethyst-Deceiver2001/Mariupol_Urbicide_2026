@@ -22,11 +22,26 @@ seizure_stage='expropriation' (db/schema.sql ALTER TYPE, 2026-06-29):
 Address-spine check (2026-06-29, exact street+house-number match): 10 of
 13 addresses are confirmed NOT on the property spine -- these are loaded as
 NEW properties. The remaining 3 (Карпинского 84, Сеченова 81, Лунина 9)
-have loose near-matches by street + rounded house number but unconfirmed
-building identity (different suffix letters in the existing spine entries)
--- per the project's no-false-precision rule, these are logged and SKIPPED,
-not force-merged into an existing property_id. A future manual/geocoded
-review could confirm or reject the match.
+originally had loose near-matches by street + rounded house number but
+unconfirmed building identity -- per the project's no-false-precision rule,
+logged and SKIPPED, not force-merged.
+
+Q8 follow-up (2026-06-29, outsourced research + map check, see
+docs/research_outsourcing/OPEN_QUESTIONS_2026-06-29.md): all 3 resolved.
+- Карпинского 84 (property_id 5672): exact house-number match AND map-confirmed
+  as a dormitory (общежитие), matching the decree's own description of this
+  entry -- CONFIRMED, now loaded as an event against the existing property_id
+  (not a new property).
+- Сеченова 81 (property_id 5759): exact house-number match AND map-confirmed
+  as a converted dormitory (active apartment listing,
+  https://mariupol.ayax.ru/flat/137105300/) -- CONFIRMED, same treatment as
+  Карпинского 84, loaded against the existing property_id.
+- Лунина 9: spine property_id 5816 is "Лунина 9а" -- map footprint check
+  (domclick.ru + map screenshot, 2026-06-29) confirms №9 and №9а are SEPARATE
+  building footprints several buildings apart along the same street (9, then
+  11/11А/11Б/11В/13, then 9А), not a suffix variant of one plot -- CONFIRMED
+  DISTINCT, stays SKIPPED here (a future geocoding pass should load it as its
+  own new property rather than force-merging into 5816).
 
 Idempotent: dedup_key = 'gko263_expropriation:<annex>:<seq_no>'.
 
@@ -75,9 +90,9 @@ ANNEX_2 = [
     {"seq": 2, "occupation_address": "город Мариуполь, Ильичевский район, проспект Металлургов, дом 211",
      "name": "Гостиница «Дружба»"},
     {"seq": 3, "occupation_address": "город Мариуполь, Ильичевский район, улица Карпинского, дом 84",
-     "name": "Общежитие", "near_match_property_id": 5672, "near_match_address": "улица Карпинского, 84"},
+     "name": "Общежитие", "confirmed_property_id": 5672},
     {"seq": 4, "occupation_address": "город Мариуполь, Ильичевский район, улица Сеченова, дом 81",
-     "name": "Общежитие", "near_match_property_id": 5759, "near_match_address": "улица Сеченова, 81"},
+     "name": "Общежитие", "confirmed_property_id": 5759},
     {"seq": 5, "occupation_address": "город Мариуполь, Жовтневый район, проспект Ленина, дом 68",
      "name": "Здание"},
     {"seq": 6, "occupation_address": "город Мариуполь, Приморский район, проспект Строителей, дом 56",
@@ -93,6 +108,24 @@ INSERT_PROPERTY_SQL = """
     VALUES (%s, %s)
     RETURNING id
 """
+
+SELECT_PROPERTY_BY_ADDRESS_SQL = """
+    SELECT id FROM property WHERE occupation_address = %s LIMIT 1
+"""
+
+
+def _find_or_insert_property(cur, occupation_address: str, notes: str) -> tuple[int, bool]:
+    """Idempotent property creation by exact occupation_address match -- a 2026-06-29
+    re-run of this script (to load the Q8-confirmed Карпинского 84 merge) discovered
+    INSERT_PROPERTY_SQL had no such guard, silently duplicating all 10 already-loaded
+    addresses (properties 26299-26308, since cleaned up). Returns (property_id, created).
+    """
+    cur.execute(SELECT_PROPERTY_BY_ADDRESS_SQL, (occupation_address,))
+    row = cur.fetchone()
+    if row:
+        return row[0], False
+    cur.execute(INSERT_PROPERTY_SQL, (occupation_address, notes))
+    return cur.fetchone()[0], True
 
 UPSERT_EVENT_SQL = """
     INSERT INTO seizure_event
@@ -140,8 +173,7 @@ def main() -> None:
         notes = (f"Постановление ГКО ДНР №263 (29.09.2022), Приложение №1 п.{item['seq']}: "
                  f"{item['name']}. Transferred Ukrainian-state -> municipal ownership directly, "
                  f"NO compensation (former Ukrainian state property, not private).")
-        cur.execute(INSERT_PROPERTY_SQL, (item["occupation_address"], notes))
-        property_id = cur.fetchone()[0]
+        property_id, created = _find_or_insert_property(cur, item["occupation_address"], notes)
         dedup_key = f"gko263_expropriation:annex1:{item['seq']}"
         detail = json.dumps({
             "annex": 1, "name": item["name"], "compensation": False,
@@ -151,7 +183,9 @@ def main() -> None:
         }, ensure_ascii=False)
         cur.execute(UPSERT_EVENT_SQL, (property_id, EVENT_DATE, source_doc_id, 0.9, detail, dedup_key))
         n_loaded += 1
-        log.info("  LOADED annex1.%d -> new property %d: %s", item["seq"], property_id, item["occupation_address"])
+        log.info("  annex1.%d %s property %d: %s", item["seq"],
+                 "LOADED -> new" if created else "already exists, event re-upserted on existing",
+                 property_id, item["occupation_address"])
 
     for item in ANNEX_2:
         if "near_match_property_id" in item:
@@ -165,8 +199,13 @@ def main() -> None:
                  f"(\"принудительное изъятие\"); compensation contingent on owner submitting "
                  f"title documents within 30 days of the decree's effective date, or compensation "
                  f"right is forfeited entirely (§5-6).")
-        cur.execute(INSERT_PROPERTY_SQL, (item["occupation_address"], notes))
-        property_id = cur.fetchone()[0]
+        if "confirmed_property_id" in item:
+            property_id, created = item["confirmed_property_id"], False
+            log.info("  MERGE annex2.%d (%s) -> confirmed existing property %d (Q8 resolved, "
+                     "exact house-number match + map-confirmed dormitory)",
+                     item["seq"], item["occupation_address"], property_id)
+        else:
+            property_id, created = _find_or_insert_property(cur, item["occupation_address"], notes)
         dedup_key = f"gko263_expropriation:annex2:{item['seq']}"
         detail = json.dumps({
             "annex": 2, "name": item["name"], "compensation": "contingent_30day_deadline",
@@ -178,7 +217,11 @@ def main() -> None:
         }, ensure_ascii=False)
         cur.execute(UPSERT_EVENT_SQL, (property_id, EVENT_DATE, source_doc_id, 0.9, detail, dedup_key))
         n_loaded += 1
-        log.info("  LOADED annex2.%d -> new property %d: %s", item["seq"], property_id, item["occupation_address"])
+        if "confirmed_property_id" in item:
+            verb = "MERGED into"
+        else:
+            verb = "LOADED -> new" if created else "already exists, event re-upserted on existing"
+        log.info("  annex2.%d %s property %d: %s", item["seq"], verb, property_id, item["occupation_address"])
 
     pg.commit()
     log.info("done: %d new properties + expropriation events loaded, %d skipped (unconfirmed near-match)",
