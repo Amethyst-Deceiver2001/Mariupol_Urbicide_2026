@@ -357,6 +357,39 @@ not closable. **Deferred** = low marginal value.
     *commercial* space (e.g. ground-floor shops) recovered alongside
     seized residential buildings, an unverified narrower claim.
 
+### B¹. New: 13-address GKO №263 forced-expropriation decree, mostly off-spine
+
+**Found 2026-06-29** reading the OCR'd primary text of Постановление ГКО ДНР
+№263 (29.09.2022) — see `legal_mechanisms_review.md`'s corrected row. This is
+a NAMED expropriation decree, not a generic framework: **5 addresses**
+transferred Ukrainian-state→municipal ownership with no compensation
+(former dormitories/offices), and **8 addresses** of *privately-owned*
+hotels/dormitories/buildings subject to forced expropriation
+("принудительное изъятие") with compensation contingent on a 30-day
+document deadline. **10 of the 13 addresses are confirmed NOT on the
+property spine** (checked via exact street+house-number match 2026-06-29);
+3 have loose near-matches (different house-number suffix — Карпинского 84,
+Сеченова 81, Лунина 9 — not confirmed building identity, need geocoding/
+manual review before treating as a match).
+
+This is a concrete, dated, addressed seizure act sitting unloaded — unlike
+most gaps in this register, it doesn't need new crawling, just (a) deciding
+whether `seizure_stage`'s enum needs a new value for this expropriation
+mechanism (distinct from `ownerless_designation`/`court_transfer` — no
+court, no ownerless designation, a direct GKO decree with compensation
+contingent on a paperwork deadline) or whether it fits an existing stage
+well enough, and (b) loading 10 new properties + their seizure events.
+**Schema/load decision needed before proceeding — not done unprompted.**
+
+The same primary-text read of №300 (the residential bezkhoz founding
+decree) also surfaced a previously-undocumented **one-year temporary-use
+stage** between public notice and municipal-ownership conversion, with no
+matching `seizure_stage` enum value either — the same schema question
+applies to both. See `legal_mechanisms_review.md`'s corrected №300 row for
+the §1.3 lawful-occupant carve-out and the new №164 (26.07.2022) instrument
+lead it surfaced (legal basis for inspection-commission entry, predates
+№300 by ~2 months, not yet captured).
+
 ### C. Tier-3 corroboration layers never built (reconceptualization §3, Tier 3)
 
 0. ~~**Bellingcat "Civilian Harm in Ukraine" timemap**~~ — **BUILT + LOADED
