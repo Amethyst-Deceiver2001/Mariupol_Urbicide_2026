@@ -40,8 +40,8 @@ docs/research_outsourcing/OPEN_QUESTIONS_2026-06-29.md): all 3 resolved.
   (domclick.ru + map screenshot, 2026-06-29) confirms №9 and №9а are SEPARATE
   building footprints several buildings apart along the same street (9, then
   11/11А/11Б/11В/13, then 9А), not a suffix variant of one plot -- CONFIRMED
-  DISTINCT, stays SKIPPED here (a future geocoding pass should load it as its
-  own new property rather than force-merging into 5816).
+  DISTINCT. Geocoded by user (2026-06-29): 47.070244, 37.514428 -- now loaded
+  as its own new property with this geom, no longer skipped.
 
 Idempotent: dedup_key = 'gko263_expropriation:<annex>:<seq_no>'.
 
@@ -78,7 +78,10 @@ ANNEX_1 = [
      "name": "Общежитие (ранее за Кабинетом Министров Украины / Мариупольский государственный гуманитарный университет)"},
     {"seq": 4, "occupation_address": "город Мариуполь, Приморский район, проспект Лунина, дом 9",
      "name": "Общежитие (ранее за Министерством транспорта и связи Украины / ГП «Мариупольский морской торговый порт»)",
-     "near_match_property_id": 5816, "near_match_address": "проспект Лунина, 9а"},
+     # Confirmed distinct from property_id 5816 (Лунина 9а) -- see Q8 in
+     # docs/research_outsourcing/OPEN_QUESTIONS_2026-06-29.md. Geocoded by
+     # user 2026-06-29; lonlat order matches ST_MakePoint(lon, lat).
+     "lonlat": (37.514428, 47.070244)},
     {"seq": 5, "occupation_address": "город Мариуполь, Приморский район, улица Красномаякская, дом 17",
      "name": "Строение (ранее за Кабинетом Министров Украины / Региональное отделение Фонда государственного имущества Украины)"},
 ]
@@ -109,22 +112,34 @@ INSERT_PROPERTY_SQL = """
     RETURNING id
 """
 
+INSERT_PROPERTY_WITH_GEOM_SQL = """
+    INSERT INTO property (occupation_address, notes, geom)
+    VALUES (%s, %s, ST_SetSRID(ST_MakePoint(%s, %s), 4326))
+    RETURNING id
+"""
+
 SELECT_PROPERTY_BY_ADDRESS_SQL = """
     SELECT id FROM property WHERE occupation_address = %s LIMIT 1
 """
 
 
-def _find_or_insert_property(cur, occupation_address: str, notes: str) -> tuple[int, bool]:
+def _find_or_insert_property(cur, occupation_address: str, notes: str,
+                              lonlat: tuple[float, float] | None = None) -> tuple[int, bool]:
     """Idempotent property creation by exact occupation_address match -- a 2026-06-29
     re-run of this script (to load the Q8-confirmed Карпинского 84 merge) discovered
     INSERT_PROPERTY_SQL had no such guard, silently duplicating all 10 already-loaded
     addresses (properties 26299-26308, since cleaned up). Returns (property_id, created).
+    `lonlat`, if given, is (lon, lat) -- same x/y convention as scripts/69 and
+    `_find_or_create_property` in db/load.py -- and only applies on the insert path.
     """
     cur.execute(SELECT_PROPERTY_BY_ADDRESS_SQL, (occupation_address,))
     row = cur.fetchone()
     if row:
         return row[0], False
-    cur.execute(INSERT_PROPERTY_SQL, (occupation_address, notes))
+    if lonlat is not None:
+        cur.execute(INSERT_PROPERTY_WITH_GEOM_SQL, (occupation_address, notes, lonlat[0], lonlat[1]))
+    else:
+        cur.execute(INSERT_PROPERTY_SQL, (occupation_address, notes))
     return cur.fetchone()[0], True
 
 UPSERT_EVENT_SQL = """
@@ -173,7 +188,8 @@ def main() -> None:
         notes = (f"Постановление ГКО ДНР №263 (29.09.2022), Приложение №1 п.{item['seq']}: "
                  f"{item['name']}. Transferred Ukrainian-state -> municipal ownership directly, "
                  f"NO compensation (former Ukrainian state property, not private).")
-        property_id, created = _find_or_insert_property(cur, item["occupation_address"], notes)
+        property_id, created = _find_or_insert_property(cur, item["occupation_address"], notes,
+                                                          lonlat=item.get("lonlat"))
         dedup_key = f"gko263_expropriation:annex1:{item['seq']}"
         detail = json.dumps({
             "annex": 1, "name": item["name"], "compensation": False,
