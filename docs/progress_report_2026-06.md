@@ -357,29 +357,30 @@ not closable. **Deferred** = low marginal value.
     *commercial* space (e.g. ground-floor shops) recovered alongside
     seized residential buildings, an unverified narrower claim.
 
-### B¹. New: 13-address GKO №263 forced-expropriation decree, mostly off-spine
+### B¹. ~~New: 13-address GKO №263 forced-expropriation decree, mostly off-spine~~ — LOADED
 
-**Found 2026-06-29** reading the OCR'd primary text of Постановление ГКО ДНР
-№263 (29.09.2022) — see `legal_mechanisms_review.md`'s corrected row. This is
-a NAMED expropriation decree, not a generic framework: **5 addresses**
-transferred Ukrainian-state→municipal ownership with no compensation
-(former dormitories/offices), and **8 addresses** of *privately-owned*
-hotels/dormitories/buildings subject to forced expropriation
-("принудительное изъятие") with compensation contingent on a 30-day
-document deadline. **10 of the 13 addresses are confirmed NOT on the
-property spine** (checked via exact street+house-number match 2026-06-29);
-3 have loose near-matches (different house-number suffix — Карпинского 84,
-Сеченова 81, Лунина 9 — not confirmed building identity, need geocoding/
-manual review before treating as a match).
+**Found + LOADED 2026-06-29** reading the OCR'd primary text of Постановление
+ГКО ДНР №263 (29.09.2022) — see `legal_mechanisms_review.md`'s corrected row.
+This is a NAMED expropriation decree, not a generic framework: **5
+addresses** transferred Ukrainian-state→municipal ownership with no
+compensation (former dormitories/offices), and **8 addresses** of
+*privately-owned* hotels/dormitories/buildings subject to forced
+expropriation ("принудительное изъятие") with compensation contingent on a
+30-day document deadline. **10 of the 13 addresses were confirmed NOT on the
+property spine** (checked via exact street+house-number match); 3 have loose
+near-matches (different house-number suffix — Карпинского 84, Сеченова 81,
+Лунина 9 — not confirmed building identity) and were logged/skipped, not
+force-merged.
 
-This is a concrete, dated, addressed seizure act sitting unloaded — unlike
-most gaps in this register, it doesn't need new crawling, just (a) deciding
-whether `seizure_stage`'s enum needs a new value for this expropriation
-mechanism (distinct from `ownerless_designation`/`court_transfer` — no
-court, no ownerless designation, a direct GKO decree with compensation
-contingent on a paperwork deadline) or whether it fits an existing stage
-well enough, and (b) loading 10 new properties + their seizure events.
-**Schema/load decision needed before proceeding — not done unprompted.**
+Added `'expropriation'` to the `seizure_stage` enum (`db/schema.sql`) — a
+direct GKO decree with no court, no ownerless designation, compensation
+contingent on a paperwork deadline, distinct from every existing stage.
+`scripts/209` loaded the confirmed 10 as new properties (ids 26289–26298) +
+`expropriation` seizure events, confidence 0.9 (direct named primary-source
+address, not a spatial/fuzzy join). `docs/STATS.md` regenerated:
+properties 11,730→**11,740**; legal-grade holds at 1,156 (expected — new
+single-source properties, not yet ≥2-source). The 3 unconfirmed near-matches
+remain a future manual/geocoded-review task, not loaded.
 
 The same primary-text read of №300 (the residential bezkhoz founding
 decree) also surfaced a previously-undocumented **one-year temporary-use

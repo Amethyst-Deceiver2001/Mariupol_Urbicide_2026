@@ -6,14 +6,14 @@
 
 | Metric | Value |
 |---|---|
-| Properties on spine | **11,730** |
-| — uncategorized (RD4U) | 206 |
+| Properties on spine | **11,740** |
+| — uncategorized (RD4U) | 216 |
 | Legal-grade (≥2 independent source families) | **1,156** |
 | Court-island properties (single-source, court only) | 8,303 |
-| No-source properties | 117 |
+| No-source properties | 127 |
 | Corroboration rows | 12,170 |
-| Seizure-event rows (all stages) | 29,673 |
-| Source-document rows (DB-registered, chain of custody) | 8,659 |
+| Seizure-event rows (all stages) | 29,683 |
+| Source-document rows (DB-registered, chain of custody) | 8,660 |
 | Distinct courts represented in source_document | 26 |
 
 ### Seizure events by stage
@@ -27,6 +27,7 @@
 | demolition | 540 |
 | appeal | 143 |
 | reallocation | 83 |
+| expropriation | 10 |
 
 ## Raw evidence store (forensic, on disk — `data/raw/`)
 

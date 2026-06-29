@@ -57,10 +57,23 @@ CREATE TABLE IF NOT EXISTS owner (
 -- order or Mariupol-admin "о сносе" decree) and razed, severing the address
 -- chain before the cleared land is reallocated ('reallocation') to a developer
 -- SPV without auction. Distinct legal act from the ownerless/court track.
+-- 'expropriation' = a NAMED GKO decree directly seizing specific addressed
+-- properties (no ownerless designation, no court) -- e.g. Постановление ГКО
+-- №263 (29.09.2022), which forcibly expropriates 8 privately-owned buildings
+-- with compensation contingent on a 30-day document deadline, and transfers
+-- 5 former-Ukrainian-state buildings to municipal ownership outright. Added
+-- 2026-06-29 (db/schema.sql ALTER TYPE; see scripts/209).
+-- 'temporary_use' = the one-year administrative custody period between a
+-- bezkhoz public notice going unanswered and the unit converting to
+-- municipal ownership (Постановление ГКО №300, 29.09.2022, §2.7.1/2.16) --
+-- distinct from 'ownerless_designation' (the notice/inspection act) and from
+-- the eventual 'registry_inclusion'/'court_transfer' (the conversion act).
+-- Added 2026-06-29; no dated per-property records loaded yet (the decree is
+-- a procedural framework, not a named list) -- reserved for when one is found.
 CREATE TYPE seizure_stage AS ENUM (
     'utility_cutoff', 'notice', 'inspection', 'ownerless_designation',
     'demolition', 'court_petition', 'court_transfer', 'appeal', 'entered_force',
-    'reallocation', 'resale', 'registry_inclusion'
+    'reallocation', 'resale', 'registry_inclusion', 'expropriation', 'temporary_use'
 );
 
 CREATE TABLE IF NOT EXISTS seizure_event (
