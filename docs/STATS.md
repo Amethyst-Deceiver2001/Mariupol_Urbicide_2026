@@ -6,14 +6,14 @@
 
 | Metric | Value |
 |---|---|
-| Properties on spine | **11,740** |
-| — uncategorized (RD4U) | 216 |
+| Properties on spine | **11,741** |
+| — uncategorized (RD4U) | 217 |
 | Distinct apartment-level units (ownerless registry) | 11,951 |
 | Legal-grade (≥2 independent source families) | **1,156** |
 | Court-island properties (single-source, court only) | 8,303 |
-| No-source properties | 127 |
+| No-source properties | 128 |
 | Corroboration rows | 12,170 |
-| Seizure-event rows (all stages) | 29,683 |
+| Seizure-event rows (all stages) | 29,686 |
 | Source-document rows (DB-registered, chain of custody) | 8,660 |
 | Distinct courts represented in source_document | 26 |
 
@@ -30,14 +30,14 @@
 | demolition | 540 |
 | appeal | 143 |
 | reallocation | 83 |
-| expropriation | 10 |
+| expropriation | 13 |
 
 ## Raw evidence store (forensic, on disk — `data/raw/`)
 
 | Metric | Value |
 |---|---|
-| Raw artifact files (excl. `.meta.json` sidecars) | **353,650** |
-| Disk size | **91G** |
+| Raw artifact files (excl. `.meta.json` sidecars) | **357,482** |
+| Disk size | **102G** |
 
 Note the gap between this and `source_document` above: the raw store is append-only and holds *everything ever captured*; `source_document` is the subset formally loaded into Postgres with a chain-of-custody link. Historical figures like "39,061 raw artifacts" or "211,900 registered artifacts" in older docs were accurate at an earlier snapshot — they are not current and should be replaced with the figures above on next revision of those docs.
 
