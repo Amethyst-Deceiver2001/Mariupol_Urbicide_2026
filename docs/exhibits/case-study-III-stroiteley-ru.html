@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дело III — Проспект Строителей: «Резиденция» на костях</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="5 снесённых жилых домов на проспекте Строителей в Мариуполе, возле каждого во время осады мариупольцы хоронили соседей. Участки переданы одному застройщику пятью распоряжениями под новый ЖК.">
+<meta property="og:title" content="Дело III — Проспект Строителей: «Резиденция» на костях">
+<meta property="og:description" content="5 снесённых жилых домов на проспекте Строителей в Мариуполе, возле каждого во время осады мариупольцы хоронили соседей. Участки переданы одному застройщику пятью распоряжениями под новый ЖК.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/case-study-III-stroiteley-ru.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Дело III — Проспект Строителей: «Резиденция» на костях">
+<meta name="twitter:description" content="5 снесённых жилых домов на проспекте Строителей в Мариуполе, возле каждого во время осады мариупольцы хоронили соседей. Участки переданы одному застройщику пятью распоряжениями под новый ЖК.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;
+    align-items:center;gap:1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{max-width:64ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  .lead{font-size:1.15rem;color:var(--paper);max-width:64ch}
+  .mono{font-family:var(--font-mono)}
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.6rem;display:block;line-height:1.6;max-width:70ch}
+
+  .hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,5vw,3.5rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.1rem,6vw,3.9rem);line-height:1.02;margin:.4rem 0 1.4rem;max-width:18ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2.2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.blue{color:var(--s1)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:.5rem;display:block;line-height:1.4}
+
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+  .badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;border:1px solid var(--rail);border-radius:2px;
+    padding:.32rem .55rem;color:var(--muted);white-space:nowrap}
+  .badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .badge.grave{background:var(--evidence);color:var(--ink);border-color:var(--evidence);font-weight:800}
+
+  table.data{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:1.2rem}
+  table.data th,table.data td{text-align:left;padding:.55rem .65rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.data th{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  table.data td:first-child{color:var(--paper);font-weight:700}
+
+  .jux{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rail);
+    border:1px solid var(--rail);border-radius:4px;overflow:hidden;margin:2rem 0 0}
+  .jux > div{background:var(--ink-2);padding:1.4rem 1.5rem}
+  .jux .ground{background:rgba(205,64,48,.05)}
+  .jux h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    margin:0 0 1rem;font-weight:700}
+  .jux .promo h4{color:var(--s1)} .jux .ground h4{color:var(--evidence)}
+  .jux p{font-size:15px;margin:0 0 .9rem;max-width:none}
+  .jux .q{font-family:var(--font-serif);font-style:italic;color:var(--paper);
+    border-left:2px solid var(--s1);padding-left:.9rem;margin:0 0 .9rem}
+  .jux .ground .q{border-left-color:var(--evidence)}
+  @media(max-width:720px){.jux{grid-template-columns:1fr}}
+
+  .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding:.2rem 0 .2rem 1rem;margin:1.4rem 0;max-width:66ch}
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.6rem 0;max-width:72ch}
+  .callout .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
+  .callout p{margin:0;font-size:15.5px}
+
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1.8rem 0 0;font-family:var(--font-mono)}
+  .chain .step{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.7rem .9rem;flex:1;min-width:150px}
+  .chain .step .t{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .chain .step .v{font-size:12.5px;color:var(--paper-dim);margin-top:.35rem;line-height:1.4}
+  .chain .step.red{border-left:3px solid var(--evidence)}
+  .chain .step.stamp{border-left:3px solid var(--stamp)}
+  .chain .step.blue{border-left:3px solid var(--s1)}
+  .chain .arrow{align-self:center;color:var(--muted);font-family:var(--font-serif)}
+
+  .blockmap{width:100%;height:auto;margin:1.8rem 0 .4rem;border:1px solid var(--rail);
+    border-radius:4px;background:var(--ink-2)}
+  .figcap{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.2rem 0 0}
+
+  .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rail);
+    border:1px solid var(--rail);border-radius:4px;overflow:hidden;margin:1.8rem 0 .4rem}
+  .triptych figure{margin:0;background:var(--ink-2);display:flex;flex-direction:column}
+  .triptych img{width:100%;height:200px;object-fit:cover;display:block}
+  .triptych figcaption{font-family:var(--font-mono);padding:.65rem .8rem;border-top:1px solid var(--rail)}
+  .triptych figcaption .d{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp)}
+  .triptych figcaption .t{font-size:12.5px;color:var(--paper-dim);margin-top:.3rem;line-height:1.4}
+  @media(max-width:720px){.triptych{grid-template-columns:1fr}.triptych img{height:180px}}
+
+  .panorama-wrap{margin:1.6rem 0 .4rem;border:1px solid var(--rail);border-radius:4px;
+    overflow:hidden;background:#1b1f26;display:flex;justify-content:center}
+  .panorama-note{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.5rem 0 0}
+
+  .jux .promo .render{width:100%;border-radius:3px;display:block;margin:0 0 1rem;
+    border:1px solid var(--rail-2)}
+
+  details.prov{margin-top:1rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--stamp);padding:.4rem 0}
+  .srclist{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.9rem}
+  .srclist li{border-left:2px solid var(--rail);padding-left:1rem}
+  .srclist .ty{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
+  .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
+  .srclist .ti b{color:var(--paper)}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Дело III &middot; <b title="UA просп. Будівельників · RU просп. Строителей">Проспект Строителей — «Резиденция Селект»</b></span>
+  <span><a href="../index.html">&larr; на главную</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier-ru.html">основное досье</a>
+    &nbsp;&middot;&nbsp; <a href="case-study-III-stroiteley.html">English version</a> &nbsp;&middot;&nbsp; <a href="about.html">about</a> &nbsp;&middot;&nbsp; <a href="stakeholder-network.html">stakeholder network</a> &middot; <a href="sources.html">sources</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="sub">Дело III &middot; Центральный район &middot; Мариуполь</div>
+    <div class="eyebrow" title="проспект Строителей · проспект Будівельників">Проспект Строителей &middot; до войны — проспект Будівельників</div>
+    <h1>Дворы стали могилами. А потом — фундаментами.</h1>
+    <p class="lead">Целый мариупольский проспект, который оккупационные власти квартал за
+      кварталом сносят своими распоряжениями, отстраивается заново под брендовое жильё
+      бизнес-класса — на той самой земле, в которой его жители во время осады 2022 года
+      хоронили своих погибших соседей и где, по всем имеющимся данным, перед стройкой никакой
+      эксгумации не проводилось.</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n red">5</span><span class="l">рядом стоящих домов<br>№74&ndash;88, одна операция</span></div>
+      <div class="stat"><span class="n blue">828</span><span class="l">новых квартир запланировано<br>«Резиденция Селект»</span></div>
+      <div class="stat"><span class="n">390&ndash;394</span><span class="l">распоряжений с последовательными номерами о передаче земли<br>один подписант</span></div>
+      <div class="stat"><span class="n red">5</span><span class="l">дворовых захоронений<br>зафиксировано по этим адресам</span></div>
+      <div class="stat"><span class="n">~10 300</span><span class="l">могил по всему городу<br>(оценка AP, 2022)</span></div>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section>
+    <div class="eyebrow">01 &middot; Проспект</div>
+    <h2>Рабочий проспект, ставший строительным брендом</h2>
+    <p><span title="просп. Строителей">Проспект Строителей</span> (по-украински —
+      <span title="проспект Будівельників">проспект Будівельників</span>) проходит через
+      Центральный район Мариуполя. Его застроили в 1970-х годах стандартными
+      девятиэтажными панельными домами, чтобы расселить рабочих расположенного неподалёку
+      металлургического комбината имени Ильича.</p>
+    <p>После осады этот проспект превратился в один из самых активных «коридоров» сноса и
+      новостроя во всём оккупированном городе. Среди распоряжений о сносе, прямо называющих
+      адреса на этом проспекте, — <span title="Распоряжение ГКО ДНР №56">распоряжение
+      ГКО ДНР №56</span> (29 сентября 2022 года, дома №78, 80, 88, 112) и
+      <span title="Распоряжение №172">распоряжение №172</span> (18 апреля 2023 года, дома
+      №72 и 117). На расчищенных участках один и тот же связанный с государством застройщик
+      возводит сразу два брендовых жилкомплекса: <b title="«Резиденция Селект»">«Резиденция
+      Селект»</b> (строится) и <b title="«Резиденция II»">«Резиденция II»</b> (уже сдан и
+      заселён).</p>
+    <span class="src">Источники: тексты официальных распоряжений (№172, №56); Единая
+      информационная система жилищного строительства (ЕИСЖС / наш.дом.рф); украинская
+      «Википедия», история улицы. Все приведённые ниже цифры, если не указано иное,
+      являются результатом расследования автора проекта.</span>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="eyebrow">02 &middot; Квартал из пяти домов</div>
+    <h2>Дома №74&ndash;88: скоординированный снос</h2>
+    <p>Пять стоящих подряд жилых домов — №74, 76, 78, 80 и 88 были снесены по распоряжениям
+      оккупационных властей и заново оформлены как пять кадастровых участков, переданных
+      одной и той же компании — <b title="ООО «СЗ-1 «Порфир»» · ИНН 9310009271">ООО
+      «СЗ-1 «Порфир»»</b> — под единый брендовый проект «Резиденция Селект». Распоряжения
+      о передаче земли носят номера <b>390, 391, 392, 393, 394</b> — пять последовательных
+      номеров, выпущенных единым административным пакетом и подписанных одним человеком,
+      главой ДНР <b title="Денис Владимирович Пушилин">Денисом Пушилиным</b>. То есть это был заранее запланированный снос целого квартала, а не пять отдельных решений по ликвидации аварийного жилья.</p>
+
+    <p>Распоряжения о сносе, предшествовавшие передаче земли, скреплены двумя разными
+      подписями представителя власти. Дома №78, 80 и 88 отправлены под снос
+      <b title="Распоряжение ГКО ДНР №56">распоряжением ГКО ДНР №56</b> (29.09.2022) — его
+      выпустил действовавший во время войны Государственный комитет обороны ДНР, который
+      возглавлял Пушилин и от имени которого он лично подписывал другие акты того же дня;
+      правда, сам текст распоряжения №56 восстановить ни на одном из трёх проверенных
+      порталов нормативных актов не удалось, поэтому здесь он проходит как процитированный,
+      а не хранящийся в этом архиве оригинал документа. Дома №74 и 76 отправлены под снос 12.12.2022 городской
+      администрацией Мариуполя, которую тогда возглавлял
+      <b title="Иващенко Константин Владимирович">Константин Иващенко</b> (в должности с
+      06.04.2022 по 22.01.2023); реестр сноса фиксирует по этим двум адресам дату и
+      выпустивший орган, но не номер распоряжения, поэтому должность здесь установлена по
+      сроку полномочий, а не по подтверждённой подписи.</p>
+
+    <svg class="blockmap" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" role="img"
+      aria-label="Схема квартала домов №74-88: распоряжения о сносе сверху, распоряжения о передаче земли и новые квартиры снизу.">
+      <defs>
+        <style>
+          .lbl{font-family:ui-monospace,Menlo,monospace;fill:#868d97;font-size:11px;letter-spacing:.5px}
+          .addr{font-family:Helvetica,Arial,sans-serif;font-weight:800;fill:#e9e7e1;font-size:15px}
+          .dec{font-family:ui-monospace,Menlo,monospace;fill:#c79a44;font-size:11px}
+          .new{font-family:ui-monospace,Menlo,monospace;fill:#5b8fc9;font-size:11px}
+          .flat{font-family:Helvetica,Arial,sans-serif;font-weight:800;fill:#5b8fc9;font-size:13px}
+        </style>
+      </defs>
+      <line x1="40" y1="150" x2="960" y2="150" stroke="#343b46" stroke-width="1.5"/>
+      <text x="40" y="28" class="lbl" fill="#c79a44">РАСПОРЯЖЕНИЕ О СНОСЕ ↑</text>
+      <text x="40" y="288" class="lbl" fill="#5b8fc9">ПЕРЕДАЧА ЗЕМЛИ + НОВЫЕ КВАРТИРЫ ↓</text>
+      <g><rect x="70" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="130" y="156" class="addr" text-anchor="middle">д. 74</text>
+        <text x="130" y="78" class="dec" text-anchor="middle">Распоряж. горадм.</text>
+        <text x="130" y="94" class="dec" text-anchor="middle">12.12.2022</text>
+        <text x="130" y="232" class="new" text-anchor="middle">№394</text>
+        <text x="130" y="250" class="flat" text-anchor="middle">180</text></g>
+      <g><rect x="250" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="310" y="156" class="addr" text-anchor="middle">д. 76</text>
+        <text x="310" y="78" class="dec" text-anchor="middle">Распоряж. горадм.</text>
+        <text x="310" y="94" class="dec" text-anchor="middle">12.12.2022</text>
+        <text x="310" y="232" class="new" text-anchor="middle">№393</text>
+        <text x="310" y="250" class="flat" text-anchor="middle">180</text></g>
+      <g><rect x="430" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="490" y="156" class="addr" text-anchor="middle">д. 78</text>
+        <text x="490" y="78" class="dec" text-anchor="middle">Распоряж. №56</text>
+        <text x="490" y="94" class="dec" text-anchor="middle">29.09.2022</text>
+        <text x="490" y="232" class="new" text-anchor="middle">№392</text>
+        <text x="490" y="250" class="flat" text-anchor="middle">108</text></g>
+      <g><rect x="610" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="670" y="156" class="addr" text-anchor="middle">д. 80</text>
+        <text x="670" y="78" class="dec" text-anchor="middle">Распоряж. №56</text>
+        <text x="670" y="94" class="dec" text-anchor="middle">29.09.2022</text>
+        <text x="670" y="232" class="new" text-anchor="middle">№391</text>
+        <text x="670" y="250" class="flat" text-anchor="middle">126</text></g>
+      <g><rect x="790" y="120" width="120" height="60" fill="#1b1f26" stroke="#343b46"/>
+        <text x="850" y="156" class="addr" text-anchor="middle">д. 88</text>
+        <text x="850" y="78" class="dec" text-anchor="middle">Распоряж. №56</text>
+        <text x="850" y="94" class="dec" text-anchor="middle">29.09.2022</text>
+        <text x="850" y="232" class="new" text-anchor="middle">№390</text>
+        <text x="850" y="250" class="flat" text-anchor="middle">234</text></g>
+    </svg>
+    <p class="figcap">Распоряжения о сносе (вверху) на несколько месяцев опередили передачу земли
+      застройщику (внизу), но и то и другое вышло из одного оккупационного административного аппарата. Под
+      каждым участком — число квартир в новостройках; суммарно 828.</p>
+
+    <p style="margin-top:2rem">Тот же участок, заснятый спутником на протяжении трёх лет,
+      показывает эту документальную цепочку как физический факт: ряды целых домов, потом
+      следы осады, потом разровненный пустырь в ожидании застройщика.</p>
+    <div class="triptych">
+      <figure>
+        <img class="render" src="assets/stroiteley/sat_2021_intact.jpg" loading="lazy"
+          alt="Спутниковый снимок проспекта Строителей / Будівельників, дома №72–78, 2021 год: целые ряды девятиэтажек.">
+        <figcaption><span class="d">2021 &middot; До войны</span>
+          <div class="t">Целые ряды домов, №72&ndash;78</div></figcaption>
+      </figure>
+      <figure>
+        <img class="render" src="assets/stroiteley/sat_2022_siege.jpg" loading="lazy"
+          alt="Спутниковый снимок того же квартала в марте 2022 года: повреждения крыш и конструкций от осады.">
+        <figcaption><span class="d">Март 2022 &middot; Под осадой</span>
+          <div class="t">Видны повреждения крыш и конструкций</div></figcaption>
+      </figure>
+      <figure>
+        <img class="render" src="assets/stroiteley/sat_2024_cleared.jpg" loading="lazy"
+          alt="Спутниковый снимок того же пятна застройки в августе 2024 года: дома снесены, участок расчищен и разровнен.">
+        <figcaption><span class="d">Август 2024 &middot; Расчищенный участок</span>
+          <div class="t">Участок зачищен под застройку</div></figcaption>
+      </figure>
+    </div>
+    <p class="figcap">Источник: исторические снимки Google Earth Pro, один и тот же ракурс,
+      проспект Строителей / Будівельників, №72&ndash;78. Указаны даты съёмки, а не даты
+      распоряжений.</p>
+
+    <div class="callout">
+      <div class="h">Спутниковая оценка повреждений ООН, 12 мая 2022</div>
+      <p>UNOSAT оценил все пять домов как <b>«умеренно повреждённые»</b> (снимки WorldView-3,
+        очень высокая степень достоверности) — то есть повреждённые, но устоявшие — спустя несколько недель
+        после завершения штурма Мариуполя. Ровно в это время жители прятались в этих самых
+        подвалах и хоронили своих погибших соседей во дворах.</p>
+    </div>
+
+    <p style="margin-top:1.8rem">Тот же квартал на панораме Яндекс.Карт —
+      это 2012 год, за десять лет до осады и за полтора десятилетия до «Резиденции
+      Селект». Можете сами покрутить и посмотреть, как выглядело это место в мирное время:</p>
+    <div class="panorama-wrap">
+      <div style="position:relative;overflow:hidden;"><a href="https://yandex.com/maps?utm_medium=mapframe&amp;utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Яндекс.Карты</a><a href="https://yandex.com/maps/10366/mariupol/house/prospekt_budivelnykiv_74/Z04YcwVhQEcOQFptfXx4dXhlYA==/?l=stv%2Csta&amp;ll=37.521929%2C47.094464&amp;panorama%5Bdirection%5D=247.709478%2C12.422456&amp;panorama%5Bfull%5D=true&amp;panorama%5Bpoint%5D=37.522962%2C47.094775&amp;panorama%5Bspan%5D=110.383942%2C60.000000&amp;utm_medium=mapframe&amp;utm_source=maps&amp;z=16" style="color:#eee;font-size:12px;position:absolute;top:14px;">Панорама: проспект Будівельників, 74 на карте Мариуполя — Яндекс.Карты</a><iframe src="https://yandex.com/map-widget/v1/?l=stv%2Csta&amp;ll=37.521929%2C47.094464&amp;mode=whatshere&amp;panorama%5Bdirection%5D=247.709478%2C12.422456&amp;panorama%5Bfull%5D=true&amp;panorama%5Bpoint%5D=37.522962%2C47.094775&amp;panorama%5Bspan%5D=110.383942%2C60.000000&amp;whatshere%5Bpoint%5D=37.521929%2C47.094464&amp;whatshere%5Bzoom%5D=17&amp;z=16" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+    </div>
+    <p class="panorama-note">Уличная панорама Яндекс.Карт, проспект Будівельників, 74,
+      снята в <b>2012</b> году — довоенная точка отсчёта. Этот дом снесён по
+      административному распоряжению от 12.12.2022, передача земли №394, и теперь находится
+      внутри пятна застройки «Резиденции Селект».</p>
+
+    <div class="callout">
+      <div class="h">Бенефициар (назван поимённо, в зоне ответственности)</div>
+      <p><b title="ООО «СЗ-1 «Порфир»»">ООО «СЗ-1 «Порфир»»</b> — ИНН <b>9310009271</b>,
+        ОГРН <b>1239300008870</b>, зарегистрировано 11.07.2023; бренд-группа
+        <b>ГК «ЮгСтройИнвест»</b> (Ставрополь). Собственный юридический адрес компании —
+        <b title="UA просп. Будівельників, 60 · RU просп. Строителей, 60">проспект
+        Строителей, 60</b>, то есть тот же проспект, который она и застраивает. Это та же
+        самая юридическая структура, что стоит за делом Нахимова 82 &rarr; Черноморский 1Б
+        с подменой адреса (см. соответствующее досье), то есть проспект Строителей —
+        её вторая задокументированная в городе операция «снести и отстроить».</p>
+      <p style="margin:.6rem 0 0">&#9888; Неустранённое расхождение источников: директором
+        назван <b>Богдан Денисович Рассказов</b> в реестре ЕИСЖС, но <b>Владимир Николаевич
+        Карпов</b> в других корпоративных источниках.</p>
+    </div>
+
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.1</span>
+      <span class="badge rd4u">A3.3 &middot; 27 домохозяйств выселено</span>
+      <span class="badge rd4u">A3.6</span>
+      <span class="badge rome">Римский статут &middot; 8(2)(b)(viii)</span>
+      <span class="badge grave">5 захоронений</span>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="eyebrow">03 &middot; Что зафиксировано в документах</div>
+    <h2>Захоронения, зафиксированные на этом месте</h2>
+    <p>Мариупольский телеграм-канал улица за улицей
+      документировал случаи смерти и захоронения мирных жителей во время штурма города, ещё
+      до того, как появилась хоть какая-то формальная процедура изъятия и сноса жилья. Он зафиксировал как минимум пять отдельных
+      дворовых захоронений во дворах именно этих домов. Это открытые
+      свидетельства человеческого присутствия и гибели гражданских, а не
+      правоустанавливающие документы; здесь они приводятся как подтверждение того, что
+      дома были обитаемы вплоть до самого сноса.</p>
+    <p>Все пять записей классифицированы именно как места захоронения, а не просто как смерти по
+      адресу. Исходный материал называет адреса и тип захоронения, но мы из уважения к погибшим и их родным не называем их имена, если они указаны в первоисточнике. Тот же канал
+      документирования называет поимённо погибших у других домов на этом же проспекте и в
+      других районах города (см. сопроводительные заметки к этому делу).</p>
+
+    <table class="data">
+      <thead><tr><th>Адрес</th><th>Распоряжение о сносе</th><th>Дата</th><th>Новостройка (кол-во квартир)</th><th>Распоряжение о передаче земли</th></tr></thead>
+      <tbody>
+        <tr><td>д. 74</td><td>Распоряж. горадминистрации</td><td>12.12.2022</td><td>«Резиденция Селект» (180)</td><td>№394</td></tr>
+        <tr><td>д. 76</td><td>Распоряж. горадминистрации</td><td>12.12.2022</td><td>«Резиденция Селект» (180)</td><td>№393</td></tr>
+        <tr><td>д. 78</td><td>Распоряж. ГКО ДНР №56</td><td>29.09.2022</td><td>«Резиденция Селект» (108)</td><td>№392</td></tr>
+        <tr><td>д. 80</td><td>Распоряж. ГКО ДНР №56</td><td>29.09.2022</td><td>«Резиденция Селект» (126)</td><td>№391</td></tr>
+        <tr><td>д. 88</td><td>Распоряж. ГКО ДНР №56</td><td>29.09.2022</td><td>«Резиденция Селект» (234)</td><td>№390</td></tr>
+      </tbody>
+    </table>
+    <span class="src">Реестр сноса и распоряжения о передаче земли задокументирован согласно методологии проекта (первоисточники — реестр сноса Минстроя ДНР; распоряжения ДНР о передаче земли). Записи о
+      захоронениях — гражданский телеграм-канал, содержание которого также заархивировано проектом.</span>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="eyebrow">04 &middot; Сопоставление</div>
+    <h2>Что продают в этих домах — и что под ними лежит</h2>
+    <p>«Резиденция Селект» начала строиться в начале 2026 года; её продвигает связанная с
+      государством девелоперская корпорация. Рекламные материалы описывают инвестиционную привлекательность этого жилкомплекса. Здесь они сопоставлены с документальными записями о том же самом участке земли.</p>
+
+    <div class="jux">
+      <div class="promo">
+        <h4>Девелопер обещает</h4>
+        <img class="render" src="assets/stroiteley/rezidentsiya_select_promo.jpg" loading="lazy"
+          alt="Рекламный рендер с маркетингового сайта ЮСИ для «Резиденции Селект» — аэроиллюстрация запланированного комплекса с корпусами «Литер 74, 76, 78 и 80» — теми же номерами домов, что задокументированы как снесённые выше.">
+        <p class="figcap" style="margin-bottom:.9rem">На рекламном рендере новые корпуса обозначены как
+          «Литер 74», «76», «78», «80» — то есть маркетинг застройщика называет ровно те
+          номера домов, которые выше задокументированы как снесённые.</p>
+        <p class="q">«…близость к морю и развитая инфраструктура»</p>
+        <p>Десятиэтажный корпус, 180 квартир, больше 8 000&nbsp;м² жилой площади. Бренд
+          «Резиденция» рекламируется через «монументальность и изысканность архитектуры». Самые
+          маленькие квартиры предлагаются как «инвестиция в недвижимость на новых
+          территориях»; квартиры побольше рекомендуют для семейных покупателей или под сдачу
+          отдыхающим, потому что в рекламных материалах комплекс подаётся как курорт у моря.</p>
+        <span class="src" style="color:var(--s1)">Пресс-материалы застройщика; агрегаторы
+          объявлений о новостройках.</span>
+      </div>
+      <div class="ground">
+        <h4>ЖК на костях</h4>
+        <p>Пять дворовых захоронений, зафиксированных по тем самым пяти адресам, которые теперь
+          оказались внутри кадастрового участка застройки. В мае 2022 года дома были оценены
+          как устоявшие и подлежащие ремонту; тех, кто из них так и не вышел, похоронили в
+          нескольких метрах от собственных дверей.</p>
+        <p>Ни судебно-медицинской эксгумации, ни уведомления украинских властей, ни
+          международного доступа на каком-либо этапе перед сносом не зафиксировано. Human
+          Rights Watch задокументировала, что по всему Мариуполю останки части погибших так
+          и остались в завалах повреждённых домов и были утрачены при сносе и реконструкции
+          прежде, чем их успели опознать.</p>
+        <p class="q">Агентство Associated Press, осмотрев ту же самую стройку, заключило:
+          что бы Россия здесь ни возводила, она «строит на городе мёртвых».</p>
+        <span class="src" style="color:var(--evidence)">HRW, «Counting the Dead» (2024);
+          AP Special Projects, «Russia scrubs Mariupol&rsquo;s Ukraine identity, builds on
+          death» (декабрь 2022).</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="eyebrow">05 &middot; Одна улица внутри целой задокументированной практики</div>
+    <h2>Закономерность, к которой принадлежит проспект Строителей</h2>
+    <p>Отрезок проспекта Строителей — не аномалия, а отдельный «коридор» общегородского процесса,
+      задокументированного независимыми расследователями:</p>
+
+    <div class="chain">
+      <div class="step red"><div class="t">Масштаб гибели</div>
+        <div class="v">AP: ~10 300 новых могил по городу; реальное число погибших, возможно,
+          втрое выше ранней оценки в 25 000+.</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step red"><div class="t">Тела под завалами</div>
+        <div class="v">Советник мэра Мариуполя оценивал, что в некоторых разрушенных домах было до 100
+          погибших; в подвалах — по 100&ndash;200 человек.</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step stamp"><div class="t">Программа сноса</div>
+        <div class="v">Федеральный «Единый заказчик»: 407 домов под снос, 321 уже снесён к
+          марту 2023 года; впереди ещё 50 000+ домов (AP).</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step blue"><div class="t">Заново отстроено и продано</div>
+        <div class="v">Новые брендовые комплексы продаются приезжим покупателям как
+          курортная инвестиционная недвижимость.</div></div>
+    </div>
+
+    <div class="warn">
+      Мариупольчанке, которая добивалась компенсации за утраченное жильё, в городском жилищном управлении
+      ответили, что её дом снесён, а участок выкуплен частным застройщиком, — и раз
+      квартиру она когда-то получила от города, ей не положено ничего.
+      <span class="src">репортаж в независимых российских СМИ, январь 2024.</span>
+    </div>
+
+    <p>Одна семья похоронила двоих детей пяти и семи лет, убитых при обстреле города в марте 2022
+      года — прямо во дворе, а потом бежала из города. Когда родители вернулись через несколько
+      месяцев, чтобы перезахоронить их по-человечески, оказалось, что останки уже выкопаны и вывезены на склад. По всему городу самодельные дворовые могилы были во время осады
+      нормой, потому что добраться до кладбища под бомбёжкой было невозможно.</p>
+    <span class="src">AP Special Projects (декабрь 2022); HRW, «Counting the Dead» (2024),
+      наблюдение за кладбищами Старокрымское, Виноградное, Новотроицкое, Мангуш и на улице
+      Павлова.</span>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <div class="eyebrow">06 &middot; Что подтверждает это дело</div>
+    <h2>Снос как уничтожение сразу двух записей о праве на собственность</h2>
+    <p>Квартал на проспекте Строителей показывает — единой и непрерывной документальной
+      цепочкой — что:</p>
+    <p><b>1. Дома были обитаемы на момент сноса.</b> Оценка UNOSAT «умеренные повреждения»
+      (а не «разрушено»), собственный оккупационный список переселения (27 домохозяйств) и
+      записи о гибели на месте вместе подтверждают активное присутствие гражданских вплоть
+      до распоряжения о сносе. Правовое основание «бесхозяйности» опровергается собственными
+      данными изымающей стороны.</p>
+    <p><b>2. Изъятие было скоординированным.</b> Пять последовательных распоряжений о
+      передаче земли (390&ndash;394) одному застройщику под один бренд — это подпись
+      спланированной операции уровня целого квартала.</p>
+    <p><b>3. Снос уничтожил и все свидетельства о гибели его жильцов.</b> Ни эксгумации, ни
+      судебно-медицинского исследования не зафиксировано. Там, где останки лежали во дворах или под завалами, та самая зачистка территории, что готовила эти участки под застройку, — это и есть акт устранения потенциальных доказательств военного преступления. Это
+      совпадает с выводом HRW о том, что останки были утрачены при сносе ещё до опознания.</p>
+
+    <div class="badges" style="margin-top:1.6rem">
+      <span class="badge rd4u">A3.1 — незаконный снос + изъятие</span>
+      <span class="badge rd4u">A3.3 — принудительное выселение</span>
+      <span class="badge rd4u">A3.6 — утрата доступа на оккупированной территории</span>
+      <span class="badge rome">8(2)(a)(iv) — бессмысленное уничтожение имущества</span>
+      <span class="badge rome">8(2)(b)(viii) — заселение / перемещение населения</span>
+    </div>
+    <p class="warn" style="margin-top:1.6rem">Записи о гибели и
+      захоронениях во дворах — это документальное подтверждение присутствия и гибели гражданских, а не
+      правоустанавливающий документ и не результат судебно-медицинской экспертизы. Они
+      доказывают, что снесённые дома были обитаемы; но сами по себе эти записи не доказывают, что
+      конкретные тела лежат под конкретными новыми фундаментами. Это различие сохранено
+      намеренно, и оно важно и для трека реституции, и для уголовного трека.</p>
+  </section>
+
+  <!-- 07 provenance -->
+  <section>
+    <div class="eyebrow">07 &middot; Происхождение</div>
+    <h2>Источники</h2>
+    <p>Каждый артефакт, лежащий в основе этого дела, получен из первоисточника и
+      захэширован для протокола по стандартной практике цепочки сохранности этого проекта.
+      Таблица ниже — полный каталог источников, приведённый здесь для тех, у кого есть профессиональный или юридический интерес к этому делу.</p>
+    <details class="prov">
+      <summary>Полный каталог источников — по категориям</summary>
+      <ul class="srclist">
+        <li><span class="ty">Первичные оккупационные источники — распоряжения</span><span class="ti">
+          Распоряжение ГКО ДНР №56 (29.09.2022, дома №78/80/88 — процитировано по судебному
+          делу №33-2575/2025; сам акт отсутствует на всех трёх проверенных порталах
+          нормативных актов, [ПРОЦИТИРОВАНО], а не [СОБРАНО]) и №172 (18.04.2023);
+          распоряжение городской администрации Мариуполя о сносе от 12.12.2022 (дома
+          №74/76 — дата и выпустивший орган взяты из реестра сносов; номер распоряжения в
+          деле отсутствует). Распоряжения о передаче земли <b>390&ndash;394</b>, все
+          подписаны Денисом Пушилиным (главой ДНР), в пользу ООО «СЗ-1 «Порфир»», захвачены
+          в набор данных проекта по земельным распоряжениям.</span></li>
+        <li><span class="ty">Первичные оккупационные источники — застройщик / государство</span><span class="ti">
+          Единая информационная система жилищного строительства (наш.дом.рф), объекты
+          65280, 69427, 69749, 69751, 70142, 70147; пресс-материалы застройщика; агрегаторы
+          объявлений о новостройках; рендер «Резиденции Селект» с маркетингового сайта ЮСИ
+          (литеры 74/76/78/80); корпоративная запись ООО «СЗ-1 «Порфир»» (ИНН 9310009271 /
+          ОГРН 1239300008870) — та же структура, что и в деле Нахимова 82; личность
+          директора между источниками не сходится, проверка по ЕГРЮЛ ожидается.</span></li>
+        <li><span class="ty">Спутниковые и уличные снимки</span><span class="ti">
+          Исторические снимки Google Earth Pro, проспект Строителей / Будівельників, №72&ndash;78
+          (2021, март 2022, август 2024); уличная панорама Яндекс.Карт, проспект
+          Будівельників, 74 (снята в 2012 году).</span></li>
+        <li><span class="ty">Гражданское документирование</span><span class="ti">
+          Гражданский Telegram-канал документирования и независимый онлайн-мемориал —
+          записи о гибели и захоронениях улица за улицей, 2022 год.</span></li>
+        <li><span class="ty">Независимая журналистика</span><span class="ti">
+          Репортаж о могильщике (июнь 2022); независимый русскоязычный материал о попытке
+          жительницы получить компенсацию (январь 2024); AP Special Projects, «Russia scrubs
+          Mariupol&rsquo;s Ukraine identity, builds on death» (декабрь 2022).</span></li>
+        <li><span class="ty">Правозащитные / судебно-медицинские</span><span class="ti">
+          Human Rights Watch, «Counting the Dead: Documenting Loss in Mariupol» (2024);
+          оценка повреждений UNOSAT по снимкам WorldView-3 (12 мая 2022); подтверждённое
+          спутниковыми снимками расширение кладбищ (Старокрымское, Мангуш).</span></li>
+        <li><span class="ty">Контекст</span><span class="ti">
+          Украинская «Википедия», проспект Будівельників (история улицы); публичные
+          заявления советника мэра Мариуполя о расчистке завалов и числе погибших, 2022
+          год.</span></li>
+      </ul>
+    </details>
+    <p class="figcap" style="margin-top:1.2rem">Внешние цитаты воспроизведены в объёме
+      пересказа в целях цитирования; полные источники перечислены для проверки. Номера
+      распоряжений, кадастровые участки, число квартир и домохозяйств восходят к собственной
+      структурированной доказательной базе проекта с хэшированием цепочки сохранности.</p>
+  </section>
+
+</div>
+</body>
+</html>
