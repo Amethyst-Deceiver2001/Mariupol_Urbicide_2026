@@ -105,7 +105,7 @@ for traceability; this note is the correction.) Краснолуцкая's
 "Заместитель" title and her date range sitting inside Дмитриев's suggest she
 deputized for him during part of his tenure, consistent with normal
 department structure.
-| **Иващенко К.В.** | Распоряжение №61 (03.11.2022) — municipal property-lease rulebook, the [A]→[D]/[F]/[G] disposal bridge; глава администрации города Мариуполя 06.04.2022→22.01.2023 (full chronology below) | script 38 target ([CAPTURED]); appointment chronology confirmed 2026-06-12 |
+| **Иващенко К.В.** | Распоряжение №61 (03.11.2022) — municipal *non-residential* property-lease rulebook (read in full 2026-06-29: explicitly excludes housing stock, NOT the residential [A]→[F]/[G] disposal chain — see legal_mechanisms_review.md); глава администрации города Мариуполя 06.04.2022→22.01.2023 (full chronology below) | script 207/208 ([CAPTURED]+read); appointment chronology confirmed 2026-06-12 |
 
 ### Command-chain chronology — heads of Mariupol administration (script 44, OCR'd 2026-06-12)
 

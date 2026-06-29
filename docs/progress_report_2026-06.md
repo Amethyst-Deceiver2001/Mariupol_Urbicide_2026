@@ -338,13 +338,24 @@ not closable. **Deferred** = low marginal value.
     **≥10% down payment** of contract price. The residual sub-gap is now
     fully closed.
 12. ~~**Распоряжение №61** (Mariupol municipal lease rulebook, [CITED])~~ —
-    **MIRROR FOUND 2026-06-28** (outsourced batch, Q8). The PDF was
-    dead-linked on нпа.днронлайн, but a working HTML mirror of the full text
-    (both the Временный порядок передачи в аренду and the Временная методика
-    расчёта арендной платы; reg. №5351, 14.11.2022) exists on the same
-    platform's article route
-    (`npa.dnronline.su/2022-11-15/...-61-ot-03-11-2022-g.html`). Capture
-    staged in `scripts/207` (user-run).
+    **MIRROR FOUND + READ 2026-06-29** (outsourced batch, Q8 found the
+    mirror; read in full this session). The PDF was dead-linked on
+    нпа.днронлайн, but a working HTML mirror of the full text (both the
+    Временный порядок передачи в аренду and the Временная методика расчёта
+    арендной платы; reg. №5351, 14.11.2022) exists on the same platform's
+    article route (`npa.dnronline.su/2022-11-15/...-61-ot-03-11-2022-g.html`,
+    captured `scripts/207`). **Reading it CORRECTS a standing
+    mischaracterization**: `legal_mechanisms_review.md` and
+    `stakeholder_network.md` had described this as "the [A]→[D]/[F]/[G]
+    disposal bridge" for residential bezkhoz housing — the primary text
+    explicitly EXCLUDES объекты жилого фонда (housing stock) in both
+    attachments' opening articles. It is a generic non-residential
+    commercial-lease procedural framework (any legal entity/individual/
+    sole proprietor), with no reference anywhere to the ownerless pipeline
+    or residential housing. Both docs corrected; it is **not** part of the
+    residential reallocation chain — at most a candidate instrument for
+    *commercial* space (e.g. ground-floor shops) recovered alongside
+    seized residential buildings, an unverified narrower claim.
 
 ### C. Tier-3 corroboration layers never built (reconceptualization §3, Tier 3)
 
