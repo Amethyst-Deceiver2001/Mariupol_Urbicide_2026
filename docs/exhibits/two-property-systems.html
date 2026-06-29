@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Property Systems, One Collision — Occupied Mariupol</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="How a five-year evolution of Russian property law — from a 2020 Crimea border decree to a 2025 federal law on 'ownerless' housing — collided with the Ukrainian multi-family ownership model it overrides.">
+<meta property="og:title" content="Two Property Systems, One Collision — Occupied Mariupol">
+<meta property="og:description" content="How a five-year evolution of Russian property law made mass dispossession legally operable, and the Ukrainian ownership model it overrides.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/two-property-systems.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Two Property Systems, One Collision — Occupied Mariupol">
+<meta name="twitter:description" content="How a five-year evolution of Russian property law made mass dispossession legally operable, and the Ukrainian ownership model it overrides.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --t-fed:#6e90b4; --t-dnr:#9b8ec6; --t-muni:#4f9e96; --t-ua:#5fa572;
+    --s-captured:#54a06e; --s-cited:#d2a03a; --s-reported:#79808c; --s-gap:#cd4030;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+  .exhibit-bar{position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar .cust{color:var(--stamp)}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 5rem}
+
+  .titleblock{padding:clamp(2.2rem,5vw,3.6rem) 0 1.4rem}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--stamp);margin:0 0 1.1rem}
+  h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.8rem,4.6vw,2.9rem);line-height:1.05;margin:0 0 1rem;max-width:24ch}
+  .thesis{font-size:clamp(1rem,2vw,1.15rem);color:var(--paper-dim);max-width:64ch;margin:0;
+    border-left:2px solid var(--evidence);padding-left:1.1rem}
+
+  section{padding:clamp(2rem,4vw,3rem) 0;border-top:1px solid var(--rail)}
+  .sec-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 .4rem}
+  .sec-h{font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,3vw,1.7rem);
+    letter-spacing:-.02em;margin:.2rem 0 1.2rem;color:var(--paper)}
+  .sec-intro{color:var(--paper-dim);max-width:72ch;margin:0 0 1.6rem}
+
+  .legend{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-bottom:1.3rem;align-items:center}
+  .legend .lk{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .swatch{font-family:var(--font-mono);font-size:10px;color:var(--paper-dim);display:inline-flex;align-items:center;gap:.32rem}
+  .swatch i{width:11px;height:9px;border-radius:10px;display:inline-block}
+  .sw-captured{background:var(--s-captured)} .sw-cited{background:var(--s-cited)}
+  .sw-reported{background:var(--s-reported)} .sw-gap{background:transparent;border:1.5px dashed var(--s-gap)}
+
+  /* ---------- genealogy timeline ---------- */
+  .genealogy{display:flex;flex-direction:column;gap:0}
+  .gstep{display:grid;grid-template-columns:64px 1fr;gap:1rem;position:relative;padding-bottom:1.6rem}
+  .gstep:last-child{padding-bottom:0}
+  .gstep::before{content:"";position:absolute;left:31px;top:34px;bottom:0;width:1px;background:var(--rail-2)}
+  .gstep:last-child::before{display:none}
+  .gyear{font-family:var(--font-display);font-weight:800;font-size:.95rem;color:var(--muted);
+    text-align:center;padding-top:.15rem}
+  .gdot{width:14px;height:14px;border-radius:50%;background:var(--ink-2);border:2px solid var(--rail-2);
+    margin:0 auto;position:relative;z-index:1}
+  .gstep.pivot .gdot{border-color:var(--evidence);background:var(--evidence)}
+  .gcard{background:var(--ink-2);border:1px solid var(--rail);border-radius:5px;padding:1rem 1.2rem;margin-top:-.1rem}
+  .gstep.pivot .gcard{border-color:var(--evidence-dim)}
+  .gtitle{font-family:var(--font-display);font-weight:700;font-size:1.02rem;color:var(--paper);margin:0 0 .35rem}
+  .gdate{font-family:var(--font-mono);font-size:10px;color:var(--stamp);letter-spacing:.04em;margin-left:.5rem}
+  .gbody{color:var(--paper-dim);font-size:.93rem;margin:.3rem 0 .7rem;max-width:70ch}
+  .gtags{display:flex;flex-wrap:wrap;gap:.5rem}
+  .chip{position:relative;display:inline-flex;flex-direction:column;gap:.25rem;
+    background:var(--ink-3);border:1px solid var(--rail-2);border-left:4px solid var(--rail-2);
+    border-radius:3px;padding:.4rem .65rem;max-width:320px}
+  .chip.tier-fed{border-left-color:var(--t-fed)} .chip.tier-dnr{border-left-color:var(--t-dnr)}
+  .chip.tier-muni{border-left-color:var(--t-muni)} .chip.tier-ua{border-left-color:var(--t-ua)}
+  .chip-label{font-family:var(--font-mono);font-size:11.5px;line-height:1.4;color:var(--paper)}
+  .chip-sub{font-family:var(--font-mono);font-size:10px;color:var(--muted)}
+  .badge{align-self:flex-start;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;padding:.1rem .38rem;border-radius:2px;color:var(--ink)}
+  .badge.b-captured{background:var(--s-captured)} .badge.b-cited{background:var(--s-cited)}
+  .badge.b-reported{background:var(--s-reported);color:var(--paper)}
+  .badge.b-gap{background:transparent;color:var(--s-gap);border:1.5px dashed var(--s-gap)}
+
+  /* ---------- comparison table ---------- */
+  .cmp-wrap{overflow-x:auto;margin-top:.4rem;border:1px solid var(--rail);border-radius:5px}
+  .cmp{width:100%;border-collapse:collapse;font-size:.92rem;min-width:680px}
+  .cmp th,.cmp td{text-align:left;padding:.85rem 1.1rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  .cmp thead th{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);font-weight:400;background:var(--ink-2)}
+  .cmp thead th.ua{color:var(--t-ua)} .cmp thead th.ru{color:var(--evidence)}
+  .cmp td:first-child{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--paper-dim);
+    white-space:nowrap;font-weight:700}
+  .cmp tbody tr:hover{background:rgba(255,255,255,.02)}
+  .cmp td a{color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)}
+  .cmp .sup{font-family:var(--font-mono);font-size:9px;color:var(--muted);vertical-align:super}
+
+  .note{font-family:var(--font-mono);font-size:10.5px;line-height:1.6;color:var(--muted);
+    border-left:2px solid var(--rail-2);padding-left:.7rem;margin-top:1rem}
+
+  details.prov{margin-top:1.6rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--stamp);padding:.5rem 0}
+  .prov-list{font-family:var(--font-mono);font-size:11px;line-height:1.9;color:var(--muted)}
+  .prov-list a{color:var(--paper-dim);text-decoration:none;border-bottom:1px solid var(--rail-2)}
+  .prov-list a:hover{color:var(--paper)}
+
+  .prov-footer{border-top:1px solid var(--rail);margin-top:1.5rem;padding-top:1.8rem}
+  .prov-footer p{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--muted)}
+  .prov-footer .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);padding-left:1rem;margin-top:1rem}
+
+  @media(max-width:620px){
+    .gstep{grid-template-columns:32px 1fr;gap:.7rem}
+    .gstep::before{left:15px}
+  }
+  @media print{
+    :root{--ink:#fff;--ink-2:#fff;--ink-3:#f4f4f2;--paper:#111;--paper-dim:#222;--muted:#555;--rail:#bbb;--rail-2:#999}
+    body{background:#fff;color:#111;font-size:10pt}
+    .exhibit-bar{position:static;background:#fff;color:#444;border-color:#999}
+    section,.gcard,.chip{break-inside:avoid}
+    a{color:#111}
+  }
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span><b>Two property systems, one collision</b> · legal genealogy</span>
+  <span><a href="../index.html">&larr; project home</a> &middot; <a href="mariupol-master-dossier.html">master dossier</a>
+    &middot; <a href="dispossession-pipeline.html">dispossession pipeline</a> &middot; <a href="about.html">about</a></span>
+  <span class="cust">Every instrument sourced from the original, hashed for the record</span>
+</div>
+
+<div class="wrap">
+
+  <div class="titleblock">
+    <p class="eyebrow">Forensic legal genealogy · Occupied Mariupol</p>
+    <h1>Five years of Russian property law made mass dispossession legally operable</h1>
+    <p class="thesis">No single decree confiscated Mariupol's housing stock. A five-year sequence of
+      Russian property-law instruments — first tested in occupied Crimea, then exported to the
+      mainland — built, rung by rung, a system in which a Ukrainian owner's title simply stops
+      counting. That system collides directly with Ukrainian housing law, in which apartment
+      owners are co-owners of their building and the land beneath it, and that co-ownership
+      survives even the building's destruction.</p>
+  </div>
+
+  <!-- ===================== GENEALOGY ===================== -->
+  <section>
+    <p class="sec-label">Part I</p>
+    <h2 class="sec-h">The genealogy — five steps, five years</h2>
+    <p class="sec-intro">Each step closes off a remaining way for a Ukrainian owner to keep title.
+      The sequence runs from a 2020 Crimea border-zone decree — the proving ground — to the
+      December 2025 federal law that finally removed the courts from the process altogether.</p>
+
+    <div class="legend">
+      <span class="lk">Source status</span>
+      <span class="swatch"><i class="sw-captured"></i>Captured</span>
+      <span class="swatch"><i class="sw-cited"></i>Cited</span>
+      <span class="swatch"><i class="sw-reported"></i>Reported</span>
+      <span class="swatch"><i class="sw-gap"></i>Crawl gap</span>
+    </div>
+
+    <div class="genealogy">
+
+      <div class="gstep">
+        <div class="gyear">2020</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Step 1 — Crimea as proving ground<span class="gdate">20.03.2020</span></div>
+          <p class="gbody">Presidential Decree No. 201 (full text read 2026-06-29) amends a
+            standing 2011 decree's list of Russian "border territories" where foreign citizens
+            and foreign legal entities may not own land, adding 19 Crimean municipal districts
+            and 8 Sevastopol city-districts to it — folded into the same housekeeping amendment
+            as unrelated edits for Astrakhan, Belgorod, and Kaliningrad regions, not framed as a
+            standalone Crimea-specific act. Because Russia treats Ukrainian citizens in occupied
+            Crimea as foreigners for this purpose, roughly 11,000 landowners — over 9,000 of them
+            Ukrainian — had one year from the territory's addition to sell or transfer their land
+            to a Russian citizen, on pain of forced auction or transfer to state/municipal
+            ownership, with compensation set by Russian authorities and reducible by a further
+            25–50% if auction proceeds fell short (the one-year clock itself comes from the
+            underlying 2011 statute, not stated in this amending decree's own text). This is the
+            first working model for the core trick repeated at every later step: reclassify the
+            Ukrainian owner as something other than a normal title-holder, then let an
+            administrative clock run out.</p>
+          <div class="gtags">
+            <span class="chip tier-fed st-captured"><span class="chip-label" title="Указ Президента РФ №201 от 20.03.2020, дополняет Указ №26 от 09.01.2011">Presidential Decree No.&nbsp;201</span>
+              <span class="chip-sub">border-zone foreign-ownership ban — 19 Crimean + 8 Sevastopol districts added</span>
+              <span class="badge b-captured">Captured</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <div class="gyear">2022&ndash;23</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Step 2 — EGRN becomes the only proof that counts</div>
+          <p class="gbody">Federal Law No. 218-FZ elevates the Russian Unified State Register of
+            Real Estate (EGRN) into the sole accepted proof of ownership. DNR Head's Decree
+            No.&nbsp;290 (16.08.2023) then implements the mass migration of Ukrainian-cadastre-era
+            records ("ранее учтенные объекты недвижимости") into the new Russian register via
+            mandatory "комплексные кадастровые работы," performed exclusively by the state
+            cadastral company Roskadastr — proceeding regardless of whether the owner is present
+            or even alive on Russian-controlled territory. Mariupol's own municipal guidance
+            states the rule in plain language: an EGRN entry "excludes recognition of the property
+            as ownerless" — meaning the absence of one is what makes everything downstream
+            possible.</p>
+          <div class="gtags">
+            <span class="chip tier-fed st-reported"><span class="chip-label" title="Федеральный закон №218-ФЗ">Federal Law No.&nbsp;218-FZ</span>
+              <span class="chip-sub">EGRN as exclusive title register</span>
+              <span class="badge b-reported">Reported</span></span>
+            <span class="chip tier-dnr"><span class="chip-label" title="Указ Главы ДНР №290 от 16.08.2023">DNR Head&rsquo;s Decree No.&nbsp;290</span>
+              <span class="chip-sub">mass cadastral migration into EGRN</span>
+              <span class="badge b-captured">Captured</span></span>
+            <span class="chip tier-muni"><span class="chip-label" title="Регистрация жилья с признаками бесхозяйности">Mariupol municipal guidance</span>
+              <span class="chip-sub">"EGRN entry excludes ownerless status"</span>
+              <span class="badge b-cited">Cited</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <div class="gyear">2022</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Step 3 — Annexation supplies the constitutional channel</div>
+          <p class="gbody">Federal Constitutional Law No.&nbsp;5-FKZ (04.10.2022) admits the DNR
+            into the Russian Federation, making Russian civil, land, and housing law applicable
+            in Mariupol at all — the predicate everything above and below depends on. Without
+            this step, EGRN exclusivity and the ownerless-property mechanism would have no legal
+            footing on occupied Ukrainian soil; with it, Russian property law stops being an
+            occupation overlay and becomes, in Russia's own internal account, the only system
+            that governs title.</p>
+          <div class="gtags">
+            <span class="chip tier-fed"><span class="chip-label" title="ФКЗ №5-ФКЗ от 04.10.2022">Federal Constitutional Law No.&nbsp;5</span>
+              <span class="chip-sub">RF admission of the DNR</span>
+              <span class="badge b-captured">Captured</span></span>
+            <a href="dispossession-pipeline.html#card-A" style="text-decoration:none">
+              <span class="chip tier-dnr"><span class="chip-label">See: the Ownerless rung (A) it authorizes →</span></span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <div class="gyear">2024&ndash;25</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Step 4 — citizenship becomes the gate</div>
+          <p class="gbody">A three-decree federal chain escalates against owners linked to
+            "unfriendly states": Decree No.&nbsp;1103 (24.12.2024) bans registering their property
+            rights without special permission; No.&nbsp;145 (14.03.2025) extends the ban through
+            01.01.2028 with narrow carve-outs for military-service-linked persons only; No.&nbsp;1006
+            (29.12.2025) bans notarizing powers of attorney for the same group — closing the one
+            workaround (acting through a representative) that residents had been using en masse.
+            Separately, Закон ДНР №66-РЗ's personal-appearance rule names only a Russian
+            citizen's passport as acceptable proof of identity when contesting an ownerless
+            designation; a representative or power-of-attorney holder's appearance does not count,
+            confirmed across five DNR Supreme Court rulings. The combined effect: keeping title now
+            depends on citizenship, physical presence in occupied territory, and Russian
+            administrative discretion — not on the underlying right.</p>
+          <div class="gtags">
+            <span class="chip tier-fed"><span class="chip-label" title="Указ №1103 → №145 → №1006">Decrees No.&nbsp;1103 → 145 → 1006</span>
+              <span class="chip-sub">registration + notarization ban chain</span>
+              <span class="badge b-captured">Captured</span></span>
+            <span class="chip tier-dnr"><span class="chip-label" title="Закон ДНР №66-РЗ ст.5(3)(а)">Law No.&nbsp;66-RZ art.&nbsp;5(3)(a)</span>
+              <span class="chip-sub">Russian-passport-only personal appearance</span>
+              <span class="badge b-captured">Captured</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gstep pivot">
+        <div class="gyear">2025</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Step 5 — the pivot: registry becomes title</div>
+          <p class="gbody">Federal Constitutional Law No.&nbsp;4 (15.12.2025) removes the judicial
+            check that had still, formally, stood between an "ownerless" designation and
+            municipal ownership: registry inclusion alone now confers title, with no court stage
+            at all. Its full text (read 2026-06-29) inserts a new article into the 2022
+            DNR-admission law: housing criteria and processing are set by DNR law "in agreement
+            with" the federal body that runs the property register (Rosreestr) <em>and</em> the
+            one that manages federal state property (Rosimushchestvo); title vests by operation of
+            law from registry inclusion, but no later than <strong>1&nbsp;January&nbsp;2030</strong>
+            — a separate State-side backstop deadline, distinct from the 1&nbsp;July&nbsp;2026
+            citizen-facing cutoff. The same article authorizes allocation to residents who lost
+            their homes, officials, civil servants, and — confirmed by name in the statute —
+            military personnel; one clause also promises a like-kind replacement unit back to the
+            displaced original owner, a compensation channel not previously documented in this
+            project. DNR implementing acts (Закон №134-РЗ, 05.12.2024; №240-РЗ, 22.12.2025;
+            №275-РЗ, 17.04.2026) translate the federal pivot into local procedure. This is the
+            system's current end state — the one now live ahead of Mariupol's
+            1&nbsp;July&nbsp;2026 re-registration deadline.</p>
+          <div class="gtags">
+            <span class="chip tier-fed st-captured"><span class="chip-label" title="ФКЗ-4 от 15.12.2025, ст.1 → Статья 21¹ ФКЗ №5-ФКЗ">Federal Constitutional Law No.&nbsp;4</span>
+              <span class="chip-sub">full text read · Rosreestr + Rosimushchestvo jointly process · 1 Jan 2030 backstop</span>
+              <span class="badge b-captured">Captured</span></span>
+            <span class="chip tier-dnr"><span class="chip-label" title="№134-РЗ + №240-РЗ + №275-РЗ">DNR implementing laws No.&nbsp;134/240/275-РЗ</span>
+              <span class="badge b-captured">Captured</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="note">Status badges: Captured (we hold the primary text) · Cited (named inside a
+      captured record or official municipal guidance) · Reported (secondary research/journalism
+      only, primary text not yet retrieved) · Crawl gap (known instrument, no capture attempt yet —
+      hosted on a geoblocked Russian portal, requires VPS-routed retrieval).</p>
+  </section>
+
+  <!-- ===================== COMPARISON TABLE ===================== -->
+  <section>
+    <p class="sec-label">Part II</p>
+    <h2 class="sec-h">Two systems, side by side</h2>
+    <p class="sec-intro">The five steps above don't just create an occupation bureaucracy — they
+      substitute a different ownership logic entirely for the one that actually governs these
+      buildings. A Mariupol homeowner can remain a lawful owner under Ukrainian law while
+      simultaneously being treated as absent, foreign, or unregistered under the Russian system —
+      and their home as ownerless.</p>
+
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>Dimension</th><th class="ua">Ukrainian model</th><th class="ru">Russian occupation model</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Proof of ownership</td>
+            <td>Ukrainian title documents and the state property register remain legally valid
+              regardless of occupation or displacement.</td>
+            <td>EGRN registration is treated as the <em>only</em> accepted proof of right — a
+              Ukrainian title that was never re-registered in Russian terms is, in practice,
+              no proof at all. <span class="sup">Step 2</span></td>
+          </tr>
+          <tr>
+            <td>Multi-family common property</td>
+            <td>Apartment/non-residential owners are by law co-owners of the building's common
+              property (Law No.&nbsp;417-VIII art.&nbsp;4).</td>
+            <td>An equivalent concept exists in Russian law, but protection is filtered entirely
+              through EGRN registration and occupation administrative discretion. <span class="sup">Step 2</span></td>
+          </tr>
+          <tr>
+            <td>Land under the building</td>
+            <td>The land plot and adjoining territory belong to the co-owners; Land Code
+              art.&nbsp;42(5), as amended by Law No.&nbsp;417-VIII, expressly preserves this right
+              even if the building is destroyed.</td>
+            <td>Land and housing rights are mediated entirely by Russian registration, occupation
+              classification, and later redistribution to developers or the housing fund. <span class="sup">Steps 3, 5</span></td>
+          </tr>
+          <tr>
+            <td>Citizenship requirement</td>
+            <td>No Russian citizenship is required, or relevant, to keeping Ukrainian title.</td>
+            <td>Russian citizenship — or a special permission process via the DNR property
+              ministry — is effectively required to protect housing from registration/notarization
+              bans and the personal-appearance rule. <span class="sup">Step 4</span></td>
+          </tr>
+          <tr>
+            <td>Access to remedies</td>
+            <td>Owners may act through Ukrainian legal channels and authorized representatives
+              regardless of physical location.</td>
+            <td>Owners are pressured to appear in person, with a Russian passport, inside
+              occupied territory within a short published window; a representative's or
+              power-of-attorney holder's appearance does not count. <span class="sup">Step 4</span></td>
+          </tr>
+          <tr>
+            <td>End-use after seizure</td>
+            <td>Ukrainian law protects the existing owner's and co-owners' interests; there is no
+              mechanism for third-party reallocation of an occupied unit.</td>
+            <td>Housing is transferred to municipal ownership and then allocated to officials,
+              military personnel, public employees, or sold into the subsidized-mortgage market
+              for Russian settlers. <span class="sup">Step 5</span> · see
+              <a href="dispossession-pipeline.html#card-F">resale (F)</a> and
+              <a href="dispossession-pipeline.html#card-G">housing allocation (G)</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">This table maps a legal collision, not a balance of competing claims — Ukraine
+      does not recognize the Russian occupation framework as valid, and nothing on the right-hand
+      side extinguishes title under Ukrainian law. The columns are presented for the same reason
+      the rest of this project documents the seizure machine's own paperwork: the system speaks
+      for itself.</p>
+
+    <details class="prov">
+      <summary>Sources for this table</summary>
+      <div class="prov-list">
+        <p><strong>Ukrainian model</strong> — Law No.&nbsp;417-VIII "On the Peculiarities of
+          Exercising Ownership Rights in a Multi-Apartment Building," art.&nbsp;4 (common
+          property) and the transitional provisions amending Land Code art.&nbsp;42 (land transfer
+          / survival of rights on destruction). Verified against a Ukrainian-legislation mirror;
+          a Verkhovna Rada register citation is the next step for full primary-source rigor.</p>
+        <p><strong>Russian/occupation model</strong> — see Part I above and
+          <a href="../legal_mechanisms_review.md">legal_mechanisms_review.md</a> for full
+          citation and capture-status detail on every instrument referenced.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ===================== PROVENANCE ===================== -->
+  <footer class="prov-footer">
+    <p>Built from occupation / Russian-government records and Ukrainian statutory text, each
+      captured (where retrieval is possible) with a SHA-256 hash and UTC timestamp (Berkeley
+      Protocol chain of custody). Source-status badges record how far each instrument is
+      evidenced: <strong>Captured</strong> (we hold the primary text), <strong>Cited</strong>
+      (named inside a captured record or official guidance), <strong>Reported</strong> (secondary
+      research/journalism only), <strong>Crawl gap ▶</strong> (known instrument, not yet
+      retrieved).</p>
+    <p class="warn">These Russian/occupation acts are evidence of the seizure system, not valid
+      title. Ukraine does not recognize them.</p>
+  </footer>
+
+</div>
+</body>
+</html>
