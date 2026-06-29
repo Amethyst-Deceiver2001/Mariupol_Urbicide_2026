@@ -785,6 +785,11 @@ def load_ownerless_registry(jsonl: str = "data/parsed/ownerless_registry.jsonl")
                 continue
             property_id = row[0]
 
+            apt_raw = d.get("apt_raw")
+            unit_id = None
+            if apt_raw:
+                unit_id = _find_or_create_unit(cur, property_id, apt_raw.strip(), d.get("apt_kind"))
+
             source_doc_id = _upsert_source_doc_by_sha(cur, d.get("source_sha256"))
 
             dedup_key = f"ownerless_registry:{d['source_sha256']}:{d['seq_no']}"
@@ -799,13 +804,14 @@ def load_ownerless_registry(jsonl: str = "data/parsed/ownerless_registry.jsonl")
             }
             cur.execute(
                 """INSERT INTO seizure_event
-                       (property_id, stage, source_doc_id, confidence, detail, dedup_key)
-                   VALUES (%s, 'registry_inclusion'::seizure_stage, %s, %s, %s, %s)
+                       (property_id, unit_id, stage, source_doc_id, confidence, detail, dedup_key)
+                   VALUES (%s, %s, 'registry_inclusion'::seizure_stage, %s, %s, %s, %s)
                    ON CONFLICT (dedup_key) DO UPDATE
-                       SET source_doc_id = EXCLUDED.source_doc_id,
+                       SET unit_id       = EXCLUDED.unit_id,
+                           source_doc_id = EXCLUDED.source_doc_id,
                            confidence    = EXCLUDED.confidence,
                            detail        = EXCLUDED.detail""",
-                (property_id, source_doc_id, d.get("row_confidence"),
+                (property_id, unit_id, source_doc_id, d.get("row_confidence"),
                  json.dumps(detail, ensure_ascii=False), dedup_key),
             )
 
@@ -825,6 +831,47 @@ def load_ownerless_registry(jsonl: str = "data/parsed/ownerless_registry.jsonl")
     print(f"load_ownerless_registry: {loaded} events "
           f"(skipped: {skipped_conf} low-confidence, {skipped_addr} unparseable address, "
           f"{skipped_prop} no matching property)")
+
+
+def backfill_registry_units(apply: bool = False) -> None:
+    """One-off backfill: promote apt_raw/apt_kind already sitting in
+    seizure_event.detail (stage='registry_inclusion' rows loaded before the
+    `unit` table existed) into structural unit rows + seizure_event.unit_id.
+
+    Reuses _find_or_create_unit -- no duplicated SQL. Idempotent: a re-run
+    after --apply finds 0 rows left to fix (the WHERE clause only selects
+    unit_id IS NULL rows). Touches no other stage or table.
+    Default is a dry-run report; pass apply=True to write changes."""
+    con = psycopg2.connect(config.DATABASE_URL)
+    cur = con.cursor()
+
+    cur.execute(
+        """SELECT id, property_id, detail->>'apt_raw', detail->>'apt_kind'
+               FROM seizure_event
+               WHERE stage = 'registry_inclusion'::seizure_stage
+                 AND unit_id IS NULL
+                 AND detail->>'apt_raw' IS NOT NULL"""
+    )
+    rows = cur.fetchall()
+    print(f"backfill_registry_units: {len(rows)} registry_inclusion events to backfill")
+
+    if not apply:
+        cur.close()
+        con.close()
+        print("Dry run only -- pass apply=True / --apply to write changes.")
+        return
+
+    fixed = 0
+    for event_id, property_id, apt_raw, apt_kind in rows:
+        unit_id = _find_or_create_unit(cur, property_id, apt_raw.strip(), apt_kind)
+        cur.execute("UPDATE seizure_event SET unit_id = %s WHERE id = %s", (unit_id, event_id))
+        fixed += 1
+
+    con.commit()
+    cur.close()
+    con.close()
+    log.info("backfill_registry_units: %d events backfilled", fixed)
+    print(f"backfill_registry_units: {fixed} events backfilled")
 
 
 # ── Gap 3: demolish -> rebuild address-laundering modality ────────────────────
@@ -864,6 +911,28 @@ def _find_or_create_property(cur, building_id: str, occupation_address: str | No
                RETURNING id""",
             (building_id, occupation_address, cadastral_no),
         )
+    return cur.fetchone()[0]
+
+
+def _find_or_create_unit(cur, property_id: int, apt_no: str, apt_kind: str | None = None) -> int:
+    """Return unit.id for (property_id, apt_no), creating a minimal row if
+    absent. Idempotent via unit_property_apt_uidx. Mirrors
+    _find_or_create_property's create-once pattern -- one row per distinct
+    apartment under a building, never overwritten once created beyond
+    filling a previously-NULL apt_kind."""
+    cur.execute("SELECT id FROM unit WHERE property_id = %s AND apt_no = %s",
+                (property_id, apt_no))
+    row = cur.fetchone()
+    if row:
+        return row[0]
+    cur.execute(
+        """INSERT INTO unit (property_id, apt_no, apt_kind)
+           VALUES (%s, %s, %s)
+           ON CONFLICT (property_id, apt_no) DO UPDATE
+               SET apt_kind = COALESCE(unit.apt_kind, EXCLUDED.apt_kind)
+           RETURNING id""",
+        (property_id, apt_no, apt_kind),
+    )
     return cur.fetchone()[0]
 
 
@@ -1634,6 +1703,35 @@ def merge_duplicate_properties(
                     f"UPDATE {table} SET property_id = %s WHERE property_id = %s",
                     (s_pid, l_pid),
                 )
+            # `unit` is NOT in _PROPERTY_FK_TABLES -- a blind property_id
+            # re-point could violate unit_property_apt_uidx if the survivor
+            # already has a unit with the same apt_no as one of the loser's.
+            # Move non-colliding loser units directly; for genuine collisions,
+            # re-point the affected seizure_event.unit_id to the survivor's
+            # matching unit, then drop the now-orphaned loser unit. Collision
+            # rate is expected near-zero (these merges are address-alias/typo
+            # fixes between rows already pointing at the same building, not
+            # large multi-unit buildings splitting -- see _ALIAS_REVIEWED).
+            cur.execute(
+                """UPDATE unit AS loser_u
+                       SET property_id = %s
+                   WHERE loser_u.property_id = %s
+                     AND NOT EXISTS (
+                         SELECT 1 FROM unit survivor_u
+                         WHERE survivor_u.property_id = %s
+                           AND survivor_u.apt_no = loser_u.apt_no
+                     )""",
+                (s_pid, l_pid, s_pid),
+            )
+            cur.execute(
+                """UPDATE seizure_event se
+                       SET unit_id = su.id
+                   FROM unit lu
+                   JOIN unit su ON su.property_id = %s AND su.apt_no = lu.apt_no
+                   WHERE se.unit_id = lu.id AND lu.property_id = %s""",
+                (s_pid, l_pid),
+            )
+            cur.execute("DELETE FROM unit WHERE property_id = %s", (l_pid,))
             cur.execute(
                 """UPDATE property AS survivor
                        SET prewar_address = COALESCE(survivor.prewar_address, loser.prewar_address),

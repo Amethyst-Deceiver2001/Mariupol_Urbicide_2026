@@ -44,6 +44,7 @@ def main() -> None:
 
     properties = q1(cur, "SELECT count(*) FROM property")
     rd4u_null = q1(cur, "SELECT count(*) FROM property WHERE rd4u_category IS NULL")
+    units = q1(cur, "SELECT count(*) FROM unit")
     corroboration = q1(cur, "SELECT count(*) FROM corroboration")
     seizure_total = q1(cur, "SELECT count(*) FROM seizure_event")
     source_docs = q1(cur, "SELECT count(*) FROM source_document")
@@ -112,6 +113,7 @@ def main() -> None:
     A(f"|---|---|")
     A(f"| Properties on spine | **{properties:,}** |")
     A(f"| — uncategorized (RD4U) | {rd4u_null:,} |")
+    A(f"| Distinct apartment-level units (ownerless registry) | {units:,} |")
     lg = f"{legal_grade:,}" if legal_grade is not None else "?"
     ci = f"{court_islands:,}" if court_islands is not None else "?"
     ns = f"{no_source:,}" if no_source is not None else "?"
@@ -122,6 +124,13 @@ def main() -> None:
     A(f"| Seizure-event rows (all stages) | {seizure_total:,} |")
     A(f"| Source-document rows (DB-registered, chain of custody) | {source_docs:,} |")
     A(f"| Distinct courts represented in source_document | {distinct_courts} |")
+    A("")
+    A("`property` is the building-level spine (geocoding, corroboration, RD4U "
+      "categorization, presentation); `unit` is an additive apartment-level "
+      "layer underneath it, populated only from the ownerless registry (the "
+      "one source that's genuinely apartment-level — every row carries an "
+      "apartment number). A single `property` row can have many `unit` rows; "
+      "this does not change what \"Properties on spine\" means above.")
     A("")
     A("### Seizure events by stage")
     A("")

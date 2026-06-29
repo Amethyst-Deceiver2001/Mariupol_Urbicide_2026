@@ -30,6 +30,24 @@ CREATE INDEX IF NOT EXISTS property_geom_gix ON property USING gist (geom);
 CREATE UNIQUE INDEX IF NOT EXISTS property_building_id_uidx ON property (building_id);
 
 -- ---------------------------------------------------------------------------
+-- Unit — apartment-level granularity under a building (`property`). The
+-- spine (`property`) stays building-level for geocoding, corroboration,
+-- RD4U categorization, and presentation; `unit` exists only so the DNR
+-- ownerless-registry source (which is genuinely apartment-level, every row
+-- carries apt_raw) doesn't lossily collapse 12,948 rows onto 1,637
+-- buildings. Added 2026-06-29; see scripts/210.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS unit (
+    id              BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    property_id     BIGINT NOT NULL REFERENCES property(id) ON DELETE CASCADE,
+    apt_no          TEXT NOT NULL,              -- normalized apt_raw (trimmed)
+    apt_kind        TEXT,                       -- carried from registry apt_kind, informational
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE UNIQUE INDEX IF NOT EXISTS unit_property_apt_uidx ON unit (property_id, apt_no);
+CREATE INDEX IF NOT EXISTS unit_property_ix ON unit(property_id);
+
+-- ---------------------------------------------------------------------------
 -- Owner — SENSITIVE. Minimize/encrypt. Never expose in shared outputs.
 -- Living private individuals only; officials/beneficiaries go in `actor`.
 -- ---------------------------------------------------------------------------
@@ -79,6 +97,10 @@ CREATE TYPE seizure_stage AS ENUM (
 CREATE TABLE IF NOT EXISTS seizure_event (
     id              BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     property_id     BIGINT NOT NULL REFERENCES property(id) ON DELETE CASCADE,
+    unit_id         BIGINT REFERENCES unit(id) ON DELETE SET NULL,
+                                                  -- set only for stage='registry_inclusion'
+                                                  -- rows whose source carries an apartment
+                                                  -- number; NULL for every other stage.
     stage           seizure_stage NOT NULL,
     event_date      DATE,
     source_doc_id   BIGINT,                     -- -> source_document.id
@@ -87,8 +109,13 @@ CREATE TABLE IF NOT EXISTS seizure_event (
     dedup_key       TEXT,                       -- e.g. 'ownerless_registry:<sha256>:<seq_no>'
     created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+-- For an already-existing table (pre-2026-06-29 deployments), CREATE TABLE IF
+-- NOT EXISTS above is a no-op, so the new column needs its own idempotent
+-- migration statement:
+ALTER TABLE seizure_event ADD COLUMN IF NOT EXISTS unit_id BIGINT REFERENCES unit(id) ON DELETE SET NULL;
 CREATE INDEX IF NOT EXISTS seizure_event_prop_ix ON seizure_event(property_id);
 CREATE INDEX IF NOT EXISTS seizure_event_stage_ix ON seizure_event(stage);
+CREATE INDEX IF NOT EXISTS seizure_event_unit_ix ON seizure_event(unit_id) WHERE unit_id IS NOT NULL;
 -- NULL dedup_key (court-case lifecycle stages) doesn't conflict with itself;
 -- only batch-loaded rows (which always set dedup_key) get idempotent re-runs.
 CREATE UNIQUE INDEX IF NOT EXISTS seizure_event_dedup_uidx ON seizure_event (dedup_key);

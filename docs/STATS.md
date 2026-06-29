@@ -8,6 +8,7 @@
 |---|---|
 | Properties on spine | **11,740** |
 | — uncategorized (RD4U) | 216 |
+| Distinct apartment-level units (ownerless registry) | 11,951 |
 | Legal-grade (≥2 independent source families) | **1,156** |
 | Court-island properties (single-source, court only) | 8,303 |
 | No-source properties | 127 |
@@ -15,6 +16,8 @@
 | Seizure-event rows (all stages) | 29,683 |
 | Source-document rows (DB-registered, chain of custody) | 8,660 |
 | Distinct courts represented in source_document | 26 |
+
+`property` is the building-level spine (geocoding, corroboration, RD4U categorization, presentation); `unit` is an additive apartment-level layer underneath it, populated only from the ownerless registry (the one source that's genuinely apartment-level — every row carries an apartment number). A single `property` row can have many `unit` rows; this does not change what "Properties on spine" means above.
 
 ### Seizure events by stage
 
