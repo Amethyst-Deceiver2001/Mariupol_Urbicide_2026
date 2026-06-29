@@ -185,6 +185,7 @@ seemingly for the purpose of receiving the grants.**
 | СЗ «РКС-Девелопмент» | 1 (decree №291 — note: decree bundles ≥2 separate parcels, see below) | 9310007980 (decree text, EGRUL pending) | — | — |
 | СЗ «Новое время 2» | 1 (decree №291, same decree as RKS-Devel. above — 3,136 m² parcel, Troianda-M/Metallurgov 47 footprint) | EGRUL not yet pulled — **caution: a directory search for this name also returns an unrelated Ufa/Bashkortostan company building in Khimki; do not conflate** | — | — |
 | ООО «СГМ МОНТАЖ» | (registry) | 9310018029 / 2025-03-19 | Харламова Т.С. | Чернов А.И. **100%** (ИНН 771002232940, Moscow) |
+| СЗ «ГСА ДЕВЕЛОПМЕНТ» | (land order pending — Распоряжение Главы ДНР №297 lead, not yet captured, see `docs/research_outsourcing/OPEN_QUESTIONS.md` Q6) | 9310009539 / ОГРН 1239300009530, 2023-07-20 | **Вербовой Илья Алексеевич** (found via rusprofile.ru name search, 2026-06-29 — closes Q10's worked example; founders/shareholder breakdown not yet pulled) | — |
 
 ### Founders / ownership chains (script 41, 2026-06-12)
 
@@ -210,6 +211,12 @@ in the basic extract).
   two-person mainland-Russia partnership controls both grant recipients.
   Василенко's stake differs (90% in МираСтрой 3 vs 47.5% in МираСтрой 4,
   where Коршаков Д.А. and Соболев А.Д. hold the rest).
+- **СЗ «ГСА ДЕВЕЛОПМЕНТ»'s registered address (ул. Энгельса, д. 26/2,
+  Мариуполь) hosts 6 other organizations per rusprofile.ru** (2026-06-29) —
+  a possible mass-registration/shell address, consistent with the pattern
+  above of post-occupation SPVs created for the sole purpose of receiving
+  grants. Worth checking whether any of the other 6 entities at this address
+  are also land-order recipients not yet on this table.
 - **СЗ «НОВОЕ ВРЕМЯ 3» is 100% owned by ООО «УК «БРИК ИНВЕСТ»»** (ИНН
   9310017730, region-93/DNR registration) — a holding company, not an
   individual. **One more hop resolved 2026-06-28** (`scripts/20`+`41`):
