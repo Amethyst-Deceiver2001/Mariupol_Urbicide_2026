@@ -187,7 +187,7 @@ seemingly for the purpose of receiving the grants.**
 | СЗ «РКС-Девелопмент» | 1 (decree №291 — note: decree bundles ≥2 separate parcels, see below) | 9310007980 (decree text, EGRUL pending) | — | — |
 | СЗ «Новое время 2» | 1 (decree №291, same decree as RKS-Devel. above — 3,136 m² parcel, Troianda-M/Metallurgov 47 footprint) | EGRUL not yet pulled — **caution: a directory search for this name also returns an unrelated Ufa/Bashkortostan company building in Khimki; do not conflate** | — | — |
 | ООО «СГМ МОНТАЖ» | (registry) | 9310018029 / 2025-03-19 | Харламова Т.С. | Чернов А.И. **100%** (ИНН 771002232940, Moscow) |
-| СЗ «ГСА ДЕВЕЛОПМЕНТ» | (land order pending — Распоряжение Главы ДНР №297 lead, not yet captured, see `docs/research_outsourcing/OPEN_QUESTIONS.md` Q6) | 9310009539 / ОГРН 1239300009530, 2023-07-20 | **Вербовой Илья Алексеевич** (found via rusprofile.ru name search, 2026-06-29 — closes Q10's worked example; founders/shareholder breakdown not yet pulled) | — |
+| СЗ «ГСА ДЕВЕЛОПМЕНТ» | (land order pending — Распоряжение Главы ДНР №297 lead, not yet captured, see `docs/research_outsourcing/OPEN_QUESTIONS.md` Q6) | 9310009539 / ОГРН 1239300009530, 2023-07-20 | **Вербовой Илья Алексеевич** (founder + director confirmed identical, checko.ru, 2026-06-29) | **Вербовой Илья Алексеевич 100%** (ИНН 352538381371, Vologda Oblast — mainland Russia, same pattern as the rest of this table, but a *different* individual from Василенко/Сущёв — confirms ГСА ДЕВЕЛОПМЕНТ is a separate operator, not a Василенко front, despite the shared address). **No revenue 2024–2025; 184k руб. tax arrears as of 01.06.2026** — the company appears not to have executed any project yet, consistent with №297 still being uncaptured. |
 | ООО «АВЕРС-ИНВЕСТ» | — | ИНН 9310003872 / ОГРН 1229300139034, 2022-11-30 (rusprofile.ru, 2026-06-29) — **but EGRUL's own "Дата регистрации" field shows 24.05.2002**, predating DNR's existence entirely; уставный капитал **187,500 руб.**, far above the 10,000 руб. shell-minimum every other entity at this address uses | **Чентуков Евгений Юрьевич** — a different person from Василенко/Вербовой, i.e. NOT part of the МираСтрой/ГСА Девелопмент leadership | — |
 
 **Registration cluster, refined (2026-06-29):** ГСА ДЕВЕЛОПМЕНТ, all four СЗ
@@ -198,23 +198,34 @@ this into two distinct groups, not one operator:
   (МираСтрой 1's director still unconfirmed) — this is the real single-
   operator SPV cluster, consistent with the post-occupation-shell pattern
   documented elsewhere on this table.
-- **ГСА ДЕВЕЛОПМЕНТ** has a different director (Вербовой Илья Алексеевич) —
-  same address, same shell-minimum 10,000 руб. charter capital and
-  post-occupation registration date, but not (yet) shown to be under
-  Василенко's control. Possibly a separate operator using the same
-  registration agent/address, or a still-undisclosed connection — founders
-  not yet pulled.
-- **АВЕРС-ИНВЕСТ is most likely unrelated to either group**: different
+- **ГСА ДЕВЕЛОПМЕНТ confirmed NOT under Василенко** (checko.ru, 2026-06-29):
+  wholly owned (100%) by its own director, Вербовой Илья Алексеевич (ИНН
+  352538381371, Vologda Oblast) — a separate mainland-Russia individual, same
+  pattern as the rest of this table but a different operator from the
+  МираСтрой cluster, despite the shared address and shell-minimum (10,000
+  руб.) charter capital.
+- **АВЕРС-ИНВЕСТ remains most likely unrelated to either group**: different
   director (Чентуков Евгений Юрьевич), charter capital 187,500 руб.
   (18.75× the shell-minimum), and an EGRUL "Дата регистрации" of 24.05.2002
   — a genuine pre-occupation Ukrainian-era company, not a freshly-created
   SPV. The address is shared but the entity itself doesn't fit the pattern;
   treat it as a coincidental co-tenant unless evidence emerges otherwise.
 
-**Follow-up:** pull EGRUL for МираСтрой 1 (director/founders unconfirmed) and
-for ГСА ДЕВЕЛОПМЕНТ's founders (to check for a Василенко/Сущёв connection);
-check whether any of the confirmed Василенко-controlled entities hold land
-orders not yet on this table.
+**Source discrepancy (2026-06-29, unresolved):** rusprofile.ru's pages for
+ГСА ДЕВЕЛОПМЕНТ/МираСтрой 2-4/АВЕРС-ИНВЕСТ all list "Еще 6 организаций по
+этому адресу" for ул. Энгельса 26/2, but checko.ru's ГСА ДЕВЕЛОПМЕНТ dossier
+states "По текущему юридическому адресу других организаций не значится" (no
+other organizations at the current address) and separately notes an earlier
+address "до 11.09.2025" (value not captured). Possible explanation: ГСА
+ДЕВЕЛОПМЕНТ moved to ул. Энгельса 26/2 only after 11.09.2025 and checko.ru's
+co-location index hasn't caught up, while rusprofile.ru's is current — but
+this is a guess, not confirmed. Flagging per the project's no-false-precision
+rule rather than picking a side.
+
+**Follow-up:** pull EGRUL for МираСтрой 1 (director/founders still
+unconfirmed); check whether any of the confirmed Василенко-controlled
+entities hold land orders not yet on this table; resolve the rusprofile/
+checko address-history discrepancy above if it matters to any future claim.
 
 ### Founders / ownership chains (script 41, 2026-06-12)
 
