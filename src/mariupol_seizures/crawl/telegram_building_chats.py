@@ -88,6 +88,22 @@ def _max_captured_id(con, channel: str) -> int:
     return best
 
 
+def _min_captured_id(con, channel: str) -> int:
+    """Lowest message id already captured for this channel (0 if none)."""
+    prefix = f"https://t.me/{channel}/"
+    rows = con.execute(
+        "SELECT url FROM source_document WHERE source_type='telegram_building_chat_msg' "
+        "AND url LIKE ?", (prefix + "%",),
+    ).fetchall()
+    best = 0
+    for (url,) in rows:
+        tail = url[len(prefix):].split("/", 1)[0]
+        if tail.isdigit():
+            v = int(tail)
+            best = v if best == 0 else min(best, v)
+    return best
+
+
 def _has_media(message) -> bool:
     return getattr(message, "media", None) is not None
 
@@ -261,3 +277,75 @@ def run(channels: list[str], building_note: str = "") -> None:
     log.info("done — %d new messages this run; %d telegram_building_chat_msg / "
              "%d telegram_building_chat_media artifacts in store",
              total, stored, stored_media)
+
+
+def run_backfill(channels: list[str], building_note: str = "") -> None:
+    """Fetch history OLDER than the lowest already-captured message id.
+
+    Use this after an interrupted first-run scan to recover the older tail.
+    Passes max_id=<lowest captured id> to iter_messages so Telethon returns
+    messages strictly below that floor, newest-to-oldest, until the channel
+    beginning. Re-runs of this function are safe: capture_source() is
+    idempotent and _min_captured_id() will lower its floor each time.
+
+    If no messages are captured yet for a channel (min_id=0), falls back to
+    a normal full-history scan (same as run()) so the function is safe to call
+    unconditionally.
+    """
+    try:
+        from telethon.sync import TelegramClient  # noqa: F401
+    except ImportError:
+        log.error("telethon not installed — run: pip install -e '.[telegram]'")
+        return
+
+    if not (config.TELEGRAM_API_ID and config.TELEGRAM_API_HASH):
+        log.error("TELEGRAM_API_ID / TELEGRAM_API_HASH not set in .env — aborting")
+        return
+
+    con = forensics.open_state()
+    from telethon.sync import TelegramClient
+    from telethon import errors
+    from telethon.tl.types import Channel as TLChannel
+
+    client = TelegramClient(
+        config.TELEGRAM_SESSION, config.TELEGRAM_API_ID, config.TELEGRAM_API_HASH)
+    client.start(phone=config.TELEGRAM_PHONE_NUMBER)
+    log.info("telegram session started for backfill (%s)", config.TELEGRAM_SESSION)
+
+    total = 0
+    try:
+        for channel in channels:
+            try:
+                entity = client.get_entity(channel)
+            except (errors.UsernameInvalidError, ValueError) as e:
+                log.error("chat %r not resolvable: %s — skipping", channel, e)
+                continue
+
+            min_id = _min_captured_id(con, channel)
+            if min_id == 0:
+                log.info("@%s: no prior captures — running full history scan", channel)
+                kwargs: dict[str, Any] = {"limit": HISTORY_LIMIT}
+            else:
+                log.info("@%s: backfilling history below message id %d", channel, min_id)
+                kwargs = {"max_id": min_id}
+
+            is_forum = isinstance(entity, TLChannel) and getattr(entity, "forum", False)
+            if is_forum:
+                log.warning("@%s is a forum — backfill not supported for forums; skipping", channel)
+                continue
+
+            n = 0
+            n_media = 0
+            for message in client.iter_messages(entity, **kwargs):
+                if _capture_message(client, con, channel, message, building_note):
+                    n_media += 1
+                n += 1
+                if n % 200 == 0:
+                    log.info("@%s backfill … %d messages (%d media) captured so far",
+                             channel, n, n_media)
+            log.info("@%s backfill done — %d messages, %d media", channel, n, n_media)
+            total += n
+    finally:
+        client.disconnect()
+
+    log.info("backfill complete — %d total messages captured this run", total)

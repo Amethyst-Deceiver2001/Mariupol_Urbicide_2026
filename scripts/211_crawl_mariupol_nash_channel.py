@@ -24,19 +24,29 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
+import argparse  # noqa: E402
+
 from mariupol_seizures.crawl import telegram_building_chats  # noqa: E402
 
 CHANNELS = [
     "mariupol_nash",
 ]
 
+NOTE = ("Not a single-building chat -- a city-wide channel. "
+        "Affiliation/reliability not yet profiled -- treat as "
+        "commentary/leads, not primary source, until verified. "
+        "No spine property_id mapping.")
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO,
                          format="%(asctime)s %(levelname)s %(message)s")
-    telegram_building_chats.run(
-        CHANNELS,
-        building_note=("Not a single-building chat -- a city-wide channel. "
-                        "Affiliation/reliability not yet profiled -- treat as "
-                        "commentary/leads, not primary source, until verified. "
-                        "No spine property_id mapping."),
-    )
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--backfill", action="store_true",
+                    help="Fetch history OLDER than the lowest already-captured message id "
+                         "(use after an interrupted first-run to recover the older tail)")
+    args = ap.parse_args()
+
+    if args.backfill:
+        telegram_building_chats.run_backfill(CHANNELS, building_note=NOTE)
+    else:
+        telegram_building_chats.run(CHANNELS, building_note=NOTE)
