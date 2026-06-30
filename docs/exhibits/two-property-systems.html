@@ -124,6 +124,15 @@
   .prov-footer{border-top:1px solid var(--rail);margin-top:1.5rem;padding-top:1.8rem}
   .prov-footer p{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--muted)}
   .prov-footer .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);padding-left:1rem;margin-top:1rem}
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-3);border:1px solid var(--rail-2);border-radius:4px;padding:.9rem 1.1rem}
+  .wallet-card .wlabel{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .wallet-card .waddr{font-family:var(--font-mono);font-size:12px;color:var(--paper);word-break:break-all;line-height:1.6}
+  .wallet-card .wnote{font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-top:.3rem}
 
   @media(max-width:620px){
     .gstep{grid-template-columns:32px 1fr;gap:.7rem}
@@ -143,7 +152,7 @@
 <div class="exhibit-bar">
   <span><b>Two property systems, one collision</b> · legal genealogy</span>
   <span><a href="../index.html">&larr; project home</a> &middot; <a href="mariupol-master-dossier.html">master dossier</a>
-    &middot; <a href="dispossession-pipeline.html">dispossession pipeline</a> &middot; <a href="sources.html">sources</a> &middot; <a href="about.html">about</a></span>
+    &middot; <a href="two-property-systems-ru.html">русская версия</a> &middot; <a href="dispossession-pipeline.html">dispossession pipeline</a> &middot; <a href="sources.html">sources</a> &middot; <a href="about.html">about</a></span>
   <span class="cust">Every instrument sourced from the original, hashed for the record</span>
 </div>
 
@@ -222,9 +231,9 @@
             as ownerless" — meaning the absence of one is what makes everything downstream
             possible.</p>
           <div class="gtags">
-            <span class="chip tier-fed st-reported"><span class="chip-label" title="Федеральный закон №218-ФЗ">Federal Law No.&nbsp;218-FZ</span>
+            <span class="chip tier-fed st-captured"><span class="chip-label" title="Федеральный закон №218-ФЗ">Federal Law No.&nbsp;218-FZ</span>
               <span class="chip-sub">EGRN as exclusive title register</span>
-              <span class="badge b-reported">Reported</span></span>
+              <span class="badge b-captured">Captured</span></span>
             <span class="chip tier-dnr"><span class="chip-label" title="Указ Главы ДНР №290 от 16.08.2023">DNR Head&rsquo;s Decree No.&nbsp;290</span>
               <span class="chip-sub">mass cadastral migration into EGRN</span>
               <span class="badge b-captured">Captured</span></span>
@@ -303,7 +312,7 @@
             their homes, officials, civil servants, and — confirmed by name in the statute —
             military personnel; one clause also promises a like-kind replacement unit back to the
             displaced original owner, a compensation channel not previously documented in this
-            project. DNR implementing acts (Закон №134-РЗ, 05.12.2024; №240-РЗ, 22.12.2025;
+            project. DNR implementing acts (Закон №134-РЗ, 05.12.2024;
             №275-РЗ, 17.04.2026) translate the federal pivot into local procedure. This is the
             system's current end state — the one now live ahead of Mariupol's
             1&nbsp;July&nbsp;2026 re-registration deadline.</p>
@@ -311,7 +320,7 @@
             <span class="chip tier-fed st-captured"><span class="chip-label" title="ФКЗ-4 от 15.12.2025, ст.1 → Статья 21¹ ФКЗ №5-ФКЗ">Federal Constitutional Law No.&nbsp;4</span>
               <span class="chip-sub">full text read · Rosreestr + Rosimushchestvo jointly process · 1 Jan 2030 backstop</span>
               <span class="badge b-captured">Captured</span></span>
-            <span class="chip tier-dnr"><span class="chip-label" title="№134-РЗ + №240-РЗ + №275-РЗ">DNR implementing laws No.&nbsp;134/240/275-РЗ</span>
+            <span class="chip tier-dnr"><span class="chip-label" title="№134-РЗ + №275-РЗ">DNR implementing laws No.&nbsp;134/275-РЗ</span>
               <span class="badge b-captured">Captured</span></span>
           </div>
         </div>
@@ -320,8 +329,7 @@
     </div>
     <p class="note">Status badges: Captured (we hold the primary text) · Cited (named inside a
       captured record or official municipal guidance) · Reported (secondary research/journalism
-      only, primary text not yet retrieved) · Crawl gap (known instrument, no capture attempt yet —
-      hosted on a geoblocked Russian portal, requires VPS-routed retrieval).</p>
+      only, primary text not yet retrieved) · Crawl gap (primary source not yet available).</p>
   </section>
 
   <!-- ===================== COMPARISON TABLE ===================== -->
@@ -366,9 +374,9 @@
           <tr>
             <td>Citizenship requirement</td>
             <td>No Russian citizenship is required, or relevant, to keeping Ukrainian title.</td>
-            <td>Russian citizenship — or a special permission process via the DNR property
-              ministry — is effectively required to protect housing from registration/notarization
-              bans and the personal-appearance rule. <span class="sup">Step 4</span></td>
+            <td>Russian citizenship — or a special permission process through the DNR Ministry
+              of Property and Land Relations (MIZO) — is effectively required to protect housing
+              from the registration ban, notarization ban, and the personal-appearance rule. <span class="sup">Step 4</span></td>
           </tr>
           <tr>
             <td>Access to remedies</td>
@@ -400,16 +408,57 @@
     <details class="prov">
       <summary>Sources for this table</summary>
       <div class="prov-list">
-        <p><strong>Ukrainian model</strong> — Law No.&nbsp;417-VIII "On the Peculiarities of
-          Exercising Ownership Rights in a Multi-Apartment Building," art.&nbsp;4 (common
+        <p><strong>Primary Russian/occupation instruments</strong> —
+          <a href="http://www.kremlin.ru/acts/bank/32451" target="_blank">Decree No.&nbsp;26 (09.01.2011)</a>;
+          <a href="http://www.kremlin.ru/acts/bank/45294" target="_blank">Decree No.&nbsp;201 (20.03.2020)</a>;
+          <a href="http://publication.pravo.gov.ru/document/0001202210050005" target="_blank">Federal Constitutional Law No.&nbsp;5-FKZ (04.10.2022)</a>;
+          <a href="https://gisnpa-dnr.ru/npa/0001-290-20230816/" target="_blank">DNR Head's Decree No.&nbsp;290 (16.08.2023)</a>;
+          <a href="https://mariupol.gosuslugi.ru/dlya-zhiteley/novosti_990.html" target="_blank">Mariupol municipal guidance on ownerless property registration</a>;
+          <a href="https://publication.pravo.gov.ru/document/0001202412240001" target="_blank">Decree No.&nbsp;1103 (24.12.2024)</a>;
+          <a href="http://www.kremlin.ru/acts/bank/51725" target="_blank">Decree No.&nbsp;145 (14.03.2025)</a>;
+          <a href="https://base.garant.ru/413383874/" target="_blank">Decree No.&nbsp;1006 (29.12.2025)</a> (Garant mirror);
+          <a href="https://glavadnr.ru/doc/zakony/66rz.pdf" target="_blank">DNR Law No.&nbsp;66-RZ (21.03.2024)</a>;
+          <a href="http://publication.pravo.gov.ru/Document/View/0001202512150024" target="_blank">FKZ-4 (15.12.2025)</a>;
+          <a href="http://publication.pravo.gov.ru/document/8000202412060002" target="_blank">DNR Law No.&nbsp;134-RZ (05.12.2024)</a>;
+          <a href="https://xn--80azg.xn--80ahqgjaddr.xn--p1ai/2026-04-17/275-rz-o-vnesenii-izmenenij-v-stati-1-i-2-zakona-donetskoj-narodnoj-respubliki-ob-osobennostyakh-regulirovaniya-zhilishchnykh-otnoshenij-v-donetskoj-narodnoj-respublike-v-perekhodnyj-period/" target="_blank">DNR Law No.&nbsp;275-RZ (17.04.2026)</a>.</p>
+        <p><strong>Ukrainian model</strong> — <a href="https://zakon.rada.gov.ua/laws/show/417-19#Text" target="_blank">Law No.&nbsp;417-VIII "On the Peculiarities of
+          Exercising Ownership Rights in a Multi-Apartment Building"</a> (Verkhovna Rada register), art.&nbsp;4 (common
           property) and the transitional provisions amending Land Code art.&nbsp;42 (land transfer
-          / survival of rights on destruction). Verified against a Ukrainian-legislation mirror;
-          a Verkhovna Rada register citation is the next step for full primary-source rigor.</p>
+          / survival of rights on destruction).</p>
         <p><strong>Russian/occupation model</strong> — see Part I above and
           <a href="../legal_mechanisms_review.md">legal_mechanisms_review.md</a> for full
           citation and capture-status detail on every instrument referenced.</p>
       </div>
     </details>
+  </section>
+
+  <!-- ===================== SUPPORT ===================== -->
+  <section class="support-section">
+    <h3>Support this project</h3>
+    <p>The project's <a href="about.html">author</a> investigates and documents the dispossession
+      of Mariupol's residents using only his own time and resources — no editorial budget,
+      no grants, no institutional backing. If you find this work valuable, you can help
+      offset some of the costs I've incurred.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal — US-based readers</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">501(c)(3) registered NGO — tax-deductible in the US</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">Tron network only</div>
+      </div>
+    </div>
   </section>
 
   <!-- ===================== PROVENANCE ===================== -->

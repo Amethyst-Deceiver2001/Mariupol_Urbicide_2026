@@ -324,6 +324,15 @@
     section,.cs,.track,.evcard,.mcol,.ep{break-inside:avoid}
     a{color:#111}
   }
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;padding:.9rem 1.1rem}
+  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
+  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
 </style>
 </head>
 <body>
@@ -679,7 +688,7 @@
           <span class="chain-pill hot">Среднее время рассмотрения ~42 дня, за одно заседание</span><span class="chain-sep">&rarr;</span>
           <span class="chain-pill">Процедура упразднена с 1 июля 2026</span>
         </div>
-        <a class="cs-link" href="case-study-IV-court-docket.html">Полное досье с ФИО всех судей&rarr;</a>
+        <a class="cs-link" href="case-study-IV-court-docket-ru.html">Полное досье с ФИО всех судей&rarr;</a>
 
         <p class="cs-kicker" style="margin-top:1.8rem">На этапе апелляции становится очевидной доктрина узаконенного грабежа</p>
         <p>Проигравшая первую инстанцию сторона может обжаловать решение в Верховном суде «ДНР». И если смотреть не только на итог, а внимательно изучить весь текст мотивировочной части каждого решения, то проступает то, чего за сухой
@@ -1043,6 +1052,33 @@
       (<a href="mariupol-master-dossier.html">English version</a>), данные актуальны по состоянию на 09.06.2026. Цифры из внешних источников (оценки ООН/HRW, заявления российских властей, оценки
       Всемирного банка, дела ЕСПЧ) приводятся со ссылкой на первоисточник и не верифицируются базой данных проекта
       напрямую.</p>
+  <section class="support-section">
+    <h3>Поддержать проект</h3>
+    <p>Этот проект ведёт <a href="about.html">автор</a> в одиночку — без
+      финансирования и грантов, на собственные средства и время. Если вы считаете эту
+      работу нужной, вы можете помочь мне покрыть часть расходов.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal &mdash; для читателей из США</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">НКО 501(c)(3) — пожертвование с налоговым вычетом для граждан США</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">только сеть Tron</div>
+      </div>
+    </div>
+  </section>
+
   </div>
 </footer>
 

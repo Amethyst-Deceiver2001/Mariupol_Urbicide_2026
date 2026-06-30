@@ -234,9 +234,65 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **ECtHR, *Loizidou v. Turkey*** — Northern Cyprus property-deprivation precedent cited throughout.
 
-**DNR Law 66-РЗ** (enabling framework for the ownerless-property pipeline).
+**DNR Law 66-РЗ** «О некоторых вопросах признания права собственности на жилые помещения в Донецкой Народной Республике» (21.03.2024) — enabling framework for the ownerless-property pipeline; Article 5(3)(a) requires personal appearance with Russian passport to prevent ownerless declaration.
+  - Full text (Head of DNR official site): <https://glavadnr.ru/doc/zakony/66rz.pdf>
+  - Federal publication mirror: <http://publication.pravo.gov.ru/document/8000202403220001>
 
-**Federal Constitutional Law ФКЗ-4** (Russian annexation instrument conferring "DNR" law status).
+**Federal Constitutional Law ФКЗ-4** №4-ФКЗ от 15.12.2025 — abolishes the court stage of the ownerless-property pipeline in the "new regions"; registry inclusion replaces court judgment as the title-conferring act. Mariupol was the Roskadastr pilot; court filings dropped to zero by mid-2026.
+  - Official federal portal (full text): <http://publication.pravo.gov.ru/Document/View/0001202512150024>
+
+**Federal Constitutional Law ФКЗ-5** №5-ФКЗ от 04.10.2022 «О принятии в Российскую Федерацию Донецкой Народной Республики…» — constitutional channel for annexation; the predicate enabling ЕГРН application to Mariupol.
+  - Official federal portal (full text): <http://publication.pravo.gov.ru/document/0001202210050005>
+
+### Primary legislation — two-property-systems and court-docket exhibits
+
+**Указ Президента РФ №26 от 09.01.2011** — base decree prohibiting foreign nationals and foreign-controlled entities from owning land in designated border territories.
+  - Official Kremlin: <http://www.kremlin.ru/acts/bank/32451>
+
+**Указ Президента РФ №201 от 20.03.2020** — extends the №26 border-territory list to include 11 Crimean districts and 8 Sevastopol urban districts; the Crimea proving-ground instrument.
+  - Official Kremlin: <http://www.kremlin.ru/acts/bank/45294>
+
+**Федеральный закон №218-ФЗ «О государственной регистрации недвижимости»** — принят Государственной Думой 03.07.2015, одобрен Советом Федерации 08.07.2015. Устанавливает ЕГРН как единственный государственный реестр недвижимости; основание формулы «запись в ЕГРН исключает признание объекта бесхозяйным». Предикат Шага 2 правовой генеалогии в экспонате two-property-systems.
+  - Официальная публикация (PDF, government.ru): <http://static.government.ru/media/acts/files/0001201507140007.pdf>
+  - Страница акта: <http://government.ru/docs/all/102812/>
+  - Raw store: `data/raw/464bbcecb948e00cfbb539251517bd3189ba049c08a12fa7c8bf9a897032f3de.pdf` (SHA-256: 464bbcec…32f3de, захвачено 2026-06-30)
+
+**Указ Главы ДНР №290 от 16.08.2023** «Об особенностях внесения в ЕГРН сведений… и выполнения комплексных кадастровых работ…» — DNR-level mandate transferring cadastral records into ЕГРН; the operative instrument for Step 2 of the legal genealogy.
+  - DNR state normative-acts portal: <https://gisnpa-dnr.ru/npa/0001-290-20230816/>
+
+**Информационное сообщение администрации Мариуполя** «Вниманию владельцев недвижимого имущества» — city portal news item containing the key passage: ЕГРН record forecloses ownerless declaration. Informational notice, not a formal normative act.
+  - Mariupol gosuslugi (primary URL): <https://mariupol.gosuslugi.ru/dlya-zhiteley/novosti_990.html>
+
+**Указ Президента РФ №1103 от 24.12.2024** «Об особенностях осуществления государственной регистрации юридических лиц, имеющих место нахождения на территориях Донецкой Народной Республики, Луганской Народной Республики, Запорожской области и Херсонской области, и прав таких юридических лиц на недвижимое имущество» — restricts (until 1 Jan 2026, extended to 2028 by №145) state registration of: (a) legal entities in DNR/LNR/Zaporizhzhia/Kherson whose founders/controllers are linked to "unfriendly" (sanctioning) foreign states; (b) such entities' real property rights in Rosreestr — without special permission from a regional collegial body (appointed by the head of each occupied oblast). Permission refused if registration threatens "defense or state security." Note: the original text (this PDF) covers only legal entities; Указ №145 (below) expanded the same base decree to ban individual "unfriendly-state" citizens' property-rights registration — all three form one escalating chain.
+  - Official publication (pravo.gov.ru): <https://publication.pravo.gov.ru/document/0001202412240001>
+  - Captured: `data/raw/54bb13ed3a51fa75b4561b87446e442300806c5fcd02fe0362a36199d28ccb49.pdf` (SHA-256 verified, 4 pp.)
+
+**Указ Президента РФ №145 от 14.03.2025** — extends the №1103 prohibition to 01.01.2028.
+  - Official Kremlin: <http://www.kremlin.ru/acts/bank/51725>
+
+**Указ Президента РФ №1006 от 29.12.2025** — prohibits notarial certification of powers of attorney for the same group; closes the POA escape-hatch. Kremlin/pravo.gov.ru URL not confirmed in this pass; GARANT mirror: <https://base.garant.ru/413383874/>
+
+**Закон ДНР №134-РЗ от 05.12.2024** «Об особенностях регулирования жилищных отношений… в переходный период» — first ФКЗ-4 implementing act.
+  - Federal portal: <http://publication.pravo.gov.ru/document/8000202412060002> (card/metadata; full-text PDF not recovered in this pass)
+
+**Закон ДНР №240-РЗ от 22.12.2025** «О внесении изменений в статьи 1 и 2 Закона ДНР «Об особенностях регулирования жилищных отношений в ДНР в переходный период»» — amends Law №134-РЗ; extends social-tenancy (социальный найм) protections for tenants who lost housing to hostilities until 1.1.2028; bypasses RF Housing Code Arts. 49/57 means-test/queue requirements; **not part of the bezkhoz/ownerless pipeline** (governs municipal social-tenancy track, not private ownership) — not cited in the two-property-systems exhibit. Signed Пушилиным 22.12.2025; in force from date of official publication.
+  - DNR Народный Совет laws index (confirmed 2026-06-30): <https://xn--80ahqgjaddr.xn--p1ai/zakony-narodnogo-soveta-dnr-rf/>
+  - Raw store: `data/raw/ccb850f1c8f3f932ca0ef9fdfea02b4d40ca805259215cff41b4caa8ff42dc53.pdf` (3 pp., 380 983 bytes, SHA-256 verified)
+
+**Закон ДНР №275-РЗ от 17.04.2026** — extends Law №134-РЗ (amends Arts. 1–2); full text on DNR legislative portal.
+  - DNR legislative portal: <https://xn--80azg.xn--80ahqgjaddr.xn--p1ai/2026-04-17/275-rz-o-vnesenii-izmenenij-v-stati-1-i-2-zakona-donetskoj-narodnoj-respubliki-ob-osobennostyakh-regulirovaniya-zhilishchnykh-otnoshenij-v-donetskoj-narodnoj-respublike-v-perekhodnyj-period/>
+
+**Закон Украины №417-VIII «Об особенностях осуществления права собственности в многоквартирном доме»** — Ukrainian co-ownership framework; Article 4 (shared property) + Land Code Article 42(5) (land beneath building = shared).
+  - Verkhovna Rada register (confirmed 2026-06-30): <https://zakon.rada.gov.ua/laws/show/417-19#Text>
+
+**ГПК РФ, Глава 33** «Признание движимой вещи бесхозяйной и признание права собственности на бесхозяйную недвижимую вещь» — the особое производство procedural chapter applied in all 2,694 Mariupol court cases. Official pravo.gov.ru URL not confirmed; legal mirror: <https://legalacts.ru/kodeks/GPK-RF/razdel-ii/podrazdel-iv/glava-33/>
+
+**Федеральный закон №262-ФЗ от 22.12.2008** «Об обеспечении доступа к информации о деятельности судов в Российской Федерации» — mandates depersonalization of published court records (removal of street addresses); explains the `<адрес>` redaction in all 2,694 case cards.
+  - Official Kremlin: <http://www.kremlin.ru/acts/bank/28599>
+
+**Дела №2-4974/2025 и №2-239/2026, Жовтневский районный суд Мариуполя** — worked-case examples cited in the court-docket exhibit. Case cards geoblocked outside Russia; do not fetch directly. Queue for VPS capture:
+  - Case c33e847b: <https://mar-zhovt--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_uid=c33e847b-2167-4ecd-b0d6-471090c7efd3>
+  - Case aed20aff: <https://mar-zhovt--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_uid=aed20aff-85c4-4069-90ec-8c1c453164c0>
 
 ---
 

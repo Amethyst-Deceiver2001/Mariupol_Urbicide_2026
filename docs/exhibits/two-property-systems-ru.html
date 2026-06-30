@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Отмена украинского права в оккупированном Мариуполе</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="Как пятилетняя эволюция российского права подвела псевдо-легальную основу под массовый грабёж">
+<meta property="og:title" content="Отмена украинского права в оккупированном Мариуполе">
+<meta property="og:description" content="Как пятилетняя эволюция российского права подвела псевдо-легальную основу под массовый грабёж">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/two-property-systems-ru.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Отмена украинского права в оккупированном Мариуполе">
+<meta name="twitter:description" content="Как пятилетняя эволюция российского права подвела псевдо-легальную основу под массовый грабёж">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --t-fed:#6e90b4; --t-dnr:#9b8ec6; --t-muni:#4f9e96; --t-ua:#5fa572;
+    --s-captured:#54a06e; --s-cited:#d2a03a; --s-reported:#79808c; --s-gap:#cd4030;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+  .exhibit-bar{position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar .cust{color:var(--stamp)}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 5rem}
+
+  .titleblock{padding:clamp(2.2rem,5vw,3.6rem) 0 1.4rem}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--stamp);margin:0 0 1.1rem}
+  h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.8rem,4.6vw,2.9rem);line-height:1.05;margin:0 0 1rem;max-width:26ch}
+  .thesis{font-size:clamp(1rem,2vw,1.15rem);color:var(--paper-dim);max-width:66ch;margin:0;
+    border-left:2px solid var(--evidence);padding-left:1.1rem}
+
+  section{padding:clamp(2rem,4vw,3rem) 0;border-top:1px solid var(--rail)}
+  .sec-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 .4rem}
+  .sec-h{font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,3vw,1.7rem);
+    letter-spacing:-.02em;margin:.2rem 0 1.2rem;color:var(--paper)}
+  .sec-intro{color:var(--paper-dim);max-width:74ch;margin:0 0 1.6rem}
+
+  .legend{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-bottom:1.3rem;align-items:center}
+  .legend .lk{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .swatch{font-family:var(--font-mono);font-size:10px;color:var(--paper-dim);display:inline-flex;align-items:center;gap:.32rem}
+  .swatch i{width:11px;height:9px;border-radius:10px;display:inline-block}
+  .sw-captured{background:var(--s-captured)} .sw-cited{background:var(--s-cited)}
+  .sw-reported{background:var(--s-reported)} .sw-gap{background:transparent;border:1.5px dashed var(--s-gap)}
+
+  /* ---------- genealogy timeline ---------- */
+  .genealogy{display:flex;flex-direction:column;gap:0}
+  .gstep{display:grid;grid-template-columns:64px 1fr;gap:1rem;position:relative;padding-bottom:1.6rem}
+  .gstep:last-child{padding-bottom:0}
+  .gstep::before{content:"";position:absolute;left:31px;top:34px;bottom:0;width:1px;background:var(--rail-2)}
+  .gstep:last-child::before{display:none}
+  .gyear{font-family:var(--font-display);font-weight:800;font-size:.95rem;color:var(--muted);
+    text-align:center;padding-top:.15rem}
+  .gdot{width:14px;height:14px;border-radius:50%;background:var(--ink-2);border:2px solid var(--rail-2);
+    margin:0 auto;position:relative;z-index:1}
+  .gstep.pivot .gdot{border-color:var(--evidence);background:var(--evidence)}
+  .gcard{background:var(--ink-2);border:1px solid var(--rail);border-radius:5px;padding:1rem 1.2rem;margin-top:-.1rem}
+  .gstep.pivot .gcard{border-color:var(--evidence-dim)}
+  .gtitle{font-family:var(--font-display);font-weight:700;font-size:1.02rem;color:var(--paper);margin:0 0 .35rem}
+  .gdate{font-family:var(--font-mono);font-size:10px;color:var(--stamp);letter-spacing:.04em;margin-left:.5rem}
+  .gbody{color:var(--paper-dim);font-size:.93rem;margin:.3rem 0 .7rem;max-width:72ch}
+  .gtags{display:flex;flex-wrap:wrap;gap:.5rem}
+  .chip{position:relative;display:inline-flex;flex-direction:column;gap:.25rem;
+    background:var(--ink-3);border:1px solid var(--rail-2);border-left:4px solid var(--rail-2);
+    border-radius:3px;padding:.4rem .65rem;max-width:340px}
+  .chip.tier-fed{border-left-color:var(--t-fed)} .chip.tier-dnr{border-left-color:var(--t-dnr)}
+  .chip.tier-muni{border-left-color:var(--t-muni)} .chip.tier-ua{border-left-color:var(--t-ua)}
+  .chip-label{font-family:var(--font-mono);font-size:11.5px;line-height:1.4;color:var(--paper)}
+  .chip-sub{font-family:var(--font-mono);font-size:10px;color:var(--muted)}
+  .badge{align-self:flex-start;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;padding:.1rem .38rem;border-radius:2px;color:var(--ink)}
+  .badge.b-captured{background:var(--s-captured)} .badge.b-cited{background:var(--s-cited)}
+  .badge.b-reported{background:var(--s-reported);color:var(--paper)}
+  .badge.b-gap{background:transparent;color:var(--s-gap);border:1.5px dashed var(--s-gap)}
+
+  /* ---------- comparison table ---------- */
+  .cmp-wrap{overflow-x:auto;margin-top:.4rem;border:1px solid var(--rail);border-radius:5px}
+  .cmp{width:100%;border-collapse:collapse;font-size:.92rem;min-width:680px}
+  .cmp th,.cmp td{text-align:left;padding:.85rem 1.1rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  .cmp thead th{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);font-weight:400;background:var(--ink-2)}
+  .cmp thead th.ua{color:var(--t-ua)} .cmp thead th.ru{color:var(--evidence)}
+  .cmp td:first-child{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--paper-dim);
+    white-space:nowrap;font-weight:700}
+  .cmp tbody tr:hover{background:rgba(255,255,255,.02)}
+  .cmp td a{color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)}
+  .cmp .sup{font-family:var(--font-mono);font-size:9px;color:var(--muted);vertical-align:super}
+
+  .note{font-family:var(--font-mono);font-size:10.5px;line-height:1.6;color:var(--muted);
+    border-left:2px solid var(--rail-2);padding-left:.7rem;margin-top:1rem}
+
+  details.prov{margin-top:1.6rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--stamp);padding:.5rem 0}
+  .prov-list{font-family:var(--font-mono);font-size:11px;line-height:1.9;color:var(--muted)}
+  .prov-list a{color:var(--paper-dim);text-decoration:none;border-bottom:1px solid var(--rail-2)}
+  .prov-list a:hover{color:var(--paper)}
+
+  .prov-footer{border-top:1px solid var(--rail);margin-top:1.5rem;padding-top:1.8rem}
+  .prov-footer p{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--muted)}
+  .prov-footer .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);padding-left:1rem;margin-top:1rem}
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-3);border:1px solid var(--rail-2);border-radius:4px;padding:.9rem 1.1rem}
+  .wallet-card .wlabel{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .wallet-card .waddr{font-family:var(--font-mono);font-size:12px;color:var(--paper);word-break:break-all;line-height:1.6}
+  .wallet-card .wnote{font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-top:.3rem}
+
+  @media(max-width:620px){
+    .gstep{grid-template-columns:32px 1fr;gap:.7rem}
+    .gstep::before{left:15px}
+  }
+  @media print{
+    :root{--ink:#fff;--ink-2:#fff;--ink-3:#f4f4f2;--paper:#111;--paper-dim:#222;--muted:#555;--rail:#bbb;--rail-2:#999}
+    body{background:#fff;color:#111;font-size:10pt}
+    .exhibit-bar{position:static;background:#fff;color:#444;border-color:#999}
+    section,.gcard,.chip{break-inside:avoid}
+    a{color:#111}
+  }
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span><b>Отмена украинского права в оккупированном Мариуполе</b> · судебно-правовая генеалогия оккупации</span>
+  <span><a href="../index.html">&larr; на главную</a> &middot; <a href="mariupol-master-dossier-ru.html">основное досье</a>
+    &middot; <a href="two-property-systems.html">English version</a> &middot; <a href="dispossession-pipeline.html">конвейер изъятия</a>
+    &middot; <a href="sources.html">sources</a> &middot; <a href="about.html">about</a></span>
+  <span class="cust">Оригинал каждого источника заархивирован</span>
+</div>
+
+<div class="wrap">
+
+  <div class="titleblock">
+    <p class="eyebrow">Судебно-правовая генеалогия оккупации Мариуполя</p>
+    <h1>Как пятилетняя эволюция российского права собственности подвела псевдо-легальную основу под массовый грабёж</h1>
+    <p class="thesis">Нет единого указа или закона, по которому происходит конфискация жилого фонда Мариуполя. Сначала эта система была обкатана в аннексированном Крыму,
+      а затем российские оккупанты масштабировали её на все захваченные территории Украины. Согласно этой псевдо-законной доктрине, право украинского собственника на своё имущество просто исчезает.
+      Это вступает в прямое противоречие с украинским жилищным правом, в котором владельцы квартир в многоэтажных домах — совладельцы своего дома и земли под ним, и это право совместной собственности
+      по закону переживает даже гибель самого дома.</p>
+  </div>
+
+  <!-- ===================== GENEALOGY ===================== -->
+  <section>
+    <p class="sec-label">Часть I</p>
+    <h2 class="sec-h">Судебно-правовая генеалогия оккупации — пять этапов за пять лет</h2>
+    <p class="sec-intro">Каждая следующая ступень оккупационной системы закрывает для украинского
+      собственника ещё одну возможность сохранить право на жильё. Последовательность тянется от крымского указа о
+      пограничной зоне 2020 года — испытательного полигона этой системы — до федерального закона декабря
+      2025 года, который окончательно упразднил даже формальную судебную процедуру.</p>
+
+    <div class="legend">
+      <span class="lk">Статус источника</span>
+      <span class="swatch"><i class="sw-captured"></i>Собрано</span>
+      <span class="swatch"><i class="sw-cited"></i>Процитировано</span>
+      <span class="swatch"><i class="sw-reported"></i>По публикациям</span>
+      <span class="swatch"><i class="sw-gap"></i>Пробел в сборе данных</span>
+    </div>
+
+    <div class="genealogy">
+
+      <div class="gstep">
+        <div class="gyear">2020</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Этап 1 — Крым как испытательный полигон<span class="gdate">20.03.2020</span></div>
+          <p class="gbody">Указ Президента РФ №201 (полный текст от 29.06.2026) дополняет
+            перечень из действующего указа 2011 года о российских «приграничных территориях», согласно которому
+            иностранные граждане и юридические лица лишаются права на владение землёй. Этот указ расширил список таких территорий, добавив в него 19 крымских муниципальных районов и 8 городских округов
+            Севастополя. Причём этот список не был оформлен отдельным «крымским» указом, а приложен в виде технической справки к аналогичным изменениям статуса Астраханской, Белгородской и Калининградской областей, никак не связанным с Крымом. Россия
+            считает украинцев в оккупированном Крыму иностранцами-гражданами «недружественного государства», поэтому примерно 11 тысяч
+            землевладельцев — более 9 тысяч из них граждане Украины — получили срок в один год с момента
+            вступления указа в силу на то, чтобы продать или передать свою землю гражданину России,
+            под угрозой принудительной продажи земли с аукциона или конфискации в государственную/муниципальную
+            собственность. В этому случае компенсация, назначенная российскими властями, уменьшалась ещё на 25-50%, если выручка если выручка с торгов оказывалась ниже определённого порога (сам годичный срок указан только в
+            базовом законе от 2011 года, а не указан в тексте этого дополняющего указа). Это
+            первая рабочая модель основного приёма, повторённого на каждой последующей ступени:
+            переклассифицировать украинского собственника во что-то иное, нежели обычный
+            правообладатель, а затем просто дать истечь произвольному сроку на выполнение заведомо проигрышных условий.</p>
+          <div class="gtags">
+            <span class="chip tier-fed st-captured"><span class="chip-label" title="Указ Президента РФ №201 от 20.03.2020, дополняет Указ №26 от 09.01.2011">Указ Президента РФ №&nbsp;201</span>
+              <span class="chip-sub">запрет иностранцам владеть землёй в приграничной зоне — добавлены 19 крымских + 8 севастопольских округов</span>
+              <span class="badge b-captured">Данные заархивированы</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <div class="gyear">2022&ndash;23</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Этап 2 — запись в ЕГРН становится единственным доказательством права собственности</div>
+          <p class="gbody">Согласно федеральному закону №218-ФЗ российский Единый государственный
+            реестр недвижимости (ЕГРН) становится единственным доказательством права собственности. После этого указ главы «ДНР» №290 (16.08.2023) запускает массовый перенос
+            записей украинской кадастровой эпохи («ранее учтённые объекты недвижимости») в
+            новый российский реестр через обязательные «комплексные кадастровые работы»,
+            выполнять которые может исключительно государственная кадастровая компания «Роскадастр».
+            Этот процесс идёт независимо от того, присутствует ли собственник на подконтрольной России
+            территории и жив ли он вообще. Оккупационная администрация Мариуполя трактует
+            этот принцип прямо: запись в ЕГРН «исключает признание объекта
+            бесхозяйным» — то есть именно её отсутствие и делает возможным всё, что следует
+            дальше.</p>
+          <div class="gtags">
+            <span class="chip tier-fed st-captured"><span class="chip-label" title="Федеральный закон №218-ФЗ">Федеральный закон №&nbsp;218-ФЗ</span>
+              <span class="chip-sub">ЕГРН как исключительный реестр прав</span>
+              <span class="badge b-captured">Первоисточник заархивирован</span></span>
+            <span class="chip tier-dnr"><span class="chip-label" title="Указ Главы ДНР №290 от 16.08.2023">Указ Главы «ДНР» №&nbsp;290</span>
+              <span class="chip-sub">массовый перенос кадастровых записей в ЕГРН</span>
+              <span class="badge b-captured">Первоисточник заархивирован</span></span>
+            <span class="chip tier-muni"><span class="chip-label" title="Регистрация жилья с признаками бесхозяйности">Сообщение оккупационной администрации Мариуполя</span>
+              <span class="chip-sub">«...наличие зарегистрированных и внесенных в ЕГРН сведений о зарегистрированных правах исключает возможность признания такого имущества бесхозяйным и признании права муниципальной собственности в отношении него»</span>
+              <span class="badge b-cited">Первоисточник заархивирован</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <div class="gyear">2022</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Этап 3 — аннексия формализует правовой механизм изъятия</div>
+          <p class="gbody">Федеральный конституционный закон №5-ФКЗ (04.10.2022) принимает «ДНР»
+            в состав Российской Федерации, после чего в Мариуполе и на других оккупированных территориях начинают действовать российские гражданский, земельный и жилищный
+            кодексы. Именно на этой квази-правовой основе и держится вся система конфискации украинского имущества. Без этого этапа ЕГРН и отчуждения якобы «бесхозяйного»
+            имущества были бы невозможны даже по российским законам; а с ней
+            российское право собственности перестаёт быть оккупационной надстройкой и
+            становится, в собственном изложении российского законодательства, единственной правовой системой,
+            которая регулирует право на недвижимость на оккупированных территориях.</p>
+          <div class="gtags">
+            <span class="chip tier-fed"><span class="chip-label" title="ФКЗ №5-ФКЗ от 04.10.2022">Федеральный конституционный закон №&nbsp;5</span>
+              <span class="chip-sub">принятие «ДНР» в состав РФ</span>
+              <span class="badge b-captured">Первоисточник заархивирован</span></span>
+            <a href="dispossession-pipeline.html#card-A" style="text-decoration:none">
+              <span class="chip tier-dnr"><span class="chip-label">См.: этап «Бесхозяйное» имущество (A) →</span></span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <div class="gyear">2024&ndash;25</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Этап 4 — российское гражданство как заградительная мера</div>
+          <p class="gbody">Цепочка из трёх федеральных указов усиливает давление на собственников,
+            являющихся гражданами «недружественных государств»: указ №1103 (24.12.2024) запрещает
+            регистрировать их права на недвижимость без специального разрешения; №145
+            (14.03.2025) продлевает запрет до 01.01.2028 с крайне ограниченными исключениями для лиц,
+            связанных с военной службой; №1006 (29.12.2025) запрещает нотариально удостоверять
+            доверенности для той же группы — перекрывая единственный обходной путь (действовать
+            через представителя), которым массово пользовались жители оккупированных территорий. Отдельно сформулированное требование личного присутствия заявителя из закона «ДНР» №66-РЗ называет единственным допустимым удостоверением личности при
+            оспаривании признания имущества бесхозяйным только паспорт гражданина РФ; явка
+            представителя хозяина или обладателя доверенности не засчитывается — это
+            подтверждено пятью решениями Верховного суда «ДНР». Совокупный эффект: возможность сохранить право на жильё теперь
+            напрямую зависит от гражданства заявителя, физического присутствия на оккупированной территории и произвола отдельного чиновника, но не от самого базового права на собственность.</p>
+          <div class="gtags">
+            <span class="chip tier-fed"><span class="chip-label" title="Указ №1103 → №145 → №1006">Указы №&nbsp;1103 → 145 → 1006</span>
+              <span class="chip-sub">требование регистрации в российском реестре + запрет на нотариальные действия</span>
+              <span class="badge b-captured">Первоисточник заархивирован</span></span>
+            <span class="chip tier-dnr"><span class="chip-label" title="Закон ДНР №66-РЗ ст.5(3)(а)">Закон №&nbsp;66-РЗ ст.&nbsp;5(3)(а)</span>
+              <span class="chip-sub">требование личной явки только с российским паспортом</span>
+              <span class="badge b-captured">Первоисточник заархивирован</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gstep pivot">
+        <div class="gyear">2025</div>
+        <div></div>
+        <div class="gcard" style="grid-column:2">
+          <div class="gtitle">Этап 5 - смена курса: запись в реестре становится правом собственности</div>
+          <p class="gbody">Федеральный конституционный закон №4 (15.12.2025) упраздняет судебную процедуру признания имущества «бесхозяйным» и
+            конфискации его в муниципальную собственность. Теперь само по себе включение в российский реестр становится основанием для конфискации на усмотрение оккупацилонных властей,
+            безо всякой судебной стадии. Его полный текст (заархивирован 29.06.2026) добавляет новую
+            главу в закон 2022 года о принятии «ДНР» в состав РФ: критерии права на недвижимость
+            устанавливаются законом «ДНР» «по согласованию с» федеральным органом, ведущим
+            реестр недвижимости (Росреестр), <em>и</em> тем, который управляет федеральным
+            государственным имуществом (Росимущество); имущественное право теперь возникает в силу нового
+            закона с момента
+            включения в реестр, но не позднее <strong>1&nbsp;января&nbsp;2030&nbsp;года</strong>
+            — это отдельный установленный предельный срок для объектов, «принадлежащих государственным и иным официальным органам Украины», не совпадающий с
+            ограничением для физических лиц до 1&nbsp;июля&nbsp;2026&nbsp;года. Та же статья
+            допускает распределение жилья в пользу жителей, лишившихся своих домов, должностных лиц,
+            госслужащих и военных; одна
+            из норм также обещает равнозначную компенсацию жилья взамен утраченного, на усмотрение властей «ДНР» и других оккупированных территорий.
+            А исполнительные акты «ДНР» (Закон №134-РЗ, 05.12.2024;
+            №275-РЗ, 17.04.2026) переводят ранее федеральные нормы в местную процедуру. Это нынешнее
+            конечное состояние системы — то, которое действует до крайнего срока перерегистрации права на имущество 1&nbsp;июля&nbsp;2026&nbsp;года.</p>
+          <div class="gtags">
+            <span class="chip tier-fed st-captured"><span class="chip-label" title="ФКЗ-4 от 15.12.2025, ст.1 → Статья 21¹ ФКЗ №5-ФКЗ">Федеральный конституционный закон №&nbsp;4</span>
+              <span class="chip-sub">полный текст заархивирован · Росреестр + Росимущество регулируют процесс · отдельный срок для некоторых категорий имущества до 1 января 2030</span>
+              <span class="badge b-captured">Первоисточник заархивирован</span></span>
+            <span class="chip tier-dnr"><span class="chip-label" title="№134-РЗ + №275-РЗ">Исполнительные акты «ДНР» №&nbsp;134/275-РЗ</span>
+              <span class="badge b-captured">Первоисточник заархивирован</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="note">Метки статуса первоисточников: Заархивирован (оригинал сохранён в архиве проекта) · Процитирован (упоминается в заархивированных материалах или публикациях оккупационных властей) · По публикациям
+      (только вторичное исследование/материалы в СМИ, первоисточник ещё не заархивирован) · Пробел в
+      сборе данных (первоисточник по какой-то причиненедоступен).</p>
+  </section>
+
+  <!-- ===================== COMPARISON TABLE ===================== -->
+  <section>
+    <p class="sec-label">Часть II</p>
+    <h2 class="sec-h">Сравнение двух систем имущественного права</h2>
+    <p class="sec-intro">Пять этапов, описанных выше, не просто регулируют оккупационную бюрократию — они
+      целиком подменяют своей логикой ту, которая в реальности должна быть применима к имуществу на этих территоориях. Мариупольский домовладелец может оставаться законным собственником по
+      украинскому праву, и одновременно считаться отсутствующим, гражданином «недружественного государства» или
+      незарегистрированным в российской системе, а его жильё — бесхозяйным.</p>
+
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>Измерение</th><th class="ua">Украинская модель</th><th class="ru">Российская оккупационная модель</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Доказательство собственности</td>
+            <td>Украинские правоустанавливающие документы и государственный реестр прав на
+              недвижимость остаются юридически действительными независимо от оккупации или
+              вынужденного перемещения собственника.</td>
+            <td>Единственным допустимым доказательством права считается регистрация в ЕГРН —
+              запись в украинском реестре на практике вообще не является доказательством права на имущество. <span class="sup">Ступень 2</span></td>
+          </tr>
+          <tr>
+            <td>Общее имущество в многоквартирном доме</td>
+            <td>Владельцы квартир и нежилых помещений по закону являются совладельцами общего
+              имущества дома (Закон №417-VIII ст.&nbsp;4).</td>
+            <td>В российском праве есть аналогичное понятие, но защита целиком зависит от того, зарегистрировали ли совладельцы своё право
+              через регистрацию в ЕГРН, и усмотрения оккупационной администрации. <span class="sup">Этап 2</span></td>
+          </tr>
+          <tr>
+            <td>Земля под домом</td>
+            <td>Земельный участок и прилегающая территория принадлежат совладельцам; ст.&nbsp;42(5)
+              Земельного кодекса в редакции Закона №417-VIII прямо сохраняет это право даже при
+              физическом разрушении дома.</td>
+            <td>Права на землю и жильё целиком зависят от наличия российской регистрации,
+              усмотрения оккупационной администрации и последующего перераспределения имущества в пользу застройщиков или 
+              «маневренного фонда». <span class="sup">Ступени 3, 5</span></td>
+          </tr>
+          <tr>
+            <td>Требование гражданства</td>
+            <td>Для сохранения украинского права на имущество российское гражданство не требуется и не имеет
+              значения.</td>
+            <td>Российское гражданство — или процедура специального разрешения через министерство имущественных и земельных отношений (МИЗО) «ДНР» — фактическое условие защиты от изъятия имущества, требования личной явки и запрета на нотариальные действия. <span class="sup">Ступень 4</span></td>
+          </tr>
+          <tr>
+            <td>Доступ к средствам правовой защиты</td>
+            <td>Собственники могут действовать через украинские правовые каналы и уполномоченных
+              представителей независимо от своего физического местонахождения.</td>
+            <td>Собственников вынуждают явиться лично, с российским паспортом, на
+              оккупированной территории в ограниченный срок; явка представителя или
+              владельца доверенности не учитывается. <span class="sup">Этап 4</span></td>
+          </tr>
+          <tr>
+            <td>Конечное пользование имуществом после изъятия</td>
+            <td>Украинское право защищает интересы существующего собственника и совладельцев;
+              механизма передачи занятой квартиры третьему лицу не существует.</td>
+            <td>Жильё передаётся в муниципальную собственность, а затем распределяется
+              должностным лицам, военнослужащим, бюджетникам или продаётся российским переселенцам по льготной ипотеке. 
+              <span class="sup">Этап 5</span> · см. уровни
+              <a href="dispossession-pipeline.html#card-F">перепродажи (F)</a> и
+              <a href="dispossession-pipeline.html#card-G">распределения жилья (G)</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Эта таблица описывает только правовую коллизию, а не конкуренцию равнозначных систем права. Украина не признаёт права оккупационных властей на имущество на оккупированной территории, и
+      ничто в правой колонке не влияет на право собственности согласно законам Украины. Данные в правой колонке
+      приведены по той же причине, по какой весь остальной проект документирует собственное
+      делопроизводство машины отъёма имущества: потому что российская система сама документирует весь процесс.</p>
+
+    <details class="prov">
+      <summary>Источники данных в этой таблице</summary>
+      <div class="prov-list">
+        <p><strong>Первичные российские/оккупационные инструменты</strong> —
+          <a href="http://www.kremlin.ru/acts/bank/32451" target="_blank">Указ №26 (09.01.2011)</a>;
+          <a href="http://www.kremlin.ru/acts/bank/45294" target="_blank">Указ №201 (20.03.2020)</a>;
+          <a href="http://publication.pravo.gov.ru/document/0001202210050005" target="_blank">ФКЗ №5-ФКЗ (04.10.2022)</a>;
+          <a href="https://gisnpa-dnr.ru/npa/0001-290-20230816/" target="_blank">Указ Главы ДНР №290 (16.08.2023)</a>;
+          <a href="https://mariupol.gosuslugi.ru/dlya-zhiteley/novosti_990.html" target="_blank">Информационное сообщение администрации Мариуполя «Вниманию владельцев недвижимого имущества»</a>;
+          <a href="http://www.kremlin.ru/acts/bank/51725" target="_blank">Указ №145 (14.03.2025)</a>;
+          <a href="https://base.garant.ru/413383874/" target="_blank">Указ №1006 (29.12.2025)</a> (ГАРАНТ-зеркало);
+          <a href="https://glavadnr.ru/doc/zakony/66rz.pdf" target="_blank">Закон ДНР №66-РЗ (21.03.2024)</a>;
+          <a href="http://publication.pravo.gov.ru/Document/View/0001202512150024" target="_blank">ФКЗ-4 (15.12.2025)</a>;
+          <a href="http://publication.pravo.gov.ru/document/8000202412060002" target="_blank">Закон ДНР №134-РЗ (05.12.2024)</a>;
+          <a href="https://xn--80azg.xn--80ahqgjaddr.xn--p1ai/2026-04-17/275-rz-o-vnesenii-izmenenij-v-stati-1-i-2-zakona-donetskoj-narodnoj-respubliki-ob-osobennostyakh-regulirovaniya-zhilishchnykh-otnoshenij-v-donetskoj-narodnoj-respublike-v-perekhodnyj-period/" target="_blank">Закон ДНР №275-РЗ (17.04.2026)</a>;
+          <a href="https://publication.pravo.gov.ru/document/0001202412240001" target="_blank">Указ №1103 (24.12.2024)</a>.</p>
+        <p><strong>Украинская модель</strong> — <a href="https://zakon.rada.gov.ua/laws/show/417-19#Text" target="_blank">Закон №417-VIII «Об особенностях осуществления
+          права собственности в многоквартирном доме»</a> (реестр Верховной Рады), ст.&nbsp;4 (общее имущество) и переходные
+          положения, изменяющие ст.&nbsp;42 Земельного кодекса (передача земли / сохранение прав
+          при разрушении).</p>
+        <p><strong>Российская / оккупационная модель</strong> — см. Часть I выше и
+          <a href="../legal_mechanisms_review.md">legal_mechanisms_review.md</a> — полные
+          ссылки и статус архивации по каждому упомянутому правовому инструменту.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ===================== SUPPORT ===================== -->
+  <section class="support-section">
+    <h3>Поддержать проект</h3>
+    <p>Этот проект ведёт <a href="about.html">автор</a> в одиночку — без 
+      финансирования и грантов, на собственные средства и время. Если вы считаете эту
+      работу нужной, вы можете помочь мне покрыть часть расходов.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal — для читателей из США</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">НКО 501(c)(3) — пожертвование с налоговым вычетом для граждан США</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">только сеть Tron</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROVENANCE ===================== -->
+  <footer class="prov-footer">
+    <p>Создано на основе оккупационных / российских государственных источников и украинского
+      законодательства. Оригинал каждого документа (там, где он доступен в открытом доступе) сохранён с хэшированием по алгоритму SHA-256 и меткой времени UTC (цепочка хранения доказательств по протоколу Беркли).
+      Отметки статуса источника фиксируют, насколько близка каждая цитата к первоисточнику:
+      <strong>Заархивирован</strong> (у нас есть оригинал), <strong>Процитирован</strong>
+      (упоминается в других оригинальных документах), <strong>По публикациям СМИ</strong>
+      (только вторичное исследование/по материалам СМИ), <strong>Пробел в сборе данных ▶</strong>
+      (оригинал документа ещё не обнаружен).</p>
+    <p class="warn">Эти российские / оккупационные акты — доказательство только существования системы изъятия имущества, а не
+    права на это имущество. Украина не признаёт эти документы.</p>
+  </footer>
+
+</div>
+</body>
+</html>
