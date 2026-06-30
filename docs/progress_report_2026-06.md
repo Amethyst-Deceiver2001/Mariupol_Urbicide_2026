@@ -3,8 +3,10 @@
 *A full-project review of collected assets, coverage by pipeline rung, linkage
 state, and the remaining gaps / open follow-ups. Companion to
 `docs/reconceptualization_2026.md` (strategy) and `docs/legal_mechanisms_review.md`
-(instrument catalogue). Compiled 2026-06-12, last figures refresh 2026-06-28 —
-all project-total numbers below are sourced from `docs/STATS.md`
+(instrument catalogue). Compiled 2026-06-12, last figures refresh 2026-06-28;
+**§8 below captures all updates through 2026-06-30 and is the authoritative
+current-state section — read §8 before acting on any gap listed in §5/§7.**
+All project-total numbers are sourced from `docs/STATS.md`
 (`scripts/187_generate_stats.py`); re-run that script and re-sync this section
 after any load script rather than hand-editing a number here.*
 
@@ -309,34 +311,13 @@ not closable. **Deferred** = low marginal value.
     deduction). Compensable area is itself capped: 33 m² (single person) /
     42 m² (family of 2) / +18 m² per additional member, never exceeding the
     lost unit's actual area. See OPEN_QUESTIONS.md (closed).
-11. ~~**2% subsidized-mortgage law + Promsvyazbank trail**~~ — **PARTIALLY
-    LOCATED 2026-06-28.** Confirmed: the program runs under federal
-    government resolutions, with **Постановление Правительства РФ от
-    15.12.2023 № 2166** verified on `pravo.gov.ru`
-    (`publication.pravo.gov.ru/document/0001202312150019`, captured
-    `scripts/197` — confirms title/number/date only, the page is a JS
-    document-index shell, not the full text; full text needs the PDF
-    download link, not yet chased) as an amendment to
-    the housing/mortgage-lending rules covering ДНР/ЛНР/Запорожская/
-    Херсонская — Промсвязьбанк confirmed as primary program operator
-    (alongside Сбербанк/ВТБ), 2% rate, ≤6M ₽, ≥10% down, term extended (per
-    Oct 2025 decision) to end-2030. **Still open:** the *original* launch
-    resolution (signed by Mishustin, reported early Jan 2023, following
-    Putin's 15.12.2022 strategic-council directive) — its number/date
-    couldn't be pinned down from press coverage; №2166 is a confirmed later
-    amendment, not the founding instrument. `scripts/197` also captures
-    №2166's federal-portal page. **Launch decree IDENTIFIED 2026-06-28**
-    (outsourced batch, Q1): the founding instrument is **Постановление
-    Правительства РФ от 31.12.2022 № 2565** (ДОМ.РФ subsidy rules — the
-    parent that №1123/08.07.2023 and №2166/15.12.2023 both amend),
-    pravo.gov.ru publication `0001202301030011` (published 03.01.2023,
-    matching the early-Jan-2023 press timing). **Signed PDF [CAPTURED] +
-    READ 2026-06-29** (`scripts/208`, OCR'd) — unlike item 10's 25 m² cap
-    and the §C item 0c per-m² rate above, every press-reported parameter
-    checks out exactly against the primary text, no correction needed: **2%
-    rate** ("не более 2 процентов годовых," Пр. 5к), **≤6 млн ₽ loan cap**,
-    **≥10% down payment** of contract price. The residual sub-gap is now
-    fully closed.
+11. ~~**2% subsidized-mortgage law + Promsvyazbank trail**~~ — **FULLY CLOSED
+    2026-06-29.** Founding instrument confirmed as **Постановление
+    Правительства РФ от 31.12.2022 № 2565** (pravo.gov.ru
+    `0001202301030011`); signed PDF [CAPTURED] + READ (`scripts/208`, OCR'd).
+    All press-reported parameters verified against primary text: **2% rate**,
+    **≤6 млн ₽ loan cap**, **≥10% down payment**. Amendment №2166
+    (15.12.2023) also captured. No corrections needed. **Closed.**
 12. ~~**Распоряжение №61** (Mariupol municipal lease rulebook, [CITED])~~ —
     **MIRROR FOUND + READ 2026-06-29** (outsourced batch, Q8 found the
     mirror; read in full this session). The PDF was dead-linked on
@@ -357,7 +338,7 @@ not closable. **Deferred** = low marginal value.
     *commercial* space (e.g. ground-floor shops) recovered alongside
     seized residential buildings, an unverified narrower claim.
 
-### B¹. ~~New: 13-address GKO №263 forced-expropriation decree, mostly off-spine~~ — LOADED
+### B¹. ~~New: 13-address GKO №263 forced-expropriation decree, mostly off-spine~~ — FULLY LOADED (13/13)
 
 **Found + LOADED 2026-06-29** reading the OCR'd primary text of Постановление
 ГКО ДНР №263 (29.09.2022) — see `legal_mechanisms_review.md`'s corrected row.
@@ -367,10 +348,16 @@ compensation (former dormitories/offices), and **8 addresses** of
 *privately-owned* hotels/dormitories/buildings subject to forced
 expropriation ("принудительное изъятие") with compensation contingent on a
 30-day document deadline. **10 of the 13 addresses were confirmed NOT on the
-property spine** (checked via exact street+house-number match); 3 have loose
-near-matches (different house-number suffix — Карпинского 84, Сеченова 81,
-Лунина 9 — not confirmed building identity) and were logged/skipped, not
-force-merged.
+property spine** (checked via exact street+house-number match); 3 had loose
+near-matches.
+
+**~~Near-matches resolved~~ — DONE 2026-06-29** (`4e4d39e`). Карпинского 84
+and Сеченова 81 confirmed as the same buildings (exact house-number match +
+map-confirmed dormitories now converted to apartments) — merged into
+properties 5672/5759. Лунина 9 confirmed as a genuinely distinct building from
+property 5816 (Лунина 9а) via separate map footprints — loaded as new property,
+geocoded with user-supplied coordinates. All 13/13 addresses now loaded; spine
+updated to **11,741 properties** (`048a3fd`). **This item is closed.**
 
 Added `'expropriation'` to the `seizure_stage` enum (`db/schema.sql`) — a
 direct GKO decree with no court, no ownerless designation, compensation
@@ -664,3 +651,70 @@ detail the four-district XLSX doesn't.
 project is evidence of the seizure system, NOT valid title. Ukraine does not
 recognize them; neither do we. Capture before parse; SHA-256 + UTC timestamp +
 source URL on every artifact (CLAUDE.md).*
+
+---
+
+## 8. Updates since 2026-06-28 (current state as of 2026-06-30)
+
+**Read this section first.** The rest of this document reflects the 2026-06-28
+snapshot. Everything below supersedes stale §5/§7 entries.
+
+### 8a. Closed since 2026-06-28
+
+| Item | Status | Commits |
+|---|---|---|
+| GKO №263 — all 3 near-matches | ~~open~~ **CLOSED** (13/13 loaded, near-matches geocode-confirmed or loaded separately) | `4e4d39e` `99dd7b7` `048a3fd` |
+| Q6 — Распоряжение №297 / Brigantina | ~~open~~ **CLOSED** (PDF captured, case study written: `docs/case_studies/brigantina_zhsk_land_lease.md`) | `235f570` |
+| GKO №164 primary text | **CAPTURED** | `a6bad8b` |
+| Federal decrees №2255/2501/2565 | **CAPTURED + READ** (corrected per-m² rate and confirmed 2% mortgage params) | `584c37b` `80bdc82` |
+| §5 item 11 residual sub-gap (launch decree №2565) | ~~open~~ **CLOSED** | `584c37b` |
+| Case Study III — Строители (EN + RU) | **PUBLISHED** at `/exhibits/case-study-III-stroiteley.html` + `-ru.html` | `96c3f2b` `2b217e7` `2df1497` `859028d` |
+| Two Property Systems exhibit | **PUBLISHED** at `/exhibits/two-property-systems.html` | `3a425ff` |
+| RU master dossier sync | **DONE** (synced to EN figures) | `96c3f2b` |
+| ГКО №56 source attribution | **CORRECTED** in both Stroiteley exhibits | `859028d` |
+| Two-tier unit schema | **LIVE** — `unit` table, 11,951 apartment-level rows, `seizure_event.unit_id` backfilled | `8d97080` `34d3b8f` |
+| ГСА ДЕВЕЛОПМЕНТ identity | **CONFIRMED** as standalone operator, not a Василенко front | `44764b8` |
+| Back-to-overview links | **PRESENT** — all exhibits have `← project home → ../index.html` | pre-existing |
+| Case Study IV court figures | **CURRENT** — exhibit already shows 83.8% / 2,694 | pre-existing |
+| §5A build-ready cluster (items 0–8) | **ALL CLOSED** 2026-06-28 | see individual items |
+
+### 8b. Spine figures (current — from `docs/STATS.md`)
+
+| Metric | Value |
+|---|---|
+| Properties on spine | **11,741** |
+| Apartment-level units (ownerless registry) | **11,951** |
+| Legal-grade (≥2 independent source families) | **1,156** |
+| Uncategorized (RD4U) | 217 |
+| Court-island properties (single-source, court only) | 8,303 |
+| No-source properties | 128 |
+
+### 8c. Genuinely open gaps (as of 2026-06-30)
+
+**URGENT — 1 July 2026 deadline is today:**
+- Re-snapshot all four district registry XLSXs + designation/removal decrees from VPS
+  (`scripts/05_crawl_ownerless_lists.py`, `scripts/07`). §6 flag: the 22-day freeze
+  (06-06→06-28) may break with the deadline; post-deadline surge would itself be
+  informative.
+
+**Data:**
+- **217 RD4U-uncategorized properties** — likely a stale `scripts/36` run; re-run
+  `categorize_rd4u()` to check how many actually remain after recent loads.
+- **128 no-source orphan properties** — investigate origin before purging (§5F item 22).
+- **Court case `c0771eb2`** — reversed-appeal reconciliation manual review (§5F item 25).
+
+**Capture / parse:**
+- `@mariupol_nash` backfill — `--backfill` flag committed (`c7626ea`); user runs from VPS.
+- `@mariupol_nash` parse script — not yet written; no parsed JSONL exists.
+- Sentinel-2 satellite before/after (§5C item 13) — never built.
+
+**Presentation:**
+- Stakeholder graph rendered exhibit: Никоноров А.Ю. + Лопухов К.К. cross-link are
+  in `docs/stakeholder_network.md` but not yet in the React `.jsx` graph data
+  (needs `.jsx` edit + esbuild rebuild).
+- `docs/case_studies/brigantina_zhsk_land_lease.md` — committed, no HTML exhibit yet.
+
+**Strategic (§5E, unchanged):**
+- Per-property RD4U dossier export (the actual claimant deliverable) — not prototyped.
+- Parallel-dataset outreach (Leibniz-IfL/KonKoop, Dossier Center).
+- RD4U A3.6 per-property evidentiary-requirement scoping.
