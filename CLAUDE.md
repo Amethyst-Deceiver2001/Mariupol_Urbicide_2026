@@ -127,6 +127,18 @@ accountability and are not minimized.
 - No regex-only address normalization as the final step — keep raw + normalized;
   confidence-score every fuzzy match (≥0.8 to be claim-grade); require ≥2
   independent sources for legal-grade linkage rows.
+- **Always hyperlink cited sources.** Any exhibit, case study, or doc that cites
+  an external source must link directly to it (source catalogue / appendix /
+  footnotes — wherever that doc lists sources). Verify the URL resolves before
+  adding it (`curl -o /dev/null -w '%{http_code}'`) rather than trust an old
+  citation — links rot; `docs/sources.md` has already had at least one dead
+  link from this. If no working URL can be found (geoblocked portal, no public
+  page), say so inline rather than guess or omit silently. Geoblocked sources
+  (e.g. `vs--dnr.sudrf.ru`, `*.sudrf.ru`) need a capture script generated for
+  the user to run from their VPS, not a live link Claude fetched directly.
+  After adding a source to any exhibit, also add/update its entry in
+  `docs/sources.md` — that file is the project's master source list and should
+  stay in sync with what's actually cited across exhibits.
 
 ## Security / safety
 - `.env`, `data/`, anything with owner PII, and the raw evidence store are
