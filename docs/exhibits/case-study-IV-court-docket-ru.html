@@ -119,6 +119,26 @@
   .callout.hot .h{color:var(--evidence)}
   .callout p{margin:0;font-size:15.5px}
 
+  .cs{margin:1.8rem 0 0;padding:1.4rem 1.5rem;border:1px solid var(--rail);border-left:4px solid var(--stamp);background:rgba(255,255,255,.02);border-radius:6px}
+  .cs.no-stamp{border-left:none}
+  .cs-body > p{max-width:72ch}
+  .cs-kicker{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 .7rem}
+  .cs-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,2.6vw,1.7rem);letter-spacing:-.02em;color:var(--paper);margin:0 0 .9rem;line-height:1.1}
+  .cs-stats{display:flex;flex-wrap:wrap;gap:1.2rem 1.4rem;margin:1.3rem 0}
+  .csstat{flex:1;min-width:170px}
+  .csstat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;letter-spacing:-.02em;color:var(--paper);line-height:.9}
+  .csstat.hot .n{color:var(--evidence)}
+  .csstat .l{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;max-width:18ch;line-height:1.4}
+  .cs-chain{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:1.3rem 0 0}
+  .chain-pill{font-family:var(--font-mono);font-size:10.5px;color:var(--paper-dim);background:var(--ink-3);border:1px solid var(--rail);border-radius:3px;padding:.28rem .55rem;white-space:nowrap}
+  .chain-pill.hot{border-color:var(--evidence-dim);color:var(--evidence)}
+  .chain-sep{color:var(--muted)}
+  .sp-quotes{padding:0 1.2rem 1.2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+  .sq{border-left:2px solid var(--stamp);padding:.3rem 0 .3rem 1rem}
+  .sq .q{font-family:var(--font-serif);font-style:italic;font-size:1rem;line-height:1.4;color:var(--paper);margin:0 0 .6rem}
+  .sq .a{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.04em;color:var(--muted);line-height:1.55;margin:0}
+  .cs-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.04em;margin-top:.6rem}
+
   .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
     padding:.2rem 0 .2rem 1rem;margin:1.4rem 0;max-width:66ch}
 
@@ -382,10 +402,47 @@
       как этот маршрут встроен в более широкую систему, и реестр на 12 948 записей, который
       с тех пор вобрал эту функцию в себя.</p>
   </section>
-
-  <!-- 06 provenance -->
+    <!-- 06 apellate -->
   <section>
-    <div class="eyebrow">06 &middot; Происхождение</div>
+    <div class="cs reveal no-stamp">
+      <div class="cs-body">
+        <p class="cs-kicker" style="margin-top:1.8rem">На этапе апелляции становится очевидной доктрина узаконенного грабежа</p>
+        <p class="cs-title">Апелляции в Верховный суд «ДНР»</p>
+        <p>Проигравшая первую инстанцию сторона может обжаловать решение в Верховном суде «ДНР». И если смотреть не только на итог, а внимательно изучить весь текст мотивировочной части каждого решения, то проступает то, чего за сухой статистикой судебной картотеки не разглядеть. Суд первым делом устанавливает украинское гражданство хозяина квартиры — раньше любого факта о самой недвижимости, — а его бегство из родного города, который российская армия в это время стирала с лица земли, трактует как добровольный отказ от собственного жилья. Дальше исход дела становится уже чистой формальностью. Тот же самый суд, рассматривая дело хозяина, который может предъявить российский паспорт или лично заявляет о своих правах через оккупационные инстанции, основываясь на аналогичных фактах приходит к прямо противоположному выводу.</p>
+        <div class="sp-quotes">
+          <div class="sq">
+            <p class="q">«Факт оплаты таких услуг иным лицом вместо собственника сам по себе не свидетельствует о выполнении собственником обязанностей, связанных с бременем содержания своего имущества.»</p>
+            <p class="a">— Дело №33-2769/2025. В материалах того же дела фигурируют оплаченные и не имеющие задолженности счета за газ, воду и коммунальные услуги, внесённые представителем собственницы. Квартиру всё равно изымают: оплата счетов, постановил суд, не учитывается, если заявитель внёс её не лично.</p>
+          </div>
+          <div class="sq">
+            <p class="q">«Само по себе выявление лиц, претендующих на признание за ними права на имущество, не свидетельствует о наличии спора.»</p>
+            <p class="a">— То же самое дело. Письменное заявление хозяйки жилья о том, что она не отказывается от своей квартиры, признаётся не порождающим никакого спора о праве. В других делах той же картотеки появление претендента — это именно то, что такой спор создаёт и спасает имущество; но мариупольских беженцев попросту вычёркивают из реальности.</p>
+          </div>
+          <div class="sq">
+            <p class="q">«…намерение… воспрепятствовать передачи такого имущества в собственность государства в обход действующего в переходный период законодательства.»</p>
+            <p class="a">— Дела №33-2769/2025 и №33-1509/2025, те же формулировки слово в слово. Наследник, защищающий собственную квартиру, прямым текстом объявляется тем, кто «препятствует передаче имущества государству». Цель не нужно домысливать — суд называет её сам.</p>
+          </div>
+        </div>
+        <div class="cs-stats">
+          <div class="csstat hot"><div class="n">5</div><div class="l">мариупольских апелляций, где эта доктрина изложена целиком и письменно</div></div>
+          <div class="csstat"><div class="n">4 / 5</div><div class="l">дел с одним и тем же судьёй в составе коллегии — Бескровная Елена Леонидовна</div></div>
+          <div class="csstat hot"><div class="n">0</div><div class="l">выигранных апелляций во всей картотеке, несущих хоть один признак этой доктрины</div></div>
+          <div class="csstat"><div class="n">1</div><div class="l">гражданка Украины, которая имущественный спор выиграла — заявив права на свою собственность через российское консульство за границей</div></div>
+        </div>
+        <div class="cs-chain">
+          <span class="chain-pill">Сначала устанавливается гражданство</span><span class="chain-sep">&rarr;</span>
+          <span class="chain-pill hot">Бегство из осаждённого города истолковывается как отказ от собственного жилья</span><span class="chain-sep">&rarr;</span>
+          <span class="chain-pill">Оплаченные счета и заявленные права не учитываются</span><span class="chain-sep">&rarr;</span>
+          <span class="chain-pill hot">Имущество переходит к оккупанту</span>
+        </div>
+        <p style="font-family:var(--font-mono);font-size:10.5px;color:var(--muted);margin-top:.9rem">Источник: полный текст мотивировочной части опубликованных апелляций Верховного суда «ДНР» по делам о «бесхозяйном» имуществе (дела №33-2342/2025, 33-2769/2025, 33-2875/2025, 33-1873/2025, 33-1509/2025; контрольное дело №33-526/2026), материалы собраны и хэшированы с vs--dnr.sudrf.ru. Выводы сделаны исключительно по материалам конкретных опубликованных дел.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 provenance -->
+  <section>
+    <div class="eyebrow">07 &middot; Происхождение данных</div>
     <h2>Источники</h2>
     <p>Каждая цифра на этой странице приведена напрямую из структурированного
       набора судебных дел в базе данных проекта, собранной по стандартной практике хранения цепочки доказательств (хэш SHA-256 и
