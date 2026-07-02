@@ -19,6 +19,8 @@ _MIME_EXT: dict[str, str] = {
     "application/json": ".json",
     "application/vnd.ms-excel": ".xls",
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": ".xlsx",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ".docx",
+    "application/msword": ".doc",
     "application/zip": ".zip",
     "application/x-zip-compressed": ".zip",
     "image/jpeg": ".jpg",

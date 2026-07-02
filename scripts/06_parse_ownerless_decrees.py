@@ -317,6 +317,154 @@ def _rows_from_text(text: str, source_sha256: str) -> list[dict]:
     return out
 
 
+# ── removal-decree ("исключение из Реестра") table parsing ────────────────────
+# Removal-decree annexes use a DIFFERENT column layout than designation
+# annexes (no rosreestr_order_ref "basis" column; instead: designation date +
+# cadastral + a "дата снятия с кадастрового учета" placeholder column that's
+# usually unfilled boilerplate, not a real date). Forcing these through
+# _row_from_cells (tuned for the 7-col designation layout) silently
+# misaligned columns and produced ~98% address_raw=="г." garbage (found
+# 2026-07-02 while cross-checking a bezkhoz-list differential — see
+# docs/legal_mechanisms_review.md). pdfplumber's extract_text() renders each
+# annex row as 3 physical lines:
+#   L1: "{seq} {type} г. Мариуполь, {area} {designation_date} {cadastral} дата снятия"
+#   L2: "{street}, д.{house}[, кв.{apt}] с кадастрового"
+#   L3: "учета"
+# seq_no is frequently OCR-misread as "|" (vertical bar) or other junk on
+# handwritten/scanned tables -- it is NOT used as the record's seq_no (would
+# collide); rows are numbered by parse order within the decree instead.
+_REMOVAL_L1 = re.compile(
+    r"^\S+\s+(\S+)\s+"              # seq_no (ignored) + property_type
+    r"г\.\s*Мариуполь,?\s*"         # city field
+    r"([\d,\.]+)\s+"                # area_sqm
+    r"(\d{2}\.\d{2}\.\d{4})\s+"    # designation date ("дата постановки на учет")
+    r"(93:\s?\d+:\s?\d+:\s?\d+)"    # cadastral number
+    r"\s+дата",                     # start of the "дата снятия..." placeholder
+    re.I,
+)
+_REMOVAL_L2 = re.compile(
+    r"^((?:ул|пр|просп|пр-кт|б-р|бул|пер|мкр)\S*\.?\s+.+?),?\s*"
+    r"д\.\s*(\S+?)(?:,\s*кв\.\s*(\S+))?\s*с\s+кадастрового\s*$",
+    re.I,
+)
+
+
+def _rows_from_removal_text(text: str, source_sha256: str) -> list[dict]:
+    """Parse the 3-line-per-entry OCR text from removal-decree ("исключение
+    из Реестра") annexes -- see _REMOVAL_L1/_REMOVAL_L2 above."""
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    out: list[dict] = []
+    seq = 0
+    i = 0
+    while i < len(lines):
+        m1 = _REMOVAL_L1.match(lines[i])
+        if m1 and i + 1 < len(lines):
+            m2 = _REMOVAL_L2.match(lines[i + 1])
+            if m2:
+                seq += 1
+                prop_type = m1.group(1).strip()
+                area = _coerce_area(m1.group(2))
+                designation_date = _parse_dot_date(m1.group(3))
+                cad = _clean_cadastral(m1.group(4))
+                street = m2.group(1).strip()
+                house = m2.group(2).strip()
+                apt = m2.group(3).strip() if m2.group(3) else None
+                address = f"{street}, д.{house}" + (f", кв.{apt}" if apt else "")
+
+                flags, conf = _row_flags(address, cad, area)
+                out.append({
+                    "source_sha256": source_sha256,
+                    "seq_no": seq,
+                    "property_type": prop_type,
+                    "address_raw": address,
+                    "area_sqm": area,
+                    "rosreestr_order_ref": None,
+                    "rosreestr_order_date": None,
+                    "rosreestr_reg_date": designation_date,
+                    "cadastral_number": cad,
+                    "flags": flags,
+                    "row_confidence": round(max(0.0, conf - 0.2), 2),
+                })
+                i += 1  # consumed L2; L3 ("учета") falls through on next iter
+        i += 1
+    return out
+
+
+# Removal reason: classified from the decree's own preamble ("На основании
+# ..."), NOT assumed. Found 2026-07-02 that removal decrees are near-
+# universally OWNER/HEIR RECLAIM events (title documents surfaced, an
+# inheritance case opened, or a court/enforcement order in the owner's favor)
+# -- i.e. the bezkhoz procedure was HALTED, not completed. This corrects an
+# earlier working assumption ("removal = transfer consummated") that turned
+# out backwards; see docs/legal_mechanisms_review.md for the correction and
+# the sampled decree evidence.
+_REMOVAL_REASON_PATTERNS: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"наследственн\w+\s+дел", re.I), "heir_inheritance_case"),
+    (re.compile(r"документ\w*,?\s*подтвержда\w+\s+право\s+собственности", re.I),
+     "owner_title_documents"),
+    (re.compile(r"исполнительн\w+\s+лист", re.I), "court_enforcement_writ"),
+    (re.compile(r"возбужден\w+\s+исполнительн\w+\s+производств", re.I),
+     "enforcement_proceeding"),
+    (re.compile(r"справки\s+нотариальной\s+палаты", re.I), "notary_chamber_certificate"),
+]
+
+
+# Single-property removal decrees (heir/notary/enforcement-writ reasons) have
+# NO annex table at all -- the one property is named inline in the decree
+# body, e.g. "недвижимое имущество, расположенное по адресу: ... улица
+# Карпинского, дом 37А, квартира 9" and/or "кадастровый номер 93:37:...,
+# расположенное по адресу: ...". Found 2026-07-02 alongside the multi-row
+# annex fix above -- _rows_from_removal_text returns [] for these by design
+# (no annex to parse), so this is a separate single-record extractor used as
+# a fallback.
+_REMOVAL_SINGLE_ADDR = re.compile(
+    r"по\s+адресу:.{0,120}?улица\s+([А-ЯЁа-яё0-9№\-\s]+?),\s*дом\s+(\S+?),"
+    r"(?:\s*квартира\s+(\S+))?",
+    re.S | re.I,
+)
+_REMOVAL_SINGLE_TYPE = re.compile(r"жилое помещение|квартир\w+|дом\w*", re.I)
+
+
+def _single_property_from_removal_text(text: str, source_sha256: str) -> list[dict]:
+    m = _REMOVAL_SINGLE_ADDR.search(text)
+    if not m:
+        return []
+    street = f"улица {m.group(1).strip()}"
+    house = m.group(2).strip().rstrip(",")
+    apt = m.group(3).strip().rstrip(",") if m.group(3) else None
+    address = f"{street}, д.{house}" + (f", кв.{apt}" if apt else "")
+    cad = None
+    cm = _CADASTRAL.search(text)
+    if cm:
+        cad = _clean_cadastral(cm.group(0))
+    tm = _REMOVAL_SINGLE_TYPE.search(text)
+    prop_type = tm.group(0) if tm else None
+    flags, conf = _row_flags(address, cad, 0)  # area never given inline -> always flagged
+    flags = [f for f in flags if f != "area_missing"] or flags  # keep area_missing; it's genuinely absent
+    return [{
+        "source_sha256": source_sha256,
+        "seq_no": 1,
+        "property_type": prop_type,
+        "address_raw": address,
+        "area_sqm": None,
+        "rosreestr_order_ref": None,
+        "rosreestr_order_date": None,
+        "rosreestr_reg_date": None,
+        "cadastral_number": cad,
+        "flags": flags,
+        "row_confidence": round(max(0.0, conf - 0.1), 2),  # single-record body extraction, slightly lower than annex
+    }]
+
+
+def _classify_removal_reason(text: str) -> str:
+    m = re.search(r"На основании.{0,300}", text, re.S)
+    basis = m.group(0) if m else text[:300]
+    for pattern, label in _REMOVAL_REASON_PATTERNS:
+        if pattern.search(basis):
+            return label
+    return "unclassified"
+
+
 # Text-position table settings — infer columns from text alignment, not lines.
 _TEXT_TABLE_SETTINGS = {
     "vertical_strategy": "text",
@@ -324,12 +472,45 @@ _TEXT_TABLE_SETTINGS = {
     "snap_tolerance": 4,
 }
 
+# Off-topic-decree gate. `ownerless_lists.py`'s "procedure" classifier matches
+# any "О внесении изменений..." title (a generic amendment pattern, needed to
+# catch genuine amendments to the bezkhoz procedure/commission acts) and the
+# curated cur_cc=7767 section crawl also sweeps in "unknown"-kind pages whose
+# title matched none of the strict bezkhoz patterns. Both of those buckets can
+# and do contain decrees that are NOT about the ownerless-property registry at
+# all — e.g. decree found 2026-07-02 titled "О внесении изменений в
+# постановление... «Об утверждении перечня мероприятий... капитального
+# ремонта общего имущества в многоквартирных домах...»" (a capital-repair
+# program amendment) got matched by the generic procedure pattern and its
+# repair-cost-estimate table (Общая площадь / Стоимость капитального ремонта /
+# Плановая дата — a different schema entirely) was force-mapped into the
+# bezkhoz row schema (type/address/area/cadastral), producing nonsense rows
+# ("сатоола", "обадевт", no address, no cadastral).
+#
+# designation/removal decree_kinds are exempt from this gate — their titles
+# are already strictly matched against "признани...бесхозяйн" /
+# "включени/исключени...реестр" by ownerless_lists.py, so by construction they
+# ARE about the bezkhoz registry. For procedure/unknown/demolition_declaration
+# kinds (looser or unrelated-by-design title matches), only attempt table
+# extraction if "бесхозя" actually appears in the decree's own title or OCR
+# text — a cheap, high-precision confirmation the annex is even plausibly a
+# property list, applied before spending effort on table-shape heuristics.
+_BEZKHOZ_ROOT = re.compile(r"бесхозя", re.I)
+_EXEMPT_KINDS = {"designation", "removal"}
 
-def parse_decree_pdf(pdf_path: Path, source_sha256: str, title: str = "") -> list[dict]:
+
+def _looks_bezkhoz(title: str, text: str) -> bool:
+    return bool(_BEZKHOZ_ROOT.search(title) or _BEZKHOZ_ROOT.search(text))
+
+
+def parse_decree_pdf(pdf_path: Path, source_sha256: str, title: str = "",
+                      decree_kind: str = "") -> list[dict]:
     """Extract all property rows from an OCR'd decree-annex PDF.
 
     Tries line-based tables, then text-position tables, then a text fallback.
-    Returns [] only if the PDF genuinely has no recoverable text (OCR failed).
+    Returns [] if the PDF genuinely has no recoverable text (OCR failed), or
+    if decree_kind isn't designation/removal and neither the title nor the
+    OCR text mentions бесхозя — see _looks_bezkhoz above.
     """
     rows: list[dict] = []
     full_text_parts: list[str] = []
@@ -339,6 +520,40 @@ def parse_decree_pdf(pdf_path: Path, source_sha256: str, title: str = "") -> lis
         for page in pdf.pages:
             full_text_parts.append(page.extract_text() or "")
 
+    full_text_probe = "\n".join(full_text_parts)
+    if decree_kind not in _EXEMPT_KINDS and not _looks_bezkhoz(title, full_text_probe):
+        log.info("%s: skipped — decree_kind=%s and no 'бесхозя' in title/text "
+                  "(off-topic decree swept in by a loose title match, not a "
+                  "bezkhoz registry annex): %s",
+                  pdf_path.name, decree_kind or "?", (title or "")[:100])
+        return []
+
+    if decree_kind == "removal":
+        # Removal annexes never match the designation-tuned cell layout --
+        # go straight to the dedicated 3-line text parser (see
+        # _rows_from_removal_text above).
+        rows = _rows_from_removal_text(full_text_probe, source_sha256)
+        strategy_used = "removal_text" if rows else "none"
+        if not rows:
+            rows = _single_property_from_removal_text(full_text_probe, source_sha256)
+            strategy_used = "removal_single_property" if rows else "none"
+        full_text = full_text_probe
+        decree_meta = _parse_title_meta(title) if title else {}
+        decree_meta.update(_extract_decree_meta(full_text))
+        decree_meta["removal_reason"] = _classify_removal_reason(full_text)
+        for row in rows:
+            row.update(decree_meta)
+            row["extract_strategy"] = strategy_used
+        clean = sum(1 for r in rows if not r["flags"])
+        log.info("%s: %d rows (%d claim-grade) via %s — decree №%s, %s, reason=%s",
+                  pdf_path.name, len(rows), clean, strategy_used,
+                  decree_meta.get("decree_number", "?"),
+                  decree_meta.get("decree_date", "?"),
+                  decree_meta.get("removal_reason"))
+        return rows
+
+    with pdfplumber.open(pdf_path) as pdf:
+        for page in pdf.pages:
             page_rows: list[dict] = []
             # (1) line-based tables
             for table in page.extract_tables() or []:
@@ -517,8 +732,12 @@ def main() -> None:
             if not p.exists():
                 log.error("OCR file missing: %s", raw_path)
                 continue
+            decree_kind = (
+                source_type.replace("ownerless_decree_", "")
+                           .replace("_ocr_pdf", "")
+            )
             try:
-                rows = parse_decree_pdf(p, ocr_sha, title=title)
+                rows = parse_decree_pdf(p, ocr_sha, title=title, decree_kind=decree_kind)
             except Exception:
                 log.exception("failed to parse %s", raw_path)
                 continue
@@ -526,10 +745,7 @@ def main() -> None:
                 # Chain of custody: OCR artifact + its parent raw scan + kind.
                 row["source_sha256"] = ocr_sha
                 row["raw_scan_sha256"] = parent_sha
-                row["decree_kind"] = (
-                    source_type.replace("ownerless_decree_", "")
-                               .replace("_ocr_pdf", "")
-                )
+                row["decree_kind"] = decree_kind
                 _apply_known_ocr_corrections(row)
                 if not row["flags"]:
                     claim_grade += 1

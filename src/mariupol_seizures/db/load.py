@@ -746,6 +746,112 @@ def load_ownerless_decrees(jsonl: str = "data/parsed/ownerless_decrees.jsonl") -
           f"{skipped_addr} unparseable address, {skipped_prop} no matching property)")
 
 
+def load_ownerless_removals(jsonl: str = "data/parsed/ownerless_decrees.jsonl") -> None:
+    """Load removal-decree rows (decree_kind='removal', row_confidence >= 0.8)
+    as seizure_event(stage='reclaim') events -- the REVERSAL counter-signal:
+    a living owner/heir surfaced with proof of title and the administration
+    struck the unit from the ownerless register (Закон ДНР №66-РЗ). See the
+    'reclaim' comment in db/schema.sql.
+
+    ATTACH-TO-EXISTING ONLY: a reclaim is only loaded when the property is
+    already on the spine (i.e. we independently recorded a seizure-forward
+    event or building for it). We deliberately do NOT create a new property
+    row for a reclaim we've never otherwise seen -- that would inflate the
+    building-level spine count with reversal-only rows and blur what
+    "properties on spine" means (docs/STATS.md). Rows for off-spine buildings
+    are skipped and counted. Idempotent via dedup_key."""
+    path = Path(config.PROJECT_ROOT / jsonl)
+    if not path.exists():
+        raise SystemExit(f"{path} not found — run scripts/06_parse_ownerless_decrees.py first.")
+
+    con = psycopg2.connect(config.DATABASE_URL)
+    cur = con.cursor()
+    loaded = skipped_kind = skipped_conf = skipped_addr = skipped_offspine = 0
+
+    with path.open(encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            d = json.loads(line)
+            if d.get("decree_kind") != "removal":
+                skipped_kind += 1
+                continue
+            if d.get("row_confidence", 0) < 0.8:
+                skipped_conf += 1
+                continue
+
+            addr = strip_garbage_prefix(norm_commas(d.get("address_raw") or ""))
+            parts = [p.strip() for p in addr.split(",")]
+            street = parts[0] if parts else None
+            house = None
+            for p in parts[1:]:
+                if re.match(r"д\.?\s*\d", p, re.I):
+                    house = p
+                    break
+            building_id = address_to_building_key(street, house)
+            if building_id is None:
+                skipped_addr += 1
+                continue
+
+            cur.execute("SELECT id FROM property WHERE building_id = %s", (building_id,))
+            row = cur.fetchone()
+            if not row:
+                # reclaim of a unit we never otherwise recorded — skip, don't
+                # create a spine row for a reversal (see docstring).
+                skipped_offspine += 1
+                continue
+            property_id = row[0]
+
+            source_doc_id = _upsert_source_doc_by_sha(cur, d.get("source_sha256"))
+            actor_id = _upsert_actor(cur, d.get("signing_official"), "signing_official", None)
+
+            dedup_key = f"ownerless_removals:{d['source_sha256']}:{d['seq_no']}"
+            detail = {
+                "source": "ownerless_removals",
+                "decree_number": d.get("decree_number"),
+                "decree_kind": "removal",
+                "removal_reason": d.get("removal_reason"),
+                "cadastral_number": d.get("cadastral_number"),
+                "property_type": d.get("property_type"),
+                "area_sqm": d.get("area_sqm"),
+                "address_raw": d.get("address_raw"),
+            }
+            cur.execute(
+                """INSERT INTO seizure_event
+                       (property_id, stage, event_date, source_doc_id, confidence, detail, dedup_key)
+                   VALUES (%s, 'reclaim'::seizure_stage, %s, %s, %s, %s, %s)
+                   ON CONFLICT (dedup_key) DO UPDATE
+                       SET event_date    = EXCLUDED.event_date,
+                           source_doc_id = EXCLUDED.source_doc_id,
+                           confidence    = EXCLUDED.confidence,
+                           detail        = EXCLUDED.detail
+                   RETURNING id""",
+                (property_id, d.get("decree_date"), source_doc_id,
+                 d.get("row_confidence"), json.dumps(detail, ensure_ascii=False), dedup_key),
+            )
+            event_id = cur.fetchone()[0]
+
+            if actor_id:
+                cur.execute(
+                    """INSERT INTO event_actor (seizure_event_id, actor_id)
+                       VALUES (%s, %s) ON CONFLICT DO NOTHING""",
+                    (event_id, actor_id),
+                )
+
+            loaded += 1
+
+    con.commit()
+    cur.close()
+    con.close()
+    log.info("load_ownerless_removals: %d reclaim events, skipped %d non-removal kind, "
+             "%d low-confidence, %d unparseable address, %d off-spine (no existing property)",
+             loaded, skipped_kind, skipped_conf, skipped_addr, skipped_offspine)
+    print(f"load_ownerless_removals: {loaded} reclaim events "
+          f"(skipped: {skipped_conf} low-confidence, {skipped_addr} unparseable address, "
+          f"{skipped_offspine} off-spine)")
+
+
 def load_ownerless_registry(jsonl: str = "data/parsed/ownerless_registry.jsonl") -> None:
     """Load ownerless_registry.jsonl rows (row_confidence >= 0.8) as
     seizure_event(stage='registry_inclusion') rows. Per the Dec-2025 ФКЗ-4

@@ -607,8 +607,14 @@ window. The one nuance the OCR pass surfaces: two removal decrees are dated
 9 June 2026 — three days *after* mariupol_nash's last designation batch — so
 the freeze appears specific to **new designations** (the front end of the
 pipeline that mariupol_nash and the registry XLSX both track), not to
-**removals** (the back end, transfer-consummation), which may still be
-processing previously-designated cases. Neither source explains *why* new
+**removals**, which kept flowing. (NB: a 2026-07-02 re-parse corrected what
+removals *are* — they are owner/heir **reclaims** reversing a designation, not
+"transfer-consummation" as originally assumed here; see
+`docs/legal_mechanisms_review.md` [A] and
+`memory/lifecycle_completion_removal_decrees.md`. The observation stands —
+reclaims continued while new designations stopped — but read it as the
+reversal channel staying open, not the back end of a seizure completing.)
+Neither source explains *why* new
 designations stopped. Candidate explanations — administrative pause ahead of
 the 1 July transition, a backlog being held for a post-deadline bulk release,
 an unrelated publication outage — are all unverified speculation; this section

@@ -88,10 +88,20 @@ CREATE TABLE IF NOT EXISTS owner (
 -- the eventual 'registry_inclusion'/'court_transfer' (the conversion act).
 -- Added 2026-06-29; no dated per-property records loaded yet (the decree is
 -- a procedural framework, not a named list) -- reserved for when one is found.
+-- 'reclaim' = a REVERSAL, not a seizure: the administration struck a unit from
+-- the ownerless register because a living owner/heir surfaced with proof of
+-- title ("О снятии с учёта..."/"Об исключении... из Реестра", under Закон ДНР
+-- №66-РЗ 21.03.2024). The counter-signal to the whole pipeline -- kept on the
+-- spine ONLY where the property already carries a seizure-forward event, so a
+-- designated-then-reclaimed unit reads as knowing dispossession that was later
+-- undone. Isolated from every seizure analytic (RD4U categorization, STATS
+-- seizure counts) by never appearing in their explicit stage sets. Added
+-- 2026-07-02 (ALTER TYPE migration below; loader load_ownerless_removals()).
 CREATE TYPE seizure_stage AS ENUM (
     'utility_cutoff', 'notice', 'inspection', 'ownerless_designation',
     'demolition', 'court_petition', 'court_transfer', 'appeal', 'entered_force',
-    'reallocation', 'resale', 'registry_inclusion', 'expropriation', 'temporary_use'
+    'reallocation', 'resale', 'registry_inclusion', 'expropriation',
+    'temporary_use', 'reclaim'
 );
 
 CREATE TABLE IF NOT EXISTS seizure_event (
@@ -113,6 +123,10 @@ CREATE TABLE IF NOT EXISTS seizure_event (
 -- NOT EXISTS above is a no-op, so the new column needs its own idempotent
 -- migration statement:
 ALTER TABLE seizure_event ADD COLUMN IF NOT EXISTS unit_id BIGINT REFERENCES unit(id) ON DELETE SET NULL;
+-- Enum values added after the original CREATE TYPE need their own idempotent
+-- migration for pre-existing deployments (CREATE TYPE above is a no-op once the
+-- type exists). ADD VALUE IF NOT EXISTS is PG 12+ and safe outside a txn block.
+ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'reclaim';
 CREATE INDEX IF NOT EXISTS seizure_event_prop_ix ON seizure_event(property_id);
 CREATE INDEX IF NOT EXISTS seizure_event_stage_ix ON seizure_event(stage);
 CREATE INDEX IF NOT EXISTS seizure_event_unit_ix ON seizure_event(unit_id) WHERE unit_id IS NOT NULL;

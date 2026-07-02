@@ -135,7 +135,7 @@ personally signed by Д.В. Пушилин (as Глава or Врио Главы
 **Tenure summary:**
 - **Иващенко К.В.**: 06.04.2022 → 22.01.2023 (~9.5 months) — signed Распоряжение №61 (03.11.2022) during this term.
 - **Моргун О.В.**: 23.01.2023 → 06.11.2023 as глава администрации, then 06.11.2023 → 12.06.2025 as врио главы МО ГО Мариуполь (~2.5 years total) — accounts for his 156 ownerless decrees.
-- **Кольцов А.В.**: врио главы МО ГО Мариуполь from 13.06.2025 — **current head** as of 2026-06-12. His 652/968 ownerless + 16/20 demolition decrees, signed in under a year, show a sharply accelerated signing rate vs. Моргун's 156 over 2.5 years — corroborates [[lifecycle_completion_removal_decrees]]'s independent "accelerating" finding (9 снятие-с-учёта decrees found 2026-03→06).
+- **Кольцов А.В.**: врио главы МО ГО Мариуполь from 13.06.2025 — **current head** as of 2026-06-12. His 652/968 ownerless + 16/20 demolition decrees, signed in under a year, show a sharply accelerated signing rate vs. Моргун's 156 over 2.5 years. He signs both *designation* and *reclaim* («снятие с учёта») decrees; note the reclaim decrees are owner/heir reversals of designation, not seizure completions (corrected 2026-07-02, see [[lifecycle_completion_removal_decrees]]) — so his signing throughput spans both directions of the register.
 
 This closes "Known gaps / next steps" item 1 below: the command chain is now
 fully dated and primary-sourced — **Пушилин (apex, every appointment + every

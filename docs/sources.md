@@ -16,7 +16,9 @@ All sources used across the project's research: burial sites catalogue, case stu
 - Normative acts portal: <https://нпа.днронлайн.рф>
 - Regional law portal: <https://pravo.region80.ru>
 
-**Mariupol ownerless-property decrees (постановления о бесхозяйном имуществе)** — 968 decrees captured from the Mariupol городское управление юстиции portal; signatories include Кольцов А.В. (652), Моргун О.В. (156), Дмитриев А.В. (55).
+**Mariupol ownerless-property decrees (постановления о бесхозяйном имуществе)** — 968 decrees captured from the Mariupol городское управление юстиции portal; signatories include Кольцов А.В. (652), Моргун О.В. (156), Дмитриев А.В. (55). Two kinds carry per-property lists: *designation* decrees («О признании… бесхозяйными и включении в Реестр») and *removal/reclaim* decrees («О снятии с учёта…» / «Об исключении… из Реестра», Закон ДНР №66-РЗ). The removal set (40 decrees, 208 rows, re-parsed 2026-07-02) is the pipeline's **reversal** signal — living owners/heirs surfacing with title proof, or, in one case, winning a court challenge (Ильичевский суд, дело №2а-916/2025) — not a seizure-completion endpoint; residential-only. Portal geoblocked; captured via `scripts/05`. See `docs/legal_mechanisms_review.md` [A] and `memory/lifecycle_completion_removal_decrees.md`.
+
+**@nmrpl — «Официальный телеграм-канал Администрации ГО Мариуполь»** — the Mariupol city-district administration's official Telegram channel (<https://t.me/nmrpl>). Text-only crawl 2026-07-02 (`scripts/234`, 45,068 messages); 39 document attachments pulled (`scripts/232`/`233`). Primary source for the dated bezkhoz-candidate list series (earliest snapshot `ИЖС_бесхоз_Мариуполь.xlsx`, 27.03.2023 — the earliest bezkhoz document found anywhere in the project) plus a distinct industrial/commercial-sites bezkhoz track. Does **not** carry the individually-signed «Постановление Администрации №XXX» decree PDFs — those are exclusive to mariupol.gosuslugi.ru (`scripts/05`).
 
 **Mariupol ownerless registry (ФКЗ-4 master list)** — 12,948-entry registry-as-title list across four Mariupol district courts.
 

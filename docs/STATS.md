@@ -6,15 +6,15 @@
 
 | Metric | Value |
 |---|---|
-| Properties on spine | **11,741** |
-| — uncategorized (RD4U) | 217 |
+| Properties on spine | **11,811** |
+| — uncategorized (RD4U) | 287 |
 | Distinct apartment-level units (ownerless registry) | 11,951 |
 | Legal-grade (≥2 independent source families) | **1,156** |
 | Court-island properties (single-source, court only) | 8,303 |
-| No-source properties | 128 |
+| No-source properties | 198 |
 | Corroboration rows | 12,170 |
-| Seizure-event rows (all stages) | 29,686 |
-| Source-document rows (DB-registered, chain of custody) | 8,660 |
+| Seizure-event rows (all stages) | 29,882 |
+| Source-document rows (DB-registered, chain of custody) | 8,679 |
 | Distinct courts represented in source_document | 26 |
 
 `property` is the building-level spine (geocoding, corroboration, RD4U categorization, presentation); `unit` is an additive apartment-level layer underneath it, populated only from the ownerless registry (the one source that's genuinely apartment-level — every row carries an apartment number). A single `property` row can have many `unit` rows; this does not change what "Properties on spine" means above.
@@ -28,6 +28,7 @@
 | court_transfer | 7,052 |
 | ownerless_designation | 604 |
 | demolition | 540 |
+| reclaim | 196 |
 | appeal | 143 |
 | reallocation | 83 |
 | expropriation | 13 |
@@ -36,8 +37,8 @@
 
 | Metric | Value |
 |---|---|
-| Raw artifact files (excl. `.meta.json` sidecars) | **372,801** |
-| Disk size | **141G** |
+| Raw artifact files (excl. `.meta.json` sidecars) | **563,319** |
+| Disk size | **91G** |
 
 Note the gap between this and `source_document` above: the raw store is append-only and holds *everything ever captured*; `source_document` is the subset formally loaded into Postgres with a chain-of-custody link. Historical figures like "39,061 raw artifacts" or "211,900 registered artifacts" in older docs were accurate at an earlier snapshot — they are not current and should be replaced with the figures above on next revision of those docs.
 
