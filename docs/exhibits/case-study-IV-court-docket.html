@@ -126,6 +126,25 @@
     letter-spacing:.04em;line-height:1.6;margin:.6rem 0 0;max-width:72ch}
   .fio{display:block;font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-top:1px}
 
+  .cs{margin:1.8rem 0 0;padding:1.4rem 1.5rem;border:1px solid var(--rail);border-left:4px solid var(--stamp);background:rgba(255,255,255,.02);border-radius:6px}
+  .cs.no-stamp{border-left:none}
+  .cs-body > p{max-width:72ch}
+  .cs-kicker{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 .7rem}
+  .cs-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,2.6vw,1.7rem);letter-spacing:-.02em;color:var(--paper);margin:0 0 .9rem;line-height:1.1}
+  .cs-stats{display:flex;flex-wrap:wrap;gap:1.2rem 1.4rem;margin:1.3rem 0}
+  .csstat{flex:1;min-width:170px}
+  .csstat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;letter-spacing:-.02em;color:var(--paper);line-height:.9}
+  .csstat.hot .n{color:var(--evidence)}
+  .csstat .l{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;max-width:18ch;line-height:1.4}
+  .cs-chain{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:1.3rem 0 0}
+  .chain-pill{font-family:var(--font-mono);font-size:10.5px;color:var(--paper-dim);background:var(--ink-3);border:1px solid var(--rail);border-radius:3px;padding:.28rem .55rem;white-space:nowrap}
+  .chain-pill.hot{border-color:var(--evidence-dim);color:var(--evidence)}
+  .chain-sep{color:var(--muted)}
+  .sp-quotes{padding:0 1.2rem 1.2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+  .sq{border-left:2px solid var(--stamp);padding:.3rem 0 .3rem 1rem}
+  .sq .q{font-family:var(--font-serif);font-style:italic;font-size:1rem;line-height:1.4;color:var(--paper);margin:0 0 .6rem}
+  .sq .a{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.04em;color:var(--muted);line-height:1.55;margin:0}
+
   .bars{display:flex;align-items:flex-end;gap:.5rem;height:140px;margin-top:1.6rem;
     padding:0 .2rem;border-bottom:1px solid var(--rail)}
   .bars .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
@@ -328,7 +347,7 @@
       institutional parties, and a result. It does not list what was taken.</p>
     <span class="src">Source: mar-zhovt&ndash;&ndash;dnr.sudrf.ru case-card portal,
       case_uid c33e847b-2167-4ecd-b0d6-471090c7efd3, captured 08.06.2026 &mdash;
-      hash on file, see Provenance &sect;06.</span>
+      hash on file, see Provenance &sect;07.</span>
   </section>
 
   <!-- 03 -->
@@ -355,7 +374,7 @@
       instance where the underlying reason was visible at all.</p>
     <span class="src">Source: mar-zhovt&ndash;&ndash;dnr.sudrf.ru case-card portal,
       case_uid aed20aff-85c4-4069-90ec-8c1c453164c0, captured 08.06.2026 &mdash;
-      hash on file, see Provenance &sect;06.</span>
+      hash on file, see Provenance &sect;07.</span>
   </section>
 
   <!-- 04 -->
@@ -433,9 +452,69 @@
       registry that has absorbed the function since.</p>
   </section>
 
-  <!-- 06 provenance -->
+  <!-- 06 appellate -->
   <section>
-    <div class="eyebrow">06 &middot; Provenance</div>
+    <div class="cs reveal no-stamp">
+      <div class="cs-body">
+        <p class="cs-kicker" style="margin-top:1.8rem">On appeal: the doctrine, in writing</p>
+        <p class="cs-title">Appeals to the DNR Supreme Court</p>
+        <p>A losing party at first instance can appeal to the DNR Supreme Court. Reading the full
+          reasoning text of those appeals &mdash; not just their outcomes &mdash; surfaces something the
+          docket-level statistics above cannot: a written doctrine. The court establishes a Mariupol
+          owner&rsquo;s Ukrainian citizenship first, before any fact about the property, then reads her
+          flight from the siege of her own city back to her as <em>voluntary abandonment</em> of her
+          home. From there the result is a formality. The same court, ruling on owners who can
+          document Russian citizenship or who personally assert their claim through occupation
+          channels, reaches the opposite outcome on the same facts.</p>
+        <div class="sp-quotes">
+          <div class="sq">
+            <p class="q">&ldquo;Факт оплаты таких услуг иным лицом вместо собственника сам по себе не
+              свидетельствует о выполнении собственником обязанностей, связанных с бременем содержания
+              своего имущества.&rdquo;</p>
+            <p class="a">&mdash; Ruling 33-2769/2025. The court&rsquo;s own file shows gas, water and communal
+              accounts paid and current, by the owner&rsquo;s representative. It seizes the flat anyway &mdash;
+              paying your bills, it holds, doesn&rsquo;t count if you didn&rsquo;t pay them in person.</p>
+          </div>
+          <div class="sq">
+            <p class="q">&ldquo;Само по себе выявление лиц, претендующих на признание за ними права на
+              имущество, не свидетельствует о наличии спора.&rdquo;</p>
+            <p class="a">&mdash; Same ruling. An owner coming forward to claim her own home is held, in
+              writing, not to create a legal dispute. Elsewhere in the same docket, a claimant
+              appearing is exactly what triggers a dispute and saves the property &mdash; for Mariupol&rsquo;s
+              displaced, the claimant is read out of existence.</p>
+          </div>
+          <div class="sq">
+            <p class="q">&ldquo;&hellip;намерение&hellip; воспрепятствовать передачи такого имущества в собственность
+              государства в обход действующего в переходный период законодательства.&rdquo;</p>
+            <p class="a">&mdash; Rulings 33-2769/2025 and 33-1509/2025, identical wording. An heir defending
+              his own flat is reframed, by name, as obstructing the transfer of his home to the state.
+              The objective is stated, not inferred.</p>
+          </div>
+        </div>
+        <div class="cs-stats">
+          <div class="csstat hot"><div class="n">5</div><div class="l">Mariupol appeals naming the full doctrine, in writing</div></div>
+          <div class="csstat"><div class="n">4 / 5</div><div class="l">share one judge on the panel &mdash; Yelena Beskrovnaya<br><span style="color:var(--muted);font-weight:400;font-size:.85em">Бескровная Елена Леонидовна</span></div></div>
+          <div class="csstat hot"><div class="n">0</div><div class="l">winning appeals, anywhere in the docket, that share a single doctrine marker</div></div>
+          <div class="csstat"><div class="n">1</div><div class="l">Ukrainian citizen who won &mdash; by asserting her claim through the Russian embassy abroad</div></div>
+        </div>
+        <div class="cs-chain">
+          <span class="chain-pill">Citizenship established first</span><span class="chain-sep">&rarr;</span>
+          <span class="chain-pill hot">Flight from siege read as abandonment</span><span class="chain-sep">&rarr;</span>
+          <span class="chain-pill">Paid bills, asserted claim &mdash; held not to count</span><span class="chain-sep">&rarr;</span>
+          <span class="chain-pill hot">Vested in the occupier, &ldquo;transfer&hellip; to the state&rdquo;</span>
+        </div>
+        <p style="font-family:var(--font-mono);font-size:10.5px;color:var(--muted);margin-top:.9rem">Source:
+          full reasoning text of the DNR Supreme Court&rsquo;s published ownerless-property appeals (case nos.
+          33-2342/2025, 33-2769/2025, 33-2875/2025, 33-1873/2025, 33-1509/2025; control case 33-526/2026),
+          captured and hashed from vs--dnr.sudrf.ru. This is a textual finding, established by direct
+          reading of specific rulings &mdash; not a population-level statistic, and not dependent on one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 provenance -->
+  <section>
+    <div class="eyebrow">07 &middot; Provenance</div>
     <h2>Sourcing</h2>
     <p>Every figure on this page is computed directly from this project&rsquo;s own
       structured court-case dataset, built by capturing each court&rsquo;s public

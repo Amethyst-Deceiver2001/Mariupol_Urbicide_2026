@@ -111,6 +111,21 @@
   .cmp td a{color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)}
   .cmp .sup{font-family:var(--font-mono);font-size:9px;color:var(--muted);vertical-align:super}
 
+  @media(max-width:700px){
+    .cmp-wrap{overflow-x:visible;border:none}
+    .cmp{min-width:0;display:block}
+    .cmp thead{display:none}
+    .cmp tbody,.cmp tr{display:block}
+    .cmp tr{border:1px solid var(--rail);border-radius:5px;margin-bottom:1rem;overflow:hidden}
+    .cmp td{display:block;border-bottom:none;padding:.6rem 1rem}
+    .cmp td:first-child{background:var(--ink-2);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--muted);white-space:normal;padding-bottom:.6rem}
+    .cmp td:not(:first-child){border-top:1px solid var(--rail)}
+    .cmp td:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--font-mono);
+      font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem}
+    .cmp td.ua-cell::before{color:var(--t-ua)} .cmp td.ru-cell::before{color:var(--evidence)}
+  }
+
   .note{font-family:var(--font-mono);font-size:10.5px;line-height:1.6;color:var(--muted);
     border-left:2px solid var(--rail-2);padding-left:.7rem;margin-top:1rem}
 
@@ -350,47 +365,47 @@
         <tbody>
           <tr>
             <td>Proof of ownership</td>
-            <td>Ukrainian title documents and the state property register remain legally valid
+            <td class="ua-cell" data-label="Ukrainian model">Ukrainian title documents and the state property register remain legally valid
               regardless of occupation or displacement.</td>
-            <td>EGRN registration is treated as the <em>only</em> accepted proof of right — a
+            <td class="ru-cell" data-label="Russian occupation model">EGRN registration is treated as the <em>only</em> accepted proof of right — a
               Ukrainian title that was never re-registered in Russian terms is, in practice,
               no proof at all. <span class="sup">Step 2</span></td>
           </tr>
           <tr>
             <td>Multi-family common property</td>
-            <td>Apartment/non-residential owners are by law co-owners of the building's common
+            <td class="ua-cell" data-label="Ukrainian model">Apartment/non-residential owners are by law co-owners of the building's common
               property (Law No.&nbsp;417-VIII art.&nbsp;4).</td>
-            <td>An equivalent concept exists in Russian law, but protection is filtered entirely
+            <td class="ru-cell" data-label="Russian occupation model">An equivalent concept exists in Russian law, but protection is filtered entirely
               through EGRN registration and occupation administrative discretion. <span class="sup">Step 2</span></td>
           </tr>
           <tr>
             <td>Land under the building</td>
-            <td>The land plot and adjoining territory belong to the co-owners; Land Code
+            <td class="ua-cell" data-label="Ukrainian model">The land plot and adjoining territory belong to the co-owners; Land Code
               art.&nbsp;42(5), as amended by Law No.&nbsp;417-VIII, expressly preserves this right
               even if the building is destroyed.</td>
-            <td>Land and housing rights are mediated entirely by Russian registration, occupation
+            <td class="ru-cell" data-label="Russian occupation model">Land and housing rights are mediated entirely by Russian registration, occupation
               classification, and later redistribution to developers or the housing fund. <span class="sup">Steps 3, 5</span></td>
           </tr>
           <tr>
             <td>Citizenship requirement</td>
-            <td>No Russian citizenship is required, or relevant, to keeping Ukrainian title.</td>
-            <td>Russian citizenship — or a special permission process through the DNR Ministry
+            <td class="ua-cell" data-label="Ukrainian model">No Russian citizenship is required, or relevant, to keeping Ukrainian title.</td>
+            <td class="ru-cell" data-label="Russian occupation model">Russian citizenship — or a special permission process through the DNR Ministry
               of Property and Land Relations (MIZO) — is effectively required to protect housing
               from the registration ban, notarization ban, and the personal-appearance rule. <span class="sup">Step 4</span></td>
           </tr>
           <tr>
             <td>Access to remedies</td>
-            <td>Owners may act through Ukrainian legal channels and authorized representatives
+            <td class="ua-cell" data-label="Ukrainian model">Owners may act through Ukrainian legal channels and authorized representatives
               regardless of physical location.</td>
-            <td>Owners are pressured to appear in person, with a Russian passport, inside
+            <td class="ru-cell" data-label="Russian occupation model">Owners are pressured to appear in person, with a Russian passport, inside
               occupied territory within a short published window; a representative's or
               power-of-attorney holder's appearance does not count. <span class="sup">Step 4</span></td>
           </tr>
           <tr>
             <td>End-use after seizure</td>
-            <td>Ukrainian law protects the existing owner's and co-owners' interests; there is no
+            <td class="ua-cell" data-label="Ukrainian model">Ukrainian law protects the existing owner's and co-owners' interests; there is no
               mechanism for third-party reallocation of an occupied unit.</td>
-            <td>Housing is transferred to municipal ownership and then allocated to officials,
+            <td class="ru-cell" data-label="Russian occupation model">Housing is transferred to municipal ownership and then allocated to officials,
               military personnel, public employees, or sold into the subsidized-mortgage market
               for Russian settlers. <span class="sup">Step 5</span> · see
               <a href="dispossession-pipeline.html#card-F">resale (F)</a> and
