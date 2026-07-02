@@ -6,14 +6,14 @@
 
 | Metric | Value |
 |---|---|
-| Properties on spine | **11,811** |
-| — uncategorized (RD4U) | 287 |
+| Properties on spine | **11,813** |
+| — uncategorized (RD4U) | 289 |
 | Distinct apartment-level units (ownerless registry) | 11,951 |
 | Legal-grade (≥2 independent source families) | **1,156** |
 | Court-island properties (single-source, court only) | 8,303 |
-| No-source properties | 198 |
+| No-source properties | 200 |
 | Corroboration rows | 12,170 |
-| Seizure-event rows (all stages) | 29,882 |
+| Seizure-event rows (all stages) | 29,886 |
 | Source-document rows (DB-registered, chain of custody) | 8,679 |
 | Distinct courts represented in source_document | 26 |
 
@@ -28,7 +28,7 @@
 | court_transfer | 7,052 |
 | ownerless_designation | 604 |
 | demolition | 540 |
-| reclaim | 196 |
+| reclaim | 200 |
 | appeal | 143 |
 | reallocation | 83 |
 | expropriation | 13 |

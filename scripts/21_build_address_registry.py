@@ -187,6 +187,28 @@ def _query_variants(row: dict) -> list[str]:
 # " 46" in "ул. 50 лет СССР, 46" or " 72" in "ул. Осипенко 72".
 _TRAILING_HOUSE_RE = re.compile(r"^(.*?)[,\s]+(\S*\d\S*)\s*$")
 
+# damage_assessment "нежилое" rows (street_type/street_name/building_no all
+# null, address only in address_raw) sometimes carry the boilerplate word
+# "дом" (optionally with "№") directly ahead of the house number, and/or a
+# building-letter suffix separated from the number by a space/period, e.g.
+# "ул. Пушкина, дом № 51" or "просп. Ленина, дом  № 84 А." Both defeat
+# _TRAILING_HOUSE_RE's last-token split: the first glues "дом №" onto the
+# street name (produces malformed building_id like "STREET:пушкина, дом
+# №|51" — 19 confirmed rows), the second fails to match at all, silently
+# dropping the row (9 confirmed rows). Found 2026-07-03 while investigating
+# 70 malformed property rows surfaced by that day's load. Fixed by cleaning
+# the address BEFORE the trailing-house split runs, rather than changing
+# that regex's own grammar (other callers rely on its permissiveness for
+# non-нежилое tokens this cleaning step never sees).
+_DOM_BOILERPLATE_RE = re.compile(r"\bдом\.?\s*№?\s*", re.I)
+_SPACED_LETTER_SUFFIX_RE = re.compile(r"(\d)\s+([а-яёА-ЯЁa-zA-Z])\.?\s*$")
+
+
+def _clean_damage_assessment_address(addr: str) -> str:
+    addr = _DOM_BOILERPLATE_RE.sub("", addr)
+    addr = _SPACED_LETTER_SUFFIX_RE.sub(r"\1\2", addr)
+    return addr
+
 
 # "N-Nа"-style combined building numbers in "ХХ квартал" addresses denote TWO
 # separate, adjacent buildings sharing one damage-assessment row (e.g. "27
@@ -223,6 +245,7 @@ def _from_damage_assessment(reg: Registry) -> None:
             # building_no null but carry a parseable address_raw, e.g.
             # "ул. 50 лет СССР, 46" or "ул. Осипенко 72" (no comma).
             addr = norm_commas(d.get("address_raw") or "").strip()
+            addr = _clean_damage_assessment_address(addr)
             m = _TRAILING_HOUSE_RE.match(addr)
             if m:
                 street, house = m.group(1).strip().rstrip(","), m.group(2)
