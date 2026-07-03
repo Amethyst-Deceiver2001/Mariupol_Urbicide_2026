@@ -139,6 +139,13 @@ accountability and are not minimized.
   After adding a source to any exhibit, also add/update its entry in
   `docs/sources.md` — that file is the project's master source list and should
   stay in sync with what's actually cited across exhibits.
+- **No revision-history narration in exhibits.** State facts plainly, as they
+  are — never "this corrects/refutes an earlier version," "we previously
+  thought," etc. Exhibits are read as the current record, not a changelog;
+  meta-commentary about what changed is confusing to a reader with no memory
+  of the prior draft. `docs/case_studies/*.md` source documents are the one
+  exception — a dated "Correction, YYYY-MM-DD" note there is fine, since those
+  are treated as a working research log.
 
 ## Security / safety
 - `.env`, `data/`, anything with owner PII, and the raw evidence store are

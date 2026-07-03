@@ -6,7 +6,7 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 ## 1. Occupation Primary — Decrees and Administrative Documents
 
-**Распоряжение ГКО ДНР №56** (29 September 2022) — demolition list naming проспект Строителей д.78, 80, 88, 112. Text mirrored at base.garant.ru. Confirmed absent from нпа.днронлайн and denis-pushilin portals (internal operational order).
+**Распоряжение ГКО ДНР №56** (29 September 2022) — demolition list naming проспект Строителей д.78, 80, 88, 112. Text mirrored at base.garant.ru. Confirmed absent from нпа.днронлайн and denis-pushilin portals (internal operational order). The same order's 177-address Mariupol schedule, per the DNR MinStroy Unified Demolition Register CSV (row 277), also names прт. Металлургов, д. 47 — the Troianda-M demolition-authorization instrument (`case-study-troianda-metallurgov.html`); mirror: <https://minstroy-dpr.gosuslugi.ru/app/uploads/2024/09/eb14dd_reestr-snosa_16_03_2026.csv> (geoblocked, captured via VPS).
 
 **Распоряжение ГКО ДНР №172** (18 April 2023) — demolition list naming проспект Строителей д.72, 117. Text mirrored at base.garant.ru.
 
@@ -369,6 +369,10 @@ All sources used across the project's research: burial sites catalogue, case stu
 **Erashova family (AP Special Projects, December 2022)** — buried two children aged 5 and 7 (killed 9 March 2022) in a courtyard; returned July 2022 to find bodies already removed to a warehouse.
 
 **Yaroslav Dema** — gravedigger, Meduza 10 June 2022; named in burial records at пр. Победы 32/42 and проспект Строителей 160.
+
+**«МАРИУПОЛЬ! КРАШМАШ СНОСИТ ЗНАМЕНИТУЮ МНОГОЭТАЖКУ НА МЕТАЛЛУРГОВ!»** (YouTube, <https://www.youtube.com/watch?v=RutXOUDzP_s>, uploader Игорь Семенов, uploaded 14.12.2022) — independent third-party footage, on-screen text names both the demolition contractor (KrashMash) and the address (Металлургов, 47) in the same frame; description dates start of works to 10.12.2022. SHA-256: `05d4297e1c7d43a5bc69089a2fe104cd99f8ea98d21840958d39499ad3aad7bb`. Cited in `case-study-troianda-metallurgov.html` / `-ru.html`.
+
+**Mariupol Destruction and Victims Map** (<https://www.mariupoldestruction.com>) — published citywide victims spreadsheet («Поименный список жертв» / "List of victims by name", Google Sheets TSV export, 4,515 rows), captured 03.07.2026, SHA-256: `3b10d33f56cd47496a6f9a095ff487c818418f3acc724e61901f9cd009149ff5`. Eight named residents of Металлургов, 47 recorded killed Feb–Mar 2022, cross-referenced against Telegram `t.me/mariupolRIP` (posts 19075, 19202, 25434, 30852, 44164, 44185, each individually captured, SHA-256 `6411cecc61dc…` through `28c6f781abe2…`) and `memorial.ua/obituaries/civilians/kfedorova-nadiia-12510` (SHA-256 `4c533ad8d4dc…`). Two courtyard burial sites documented: Фёдорова Надежда (buried beside the building in a rug, reburial status unknown) and Харакоз Наталья Георгиевна (common grave in the courtyard, later exhumed and reburied at Starokrymske cemetery). Full table in `docs/case_studies/troianda_m_demolition_challenge.md`, cited in `case-study-troianda-metallurgov.html` / `-ru.html`. Captured via `scripts/239_capture_metallurgov47_casualty_record.py`; loaded to `corroboration` (kind `civilian_casualty`, property_id 4529) via `scripts/240_load_metallurgov47_casualty_record.py` (run by the user, not Claude, per project convention).
 
 ---
 

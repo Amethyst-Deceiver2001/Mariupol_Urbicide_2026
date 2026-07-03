@@ -126,3 +126,75 @@ placeholder, not the end state.
 - Cited legislation/decrees → link to the matching rung card in
   `dispossession-pipeline.html#card-X` (rungs A–H; verify the anchor id is real
   before using it — `grep 'id="card-'` in that file).
+- **Exhibit-to-exhibit references (added 2026-07-03).** Whenever an exhibit
+  mentions another exhibit by name (a sibling case study, the pipeline, the
+  stakeholder network, the master dossier, the interactive map), that mention
+  is a hyperlink — don't leave a named cross-reference as plain prose.
+  - **Language targeting.** From a **RU** exhibit, link to the target's **RU
+    version** when one exists (`*-ru.html`). RU versions currently exist for:
+    `mariupol-master-dossier`, `case-study-III-stroiteley`,
+    `case-study-IV-court-docket`, `case-study-troianda-metallurgov`,
+    `two-property-systems`. Everything else is EN-only.
+  - **EN-only target from a RU exhibit → caveat.** When a RU exhibit's
+    Russian-labeled link necessarily points at an EN-only *exhibit*
+    (dispossession-pipeline, interactive-map, stakeholder-network, nakhimova-82,
+    case-study-II, lenina-133, lenina-104…-110), append the note
+    `(пока нет перевода, ссылка временно ведёт на английскую версию)` right after
+    the link — as a small muted `<span>` inline, or as a `display:block` note
+    under a card-style `.cs-link`, styled
+    `font-family:var(--font-mono);color:var(--muted)`. In compact top-nav chrome
+    where an inline parenthetical would wreck the layout, carry the same text in a
+    `title=` tooltip on the link instead and put the visible caveat on the
+    substantive body mention of that exhibit.
+  - **No caveat needed** for: the `English version` language toggle; nav links
+    already labeled with the English word (`about`, `sources`); and the recurring
+    footer `автор → about.html` boilerplate — `about`/`sources` are site chrome,
+    not exhibits whose content the reader needs translated. EN→EN links never take
+    a caveat (every RU exhibit has an EN counterpart, so an EN exhibit never lacks
+    a same-language target).
+
+## 7. Bold consistency for proper names (added 2026-07-03)
+
+If a company, organization, or other proper-name entity is rendered in `<b>` at
+its first mention in a section, render it in `<b>` at every subsequent mention
+in that same section too — never bold-then-plain for the same entity within
+one section. (Bolding used purely for numeric/factual emphasis — a ruble
+figure, a percentage, a date — is unaffected by this rule and doesn't need to
+carry through to every later mention of that same number.) Applies per
+document; EN and RU variants are checked independently since a term bolded in
+one language's prose doesn't obligate the other to match unless the same
+entity is also bolded there. Audited 2026-07-03 across
+`case-study-troianda-metallurgov.html`/`-ru.html`: no company/entity name is
+currently rendered in `<b>` in either file (institution names are conveyed via
+the `.xlit`/`title=` popup pattern from rule 2 instead) — so this rule has no
+current violation to fix, it's a guardrail for future edits.
+
+## 8. Non-recognition of DNR institutions — the «ГКО ДНР» rule (added 2026-07-03)
+
+This project does not recognize the "Donetsk People's Republic" as a state or
+its "State Defense Committee" (Государственный комитет обороны, ГКО) as a
+lawful authority. That non-recognition is enforced typographically, in every
+exhibit, every time this body is named:
+
+- **RU-language text** (visible prose, `title=` tooltips, `.pop` popup
+  content): always **«ГКО ДНР»** — Cyrillic К (never the Latin-alphabet
+  look-alike "K"), always paired with "ДНР" (never bare "ГКО" standing
+  alone), always inside guillemets. "Постановление ГКО ДНР №162" →
+  "Постановление «ГКО ДНР» №162"; "Распоряжение ГKO №56" (typo'd K, missing
+  ДНР) → "Распоряжение «ГКО ДНР» №56."
+- **EN-language visible text**: always **DNR &ldquo;State Defense
+  Committee&rdquo;** — "DNR" bare (consistent with how this project already
+  writes DNR &ldquo;Supreme Court&rdquo; elsewhere — the geographic/
+  adjectival "DNR" label isn't itself scare-quoted, only the institutional
+  claim is), the institution name always quoted, always the full "State
+  Defense Committee" (retire the partial forms "GKO DNR," "DNR
+  State-Committee," "DNR State Committee," and the bare transliteration
+  "GKO" used as a noun). E.g. "DNR State Defense Committee Resolution No.
+  162" → "DNR &ldquo;State Defense Committee&rdquo; Resolution No. 162";
+  "GKO DNR Distributive Order No. 56" → "DNR &ldquo;State Defense
+  Committee&rdquo; Distributive Order No. 56."
+- Applies to every named GKO DNR instrument across exhibits (Resolution/
+  Постановление No. 1, 162, 164, 175, 245, 263, 290, 300; Directive/
+  Распоряжение No. 56, etc.) — not just the ones already touched as of this
+  pass. Extend this rule to any newly-cited GKO DNR document going forward
+  without being asked again.

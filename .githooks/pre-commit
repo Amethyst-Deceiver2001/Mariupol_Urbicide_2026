@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Pre-commit gate: block commits that reintroduce headline-stat drift into
+# docs/exhibits/*.html or docs/index.html (see scripts/238_lint_stats_drift.py
+# for what this catches and why -- the 2026-07-03 coherence review found five
+# different "properties on spine" figures live across exhibits at once).
+#
+# Installed via: git config core.hooksPath .githooks
+# (run once per clone -- .git/hooks/ itself isn't tracked, this file is)
+#
+# Only runs the lint when a commit actually touches a file it checks
+# (docs/exhibits/, docs/index.html, or docs/STATS.md itself) -- a no-op on
+# every other commit, so this stays invisible for unrelated work.
+
+set -euo pipefail
+
+staged=$(git diff --cached --name-only --diff-filter=ACM)
+
+if ! grep -qE '^docs/(exhibits/.*\.html|index\.html|STATS\.md)$' <<<"$staged"; then
+    exit 0
+fi
+
+repo_root=$(git rev-parse --show-toplevel)
+cd "$repo_root"
+
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "pre-commit: python3 not found, skipping stats-drift lint" >&2
+    exit 0
+fi
+
+if ! python3 scripts/238_lint_stats_drift.py; then
+    echo "" >&2
+    echo "pre-commit: stats-drift lint failed (see above) -- commit blocked." >&2
+    echo "Fix the drift, or if a flagged number is legitimately correct," >&2
+    echo "extend scripts/238_lint_stats_drift.py, then retry the commit." >&2
+    echo "To bypass once (not recommended): git commit --no-verify" >&2
+    exit 1
+fi

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дело Металлургов, 47: они хотя бы попытались</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="60 жильцов девятиэтажки на проспекте Металлургов, 47, прошли три инстанции российских судов, оспаривая снос своего дома, — и проиграли на каждом этапе. Но именно благодаря их поражению мы теперь точно знаем, как работает бюрократическая машина грабежа.">
+<meta property="og:title" content="Дело Металлургов, 47: Дело Металлургов, 47: они хотя бы попытались">
+<meta property="og:description" content="3 суда, 3 поражения, 1 договор на снос задним числом: как документы самого оккупанта раскрыли грабительскую схему «снести и перепродать»">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/case-study-troianda-metallurgov-ru.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Дело Металлургов, 47: они хотя бы попытались">
+<meta name="twitter:description" content="3 суда, 3 поражения, 1 договор на снос задним числом: как документы самого оккупанта раскрыли грабительскую схему «снести и перепродать» — и при этом отказывают жильцам во всём.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{max-width:64ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  .lead{font-size:1.15rem;color:var(--paper);max-width:64ch}
+  .mono{font-family:var(--font-mono)}
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.6rem;display:block;line-height:1.6;max-width:70ch}
+
+  .hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,5vw,3.5rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.1rem,6vw,3.9rem);line-height:1.02;margin:.4rem 0 1.4rem;max-width:22ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2.2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.blue{color:var(--s1)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:.5rem;display:block;line-height:1.4}
+
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+  .badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;border:1px solid var(--rail);border-radius:2px;
+    padding:.32rem .55rem;color:var(--muted);white-space:nowrap}
+  .badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .badge.gap{background:var(--evidence);color:var(--ink);border-color:var(--evidence);font-weight:800}
+
+  table.data{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:1.2rem}
+  table.data th,table.data td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.data th{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  table.data td:first-child{color:var(--paper);font-weight:700}
+  table.data tbody tr:hover{background:var(--ink-2)}
+  table.data td.muted{color:var(--muted)}
+  table.data td .lose{color:var(--evidence);font-weight:700}
+
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1.8rem 0 0;font-family:var(--font-mono)}
+  .chain .step{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.7rem .9rem;flex:1;min-width:150px}
+  .chain .step .t{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .chain .step .v{font-size:12.5px;color:var(--paper-dim);margin-top:.35rem;line-height:1.4}
+  .chain .step.red{border-left:3px solid var(--evidence)}
+  .chain .step.stamp{border-left:3px solid var(--stamp)}
+  .chain .step.blue{border-left:3px solid var(--s1)}
+  .chain .arrow{align-self:center;color:var(--muted);font-family:var(--font-serif)}
+
+  .timeline{margin:1.8rem 0 0;border-left:2px solid var(--rail);padding-left:1.3rem;display:grid;gap:1rem}
+  .tl-ev{position:relative}
+  .tl-ev::before{content:"";position:absolute;left:-1.62rem;top:.3rem;width:8px;height:8px;border-radius:50%;background:var(--rail-2)}
+  .tl-ev.mark::before{background:var(--stamp)}
+  .tl-ev.bad::before{background:var(--evidence)}
+  .tl-ev .d{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted)}
+  .tl-ev .e{font-size:15px;color:var(--paper-dim);margin-top:.15rem}
+  .tl-ev .e b{color:var(--paper)}
+
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.6rem 0;max-width:72ch}
+  .callout.hot{border-left-color:var(--evidence)}
+  .callout .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
+  .callout.hot .h{color:var(--evidence)}
+  .callout p{margin:0;font-size:15.5px}
+
+  .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding:.2rem 0 .2rem 1rem;margin:1.4rem 0;max-width:66ch}
+
+  .figcap{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.6rem 0 0;max-width:72ch}
+
+  /* ---------- figures: satellite triptych + panorama embed ---------- */
+  figure{margin:1.8rem 0 .4rem}
+  .trip{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .trip .cell{position:relative;background:var(--ink-2);border:1px solid var(--rail);overflow:hidden;aspect-ratio:1/2}
+  .trip .cell img{width:100%;height:100%;object-fit:cover;display:block}
+  .trip .cell .tag{position:absolute;left:0;top:0;font-family:var(--font-mono);
+    font-size:10px;letter-spacing:.06em;background:rgba(8,10,13,.82);color:var(--paper-dim);
+    padding:.3rem .5rem;border-bottom-right-radius:3px}
+  .trip .cell.bad .tag{color:var(--evidence)}
+  .embed{position:relative;border:1px solid var(--rail);background:var(--ink-2);border-radius:3px;overflow:hidden}
+  .embed iframe{display:block;width:100%;height:420px;border:0}
+
+  /* click-to-reveal popup (used sparingly in this RU variant, only where a
+     tooltip needs to hold a real link -- plain title= can't) */
+  .xlit{position:relative;cursor:help;border-bottom:1px dotted var(--rail-2)}
+  .xlit:hover,.xlit.open{border-bottom-color:var(--stamp)}
+  .xlit .pop{position:absolute;left:0;bottom:calc(100% + 6px);z-index:30;
+    display:none;background:var(--ink-3);
+    border:1px solid var(--stamp-dim);border-radius:3px;
+    padding:.35rem .6rem;font-family:var(--font-serif);font-size:13px;
+    color:var(--paper);box-shadow:0 6px 18px rgba(0,0,0,.4)}
+  .xlit .pop::after{content:"";position:absolute;left:10px;top:100%;
+    border:5px solid transparent;border-top-color:var(--stamp-dim)}
+  .xlit.open .pop{display:block}
+  .xlit.wide .pop{white-space:normal;max-width:280px}
+  .xlit .pop a{color:var(--stamp);text-decoration:underline;text-underline-offset:2px}
+
+  /* ---------- profile cards (named officials) ---------- */
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.6rem 0 .4rem}
+  .who .card{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;padding:1rem 1.1rem}
+  .who .card .nm{font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--paper);line-height:1.2}
+  .who .card .ro{font-size:13.5px;color:var(--paper-dim);margin-top:.55rem;line-height:1.5}
+
+  details.prov{margin-top:1rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--stamp);padding:.4rem 0}
+  .srclist{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.9rem}
+  .srclist li{border-left:2px solid var(--rail);padding-left:1rem}
+  .srclist .ty{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
+  .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
+  .srclist .ti b{color:var(--paper)}
+
+  @media(max-width:680px){
+    .trip{grid-template-columns:1fr}
+    .who{grid-template-columns:1fr}
+  }
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;padding:.9rem 1.1rem}
+  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
+  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Дело &middot; <b>Металлургов, 47</b> &middot; жильцы, которые сопротивлялись</span>
+  <span><a href="../index.html">&larr; на главную</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier-ru.html">основное досье</a>
+    &nbsp;&middot;&nbsp; <a href="case-study-troianda-metallurgov.html">English version</a> &nbsp;&middot;&nbsp; <a href="case-study-IV-court-docket-ru.html">судебная картотека</a> &nbsp;&middot;&nbsp; <a href="about.html">about</a> &middot; <a href="sources.html">sources</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="sub">Один дом, три суда &middot; Как устроена грабительская схема «снести и перепродать» — словами самих оккупантов</div>
+    <div class="eyebrow">Особое производство &rarr; апелляция &rarr; федеральная кассация</div>
+    <h1>Они судились с оккупантом в его же судах — и трижды проиграли.</h1>
+    <p class="lead">Шестьдесят жильцов снесённой девятиэтажки на проспекте Металлургов почти два года подряд
+      проигрывали одно и то же дело в трёх инстанциях российской судебной системы. Но чтобы отказать им, судам пришлось самим в точности описать собственную грабительскую схему «снести и перепродать». 
+    Помимо прочего, в деле обнаружился договор на снос, датированный <b>двумя годами</b> позже того, как дом уже превратился в руины.
+      И это уже не спишешь на «домыслы активистов» — всё записано сухим языком судебного протокола.</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n">60</span><span class="l">жильцов подали<br>коллективный иск</span></div>
+      <div class="stat"><span class="n red">3 / 3</span><span class="l">суда вынесли решение<br>против них</span></div>
+      <div class="stat"><span class="n">22</span><span class="l">из 60 получили одобренную<br>компенсацию — а 38 нет</span></div>
+      <div class="stat"><span class="n red">~103&nbsp;млн.руб&nbsp;&#8381;</span><span class="l">договор на снос датирован<br>на 2 года позже самого сноса</span></div>
+      <div class="stat"><span class="n blue">45 тыс. vs 53 тыс. руб.</span><span class="l">максимальная компенсация vs минимальная рыночная<br>цена за м&sup2; (&#8381;)</span></div>
+    </div>
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6</span>
+      <span class="badge rome">Римский статут &middot; 8(2)(a)(iv)</span>
+      <span class="badge rome">Римский статут &middot; 8(2)(b)(viii)</span>
+    </div>
+  </section>
+
+  <!-- 00 -->
+  <section>
+    <div class="eyebrow">00 &middot; Адрес</div>
+    <h2>Девятиэтажка в центре города</h2>
+    <p>Типичная советская кирпичная девятиэтажка стояла по адресу <span title="UA просп. Металургів, 47 · RU просп. Металлургов, 47">проспект
+      Металлургов, 47</span> в центре Мариуполя — примерно в 800 метрах от драмтеатра, рядом с
+      центральным рынком, на одном из самых длинных проспектов города, там, где он пересекается с
+      <span class="xlit wide" tabindex="0">улицей Соборной<span class="pop">Оккупанты переименовали её в честь советского архитектора Евгения Варганова.</span></span>. Во время штурма Мариуполя она стала одним из самых узнаваемых кадров войны на фото
+      <span class="xlit wide" tabindex="0">российских военкоров<span class="pop">Других журналистов, кроме украинцев Мстислава Чернова и Евгения Малолетки, чьи кадры легли в основу документального фильма «<a href="https://ru.wikipedia.org/wiki/20_дней_в_Мариуполе" target="_blank" rel="noopener">20 дней в Мариуполе</a>», в городе во время штурма не было.</span></span>: один подъезд пробит насквозь и обрушен, остальные ещё стоят. Люди продолжали
+      жить в подвале дома даже после того, как уличные бои переместились дальше.</p>
+
+    <figure>
+      <div class="embed">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://yandex.com/map-widget/v1/?l=stv%2Csta&ll=37.546303%2C47.099283&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNDQ3OTY5NzMwEj_Qo9C60YDQsNGX0L3QsCwg0JzQsNGA0ZbRg9C_0L7Qu9GMLCDQodC-0LHQvtGA0L3QsCDQstGD0LvQuNGG0Y8iCg2dLRZCFfhkPEI%2C&panorama%5Bdirection%5D=111.732306%2C18.478272&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=37.545396%2C47.099468&panorama%5Bspan%5D=110.457688%2C60.000000&z=18"></iframe>
+      </div>
+      <figcaption class="figcap">Довоенная уличная панорама (Яндекс.Карты, съёмка ок. 2012 года),
+        вид с перекрёстка Соборной и Металлургов. Ниже — это же место на спутниковых снимках.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 01 -->
+  <section>
+    <div class="eyebrow">01 &middot; Вид сверху &middot; три даты</div>
+    <h2>Целый дом до войны, разрушен во время штурма, потом снесён</h2>
+    <p>Один и тот же участок, снятый со спутника на протяжении четырёх лет. В июне 2021 года
+      - дом цел. К марту 2022 года один подъезд полностью обрушен — провал на его месте виден невооружённым глазом. К августу 2024 года дома больше нет — участок
+      расчищен до голой земли.</p>
+
+    <figure>
+      <div class="trip">
+        <div class="cell">
+          <span class="tag">Июнь 2021 &middot; дом цел</span>
+          <img src="assets/troianda/metallurgov47_2021-06_intact.png" alt="Спутниковый снимок, июнь 2021 года: девятиэтажный дом на проспекте Металлургов, 47 цел, рядом припаркованы машины, вдоль дороги — ряд деревьев.">
+        </div>
+        <div class="cell bad">
+          <span class="tag">Март 2022 &middot; подъезд обрушен</span>
+          <img src="assets/troianda/metallurgov47_2022-03_imploded.png" alt="Спутниковый снимок, март 2022 года: тот же дом, один подъезд обрушен в тёмный провал, на земле снег.">
+        </div>
+        <div class="cell">
+          <span class="tag">Авг. 2024 &middot; участок расчищен</span>
+          <img src="assets/troianda/metallurgov47_2024-08_cleared.png" alt="Спутниковый снимок, август 2024 года: дом снесён, прямоугольный участок расчищен до голой земли, придорожные деревья по-прежнему стоят.">
+        </div>
+      </div>
+      <figcaption class="figcap">Проспект Металлургов, 47: июнь 2021 &rarr; март 2022 &rarr;
+        август 2024. Снос завершён к 18 сентября 2024 года — и сразу после этого, по сообщениям оккупационных СМИ, начались новые строительные работы.</figcaption>
+    </figure>
+
+    <p style="margin-top:1.8rem">Тот же дом по состоянию на конец марта 2022 года, вид с земли. Это кадры из любительской съёмки на ютюбе, сделанные с земли. На них
+      хорошо видно тот самый обрушенный подъезд с торчащими кусками арматуры и обугленными стенами.</p>
+    <figure>
+      <div class="trip" style="grid-template-columns:1fr 1fr">
+        <div class="cell bad">
+          <span class="tag">Март 2022 &middot; вид с земли</span>
+          <img src="assets/troianda/metallurgov47_2022-03_implosion_still1.png" alt="Фото с земли, март 2022 года: тот же девятиэтажный дом виден сквозь голые зимние деревья, один подъезд обрушен насквозь, между двумя оставшимися крыльями здания видно небо.">
+        </div>
+        <div class="cell bad">
+          <span class="tag">Март 2022 &middot; крупным планом</span>
+          <img src="assets/troianda/metallurgov47_2022-03_implosion_still2.png" alt="Фото с земли крупным планом, март 2022 года: закопчённый огнём фасад по обе стороны от обрушенного подъезда, выбитые окна, балконы оголены до бетона.">
+        </div>
+      </div>
+      <figcaption class="figcap">Кадры из любительской съёмки конца марта 2022 года с земли</figcaption>
+    </figure>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="eyebrow">02 &middot; Вверх по судебным инстанциям</div>
+    <h2>Одно и то же дело было проиграно на всех трёх уровнях</h2>
+    <p>Довоенному объединению собственников жилья (ОСМД) в этом доме пришлось в июле 2024 года перерегистрироваться как российское юрлицо <span title="ТСЖ «Троянда-М» — товарищество собственников жилья">ТСЖ «Троянда-М»</span>,
+      — только для того, чтобы суд вообще признал его стороной по делу. Но и это не помогло. Новое ТСЖ проиграло во всех инстанциях как оккупационных, так и федеральных кассационных судов.</p>
+
+    <table class="data">
+      <thead><tr><th>Суд</th><th>№ дела</th><th>Судья</th><th>Дата</th><th>Итог</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Жовтневый районный суд («ДНР»)</td>
+          <td><a href="https://mar-zhovt--dnr.sudrf.ru/modules.php?name=sud_delo&amp;srv_num=1&amp;name_op=case&amp;case_id=5346922&amp;case_uid=27ec6a82-91b2-4a41-a176-0a946daa493d&amp;delo_id=1540005" target="_blank" rel="noopener">2-259/2025</a></td>
+          <td>Сазонова Юлия Юрьевна</td>
+          <td>21.07.2025</td>
+          <td><span class="lose">Отказано</span></td>
+        </tr>
+        <tr>
+          <td>Верховный суд «ДНР» (апелляция)</td>
+          <td><a href="https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&amp;srv_num=1&amp;name_op=doc&amp;number=2122362&amp;delo_id=5&amp;new=5&amp;text_number=1" target="_blank" rel="noopener">33-2575/2025</a></td>
+          <td>Гуридова Н.Н. (судья-докладчик; председательствующая — Олейникова В.В.)</td>
+          <td>13.11.2025</td>
+          <td><span class="lose">Решение нижестоящей инстанции оставлено в силе</span></td>
+        </tr>
+        <tr>
+          <td>Второй кассационный суд общей юрисдикции (федеральный)</td>
+          <td><a href="https://2kas.sudrf.ru/modules.php?name=sud_delo&amp;srv_num=1&amp;name_op=case&amp;case_id=17997342&amp;case_uid=8741fb33-2475-4145-89e4-631f55aededc&amp;new=2800001&amp;delo_id=2800001" target="_blank" rel="noopener">8&#1043;-12687/2026</a></td>
+          <td>Васильева Татьяна Геннадьевна</td>
+          <td>05.05.2026</td>
+          <td><span class="lose">Отказано</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="figcap">Единый идентификатор дела 93RS0006-01-2024-005922-91 проходит через все три
+      инстанции. Российское издание «Агентство» (27.02.2026) писало, что жильцы подают жалобу
+      «в Верховный суд», — но собственная карточка кассационного дела (№8Г-12687/2026, заархивирована напрямую из первоисточника, ссылка выше) показывает, что жалобу приняла и зарегистрировала именно Второй
+      кассационный суд общей юрисдикции 06.04.2026 — это стандартный порядок движения кассационной жалобы в этой системе — и вынесла по ней решение 05.05.2026. В этой же карточке
+      есть отдельное поле специально для передачи материалов в Верховный суд России или из него — и там стоит «нет». Внутригосударственные средства защиты заканчиваются на этой федеральной
+      кассационной инстанции.</p>
+    <p>Мотивировку отказа в апелляции в Верховном суде «ДНР» стоит изучить внимательно. Ещё до того, как ТСЖ «Троянда-М» в 2024 году прошло перерегистрацию, снесённый объект
+      был официально закреплён за государственным оператором сноса
+      <span title="ППК «Единый заказчик» — публично-правовая компания">ППК «Единый заказчик»</span>. Суд решил, что эта передача на баланс произошла раньше,
+      чем объединение жильцов вернуло себе право на иск, — то есть тот самый разрыв во времени,
+      который создал сам оккупант между сносом дома и моментом, когда жильцам разрешили
+      самоорганизоваться и подать жалобу, стал официальной причиной, по которой их возражение сочли
+      не соответствующим срокам подачи жалобы.</p>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="eyebrow">03 &middot; Материалы дела в собственных словах суда</div>
+    <h2>Факты, которые пришлось изложить самому оккупационному суду</h2>
+    <p>Судебные решения обычно читают ради вывода. Но это решение куда полезнее читать ради
+      установленных им фактов: чтобы объяснить, почему жильцы проиграли, апелляционный суд
+      изложил всю административную последовательность, которая и привела к этому поражению истцов.
+      Каждая дата ниже взята непосредственно из текста решения на сайте соответствующего суда.</p>
+
+    <div class="timeline">
+      <div class="tl-ev"><div class="d">Февр.&ndash;март 2022</div><div class="e">Дом получает повреждения во время штурма города; один подъезд разрушен попаданием снаряда, которое жильцы датируют 17 марта 2022 года. Люди продолжают жить в доме и его подвале.</div></div>
+      <div class="tl-ev mark"><div class="d">29.09.2022</div><div class="e">Заключение комиссии №118 признаёт дом <b>непригодным для проживания</b> и назначает под снос — по процедуре (<span title="Постановление «ГКО ДНР» № 162 от 23.07.2022">Постановление «ГКО ДНР» №162</span>), которую, по словам жильцов, ни разу не соблюли: в трёх документах дела фигурируют три разных состава комиссии. В тот же день <span title="Распоряжение «ГКО ДНР» № 56 от 29.09.2022">Распоряжение «ГКО ДНР» №56</span> называет именно этот адрес — пр-т Металлургов, 47 — в перечне из 177 мариупольских зданий, назначенных под снос (<a href="https://minstroy-dpr.gosuslugi.ru/app/uploads/2024/09/eb14dd_reestr-snosa_16_03_2026.csv">Единый реестр сноса Минстроя ДНР</a>, строка 277;).</div></div>
+      <div class="tl-ev bad"><div class="d">10&ndash;25.12.2022</div><div class="e">Дом <b>физически снесён</b> — дата установлена по собственной видеозаписи жильцов того времени: на ней видно, как дом разбирают по частям, и уже к 20 декабря от него остаются одни руины.</div></div>
+      <div class="tl-ev"><div class="d">26.07.2023</div><div class="e">Официальный акт о завершённом сносе называет <span title="ООО «РКС-НР»">ООО «РКС-НР»</span> стороной, выполнившей демонтаж.</div></div>
+      <div class="tl-ev mark"><div class="d">07.09.2023</div><div class="e"><span title="Указ Главы ДНР № 291 от 07.09.2023">Указ главы «ДНР» №291</span> передаёт застройщику муниципальные земельные участки <b>без аукциона</b> — один из них, площадью 3136&nbsp;м&sup2;, как раз на пересечении с проспектом Металлургов, — под «масштабный инвестиционный проект» <span title="«Новое время 2»">«Новое время 2»</span>. По словам жильцов, именно тогда их адрес был «аннулирован».</div></div>
+      <div class="tl-ev"><div class="d">28.10.2024</div><div class="e">Подан коллективный иск от имени ТСЖ «Троянда-М».</div></div>
+      <div class="tl-ev bad"><div class="d">27.12.2024</div><div class="e">Подписан <b>договор</b> на снос между «Единым заказчиком» и «РКС-НР» на сумму около <b>103 миллионов рублей</b> — его огласила сама судья на заседании в апреле 2025 года. Дата договора — на <b>два года позже</b> того, как собственная видеозапись жильцов уже зафиксировала снос дома в конце 2022-го.</div></div>
+    </div>
+
+    <div class="callout hot">
+      <div class="h">Восемь погибших жителей дома поимённо</div>
+      <p>По этому адресу зафиксированы как минимум восемь погибших жильцов, умерших в период
+        осады (февраль–март 2022), согласно данным проекта
+        <a href="https://www.mariupoldestruction.com" target="_blank" rel="noopener">Mariupol Destruction and Victims Map</a>
+        (карта разрушений и жертв Мариуполя), сверенным с телеграм-каналом <b>t.me/mariupolRIP</b>
+        и <b>memorial.ua</b>.
+        Независимо задокументированы два места дворового захоронения: <b>Фёдорова Надежда</b>
+        (р. 1938, погибла от обстрела 01–03.03.2022) была похоронена возле дома, в ковре —
+        <span title="похоронили возле дома, в ковре. Перезахоронение неизвестно">«перезахоронение неизвестно»</span>;
+        <b>Харакоз Наталья Георгиевна</b> (р. 1935, известная в Мариуполе писательница и
+        журналистка, умерла 29.03.2022 от стресса и нехватки медикаментов) была похоронена в
+        общей могиле во дворе, позднее эксгумирована и перезахоронена на Старокрымском кладбище —
+        её могилу удалось найти лишь потому, что соседка перед захоронением в братской могиле
+        положила ей в карман записку с именем.</p>
+    </div>
+    <table class="data">
+      <thead><tr><th>Имя</th><th>Дата гибели</th><th>Обстоятельства</th><th>Источник</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Фёдорова Надежда</td>
+          <td>01–03.03.2022</td>
+          <td>Обстрел выбил окна; ранена осколками стекла; остановилось сердце. Похоронена возле дома, в ковре; перезахоронение неизвестно.</td>
+          <td><a href="https://memorial.ua/obituaries/civilians/kfedorova-nadiia-12510" target="_blank" rel="noopener">memorial.ua</a></td>
+        </tr>
+        <tr>
+          <td>Харакоз Наталья Георгиевна</td>
+          <td>29.03.2022</td>
+          <td>Умерла от стресса, условий, нехватки медикаментов. Похоронена в общей могиле во дворе; позднее перезахоронена на Старокрымском кладбище.</td>
+          <td>от внучки + <a href="https://t.me/mariupolRIP/25434" target="_blank" rel="noopener">t.me/mariupolRIP/25434</a></td>
+        </tr>
+        <tr>
+          <td>Тёрин Александр Евгеньевич</td>
+          <td class="muted">период осады</td>
+          <td>Тело найдено при разборе завалов.</td>
+          <td><a href="https://t.me/mariupolRIP/19202" target="_blank" rel="noopener">t.me/mariupolRIP/19202</a></td>
+        </tr>
+        <tr>
+          <td>Тёрина Елена Александровна</td>
+          <td class="muted">период осады</td>
+          <td>Тело найдено при разборе завалов.</td>
+          <td><a href="https://t.me/mariupolRIP/19202" target="_blank" rel="noopener">t.me/mariupolRIP/19202</a></td>
+        </tr>
+        <tr>
+          <td>Иванов Максим Владимирович</td>
+          <td>17.03.2022</td>
+          <td>Погиб в результате авианалёта вместе с мамой Людмилой.</td>
+          <td><a href="https://t.me/mariupolRIP/19075" target="_blank" rel="noopener">t.me/mariupolRIP/19075</a>, <a href="https://t.me/mariupolRIP/44185" target="_blank" rel="noopener">/44185</a></td>
+        </tr>
+        <tr>
+          <td>Паскаль Мария</td>
+          <td>24.03.2022</td>
+          <td>Погибла при обстреле, готовя во дворе (супружеская пара с Галушко Андреем, ниже; тот же адрес гибели и захоронения).</td>
+          <td>от соседей + <a href="https://t.me/mariupolRIP/30852" target="_blank" rel="noopener">t.me/mariupolRIP/30852</a></td>
+        </tr>
+        <tr>
+          <td>Галушко Андрей</td>
+          <td>24.03.2022</td>
+          <td>Погиб при обстреле, готовя во дворе (супружеская пара с Паскаль Марией, выше).</td>
+          <td>от соседей + <a href="https://t.me/mariupolRIP/30852" target="_blank" rel="noopener">t.me/mariupolRIP/30852</a></td>
+        </tr>
+        <tr>
+          <td>Горлачова Раиса Дмитриевна</td>
+          <td>17.03.2022</td>
+          <td class="muted">—</td>
+          <td><a href="https://t.me/mariupolRIP/44164" target="_blank" rel="noopener">t.me/mariupolRIP/44164</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="figcap">Мать Максима Иванова Людмила также названа погибшей в том же авианалёте
+      17.03.2022, но не имеет отдельной строки в источнике.</p>
+
+    <div class="callout hot">
+      <div class="h">Деталь, которая говорит сама за себя</div>
+      <p>Договор на снос дома, подписанный через два года после того, как этот дом уже снесли, — на
+        103 миллиона рублей. Представительница жильцов, которая в декабре 2022 года
+        лично снимала настоящий снос на видео, сидела в зале суда и слышала, как договор от декабря
+        2024-го назвали правовым основанием для того, что произошло двумя годами ранее. Эту
+        последовательность зафиксировал сам суд, который
+        вынес решение против жильцов.</p>
+    </div>
+    <p>В том же деле есть ещё два нарушения. Технический отчёт, на основании которого дом
+      признали аварийным, жильцы оспаривали на основании отсутствия подписи. Апелляционный
+      суд зафиксировал это возражение, и всё равно сослался на него же. А в документах о признании
+      дома аварийным фигурируют <b>три разных состава комиссии</b> в трёх разных документах —
+      что прямо нарушает собственные законы оккупантов — конкретно постановление «ГКО ДНР» №162, устанавливающее порядок сноса аварийных зданий.
+      Апелляционный суд довод о нарушении порядка формирования комиссии
+      отклонил — но не разбирая по существу саму нестыковку с тремя составами, а на чисто процедурном основании:
+      «в материалах дела отсутствуют сведения о том, что собственники... изъявили желание
+      участвовать в комиссии». Отдельный довод истцов — что в комиссию не включили балансодержателя
+      дома — суд тоже отклонил, и тоже по формальной причине: на дату заключения №118 (29.09.2022)
+      дом числился за ППК «Единый заказчик», а ТСЖ «Троянда-М» тогда ещё не существовало.</p>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="eyebrow">04 &middot; Реальный подрядчик сноса засветился на видео</div>
+    <h2>«„КрашМаш“ сносит Металлургов, 47»</h2>
+    <p>Кто на самом деле  физически снёс дом, известно точно благодаря
+      <a href="https://www.youtube.com/watch?v=RutXOUDzP_s" target="_blank" rel="noopener">видеозаписи,
+      загруженной на ютюб 14 декабря 2022 года</a> под названием «МАРИУПОЛЬ! КРАШМАШ СНОСИТ
+      ЗНАМЕНИТУЮ МНОГОЭТАЖКУ НА МЕТАЛЛУРГОВ!». <span title="«…рашМаш» сносит Металлургов 47">«„КрашМаш“ сносит Металлургов, 47»</span>. Описание самого видео датирует начало работ 10
+      декабря: <span title="Descr: Знаменитое здание на Металлургов 47...">«Знаменитое здание на Металлургов 47, чьи фотографии известны всему миру пошло под снос. Многометровый экскаватор компании «КрашМаш» приступил к работам 10 декабря»</span>.
+      Второе видео, уже собственного производства
+      подрядчика, открывается титром 
+      <span title="«СНОС ДОМОВ В МАРИУПОЛЕ»">«Снос домов в Мариуполе»</span> на фоне
+     логотипа компании. А кадры украиноязычного канала за октябрь 2022 года — то есть ещё
+      до сноса — идентифицируют тот же фасад как «проспект Металургів, 47». Независимые источники,
+      разные языки, один и тот же адрес.</p>
+    <p>Физический подрядчик — <span title="ООО «ГК КрашМаш» (ИНН 7842525925)">ООО «ГК КрашМаш»</span>,
+      петербургская компания по демонтажу зданий, на собственном сайте которой описан контракт
+      2022 года на снос «37 разрушенных объектов в центре» Мариуполя в рамках программы
+      восстановления.</p>
+
+    <p>Второй, независимый источник о «КрашМаш» идёт дальше собственных материалов компании: в
+      отраслевом строительном журнале опубликовано интервью на условиях указания имени с
+      генеральным директором <span title="Виктор Александрович Казаков">Виктором Казаковым</span>.
+      Он утверждает, что работа компании в Мариуполе началась в <b>октябре 2022 года</b>, что
+      панельные дома высотой до 40 метров сносят только после осмотра МЧС и Минобороны и
+      расселения жильцов.</p>
+    <div class="stat-row" style="margin-top:1.2rem">
+      <div class="stat"><span class="n">Окт. 2022</span><span class="l">заявленная самой компанией дата начала работы в Мариуполе</span></div>
+      <div class="stat"><span class="n">5&ndash;12 дней</span><span class="l">заявленный типичный срок сноса</span></div>
+    </div>
+
+    <p style="margin-top:1.2rem">Открытым остаётся не роль «КрашМаш», а название
+      <span title="«Северный Ветер»">«Северный Ветер»</span> — так жильцы называют компанию,
+      фигурирующую в спорной, бумажной стороне этой истории. Наиболее непротиворечивое прочтение
+      всех источников таково: технику на объекте в декабре 2022 года использовал именно
+      «КрашМаш», а бумажный след с упоминанием других юрлиц был собран задним числом — и договор
+      от 27 декабря 2024 года входит именно в этот бумажный след.</p>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="eyebrow">05 &middot; Кому это выгодно и замкнутый круг</div>
+    <h2>Федеральный застройщик и «компенсация» чужим жильём</h2>
+    <p>Земля под расчищенным участком на месте дома №47 без аукциона перешла специализированному застройщику
+      <span title="ООО СЗ «РКС-НР» (ИНН 9310007980, «РКС-Девелопмент»)">СЗ «РКС-НР»</span> —
+      это одно звено из цепочки, которая тянется вверх через
+      <span title="ФАУ «РосКапСтрой» — федеральное автономное учреждение при Минстрое России">«РосКапСтрой»</span>,
+      федеральное учреждение при Минстрое России. У всех звеньев этой цепочки есть конкретные имена и конечный бенефициар:</p>
+
+    <div class="who">
+      <div class="card">
+        <div class="nm">Шарипов Ильдар Радикович</div>
+        <div class="ro">Директор «РКС-НР», застройщика ЖК «Новое время 2» на месте дома №47 по проспекту Металлургов. По данным журналистских расследований, он одновременно числится в штате московского «Москапстроя».</div>
+      </div>
+      <div class="card">
+        <div class="nm">Хуснуллин Марат Шакирзянович</div>
+        <div class="ro">Заместитель председателя правительства России, официально курирующий восстановление оккупированных территорий, — федеральный чиновник, на которого в конечном счёте замыкается вся цепочка строительных работ в оккупированном Мариуполе.</div>
+      </div>
+    </div>
+    <p class="figcap">Названные должностные лица и бенефициары действуют в официальном качестве, поэтому мы называем их полные имена как соучастников.
+      Более полную схему связей между застройщиками и министерствами см. в разделе проекта
+      «<a href="stakeholder-network.html">Сеть заинтересованных сторон</a>» <span style="font-family:var(--font-mono);font-size:.8em;color:var(--muted)">(пока нет перевода, ссылка временно ведёт на английскую версию)</span>.</p>
+
+    <p>Ставка
+      компенсации, устаноленная оккупационной администрацией — <b>45 000 рублей за квадратный метр</b>; по
+      данным одного независимого российского издания, самые дешёвые квартиры на мариупольском рынке стоят от <b>53 000</b> за квадрат —
+      то есть недобор примерно в 15% по одной этой цифре из прессы. Наш проект проверил это
+      утверждение по собственному массиву объявлений о продаже
+      жилья, — и разрыв оказался ещё больше: среди 266 проанализированных объявлений о продаже
+      готового жилья ставка
+      компенсации не дотягивает даже до самых дешёвых <b>5%</b> рынка недвижимости на <b>19%</b>, а до
+      общегородской медианы — на <b>43%</b>. И платят эту компенсацию — если платят вообще —
+      жильём из фонда
+      <span title="«бесхозяйное» — категория «ownerless»-имущества">«бесхозяйного»</span>
+      имущества: квартирами <em>других</em> вынужденно перемещённых украинцев, которые уехали и не смогли
+      вернуться, чтобы оформить право собственности по требованиям российской юрисдикции. То есть одних лишённых жилья людей
+      в качестве возмещения предлагают заселить в отобранные дома других.</p>
+    <div class="stat-row" style="margin-top:1.2rem">
+      <div class="stat"><span class="n">45 000</span><span class="l">&#8381;/м&sup2; &mdash; заявленная ставка компенсации оккупационной администрации</span></div>
+      <div class="stat"><span class="n blue">55 769</span><span class="l">&#8381;/м&sup2; &mdash; самые дешёвые 5% в собственном массиве объявлений проекта</span></div>
+      <div class="stat"><span class="n red">&minus;19%</span><span class="l">ставка компенсации против этих самых дешёвых 5%, по 266 объявлениям</span></div>
+      <div class="stat"><span class="n red">&minus;43%</span><span class="l">ставка компенсации против общегородской медианы</span></div>
+    </div>
+
+    <div class="chain">
+      <div class="step red"><div class="t">Дом признан аварийным и снесён</div><div class="v">Металлургов, 47 &middot; дек. 2022</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step stamp"><div class="t">Земля передана без аукциона</div><div class="v">Указ №291 &rarr; «РКС-НР», «Новое время 2»</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step blue"><div class="t">Новые квартиры продаются</div><div class="v"> по льготной ипотеке 2% для граждан РФ — но местные жители жалуются, что для них эта опция недоступна</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step red"><div class="t">Прежним владельцам «компенсируют»</div><div class="v">ниже рынка, чужим отобранным жильём &mdash; если вообще компенсируют</div></div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <div class="eyebrow">06 &middot; Почему это дело важно</div>
+    <h2>Единственное известное дело, где лишённые жилья мариупольцы открыто сопротивлялись грабежу</h2>
+    <p>Все прочие дела в этом проекте фиксируют изъятие, которое оккупант оформил без всякого
+      сопротивления, — запись в реестре, распоряжение о сносе, карточка дела, где со стороны
+      ответчика попросту никого нет. В этом деле мы видим другое: что происходит, когда жильцы
+      пользуются единственной возможностью, формально оставленной им оккупантами. Разумеется, они проиграли во всех инстанциях — система и не предполагала иного исхода — но они
+      вынудили оккупационные суды письменно зафиксировать самое подробное из существующих
+      документальных описаний изъятия: признание дома аварийным по трём противоречащим друг
+      другу составам комиссии; явно юридически ничтожный технический отчёт,
+      на который суд всё равно сослался как на довод; отношения оккупационных властей с подрядчиком, оформленные договором на 103
+      миллиона рублей спустя два года после работы, которую этот договор якобы санкционировал; и
+      право на компенсационное жильё, которое, по собственной переписке администрации, так и
+      осталось неисполненным.</p>
+
+    <p>Это дело фиксирует и то, чего не может установить ни оценка ущерба, ни запись в реестре:
+      <b>исчерпание внутригосударственных средств правовой защиты</b> — первая инстанция,
+      апелляция и федеральная кассация, весь путь, который эта система вообще предоставляет.
+      Именно это исчерпание — процедурное условие, которое требуют выполнить механизмы реституции и
+      собственная практика Европейского суда по правам человека, восходящая к прецеденту
+      <em>«Лоизиду против Турции»</em>, прежде чем жалобу вообще примут к рассмотрению. Жильцы этот шаг не
+      пропустили. А оккупационные суды сами составили протокол об этом.</p>
+
+    <div class="callout">
+      <div class="h">Словами самих жильцов</div>
+      <p>Исчерпав все возможности формально восстановить свои права, жители дома №47 прибегли к последнему средству: публичному обращению. На одном из таких видео они обращаются российским властям поимённо. Женщина из
+        квартиры 116, инвалид второй группы, пережившая осаду в подвале, сказала, что теперь
+        живёт  «на улице». Мать двоих маленьких детей просит только об одном — расселить её
+        семью где-то рядом, чтобы, когда на этом месте вырастет новый дом, им могли дать в нём
+        квартиру. «Полный правовой беспредел», — говорит одна из них под конец. «Нарушение прав
+        человека в пользу бизнеса».</p>
+    </div>
+    <p class="figcap">Живые жильцы — частные лица — здесь не названы поимённо; их слова
+      приведены дословно, а личности анонимизированы согласно правилу проекта о защите персональных
+      данных, в отличие от судей, чиновников оккупационной администрации и других лиц, действующих в официальном
+      качестве.</p>
+
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6 &middot; утрата доступа к жилью</span>
+      <span class="badge rome">Римский статут &middot; 8(2)(a)(iv) &middot; присвоение имущества</span>
+      <span class="badge rome">Римский статут &middot; 8(2)(b)(viii) &middot; перемещение населения</span>
+    </div>
+  </section>
+
+  <!-- 07 provenance -->
+  <section>
+    <div class="eyebrow">07 &middot; Происхождение</div>
+    <h2>Источники</h2>
+    <p>Каждый документ, фотография и видео, упомянутые на этой странице, получены из
+      первоисточника по стандартной для проекта цепочке хранения доказательств — с хэшем SHA-256
+      и меткой времени UTC, зафиксированными при получении, и с сохранением исходного файла до
+      любого анализа. Установленные судом факты можно проверить по тексту захваченного решения;
+      адрес и цепочка застройщика подтверждены прессой, телеграм-каналами и видеоисточниками,
+      независимыми друг от друга.</p>
+    <details class="prov">
+      <summary>Полный каталог источников и заметки о проверке</summary>
+      <ul class="srclist">
+        <li><span class="ty">Первоисточник &middot; материалы суда всех трёх инстанций</span><span class="ti">
+          Карточка дела, <a href="https://mar-zhovt--dnr.sudrf.ru/modules.php?name=sud_delo&amp;srv_num=1&amp;name_op=case&amp;case_id=5346922&amp;case_uid=27ec6a82-91b2-4a41-a176-0a946daa493d&amp;delo_id=1540005" target="_blank" rel="noopener">дело первой инстанции 2-259/2025</a>
+          (Жовтневый районный суд, судья Сазонова Ю.Ю., отказано 21.07.2025); апелляционное
+          решение, <a href="https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&amp;srv_num=1&amp;name_op=doc&amp;number=2122362&amp;delo_id=5&amp;new=5&amp;text_number=1" target="_blank" rel="noopener"><b>дело 33-2575/2025</b></a>
+          (Верховный суд «ДНР», председательствующая Олейникова В.В., судья-докладчик Гуридова
+          Н.Н., оставлено в силе 13.11.2025); карточка дела,
+          <a href="https://2kas.sudrf.ru/modules.php?name=sud_delo&amp;srv_num=1&amp;name_op=case&amp;case_id=17997342&amp;case_uid=8741fb33-2475-4145-89e4-631f55aededc&amp;new=2800001&amp;delo_id=2800001" target="_blank" rel="noopener">федеральная кассация, дело 8Г-12687/2026</a>
+          (Второй кассационный суд общей юрисдикции, судья Васильева Т.Г., принята к
+          производству 06.04.2026, отказано 05.05.2026 — карточка подтверждает отсутствие
+          передачи материалов в Верховный суд России или из него). Единый идентификатор
+          93RS0006-01-2024-005922-91 проходит через все три инстанции. Апелляционное решение
+          везде скрывает адрес — по общероссийской практике обезличивания судебных актов
+          (Федеральный закон №262-ФЗ); адрес устанавливается независимо от материалов суда, см.
+          ниже.</span></li>
+        <li><span class="ty">Распоряжение о сносе &middot; запись в реестре</span><span class="ti">
+          <a href="https://minstroy-dpr.gosuslugi.ru/app/uploads/2024/09/eb14dd_reestr-snosa_16_03_2026.csv" target="_blank" rel="noopener">Единый реестр сноса Минстроя ДНР</a>
+          (CSV, получен 09.06.2026), строка 277: Распоряжение «ГКО ДНР» №56 от 29.09.2022 называет
+          «г. Мариуполь, пр-т. Металлургов, д. 47» в перечне из 177 мариупольских адресов,
+          назначенных под снос — та же дата, что и заключение комиссии №118 выше.</span></li>
+        <li><span class="ty">Адрес &middot; шесть независимых источников</span><span class="ti">
+          Пресса (Agents.Media — о кассационной жалобе 60 жильцов; КП-Донецк — о новостройке на
+          этом месте) и телеграм-каналы (<b>@metallgov</b>, <b>@mariupollnew</b>,
+          <b>@novosti_mariupol1</b>, <b>@allmarinews</b>) сходятся на адресе проспект
+          Металлургов, 47 без каких-либо противоречий. Этот же адрес совпадает с проектом «Новое
+          время 2», названным в тексте решения.</span></li>
+        <li><span class="ty">Спутниковые снимки &middot; до / во время / после</span><span class="ti">
+          Спутниковые снимки участка по адресу проспект Металлургов, 47 на три даты — июнь 2021
+          (дом цел), март 2022 (подъезд обрушен), август 2024 (участок расчищен). Снос завершён
+          к 18.09.2024 по данным КП-Донецк.</span></li>
+        <li><span class="ty">Подрядчик по сносу &middot; надпись в кадре</span><span class="ti">
+          <a href="https://www.youtube.com/watch?v=RutXOUDzP_s" target="_blank" rel="noopener">Видео,
+          загруженное 14.12.2022</a> («МАРИУПОЛЬ! КРАШМАШ СНОСИТ ЗНАМЕНИТУЮ МНОГОЭТАЖКУ НА
+          МЕТАЛЛУРГОВ!», автор Игорь Семенов) независимой третьей стороной, с надписью в кадре
+          «„КрашМаш“ сносит Металлургов 47»; собственное видео о сносе и корпоративный сайт
+          «КрашМаш»; кадры украиноязычного канала от 12.10.2022 с подписью «проспект Металургів,
+          47» на том же фасаде. ООО «ГК КрашМаш», ИНН 7842525925, Санкт-Петербург. Два кадра с
+          улицы, снятые во время удара в марте 2022 года, — та же съёмка, что и в упомянутом выше
+          видео от 17.03.2022.</span></li>
+        <li><span class="ty">Гибель людей и дворовые захоронения &middot; восемь поимённо</span><span class="ti">
+          <a href="https://www.mariupoldestruction.com" target="_blank" rel="noopener">Mariupol
+          Destruction and Victims Map</a> (опубликованная таблица жертв, захвачена 03.07.2026,
+          sha256 <code>3b10d33f56cd&hellip;</code>, 4515 строк по всему городу), сверена с
+          телеграм-каналом <b>t.me/mariupolRIP</b> (посты 19075, 19202, 25434, 30852, 44164,
+          44185) и
+          <a href="https://memorial.ua/obituaries/civilians/kfedorova-nadiia-12510" target="_blank" rel="noopener">memorial.ua</a>
+          (sha256 <code>4c533ad8d4dc&hellip;</code>). Полная таблица выше. Захвачено по
+          стандартной цепочке хранения доказательств этого проекта
+          (<code>scripts/239_capture_metallurgov47_casualty_record.py</code>) и загружено в базу
+          (<code>scripts/240_load_metallurgov47_casualty_record.py</code>, property_id
+          4529).</span></li>
+        <li><span class="ty">Подрядчик по сносу &middot; директор поимённо, отраслевая пресса</span><span class="ti">
+          Материал на одну страницу из отраслевого строительного журнала, размещённый на сайте
+          самого «КрашМаш», — интервью с указанием имени с генеральным директором Виктором
+          Александровичем Казаковым: работа в Мариуполе началась в октябре 2022 года; 35
+          специалистов, 25 единиц техники, уникальный экскаватор Caterpillar 390DLME с вылетом
+          стрелы 60 метров; типичный срок сноса — 5&ndash;12 дней; только собственная техника.
+          Адрес не назван — материал подтверждает масштаб и метод работы в городе, но не привязан
+          к этому конкретному дому.</span></li>
+        <li><span class="ty">Цепочка застройщика &middot; федеральный девелопер</span><span class="ti">
+          «РКС-Девелопмент» / «РКС-НР» &rarr; «РосКапСтрой» (Минстрой России); директор «РКС-НР»
+          Шарипов Ильдар Радикович; расследование Центра «Досье» «Мариупольский передел»
+          связывает Шарипова с «Москапстроем» и вице-премьером Маратом
+          Хуснуллиным. Передача земельного участка: указ главы «ДНР» №291 (07.09.2023). Ставка компенсации
+          45 000 &#8381;/м&sup2; по данным Agents.Media — против нижней планки в
+          53 000 &#8381;/м&sup2; по данным прессы и против собственного показателя проекта по
+          массиву объявлений о продаже, см. ниже.</span></li>
+        <li><span class="ty">Проверка рыночной планки &middot; собственный массив объявлений проекта</span><span class="ti">
+          Рассчитано по собственному массиву объявлений о продаже мариупольских
+          квартир (1243 объявления всего), собранных из телеграма и сайтов российских риелторских
+          агентств, отфильтрованных до 266 сопоставимых лотов вторичного жилья. Полная методика и
+          цифры до/после — во внутренней документации проекта (case study).</span></li>
+        <li><span class="ty">Свидетельства жильцов</span><span class="ti">
+          Видео от июня 2025 года от представительницы истцов, в котором она показывает материалы открытого
+          судебного разбирательства; и второе видео с места, где
+          жильцы обращаются на камеру у руин дома. Рассматривается как свидетельство самих
+          лишённых жилья людей, подтверждённое текстом судебного решения там, где они пересекаются. Живые
+          частные лица анонимизированы; их реплики сохранены и приведены дословно, имена — нет.</span></li>
+        <li><span class="ty">Общий контекст</span><span class="ti">
+          По данным Центра «Досье» (на 01.11.2025): всего 22 667 квартир в 366 снесённых домах;
+          компенсационный дефицит в 5141 квартиру оккупационная администрация намерена восполнить за счёт
+          реестра «бесхозяйного» имущества; изъятые квартиры распределяются с документально
+          подтверждённым приоритетом для силовиков и «ветеранов СВО».</span></li>
+      </ul>
+    </details>
+    <p class="figcap" style="margin-top:1.2rem">См. также:
+      <a href="case-study-IV-court-docket-ru.html">Как устроен судебный конвейер изъятия жилья у мариупольцев</a>,
+      <a href="mariupol-master-dossier-ru.html">основное досье</a> и в разделе проекта
+      «<a href="stakeholder-network.html">с графом связей между заинтересованными сторонами</a>» <span style="font-family:var(--font-mono);font-size:.8em;color:var(--muted)">(пока нет перевода, ссылка временно ведёт на английскую версию)</span>.</p>
+  </section>
+
+  <section class="support-section">
+    <h3>Поддержать проект</h3>
+    <p>Этот проект ведёт <a href="about.html">автор</a> в одиночку — без
+      финансирования и грантов, на собственные средства и время. Если вы считаете эту
+      работу нужной, вы можете помочь мне покрыть часть расходов.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal &mdash; для читателей из США</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">НКО 501(c)(3) — пожертвование с налоговым вычетом для граждан США</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">только сеть Tron</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  // click-to-reveal popup, used only where a tooltip needs to hold a real link
+  document.querySelectorAll('.xlit').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var wasOpen = el.classList.contains('open');
+      document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!wasOpen) el.classList.add('open');
+    });
+    el.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); el.click(); }
+    });
+  });
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
+</html>

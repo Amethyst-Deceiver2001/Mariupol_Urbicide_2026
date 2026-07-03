@@ -31,28 +31,41 @@ and "What the resident's own video puts on the record," below.
 
 ## The three rulings
 
-| Court | Case No. | Judge | Date | Result |
-|---|---|---|---|---|
-| Zhovtnevy district court (DNR) | 2-259/2025 | Yulia Sazonova (Сазонова Ю.Ю.) | 21.07.2025 | Denied |
-| DNR "Supreme Court" (appeal) | 33-2575/2025 | N.N. Guridova (Гуридова Н.Н., reporting judge) | 13.11.2025 | Upheld |
-| 2nd Cassation Court of General Jurisdiction (federal) | 8Г-12687/2026 | Tatiana Vasilyeva (Васильева Т.Г.) | 05.05.2026 | Denied |
+| Court | Case No. | Judge | Filed / received | Decided | Result |
+|---|---|---|---|---|---|
+| Zhovtnevy district court (DNR) | [2-259/2025](https://mar-zhovt--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=5346922&case_uid=27ec6a82-91b2-4a41-a176-0a946daa493d&delo_id=1540005) | Yulia Sazonova (Сазонова Ю.Ю.) | 28.10.2024 | 21.07.2025 | Denied |
+| DNR "Supreme Court" (appeal) | [33-2575/2025](https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=doc&number=2122362&delo_id=5&new=5&text_number=1) | N.N. Guridova, reporting judge (Гуридова Н.Н.); presiding: Oleynikova V.V. (Олейникова В.В.) | — | 13.11.2025 | Upheld below |
+| 2nd Cassation Court of General Jurisdiction (federal) | [8Г-12687/2026](https://2kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=17997342&case_uid=8741fb33-2475-4145-89e4-631f55aededc&new=2800001&delo_id=2800001) | Tatiana Vasilyeva (Васильева Т.Г.) | 06.04.2026 | 05.05.2026 | Denied |
 
-Case UID: `93RS0006-01-2024-005922-91`. The homeowners' association itself,
-**TSZh «Troianda-M»** (ИНН 9310015564, ОГРН 1249300014347), had to register as
-a Russian legal entity in July 2024 to be recognized as a party. The building
-was struck from the books of its original balance-holder, ЖКП «Жилкомплекс»,
-in 2017 and passed to ОСМД «Троянда-М» (the pre-war Ukrainian condominium
-association) — TSZh «Troianda-M» is that same association's post-2022
-re-registration, not a new entity.
+Case UID: `93RS0006-01-2024-005922-91`, threading through all three levels
+(confirmed directly from each docket card/ruling, not inferred). The
+homeowners' association itself, **TSZh «Troianda-M»** (ИНН 9310015564, ОГРН
+1249300014347), had to register as a Russian legal entity in July 2024 to be
+recognized as a party. The building was struck from the books of its
+original balance-holder, ЖКП «Жилкомплекс», in 2017 and passed to ОСМД
+«Троянда-М» (the pre-war Ukrainian condominium association) — TSZh
+«Troianda-M» is that same association's post-2022 re-registration, not a new
+entity.
 
-Press coverage (Agents.Media, 2026, on the Supreme Court cassation filing)
-puts numbers on the group the litigation represents: **60 residents** filed
-the complaint, of whom **22 had compensation approved** by the time of
-filing — meaning the other 38, including the named plaintiffs in this case,
-had not. A cassation complaint was filed with the Supreme Court of Russia
-itself on **27.02.2026**, beyond the 2nd KSOJ denial already on file — the
-domestic-remedy track is still active past the dates this case study
-previously treated as final.
+Press coverage (Agents.Media, 27.02.2026) puts numbers on the group the
+litigation represents: **60 residents** filed the complaint, of whom **22
+had compensation approved** by the time of filing — meaning the other 38,
+including the named plaintiffs in this case, had not. That article describes
+the residents as filing "with the Supreme Court" — but the cassation court's
+own docket card (case 8Г-12687/2026, captured directly, linked above) shows
+the complaint was received and registered by the 2nd Cassation Court of
+General Jurisdiction on **06.04.2026** (the standard routing for a civil
+cassation complaint in this system, not a separate/further filing) and
+decided there on 05.05.2026, denied. That docket card carries a dedicated
+field for matters forwarded to or from Russia's actual Supreme Court ("Из
+Верховного Суда Российской Федерации"); it reads "нет" (none). **Correction,
+2026-07-03:** an earlier version of this case study and its exhibits
+described this as "a further complaint to the Supreme Court of Russia,"
+framed as still open past the 05.05.2026 cassation denial — that claim was
+never sourced to a captured document and is chronologically impossible as
+originally worded (the cited press date, 27.02.2026, predates the cassation
+decision it claimed to follow). Domestic remedies end at the federal
+cassation stage; there is no evidence of further escalation.
 
 ---
 
@@ -174,7 +187,7 @@ ruling text (case 33-2575/2025):
 | 23.07.2022 | GKO DNR Resolution №162 establishes the demolition-assessment procedure for war-damaged buildings |
 | 06.04.2022 | GKO DNR Resolution №1 — the framework cited for assigning the contractor/inspection roles on the commission (note: dated *before* №162, cited as background authority) |
 | 03.08.2022 | Technical-survey report issued — jointly attributed in the case file to two different contractors: OOO «Professionalnye ekspertnye tekhnologii» and OOO IB «StroiTekh-XXI» |
-| 29.09.2022 | Commission conclusion №118 declares the building unfit for habitation and condemns it for demolition |
+| 29.09.2022 | Commission conclusion №118 declares the building unfit for habitation and condemns it for demolition; same date, GKO DNR Distributive Order №56 lists прт. Металлургов, д. 47 in its 177-address Mariupol demolition schedule (MinStroy demolition register, row 277) |
 | **10–25.12.2022** | Building physically demolished — dated precisely by residents' own video evidence submitted to the court (see below), not just "Dec 2022" |
 | 26.07.2023 | Formal act recording completed demolition works, naming contractor **OOO «RKS-NR»** as the party that carried out the dismantling |
 | 07.09.2023 | Decree of the Head of the DNR №291 grants OOO SZ «RKS-Development» (ИНН 9310007980) a *number of* municipal land parcels, without auction — one of them 3,136 m², at the intersection of prosp. Metallurgov and a redacted street, for investment project **«Novoe vremya 2»** |
@@ -184,8 +197,19 @@ ruling text (case 33-2575/2025):
 Two details in the ruling itself do the self-incriminating work. First, the
 technical reports and the commission's own conclusion list **three different
 commission rosters across three separate documents** — a composition
-irregularity the governing procedure (Resolution №162) does not allow, raised
-by residents on appeal. Second, the report underlying the demolition decision
+GKO DNR Resolution №162 (23.07.2022, the governing demolition-assessment
+procedure) does not allow: "в акте обследования... в заключении комиссии...
+указаны три разных состава комиссии, что не предусмотрено вышеуказанным
+порядком" (case 33-2575/2025). Raised by residents on appeal, the appellate
+court rejected the underlying claim — but without engaging the
+three-rosters inconsistency itself, on the narrower ground that "в
+материалах дела отсутствуют сведения о том, что собственники... изъявили
+желание участвовать в комиссии" (no evidence the owners sought to take
+part in the commission). A related complaint — that the building's
+balance-holder was excluded from the commission — was rejected too, on a
+technicality: at the date of conclusion №118 (29.09.2022) the building was
+assigned to PPK «Edinyi zakazchik», and TSZh «Troianda-M» would not exist
+for another two years. Second, the report underlying the demolition decision
 (StroiTekh-XXI's technical assessment) was challenged by residents for
 lacking an approval signature — the appellate court considered this but
 upheld the lower court's reliance on it anyway.
@@ -268,13 +292,23 @@ not tied to this specific address. The user then identified
 `r52lcv5MhPw` itself as Metallurgov-47 footage and supplied three further
 videos that close the gap completely:
 
-- `RutXOUDzP_s` (uploader: Игорь Семенов — an independent third party, not
+- [«МАРИУПОЛЬ! КРАШМАШ СНОСИТ ЗНАМЕНИТУЮ МНОГОЭТАЖКУ НА МЕТАЛЛУРГОВ!»](https://www.youtube.com/watch?v=RutXOUDzP_s)
+  (uploader: Игорь Семенов — an independent third party, not
   KrashMash's own channel; uploaded 14.12.2022, inside the resident-confirmed
-  10–25.12.2022 demolition window) carries **on-screen text reading
-  '"…рашМаш" сносит Металлургов 47'** ("KrashMash demolishes Metallurgov
-  47") — contractor name and address in the same frame, from a source
-  independent of KrashMash's own promotional material. This is the single
-  strongest piece of evidence in this case study.
+  10–25.12.2022 demolition window; sha256
+  `05d4297e1c7d43a5bc69089a2fe104cd99f8ea98d21840958d39499ad3aad7bb`) carries
+  **on-screen text reading '"…рашМаш" сносит Металлургов 47'** ("KrashMash
+  demolishes Metallurgov 47") — contractor name and address in the same
+  frame, from a source independent of KrashMash's own promotional material.
+  This is the single strongest piece of evidence in this case study. The
+  video's own description reads: *"Знаменитое здание на Металлургов 47, чьи
+  фотографии известны всему миру пошло под снос. Многометровый экскаватор
+  компании "КрашМаш" приступил к работам 10 декабря"* ("The famous building
+  at Metallurgov 47, whose photographs are known worldwide, has gone under
+  demolition. The многометровый [many-meters-tall] excavator of the
+  'KrashMash' company began work on 10 December") — an independent
+  confirmation of the demolition start date (10.12.2022), consistent with
+  the window above.
 - `r52lcv5MhPw` itself opens on a title card reading "СНОС ДОМОВ В
   МАРИУПОЛЕ" ("Demolition of buildings in Mariupol") bearing KrashMash's own
   logo — confirming the video is KrashMash's own production, not a
@@ -326,6 +360,63 @@ distinct paperwork-only intermediary, or is simply a name the resident
 associated with the wrong document, is not resolved by anything captured
 so far and should not be guessed at further without a primary document
 naming both companies together.
+
+---
+
+## Civilian deaths and courtyard burials
+
+At least **eight named residents** of prosp. Metallurgov, 47 are recorded as
+killed during the siege (Feb–Mar 2022), per the
+[Mariupol Destruction and Victims Map](https://www.mariupoldestruction.com)
+(its published *«Поименный список жертв»* / "List of victims by name"
+spreadsheet), cross-referenced against Telegram channel `t.me/mariupolRIP`
+and `memorial.ua`:
+
+| Name | Born | Died | Cause | Burial | Source |
+|---|---|---|---|---|---|
+| **Фёдорова Надежда** | 04.10.1938 | 01–03.03.2022 | Shelling blew out windows; injured by glass shards; heart stopped | Buried next to the building, wrapped in a carpet/rug — *"похоронили возле дома, в ковре. Перезахоронение неизвестно"* (reburial status unknown) | [memorial.ua](https://memorial.ua/obituaries/civilians/kfedorova-nadiia-12510) |
+| **Харакоз Наталья Георгиевна** — a writer and journalist known in Mariupol | 13.07.1935 | 29.03.2022 | Died of stress, conditions, lack of medication | Buried in a common/mass grave in the courtyard of Metallurgov, 47; **later reburied** at Starokrymske cemetery (sector 17, plot 25, last row, grave 6) — her grave was locatable only because a neighbour tucked a note with her full name into her pocket before the mass burial | Granddaughter (direct) + [t.me/mariupolRIP/25434](https://t.me/mariupolRIP/25434) |
+| **Тёрин Александр Евгеньевич** | — | — (siege period) | Body found while clearing rubble | ul. Metallurgov, 47 | [t.me/mariupolRIP/19202](https://t.me/mariupolRIP/19202) |
+| **Тёрина Елена Александровна** | — | — (siege period) | Body found while clearing rubble | ul. Metallurgov, 47 | [t.me/mariupolRIP/19202](https://t.me/mariupolRIP/19202) |
+| **Иванов Максим Владимирович** | — | 17.03.2022 | Killed in an airstrike, together with his mother Людмила | Metallurgov, 47 | [t.me/mariupolRIP/19075](https://t.me/mariupolRIP/19075), [/44185](https://t.me/mariupolRIP/44185) |
+| **Паскаль Мария** | — | 24.03.2022 | Killed by shelling while cooking in the courtyard (married couple with Галушко Андрей, below; same death and burial address) | Metallurgov, 47 | Neighbours (direct) + [t.me/mariupolRIP/30852](https://t.me/mariupolRIP/30852) |
+| **Галушко Андрей** | — | 24.03.2022 | Killed by shelling while cooking in the courtyard (married couple with Паскаль Мария, above) | Metallurgov, 47 | Neighbours (direct) + [t.me/mariupolRIP/30852](https://t.me/mariupolRIP/30852) |
+| **Горлачова Раиса Дмитриевна** | 07.02.1942 | 17.03.2022 | — | prosp. Metallurgov, 47 | [t.me/mariupolRIP/44164](https://t.me/mariupolRIP/44164) |
+
+(Ivanov's mother, Людмила, is named as also killed 17.03.2022 in the same
+airstrike but does not have her own row in the source.)
+
+At least two courtyard burial sites are independently documented: Фёдорова
+Надежда's individual grave, wrapped in a rug, immediately beside the
+building — reburial status still unknown; and a separate common/mass grave
+that held Харакоз Наталья, later exhumed and reburied at Starokrymske
+cemetery. Паскаль/Галушко's entries list the same address for both death
+and burial, consistent with a courtyard burial as well, though not
+described in as much procedural detail as the other two.
+
+This is consistent with the project's documented citywide pattern of
+makeshift courtyard burials during the siege (see the comparable finding at
+пр. Ленина(Мира) 104/106/108/110,
+`lenina_104_106_108_110_restoration_without_restitution.md`, and the
+gravedigger cross-section spanning five streets in
+`death_sites_new_construction.md`, which separately documents burials at a
+*different* Metallurgov address, 96/98). Фёдорова Надежда's case — a
+named individual, buried in a rug beside the building, with an explicitly
+unresolved reburial status — is a live open question against the building's
+10–25.12.2022 demolition date: nothing captured so far documents an
+exhumation before demolition began.
+
+**Captured, 2026-07-03**, under this project's standard chain of custody
+(`scripts/239_capture_metallurgov47_casualty_record.py`): the
+mariupoldestruction.com victims spreadsheet (sha256 `3b10d33f56cd…`,
+854,442 bytes, 4,515 citywide rows, confirmed on capture to contain all
+8 rows above), the memorial.ua obituary for Фёдорова Надежда (sha256
+`4c533ad8d4dc…`), and all six cited `t.me/mariupolRIP` posts (19075,
+19202, 25434, 30852, 44164, 44185; sha256 `6411cecc61dc…` through
+`28c6f781abe2…`). Loaded into the `corroboration` table (kind
+`civilian_casualty`, property_id 4529) via
+`scripts/240_load_metallurgov47_casualty_record.py` — run by the user per
+project convention, not by Claude.
 
 ---
 
@@ -465,24 +556,43 @@ compensation rate that undershoots the local market by some 15% even when
 paid.
 
 It also establishes something a damage assessment or a registry entry
-cannot: **exhaustion of domestic remedies**, now extended past the federal
-cassation denial to a further Supreme Court cassation filing (27.02.2026, per
-press). That exhaustion is the procedural precondition restitution
-mechanisms — and the European Court of Human Rights' own jurisprudence going
-back to *Loizidou* — require before a claim becomes admissible. Troianda-M's
-residents did not skip that step. The occupation courts made sure there is a
-paper record that they didn't, and the residents made sure there is a video
-record of the paperwork's own contradictions.
+cannot: **exhaustion of domestic remedies** — first instance, appeal, and
+federal cassation, the full domestic ladder this system provides. That
+exhaustion is the procedural precondition restitution mechanisms — and the
+European Court of Human Rights' own jurisprudence going back to *Loizidou* —
+require before a claim becomes admissible. Troianda-M's residents did not
+skip a step. The occupation courts made sure there is a paper record that
+they didn't, and the residents made sure there is a video record of the
+paperwork's own contradictions.
 
 ---
 
-**Sources:** Appellate ruling, case 33-2575/2025 (DNR "Supreme Court",
-13.11.2025 — sha256 `dccd57029613f4cbda47619317519cee03523add3ccf845e8247a0f60b769995`);
-docket cards for cases 2-259/2025 and 8Г-12687/2026; GKO DNR Resolutions №162
-(23.07.2022), №1 (06.04.2022), №175 (30.07.2022); Decree of the Head of the
+**Sources:** Docket card, case
+[2-259/2025](https://mar-zhovt--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=5346922&case_uid=27ec6a82-91b2-4a41-a176-0a946daa493d&delo_id=1540005)
+(Zhovtnevyi district court, filed 28.10.2024, denied 21.07.2025 — sha256
+`ef5ac1065856d1061cce304c3d4d5b3861f8aa3b90c350156ce56824a57a5544`); appellate
+ruling, case
+[33-2575/2025](https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=doc&number=2122362&delo_id=5&new=5&text_number=1)
+(DNR "Supreme Court", 13.11.2025 — sha256
+`dccd57029613f4cbda47619317519cee03523add3ccf845e8247a0f60b769995`); docket
+card, federal cassation case
+[8Г-12687/2026](https://2kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=17997342&case_uid=8741fb33-2475-4145-89e4-631f55aededc&new=2800001&delo_id=2800001)
+(2nd Cassation Court of General Jurisdiction, received 06.04.2026, denied
+05.05.2026, no forwarding to/from Russia's Supreme Court per the docket's own
+field — sha256
+`96e32697957e0729cbdae79691271e8bd102af89ff1e660847bced6fa41e5418`); GKO DNR
+Resolutions №162
+(23.07.2022), №1 (06.04.2022), №175 (30.07.2022); **GKO DNR Distributive Order
+№56** (29.09.2022, demolition authorization naming прт. Металлургов, д. 47 —
+DNR MinStroy Unified Demolition Register CSV, row 277, sha256
+`d431a53003e51456c4052a805e1cc6c42e9417b315314df7e4b23ca40742ea37`, captured
+09.06.2026 from
+<https://minstroy-dpr.gosuslugi.ru/app/uploads/2024/09/eb14dd_reestr-snosa_16_03_2026.csv>
+— geoblocked DNR portal, captured via VPS, not a live Claude fetch); Decree
+of the Head of the
 DNR №291 (07.09.2023, `data/parsed/dnr_land_orders.jsonl`); Agents.Media
-(press, cassation filing 27.02.2026, address, developer chain, compensation
-rate — sha256 `15bd90399d26…`); `donetsk.kp.ru` (press, replacement-build
+(press, 27.02.2026, on the residents' cassation complaint, address, developer
+chain, compensation rate — sha256 `15bd90399d26…`); `donetsk.kp.ru` (press, replacement-build
 details — sha256 `4929867d2cd2…`); Telegram `@metallgov/397`,
 `@mariupollnew/22920`, `@novosti_mariupol1/32537`, `@allmarinews/21995`
 (all captured `scripts/167`); YouTube video `r52lcv5MhPw` (demolition
@@ -505,11 +615,21 @@ general director Viktor Kazakov (sha256 `0b9f03dd857c…`, captured
 director ФИО) and Dossier Center's "Мариупольский передел" via Echo FM
 mirror (sha256 `65be89f47f4c…`), both captured `scripts/170`.
 
-EISZhS object 54271 («Dom s chasami», RKS-Development) and GKO DNR Directive
-№56 (29.09.2022, DNR MinStroy demolition register) are **retired from this
-case study** as of this update — both real, both documented elsewhere, but
-confirmed not to be this case's building (see prior revision history in
-git for the retracted hypothesis).
+EISZhS object 54271 («Dom s chasami», RKS-Development) is **retired from this
+case study** — real, documented elsewhere, but confirmed not to be this
+case's building.
+
+**GKO DNR Distributive Order №56 (29.09.2022)** is the demolition-authorization
+instrument for this building. The order's 177-address Mariupol schedule, in
+the DNR MinStroy Unified Demolition Register (CSV, captured 09.06.2026, sha256
+`d431a53003e51456c4052a805e1cc6c42e9417b315314df7e4b23ca40742ea37`), row 277,
+names it directly: *"г. Мариуполь, пр-т. Металлургов, д. 47 (Здание жилого
+дома)"*, Жовтневый (Центральный) district — an exact address match, same date
+as the "Commission conclusion №118" the appellate ruling cites as the
+demolition trigger. (A dozen проспект Ленина addresses elsewhere in the same
+order, rows 247–258, were an earlier, since-abandoned "Dom s chasami"
+hypothesis for this case — those addresses are a different, sibling parcel
+under the same order and do not bear on this building.)
 
 Related: `demolition_rebuild_address_laundering` (memory),
 `nakhimova_82_chernomorsky_1b.md`, `case-study-IV-court-docket.html`,
