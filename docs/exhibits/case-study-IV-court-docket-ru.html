@@ -163,6 +163,16 @@
     text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
   .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
   .srclist .ti b{color:var(--paper)}
+
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;padding:.9rem 1.1rem}
+  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
+  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
 </style>
 </head>
 <body>
@@ -178,7 +188,7 @@
   <section class="hero">
     <div class="sub">Дело IV &middot; уже упразднённая судебная процедура</div>
     <div class="eyebrow" title="ГПК РФ гл. 33 — особое производство">Особое производство, глава 33 ГПК РФ</div>
-    <h1>Недвижимость мариупольцев, конискованная оккупационными судами</h1>
+    <h1>Недвижимость мариупольцев, конфискованная оккупационными судами</h1>
     <p class="lead">С середины 2024 года по начало 2026-го четыре оккупационных суда
       Мариуполя рассмотрели 2 694 заявления о переводе «бесхозяйных» домов в
       муниципальную собственность. Эти решения подписали тридцать три судьи. И ни в
@@ -486,6 +496,33 @@
       без рассмотрения — 338 (12,5%) &middot; отозвано/прекращено 92 (3,4%) &middot; передано
       по подсудности 5 &middot; объединено с другим делом 1 &middot; не классифицировано 10.
       Проценты — от всех 2 694 дел.</p>
+  </section>
+
+  <section class="support-section">
+    <h3>Поддержать проект</h3>
+    <p>Этот проект ведёт <a href="about.html">автор</a> в одиночку — без
+      финансирования и грантов, на собственные средства и время. Если вы считаете эту
+      работу нужной, вы можете помочь мне покрыть часть расходов.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal — для читателей из США</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">НКО 501(c)(3) — пожертвование с налоговым вычетом для граждан США</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">только сеть Tron</div>
+      </div>
+    </div>
   </section>
 
 </div>

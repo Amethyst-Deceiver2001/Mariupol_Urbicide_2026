@@ -172,11 +172,11 @@
     </div>
 
     <div class="stats">
-      <div class="stat"><span class="n" data-to="11730">11,730</span><span class="l">properties on the evidence spine</span></div>
+      <div class="stat"><span class="n" data-to="11804">11,804</span><span class="l">properties on the evidence spine</span></div>
       <div class="stat"><span class="n" data-to="12948">12,948</span><span class="l">&ldquo;ownerless&rdquo; registry entries</span></div>
       <div class="stat"><span class="n" data-to="8271">8,271</span><span class="l">occupation court cases · 26 DNR courts</span></div>
-      <div class="stat"><span class="n" data-to="1155">1,155</span><span class="l">legal-grade · 2+ independent sources</span></div>
-      <div class="stat cd"><span class="n" id="cd-days">—</span><span class="l">days to the 1 July 2026 re-registration deadline</span></div>
+      <div class="stat"><span class="n" data-to="1158">1,158</span><span class="l">legal-grade · 2+ independent sources</span></div>
+      <div class="stat cd"><span class="n" id="cd-days">—</span><span class="l">days since the 1 July 2026 re-registration deadline took effect</span></div>
     </div>
   </div>
 </header>
@@ -228,6 +228,7 @@
         <span class="go">Trace the pipeline →</span>
       </a>
 
+      <div>
       <a class="card c-pipeline" href="exhibits/two-property-systems.html">
         <span class="tag">Legal genealogy</span>
         <h3>Two Property Systems, One Collision</h3>
@@ -236,6 +237,8 @@
           ownership model it overrides, side by side.</p>
         <span class="go">Trace the genealogy →</span>
       </a>
+      <a href="exhibits/two-property-systems-ru.html" style="display:inline-block;margin-top:8px;font-family:var(--font-mono);font-size:11px;color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)">русская версия →</a>
+      </div>
 
       <a class="card c-evidence" href="exhibits/lenina-104-106-108-110-exhibit.html">
         <span class="tag">Case · restoration without restitution</span>
@@ -264,6 +267,7 @@
         <span class="go">Open the case →</span>
       </a>
 
+      <div>
       <a class="card c-evidence" href="exhibits/case-study-III-stroiteley.html">
         <span class="tag">Case · graves beneath new construction</span>
         <h3>A Burial Ground, Rebranded</h3>
@@ -272,7 +276,10 @@
           developer for one branded condominium complex — no exhumation recorded.</p>
         <span class="go">Open the case →</span>
       </a>
+      <a href="exhibits/case-study-III-stroiteley-ru.html" style="display:inline-block;margin-top:8px;font-family:var(--font-mono);font-size:11px;color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)">русская версия →</a>
+      </div>
 
+      <div>
       <a class="card c-evidence" href="exhibits/case-study-IV-court-docket.html">
         <span class="tag">Case · the court route</span>
         <h3>The Court Docket</h3>
@@ -283,6 +290,8 @@
           redacted on every published ruling.</p>
         <span class="go">Open the case →</span>
       </a>
+      <a href="exhibits/case-study-IV-court-docket-ru.html" style="display:inline-block;margin-top:8px;font-family:var(--font-mono);font-size:11px;color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)">русская версия →</a>
+      </div>
 
       <a class="card c-evidence" href="exhibits/case-study-troianda-metallurgov.html">
         <span class="tag">Case · the residents who fought back</span>
@@ -341,7 +350,7 @@
     <h2 class="measure">Documented to an evidentiary standard.</h2>
     <div class="meth">
       <div class="mcell"><div class="h">Capture before parse</div><div class="d">Every source page and document is saved verbatim the moment it is retrieved, before anything is read from it. The raw store is append-only.</div></div>
-      <div class="mcell"><div class="h">Hashed for the record</div><div class="d">Every artifact carries a SHA-256 fingerprint and a UTC retrieval timestamp — any later alteration is detectable. ~353,600 artifacts held under chain of custody.</div></div>
+      <div class="mcell"><div class="h">Hashed for the record</div><div class="d">Every artifact carries a SHA-256 fingerprint and a UTC retrieval timestamp — any later alteration is detectable. 563,000+ artifacts held under chain of custody.</div></div>
       <div class="mcell"><div class="h">Two independent sources</div><div class="d">A property-to-seizure link is treated as legal-grade only when at least two independent record families agree — fuzzy matches are confidence-scored, not assumed.</div></div>
       <div class="mcell"><div class="h">Berkeley Protocol</div><div class="d">Methods follow the Berkeley Protocol on Digital Open Source Investigations, so the chain from raw source to finished claim is reproducible.</div></div>
     </div>
@@ -378,12 +387,12 @@
 
 <script>
 (function(){
-  // days to the 1 July 2026 re-registration deadline
+  // days since the 1 July 2026 re-registration deadline took effect
   var el=document.getElementById('cd-days');
   if(el){
     var now=new Date();
     var target=new Date(Date.UTC(2026,6,1));
-    var days=Math.max(0,Math.ceil((target-now)/86400000));
+    var days=Math.max(0,Math.floor((now-target)/86400000));
     el.textContent=days;
   }
   // count-up the headline figures once, on first view

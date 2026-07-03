@@ -1,5 +1,12 @@
 # Integrity review — visual-narrative exhibits (2026-06-13, rev. 2)
 
+**HISTORICAL SNAPSHOT — superseded.** This review reflects the exhibits and
+DB state as of 2026-06-13 (spine ~6,055 properties, legal-grade ~1154). Every
+figure below is stale relative to `docs/STATS.md` (current spine: 11,804;
+legal-grade: 1,158) and the exhibits it originally flagged have long since
+been corrected. Kept for its methodology and as a record of what was found;
+do not cite any number in this file as current.
+
 **Rev. 2 note:** the original review (same day) found F4's UNOSAT claim
 undone. UNOSAT ingest has since been BUILT + RUN (scripts 52–53) and F4 is
 now **RESOLVED** with real numbers — see the updated F4 below. This also

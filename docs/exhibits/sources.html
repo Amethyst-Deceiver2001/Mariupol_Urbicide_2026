@@ -133,10 +133,10 @@
     below are pulled directly from this project&rsquo;s own chain-of-custody log — every artifact
     is SHA-256 hashed and timestamped at capture, before any parsing — not assembled from memory.</p>
   <div class="stat-row">
-    <div class="stat"><span class="n red">211,732</span><span class="l">hashed source artifacts in the raw store</span></div>
-    <div class="stat"><span class="n">47</span><span class="l">distinct hostnames/portals crawled</span></div>
+    <div class="stat"><span class="n red">563,319</span><span class="l">hashed source artifacts in the raw store</span></div>
+    <div class="stat"><span class="n">55</span><span class="l">distinct hostnames/portals crawled</span></div>
     <div class="stat"><span class="n gold">37</span><span class="l">distinct Telegram channels captured</span></div>
-    <div class="stat"><span class="n">11,521</span><span class="l">corroboration rows tying sources to properties</span></div>
+    <div class="stat"><span class="n">12,176</span><span class="l">corroboration rows tying sources to properties</span></div>
   </div>
   <div class="toc">
     <a href="#courts">Occupation courts</a><a href="#registry">Registry &amp; decrees</a>
@@ -162,6 +162,7 @@
     <tr><td>Ordzhonikidzevskyi District Court</td><td class="mono">mar-ordzh&#8203;--dnr.sudrf.ru</td><td class="num">416</td><td class="muted">Saturated docket</td></tr>
     <tr><td>Illichivskyi District Court</td><td class="mono">mar-ilich&#8203;--dnr.sudrf.ru</td><td class="num">291</td><td class="muted">Saturated docket</td></tr>
     <tr><td>2nd Cassation Court of General Jurisdiction</td><td class="mono">2kas.sudrf.ru</td><td class="num">1</td><td class="muted">Appeal-chain capture, Тро­янда-М demolition-challenge case study</td></tr>
+    <tr><td>ВС ДНР (Supreme Court of the &ldquo;DNR&rdquo;)</td><td class="mono"><a href="https://vs--dnr.sudrf.ru/" class="h">vs--dnr.sudrf.ru</a></td><td class="num">427</td><td class="muted">Appellate layer, full population — ownerless-bezkhoz doctrine rulings, citizenship-abandonment framing</td></tr>
   </table>
   <p class="note" style="margin-top:1rem">2,666 cases across Mariupol&rsquo;s four district dockets, none carrying a street address on the docket card itself; the crawl has since been extended region-wide to 8,271 cases across 26 DNR courts, with the address redacted to &laquo;&lt;адрес&gt;&raquo; on 100% of published rulings (see <a href="case-study-IV-court-docket.html">Case Study IV</a>).</p>
 </section>
@@ -169,7 +170,7 @@
 <section id="registry">
   <p class="eyebrow">01 &middot; Primary government sources</p>
   <h2>The ownerless-property registry &amp; municipal decrees</h2>
-  <p>The live front line since ФКЗ-4: direct registry inclusion has replaced the court stage ahead
+  <p>The live front line since ФКЗ-4: direct registry inclusion has replaced the court stage as
     of the 1 July 2026 re-registration deadline.</p>
   <table class="src">
     <tr><th>Source</th><th>Host</th><th>Captures</th><th>Role</th></tr>
@@ -185,6 +186,13 @@
     <tr><td>Official internet portal of legal information</td><td class="mono">publication.pravo.gov.ru</td><td class="num">802</td><td class="muted">Federal gazette — amendments, including the 15 Dec 2025 ФКЗ-4 package</td></tr>
     <tr><td>Office of the head of the DNR (Denis Pushilin)</td><td class="mono">denis-pushilin.ru</td><td class="num">2,883</td><td class="muted">Decrees, orders, archive (2,894 PDFs recovered, incl. Указ &#8470;301)</td></tr>
     <tr><td>DNR normative-acts portal</td><td class="mono">npa.dnronline.su / нпа.днронлайн.рф</td><td class="num">64</td><td class="muted">DNR/federal scaffolding instruments, Law 66-RZ</td></tr>
+    <tr><td>Kremlin decree bank</td><td class="mono"><a href="http://www.kremlin.ru/acts/bank/28599" class="h">kremlin.ru/acts/bank</a></td><td class="muted">—</td><td class="muted">Presidential decrees (262-ФЗ address-redaction basis; VSK founding decree №504; others)</td></tr>
+    <tr><td>Head of DNR legal-acts mirror</td><td class="mono"><a href="https://glavadnr.ru/doc/zakony/66rz.pdf" class="h">glavadnr.ru</a></td><td class="muted">—</td><td class="muted">Law №66-RZ (bezkhoz procedure) full text</td></tr>
+    <tr><td>DNR state legal-information system</td><td class="mono">gisnpa-dnr.ru</td><td class="muted">—</td><td class="muted">Geoblocked (DNR domain, see Note below) — Постановление ГКО №290 and other GKO acts; cited via <a href="two-property-systems.html">Two Property Systems</a></td></tr>
+    <tr><td>Mariupol municipal gosuslugi portal (general)</td><td class="mono">mariupol.gosuslugi.ru</td><td class="muted">—</td><td class="muted">Geoblocked (DNR domain, see Note below) — municipal news/procedure pages, distinct from the ownerless-registry subdomain above</td></tr>
+    <tr><td>Garant legal-reference mirror</td><td class="mono"><a href="https://base.garant.ru/413383874/" class="h">base.garant.ru</a></td><td class="muted">—</td><td class="muted">Federal statute cross-reference</td></tr>
+    <tr><td>Legalacts.ru</td><td class="mono"><a href="https://legalacts.ru/kodeks/GPK-RF/razdel-ii/podrazdel-iv/glava-33/" class="h">legalacts.ru</a></td><td class="muted">—</td><td class="muted">ГПК РФ гл. 33 (особое производство) full text — the procedural basis for every occupation-court bezkhoz case</td></tr>
+    <tr><td>Verkhovna Rada legislation portal</td><td class="mono"><a href="https://zakon.rada.gov.ua/laws/show/417-19" class="h">zakon.rada.gov.ua</a></td><td class="muted">—</td><td class="muted">Ukrainian Civil Code / property law, cited for the pre-war ownership model the occupation system overrides (<a href="two-property-systems.html">Two Property Systems</a>)</td></tr>
   </table>
 </section>
 
@@ -196,6 +204,7 @@
     <tr><td>наш.дом.рф (ЕИСЖС)</td><td class="mono">xn--80az8a.xn--d1aqf.xn--p1ai</td><td class="num">292</td><td class="muted">Federal Unified Information System of Housing Construction — 91-object new-build registry</td></tr>
     <tr><td>MinStroy DNR demolition register</td><td class="mono">minstroy-dpr.gosuslugi.ru</td><td class="num">6</td><td class="muted">637-row CSV, 525 Mariupol buildings</td></tr>
     <tr><td>EGRUL mirror</td><td class="mono">egrul.org</td><td class="num">10</td><td class="muted">Corporate-ownership lookups (nalog.ru is geoblocked); 17 developer INNs resolved</td></tr>
+    <tr><td>Rusprofile</td><td class="mono"><a href="https://www.rusprofile.ru" class="h">rusprofile.ru</a></td><td class="muted">—</td><td class="muted">Secondary corporate-lookup cross-check, director/founder confirmation</td></tr>
   </table>
   <p class="note" style="margin-top:1rem">Russian federal damage/reconstruction tracker (1,941 buildings) and the housing-queue/distribution lists were supplied as downloadable XLSX, not crawled live; both are hashed in the raw store under <span class="mono">damage_assessment_xlsx</span> / <span class="mono">housing_distribution_list</span>.</p>
 </section>
@@ -289,8 +298,8 @@
     <tr><td><a href="https://unosat-maps.web.cern.ch/UA/CE20220223UKR/" class="h">UNOSAT</a> (UNITAR), via <a href="https://data.humdata.org/" class="h">HDX</a></td><td class="muted">Building-level damage assessment, 12 May 2022 — 594 corroboration rows, 30.3% hit rate against the spine</td></tr>
     <tr><td>Sentinel-2 L2A, via AWS Earth Search STAC</td><td class="muted">Free, non-geoblocked imagery for siege-end-anchored before/after pairs (10 properties, 24 clips fetched)</td></tr>
     <tr><td>Esri World Imagery Wayback</td><td class="muted">~0.81 m/px archival hi-res tiles, releases pinned by date (2022-02-24 pre-war, 2026-05-28 current) — both the live interactive map&rsquo;s satellite layers and the Nakhimova 82 case-study chips</td></tr>
-    <tr><td>pastvu.com</td><td class="muted">Archival street photography (e.g. <span title="UA проспект Нахімова, 82 · RU проспект Нахимова, 82">Nakhimova Avenue 82</span>, 1991&ndash;92)</td></tr>
-    <tr><td>Yandex Panorama</td><td class="muted">2012 street-level imagery of pre-destruction buildings</td></tr>
+    <tr><td><a href="https://pastvu.com/p/948634" class="h">pastvu.com</a></td><td class="muted">Archival street photography (e.g. <span title="UA проспект Нахімова, 82 · RU проспект Нахимова, 82">Nakhimova Avenue 82</span>, 1991&ndash;92)</td></tr>
+    <tr><td><a href="https://yandex.com/maps" class="h">Yandex Maps / Panorama</a></td><td class="muted">2012 street-level imagery of pre-destruction buildings</td></tr>
     <tr><td>OpenStreetMap / Nominatim &amp; Overpass</td><td class="muted">Geocoding backbone for the property spine</td></tr>
     <tr><td>Google Maps / My Maps API</td><td class="muted">Supplementary geocoding</td></tr>
   </table>
@@ -304,8 +313,9 @@
     manually confirmed against the full file, not the title alone.</p>
   <table class="src">
     <tr><th>Source</th><th>Role</th></tr>
-    <tr><td>YouTube</td><td class="muted">Occupation-published and resident-published footage, individually verified per video</td></tr>
+    <tr><td>YouTube (<span class="mono">youtube.com</span>, <a href="https://youtu.be/n-_gv-AmbEM" class="h">youtu.be</a>)</td><td class="muted">Occupation-published and resident-published footage, individually verified per video</td></tr>
     <tr><td>Telegram-native video (t.me CDN)</td><td class="muted">e.g. the 13.07.2023 &ldquo;Nakhimova 82 на продаже&rdquo; clip — forensically captured, cropped, re-hashed before embedding</td></tr>
+    <tr><td><a href="https://vk.com/wall-61542146_14776" class="h">VKontakte</a></td><td class="muted">One-off occupation-official wall post, cross-referenced in the master dossier</td></tr>
   </table>
 </section>
 
@@ -315,10 +325,16 @@
   <p>Not crawled sources — the legal and journalistic record this project's findings are mapped
     against, and that supplied the original investigative lead.</p>
   <ul class="src-list">
-    <li><span class="name">Human Rights Watch</span><span class="role">&ldquo;Ukraine: Russia Illegally Seizing Property in Occupied Areas,&rdquo; 26 May 2026 — ~8,116 cases across 25 occupation court sites, the originating lead for the court-docket stream</span></li>
+    <li><span class="name">Human Rights Watch</span><span class="role"><a href="https://www.hrw.org/feature/russia-ukraine-war-mariupol/counting-the-dead" class="h">&ldquo;Ukraine: Russia Illegally Seizing Property in Occupied Areas&rdquo;</a>, 26 May 2026 — ~8,116 cases across 25 occupation court sites, the originating lead for the court-docket stream</span></li>
     <li><span class="name">UN OHCHR</span><span class="role">43rd periodic report on Ukraine, 9 Dec 2025</span></li>
     <li><span class="name">Council of Europe — Register of Damage for Ukraine</span><span class="role"><a href="https://rd4u.coe.int" class="h">rd4u.coe.int</a> — RD4U claim categories (A3.1/A3.2/A3.3/A3.6) used to classify every property on the spine</span></li>
     <li><span class="name">Rome Statute, International Criminal Court</span><span class="role">Art. 8(2)(b)(viii) — transfer of the occupier&rsquo;s own population; the criminal-accountability framework this archive is structured to feed</span></li>
+    <li><span class="name"><a href="https://novayagazeta.eu/articles/2024/02/22/dostupnoe-zakhvachennoe-zhile" class="h">Novaya Gazeta Europe</a></span><span class="role">&ldquo;Доступное захваченное жильё,&rdquo; 22 Feb 2024 — early reporting on the subsidized resale of seized Mariupol apartments</span></li>
+    <li><span class="name"><a href="https://meduza.io/feature/2022/06/10/kazhdyy-den-prosypaeshsya-i-ty-kto-to-novyy-segodnya-ty-mogilschik" class="h">Meduza</a></span><span class="role">Siege-period reporting, cited in Case Study III (Stroiteley courtyard graves)</span></li>
+    <li><span class="name"><a href="https://apnews.com/article/russia-ukraine-war-erasing-mariupol-499dceae43ed77f2ebfe750ea99b9ad9" class="h">Associated Press</a></span><span class="role">&ldquo;Erasing Mariupol&rdquo; — international wire coverage of the reconstruction-as-erasure pattern</span></li>
+    <li><span class="name"><a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82_%D0%91%D1%83%D0%B4%D1%96%D0%B2%D0%B5%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%D1%96%D0%B2_(%D0%9C%D0%B0%D1%80%D1%96%D1%83%D0%BF%D0%BE%D0%BB%D1%8C)" class="h">Ukrainian Wikipedia</a></span><span class="role">Background reference for pre-war street naming (Проспект Будівельників), Case Study III</span></li>
+    <li><span class="name"><a href="https://zradomir.com.ua/offenders/polishchuk-andrii" class="h">ZraDomir</a></span><span class="role">Ukrainian collaborator-accountability database, cited in the Lenina 104&ndash;110 case study</span></li>
+    <li><span class="name"><a href="https://medium.com/@alexey__kovalev/russias-invasion-of-ukraine-is-an-ultraviolent-settler-colonial-project-a2f3c1ff5873" class="h">Medium</a></span><span class="role">The project author&rsquo;s own essay on the settler-colonial framing, cited in the master dossier&rsquo;s &ldquo;about&rdquo; section</span></li>
     <li><span class="name">BBC Verify, Kyiv Independent, Euromaidan Press, NV, CEPA, Mezha, Russian Life / Dossier Center, rg.ru, mrpl.news</span><span class="role">2025&ndash;2026 reporting consulted for context and cross-referencing; full citation list in <span class="mono">docs/reconceptualization_2026.md</span></span></li>
   </ul>
 </section>
@@ -327,9 +343,10 @@
   <p class="eyebrow">A note on completeness</p>
   <div class="callout">
     This list reflects the project&rsquo;s chain-of-custody log as of the most recent capture run.
-    It will grow as new sources are crawled — the live front line, as of mid-2026, is weekly
-    re-snapshotting of the ownerless registry ahead of the 1 July 2026 deadline. Nothing here is
-    presented as exhaustive of what exists, only of what has been captured, hashed, and is on file.
+    It will grow as new sources are crawled — the live front line, following the 1 July 2026
+    re-registration deadline, is re-snapshotting the ownerless registry to capture what changes
+    now that the deadline has taken effect. Nothing here is presented as exhaustive of what
+    exists, only of what has been captured, hashed, and is on file.
   </div>
   <div class="callout red">
     Occupation government records (court rulings, registry entries, decrees) are catalogued here

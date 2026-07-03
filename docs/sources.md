@@ -201,6 +201,15 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **OSINT4Ukraine / Project Mariupol** (Hague-based, 70+ analysts) — collaborating organisation; no specific article cited, general corroboration.
 
+**ZraDomir (zradomir.com.ua)** — Ukrainian collaborator-accountability database; cited in the Lenina 104–110 case study.
+  - <https://zradomir.com.ua/offenders/polishchuk-andrii>
+
+**VKontakte** — one-off occupation-official wall post, cross-referenced in the master dossier.
+  - <https://vk.com/wall-61542146_14776>
+
+**YouTube / youtu.be** — occupation-published and resident-published footage, individually verified per video (title/caption matching found unreliable in this project's own review; every citation confirmed against the full file).
+  - example: <https://youtu.be/n-_gv-AmbEM>
+
 ---
 
 ## 7. Satellite and Geospatial
@@ -212,6 +221,12 @@ All sources used across the project's research: burial sites catalogue, case stu
 **Google Maps API** — geocoding pipeline for address normalisation.
 
 **UNOSAT WorldView-3** — see §5 above.
+
+**pastvu.com** — archival street photography (e.g. проспект Нахимова 82, 1991–92), cited in the Nakhimova 82 exhibit's before/after chips.
+  - <https://pastvu.com/p/948634>
+
+**Yandex Maps / Panorama** — 2012 street-level imagery of pre-destruction buildings, cited in Case Study III.
+  - <https://yandex.com/maps>
 
 ---
 
@@ -321,6 +336,9 @@ All sources used across the project's research: burial sites catalogue, case stu
 **Leibniz-IfL / KonKoop VisLab** — geocoding the Mariupol ownerless lists; flagged as potential collaboration/data-exchange partner.
 
 **Dossier Center** — beneficiary-matching research; flagged as potential collaboration.
+
+**Alexey Kovalev (Medium)** — the project author's own essay on the settler-colonial framing of the invasion; cited in the master dossier's "about" section.
+  - <https://medium.com/@alexey__kovalev/russias-invasion-of-ukraine-is-an-ultraviolent-settler-colonial-project-a2f3c1ff5873>
 
 ---
 
