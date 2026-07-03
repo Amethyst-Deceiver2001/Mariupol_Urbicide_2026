@@ -716,7 +716,8 @@ def load_ownerless_decrees(jsonl: str = "data/parsed/ownerless_decrees.jsonl") -
                        (property_id, stage, event_date, source_doc_id, confidence, detail, dedup_key)
                    VALUES (%s, 'ownerless_designation'::seizure_stage, %s, %s, %s, %s, %s)
                    ON CONFLICT (dedup_key) DO UPDATE
-                       SET event_date    = EXCLUDED.event_date,
+                       SET property_id   = EXCLUDED.property_id,
+                           event_date    = EXCLUDED.event_date,
                            source_doc_id = EXCLUDED.source_doc_id,
                            confidence    = EXCLUDED.confidence,
                            detail        = EXCLUDED.detail
@@ -822,7 +823,8 @@ def load_ownerless_removals(jsonl: str = "data/parsed/ownerless_decrees.jsonl") 
                        (property_id, stage, event_date, source_doc_id, confidence, detail, dedup_key)
                    VALUES (%s, 'reclaim'::seizure_stage, %s, %s, %s, %s, %s)
                    ON CONFLICT (dedup_key) DO UPDATE
-                       SET event_date    = EXCLUDED.event_date,
+                       SET property_id   = EXCLUDED.property_id,
+                           event_date    = EXCLUDED.event_date,
                            source_doc_id = EXCLUDED.source_doc_id,
                            confidence    = EXCLUDED.confidence,
                            detail        = EXCLUDED.detail

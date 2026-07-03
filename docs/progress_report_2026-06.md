@@ -573,10 +573,16 @@ lead it surfaced (legal basis for inspection-commission entry, predates
     bezkhoz track is still uncaptured. The 56 addresses that dropped off a
     nonresidential bezkhoz-list snapshot between 16.05→16.07.2024
     (`scripts/236`) remain unaccounted for.
-31. **Removal-decree parser residual gap** — 208/270 rows recovered (77%);
-    ~19 of the 40 removal decrees (mostly heir/notary/enforcement-writ
-    reason classes) still return 0 rows despite the single-property
-    fallback — worth a closer read of their specific phrasing variants.
+31. ~~**Removal-decree parser residual gap**~~ — **CLOSED 2026-07-03.** Root
+    causes were a line-order/wrap assumption that varied by decree, the "N
+    квартал" numbered-block form never being in the street-word alternation,
+    and a 4th, wholly-uncovered nonresidential-annex document shape (worse
+    OCR, garbled street-type prefixes). All 40/40 decrees now yield >=1 row;
+    332 rows recovered (311 claim-grade), up from 208/270. Also found+fixed
+    a loader bug along the way: `ON CONFLICT DO UPDATE` never updated
+    `property_id`, leaving stale/mismatched rows when a parser fix changed
+    what a given seq_no represented — same bug existed in
+    `load_ownerless_decrees()`, fixed there too. 279 reclaim events loaded.
 32. **Карпинского 80 «Колумб» case study** — flagged multiple times this
     session as the strongest single find, still not drafted.
 33. **Stakeholder-network additions pending**: Шарипов Ильдар Радикович

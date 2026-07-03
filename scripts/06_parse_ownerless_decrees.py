@@ -342,34 +342,82 @@ _REMOVAL_L1 = re.compile(
     r"\s+дата",                     # start of the "дата снятия..." placeholder
     re.I,
 )
-_REMOVAL_L2 = re.compile(
-    r"^((?:ул|пр|просп|пр-кт|б-р|бул|пер|мкр)\S*\.?\s+.+?),?\s*"
-    r"д\.\s*(\S+?)(?:,\s*кв\.\s*(\S+))?\s*с\s+кадастрового\s*$",
+# Found 2026-07-03 auditing the residual removal-decree gap: the address
+# line does NOT reliably sit immediately after L1 -- some decrees wrap the
+# whole "дата снятия с кадастрового учета" placeholder onto its own line
+# BEFORE the address line arrives (originally assumed address always comes
+# first), and the "с кадастрового"/"учета" split point itself varies by
+# decree. Also found: "N квартал"/"кв-л N" rows (same numbered-block
+# addressing fixed in toponym.py) use the number-then-word TRAILING form,
+# not the leading form the original street-word alternation assumed. Rather
+# than keep special-casing line order, this scans a window of up to 3 lines
+# after L1 for the first line that looks like an address (street/house core
+# only -- no longer requires "кадастрового" to co-occur on the same line,
+# since we're already scoped inside a confirmed L1's window) and, separately,
+# backfills the apartment number from a lone "кв. N" line if it wasn't
+# captured inline.
+_STREET_PREFIX = (
+    r"(?:(?:ул|пр|просп|пр-кт|б-р|бул|пер|мкр)\S*\.?\s+[^,]+?"
+    r"|\d+\s*(?:квартал|кв-л))"
+)
+_REMOVAL_ADDR_CORE = re.compile(
+    rf"^\|?\s*({_STREET_PREFIX}),\s*"
+    r"д(?:ом)?[.,]?\s*([^\s,]+),?"
+    r"(?:\s*кв\.?\s*([^\s,._]+))?",
     re.I,
 )
+_REMOVAL_L3_APT = re.compile(r"^кв\.?\s*(\S+)\s*$", re.I)
 
 
 def _rows_from_removal_text(text: str, source_sha256: str) -> list[dict]:
-    """Parse the 3-line-per-entry OCR text from removal-decree ("исключение
-    из Реестра") annexes -- see _REMOVAL_L1/_REMOVAL_L2 above."""
+    """Parse the multi-line-per-entry OCR text from removal-decree
+    ("исключение из Реестра") annexes -- see _REMOVAL_L1/_REMOVAL_ADDR_CORE
+    above. Each entry starts with an L1 line (seq/type/area/date/cadastral),
+    followed within the next 1-3 physical lines by the address; exact line
+    order/wrapping is inconsistent across decrees, so this scans forward
+    rather than assuming a fixed position."""
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
     out: list[dict] = []
+    seen_cad: set[str] = set()
     seq = 0
     i = 0
     while i < len(lines):
         m1 = _REMOVAL_L1.match(lines[i])
-        if m1 and i + 1 < len(lines):
-            m2 = _REMOVAL_L2.match(lines[i + 1])
+        if m1:
+            m2 = None
+            addr_idx = None
+            for j in range(i + 1, min(i + 4, len(lines))):
+                m2 = _REMOVAL_ADDR_CORE.match(lines[j])
+                if m2:
+                    addr_idx = j
+                    break
+            # Found 2026-07-03: a genuine clerical duplicate in a source
+            # decree's own annex (decree №300/03.03.2025, cadastral
+            # 93:37:0010309:1633 listed twice at two different seq_no) --
+            # dedup by cadastral within a single decree's rows, same guard
+            # as _rows_from_nonres_annex_text uses.
+            if m2 and _clean_cadastral(m1.group(4)) in seen_cad:
+                i += 1
+                continue
             if m2:
                 seq += 1
                 prop_type = m1.group(1).strip()
                 area = _coerce_area(m1.group(2))
                 designation_date = _parse_dot_date(m1.group(3))
                 cad = _clean_cadastral(m1.group(4))
-                street = m2.group(1).strip()
+                if cad:
+                    seen_cad.add(cad)
+                street = m2.group(1).strip().rstrip(",")
                 house = m2.group(2).strip()
                 apt = m2.group(3).strip() if m2.group(3) else None
+                last_idx = addr_idx
+                if apt is None and last_idx + 1 < len(lines):
+                    m3 = _REMOVAL_L3_APT.match(lines[last_idx + 1])
+                    if m3:
+                        apt = m3.group(1).strip()
+                        last_idx += 1
                 address = f"{street}, д.{house}" + (f", кв.{apt}" if apt else "")
+                i = last_idx  # advance past the consumed address (+ apt) lines
 
                 flags, conf = _row_flags(address, cad, area)
                 out.append({
@@ -385,7 +433,6 @@ def _rows_from_removal_text(text: str, source_sha256: str) -> list[dict]:
                     "flags": flags,
                     "row_confidence": round(max(0.0, conf - 0.2), 2),
                 })
-                i += 1  # consumed L2; L3 ("учета") falls through on next iter
         i += 1
     return out
 
@@ -406,6 +453,14 @@ _REMOVAL_REASON_PATTERNS: list[tuple[re.Pattern, str]] = [
     (re.compile(r"возбужден\w+\s+исполнительн\w+\s+производств", re.I),
      "enforcement_proceeding"),
     (re.compile(r"справки\s+нотариальной\s+палаты", re.I), "notary_chamber_certificate"),
+    # Nonresidential removal decrees cite an EGRN extract showing existing
+    # registered rights, rather than documents an owner personally submitted
+    # -- same underlying logic as owner_title_documents (a registered right
+    # already exists) but a distinct legal basis, worth its own label rather
+    # than folding into that category or leaving 100 rows "unclassified".
+    # Found 2026-07-03.
+    (re.compile(r"выпис\w*\s+из\s+Единого\s+государственного\s+реестра\s+недвижимости", re.I),
+     "egrn_extract_registered_rights"),
 ]
 
 
@@ -416,9 +471,15 @@ _REMOVAL_REASON_PATTERNS: list[tuple[re.Pattern, str]] = [
 # расположенное по адресу: ...". Found 2026-07-02 alongside the multi-row
 # annex fix above -- _rows_from_removal_text returns [] for these by design
 # (no annex to parse), so this is a separate single-record extractor used as
-# a fallback.
+# a fallback. Originally hardcoded "улица" -- found 2026-07-03 this silently
+# dropped every decree naming a проспект/переулок/бульвар address (e.g.
+# "проспект Строителей, дом 41, квартира 80", decree №998) since the whole
+# regex simply failed to match. Generalized to the full street-type word set.
+_STREET_TYPE_WORD = (
+    r"(?:улица|проспект|переулок|бульвар|шоссе|проезд|набережная)"
+)
 _REMOVAL_SINGLE_ADDR = re.compile(
-    r"по\s+адресу:.{0,120}?улица\s+([А-ЯЁа-яё0-9№\-\s]+?),\s*дом\s+(\S+?),"
+    rf"по\s+адресу:.{{0,120}}?({_STREET_TYPE_WORD})\s+([А-ЯЁа-яё0-9№\-\s]+?),\s*дом\s+(\S+?),"
     r"(?:\s*квартира\s+(\S+))?",
     re.S | re.I,
 )
@@ -429,9 +490,9 @@ def _single_property_from_removal_text(text: str, source_sha256: str) -> list[di
     m = _REMOVAL_SINGLE_ADDR.search(text)
     if not m:
         return []
-    street = f"улица {m.group(1).strip()}"
-    house = m.group(2).strip().rstrip(",")
-    apt = m.group(3).strip().rstrip(",") if m.group(3) else None
+    street = f"{m.group(1).strip()} {m.group(2).strip()}"
+    house = m.group(3).strip().rstrip(",")
+    apt = m.group(4).strip().rstrip(",") if m.group(4) else None
     address = f"{street}, д.{house}" + (f", кв.{apt}" if apt else "")
     cad = None
     cm = _CADASTRAL.search(text)
@@ -456,8 +517,126 @@ def _single_property_from_removal_text(text: str, source_sha256: str) -> list[di
     }]
 
 
+# A third single-property shape, found 2026-07-03: NONRESIDENTIAL removal
+# decrees (e.g. №746/06.12.2024, №519/21.10.2024) phrase the operative
+# paragraph differently -- no "дом"/"квартира" words at all, just "{street},
+# {house}" directly, plus the area and cadastral inline: "нежилого
+# помещения, площадью 70,0 кв.м, расположенного по адресу: г. Мариуполь,
+# проспект Строителей, 19/16, принятого на учет в качестве бесхозяйного
+# объекта недвижимости 23.07.2024 с кадастровым номером: 93:37:0010410:1458."
+# _REMOVAL_SINGLE_ADDR doesn't match (no "дом" literal), so this is a
+# separate extractor, tried after both other single-property/annex attempts
+# fail.
+_REMOVAL_NONRES_SINGLE_RE = re.compile(
+    rf"нежилого помещения,\s*площадью\s*([\d,\.]+)\s*кв\.?\s*м,?\s*"
+    rf"расположенного по адресу:\s*г\.?\s*Мариуполь,\s*"
+    rf"({_STREET_TYPE_WORD})\s+([А-ЯЁа-яё0-9№\-\s]+?),\s*(\S+?),\s*принятого на учет.*?"
+    rf"(\d{{2}}\.\d{{2}}\.\d{{4}})\s*с кадастровым номером:\s*(93:\s?\d+:\s?\d+:\s?\d+)",
+    re.S | re.I,
+)
+
+
+def _nonres_single_property_from_removal_text(text: str, source_sha256: str) -> list[dict]:
+    m = _REMOVAL_NONRES_SINGLE_RE.search(text)
+    if not m:
+        return []
+    area = _coerce_area(m.group(1))
+    street = f"{m.group(2).strip()} {m.group(3).strip()}"
+    house = m.group(4).strip().rstrip(",")
+    address = f"{street}, {house}"
+    designation_date = _parse_dot_date(m.group(5))
+    cad = _clean_cadastral(m.group(6))
+    flags, conf = _row_flags(address, cad, area)
+    return [{
+        "source_sha256": source_sha256,
+        "seq_no": 1,
+        "property_type": "нежилое помещение",
+        "address_raw": address,
+        "area_sqm": area,
+        "rosreestr_order_ref": None,
+        "rosreestr_order_date": None,
+        "rosreestr_reg_date": designation_date,
+        "cadastral_number": cad,
+        "flags": flags,
+        "row_confidence": round(max(0.0, conf - 0.1), 2),
+    }]
+
+
+# A fourth shape, found 2026-07-03: NONRESIDENTIAL removal decrees with a
+# multi-property "Перечень"/table annex, e.g. №746/06.12.2024's 3-4 row
+# lists. Unlike the residential _REMOVAL_L1/_REMOVAL_ADDR_CORE annex, this
+# layout has NO "г. Мариуполь" city marker and NO "дата снятия..."
+# placeholder -- just "{street прefix, sometimes badly OCR-garbled}
+# {ProperNoun}, {house} {area}? {date} {cadastral}" per row, seq/type on a
+# separate/adjacent line that's frequently unreadable ("ПЕЗИТОЕ"/"НЕЯЗАОЕ"
+# for "нежилое"). OCR quality on these specific annexes is markedly worse
+# than the residential ones (even the street-type prefix itself is often
+# corrupted, e.g. "просискг"/"просиект"/"просиекг" for "проспект") --
+# _NONRES_ANNEX_ROW_RE tries the real street-type alternation first, and
+# falls back to accepting ANY short token immediately before a Capitalized
+# proper noun as a (possibly garbled) street prefix, rather than dropping
+# the row outright; toponym.classify_street() will correctly flag a truly
+# unrecognisable prefix as UNKNOWN downstream rather than misclassifying it.
+# Scoped to the text AFTER "Перечень"/"РЕЕСТР" (the annex heading) to avoid
+# spurious matches against addresses that might appear in the preamble.
+_NONRES_STREET_STRICT = r"(?i:ул|пр|просп|пр-кт|пр-т|пер|бул|б-р|мкр)\S*\.?"
+_NONRES_STREET_LOOSE = r"\S{3,12}"
+_NONRES_ANNEX_ROW_RE = re.compile(
+    rf"(?:({_NONRES_STREET_STRICT})|({_NONRES_STREET_LOOSE}))\s+"
+    r"([А-ЯЁ][а-яёА-ЯЁ]+(?:\s[А-ЯЁ][а-яёА-ЯЁ]+)?),?\s*"
+    r"([^\s,|]+),?\s*\|?\s*"
+    r"([\d,\.]+)?\s*\|?\s*"
+    r"(\d{2}\.\d{2}\.?\d{4})\s*\|?\s*"
+    r"(93:\s?\d+:\s?\d+:\s?\d+)"
+)
+_ANNEX_HEADING_RE = re.compile(r"(?:Перечень|РЕЕСТР)\s", re.I)
+
+
+def _rows_from_nonres_annex_text(text: str, source_sha256: str) -> list[dict]:
+    heading = _ANNEX_HEADING_RE.search(text)
+    scope = text[heading.start():] if heading else text
+    seen_cad: set[str] = set()
+    out: list[dict] = []
+    seq = 0
+    for m in _NONRES_ANNEX_ROW_RE.finditer(scope):
+        cad = _clean_cadastral(m.group(7))
+        if cad in seen_cad:
+            continue  # multi-line rows can be matched more than once by .finditer scanning
+        seen_cad.add(cad)
+        seq += 1
+        street_word = (m.group(1) or m.group(2) or "").strip()
+        proper_noun = m.group(3).strip()
+        house = m.group(4).strip().rstrip(",")
+        area = _coerce_area(m.group(5)) if m.group(5) else None
+        date = _parse_dot_date(m.group(6))
+        address = f"{street_word} {proper_noun}, {house}".strip()
+        flags, conf = _row_flags(address, cad, area)
+        if m.group(2):  # matched via the loose/garbled fallback, not a recognised prefix
+            flags = flags + ["address_suspect"] if "address_suspect" not in flags else flags
+            conf = round(max(0.0, conf - 0.2), 2)
+        out.append({
+            "source_sha256": source_sha256,
+            "seq_no": seq,
+            "property_type": "нежилое помещение",
+            "address_raw": address,
+            "area_sqm": area,
+            "rosreestr_order_ref": None,
+            "rosreestr_order_date": None,
+            "rosreestr_reg_date": date,
+            "cadastral_number": cad,
+            "flags": flags,
+            "row_confidence": round(max(0.0, conf - 0.3), 2),  # noisiest extraction path -- capped lower
+        })
+    return out
+
+
 def _classify_removal_reason(text: str) -> str:
-    m = re.search(r"На основании.{0,300}", text, re.S)
+    # Case-insensitive on "[Нн]а основании" -- found 2026-07-03 the original
+    # capital-only "На" match silently missed every decree where the phrase
+    # sits mid-sentence lowercase (all 13 nonresidential-annex decrees),
+    # falling back to text[:300] (the letterhead, not the actual reason) and
+    # miscounting them "unclassified".
+    m = re.search(r"[Нн]а основании.{0,300}", text, re.S)
     basis = m.group(0) if m else text[:300]
     for pattern, label in _REMOVAL_REASON_PATTERNS:
         if pattern.search(basis):
@@ -537,6 +716,12 @@ def parse_decree_pdf(pdf_path: Path, source_sha256: str, title: str = "",
         if not rows:
             rows = _single_property_from_removal_text(full_text_probe, source_sha256)
             strategy_used = "removal_single_property" if rows else "none"
+        if not rows:
+            rows = _nonres_single_property_from_removal_text(full_text_probe, source_sha256)
+            strategy_used = "removal_nonres_single_property" if rows else "none"
+        if not rows:
+            rows = _rows_from_nonres_annex_text(full_text_probe, source_sha256)
+            strategy_used = "removal_nonres_annex" if rows else "none"
         full_text = full_text_probe
         decree_meta = _parse_title_meta(title) if title else {}
         decree_meta.update(_extract_decree_meta(full_text))

@@ -13,8 +13,8 @@
 | Court-island properties (single-source, court only) | 8,303 |
 | No-source properties | 190 |
 | Corroboration rows | 12,176 |
-| Seizure-event rows (all stages) | 29,886 |
-| Source-document rows (DB-registered, chain of custody) | 8,679 |
+| Seizure-event rows (all stages) | 29,965 |
+| Source-document rows (DB-registered, chain of custody) | 8,684 |
 | Distinct courts represented in source_document | 26 |
 
 `property` is the building-level spine (geocoding, corroboration, RD4U categorization, presentation); `unit` is an additive apartment-level layer underneath it, populated only from the ownerless registry (the one source that's genuinely apartment-level — every row carries an apartment number). A single `property` row can have many `unit` rows; this does not change what "Properties on spine" means above.
@@ -28,7 +28,7 @@
 | court_transfer | 7,052 |
 | ownerless_designation | 604 |
 | demolition | 540 |
-| reclaim | 200 |
+| reclaim | 279 |
 | appeal | 143 |
 | reallocation | 83 |
 | expropriation | 13 |
