@@ -551,6 +551,48 @@ lead it surfaced (legal basis for inspection-commission entry, predates
 25. **Court case `c0771eb2`** — flagged for manual ruling-text review (reversed-
     appeal final-outcome reconciliation; 5/6 done, this one outstanding).
 
+### G. New since 2026-06-30 (this session, see §9)
+
+26. **@nmrpl text-content deep-intel** — 20,207 messages with text never
+    flagged/mined; only the document-attachment side has been inspected so
+    far (the 39 PDF/XLSX/DOCX files). No 224/225/228-style flagging script
+    exists for this channel yet.
+27. **@rieltorspivak** — never text-crawled; only 3 documents were pulled via
+    the doc-manifest pipeline.
+28. **Building-chat document-media pull gap** — only 3 of the 491
+    manifest-listed building-chat documents were actually captured (2
+    Azovstalskaya31, 1 Lenina133); most building-chat channels likely fail
+    Telethon entity resolution (private groups) but this hasn't been
+    root-caused or fixed.
+29. **№38-7** (amendment to №61-1's compensation sum, 11.04.2024) and **№341**
+    (ГКО property-transfer list, title confirmed) — both [CITED], primary
+    text still not captured; geoblocked, need dedicated capture scripts.
+30. **Nonresidential ("нежилой фонд") reclaim mechanism** — the residential
+    reclaim channel (removal decrees, Закон №66-РЗ) is now understood; the
+    parallel reversal mechanism (if any) for the nonresidential/commercial
+    bezkhoz track is still uncaptured. The 56 addresses that dropped off a
+    nonresidential bezkhoz-list snapshot between 16.05→16.07.2024
+    (`scripts/236`) remain unaccounted for.
+31. **Removal-decree parser residual gap** — 208/270 rows recovered (77%);
+    ~19 of the 40 removal decrees (mostly heir/notary/enforcement-writ
+    reason classes) still return 0 rows despite the single-property
+    fallback — worth a closer read of their specific phrasing variants.
+32. **Карпинского 80 «Колумб» case study** — flagged multiple times this
+    session as the strongest single find, still not drafted.
+33. **Stakeholder-network additions pending**: Шарипов Ильдар Радикович
+    (РКС-НР director), «МСТ» (subcontractor), «Современник» (disputed
+    inspection org), ГУП ДНР «ДРПИ «Донецкпроект»» (ГКО №94 executing body).
+34. **Capital-repair program lists** (№843/№1354/№1191/№630/№616/№1622/№1360)
+    — offered for cross-reference against the demolish-vs-restore
+    "restoration theatre" pattern, not yet read.
+35. **Commission-composition decrees** (№1313/№1241) — offered for
+    stakeholder-network name extraction, not yet read.
+36. **78-row `UNKNOWN:`-classified property grab-bag** — isolated to
+    `data/reports/unknown_street_class_rows_2026-07-03.csv` for review
+    (districts embedded as street names, a bare city name, postal codes, one
+    non-Mariupol city `"город батайск"`, OCR garbage, a `"н/д"` placeholder);
+    needs per-pattern triage, not a single fix like квартал was (§9a).
+
 ---
 
 ## 6. The 1 July 2026 deadline & flow-capture posture
@@ -724,3 +766,56 @@ snapshot. Everything below supersedes stale §5/§7 entries.
 - Per-property RD4U dossier export (the actual claimant deliverable) — not prototyped.
 - Parallel-dataset outreach (Leibniz-IfL/KonKoop, Dossier Center).
 - RD4U A3.6 per-property evidentiary-requirement scoping.
+
+## 9. Updates since 2026-06-30 (current state as of 2026-07-03)
+
+**Read this section first, alongside §8.** Everything below supersedes stale
+§5/§8 entries where they overlap; §5's new items (G, below) are still open.
+
+### 9a. Closed since 2026-06-30
+
+| Item | Status | Commits |
+|---|---|---|
+| @mariupol_nash deep intel + fwd-source graph, @ssaniaworld text-only crawl + analysis | **DONE** — 159K/4.4K messages mined; term bank extended (`docs/mariupol_channel_research_terms.md`) | `00a8630` |
+| Document-media trove (PDF/DOCX/XLSX across every crawled channel) | **BUILT** — `scripts/232` manifest (621 files, 5 channels) + `scripts/233` puller; 123 files pulled | `00a8630` |
+| @nmrpl official administration channel | **CRAWLED** — 45,068/46,642 messages, text-only; confirmed as the earliest-known bezkhoz-list source (27.03.2023) and a new industrial/commercial bezkhoz track; does NOT carry the signed decree PDFs (those stay exclusive to `scripts/05`) | `00a8630` |
+| `forensics.py` `.docx`/`.doc`/`.xlsx`/`.zip` mime mapping | **FIXED** — Word docs were silently saving as `.bin` | `00a8630` |
+| Removal-decree ("снятие с учёта"/"исключение из Реестра") parser | **FIXED** — was force-mapping annex columns into the designation schema (265/270 rows were `address_raw="г."` garbage); added a dedicated annex parser + single-property fallback; 208/270 rows now recovered (203 claim-grade) | `00a8630` |
+| Removal-decree interpretation | **CORRECTED** — removal decrees are overwhelmingly owner/heir **reclaim** events (199 title-proof, 6 inheritance, 2 notary, 1 litigation win), not "transfer consummated" as previously assumed; see `memory/lifecycle_completion_removal_decrees.md` | `00a8630` |
+| `seizure_stage='reclaim'` | **LIVE** — schema migration + `load_ownerless_removals()` (attach-to-existing-property only); 200 reclaim events loaded | `00a8630` |
+| `damage_assessment` address parser — "дом №" boilerplate | **FIXED** — glued onto street name (19 rows) or silently dropped the row entirely when a letter suffix was space-separated (9 rows, e.g. Зелинского 108А, Урицкого 90А/79А); both recovered | `3ebf87a` |
+| "квартал"/"кв-л" (Mariupol numbered-block addressing) | **CLASSIFIED** as MICRODISTRICT (same family as мкр/жмс/жилмассив); 49 stale `UNKNOWN:`-classified properties merged into their correct rows, including 6 paired-house ("18-18а") splits handled per the project's existing precedent | `396d68d` |
+
+### 9b. Spine figures (current — from `docs/STATS.md`)
+
+| Metric | Value |
+|---|---|
+| Properties on spine | **11,804** |
+| Apartment-level units (ownerless registry) | **11,951** |
+| Legal-grade (≥2 independent source families) | **1,158** |
+| Uncategorized (RD4U) | 289 |
+| Court-island properties (single-source, court only) | 8,303 |
+| No-source properties | 190 |
+| `reclaim` seizure_event rows | **200** |
+
+### 9c. Genuinely open gaps (as of 2026-07-03)
+
+See §5G below for the full numbered list (items 26–36). Highlights:
+
+- **289 RD4U-uncategorized properties** (up from 217 — the квартал/дом-№ merges and
+  new decree loads shifted this; a fresh `categorize_rd4u()` run has not been checked
+  against the new total).
+- **190 no-source orphan properties** (128→198→200→190 across this session's loads and
+  fixes, but not zero — still needs the origin investigation from §5F item 22).
+- **78-row `UNKNOWN:`-classified grab-bag** — isolated to
+  `data/reports/unknown_street_class_rows_2026-07-03.csv` for review; a heterogeneous
+  mix (districts embedded as street names, postal codes, one non-Mariupol city, OCR
+  garbage, a `н/д` placeholder), needs per-pattern triage, not a single fix like
+  квартал was.
+- **Removal-decree residual gap** — 208/270 rows recovered (77%); ~19 of the 40
+  removal decrees (mostly heir/notary/enforcement-writ reason classes) still return 0
+  rows despite the single-property fallback.
+- **Nonresidential ("нежилой фонд") reclaim mechanism** — still uncaptured; the 56
+  addresses that dropped off a nonresidential bezkhoz-list snapshot between
+  16.05→16.07.2024 (`scripts/236`) don't match any residential removal decree —
+  different legal track, different instrument, if one exists at all.
