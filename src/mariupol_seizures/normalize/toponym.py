@@ -74,6 +74,16 @@ _CLASS_MAP: dict[str, str] = {
     # don't collide with damage_assessment's existing "жилмасив Азовский"
     # entries (4, 9) -- different buildings in the same complex, not a merge.
     "жмс": "MICRODISTRICT", "жилмасив": "MICRODISTRICT", "жилмассив": "MICRODISTRICT",
+    # "N квартал" (trailing, e.g. "27 квартал") / "квартал Азовье" (leading) /
+    # "кв-л 27" (leading abbreviation) -- the same numbered-block addressing
+    # as мкр/жмс/жилмассив above, just Mariupol's own Soviet-era "квартал"
+    # numbering scheme for scattered private-house clusters without a through
+    # street. Found 2026-07-03: 49 property rows (damage_assessment) fell
+    # through classify_street() to UNKNOWN for lack of this entry -- both the
+    # leading and trailing forms are handled for free by _classify()'s
+    # existing head/tail logic once the token is recognised, same as the
+    # Азовский precedent above.
+    "квартал": "MICRODISTRICT", "кв-л": "MICRODISTRICT", "кв-л.": "MICRODISTRICT",
     "д-т": "ROAD", "дорога": "ROAD",
     # parks / small urban gardens
     "сквер": "PARK",
