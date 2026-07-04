@@ -108,6 +108,7 @@
   .badge.b-captured{background:var(--s-captured)} .badge.b-cited{background:var(--s-cited)}
   .badge.b-reported{background:var(--s-reported);color:var(--paper)}
   .badge.b-gap{background:transparent;color:var(--s-gap);border:1.5px dashed var(--s-gap)}
+  .badge.b-negative{background:transparent;color:var(--muted);border:1.5px solid var(--muted)}
   .chip.pivot{border:1px solid var(--evidence);border-left:4px solid var(--evidence);
     background:rgba(205,64,48,.07)}
   .chip.pivot .chip-label{color:#f0d9d4}
@@ -305,9 +306,13 @@
           <span class="chip-label" title="ФКЗ-4 от 15.12.2025">Federal Constitutional Law No.&nbsp;4 — abolishes the court stage; registry = title</span>
           <span class="chip-sub">15.12.2025 · pivot</span>
           <span class="badge b-captured">Captured</span></span>
+        <span class="chip tier-dnr st-captured">
+          <span class="chip-label" title="закон ДНР №134-РЗ/№240-РЗ/№275-РЗ">DNR-level implementing acts</span>
+          <span class="chip-sub">закон №134-РЗ (05.12.2024) + №240-РЗ + №275-РЗ</span>
+          <span class="badge b-captured">Captured</span></span>
         <span class="chip tier-fed st-gap">
-          <span class="chip-label" title="ФКЗ-4 — подзаконные акты">Federal Constitutional Law No.&nbsp;4 — implementing acts</span>
-          <span class="chip-sub">subordinate regulations</span>
+          <span class="chip-label" title="ФКЗ-4 — федеральные подзаконные акты">Federal Constitutional Law No.&nbsp;4 — federal subordinate acts</span>
+          <span class="chip-sub">RF Government-level acts, if any — distinct from the DNR-level acts above</span>
           <span class="badge b-gap">Crawl gap ▶</span></span>
       </div>
     </div>
@@ -415,8 +420,9 @@
               <span class="badge b-captured">Captured</span></span>
             <span class="chip tier-dnr st-captured"><span class="chip-label" title="Минстрой — реестр на снос">Construction-Ministry demolition register</span>
               <span class="chip-sub">525 Mariupol buildings</span><span class="badge b-captured">Captured</span></span>
-            <span class="chip tier-fed st-gap"><span class="chip-label" title="Распоряжение «ГКО ДНР» №56">Directive No.&nbsp;56 — federal copy</span>
-              <span class="badge b-gap">Crawl gap ▶</span></span>
+            <span class="chip tier-fed st-negative"><span class="chip-label" title="Распоряжение «ГКО ДНР» №56">Directive No.&nbsp;56 — federal copy</span>
+              <span class="chip-sub">confirmed absent — checked region80, нпа.днронлайн.рф, and denis-pushilin.ru's own archive (404); never published on any normative-acts portal</span>
+              <span class="badge b-negative">Confirmed absent</span></span>
           </div>
           <div class="map-row"><span class="map-badge rd4u">RD4U A3.1 / A3.3</span><span class="map-badge rome">Rome 8(2)(a)(iv)</span></div>
           <div class="card-more">
@@ -439,8 +445,8 @@
               <span class="chip-sub" title="→ застройщик-SPV">&rarr; developer SPV</span><span class="badge b-captured">Captured</span></span>
             <span class="chip tier-dnr st-cited"><span class="chip-label" title="Распоряжения Главы ДНР №125 / 162–164 / …">DNR Head&rsquo;s Directives No.&nbsp;125 / 162–164 / etc.</span>
               <span class="chip-sub" title="застройщик-SPVs">to developer SPVs</span><span class="badge b-cited">Cited</span></span>
-            <span class="chip tier-dnr st-gap"><span class="chip-label" title="Порядок КРТ ДНР">DNR development-land procedure</span>
-              <span class="badge b-gap">Crawl gap ▶</span></span>
+            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Закон ДНР №39-РЗ, 29.12.2023 + Постановления №29-4/№64-4">DNR development-land procedure</span>
+              <span class="chip-sub">закон №39-РЗ + Постановления №29-4 / №64-4</span><span class="badge b-captured">Captured</span></span>
           </div>
           <div class="map-row"><span class="map-badge rome">Rome — appropriation</span><span class="map-badge rome">named beneficiary</span></div>
           <div class="card-more">
@@ -500,12 +506,12 @@
               <span class="chip-sub">05.03.2026</span><span class="badge b-cited">Cited</span></span>
             <span class="chip tier-dnr st-captured"><span class="chip-label" title="Постановление «ГКО ДНР» №263 от 29.09.2022 — пополнение маневренного фонда">DNR &ldquo;State Defense Committee&rdquo; Decree No.&nbsp;263 — forced expropriation</span>
               <span class="chip-sub">29.09.2022 · 13 named addresses, 10 newly loaded to spine</span><span class="badge b-captured">Captured</span></span>
-            <span class="chip tier-muni st-reported"><span class="chip-label">Mariupol distribution lists</span>
-              <span class="chip-sub">5,822 queued / 1,889 distributed</span><span class="badge b-reported">Reported</span></span>
+            <span class="chip tier-muni st-captured"><span class="chip-label">Mariupol distribution lists</span>
+              <span class="chip-sub">5,822 queued / 1,889 distributed</span><span class="badge b-captured">Captured</span></span>
             <span class="chip tier-muni st-captured"><span class="chip-label" title="Закон ДНР №269-РЗ от 03.04.2026, ст.6 п.2 — максимум превышения площади заменяемого жилья над утраченным, не плоский потолок">25 m² compensation cap</span>
               <span class="chip-sub">excess-over-lost-unit cap, not a flat ceiling</span><span class="badge b-captured">Captured</span></span>
-            <span class="chip tier-dnr st-gap"><span class="chip-label" title="маневренный фонд / служебное жильё — акты ДНР">Emergency- / employer-housing DNR acts</span>
-              <span class="badge b-gap">Crawl gap ▶</span></span>
+            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Постановления №93-2/№93-3, 18.09.2025 + №29-2, 21.03.2024">Emergency- / employer-housing DNR acts</span>
+              <span class="chip-sub">general framework — Decree No. 493 itself remains uncaptured, see above</span><span class="badge b-captured">Captured</span></span>
           </div>
           <div class="map-row"><span class="map-badge rome">Rome 8(2)(b)(viii)</span><span class="map-badge rome">disposal</span></div>
           <div class="card-more">

@@ -108,6 +108,7 @@
   .badge.b-captured{background:var(--s-captured)} .badge.b-cited{background:var(--s-cited)}
   .badge.b-reported{background:var(--s-reported);color:var(--paper)}
   .badge.b-gap{background:transparent;color:var(--s-gap);border:1.5px dashed var(--s-gap)}
+  .badge.b-negative{background:transparent;color:var(--muted);border:1.5px solid var(--muted)}
   .chip.pivot{border:1px solid var(--evidence);border-left:4px solid var(--evidence);
     background:rgba(205,64,48,.07)}
   .chip.pivot .chip-label{color:#f0d9d4}
@@ -306,9 +307,13 @@
           <span class="chip-label" title="ФКЗ-4 от 15.12.2025">Федеральный конституционный закон №&nbsp;4 — упраздняет судебную стадию; реестр = право собственности</span>
           <span class="chip-sub">15.12.2025 · поворотный акт</span>
           <span class="badge b-captured">Заархивирован</span></span>
+        <span class="chip tier-dnr st-captured">
+          <span class="chip-label" title="закон ДНР №134-РЗ/№240-РЗ/№275-РЗ">Акты «ДНР» во исполнение</span>
+          <span class="chip-sub">закон №134-РЗ (05.12.2024) + №240-РЗ + №275-РЗ</span>
+          <span class="badge b-captured">Заархивирован</span></span>
         <span class="chip tier-fed st-gap">
-          <span class="chip-label" title="ФКЗ-4 — подзаконные акты">ФКЗ №&nbsp;4 — подзаконные акты</span>
-          <span class="chip-sub">акты во исполнение</span>
+          <span class="chip-label" title="ФКЗ-4 — федеральные подзаконные акты">ФКЗ №&nbsp;4 — федеральные подзаконные акты</span>
+          <span class="chip-sub">акты уровня Правительства РФ, если существуют — отдельно от актов «ДНР» выше</span>
           <span class="badge b-gap">Пробел ▶</span></span>
       </div>
     </div>
@@ -416,8 +421,9 @@
               <span class="badge b-captured">Заархивирован</span></span>
             <span class="chip tier-dnr st-captured"><span class="chip-label" title="Минстрой — реестр на снос">Реестр сносов минстроя</span>
               <span class="chip-sub">525 мариупольских зданий</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-fed st-gap"><span class="chip-label" title="Распоряжение «ГКО ДНР» №56">Распоряжение №&nbsp;56 — федеральная копия</span>
-              <span class="badge b-gap">Пробел ▶</span></span>
+            <span class="chip tier-fed st-negative"><span class="chip-label" title="Распоряжение «ГКО ДНР» №56">Распоряжение №&nbsp;56 — федеральная копия</span>
+              <span class="chip-sub">подтверждённое отсутствие — проверены region80, нпа.днронлайн.рф и собственный архив denis-pushilin.ru (404); нигде не публиковалось</span>
+              <span class="badge b-negative">Подтверждено отсутствие</span></span>
           </div>
           <div class="map-row"><span class="map-badge rd4u">RD4U A3.1 / A3.3</span><span class="map-badge rome">Рим 8(2)(a)(iv)</span></div>
           <div class="card-more">
@@ -440,8 +446,8 @@
               <span class="chip-sub" title="→ застройщик-SPV">&rarr; застройщику-пустышке</span><span class="badge b-captured">Заархивирован</span></span>
             <span class="chip tier-dnr st-cited"><span class="chip-label" title="Распоряжения Главы ДНР №125 / 162–164 / …">Распоряжения главы «ДНР» №&nbsp;125 / 162–164 / …</span>
               <span class="chip-sub" title="застройщик-SPVs">застройщикам-пустышкам</span><span class="badge b-cited">Упомянут</span></span>
-            <span class="chip tier-dnr st-gap"><span class="chip-label" title="Порядок КРТ ДНР">Порядок КРТ «ДНР»</span>
-              <span class="badge b-gap">Пробел ▶</span></span>
+            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Закон ДНР №39-РЗ, 29.12.2023 + Постановления №29-4/№64-4">Порядок КРТ «ДНР»</span>
+              <span class="chip-sub">закон №39-РЗ + Постановления №29-4 / №64-4</span><span class="badge b-captured">Заархивирован</span></span>
           </div>
           <div class="map-row"><span class="map-badge rome">Рим — присвоение</span><span class="map-badge rome">поименованный бенефициар</span></div>
           <div class="card-more">
@@ -501,12 +507,12 @@
               <span class="chip-sub">05.03.2026</span><span class="badge b-cited">Упомянут</span></span>
             <span class="chip tier-dnr st-captured"><span class="chip-label" title="Постановление «ГКО ДНР» №263 от 29.09.2022 — пополнение маневренного фонда">Постановление «ГКО ДНР» №&nbsp;263 — принудительное изъятие</span>
               <span class="chip-sub">29.09.2022 · 13 адресов поимённо, 10 добавлены в базу проекта</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-muni st-reported"><span class="chip-label">Мариупольские списки распределения</span>
-              <span class="chip-sub">5 822 в очереди / 1 889 распределено</span><span class="badge b-reported">По сообщениям</span></span>
+            <span class="chip tier-muni st-captured"><span class="chip-label">Мариупольские списки распределения</span>
+              <span class="chip-sub">5 822 в очереди / 1 889 распределено</span><span class="badge b-captured">Заархивирован</span></span>
             <span class="chip tier-muni st-captured"><span class="chip-label" title="Закон ДНР №269-РЗ от 03.04.2026, ст.6 п.2 — максимум превышения площади заменяемого жилья над утраченным, не плоский потолок">Потолок компенсации 25 м²</span>
               <span class="chip-sub">предел превышения над утраченным жильём, а не абсолютный потолок</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-gap"><span class="chip-label" title="маневренный фонд / служебное жильё — акты ДНР">Акты «ДНР» о маневренном фонде и служебном жилье</span>
-              <span class="badge b-gap">Пробел ▶</span></span>
+            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Постановления №93-2/№93-3, 18.09.2025 + №29-2, 21.03.2024">Акты «ДНР» о маневренном фонде и служебном жилье</span>
+              <span class="chip-sub">общая рамка — само постановление №493 остаётся не заархивированным, см. выше</span><span class="badge b-captured">Заархивирован</span></span>
           </div>
           <div class="map-row"><span class="map-badge rome">Рим 8(2)(b)(viii)</span><span class="map-badge rome">распоряжение имуществом</span></div>
           <div class="card-more">
