@@ -134,11 +134,12 @@ placeholder, not the end state.
     version** when one exists (`*-ru.html`). RU versions currently exist for:
     `mariupol-master-dossier`, `case-study-III-stroiteley`,
     `case-study-IV-court-docket`, `case-study-troianda-metallurgov`,
-    `two-property-systems`, `nakhimova-82-exhibit`, `dispossession-pipeline`.
-    Everything else is EN-only.
+    `two-property-systems`, `nakhimova-82-exhibit`. Everything else is
+    EN-only. (A `dispossession-pipeline-ru.html` was drafted 2026-07-03 but
+    pulled offline pending review — don't re-link it until it's back.)
   - **EN-only target from a RU exhibit → caveat.** When a RU exhibit's
     Russian-labeled link necessarily points at an EN-only *exhibit*
-    (interactive-map, stakeholder-network,
+    (dispossession-pipeline, interactive-map, stakeholder-network,
     case-study-II, lenina-133, lenina-104…-110), append the note
     `(пока нет перевода, ссылка временно ведёт на английскую версию)` right after
     the link — as a small muted `<span>` inline, or as a `display:block` note
