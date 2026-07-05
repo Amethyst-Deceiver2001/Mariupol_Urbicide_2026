@@ -52,6 +52,7 @@ layer most thinly held today.
 | **Указ Президента РФ №201 (20.03.2020)** «О внесении изменений в перечень приграничных территорий, на которых иностранные граждане… не могут обладать на праве собственности земельными участками, утвержденный Указом Президента Российской Федерации от 9 января 2011 г. № 26» — Crimea border-territory foreign-ownership ban | Full primary text read (2026-06-29, `scripts/219`, OCR'd ABBYY-scanned PDF, signed Putin). The genealogical origin, two years before Mariupol's occupation: amends Указ №26 (09.01.2011) by adding to its border-territory list **19 Crimean municipalities** (Бахчисарайский, Джанкойский, Кировский, Красноперекопский, Ленинский, Нижнегорский, Раздольненский, Сакский, Симферопольский, Советский, Черноморский districts + the city-districts Алушта, Армянск, Евпатория, Керчь, Саки, Судак, Феодосия, Ялта) and **8 Sevastopol city-districts** (Андреевский, Балаклавский, Гагаринский, Качинский, Ленинский, Нахимовский, Орлиновский + Inkerman), alongside unrelated additions/edits to existing Astrakhan-, Belgorod-, and Kaliningrad-region entries on the same list — i.e. the Crimea additions are folded into a routine multi-region housekeeping amendment, not framed as a standalone Crimea-specific act. **§2: enters into force on the day of official publication** — the decree's own text does not itself state the one-year alienation deadline; that follows from the underlying general statute governing this border-territory list, triggered by the territory's addition. Russia treats Ukrainian citizens there as foreigners for this purpose — ~11,000 landowners (9,000+ Ukrainian) given one year to alienate their land or face forced auction/transfer to state ownership (secondary-sourced: Moscow Times, HRH Crimea — not itself in the decree text). First working model for "reclassify the Ukrainian owner, then run an administrative clock" — the same shape later repeated by the citizenship/personal-appearance barriers below. Not a Mariupol-applicable instrument itself (different territory, predates DNR admission), included here as precedent/genealogy, not as a rung in the Mariupol pipeline. | **[CAPTURED]** — publication.pravo.gov.ru, eoNumber=0001202003200021 (`scripts/219`), OCR'd 5pp PDF |
 | **ФКЗ от 04.10.2022 №5-ФКЗ** «О принятии в Российскую Федерацию Донецкой Народной Республики…» (admission of the DNR into the RF) | Makes Russian civil/land/housing law applicable in Mariupol — the predicate for everything below. 37 articles; **ст. 4** (application of RF legislative acts on DNR territory) and **ст. 21** ("Особенности регулирования отношений в сфере оборота недвижимости" — special rules for real-estate turnover) are the direct property-law predicate. **Ст. 36**: transitional period runs to 1 January 2026 (matches ФКЗ-4's own effective-date framing elsewhere in this doc). | **[CAPTURED]** — publication.pravo.gov.ru, `document/0001202210050005` (user-supplied 2026-07-04: `sha256 dddfa3e3…` PDF scan, image-only ABBYY OCR tag with no extractable text layer; `sha256 d55d5899…` HTML/.doc export, full text-bearing, verified via grep for "Статья 1…") |
 | **Постановление ГКО ДНР №1 (06.04.2022)** «Об урегулировании вопросов строительства, реконструкции, капитального ремонта, восстановления поврежденных и разрушенных объектов на территории ДНР» | The master predicate for the entire demolish→land→rebuild chain — the **first GKO act, signed 3 days after the GKO itself was created** (Указ №121, 03.04.2022; predates ФКЗ-5-ФКЗ by 6 months — a DNR wartime act later folded into the federal framework). Directs every line ministry + concern + district/city administration to compile lists of damaged/destroyed objects "включая жилую и социальную инфраструктуру"; authorises Russian contractors (mutual recognition of RF licences/permits; works under this Постановление are explicitly **not** "самовольное строительство" and are exempted from DNR construction-permitting law). **§2.5 is the origin clause**: the "authorised body" seizes land plots "for state needs" (при необходимости) and hands them to contractors **free of charge** for the duration of works. **§3.1** requires local administrations to give contractors unimpeded access and "resolve" (i.e. override) any third-party rights/encumbrances on those plots. Cited by Постановление №282 (29.09.2022, below, [D]) as its enabling instrument. Names Никоноров А.Ю. (Руководитель Администрации Главы ДНР) as responsible official — candidate addition to stakeholder network. | **[CAPTURED]** — denis-pushilin.ru `Post_GKO_1.pdf` (sha256 `378f56aa0169..`), OCR'd 2026-06-12 (9,499 chars; sha `0e8d8e232357..`) |
+| **Постановление ГКО ДНР №281 (2022)** — amends №1 | Found via a 2026-07-05 archive-wide OCR sweep. Widens the master predicate's own seizure clause: §2.5 of №1 originally authorised seizure of **land plots** only, for the duration of works; №281 broadens this to **"иные объекты недвижимого имущества"** (other real-estate objects, not just land) and expands the free-of-charge-transfer-to-contractor purpose to explicitly cover storage of construction waste/materials and **housing for workers performing the works** — a real, if incremental, widening of the occupier's self-authorised seizure power at the top of the chain. | **[CAPTURED]** — glavadnr.ru `Post_GKO_281.pdf`, OCR'd 2026-07-05 |
 | **Указ Главы ДНР №420 (30.07.2022)** «О концепции разработки генерального плана г. Мариуполя» | Authorises the master-plan / demolish-and-rebuild programme citywide. | [CAPTURED] (raw store, per memory) · [region80 ▶] verify |
 | **Постановление ГКО ДНР №162 (23.07.2022)** «Порядок сноса зданий…, повреждённых в результате ведения боевых действий» | The demolition procedure: commission, inspection, authorisation chain. Top of chain for every demolition. Signed Пушилин. | [CAPTURED] (script 13, нпа.днронлайн.рф) |
 | **Постановления ГКО ДНР №205 (27.08.2022), №245 (19.09.2022)** | Amend №162 (add HQ review step; further amendment). | №205 [CAPTURED]; №245 [CITED] |
@@ -116,6 +117,47 @@ nationalizes a foreign (US, Cargill) commercial asset at г. Донецк, ул.
 80. Confirmed **not Mariupol** (location is Donetsk); a third, commercial-asset
 nationalization track, out of scope for this property pipeline. **[CAPTURED]**
 (sha256 `afaecc9b9d12..`, OCR'd 2026-06-12, 2,883 chars; no further action).
+
+A **fourth track** found 2026-07-05: **Постановление ГКО ДНР №54 (2022)** «Об
+организации деятельности государственного бюджетного учреждения культуры на
+территории города Мариуполя» **terminates Mariupol's municipal (Ukrainian-era)
+ownership** of a named cultural building — the Philharmonic, просп. Металлургов,
+52, Жовтневый район — converts it directly to DNR state ownership (no
+compensation clause; municipal property has no individual owner to compensate),
+and re-founds the building as "ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ УЧРЕЖДЕНИЕ
+«МАРИУПОЛЬСКИЙ РЕСПУБЛИКАНСКИЙ АКАДЕМИЧЕСКИЙ ОРДЕНА ЗНАКА ПОЧЕТА РУССКИЙ
+ДРАМАТИЧЕСКИЙ ТЕАТР»" under the DNR Ministry of Culture. A clean, self-incriminating
+example of decree-based title-stripping applied to an **institutional/cultural**
+building rather than housing — first instance found of this variant for Mariupol.
+просп. Металлургов, 52 is not yet on the property spine. **[CAPTURED]** —
+denis-pushilin.ru/glavadnr.ru `Post_GKO_54.pdf`, OCR'd 2026-07-05.
+
+### [A2] Unfinished construction designation — a second manufactured-vacancy mechanism
+
+Found 2026-07-05 via an archive-wide OCR sweep of the denis-pushilin.ru/glavadnr.ru
+GKO folder. A parallel track to [A]'s "ownerless" designation, but aimed at
+**incomplete pre-war residential construction** rather than already-built,
+already-occupied housing — the same claim-it-or-lose-it structure, applied one
+stage earlier in a building's life.
+
+| Instrument | What it does | Status |
+|---|---|---|
+| **Постановление ГКО ДНР №27 (21.04.2022)** «Об утверждении Положения о государственном регулировании в сфере объектов незавершенного строительства» | Establishes a regulatory regime for "objects of unfinished construction": builders/developers must register with an authorised body within a set window; **§13/§16-17** — an unregistered object is declared to have "признаки бесхозяйного имущества" (features of ownerless property) and passes to state ownership by a further GKO decree — the identical claim-it-or-lose-it structure already documented for housing under [A], just gating on construction-registration instead of residency. | **[CAPTURED]** — glavadnr.ru `Post_GKO_27.pdf`, OCR'd 2026-07-05 |
+| **Распоряжение ГКО ДНР №[unclear] (2022)**, implementing №27 | Names the first tranche of Mariupol sites designated "объекты незавершенного строительства" under №27's regime — **6 addresses**, none yet on the property spine: (1) просп. Нахимова, 2 (between просп. Нахимова and ул. Юнговская, at ул. Санаторная); (2) intersection of просп. Строителей and ул. Крайняя; (3) ул. Амурская, 11; (4) between ул. Пашковского and просп. Победы; (5) ул. Иртышская, б/н; (6) Жовтневый район, near площадь Свободы, between дом 101а (просп. Ленина) and дом 125 (просп. Строителей). | **[CAPTURED]** — glavadnr.ru `Rasp_GKO_28.pdf`, OCR'd 2026-07-05; **not yet loaded to spine** |
+
+**Follow-up (not yet done):** these 6 addresses need geocoding/building-key resolution
+and a decision on whether to model this as a new `seizure_stage` value (distinct
+from `ownerless_designation`/`expropriation`) before loading — this is a *designation*
+event, not yet confirmed as a completed state-ownership transfer for any of the 6.
+
+A minor, weaker-signal precedent in the same [A]-family vein, found in the same
+sweep: **Распоряжение ГКО ДНР №9 (2022)** authorises a medical detachment of the
+Гуманитарный центр of the Russian ruling party «Единая Россия» to "temporarily"
+occupy a specific private commercial building — the "Аполлония" dental clinic at
+ул. Киевская, 54, Mariupol — for humanitarian medical services. No seizure or
+compensation language; flagged here as a named, concrete instance of a Russian
+party organ occupying private Mariupol property, not as a standalone mechanism.
+**[CAPTURED]** — glavadnr.ru `Rasp_GKO_9.pdf`, OCR'd 2026-07-05.
 
 ### [B] Court transfer — the judicial laundering of title (pre-Dec-2025)
 
