@@ -270,19 +270,29 @@ def _content_verified_candidates() -> list[tuple[str, str]]:
     return out
 
 
-def _existing_by_number() -> dict[str, dict]:
-    """Keyed on decree_number ALONE, not (number, date). Both this script's
-    candidates and dnr_land_orders.jsonl are already scoped to CONFIRMED
-    Mariupol land-grant decrees (not the general decree population where
-    numbers genuinely reset/collide across years) -- within that narrower
-    scope a repeated number is overwhelmingly likely to be the same decree
-    read by two different parsers, not two independent land grants that
-    coincidentally share a number. Confirmed empirically 2026-07-05: №289-291
-    and №392-394 showed up as 'new' under (number,date) keying purely because
-    this script's OCR-based date extraction disagreed with scripts/11's
-    HTML-based one for the same real decree -- switching to number-only
-    keying, with the date mismatch logged instead of silently duplicating."""
-    by_num: dict[str, dict] = {}
+def _existing_by_number() -> dict[str, list[dict]]:
+    """Keyed on decree_number ALONE, not (number, date) -- but collecting
+    EVERY existing row for that number, not just the first (bug found +
+    fixed 2026-07-05: an earlier version used dict.setdefault(), which
+    silently kept only the FIRST date seen per number; decree numbers that
+    legitimately recur 2-3 times in dnr_land_orders.jsonl -- e.g. №178
+    (2024-04-19 / 2025-05-26 / 2026-05-25), №392-394 (2024-10-24 placeholder
+    + 2025-11-06 real) -- then got compared against only ONE of their real
+    dates, so a re-parse of an ALREADY-KNOWN decree with a different
+    (but also already-known) date was wrongly flagged as new/mismatched).
+
+    Both this script's candidates and dnr_land_orders.jsonl are already
+    scoped to CONFIRMED Mariupol land-grant decrees (not the general decree
+    population where numbers genuinely reset/collide across years) -- within
+    that narrower scope a repeated number is overwhelmingly likely to be the
+    same decree read by two different parsers, not two independent land
+    grants that coincidentally share a number. Confirmed empirically
+    2026-07-05: №289-291 showed up as 'new' under (number,date) keying purely
+    because this script's OCR-based date extraction disagreed with
+    scripts/11's HTML-based one for the same real decree -- so we still key
+    on number alone, but now check the new record's date against ALL of that
+    number's known dates before deciding it's a mismatch."""
+    by_num: dict[str, list[dict]] = {}
     if not EXISTING_PATH.exists():
         return by_num
     for line in EXISTING_PATH.read_text(encoding="utf-8").splitlines():
@@ -291,7 +301,7 @@ def _existing_by_number() -> dict[str, dict]:
         except json.JSONDecodeError:
             continue
         num = str(r.get("decree_number"))
-        by_num.setdefault(num, r)
+        by_num.setdefault(num, []).append(r)
     return by_num
 
 
@@ -316,15 +326,23 @@ def main() -> None:
             num = rec["decree_number"]
 
             if num in existing:
-                ex_date = existing[num].get("decree_date")
-                if ex_date and rec["decree_date"] and ex_date != rec["decree_date"]:
-                    # Both dates are known and DISAGREE -- given the filename-date fix,
-                    # this decree number genuinely recurs across years (confirmed by
-                    # checking source_document directly for a few of these, e.g.
-                    # rasporiazhglavaN291_ exists for 2022/2023/2024) -- this is very
-                    # likely a genuinely DIFFERENT decree, not a duplicate. Keep it
-                    # rather than silently drop it, but flag loudly for a human to confirm.
-                    date_mismatches.append(f"№{num}: existing={ex_date} vs this-parse={rec['decree_date']} -- KEPT as likely-distinct")
+                ex_dates = {e.get("decree_date") for e in existing[num] if e.get("decree_date")}
+                if rec["decree_date"] in ex_dates:
+                    # Already present under this exact (number, date) -- a genuine
+                    # duplicate, not new data.
+                    skipped_dupe += 1
+                    continue
+                if ex_dates and rec["decree_date"]:
+                    # Known dates for this number, none of which match this parse --
+                    # given the filename-date fix, this decree number genuinely
+                    # recurs across years (confirmed by checking source_document
+                    # directly for a few of these, e.g. rasporiazhglavaN291_ exists
+                    # for 2022/2023/2024) -- this is very likely a genuinely
+                    # DIFFERENT decree, not a duplicate. Keep it rather than
+                    # silently drop it, but flag loudly for a human to confirm.
+                    date_mismatches.append(
+                        f"№{num}: existing dates={sorted(ex_dates)} vs this-parse={rec['decree_date']} "
+                        f"-- KEPT as likely-distinct")
                     rec["flags"].append("same_number_different_year_verify_manually")
                 else:
                     skipped_dupe += 1
