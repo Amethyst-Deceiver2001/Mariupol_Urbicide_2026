@@ -22,10 +22,18 @@ real, specific, house-numbered address:
                              collapsed onto ONE bogus property) -- split
                              out into 5 correct properties.
 
-The other three bogus properties (decree 448, decree 178/2025-05-26,
-decrees 320+334) have no house-numbered address in project_name either
-(named complex/microdistrict/"Литер N" only) and are left untouched --
-building-level resolution isn't possible for them without a site plan.
+A third is fixable via its cadastral number instead: decree 334 (sharing
+its bogus property with decree 320) carries cadastral_numbers
+["93:37:0010229:182"], which matches an already-known spine property
+(ул. Покрышкина, 3, id 6344) exactly -- re-point via CADASTRAL_FIXES.
+Decree 320, sharing that same bogus property, has no cadastral number of
+its own and stays unresolved.
+
+The remaining bogus properties (decree 448 -- Nevsky microdistrict,
+no cadastral/house number; decree 178/2025-05-26 -- "ЖК Нахимовский" named
+complex) have no house-numbered address in project_name and no cadastral
+match either, and are left untouched -- building-level resolution isn't
+possible for them without a site plan.
 
 Idempotent: re-running finds the events already re-pointed and does nothing.
 
@@ -60,6 +68,15 @@ FIXES = {
     "392": ("проспект Строителей", "78"),
     "393": ("проспект Строителей", "76"),
     "394": ("проспект Строителей", "74"),
+}
+
+# decree_number -> cadastral number, for rows where project_name/address_raw
+# give no usable house number but the decree's own cadastral_numbers field
+# matches an already-known spine property exactly (e.g. decree 334, matched
+# via cadastral to ул. Покрышкина, 3 -- decree 320, sharing the same bogus
+# "ограничена" property, has NO cadastral number and stays unresolved).
+CADASTRAL_FIXES = {
+    "334": "93:37:0010229:182",
 }
 
 _HOUSE_RE = re.compile(r"^\d+[A-ZА-Яa-zа-я]?$")
@@ -103,6 +120,33 @@ def main() -> None:
                 continue
             log.info("decree %s: event %d  bogus property %d -> correct property %d (%s, %s)",
                       decree_number, event_id, bogus_property_id, correct_property_id, street_raw, house)
+            if args.apply:
+                cur.execute("UPDATE seizure_event SET property_id = %s WHERE id = %s",
+                            (correct_property_id, event_id))
+            n_fixed += 1
+
+    for decree_number, cadastral_no in CADASTRAL_FIXES.items():
+        cur.execute("SELECT id FROM property WHERE cadastral_no = %s", (cadastral_no,))
+        row = cur.fetchone()
+        if row is None:
+            log.warning("decree %s: no existing property with cadastral_no %s, skipping",
+                        decree_number, cadastral_no)
+            continue
+        correct_property_id = row[0]
+
+        cur.execute(
+            "SELECT id, property_id FROM seizure_event WHERE detail->>'decree_number' = %s "
+            "AND stage = 'reallocation'",
+            (decree_number,),
+        )
+        rows = cur.fetchall()
+        for event_id, bogus_property_id in rows:
+            if bogus_property_id == correct_property_id:
+                log.info("decree %s: event %d already points at correct property %d, no-op",
+                          decree_number, event_id, correct_property_id)
+                continue
+            log.info("decree %s: event %d  bogus property %d -> correct property %d (cadastral %s)",
+                      decree_number, event_id, bogus_property_id, correct_property_id, cadastral_no)
             if args.apply:
                 cur.execute("UPDATE seizure_event SET property_id = %s WHERE id = %s",
                             (correct_property_id, event_id))
