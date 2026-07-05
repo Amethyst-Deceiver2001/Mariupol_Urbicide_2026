@@ -227,6 +227,66 @@ unconfirmed); check whether any of the confirmed Василенко-controlled
 entities hold land orders not yet on this table; resolve the rusprofile/
 checko address-history discrepancy above if it matters to any future claim.
 
+### New beneficiaries from the denis-pushilin.ru rasp-folder batch (2026-07-05, `scripts/250`/`252`/`253`)
+
+Loaded into `actor(role='beneficiary')` from the reconciled land-grant set
+surfaced by content-verified scanning of `/doc/rasp/` (`scripts/249`/`250`,
+corrected to a case-insensitive filter after an initial pass silently
+dropped genuine grants; reconciled against the two earlier batches via
+`scripts/252` — see `docs/legal_mechanisms_review.md`'s "full
+denis-pushilin.ru land-grant population" row for the full reconciliation,
+including the decree-number reuse across years this surfaced). All 11
+below are genuinely new to the project — not matched to any entity already
+on this table or in the EISGHS-derived batch — and none have an INN
+recoverable from the decree OCR text alone, so EGRUL is pending for all of
+them (name-search on egrul.org is captcha-gated, see
+`memory/reference_egrul_access.md`).
+
+| Developer | Land order | Address / project | Cadastral | INN / OGRN |
+|---|---|---|---|---|
+| СЗ «Главный перекрёсток» | №398/№399 (10.11.2025) | пр. Ленина 87А + 89 — **both parcels are pre-war buildings with a recorded demolition event on the spine** (property 4486/4488, demolished 2022-12-12); combined footprint, project not named in №398's OCR, №399 = «Башня» | 93:37:0010106:253, 93:37:0010106:254 | pending |
+| СЗ «Садовое КОЛЬЦО «Проспект»» | №258 (29.07.2025) | пр. Лунина 25 — **pre-war building, demolished 2022-08-31** (property 5807); «Дом у моря» | — (missing from OCR) | pending |
+| СЗ «Синее море» Мариуполь» | №365 (16.10.2025) | б-р 50 лет Октября 44А | 93:37:0010307:330 | pending |
+| МИР | №217 (24.06.2025) | б-р Приморский, з/у 7 — гостиница «Чайка» reconstruction | — | pending |
+| МАРТОН (ООО) | №197 (05.06.2025) | б-р Приморский 9 — гостиница «Европейская» reconstruction | — | pending |
+| Электрояр Донбасс | №193 (03.06.2025) | ул. Шота Руставели 72 — electrical-panel production | — | pending |
+| Управляющая компания «Билдплан»» | №8 (20.01.2025) | территория, примыкающая к пр. Ленина и пр. Металлургов (no fixed street address — area description only) | — | pending |
+| СЗ «Вертикаль Новороссия-1»» | №431 (03.12.2024) | пр. Тульский, з/у 158Д | — | pending |
+| СЗ «Азовские просторы»» | №189 (19.04.2024) | (address not in the address-cross-reference candidate set — decree OCR'd, address extraction pending) | — | pending |
+| Зорка Фуд | №186 (19.04.2024) | пр. Ленина 130А | — | pending |
+| АЛЬФА-БЛОК | №266 (04.08.2025) | пр. 1 Мая — gas-silicate-block plant (no house number in OCR) | — | pending |
+
+The Ленина 87А/89/Лунина 25 rows are the significant one: three MORE
+confirmed demolish→regrant cases alongside the Nakhimova 82 reference exhibit
+(see `docs/case_studies/nakhimova_82_chernomorsky_1b.md`'s "Pattern
+replication" section) — pre-war building demolished, footprint re-granted
+no-tender to a freshly-named SPV for new construction. Unlike Nakhimova 82,
+these three keep their original street address in the land-grant decree, so
+address-laundering specifically is unconfirmed for them (the underlying
+demolish→regrant pattern still holds). The full reconciled
+land-grant set (101 distinct decree-instances, `scripts/252`) is loaded
+onto the spine as `seizure_event(stage='reallocation')` — the same stage
+`load_eisghs_newbuilds()` already uses for land/footprint disposal to the
+occupier's construction sector, no schema change needed (`scripts/253`,
+2026-07-05, superseding the earlier partial `scripts/251` load): **72
+events, +56 net new `property` rows** (`docs/STATS.md`: 11,804→11,860).
+29 rows were skipped for the spine load, lacking a usable single
+street+house address.
+
+Eight more decrees in this batch reference entities **already on this
+table** — just additional land-order references, not new beneficiaries:
+Порфир (№169, 21.05.2025), Новое время 3 (№12, 20.01.2025), МираСтрой
+(№177, 19.04.2024), МираСтрой 2 (№176, 19.04.2024), ТЕМП (№183, 19.04.2024),
+ТЕМП-80 (№185, 19.04.2024), ТЮС-НР1 (№330, 23.08.2024), ТЮС-НР2 (№447,
+18.12.2024) — all already have full EGRUL data captured in the earlier
+EISGHS-derived batch above; ВЕРТИКАЛЬ ФОРТ-2 (№203) was likewise already
+captured via `scripts/192`.
+
+**Follow-up:** EGRUL name-search (captcha-gated, needs manual/user run) for
+the 11 new SPVs above; address extraction for СЗ «Азовские просторы»»
+(№189) and completion of missing addresses (Билдплан, АЛЬФА-БЛОК) once the
+decree text is re-read for the full parcel description.
+
 ### Founders / ownership chains (script 41, 2026-06-12)
 
 Local re-parse of the 8 already-captured EGRUL records'  `СвУчредит`

@@ -61,8 +61,17 @@ All sources used across the project's research: burial sites catalogue, case stu
   - <https://zona.media>
 
 **Novaya Gazeta Europe** — used for context on occupation administration.
-- «Доступное захваченное жильё» (22 February 2024) — resident denied compensation after her building was demolished and the lot bought by a private developer. Cited in Case Study III (Stroiteley); captured `scripts/222`.
+- «Доступное захваченное жильё» (22 February 2024) — resident denied compensation after her building was demolished and the lot bought by a private developer. Cited in Case Study III (Stroiteley); captured `scripts/222`. Also cited in the Nevsky microdistrict case study (VSK/Olimpsitistroy/Ivanov chain; социальный-наём allocation).
   - <https://novayagazeta.eu/articles/2024/02/22/dostupnoe-zakhvachennoe-zhile>
+
+**Dossier Center (dossier.center)** — «Мариупольский бенефициар»: Timur Ivanov / ООО «Олимпситистрой» as the actual builder of ЖК/МКР «Невский» beneath the MoD's VSK. Cited in the Nevsky microdistrict case study.
+  - <https://dossier.center/hus-ivanov/>
+
+**Север.Реалии / RFE-RL (severreal.org)** — «"Это всё напоказ". Как в Мариуполе получают новые квартиры»: MoD-built new flats allocated via договор социального найма (revocable social tenancy), not ownership. Cited in the Nevsky microdistrict case study.
+  - <https://www.severreal.org/a/kak-v-mariupole-poluchayut-novye-kvartiry-/32367722.html>
+
+**Verstka (verstka.media)** — occupied-territory "ownerless"-designation mechanism; social-tenancy vs ownership for war-affected residents. Cited in the Nevsky microdistrict case study.
+  - <https://verstka.media/kak-vlasti-priznayut-beshoznym-zhile-na-okkupirovannyh-territoriyah>
 
 ---
 
@@ -151,9 +160,16 @@ All sources used across the project's research: burial sites catalogue, case stu
 **URA.RU** (Russian state-adjacent) — photo feature: graves in Mariupol courtyards; 23rd microdistrict playground graves; church-yard burials.
   - <https://ura.news/articles/1036284256>
 
-**mariupol-news.ru** — occupation city administration press service. Corporation for the Development of Donbas announcement of «Резиденция Селект» (16 January 2026).
+**mariupol-news.ru** — occupation city administration press service. Corporation for the Development of Donbas announcement of «Резиденция Селект» (16 January 2026). Also: МКР «Невский» build-out and Putin's 19 March 2023 visit («Тот самый микрорайон… посетил Путин»), cited in the Nevsky microdistrict case study.
 
-**ТАСС / RIA Novosti / Lenta.ru** — used for cross-reference on demolition timelines; not cited as authoritative.
+**ТАСС / RIA Novosti / Lenta.ru** — used for cross-reference on demolition timelines; not cited as authoritative. ТАСС «ВСК МО РФ возвела в Мариуполе микрорайон Невский» (`tass.ru/obschestvo/20450945`) used to cross-check MoD-build scale figures.
+
+**ППК «Военно-строительная компания» (vskmo.ru)** — the Russian MoD's own military-construction company; its site is the builder's self-account of МКР «Невский» (18 buildings / ≈1,880 apartments, «подарили мариупольцам»). Created by Указ Президента РФ №504, 18.10.2019 (<http://kremlin.ru/acts/bank/44754>). Cited in the Nevsky microdistrict case study.
+  - <https://vskmo.ru/2023/12/08/doma-gde-poselilos-schaste/>
+
+**«Единая Россия» (er.ru) / Аргументы и Факты (aif.ru)** — the launch-showcase record: Turchak's visit to the displaced Ponomaryov family (er.ru, 23.07.2022) and the «Новоселье по пропуску» move-in mechanism — ордер, pass-gated complex, «будет в собственности» (aif.ru, 01.12.2022). State-aligned framing; cited in the Nevsky microdistrict case study.
+  - <https://er.ru/activity/news/edinaya-rossiya-pomozhet-s-zhilyom-mnogodetnoj-seme-iz-mariupolya-chej-dom-razrushili-vsu>
+  - <https://aif.ru/society/people/novosele_po_propusku_kak_pogorelcy_v_mariupole_poluchayut_novye_kvartiry>
 
 ---
 
@@ -253,6 +269,14 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **DNR Law 66-РЗ** «О некоторых вопросах признания права собственности на жилые помещения в Донецкой Народной Республике» (21.03.2024) — enabling framework for the ownerless-property pipeline; Article 5(3)(a) requires personal appearance with Russian passport to prevent ownerless declaration.
   - Full text (Head of DNR official site): <https://glavadnr.ru/doc/zakony/66rz.pdf>
+
+**DNR Law (без номера-РЗ, №459-IIНС) от 30.06.2023** «Об особенностях регулирования имущественных и земельных отношений на территории Донецкой Народной Республики в переходный период» — the master property/land-conversion predicate law implementing ФКЗ №5-ФКЗ ст.21 DNR-wide; ст.2 ч.3 is the textual basis for the "Ukrainian-era title formally preserved, practically stripped via the ownerless registry" argument.
+  - denis-pushilin.ru: <https://denis-pushilin.ru/doc/zakony/zII459.pdf>
+  - Raw store: sha256 `9a134303c2b7dd20c692fdcd2d60bb09b857b5d0a2f4927d1a9a4aef4986916f`; text-native, no OCR needed; found via `scripts/247` archive survey, 2026-07-05
+
+**Закон ДНР №14-РЗ от 13.10.2023** «О порядке управления и распоряжения собственностью Донецкой Народной Республики» — general disposal-procedure statute for DNR-owned property; likely enabling statute under the individual no-tender developer-lease распоряжения.
+  - denis-pushilin.ru: <https://denis-pushilin.ru/doc/zakony/14rz.pdf>
+  - Raw store: sha256 `a26757263c5435fbe7012e3c0e23688ed1344c0b97f31c9dd3e20d5dd9f4f4be`; text-native, no OCR needed; found via `scripts/247` archive survey, 2026-07-05
   - Federal publication mirror: <http://publication.pravo.gov.ru/document/8000202403220001>
 
 **Federal Constitutional Law ФКЗ-4** №4-ФКЗ от 15.12.2025 — abolishes the court stage of the ownerless-property pipeline in the "new regions"; registry inclusion replaces court judgment as the title-conferring act. Mariupol was the Roskadastr pilot; court filings dropped to zero by mid-2026.
@@ -260,6 +284,14 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **Federal Constitutional Law ФКЗ-5** №5-ФКЗ от 04.10.2022 «О принятии в Российскую Федерацию Донецкой Народной Республики…» — constitutional channel for annexation; the predicate enabling ЕГРН application to Mariupol.
   - Official federal portal (full text): <http://publication.pravo.gov.ru/document/0001202210050005>
+
+**Постановление Правительства РФ №2565 от 31.12.2022** «Об утверждении Правил предоставления субсидий из федерального бюджета акционерному обществу "ДОМ.РФ"…» — the «льготная ипотека 2%» decree: DOM.РФ-administered subsidy covering the gap between market rates and a ≤2%/year mortgage for buying/building housing in DNR/LNR/Zaporizhzhia/Kherson, open to any RF citizen. In force from 1 Jan 2023.
+  - Official federal portal (landing): <http://publication.pravo.gov.ru/Document/View/0001202301030011>
+  - Official federal portal (signed PDF, 46pp, image-only scan): <http://publication.pravo.gov.ru/file/pdf?eoNumber=0001202301030011>
+  - Raw store: OCR'd via `.venv312`/pytesseract, `data/parsed/decree_2565_ipoteka_ocr.txt`; captured `scripts/246` (2026-07-04)
+
+**Постановление Правительства РФ №2166 от 15.12.2023** — amends the DOM.РФ mortgage-subsidy decree family (incl. №2565); per secondary reporting mainly retools Far-Eastern/Arctic mortgage limits — not yet confirmed whether it touches the DNR/LNR/Zaporizhzhia/Kherson provisions specifically. Landing page captured only; full text not yet read.
+  - Official federal portal (landing): <http://publication.pravo.gov.ru/document/0001202312150019>
 
 ### Primary legislation — two-property-systems and court-docket exhibits
 

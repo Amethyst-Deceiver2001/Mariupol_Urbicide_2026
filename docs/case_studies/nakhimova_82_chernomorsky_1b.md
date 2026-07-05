@@ -270,3 +270,43 @@ Audited the captured nash.dom.rf data for object 54284 against the live page
   (tesseract) is not in the current toolchain, so any text on the permit
   beyond the structured `rnvDTO` fields (number/date, both already captured)
   is currently unrecoverable.
+
+---
+
+## Pattern replication: three more confirmed instances (2026-07-05)
+
+Reconciling the full denis-pushilin.ru land-grant archive
+(`data/parsed/dnr_land_orders.jsonl`, `scripts/252`/`253`; see
+`docs/legal_mechanisms_review.md`) surfaced three more properties where the
+same demolish→no-tender-regrant pattern is independently confirmed on the
+spine — each carries a recorded `demolition` event AND a subsequent
+`reallocation` event to a freshly-invoked developer SPV, the same LEG 1–3
+shape documented above for Nakhimova 82:
+
+| Property | DB id | Demolished | Regranted (decree) | Beneficiary |
+|---|---|---|---|---|
+| просп. Ленина, 89 | 4488 | 2022-12-12 | 2025-11-10 (№399) | СЗ «Главный перекрёсток» |
+| просп. Ленина, 87А | 4486 | 2022-12-12 | 2025-11-10 (№398) | СЗ «Главный перекрёсток» (same beneficiary, adjacent parcel — likely one combined development spanning both footprints) |
+| просп. Лунина, 25 | 5807 | 2022-08-31 | 2025-07-29 (№258) | СЗ «Садовое КОЛЬЦО «Проспект»» — project «Дом у моря» |
+
+This confirms the modality is a **repeating occupation practice, not a
+one-off**: Nakhimova 82 remains the reference exhibit because it alone has
+the full five-leg lifecycle (renamed street address, new cadastral number,
+marketing renders, sales data) captured end-to-end. These three are
+currently attested only at LEG 1–3 depth (demolition record + no-tender
+land-grant decree naming the beneficiary) — **not yet verified**:
+
+- Whether any of the three received a *new street address* on the same
+  footprint (Nakhimova 82's defining "address-laundering" feature) — the
+  land-grant decrees for пр. Ленина 89/87А and пр. Лунина 25 use the
+  **original** street address, unlike Nakhimova 82 → Chernomorsky 1B, so
+  address-laundering specifically is unconfirmed here; the underlying
+  demolish→regrant pattern still holds without it.
+- New-build construction/sales status (no ЕИСЖС/nash.dom.rf match attempted
+  yet for these three addresses).
+- No resale, marketing, or resident-testimony evidence gathered.
+
+**Follow-up:** cross-check пр. Ленина 89/87А and пр. Лунина 25 against
+`eisghs_mariupol_objects.jsonl` for a matching new-build object (the same
+approach that surfaced Nakhimova 82's nash.dom.rf record); if a match
+exists, extend LEG 4–5 documentation the same way this case study does.
