@@ -97,11 +97,21 @@ CREATE TABLE IF NOT EXISTS owner (
 -- undone. Isolated from every seizure analytic (RD4U categorization, STATS
 -- seizure counts) by never appearing in their explicit stage sets. Added
 -- 2026-07-02 (ALTER TYPE migration below; loader load_ownerless_removals()).
+-- 'unfinished_construction_designation' = a DESIGNATION, not a confirmed
+-- completed transfer: a site is named "объект незавершенного строительства"
+-- under Постановление ГКО №27 (21.04.2022), which requires the builder to
+-- register within a window or have the object declared to have "признаки
+-- бесхозяйного имущества" (features of ownerless property) and pass to state
+-- ownership by a FURTHER GKO decree -- the same claim-it-or-lose-it structure
+-- as 'ownerless_designation' for housing, but for unfinished construction, a
+-- distinct asset class under distinct substantive law. Kept as its own stage
+-- (not folded into 'ownerless_designation') so the two tracks stay
+-- distinguishable in RD4U/STATS breakdowns. Added 2026-07-05 (scripts/256).
 CREATE TYPE seizure_stage AS ENUM (
     'utility_cutoff', 'notice', 'inspection', 'ownerless_designation',
     'demolition', 'court_petition', 'court_transfer', 'appeal', 'entered_force',
     'reallocation', 'resale', 'registry_inclusion', 'expropriation',
-    'temporary_use', 'reclaim'
+    'temporary_use', 'reclaim', 'unfinished_construction_designation'
 );
 
 CREATE TABLE IF NOT EXISTS seizure_event (
@@ -127,6 +137,7 @@ ALTER TABLE seizure_event ADD COLUMN IF NOT EXISTS unit_id BIGINT REFERENCES uni
 -- migration for pre-existing deployments (CREATE TYPE above is a no-op once the
 -- type exists). ADD VALUE IF NOT EXISTS is PG 12+ and safe outside a txn block.
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'reclaim';
+ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'unfinished_construction_designation';
 CREATE INDEX IF NOT EXISTS seizure_event_prop_ix ON seizure_event(property_id);
 CREATE INDEX IF NOT EXISTS seizure_event_stage_ix ON seizure_event(stage);
 CREATE INDEX IF NOT EXISTS seizure_event_unit_ix ON seizure_event(unit_id) WHERE unit_id IS NOT NULL;
