@@ -158,6 +158,36 @@ actors); МУП «УК Жилсервис» (recipient of pooled seized stock, �
 МУП «Коммунальник»; Мариупольское городское управление юстиции (registration
 organ, e.g. №5351/14.11.2022 for Распоряжение №61).
 
+### New named officials from the second-order Telegram sweep (2026-07-06, `scripts/262`/`263`)
+
+Surfaced from official-channel deep-reads; all attributions are the officials'
+own channel posts (in raw store by sha, geoblocked t.me). Not yet cross-linked
+to specific decree signature blocks except where noted — leads for EGRUL/appointment
+verification, not yet claim-grade. See `memory/second_order_channel_sweep_2026-07-06.md`.
+
+| Actor | Role / attribution | Tier |
+|---|---|---|
+| **Переверзева Т.** — вице-премьер ДНР (имущественные и земельные отношения) | The seizure→imported-personnel statement to TASS (01.05.2026): ~7,000 apts for teachers/medics/siloviki/social workers "в том числе за счёт ранее бесхозного жилья"; ~26,000 ownerless DNR-wide, ~5,200 municipalized. Top population-transfer attribution. | 2 (DNR) |
+| **Бердников Д.** — 1-й вице-премьер ДНР | Site visits to demolished-then-rebuilt footprints (with Минстрой РФ dep. Леонов В.). | 2 (DNR) |
+| **Дубовка В.** — министр строительства ДНР | Signs the current (2026) Минстрой developer/SPV lists; named on the consolidated КРТ (53 bldgs / 58.99 ha) resettlement announcement. | 2 (DNR) |
+| **Циганов Н.**, **Ярошевский В.** (врио), **Осипов Э.** — prior ministers строительства ДНР | №61-1 compensation framework (Циганов); ГКО №27 unfinished-construction regime (Ярошевский). | 2 (DNR) |
+| **Иванов С.** — замминистра строительства ДНР | Resettlement track (Указ №566 / 879-MKD аварийность program). | 2 (DNR) |
+| **Авдиенко А.** — начальник управления градостроительства и архитектуры Минстроя ДНР | Signs the Mariupol КРТ/ППТ demolition plans (the land→investor conveyor authorizing acts, [D]/[C]). | 2 (DNR) |
+| **Сироватко Ю.** — руководитель Управления Росреестра по ДНР | The "ЕГРН without the owner" registry mechanism + ККР mass cadastral inventory (42 quarters / >100k objects). | 2 (DNR) |
+| **Вишневский В.**, **Трищенко Ю.** — заместители руководителя Росреестра ДНР | Трищенко: land-control изъятие under ЗК ст.42 ("already being applied"). | 2 (DNR) |
+| **Краснов Д.** — министр экономического развития ДНР | Инвесткомитет "масштабный инвестиционный проект" approvals = the wrapper for no-auction land grants. | 2 (DNR) |
+| **Кирьякулова О.В.** — глава Управы Жовтневого внутригородского района | Convened Артёма 59/69 собрания собственников (КРТ re-demolition); addressee of stalled-restoration complaints. | 3 (municipal) |
+| **Кондратенко И.В.** — зам. главы Управы Жовтневого р-на | Stated the coercive 30-day-appearance / 60-day-registration deadline architecture on record. | 3 (municipal) |
+| **Шагиахметов И.** — ген. директор ППК «Фонд развития территорий» (ФРТ) | ФРТ = SEZ management co.; land register (3,388 га), аварийное-жильё resettlement funding, boiler-house ownership. | 1 (federal) |
+| **Максимова Ю.** — директор ФАУ «РосКапСтрой» | Parent of ООО «РКС-НР» (the Mariupol demolition contractor) — confirms РКС-НР → РосКапСтрой → Минстрой РФ chain from the contractor side. | 1 (federal) |
+
+**@rks_nr contractor intel (own channel):** ООО «РКС-НР» (ген. дир. **Ильдар Шарипов**;
+dep. **Константин Лопухов**, also GD of its SPV ООО СЗ «РКС-Девелопмент») — **405 buildings
+demolished** in Mariupol+Volnovakha with resident расселение; **8,493 flats** routed through
+it for finishing; flagship resale ЖК «Дом с часами». New demolition subcontractor **АО
+«Экотехпром Инжиниринг»** (41 objects, Приморский/Левобережный). Corroborates and extends
+the РКС-НР role in `docs/case_studies/troianda_m_demolition_challenge.md`.
+
 ## Tier 4 — Commercial beneficiaries (developers receiving reallocated land)
 
 From the 51 captured DNR land orders ([D], no-auction КРТ grants signed by
