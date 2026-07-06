@@ -103,15 +103,41 @@ def main() -> None:
                 continue
 
             mime = r.get("mime", "")
-            ext = {"application/pdf": ".pdf"}.get(mime, "")
+            ext = {
+                "application/pdf": ".pdf",
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ".docx",
+            }.get(mime, "")
             if not ext:
                 n_errors += 1
                 continue
-            pdf_path = RAW_DIR / f"{sha}{ext}"
-            if not pdf_path.exists():
-                print(f"  [{i}/{len(todo)}] MISSING raw file: {pdf_path}", file=sys.stderr)
+            src_path = RAW_DIR / f"{sha}{ext}"
+            if not src_path.exists():
+                print(f"  [{i}/{len(todo)}] MISSING raw file: {src_path}", file=sys.stderr)
                 n_errors += 1
                 continue
+
+            if ext == ".docx":
+                # a .docx that survived text extraction empty is a scanned image wrapped
+                # in a docx shell — convert to PDF via LibreOffice, then OCR that.
+                import tempfile as _tempfile
+                conv_dir = _tempfile.mkdtemp()
+                try:
+                    subprocess.run(
+                        ["soffice", "--headless", "--convert-to", "pdf", "--outdir", conv_dir, str(src_path)],
+                        check=True, capture_output=True, text=True, timeout=60,
+                    )
+                except Exception as e:  # noqa: BLE001
+                    print(f"    docx->pdf conversion error: {e}", file=sys.stderr)
+                    n_errors += 1
+                    continue
+                converted = Path(conv_dir) / f"{src_path.stem}.pdf"
+                if not converted.exists():
+                    print(f"    docx->pdf conversion produced no output", file=sys.stderr)
+                    n_errors += 1
+                    continue
+                pdf_path = converted
+            else:
+                pdf_path = src_path
 
             max_pages = None if args.include_large else LARGE_PAGE_THRESHOLD
             try:
