@@ -54,6 +54,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--channel", default=None,
                      help="only pull documents from this one channel (default: all)")
+    ap.add_argument("--force", action="store_true",
+                     help="re-download even documents already captured (by t.me url) under "
+                          "telegram_document_media; default skips them so a re-run only pulls "
+                          "NEW documents (e.g. after scripts/232 picks up a freshly-crawled channel)")
     args = ap.parse_args()
 
     if not (config.TELEGRAM_API_ID and config.TELEGRAM_API_HASH):
@@ -87,7 +91,17 @@ def main() -> None:
     con = forensics.open_state()
     n_pulled = 0
     n_skipped_no_media = 0
+    n_skipped_stored = 0
     n_errors = 0
+
+    def _already_stored(url: str) -> bool:
+        if args.force:
+            return False
+        row = con.execute(
+            "SELECT 1 FROM source_document WHERE source_type=? AND url=? LIMIT 1",
+            (SOURCE_TYPE, url),
+        ).fetchone()
+        return row is not None
 
     try:
         for channel, channel_rows in by_channel.items():
@@ -100,9 +114,17 @@ def main() -> None:
                 n_errors += len(channel_rows)
                 continue
 
-            ids = [row["msg_id"] for row in channel_rows]
-            row_by_id = {row["msg_id"]: row for row in channel_rows}
-            log.info("@%s: fetching %d flagged document messages", channel, len(ids))
+            # drop rows whose t.me url is already captured, unless --force
+            pending_rows = [r for r in channel_rows if not _already_stored(r["url"])]
+            n_skipped_stored += len(channel_rows) - len(pending_rows)
+            if not pending_rows:
+                log.info("@%s: all %d documents already stored — skipping", channel, len(channel_rows))
+                continue
+
+            ids = [row["msg_id"] for row in pending_rows]
+            row_by_id = {row["msg_id"]: row for row in pending_rows}
+            log.info("@%s: fetching %d flagged document messages (%d already stored, skipped)",
+                     channel, len(ids), len(channel_rows) - len(pending_rows))
 
             for batch_start in range(0, len(ids), 100):
                 batch_ids = ids[batch_start: batch_start + 100]
@@ -146,7 +168,8 @@ def main() -> None:
 
     print(f"\n{'='*72}")
     print(f"DOCUMENT MEDIA PULL — {n_pulled} pulled this run "
-          f"({n_skipped_no_media} no-longer-has-media, {n_errors} errors)")
+          f"({n_skipped_stored} already stored, {n_skipped_no_media} no-longer-has-media, "
+          f"{n_errors} errors)")
     print(f"total {SOURCE_TYPE} artifacts in store: {total_stored}")
     print(f"{'='*72}")
 

@@ -53,6 +53,18 @@ SOURCE_TYPES = [
     "telegram_nmrpl_msg",
 ]
 
+# Whole channel FAMILIES added later (scripts/257 forward-network + scripts/262
+# second-order finds) are matched by prefix rather than enumerated one-by-one,
+# so a newly-crawled channel in either family is picked up automatically. The
+# 2026-07-06 second-order crawl's official channels (@minstroydnr, @rosreestr80,
+# the 4 district управы) are where the highest-value primary-source documents
+# live — the consolidated "ЕДИНЫЙ СВОД" ownerless master list and the
+# commercial/industrial ownerless object lists (1,234+52+15 objects).
+SOURCE_TYPE_PREFIXES = [
+    "telegram_fwdnet_",
+    "telegram_2ndorder_",
+]
+
 DOC_MIMES = {
     "application/pdf": ".pdf",
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": ".xlsx",
@@ -71,6 +83,24 @@ def _filename(doc: dict) -> str | None:
     return None
 
 
+def _expand_source_types(con) -> list[str]:
+    """Enumerated SOURCE_TYPES plus every distinct source_type in the DB
+    matching one of SOURCE_TYPE_PREFIXES — so newly-crawled forward-network /
+    second-order channels are covered without editing this list."""
+    types = list(SOURCE_TYPES)
+    seen = set(types)
+    for prefix in SOURCE_TYPE_PREFIXES:
+        rows = con.execute(
+            "SELECT DISTINCT source_type FROM source_document WHERE source_type LIKE ?",
+            (prefix + "%",),
+        ).fetchall()
+        for (st,) in rows:
+            if st not in seen:
+                types.append(st)
+                seen.add(st)
+    return types
+
+
 def main() -> None:
     con = forensics.open_state()
     fh = OUT.open("w", encoding="utf-8")
@@ -78,7 +108,11 @@ def main() -> None:
     totals = {}
     n_written = 0
 
-    for source_type in SOURCE_TYPES:
+    all_source_types = _expand_source_types(con)
+    log.info("scanning %d source_types (%d enumerated + %d prefix-matched)",
+             len(all_source_types), len(SOURCE_TYPES), len(all_source_types) - len(SOURCE_TYPES))
+
+    for source_type in all_source_types:
         rows = con.execute(
             "SELECT url, raw_path FROM source_document WHERE source_type=?",
             (source_type,),
@@ -136,7 +170,7 @@ def main() -> None:
 
     print(f"\n{'='*72}")
     print(f"DOCUMENT-MEDIA MANIFEST — {n_written} PDF/DOCX/XLSX files across "
-          f"{len(SOURCE_TYPES)} channels")
+          f"{len(all_source_types)} channels")
     print(f"{'='*72}")
     for st, t in totals.items():
         print(f"  {st:28s} scanned={t['messages_scanned']:>7}  "
