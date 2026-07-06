@@ -113,6 +113,10 @@ def main() -> None:
                 log.error("channel %r not resolvable: %s — skipping %d files", channel, e, len(channel_rows))
                 n_errors += len(channel_rows)
                 continue
+            except errors.ChannelPrivateError as e:
+                log.error("channel %r private/inaccessible: %s — skipping %d files", channel, e, len(channel_rows))
+                n_errors += len(channel_rows)
+                continue
 
             # drop rows whose t.me url is already captured, unless --force
             pending_rows = [r for r in channel_rows if not _already_stored(r["url"])]
@@ -128,7 +132,13 @@ def main() -> None:
 
             for batch_start in range(0, len(ids), 100):
                 batch_ids = ids[batch_start: batch_start + 100]
-                messages = client.get_messages(entity, ids=batch_ids)
+                try:
+                    messages = client.get_messages(entity, ids=batch_ids)
+                except errors.ChannelPrivateError as e:
+                    log.error("@%s: batch fetch failed, channel private/inaccessible: %s — skipping %d files",
+                              channel, e, len(batch_ids))
+                    n_errors += len(batch_ids)
+                    continue
                 for message in messages:
                     if message is None or message.media is None:
                         n_skipped_no_media += 1

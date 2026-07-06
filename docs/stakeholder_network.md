@@ -188,6 +188,21 @@ it for finishing; flagship resale ЖК «Дом с часами». New demolitio
 «Экотехпром Инжиниринг»** (41 objects, Приморский/Левобережный). Corroborates and extends
 the РКС-НР role in `docs/case_studies/troianda_m_demolition_challenge.md`.
 
+### New named officials from the document-attachment content survey (2026-07-06, `scripts/264`)
+
+Surfaced from opening the actual PDF/DOCX/XLSX attachments the second-order
+sweep's channels had posted (previously only their Telegram captions were
+keyword-matched) — see `docs/legal_mechanisms_review.md`'s new [A]/[G] rows for
+the decrees these officials are attached to.
+
+| Actor | Role / attribution | Tier |
+|---|---|---|
+| **Пушилин Д.** — signature on Указ №33 (25.11.2022) | Signed as врио Глава ДНР the decree first routing Mariupol ownerless housing to №175 compensation-queue claimants — the earliest documented instance of the ownerless→compensation-recycling mechanism, 2+ years before Закон №141-РЗ and Переверзева's 2026 TASS figures. | 2 (DNR) |
+| **Чернова Е.Н.** — cadastral engineer, ППК «Роскадастр» филиал по ДНР | Named executor of Государственный контракт №14/2024 (07.02.2024), the ККР mass-cadastral-inventory contract covering 14 Mariupol cadastral quarters. | 2 (DNR) |
+| **Колударова О.П.** — и.о. Министра образования и науки ДНР | Alleged to have ordered the liquidation of ГКОУ «Мариупольская санаторная школа-интернат №11» (May 2024) despite two years of written restoration promises — an institutional-dispossession allegation from the school's own acting director. Not yet independently corroborated. | 2 (DNR) |
+| **Найденов С.А.** — замминистра образования и науки ДНР | Named alongside Колударова in the same school-liquidation allegation. | 2 (DNR) |
+| **МУП АГМ «Коммунальник»** — municipal demolition contractor | Named execution of a specific non-residential demolition: former ТЦ «Перекрёсток» at пер. Транспортный 14 (22.12.2023, Приазовский рабочий). A municipal enterprise, distinct from the РКС-НР/Трансстройинвест private-contractor chain already tracked. | 3 (municipal) |
+
 ## Tier 4 — Commercial beneficiaries (developers receiving reallocated land)
 
 From the 51 captured DNR land orders ([D], no-auction КРТ grants signed by
