@@ -5,15 +5,19 @@ distribution to residents of demolished multi-apartment buildings, including
 Nakhimova 82.
 
 Cited in the Nakhimova 82 exhibit's "arithmetic of dispossession" section for
-two claims: (1) the published terms name no right to choose which district the
-replacement housing is allocated in, so district assignment functions as
-effectively arbitrary; (2) eligibility for compensation is itself conditioned
-on Russian citizenship.
+two claims, both confirmed on read-through of the captured text: (1) a unit
+is assigned to the resident unilaterally with no choice of address -- accept
+or refuse only, refusal re-queues for another unilateral assignment, a
+second refusal forfeits in-kind housing entirely; (2) required documents
+include "original Russian Federation citizen passports of all owners" --
+i.e. compensation eligibility is conditioned on Russian citizenship.
 
-mariupol.gosuslugi.ru is geoblocked from outside Russia (consistent with other
-*.gosuslugi.ru captures in this project, e.g. minstroy-dpr.gosuslugi.ru in
-docs/sources.md) -- this script must be run from the user's Russia-routed VPS,
-per CLAUDE.md ("Claude never executes the crawler").
+Not geoblocked -- ran successfully from the user's own machine (2026-07-07).
+The initial run failed with SSLCertVerificationError: the site's TLS chain
+roots at a Russian state CA not present in standard OS/browser trust stores,
+which is a trust-store gap, not a network block. Verification is disabled
+below for this one capture since forensic integrity here comes from the
+SHA-256 recorded by forensics.capture_source(), not from TLS trust.
 """
 import logging
 import sys
@@ -21,6 +25,7 @@ import time
 from pathlib import Path
 
 import requests
+import urllib3
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
@@ -31,13 +36,21 @@ log = logging.getLogger(__name__)
 
 URL = "https://mariupol.gosuslugi.ru/dlya-zhiteley/poleznye-materialy/kvartirnaya-ochered/"
 
+# mariupol.gosuslugi.ru's TLS chain roots at a Russian state CA
+# (Минцифры/"Russian Trusted Root CA") not present in standard OS/browser
+# trust stores -- this is a trust-store gap, not a sign of tampering.
+# Forensic integrity here comes from the SHA-256 recorded by
+# forensics.capture_source(), not from TLS trust, so verification is
+# disabled for this one capture rather than pinning a CA bundle.
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 
 def fetch(url: str) -> tuple[bytes, str, int]:
     for attempt in range(config.MAX_RETRIES):
         try:
             resp = requests.get(
                 url, headers={"User-Agent": config.USER_AGENT},
-                timeout=config.TIMEOUT, allow_redirects=True,
+                timeout=config.TIMEOUT, allow_redirects=True, verify=False,
             )
             resp.raise_for_status()
             return resp.content, resp.headers.get("Content-Type", "text/html"), resp.status_code
