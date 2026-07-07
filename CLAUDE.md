@@ -129,16 +129,23 @@ accountability and are not minimized.
   independent sources for legal-grade linkage rows.
 - **Always hyperlink cited sources.** Any exhibit, case study, or doc that cites
   an external source must link directly to it (source catalogue / appendix /
-  footnotes — wherever that doc lists sources). Verify the URL resolves before
-  adding it (`curl -o /dev/null -w '%{http_code}'`) rather than trust an old
-  citation — links rot; `docs/sources.md` has already had at least one dead
-  link from this. If no working URL can be found (geoblocked portal, no public
-  page), say so inline rather than guess or omit silently. Geoblocked sources
-  (e.g. `vs--dnr.sudrf.ru`, `*.sudrf.ru`) need a capture script generated for
-  the user to run from their VPS, not a live link Claude fetched directly.
-  After adding a source to any exhibit, also add/update its entry in
-  `docs/sources.md` — that file is the project's master source list and should
-  stay in sync with what's actually cited across exhibits.
+  footnotes — wherever that doc lists sources). Always link the original source
+  URL even when it's geoblocked (e.g. `denis-pushilin.ru`, `minstroy-dpr.gosuslugi.ru`,
+  `*.sudrf.ru`) — don't omit the link on account of the block; note inline (e.g.
+  a `title=` tooltip) that it's geoblocked and needs a VPN/VPS with Russian
+  routing to resolve. Verify the URL at least *resolves in principle* before
+  adding it (`curl -o /dev/null -w '%{http_code}'`; a `000`/connection-refused
+  result on a domain already documented as geoblocked in `docs/sources.md` is
+  expected and not a reason to drop the link) rather than trust an old citation
+  untested — links rot; `docs/sources.md` has already had at least one dead link
+  from this. If no working URL can be found at all (no public page exists
+  anywhere, geoblocked or not), say so inline rather than guess or omit
+  silently. Geoblocked sources still need a capture script generated for the
+  user to run from their VPS to get the artifact itself into the raw store —
+  that's separate from whether the citation link belongs in the exhibit, which
+  it always does. After adding a source to any exhibit, also add/update its
+  entry in `docs/sources.md` — that file is the project's master source list
+  and should stay in sync with what's actually cited across exhibits.
 - **No revision-history narration in exhibits.** State facts plainly, as they
   are — never "this corrects/refutes an earlier version," "we previously
   thought," etc. Exhibits are read as the current record, not a changelog;

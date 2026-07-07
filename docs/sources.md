@@ -10,6 +10,10 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **Распоряжение ГКО ДНР №172** (18 April 2023) — demolition list naming проспект Строителей д.72, 117. Text mirrored at base.garant.ru.
 
+**Распоряжение Главы ДНР №289** (07 September 2023) — leases the 3,204 m² Nakhimova 82 / Chernomorsky 1B parcel to ООО «СЗ-1 Порфир» without tender, for the "«Многоквартирный жилой дом... по просп. Нахимова 82»" investment project; signed Пушилин. Source: <https://denis-pushilin.ru/doc/rasp/rasporiazhglavaN289_07092023.pdf> (geoblocked, captured via VPS; OCR'd `scripts/246`-adjacent pass, 2026-07-07). Cited in Exhibit A (Nakhimova 82).
+
+**Minstroy DNR project-planning-territory (ПТТ) document, `@minstroydnr/3932`** (5 October 2023) — designates the ~36 ha Primorsky КРТ redevelopment zone (bounded by Кронштадтская/Строителей/Нахимова/Черноморская), demolition of 9 multi-apartment buildings for >25,000 m² of new construction; signed Александр Авдиенко, head of urban-planning and architecture, Минстрой ДНР. Source: <https://t.me/minstroydnr/3932>. Cited in Exhibit A (Nakhimova 82) and `docs/legal_mechanisms_review.md`.
+
 **DNR head land-allocation orders (Пушилин), Nos. 390–394** — sequential grants to СЗ-1 ПОРФИР (ИНН 9310009271) for проспект Строителей 74–88. Captured in project pipeline `data/raw/` with SHA-256 chain-of-custody.
 
 - Decree portal: <https://denis-pushilin.ru/acts/>
@@ -388,11 +392,17 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **наш.дом.рф object records 65280, 69427, 69749, 69751, 70142, 70147** (Резиденция Селект / Резиденция II, проспект Строителей 74–88) — **open gap (2026-06-30):** the portal's per-object pages/API return HTTP 403 (WAF block) from this environment; only the registry root (<https://наш.дом.рф>) is linked in Case Study III pending a working per-object URL.
 
+**наш.дом.рф object 54284** («Дом на Нахимова» / Chernomorsky 1B) — resolves directly with a browser user-agent (unlike the 403-blocked objects above): <https://xn--80az8a.xn--d1aqf.xn--p1ai/сервисы/каталог-новостроек/объект/54284>. Live sold-out % and marketing renders. Cited in Exhibit A (Nakhimova 82).
+
+**Постановление Правительства РФ №2565** (31 December 2022) — federal 2% subsidized-mortgage decree for DNR/LNR/Zaporizhzhia/Kherson; confirms no residency restriction. Source: <http://publication.pravo.gov.ru/Document/View/0001202301030011> (landing), <http://publication.pravo.gov.ru/file/pdf?eoNumber=0001202301030011> (signed PDF, OCR'd `scripts/246`, 2026-07-04). Cited in Exhibit A (Nakhimova 82).
+
 ---
 
 ## 11. Testimony and Witness Records (primary, cited in exhibits)
 
 **Oleg Tsarov Telegram (t.me/olegtsarov/9754)** — 27 December 2023 post, resident testimony regarding Нахимова 82: demolition-to-mortgage-sale pattern. SHA-256: 9a2264f7…891691. (Leg 0 in Exhibit A.)
+
+**@nmrpl/39594** (3 October 2025) — Mariupol occupation city-district administration channel post: the replacement building on the Nakhimova 82 / Chernomorsky 1B site wins a bronze diploma at an architecture competition; head of city-planning and architecture Наталья Клочкова praises the redevelopment on the record, naming the address "Нахимова". Source: <https://t.me/nmrpl/39594>. Cited in Exhibit A (Nakhimova 82, award leg).
 
 **Mariupol 24 TV Telegram (t.me/mariupol24tv/104461)** — 3 October 2025 post, Klochkova / ARKHITAVR award citation, occupation administration naming "Нахимова, 82" and describing the ambition to transform Mariupol into "a modern comfortable Russian city." SHA-256: 8b8b6834…86fbb2. (Leg 6 in Exhibit A.)
 
