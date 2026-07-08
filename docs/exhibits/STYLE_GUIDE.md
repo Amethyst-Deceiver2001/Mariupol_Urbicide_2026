@@ -200,3 +200,10 @@ exhibit, every time this body is named:
   Распоряжение No. 56, etc.) — not just the ones already touched as of this
   pass. Extend this rule to any newly-cited GKO DNR document going forward
   without being asked again.
+
+## 9. "Протокол Беркли," not "Берклийский протокол" (added 2026-07-08)
+
+The Berkeley Protocol (on Digital Open Source Investigations) is always
+rendered in RU-language text as **«протокол Беркли»** — never the adjectival
+"Берклийский протокол." Check every RU exhibit's provenance/footer section
+when adding or editing chain-of-custody language.
