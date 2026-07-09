@@ -79,6 +79,23 @@ is conceals.
   SHA-256 `d431a530…42ea37` · captured 2026-06-09.
 - **DB:** `seizure_event` 54105, stage `demolition`, date **2022-09-29**.
 
+### 3b — TERRITORIAL CONTEXT: the demolition sat inside a formal redevelopment zone
+- **What it shows:** Directive No. 289's parcel description — "bounded by
+  prosp. Nakhimova and ul. Chernomorskaya" — is not an ad hoc description of a
+  single lot. It is the footprint of a named **KRT (compleks development of
+  territory) project-planning-territory (PPT) zone**, ~36 hectares, in the
+  Primorsky district, authorizing demolition of **9 multi-apartment buildings**
+  including this one — confirmed by a Minstroy DNR PPT document
+  (`@minstroydnr/3932`, October 2023) signed by **Aleksandr Avdiyenko**, head of
+  urban-planning and architecture, Minstroi DNR. The parcel-level land grant to
+  Porfir is the per-building act *inside* a zone Minstroy itself designated for
+  clearance — the demolition of Nakhimova 82 was planned at the zone level
+  before any single-building decree existed, not decided building-by-building.
+- **Source:** Minstroy DNR project-planning-territory (PPT) document.
+- **Artifact:** `@minstroydnr/3932` (Telegram channel post, geoblocked source,
+  in raw store by SHA-256); see `docs/legal_mechanisms_review.md` for the full
+  KRT/PPT zone reconciliation against the land-grant register.
+
 ### 4 — REBUILT (new building, same spot, new address)
 - **What rose:** **«Dom na Nakhimova»** ("the house on Nakhimova") — a
   5-storey, **51-apartment** building (2,324 m² living area), registered at
@@ -101,6 +118,18 @@ is conceals.
   (population-transfer financial channel; `memory/demand_side_architecture.md`).
 - **Source / artifact:** same EISZhS record 54284 (the registry carries the
   live sold-out percentage).
+- **The mortgage decree itself, now captured (2026-07-04):** Russian
+  Government Decree **No. 2565 (31.12.2022)** «On approving Rules for
+  providing federal-budget subsidies to JSC DOM.RF...» — the primary legal
+  instrument behind the 2% rate. §k) confirms verbatim: "the interest rate
+  under the loan agreement is no more than 2 percent per annum," minimum 10%
+  down payment, for loans "issued to citizens of the Russian Federation for
+  the purchase or construction of residential premises in the territories of
+  the DNR, LNR, Zaporizhzhia, and Kherson regions" — the decree's own text
+  names no residency restriction, confirming any Russian citizen qualifies,
+  not just local residents. In force from 1 January 2023.
+- **Artifact:** publication.pravo.gov.ru, `eoNumber=0001202301030011` (signed
+  PDF, 46pp, Mishustin signature block), OCR'd (`scripts/246`, 2026-07-04).
 
 ### Beneficiary (named, in scope for accountability — NOT minimized)
 - **LLC, specialized developer (OOO SZ-1) «Porfir»** — INN **9310009271**,
@@ -111,6 +140,18 @@ is conceals.
   Rasskazov (EISZhS) vs Vladimir Karpov (Карпов Владимир Николаевич, other
   sources); registered address prosp. Stroiteley 60 vs Chernomorsky 1B —
   verify via EGRUL.
+- **Not a single-address developer.** Reconciling the full denis-pushilin.ru
+  land-grant archive (`scripts/249`/`250`/`252`, 2026-07-04/05;
+  `docs/legal_mechanisms_review.md`) found Porfir holds **9 parcels, ~97,000 m²
+  total**, almost all one contiguous land assembly in Zhovtnevyi district
+  bounded by prosp. Lenina / ul. Kazantseva / ul. Apatova / prosp. Nakhimova /
+  ul. B. Khmelnitskogo / ul. Bakhchivandzhi / ul. Zelinskogo — subdivided into
+  named projects at prosp. Stroiteley 74/76/78/80/88 and ul. Zelinskogo
+  23/30A/30B, in addition to the Nakhimova 82/Chernomorsky 1B parcel documented
+  here. Across the reconciled 101-decree land-grant set, Porfir is **the single
+  largest developer-beneficiary** of no-tender Mariupol land. This building is
+  one node in a much larger land assembly by the same beneficiary, not an
+  isolated grant.
 
 ---
 

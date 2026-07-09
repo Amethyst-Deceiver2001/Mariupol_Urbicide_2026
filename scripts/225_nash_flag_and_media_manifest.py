@@ -52,6 +52,14 @@ SIGNALS = [
     ("removal_register",True,  re.compile(r"снят\w*\s+с\s+учёт|снят\w*\s+с\s+учет|обращ\w*\s+в\s+муниципальн\w*\s+собственност|изыма\w*\s+с\s+обращен", re.I)),
     ("forced_entry",    True,  re.compile(r"вскрыл|с полицией|в присутствии полиции|взлома\w*\s+дверь|срезал\w*\s+замок|порядок\s+вскрыт", re.I)),
     ("sealing",         True,  re.compile(r"опечат|пломб|запечат", re.I)),
+    # housing inventory campaign (added 2026-07-08 -- Распоряжение №619, the
+    # phase-2 registration-deadline round, district-office enforcement notices)
+    ("inventory",       True,  re.compile(r"инвентаризац\w*", re.I)),
+    # border/entry filtration screening (added 2026-07-09 -- @ssaniaworld/4358,
+    # 4497: a repeat pattern of claimants physically blocked from re-entering
+    # to reclaim property, screened out at Sheremetyevo/Mariupol filtration
+    # checkpoints for no stated reason, independent of the citizenship gate)
+    ("filtration",       True,  re.compile(r"фильтрац\w*|не пуска\w*|не пропуст\w*|не пропускают", re.I)),
     # military / state builder — the Nevsky-track signal
     ("military_builder",True,  re.compile(r"военн\w*\s+строит\w*|военно[\-\s]?строит\w*|\bВСК\b|Минобороны|МО\s*РФ|Оборонспецстрой|ОборонСпецСтрой", re.I)),
     # residential complexes & new-build

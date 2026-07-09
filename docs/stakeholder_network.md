@@ -84,6 +84,8 @@ scans in store); names below are as-signed.
 | **Дмитриев А.В.** — *same title*, Начальник Управления ЖКХ | Ownerless **55**, signed 16.08.2024→14.05.2025; also demolition-commission member | 〃 |
 | **Краснолуцкая Т.Ю.** — Заместитель начальника Управления ЖКХ (Deputy Head, same dept.) | Ownerless **25**, signed 11.12.2024→25.03.2025 | 〃 |
 | **Матейко В.А.** — Начальник Управления имущественных и земельных отношений Администрации городского округа Мариуполь (Head, Property & Land Relations Dept.) | Ownerless **8**, all signed 29.05.2024 | 〃 |
+| **Яремчук И.** — заместитель главы администрации городского округа Мариуполь, курирует имущественный блок/инвентаризацию (Deputy Head of Administration, property/inventory portfolio) | On-camera, named (`@allmarinews/39282`, year-end briefing, dated by content to Dec. 2025): the most legally explicit official statement of the bezkhoz mechanism captured in this project to date, incl. the on-record admission that citizens of "unfriendly states" are barred by provision from registering ownership rights in the ЕГРН, with a discretionary security-service-linked collegial body as the sole override. Also confirms the 1 July 2026 document-validity deadline and a ~60%/40% registered/unregistered housing-fund split as of the briefing. Not yet attached to a signed decree in the parsed corpus — found via keyword sweep + transcription, not decree OCR. | `scripts/284`; transcript `data/parsed/allmarinews_39282_transcript.txt`; sha256 `6ac5a6fe35a59f..` |
+| **Андрущенко Е.Н.** — начальник юридического отдела администрации городского округа Мариуполь (Head, Legal Dept.) | On-camera, named (`@morgun_ov/9992` livestream, spring 2025): states the administration has no legal authority to halt a unit's bezkhoz designation unless the claimant holds Russian Federation citizenship *and* original title documents — direct on-record articulation of the citizenship gate. Not yet attached to a signed decree in the parsed corpus. | `scripts/284`; transcript `data/parsed/morgun_9992_transcript.txt`; sha256 `9e8a062e4d1770..` |
 
 Position titles recovered from decree signature-block OCR (`scripts/195`,
 2026-06-28; raw scans were already OCR'd from prior work, this just
@@ -104,10 +106,16 @@ concurrent, not a co-holding. (The table rows above retain the OCR'd titles
 for traceability; this note is the correction.) Краснолуцкая's
 "Заместитель" title and her date range sitting inside Дмитриев's suggest she
 deputized for him during part of his tenure, consistent with normal
-department structure. **Office addresses** (per Mariupol municipal
-guidance, secondary-sourced, not yet independently captured): Управление
-имущественных и земельных отношений (Матейко) at **пер. Черноморский, 10**;
-Управление ЖКХ (Дмитриев/Перепечай) at **бул. Шевченко, 301Б**.
+department structure. **Office addresses**: Управление имущественных и
+земельных отношений (Матейко) at **пер. Черноморский, 10**; Управление ЖКХ
+(Дмитриев/Перепечай) at **бул. Шевченко, 301Б** — both now independently
+corroborated on-camera in the two officials' own 2026-07-08-transcribed
+briefings above (Яремчук names Черноморский 10 as the objection point for
+sealed/inventoried units; Моргун/Дмитриев name бул. Шевченко 301Б as the
+УЖКХ public-intake office, with a by-district weekly schedule that
+**contradicts** a resident-reported schedule found in the same keyword
+sweep — see `docs/legal_mechanisms_review.md` for the discrepancy, not yet
+resolved).
 | **Иващенко К.В.** | Распоряжение №61 (03.11.2022) — municipal *non-residential* property-lease rulebook (read in full 2026-06-29: explicitly excludes housing stock, NOT the residential [A]→[F]/[G] disposal chain — see legal_mechanisms_review.md); глава администрации города Мариуполя 06.04.2022→22.01.2023 (full chronology below) | script 207/208 ([CAPTURED]+read); appointment chronology confirmed 2026-06-12 |
 
 ### Command-chain chronology — heads of Mariupol administration (script 44, OCR'd 2026-06-12)
