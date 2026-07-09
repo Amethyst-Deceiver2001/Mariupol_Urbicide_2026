@@ -131,9 +131,14 @@ accountability and are not minimized.
   an external source must link directly to it (source catalogue / appendix /
   footnotes — wherever that doc lists sources). Always link the original source
   URL even when it's geoblocked (e.g. `denis-pushilin.ru`, `minstroy-dpr.gosuslugi.ru`,
-  `*.sudrf.ru`) — don't omit the link on account of the block; note inline (e.g.
-  a `title=` tooltip) that it's geoblocked and needs a VPN/VPS with Russian
-  routing to resolve. Verify the URL at least *resolves in principle* before
+  `*.sudrf.ru`) — don't omit the link on account of the block. **In reader-facing
+  exhibit prose (case-callouts, quote captions, body text), don't add a geoblock
+  caveat inline** — it clutters the reading experience for no benefit to most
+  readers and states hasn't stopped this project from linking regardless.
+  `docs/sources.md` (the researcher-facing source catalogue) is the one place
+  that should still note geoblock status per source, since that's the record
+  aimed at someone doing follow-up verification work, not casual reading.
+  Verify the URL at least *resolves in principle* before
   adding it (`curl -o /dev/null -w '%{http_code}'`; a `000`/connection-refused
   result on a domain already documented as geoblocked in `docs/sources.md` is
   expected and not a reason to drop the link) rather than trust an old citation

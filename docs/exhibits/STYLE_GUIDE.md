@@ -207,3 +207,84 @@ The Berkeley Protocol (on Digital Open Source Investigations) is always
 rendered in RU-language text as **«протокол Беркли»** — never the adjectival
 "Берклийский протокол." Check every RU exhibit's provenance/footer section
 when adding or editing chain-of-custody language.
+
+## 10. RU-exhibit quote fidelity, sourcing, and typography (added 2026-07-09)
+
+Established during a full quote-by-quote audit of `dispossession-pipeline-ru.html`
+against original Russian source material. Applies to every RU exhibit going
+forward, not just that one file.
+
+- **Quotes are drafted from the original Russian, never back-translated from an
+  English exhibit's prose.** When a case-callout quotes a transcript, decree, or
+  Telegram post, pull the exact wording from the raw source (`data/raw/*.json`
+  message text, decree OCR, transcript file) — never paraphrase the EN exhibit's
+  own callout and wrap it in guillemets. Verify every quote character-for-character
+  against the source before publishing; a single inserted or dropped word (e.g. an
+  added "вы," a "corrected" missing preposition) turns an evidentiary quote into a
+  misquote. If the original has a grammatical quirk or apparent typo, preserve it
+  and mark it `[так в оригинале]` rather than silently fixing it — except an
+  obvious ASR mistranscription of an unrelated word (e.g. Whisper's "наториат" for
+  "нотариат") may be silently corrected, since the point is fidelity to what the
+  speaker said, not to the transcription tool's errors.
+- **Never attribute a resident's paraphrase of an unseen document to the
+  document's author.** If a Telegram post says "official X wrote, in essence,
+  Y" and Y is the poster's own colloquial rendering (not the document's actual
+  text), quote the *poster's own words* verbatim and attribute them to the
+  poster — don't present Y as if it were official X's direct quote.
+- **Never assert a real name behind a channel handle unless it's sourced.**
+  Check the channel's own captured "about" text or an independently-sourced
+  identification before writing "activist [Full Name]" for a handle like
+  `@ssaniaworld` — if no source exists, cite the channel handle alone.
+- **Спецзастройщик, not SPV/СПВ.** Render the Russian legal-entity type
+  (специализированный застройщик, the special-purpose developer entity used in
+  every no-tender land grant) as «спецзастройщик» throughout — never the
+  transliterated Cyrillic "СПВ" and never the bare Latin "SPV" inside
+  Russian-language prose.
+- **Link to the original wherever a URL exists** — decree PDFs (glavadnr.ru,
+  denis-pushilin.ru), Telegram posts/videos (`t.me/<channel>/<id>`), gosuslugi
+  pages. Use a plain `target="_blank"` link with short visible text ("оригинал,"
+  "видео," "оригинал поста") — don't print the bare URL in body text. If no
+  public URL exists (an internal letter that was never published, a document
+  known only via OCR of a photo), say so rather than link nothing silently.
+- **No geoblock caveat needed in RU-exhibit link text or tooltips.** (This
+  narrows `CLAUDE.md`'s general "always note geoblock status inline" rule
+  specifically for RU-exhibit reader-facing links — the caveat is aimed at an
+  English-speaking reader without Russian-language VPN access; it clutters a
+  Russian-reading audience's experience for no benefit. The underlying
+  `docs/sources.md` catalogue entry should still note geoblock status, since
+  that's the researcher-facing record, not the reader-facing exhibit.)
+- **No capture/research-processing dates in exhibit prose** — drop "найдено
+  DD.MM.YYYY," "прочитан(о) DD.MM.YYYY," "эфир от DD.MM.YYYY" where the date
+  given is *our* discovery/reading/transcription date, not a fact about the
+  underlying event. A date stays if it's a fact the narrative needs — a
+  decree's own signing date, a video's actual broadcast/upload date, an
+  article's publication date, a deadline named in the source. Test: would a
+  reader with no knowledge of this project's research process need this date
+  to understand the claim? If the date only tells them when *we* did the
+  work, cut it.
+- **Proper names — bold on first mention, plain after.** The first time a
+  named individual (official, judge, developer-entity beneficiary) appears in
+  the document, wrap the name in `<b>`; every later mention of that same
+  person stays plain (don't re-bold). This extends rule 7 (bold-consistency
+  for companies) to people, and specifically mandates bolding at first
+  mention rather than merely requiring consistency once bolded. Scope: named
+  individuals and named entities/companies in narrative prose
+  (`case-callout .cc-v`, footnotes, provenance text) — not in compact
+  `chip-sub` reference labels, which stay unbolded to preserve their terse,
+  uniform typography.
+- **Direct quotes — italic (`<em>`), not just guillemets.** A verbatim quoted
+  statement attributed to a specific speaker or document («...» following
+  "заявляет," "пишет," "гласит," or similar) is wrapped in `<em>`. **Scare-quotes
+  marking a euphemism or loaded institutional term in the exhibit's own prose
+  stay plain guillemets, not italic** — e.g. «бесхозяйное», «недружественных
+  стран», «признано бесхозяйным» used descriptively, not as reported speech.
+  Test: is this a specific person or document's own words, being reported? →
+  italic. Is this the exhibit's own narration flagging a euphemism? → plain
+  «». A document's own *title*, quoted in guillemets, stays plain (titles are
+  cited, not "spoken").
+- **This pass covered `dispossession-pipeline-ru.html` only.** The other RU
+  exhibits (`mariupol-master-dossier-ru.html`, `two-property-systems-ru.html`,
+  `case-study-III-stroiteley-ru.html`, `case-study-IV-court-docket-ru.html`,
+  `case-study-troianda-metallurgov-ru.html`, `nakhimova-82-exhibit-ru.html`)
+  have not yet been audited against these rules — treat them as a backlog,
+  not as already compliant.

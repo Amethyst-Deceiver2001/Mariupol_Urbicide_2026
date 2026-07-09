@@ -7,24 +7,15 @@
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <meta name="description" content="Максимально полный каталог всех псевдоправовых инструментов, которыми пользуются оккупационные власти для разграбления имущества мариупольцев">
-<meta property="og:title" content="Конвейер разграбления в оккупированном Мариуполе">
-<meta property="og:description" content="Максимально полный каталог всех псевдоправовых инструментов, которыми пользуются оккупационные власти для разграбления имущества мариупольцев">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/dispossession-pipeline-ru.html">
-<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Конвейер разграбления в оккупированном Мариуполе">
-<meta name="twitter:description" content="Максимально полный каталог всех псевдоправовых инструментов, которыми пользуются оккупационные власти для разграбления имущества мариупольцев">
-<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
 <style>
   :root{
     --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
     --rail:#262b33; --rail-2:#343b46;
-    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
-    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
-    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
-    --t-fed:#6e90b4; --t-dnr:#9b8ec6; --t-muni:#4f9e96;
-    --s-captured:#54a06e; --s-cited:#d2a03a; --s-reported:#79808c; --s-gap:#cd4030;
+    --paper:#e9e7e1; --paper-dim:#cfcdc7; --muted:#9aa1ab;
+    --evidence:#d64a39; --evidence-dim:rgba(214,74,57,.4);
+    --stamp:#d1a552; --stamp-dim:rgba(209,165,82,.4);
+    --t-fed:#7fa0c4; --t-dnr:#ab9ed6; --t-muni:#5caea6;
+    --s-captured:#5fb07c; --s-cited:#dcac48; --s-reported:#8991a0; --s-gap:#d64a39;
     --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
     --font-serif:Georgia,"Times New Roman",serif;
     --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
@@ -32,210 +23,208 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--ink);color:var(--paper);
-    font-family:var(--font-serif);font-size:16px;line-height:1.6;
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
     -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:var(--stamp)}
 
+  /* ---------- top bar ---------- */
   .exhibit-bar{position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;flex-wrap:wrap;
     align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
-    background:rgba(8,10,13,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    background:rgba(8,10,13,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
     font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
   .exhibit-bar b{color:var(--paper-dim);font-weight:600}
   .exhibit-bar .cust{color:var(--stamp)}
   .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
   .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
-  .note a{color:var(--stamp);text-decoration:none;border-bottom:1px solid var(--stamp-dim)}
-  .note a:hover{border-color:var(--stamp)}
 
-  .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 5rem}
+  .draftflag{background:var(--evidence);color:#fff;font-family:var(--font-mono);font-size:11px;
+    letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:.4rem;font-weight:700}
 
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 5rem}
+
+  /* ---------- title ---------- */
   .titleblock{padding:clamp(2.2rem,5vw,3.6rem) 0 1.4rem}
   .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
     color:var(--stamp);margin:0 0 1.1rem}
   h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
-    font-size:clamp(1.8rem,4.6vw,2.9rem);line-height:1.05;margin:0 0 1rem;max-width:24ch}
-  .thesis{font-size:clamp(1rem,2vw,1.15rem);color:var(--paper-dim);max-width:64ch;margin:0;
-    border-left:2px solid var(--evidence);padding-left:1.1rem}
+    font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.05;margin:0 0 1.1rem;max-width:22ch}
+  .thesis{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--paper-dim);max-width:66ch;margin:0;
+    border-left:2px solid var(--evidence);padding-left:1.15rem;line-height:1.6}
 
-  .controls{position:sticky;top:39px;z-index:50;display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;
-    align-items:center;padding:.8rem clamp(1rem,4vw,2.4rem);margin:0 calc(-1*clamp(1rem,4vw,2.4rem));
-    background:rgba(13,15,19,.92);backdrop-filter:blur(8px);border-block:1px solid var(--rail)}
-  .toggle{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;cursor:pointer;
-    background:var(--ink-2);color:var(--paper-dim);border:1px solid var(--rail-2);border-radius:3px;
-    padding:.5rem .85rem;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
-  .toggle:hover{border-color:var(--muted);color:var(--paper)}
-  .toggle .dot{width:8px;height:8px;border-radius:50%;background:var(--rail-2);transition:background .2s}
-  .toggle[aria-pressed="true"]{color:var(--paper);background:var(--ink-3)}
-  #t-gaps[aria-pressed="true"]{border-color:var(--s-gap)} #t-gaps[aria-pressed="true"] .dot{background:var(--s-gap)}
-  #t-trace[aria-pressed="true"]{border-color:var(--stamp)} #t-trace[aria-pressed="true"] .dot{background:var(--stamp)}
-  .legends{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-left:auto;align-items:center}
-  .legend{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
-  .legend .lk{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-  .swatch{font-family:var(--font-mono);font-size:10px;color:var(--paper-dim);display:inline-flex;align-items:center;gap:.32rem}
-  .swatch i{width:11px;height:11px;border-radius:2px;display:inline-block}
-  .swatch.b i{border-radius:10px;width:13px;height:9px}
-  .sw-fed{background:var(--t-fed)} .sw-dnr{background:var(--t-dnr)} .sw-muni{background:var(--t-muni)}
-  .sw-captured{background:var(--s-captured)} .sw-cited{background:var(--s-cited)}
-  .sw-reported{background:var(--s-reported)} .sw-gap{background:transparent;border:1.5px dashed var(--s-gap)}
+  /* ---------- reading key (static, no toggles) ---------- */
+  .key{margin-top:1.8rem;background:var(--ink-2);border:1px solid var(--rail);border-radius:6px;
+    padding:1rem 1.2rem;display:flex;flex-wrap:wrap;gap:1.2rem 2rem}
+  .key-col{display:flex;flex-direction:column;gap:.55rem;min-width:210px}
+  .key-h{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .key-row{display:flex;align-items:center;gap:.55rem;font-family:var(--font-mono);font-size:11.5px;color:var(--paper-dim)}
+  .key-row i{width:13px;height:13px;border-radius:3px;flex:0 0 auto;display:inline-block}
+  .key-row i.bar{width:5px;height:15px;border-radius:1px}
+  .ki-fed{background:var(--t-fed)} .ki-dnr{background:var(--t-dnr)} .ki-muni{background:var(--t-muni)}
+  .ki-ev{background:var(--evidence)} .ki-wit{background:var(--stamp)} .ki-an{background:var(--rail-2)}
+  .ki-cap{background:var(--s-captured)} .ki-cit{background:var(--s-cited)}
+  .ki-rep{background:var(--s-reported)} .ki-gap{background:transparent;border:1.5px dashed var(--s-gap)}
 
-  section{padding:clamp(2rem,4vw,3rem) 0;border-top:1px solid var(--rail)}
+  /* ---------- sticky stage nav ---------- */
+  .stagenav{position:sticky;top:37px;z-index:55;display:flex;flex-wrap:wrap;gap:.4rem;
+    padding:.7rem clamp(1rem,4vw,2.4rem);margin:1.4rem calc(-1*clamp(1rem,4vw,2.4rem)) 0;
+    background:rgba(13,15,19,.94);backdrop-filter:blur(8px);border-block:1px solid var(--rail)}
+  .stagenav a{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.03em;text-decoration:none;
+    color:var(--paper-dim);background:var(--ink-2);border:1px solid var(--rail-2);border-radius:4px;
+    padding:.4rem .7rem;display:inline-flex;gap:.4rem;align-items:center;transition:all .15s}
+  .stagenav a:hover{border-color:var(--stamp);color:var(--paper)}
+  .stagenav a b{font-family:var(--font-display);font-weight:800}
+  .stagenav a.grave b{color:var(--evidence)}
+
+  /* ---------- section shell ---------- */
+  section{padding:clamp(1.8rem,4vw,2.8rem) 0;border-top:1px solid var(--rail)}
   .sec-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--muted);margin:0 0 1.3rem}
+    color:var(--muted);margin:0 0 1.2rem}
 
-  .framework{background:linear-gradient(var(--ink-2),var(--ink-2)) padding-box;
-    border:1px solid var(--rail);border-top:2px solid var(--t-fed);border-radius:4px;
-    padding:1.2rem 1.3rem;margin-top:.4rem}
-  .framework h2{font-family:var(--font-display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em;
-    margin:0 0 .3rem;color:var(--paper)}
-  .framework .sub{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin:0 0 1rem;letter-spacing:.04em}
-  .fw-chips{display:flex;flex-wrap:wrap;gap:.6rem}
+  /* ---------- framework ---------- */
+  .framework-head{font-family:var(--font-display);font-weight:800;font-size:clamp(1.2rem,2.6vw,1.55rem);
+    letter-spacing:-.015em;margin:0 0 .3rem;color:var(--paper)}
+  .framework-sub{font-family:var(--font-serif);font-size:1rem;color:var(--paper-dim);margin:0 0 1.3rem;max-width:60ch}
 
-  .chip{position:relative;display:inline-flex;flex-direction:column;gap:.3rem;
-    background:var(--ink-3);border:1px solid var(--rail-2);border-left:4px solid var(--rail-2);
-    border-radius:3px;padding:.5rem .7rem;transition:opacity .25s,filter .25s,box-shadow .25s;max-width:360px}
-  .chip.tier-fed{border-left-color:var(--t-fed)} .chip.tier-dnr{border-left-color:var(--t-dnr)}
-  .chip.tier-muni{border-left-color:var(--t-muni)}
-  .chip-label{font-family:var(--font-mono);font-size:12px;line-height:1.4;color:var(--paper);letter-spacing:.01em}
-  .chip-sub{font-family:var(--font-mono);font-size:10.5px;color:var(--muted)}
-  .badge{align-self:flex-start;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.12em;
-    text-transform:uppercase;padding:.12rem .4rem;border-radius:2px;color:var(--ink)}
+  /* ---------- instrument grid + card ---------- */
+  .instruments{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:.7rem}
+  .instrument{background:var(--ink-3);border:1px solid var(--rail-2);border-left:4px solid var(--rail-2);
+    border-radius:5px;padding:.75rem .9rem;display:flex;flex-direction:column;gap:.4rem}
+  .instrument.tier-fed{border-left-color:var(--t-fed)}
+  .instrument.tier-dnr{border-left-color:var(--t-dnr)}
+  .instrument.tier-muni{border-left-color:var(--t-muni)}
+  .instrument.pivot{border:1px solid var(--evidence);border-left:4px solid var(--evidence);background:rgba(214,74,57,.08)}
+  .inst-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem}
+  .inst-cite{font-family:var(--font-mono);font-size:12.5px;line-height:1.35;color:var(--paper);letter-spacing:.01em}
+  .inst-date{font-family:var(--font-mono);font-size:10px;color:var(--muted);white-space:nowrap;padding-top:.15rem}
+  .inst-desc{font-family:var(--font-serif);font-size:14px;line-height:1.5;color:var(--paper-dim)}
+  .inst-src{font-family:var(--font-mono);font-size:10.5px;color:var(--stamp);text-decoration:none;
+    border-bottom:1px solid var(--stamp-dim);align-self:flex-start}
+  .inst-src:hover{border-color:var(--stamp)}
+  .badge{align-self:flex-start;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:.15rem .45rem;border-radius:3px;color:var(--ink);white-space:nowrap;flex:0 0 auto}
   .badge.b-captured{background:var(--s-captured)} .badge.b-cited{background:var(--s-cited)}
   .badge.b-reported{background:var(--s-reported);color:var(--paper)}
   .badge.b-gap{background:transparent;color:var(--s-gap);border:1.5px dashed var(--s-gap)}
   .badge.b-negative{background:transparent;color:var(--muted);border:1.5px solid var(--muted)}
-  .chip.pivot{border:1px solid var(--evidence);border-left:4px solid var(--evidence);
-    background:rgba(205,64,48,.07)}
-  .chip.pivot .chip-label{color:#f0d9d4}
 
-  body.gaps-on .chip{opacity:.18;filter:saturate(.4)}
-  body.gaps-on .chip.st-gap,body.gaps-on .chip.st-reported{opacity:1;filter:none}
-  body.gaps-on .chip.st-gap{box-shadow:0 0 0 3px var(--evidence-dim)}
-  body.gaps-on .stage-card,body.gaps-on .framework{opacity:1}
-
-  .pipe{margin-top:.4rem}
+  /* ---------- pipeline overview diagram ---------- */
   .pipe-main{display:flex;align-items:stretch;gap:.3rem;flex-wrap:wrap}
   .node{flex:1 1 130px;min-width:120px;background:var(--ink-2);border:1px solid var(--rail);
-    border-radius:4px;padding:.8rem .75rem;cursor:pointer;transition:all .2s;position:relative;text-align:left}
-  .node:hover{border-color:var(--muted);background:var(--ink-3)}
-  .node .nl{font-family:var(--font-display);font-weight:800;font-size:1.4rem;color:var(--rail-2);line-height:1}
-  .node .nn{font-family:var(--font-display);font-weight:700;font-size:.82rem;letter-spacing:.02em;
+    border-radius:5px;padding:.85rem .8rem;text-decoration:none;transition:all .18s;display:block}
+  .node:hover{border-color:var(--stamp);background:var(--ink-3)}
+  .node .nl{font-family:var(--font-display);font-weight:800;font-size:1.45rem;color:var(--rail-2);line-height:1}
+  .node .nn{font-family:var(--font-display);font-weight:700;font-size:.84rem;letter-spacing:.02em;
     color:var(--paper);margin:.35rem 0 .4rem;text-transform:uppercase}
-  .node .nm{font-family:var(--font-mono);font-size:9px;letter-spacing:.04em;color:var(--muted);line-height:1.5}
+  .node .nm{font-family:var(--font-mono);font-size:9px;letter-spacing:.03em;color:var(--muted);line-height:1.5}
   .node.gravest{border-color:var(--evidence-dim)}
   .node.gravest .nl{color:var(--evidence)}
+  .node.gravest:hover{border-color:var(--evidence)}
   .arrow{display:flex;align-items:center;justify-content:center;color:var(--rail-2);
     font-family:var(--font-mono);font-size:1.3rem;flex:0 0 auto;padding:0 .1rem}
-  .branches{margin-top:.3rem;display:grid;gap:.3rem}
+  .branches{margin-top:.4rem;display:grid;gap:.35rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
   .branch{display:flex;align-items:center;gap:.7rem;background:var(--ink-2);border:1px dashed var(--rail-2);
-    border-radius:4px;padding:.65rem .85rem;cursor:pointer;transition:all .2s}
-  .branch:hover{border-color:var(--muted)}
+    border-radius:5px;padding:.7rem .9rem;text-decoration:none;transition:all .18s}
+  .branch:hover{border-color:var(--stamp)}
   .branch .bl{font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--muted)}
-  .branch .bn{font-family:var(--font-display);font-weight:700;font-size:.8rem;text-transform:uppercase;
-    letter-spacing:.04em;color:var(--paper)}
-  .branch .bd{font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-left:auto;text-align:right}
-  .branch.toponymy{border-style:solid;border-color:var(--rail)}
-  .branch.barrier{border-style:solid;border-color:var(--evidence-dim)}
+  .branch .bn{font-family:var(--font-display);font-weight:700;font-size:.82rem;text-transform:uppercase;
+    letter-spacing:.03em;color:var(--paper)}
 
-  body.trace-on .node{opacity:.4}
-  body.trace-on .node.tr{opacity:1;border-color:var(--stamp);box-shadow:0 0 0 2px var(--stamp-dim)}
-  body.trace-on .node.tr-maybe{opacity:1;border:1px dashed var(--stamp)}
-  body.trace-on .node.tr .nl,body.trace-on .node.tr-maybe .nl{color:var(--stamp)}
-  body.trace-on .arrow{opacity:.3}
-  body.trace-on .branch{opacity:.4}
-  .trace-banner{display:none;align-items:center;gap:.6rem;margin:1rem 0 0;padding:.6rem .9rem;
-    background:rgba(199,154,68,.08);border:1px solid var(--stamp-dim);border-radius:3px;
-    font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);letter-spacing:.03em}
-  body.trace-on .trace-banner{display:flex}
-
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem;margin-top:.4rem}
-  .stage-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;overflow:hidden;
-    display:flex;flex-direction:column;transition:border-color .2s}
-  .stage-card.flash{border-color:var(--stamp)}
-  .card-head{padding:1rem 1.1rem .7rem;cursor:pointer;display:flex;gap:.8rem;align-items:flex-start}
-  .card-head:hover{background:var(--ink-3)}
-  .ch-letter{font-family:var(--font-display);font-weight:800;font-size:1.7rem;line-height:.9;
+  /* ---------- stage sections ---------- */
+  .stage{scroll-margin-top:92px}
+  .stage-head{display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;
+    padding-bottom:1.1rem;border-bottom:1px solid var(--rail)}
+  .sh-letter{font-family:var(--font-display);font-weight:800;font-size:2.6rem;line-height:.85;
     color:var(--rail-2);flex:0 0 auto}
-  .stage-card.grave .ch-letter{color:var(--evidence)}
-  .ch-txt{flex:1}
-  .ch-name{font-family:var(--font-display);font-weight:800;font-size:1.02rem;letter-spacing:-.01em;
-    color:var(--paper);text-transform:uppercase}
-  .ch-tag{font-family:var(--font-serif);font-style:italic;font-size:.92rem;color:var(--paper-dim);margin-top:.15rem}
-  .ch-exp{font-family:var(--font-mono);font-size:1rem;color:var(--muted);transition:transform .2s;flex:0 0 auto}
-  .stage-card.open .ch-exp{transform:rotate(45deg)}
-  .card-body{padding:0 1.1rem 1.1rem;display:flex;flex-direction:column;gap:.9rem}
-  .instr{display:flex;flex-direction:column;gap:.5rem}
-  .card-more{display:none;flex-direction:column;gap:.9rem;border-top:1px solid var(--rail);padding-top:.9rem}
-  .stage-card.open .card-more{display:flex}
-  .db-row{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
-  .db-k{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:.2rem}
-  .db-pill{font-family:var(--font-mono);font-size:10px;color:var(--paper-dim);background:var(--ink-3);
-    border:1px solid var(--rail);border-radius:2px;padding:.15rem .45rem}
-  .map-row{display:flex;flex-wrap:wrap;gap:.4rem}
-  .map-badge{font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;padding:.2rem .5rem;border-radius:2px;
-    border:1px solid var(--rail-2);color:var(--paper-dim)}
+  .stage.grave .sh-letter{color:var(--evidence)}
+  .sh-txt{flex:1 1 300px}
+  .sh-txt h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,3vw,1.7rem);
+    letter-spacing:-.02em;color:var(--paper);text-transform:uppercase;margin:.1rem 0 .2rem}
+  .sh-tag{font-family:var(--font-serif);font-style:italic;font-size:1.02rem;color:var(--paper-dim);margin:0}
+  .sh-map{display:flex;flex-wrap:wrap;gap:.4rem;align-content:flex-start}
+  .map-badge{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;padding:.25rem .55rem;border-radius:3px;
+    border:1px solid var(--rail-2);color:var(--paper-dim);white-space:nowrap;height:fit-content}
   .map-badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
   .map-badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
-  .map-badge.grave{background:var(--evidence);color:var(--ink);border-color:var(--evidence);font-weight:700}
-  .note{font-family:var(--font-mono);font-size:10.5px;line-height:1.6;color:var(--muted);
-    border-left:2px solid var(--rail-2);padding-left:.7rem}
-  .case-callout{display:none;flex-direction:column;gap:.3rem;background:rgba(199,154,68,.07);
-    border:1px solid var(--stamp-dim);border-radius:3px;padding:.7rem .8rem}
-  body.trace-on .case-callout{display:flex}
-  .case-callout .cc-k{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--stamp)}
-  .case-callout .cc-v{font-family:var(--font-mono);font-size:11px;line-height:1.55;color:var(--paper)}
+  .map-badge.grave{background:var(--evidence);color:#fff;border-color:var(--evidence);font-weight:700}
 
-  .endtable{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:.4rem}
-  .endtable th,.endtable td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  .stage-body{padding-top:1.4rem;display:flex;flex-direction:column;gap:1.5rem}
+  .zone{display:flex;flex-direction:column;gap:.7rem}
+  .zone-label{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--stamp);display:flex;align-items:center;gap:.6rem}
+  .zone-label::after{content:"";flex:1;height:1px;background:var(--rail)}
+
+  /* ---------- evidence blocks (quotes) ---------- */
+  .evidence{background:rgba(214,74,57,.07);border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:5px;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.7rem}
+  .evidence.witness{background:rgba(209,165,82,.07);border-color:var(--stamp-dim);border-left-color:var(--stamp)}
+  .ev-kicker{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--evidence);display:flex;align-items:center;gap:.5rem}
+  .evidence.witness .ev-kicker{color:var(--stamp)}
+  .evidence blockquote{margin:0;font-family:var(--font-serif);font-style:italic;
+    font-size:1.34rem;line-height:1.52;color:var(--paper);position:relative}
+  .ev-cap{display:flex;flex-wrap:wrap;gap:.25rem .7rem;align-items:baseline}
+  .ev-who{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--paper)}
+  .ev-role{font-family:var(--font-serif);font-size:.92rem;color:var(--paper-dim)}
+  .ev-src{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--stamp);
+    text-decoration:none;border-bottom:1px solid var(--stamp-dim);white-space:nowrap}
+  .ev-src:hover{border-color:var(--stamp)}
+  .ev-gloss{font-family:var(--font-serif);font-size:16px;line-height:1.65;color:var(--paper-dim);margin:0}
+  .ev-gloss em{color:var(--paper);font-style:italic}
+
+  /* ---------- analysis blocks (our commentary, not a quote) ---------- */
+  .analysis{border-left:3px solid var(--stamp);padding:.15rem 0 .15rem 1.1rem;display:flex;flex-direction:column;gap:.4rem;
+    background:rgba(209,165,82,.05)}
+  .an-k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--stamp)}
+  .analysis p{margin:0;font-family:var(--font-serif);font-size:16px;line-height:1.68;color:var(--paper)}
+  .analysis p b{color:var(--paper);font-weight:700}
+  .analysis a{color:var(--stamp)}
+
+  /* ---------- plain note ---------- */
+  .note{font-family:var(--font-serif);font-size:14px;line-height:1.6;color:var(--paper-dim);
+    border-left:2px solid var(--rail-2);padding-left:.9rem}
+  .note a{color:var(--stamp)}
+
+  /* ---------- endpoint table ---------- */
+  .endtable{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12.5px;margin-top:.4rem}
+  .endtable th,.endtable td{text-align:left;padding:.65rem .7rem;border-bottom:1px solid var(--rail);vertical-align:top}
   .endtable th{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400}
   .endtable td:first-child{color:var(--paper);font-weight:700}
   .endtable .er{color:var(--evidence)} .endtable .ea{color:var(--stamp)}
-  .endtable tr.grave td{background:rgba(205,64,48,.06)}
+  .endtable tr.grave td{background:rgba(214,74,57,.07)}
 
+  /* ---------- provenance + support ---------- */
   .prov{border-top:1px solid var(--rail);margin-top:1.5rem;padding-top:1.8rem}
   .prov p{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--muted)}
   .prov .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);padding-left:1rem;margin-top:1rem}
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:15px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:5px;padding:.9rem 1.1rem}
+  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
+  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
 
   @media(max-width:760px){
     .pipe-main{flex-direction:column}
     .arrow{transform:rotate(90deg);padding:.15rem 0}
     .node{flex:1 1 auto}
-    .controls{position:static}
-    .legends{margin-left:0;width:100%}
+    .stagenav{top:35px}
+    .ev-src{margin-left:0}
   }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto};*{transition:none!important}}
-
-  @media print{
-    :root{--ink:#fff;--ink-2:#fff;--ink-3:#f4f4f2;--paper:#111;--paper-dim:#222;--muted:#555;--rail:#bbb;--rail-2:#999}
-    body{background:#fff;color:#111;font-size:10pt}
-    .exhibit-bar{position:static;background:#fff;color:#444;border-color:#999}
-    .controls{position:static;background:#fff}
-    .toggle{display:none}
-    .pipe-main{flex-wrap:wrap}
-    .card-more{display:flex!important}
-    .case-callout{display:flex!important}
-    .stage-card,.framework,.node,.branch,.chip,section{break-inside:avoid}
-    .cards{grid-template-columns:repeat(2,1fr)}
-    .ch-exp{display:none}
-    a{color:#111}
-  }
-  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
-  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
-  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
-  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
-  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
-  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;padding:.9rem 1.1rem}
-  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
-  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
-  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
 </style>
 </head>
 <body>
 
+
 <div class="exhibit-bar">
-  <span><b>Конвейер изъятия</b> · карта системы</span>
+  <span><b>Конвейер изъятия</b> · карта всей системы</span>
   <span><a href="../index.html">&larr; на главную</a> &middot; <a href="mariupol-master-dossier-ru.html">основное досье</a>
-    &middot; <a href="about.html">о проекте</a> &middot; <a href="stakeholder-network.html">карта связей<span style="font-family:var(--font-mono);font-size:9.5px;color:var(--muted)"> (EN)</span></a> &middot; <a href="sources.html">источники<span style="font-family:var(--font-mono);font-size:9.5px;color:var(--muted)"> (EN)</span></a>
+    &middot; <a href="about.html">о проекте</a>
     &middot; <a href="dispossession-pipeline.html">English version</a></span>
-  <span class="cust">Каждый инструмент — из первоисточника, зафиксирован хеш-суммой</span>
+  <span class="cust">Каждый документ заархивирован из первоисточника</span>
 </div>
 
 <div class="wrap">
@@ -243,360 +232,721 @@
   <div class="titleblock">
     <p class="eyebrow">Все элементы псевдоправового механизма разграбления</p>
     <h1>Как оккупанты превращают чужой дом в своё право собственности</h1>
-    <p class="thesis">Каждая ступень этой системы — отдельный псевдоправовой инструмент. Они работают в связке, чтобы отобрать
-      право на недвижимость у законного украинского собственника и переоформить её —
-      как «муниципальное имущество», как расчищенную землю под застройку коммерческим жильём, как новый дом под новым адресом,
-      проданный по ипотеке российскому покупателю. И эта система документирует сама себя на каждом этапе. </p>
-  </div>
+    <p class="thesis">Каждая ступень этой системы — отдельный псевдоправовой инструмент. Они работают в связке, чтобы
+      отобрать право на недвижимость у законного украинского собственника и переоформить её: как «муниципальное
+      имущество», как расчищенную под застройку землю, как новый дом под новым адресом, проданный по ипотеке
+      российскому покупателю. Всё это — готовый состав преступлений против международного права, и на каждом этапе
+      система собирает обвинительный материал против самой себя. Ниже — как это устроено, ступень за ступенью, с
+      документами и словами самих чиновников.</p>
 
-  <!-- ===================== CONTROLS ===================== -->
-  <div class="controls">
-    <button class="toggle" id="t-gaps" aria-pressed="false"><span class="dot"></span>Показать пробелы в архиве</button>
-    <button class="toggle" id="t-trace" aria-pressed="false"><span class="dot"></span>Проследить конкретный дом</button>
-    <div class="legends">
-      <div class="legend">
-        <span class="lk">Уровень</span>
-        <span class="swatch"><i class="sw-fed"></i>Федеральный</span>
-        <span class="swatch"><i class="sw-dnr"></i>Региональный (ДНР)</span>
-        <span class="swatch"><i class="sw-muni"></i>Муниципальный (Мариуполь)</span>
+    <div class="key">
+      <div class="key-col">
+        <span class="key-h">Уровень власти</span>
+        <span class="key-row"><i class="bar ki-fed"></i>Федеральный (РФ)</span>
+        <span class="key-row"><i class="bar ki-dnr"></i>Региональный («ДНР»)</span>
+        <span class="key-row"><i class="bar ki-muni"></i>Муниципальный (Мариуполь)</span>
       </div>
-      <div class="legend">
-        <span class="lk">Источник</span>
-        <span class="swatch b"><i class="sw-captured"></i>Заархивирован</span>
-        <span class="swatch b"><i class="sw-cited"></i>Процитирован</span>
-        <span class="swatch b"><i class="sw-reported"></i>Со слов</span>
-        <span class="swatch b"><i class="sw-gap"></i>Пробел в архиве ▶</span>
+      <div class="key-col">
+        <span class="key-h">Статус в архиве</span>
+        <span class="key-row"><i class="ki-cap"></i>Заархивирован — первичный текст у нас</span>
+        <span class="key-row"><i class="ki-cit"></i>Процитирован — известен по ссылке в другом документе</span>
+        <span class="key-row"><i class="ki-rep"></i>Со слов — только вторичные источники</span>
+        <span class="key-row"><i class="ki-gap"></i>Пробел — оригинал пока не найден</span>
+      </div>
+      <div class="key-col">
+        <span class="key-h">Свидетельства</span>
+        <span class="key-row"><i class="bar ki-ev"></i>Слова самих чиновников / текст документа</span>
+        <span class="key-row"><i class="bar ki-wit"></i>Свидетельства жителей</span>
+        <span class="key-row"><i class="bar ki-an"></i>Разбор от авторов проекта</span>
       </div>
     </div>
   </div>
 
+  <!-- ===================== STAGE NAV ===================== -->
+  <nav class="stagenav" aria-label="Навигация по этапам">
+    <a href="#card-A"><b>A</b> Бесхозяйное</a>
+    <a href="#card-B"><b>B</b> Суд</a>
+    <a href="#card-C"><b>C</b> Снос</a>
+    <a href="#card-D"><b>D</b> Земля</a>
+    <a href="#card-E"><b>E</b> Отстройка</a>
+    <a href="#card-F" class="grave"><b>F</b> Перепродажа</a>
+    <a href="#card-G"><b>G</b> Распределение</a>
+    <a href="#card-H"><b>H</b> Топонимика</a>
+    <a href="#card-I"><b>I</b> Заградслой</a>
+  </nav>
+
   <!-- ===================== FRAMEWORK ===================== -->
-  <section>
+  <section id="framework">
     <p class="sec-label">Рамочные полномочия</p>
-    <div class="framework">
-      <h2>Право перекроить город</h2>
-      <p class="sub">Постоянно действующие инструменты, из которых выводится всё нижестоящее.</p>
-      <div class="fw-chips">
-        <span class="chip tier-dnr st-captured">
-          <span class="chip-label" title="Указ Главы ДНР от 28.04.2021 № 116">Указ главы ДНР №&nbsp;116 &mdash; довоенный типовой порядок</span>
-          <span class="chip-sub">28.04.2021 · за год до вторжения и оккупации</span>
-          <span class="badge b-captured">Заархивирован</span></span>
-        <span class="chip tier-fed st-captured">
-          <span class="chip-label" title="ФКЗ №5-ФКЗ от 04.10.2022">Федеральный конституционный закон №&nbsp;5</span>
-          <span class="chip-sub">04.10.2022 · аннексия в составе РФ</span>
-          <span class="badge b-captured">Заархивирован</span></span>
-        <span class="chip tier-dnr st-captured">
-          <span class="chip-label" title="Указ Главы ДНР №420">Указ главы ДНР №&nbsp;420</span>
-          <span class="chip-sub">30.07.2022 · концепция генплана «нового» Мариуполя</span>
-          <span class="badge b-captured">Заархивирован</span></span>
-        <span class="chip tier-dnr st-captured">
-          <span class="chip-label" title="Указ врио главы ДНР №73 от 28.12.2022">Указ врио главы ДНР №&nbsp;73</span>
-          <span class="chip-sub">28.12.2022 · базовый рамочный документ, регулирующий имущественные/кадастровые отношения, до 01.01.2028</span>
-          <span class="badge b-captured">Заархивирован</span></span>
-        <span class="chip tier-dnr st-cited">
-          <span class="chip-label" title="«ГKO ДНР» №162 / 205 / 245">Постановления «ГKO ДНР» №&nbsp;162 / 205 / 245</span>
-          <span class="chip-sub">2022 · порядок сноса аварийных зданий</span>
-          <span class="badge b-cited">Процитирован</span></span>
-        <span class="chip tier-dnr st-captured">
-          <span class="chip-label" title="Указ врио главы ДНР №299 от 18.08.2023, 10 поправок">Указ врио главы ДНР №&nbsp;299 &mdash; коллегиальный орган</span>
-          <span class="chip-sub">18.08.2023 · вето ФСБ на распоряжение имуществом</span>
-          <span class="badge b-captured">Заархивирован</span></span>
-        <span class="chip pivot tier-fed st-captured">
-          <span class="chip-label" title="ФКЗ-4 от 15.12.2025">Федеральный конституционный закон №&nbsp;4 &mdash; отменяет судебную стадию: запись в «бесхозяйном» реестре теперь = праву собственности</span>
-          <span class="chip-sub">15.12.2025 · переломный момент</span>
-          <span class="badge b-captured">Заархивирован</span></span>
-        <span class="chip tier-dnr st-captured">
-          <span class="chip-label" title="Закон ДНР №134-РЗ от 05.12.2024, базовый акт; поправки №240-РЗ и №275-РЗ">Приведение законов ДНР в соответствие с федеральными</span>
-          <span class="chip-sub">закон №134-РЗ (05.12.2024) &mdash; базовый акт, поправки №240-РЗ (22.12.2025) и №275-РЗ (17.04.2026)</span>
-          <span class="badge b-captured">Заархивирован</span></span>
-        <span class="chip tier-fed st-gap">
-          <span class="chip-label" title="Ст. 21¹ ФКЗ-4, п.1 — порядок согласования с Росреестром и Росимуществом">Порядок согласования по ст.&nbsp;21¹ ФКЗ-4</span>
-          <span class="chip-sub">сам порядок согласования не найден отдельно от Пост. №2502 (см. этап D) — но оно вышло раньше ФКЗ-4 на 3 года и его не покрывает</span>
-          <span class="badge b-gap">Пробел в архиве ▶</span></span>
+    <h2 class="framework-head">Оккупанты сами выписали себе право перекроить город под себя</h2>
+    <p class="framework-sub">Постоянно действующие инструменты, из которых выводится всё нижестоящее.</p>
+    <div class="instruments">
+      <div class="instrument tier-dnr">
+        <div class="inst-top"><span class="inst-cite">Указ Главы ДНР №&nbsp;116</span><span class="inst-date">28.04.2021</span></div>
+        <div class="inst-desc">Довоенный типовой порядок — за год до вторжения и оккупации; основа всей процедуры.</div>
+        <a class="inst-src" href="https://denis-pushilin.ru/doc/ukazy/Ukaz_N116_28042021.pdf" target="_blank">оригинал →</a>
+        <span class="badge b-captured">Заархивирован</span>
+      </div>
+      <div class="instrument tier-fed">
+        <div class="inst-top"><span class="inst-cite">Федеральный конституционный закон №&nbsp;5-ФКЗ</span><span class="inst-date">04.10.2022</span></div>
+        <div class="inst-desc">Аннексия «ДНР» в состав РФ.</div>
+        <a class="inst-src" href="https://publication.pravo.gov.ru/document/0001202210050005" target="_blank">оригинал →</a>
+        <span class="badge b-captured">Заархивирован</span>
+      </div>
+      <div class="instrument tier-dnr">
+        <div class="inst-top"><span class="inst-cite">Указ Главы ДНР №&nbsp;420</span><span class="inst-date">30.07.2022</span></div>
+        <div class="inst-desc">Концепция генплана «нового» Мариуполя.</div>
+        <a class="inst-src" href="https://web.archive.org/web/20240303084107/http://gisnpa-dnr.ru/npa/0001-420-20220730/" target="_blank">оригинал →</a>
+        <span class="badge b-captured">Заархивирован</span>
+      </div>
+      <div class="instrument tier-dnr">
+        <div class="inst-top"><span class="inst-cite">Указ врио главы ДНР №&nbsp;73</span><span class="inst-date">28.12.2022</span></div>
+        <div class="inst-desc">Базовый рамочный документ по имущественным/кадастровым отношениям, срок действия до 01.01.2028.</div>
+        <a class="inst-src" href="https://web.archive.org/web/20250509172049/http://doc.dnronline.su/wp-content/uploads/2023/01/Ukaz_N73_28122022.pdf" target="_blank">оригинал →</a>
+        <span class="badge b-captured">Заархивирован</span>
+      </div>
+      <div class="instrument tier-dnr">
+        <div class="inst-top"><span class="inst-cite">Постановления «ГКО ДНР» №&nbsp;162 / 205 / 245</span><span class="inst-date">2022</span></div>
+        <div class="inst-desc">Порядок сноса аварийных зданий — №162 базовый, №205/245 поправки.</div>
+        <a class="inst-src" href="https://glavadnr.ru/doc/GKO/post/Post_GKO_162.pdf" target="_blank">оригинал (№162) →</a>
+        <span class="badge b-captured">Заархивирован</span>
+      </div>
+      <div class="instrument tier-dnr">
+        <div class="inst-top"><span class="inst-cite">Указ врио главы ДНР №&nbsp;299</span><span class="inst-date">18.08.2023</span></div>
+        <div class="inst-desc">Коллегиальный орган — вето ФСБ на распоряжение имуществом.</div>
+        <a class="inst-src" href="https://web.archive.org/web/20250505172737/http://doc.dnronline.su/wp-content/uploads/2023/08/Ukaz_N299_18082023.pdf" target="_blank">оригинал →</a>
+        <span class="badge b-captured">Заархивирован</span>
+      </div>
+      <div class="instrument tier-fed pivot">
+        <div class="inst-top"><span class="inst-cite">Федеральный конституционный закон №&nbsp;4 (ФКЗ-4)</span><span class="inst-date">15.12.2025</span></div>
+        <div class="inst-desc"><b>Переломный момент:</b> отменяет судебную стадию — сама запись в «бесхозяйном» реестре теперь приравнивается к муниципальному праву собственности.</div>
+        <a class="inst-src" href="http://www.kremlin.ru/acts/bank/52714" target="_blank">оригинал →</a>
+        <span class="badge b-captured">Заархивирован</span>
+      </div>
+      <div class="instrument tier-dnr">
+        <div class="inst-top"><span class="inst-cite">Закон ДНР №&nbsp;134-РЗ</span><span class="inst-date">05.12.2024</span></div>
+        <div class="inst-desc">Приведение законов ДНР в соответствие с федеральными; поправки №240-РЗ (22.12.2025) и №275-РЗ (17.04.2026).</div>
+        <a class="inst-src" href="http://publication.pravo.gov.ru/document/8000202412060002" target="_blank">оригинал →</a>
+        <span class="badge b-captured">Заархивирован</span>
+      </div>
+      <div class="instrument tier-fed">
+        <div class="inst-top"><span class="inst-cite">Порядок согласования по ст.&nbsp;21¹ ФКЗ-4</span></div>
+        <div class="inst-desc">Сам порядок согласования не найден отдельно от федерального постановления №2502 (см. этап D), а оно вышло на 3 года раньше ФКЗ-4 и его не покрывает.</div>
+        <span class="badge b-gap">Пробел в архиве</span>
       </div>
     </div>
   </section>
 
   <!-- ===================== PIPELINE DIAGRAM ===================== -->
-  <section>
-    <p class="sec-label">Конвейер</p>
-    <div class="pipe">
-      <div class="pipe-main">
-        <div class="node tr-maybe" data-go="A"><div class="nl">A</div><div class="nn">«Бесхозяйное» имущество</div><div class="nm">Как оккупанты сфабриковывают «отсутствие собственника»</div></div>
-        <div class="arrow">→</div>
-        <div class="node" data-go="B"><div class="nl">B</div><div class="nn">Передача через суд</div><div class="nm">Судебное «отмывание» права собственности</div></div>
-        <div class="arrow">→</div>
-        <div class="node tr" data-go="C"><div class="nl">C</div><div class="nn">Снос</div><div class="nm">Физическое уничтожение дома</div></div>
-        <div class="arrow">→</div>
-        <div class="node tr" data-go="D"><div class="nl">D</div><div class="nn">Земля</div><div class="nm">Расчистка участка и передача застройщику </div></div>
-        <div class="arrow">→</div>
-        <div class="node tr" data-go="E"><div class="nl">E</div><div class="nn">Отстройка</div><div class="nm">Новый дом, новый адрес</div></div>
-        <div class="arrow">→</div>
-        <div class="node tr gravest" data-go="F"><div class="nl">F</div><div class="nn">Перепродажа</div><div class="nm">Право собственности переходит к населению страны-оккупанта</div></div>
-      </div>
-      <div class="branches">
-        <div class="branch" data-go="G">
-          <span class="bl">G</span><span class="bn">Распределение жилья</span>
-          <span class="bd">питается от C / D · служебное жильё + манёвренный фонд</span>
-        </div>
-        <div class="branch toponymy" data-go="H">
-          <span class="bl">H</span><span class="bn">Топонимика / «отмывание» адреса</span>
-          <span class="bd">связующий слой · делает возможным лишение права на компенсацию на этапе E</span>
-        </div>
-        <div class="branch barrier" data-go="I">
-          <span class="bl">I</span><span class="bn">Заградительный слой</span>
-          <span class="bd">упраздняет последнюю возможность зарегистрировать право собственности вовремя</span>
-        </div>
-      </div>
-      <div class="trace-banner">▶ Конкретный пример: <span>проспект Нахимова, 82</span> → <span>переулок Черноморский, 1Б</span> &nbsp;·&nbsp; маршрут A?→C→D→E→F</div>
+  <section id="overview">
+    <p class="sec-label">Конвейер — общая схема</p>
+    <div class="pipe-main">
+      <a class="node" href="#card-A"><div class="nl">A</div><div class="nn">«Бесхозяйное» имущество</div><div class="nm">Фабрикация «отсутствия собственника»</div></a>
+      <div class="arrow">→</div>
+      <a class="node" href="#card-B"><div class="nl">B</div><div class="nn">Передача через суд</div><div class="nm">Судебное «отмывание» права</div></a>
+      <div class="arrow">→</div>
+      <a class="node" href="#card-C"><div class="nl">C</div><div class="nn">Снос</div><div class="nm">Уничтожение дома</div></a>
+      <div class="arrow">→</div>
+      <a class="node" href="#card-D"><div class="nl">D</div><div class="nn">Земля</div><div class="nm">Расчистка участка и передача застройщику</div></a>
+      <div class="arrow">→</div>
+      <a class="node" href="#card-E"><div class="nl">E</div><div class="nn">Новая застройка</div><div class="nm">Новый дом, новый адрес</div></a>
+      <div class="arrow">→</div>
+      <a class="node gravest" href="#card-F"><div class="nl">F</div><div class="nn">Перепродажа</div><div class="nm">Право переходит к населению оккупанта</div></a>
+    </div>
+    <div class="branches">
+      <a class="branch" href="#card-G"><span class="bl">G</span><span class="bn">Распределение жилья</span></a>
+      <a class="branch" href="#card-H"><span class="bl">H</span><span class="bn">Топонимика / «отмывание» адреса</span></a>
+      <a class="branch" href="#card-I"><span class="bl">I</span><span class="bn">Заградительный слой</span></a>
     </div>
   </section>
 
-  <!-- ===================== STAGE CARDS ===================== -->
-  <section>
-    <p class="sec-label">Этапы и инструменты — нажмите на карточку, чтобы раскрыть содержание</p>
-    <div class="cards">
+  <!-- ===================== A ===================== -->
+  <section class="stage" id="card-A">
+    <div class="stage-head">
+      <div class="sh-letter">A</div>
+      <div class="sh-txt"><h2>«Бесхозяйное» имущество</h2>
+        <p class="sh-tag">Как оккупанты сфабриковывают «отсутствие собственника»</p></div>
+      <div class="sh-map"><span class="map-badge rd4u">RD4U A3.6</span><span class="map-badge rome">Рим 8(2)(a)(iv)</span></div>
+    </div>
+    <div class="stage-body">
 
-      <!-- A -->
-      <article class="stage-card" id="card-A">
-        <div class="card-head"><div class="ch-letter">A</div>
-          <div class="ch-txt"><div class="ch-name">«Бесхозяйное» имущество</div>
-            <div class="ch-tag">Как оккупанты сфабриковывают «отсутствие собственника»</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-fed st-captured"><span class="chip-label" title="ГК РФ ст. 225">Гражданский кодекс РФ, ст.&nbsp;225</span>
-              <span class="chip-sub">основание для «бесхозяйного» статуса</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Указ Главы ДНР от 28.04.2021 № 116">Довоенный типовой порядок №&nbsp;116</span>
-              <span class="chip-sub">28.04.2021 · основополагающий документ всей процедуры, включает в себя параллельный порядок отчуждения выморочного имущества</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-muni st-captured"><span class="chip-label">Мариупольские постановления о бесхозяйном имуществе</span>
-              <span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-cited"><span class="chip-label">Реестр бесхозяйного имущества</span>
-              <span class="chip-sub">12 948 записей</span><span class="badge b-cited">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Постановление «ГКО ДНР» №300, 29.09.2022">Порядок признания имущества бесхозяйным</span>
-              <span class="chip-sub">постановление №300 &mdash; уведомление за 30 дней → год временного пользования → муниципальное право</span>
-              <span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Указ врио главы ДНР №295 от 18.08.2023">Указ №&nbsp;295 &mdash; ускорение конвейера</span>
-              <span class="chip-sub">срок признания «бесхозяйным» сокращён с года до трёх месяцев</span>
-              <span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Постановление «ГКО ДНР» №164, 26.07.2022 — принудительный вход без согласия собственника">Принудительный осмотр помещения без согласия собственника</span>
-              <span class="chip-sub">№164 &mdash; вход без согласия, 3 визита с интервалом 6 часов, санкция прокуратуры, опечатывание после</span>
-              <span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-muni st-captured"><span class="chip-label" title="Распоряжение главы администрации г. Мариуполя №766 от 15.12.2023">Мариупольский порядок №&nbsp;766</span>
-              <span class="chip-sub">местный указ №116, действующий на территории Мариуполя</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-muni st-captured"><span class="chip-label" title="Постановление администрации г.о. Мариуполь №124 от 20.05.2024">Уполномоченный орган — постановление №&nbsp;124</span>
-              <span class="chip-sub">20.05.2024 · назначает орган, выявляющий бесхозяйное жильё</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-muni st-captured"><span class="chip-label" title="Распоряжение главы администрации г. Мариуполя №619 от 12.10.2023, доп. №71 от 24.02.2024">Всеобщая инвентаризация жилфонда — №&nbsp;619</span>
-              <span class="chip-sub">12.10.2023 · подомовые обходы с требованием личного присутствия и оригиналов правоустанавливающих документов + паспорта</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-muni st-captured"><span class="chip-label" title="mariupol.gosuslugi.ru novosti_284, 09.01.2025">Срок регистрации — 171 дом</span>
-              <span class="chip-sub">09.01.2025 · дома на восстановлении, регистрация права до 01.04.2025 или перечень бесхозяйных</span><span class="badge b-captured">Заархивирован</span></span>
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-fed">
+            <div class="inst-top"><span class="inst-cite">Гражданский кодекс РФ, ст.&nbsp;225</span></div>
+            <div class="inst-desc">Общее основание для статуса «бесхозяйной вещи».</div>
+            <a class="inst-src" href="https://www.consultant.ru/document/cons_doc_LAW_5142/9ff952dc782e98c012ec915600891da688cc7bf3/" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
-          <div class="map-row"><span class="map-badge rd4u">RD4U A3.6</span><span class="map-badge rome">Римский статут 8(2)(a)(iv)</span></div>
-          <div class="card-more">
-            <div class="case-callout"><span class="cc-k"><a href="nakhimova-82-exhibit-ru.html" style="color:inherit">Нахимова 82</a> · этап A</span>
-              <span class="cc-v">Если дом был уничтожен и отстроен заново, а не признан бесхозяйным и передан через реестр, то этапы A/B к этому адресу не применимы</span></div>
-            <div class="case-callout"><span class="cc-k">№164 + №300, прочитаны полностью (29.06.2026)</span>
-              <span class="cc-v">Пункт 2.7.2 постановления №300 ссылается на №164 как на правовое основание для физического входа комиссии по осмотру в жильё без согласия отсутствующего собственника &mdash; чиновники опрашивают соседей или совершают 3 визита с интервалом от 6 часов, затем районная комиссия принимает решение о входе (дверь вскрывают при необходимости, восстанавливают в тот же день, полиция опечатывает после). Через год Указ №515 (02.11.2023) распространяет тот же механизм принудительного входа на любое жильё в многоквартирном доме, а не только на кандидатов в бесхозяйные.</span></div>
-            <div class="case-callout"><span class="cc-k">Довоенное происхождение (найдено 06.07.2026)</span>
-              <span class="cc-v">Указ №116 от 28.04.2021 &mdash; за год до вторжения и за год с лишним до оккупации Мариуполя &mdash; устанавливает «Типовой порядок выявления, учёта и принятия в муниципальную собственность бесхозяйных недвижимых вещей и выморочного имущества», от которого дословно происходит вся процедура: 10-дневное уведомление, 30-дневный осмотр комиссией, годовой срок до иска о муниципальном праве собственности (позже сокращённый Указом №295 до трёх месяцев). Отдельно устанавливает параллельный порядок для выморочного имущества. Это показывает, что механизм изъятия не был придуман специально для оккупированного Мариуполя &mdash; это заранее существовавший, общереспубликанский административный шаблон, впоследствии применённый целиком к недавно оккупированному городу с массово перемещённым населением, которое физически не могло явиться, чтобы его оспорить.</span></div>
-            <div class="case-callout"><span class="cc-k">Запрет регистрации для «недружественных стран» &mdash; заместитель главы администрации, на камеру (декабрь 2025, расшифровано 08.07.2026)</span>
-              <span class="cc-v">Заместитель главы администрации г.о. Мариуполь Игнат Яремчук заявляет на камеру: «имеется положение, запрещающее регистрацию прав граждан недружественных стран в российском правовом поле, в ЕГРН» &mdash; то есть гражданам «недружественных стран» (в их числе Украина) <em>прямо запрещено</em> регистрировать право собственности в российском реестре. Единственный названный обходной путь &mdash; дискреционный «коллегиальный орган», в состав которого прямо входят представители силовых структур. В том же интервью он заявляет, что 60% жилищного фонда зарегистрировано, а около 40% &mdash; нет, и подтверждает срок 1 июля 2026 года, после которого украинские правоустанавливающие документы утрачивают самостоятельную доказательную силу. Отдельно начальник юридического отдела администрации Елена Андрущенко заявляет на камеру (эфир @morgun_ov, из той же подборки), что у администрации нет правовых оснований остановить изъятие объекта, если у заявителя нет одновременно гражданства РФ <em>и</em> оригиналов правоустанавливающих документов &mdash; и что на момент этого эфира ни одна муниципальная квартира ещё не была выдана ни одному получателю, несмотря на годы инвентаризации.</span></div>
-            <div class="case-callout"><span class="cc-k">Подтверждение на федеральном уровне (найдено 08.07.2026)</span>
-              <span class="cc-v">Тот же механизм «сплошной инвентаризации» действует на всей территории ДНР/ЛНР/Запорожской и Херсонской областей, а не только в Мариуполе. Вице-премьер Марат Хуснуллин и руководитель Росреестра Олег Скуфинский (23.12.2024): выявлено порядка 90 700 объектов путём подомового обхода, на камеру заявлено, что «наличие зарегистрированного права собственности... является необходимым условием предоставления компенсационных выплат в случае утраты объектов». Последующее сообщение МИЗО ДНР (17.04.2026, та же неделя, что и подписание закона №272-РЗ): 80% объектов (6,5 млн) в регионе уже внесены в федеральный реестр &mdash; год назад было только 1,3 млн.</span></div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Указ Главы ДНР №&nbsp;116</span><span class="inst-date">28.04.2021</span></div>
+            <div class="inst-desc">Довоенный типовой порядок — основа процедуры, включая параллельный порядок отчуждения выморочного имущества.</div>
+            <a class="inst-src" href="https://denis-pushilin.ru/doc/ukazy/Ukaz_N116_28042021.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Мариупольские постановления о бесхозяйном имуществе</span></div>
+            <div class="inst-desc">Отдельные муниципальные акты о признании конкретных объектов бесхозяйными — 968 штук, каждый заархивирован отдельно.</div>
+            <a class="inst-src" href="https://mariupol.gosuslugi.ru/dlya-zhiteley/poleznye-materialy/ownerless/" target="_blank">раздел на сайте администрации →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Реестр бесхозяйного имущества</span></div>
+            <div class="inst-desc">12&nbsp;948 записей на момент последнего среза — весь реестр краулится целиком, не только процитирован.</div>
+            <a class="inst-src" href="https://mariupol.gosuslugi.ru/dlya-zhiteley/poleznye-materialy/ownerless/" target="_blank">реестр на сайте администрации →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Постановление «ГКО ДНР» №&nbsp;300</span><span class="inst-date">29.09.2022</span></div>
+            <div class="inst-desc">Порядок признания имущества бесхозяйным: уведомление за 30 дней → год временного пользования → муниципальное право.</div>
+            <a class="inst-src" href="https://web.archive.org/web/20230804000724/https://doc.dnronline.su/wp-content/uploads/2023/01/Postanov_GKO_N300_29092022.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Указ врио главы ДНР №&nbsp;295</span><span class="inst-date">18.08.2023</span></div>
+            <div class="inst-desc">Ускорение конвейера — срок признания «бесхозяйным» сокращён с года до трёх месяцев.</div>
+            <a class="inst-src" href="https://web.archive.org/web/20250510015118/http://doc.dnronline.su/wp-content/uploads/2023/08/Ukaz_N295_18082023.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Постановление «ГКО ДНР» №&nbsp;164</span><span class="inst-date">26.07.2022</span></div>
+            <div class="inst-desc">Принудительный вход без согласия собственника: 3 визита с интервалом 6 часов, санкция прокуратуры, опечатывание после.</div>
+            <a class="inst-src" href="https://web.archive.org/web/20220728222219/http://doc.dnronline.su/wp-content/uploads/2022/07/Postanov_GKO_N164_26072022.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Распоряжение главы администрации Мариуполя №&nbsp;766</span><span class="inst-date">15.12.2023</span></div>
+            <div class="inst-desc">Местное применение указа №116 на территории Мариуполя.</div>
+            <a class="inst-src" href="https://mariupol-r897.gosweb.gosuslugi.ru/netcat_files/401/4727/766.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Постановление администрации Мариуполя №&nbsp;124</span><span class="inst-date">20.05.2024</span></div>
+            <div class="inst-desc">Назначает орган, выявляющий бесхозяйное жильё. Первичный текст сам по себе не найден на сайте администрации — известен только по цитированию в других документах.</div>
+            <span class="badge b-cited">Процитирован</span>
+          </div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Распоряжение главы администрации Мариуполя №&nbsp;619</span><span class="inst-date">12.10.2023</span></div>
+            <div class="inst-desc">Всеобщая инвентаризация жилфонда: поквартирные обходы с требованием личного присутствия собственника и оригиналов документов. Дополнено №71 (24.02.2024).</div>
+            <a class="inst-src" href="https://mariupol-r897.gosweb.gosuslugi.ru/netcat_files/401/4727/619.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Срок регистрации — 171 дом</span><span class="inst-date">09.01.2025</span></div>
+            <div class="inst-desc">Дома в списке реконструкции: зарегистрировать право до 01.04.2025, иначе квартира уходит в реестр бесхозяйных.</div>
+            <a class="inst-src" href="https://mariupol.gosuslugi.ru/dlya-zhiteley/novosti-i-reportazhi/novosti_284.html" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <!-- B -->
-      <article class="stage-card" id="card-B">
-        <div class="card-head"><div class="ch-letter">B</div>
-          <div class="ch-txt"><div class="ch-name">Передача через суд</div>
-            <div class="ch-tag">Судебное «отмывание» права собственности</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-fed st-captured"><span class="chip-label" title="ГПК РФ гл. 33 — особое производство">ГПК РФ, гл.&nbsp;33 &mdash; особое производство</span>
-              <span class="chip-sub" title="признание права муниципальной собственности на бесхозяйную вещь">признание права муниципальной собственности на «бесхозяйную» вещь</span>
-              <span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-reported"><span class="chip-label">Судебные дела</span>
-              <span class="chip-sub">8 271 · 26 судов</span><span class="badge b-reported">Заархивирован</span></span>
+      <div class="zone">
+        <div class="zone-label">Свидетельства и разбор</div>
+
+        <div class="evidence">
+          <div class="ev-kicker">Цитата · запрет регистрации для граждан «недружественных стран»</div>
+          <blockquote>»Имеется положение, запрещающее регистрацию прав граждан недружественных стран в российском правовом поле, в ЕГРН»</blockquote>
+          <div class="ev-cap"><span class="ev-who">Игнат Яремчук</span><span class="ev-role">заместитель главы администрации Мариуполя, курирует имущественный блок</span>
+            <a class="ev-src" href="https://t.me/allmarinews/39282" target="_blank">видео →</a></div>
+          <p class="ev-gloss">То есть гражданам «недружественных стран» — другими словами, Украины — прямо запрещено регистрировать право
+            собственности в российском реестре. Единственный обходной путь для тех, у кого нет российского паспорта — решение
+            «коллегиального органа», в состав которого входят представители силовых структур. В том же интервью Яремчук
+            сообщает, что 60% жилищного фонда зарегистрировано, а около 40% — нет, и подтверждает срок 1 июля 2026 года, после
+            которого украинские правоустанавливающие документы утрачивают самостоятельную доказательную силу.</p>
+        </div>
+
+        <div class="evidence">
+          <div class="ev-kicker">Цитата · условие остановить изъятие — гражданство РФ</div>
+          <blockquote>«У администрации нет правовых оснований остановить изъятие, если у заявителя нет одновременно гражданства РФ и оригиналов правоустанавливающих документов</blockquote>
+          <div class="ev-cap"><span class="ev-who">Елена Андрущенко</span><span class="ev-role">начальник юридического отдела администрации Мариуполя</span>
+            <a class="ev-src" href="https://t.me/morgun_ov/9992" target="_blank">видео →</a></div>
+          <p class="ev-gloss">Она же заявляет, что на момент этого эфира ни одна муниципальная квартира ещё не была выдана ни одному
+            получателю — несмотря на годы инвентаризации.</p>
+        </div>
+
+        <div class="evidence">
+          <div class="ev-kicker">Цитата · подтверждение политики на федеральном уровне</div>
+          <blockquote>«Наличие зарегистрированного права собственности... является необходимым условием предоставления компенсационных выплат в случае утраты объектов»</blockquote>
+          <div class="ev-cap"><span class="ev-who">Олег Скуфинский</span><span class="ev-role">руководитель Росреестра</span>
+            <a class="ev-src" href="https://t.me/minstroydnr/8075" target="_blank">оригинал →</a></div>
+          <p class="ev-gloss">Тот же механизм «сплошной инвентаризации» действует на всей территории ДНР/ЛНР/Запорожской и Херсонской
+            областей, а не только в Мариуполе. Скуфинский и вице-премьер <b>Марат Хуснуллин</b> (23.12.2024) сообщили, что подомовой
+            обход выявил порядка 90&nbsp;700 объектов. Последующее сообщение МИЗО ДНР (17.04.2026, на той же неделе подписан
+            закон №272-РЗ, <a href="https://t.me/mizodnr/1460" target="_blank">оригинал</a>): 80% объектов (6,5 млн) в регионе уже внесены в
+            федеральный реестр — год назад было только 1,3 млн.</p>
+        </div>
+
+        <div class="evidence witness">
+          <div class="ev-kicker">Свидетельства жителей · этап 0 — «фильтрация» на границе</div>
+          <p class="ev-gloss">Требование регистрации предполагает, что заявитель вообще способен добраться до регистрационного окна. Вот два свидетельства очевидцев из телеграм-канала <b>@ssaniaworld</b>, которые показывают, как это происходит на практике:</p>
+          <blockquote>«Что делаете в Дубае?» — «Работаю». — «Работайте дальше».</blockquote>
+          <div class="ev-cap"><span class="ev-role">Уроженка Мариуполя, годами лояльная России (парад Победы в Москве, гуманитарная помощь через военных
+            волонтёров), уже неоднократно проходила «фильтрацию» и подписывала согласие на полиграф. В 2024-м, приехав за
+            российским паспортом, получила отказ во въезде без объяснений.</span>
+            <a class="ev-src" href="https://t.me/ssaniaworld/4358" target="_blank">оригинал поста →</a></div>
+          <p class="ev-gloss">Во втором случае у семьи квартиру <em>«отжали» «с формулировкой "были Европе или Киеве"»</em> [так в оригинале] —
+            сам факт поездки признан достаточным основанием. Апелляционный суд сослался на данные погранконтроля ФСБ/МВД о
+            нахождении заявителя в Киеве, которые семья оспаривает собственной справкой о въезде через Шереметьево — из Стамбула,
+            не из Киева (<a href="https://t.me/ssaniaworld/4497" target="_blank">оригинал поста</a>). Ни один случай не связан с
+            недостачей документов — барьер срабатывает раньше, чем до бумаг вообще доходит дело.</p>
+        </div>
+
+        <div class="evidence">
+          <div class="ev-kicker">Цитата · сколько времени объект «висит» как бесхоз</div>
+          <blockquote>«В течение трёх месяцев имущество висит в ЕГРН в качестве бесхоза»</blockquote>
+          <div class="ev-cap"><span class="ev-who">Игнат Яремчук</span>
+            <a class="ev-src" href="https://t.me/allmarinews/39282" target="_blank">видео →</a></div>
+          <p class="ev-gloss">Между постановкой на кадастровый учёт и судебным/реестровым этапом, закрепляющим муниципальное право,
+            проходит ровно три месяца — самая точная формулировка этого срока в источниках проекта.</p>
+        </div>
+
+        <div class="evidence">
+          <div class="ev-kicker">Цитата · барьер наследования, обещание не выполнено</div>
+          <blockquote>«при внесении в ЕГРН... вносилась запись в строке "правообладатель", что объект поставлен на учёт в качестве безхозяйного по инициативе администрации города, что нотариат одновременно с этим считал записью о правообладателе»</blockquote>
+          <div class="ev-cap"><span class="ev-who">Игнат Яремчук</span><span class="ev-role">декабрь 2025</span>
+            <a class="ev-src" href="https://t.me/allmarinews/39282" target="_blank">видео →</a></div>
+          <p class="ev-gloss">Из-за этого наследники, открывшие (но не завершившие) наследственное дело, не могли зарегистрировать право.
+            «Первый список» таких случаев обещали задним числом отменить «в середине, в конце января» — он так и не был опубликован.
+            Житель Мариуполя в профильном телеграм-канале описывает письмо директора УЖКХ <b>Дмитриева</b> (Александра Владимировича)
+            так: <em>«...чхали они на справки нотариуса об открытии наследственного дела. И никаких действий по снятию даже с признаков
+            бесхоза они не предпринимали»</em> (<a href="https://t.me/mrpl_besxozxata/78918" target="_blank">оригинал поста</a>) — это пересказ
+            резидента, а не дословный текст самого письма, которое нигде не публиковалось.</p>
+        </div>
+
+        <div class="analysis">
+          <span class="an-k">Разбор · №164 + №300</span>
+          <p>Пункт 2.7.2 постановления №300 ссылается на №164 как на правовое основание для физического входа комиссии в жильё
+            без согласия отсутствующего собственника: сотрудники комиссии опрашивают соседей или совершают 3 визита с интервалом от 6 часов, затем
+            районная комиссия решает войти, при необходимости дверь вскрывают, после визита квартиру опечатывают. Вышедший
+            годом позже указ №515 (02.11.2023) распространяет тот же механизм принудительного входа на любое жильё в
+            многоквартирном доме, а не только на кандидатов в бесхозяйные.</p>
+        </div>
+
+        <div class="analysis">
+          <span class="an-k">Разбор · довоенное происхождение</span>
+          <p>Указ №116 (28.04.2021) — за год до вторжения и за год с лишним до оккупации — устанавливает «Типовой порядок
+            выявления, учёта и принятия в муниципальную собственность бесхозяйных недвижимых вещей и выморочного имущества»,
+            от которого дословно происходит вся последующая процедура: уведомление в 10-дневный срок, осмотр комиссией в
+            течение 30 дней, год до иска о муниципальной собственности (позже сокращённый указом №295 до трёх месяцев). Механизм
+            изъятия не был придуман специально для оккупированного Мариуполя — это заранее существовавший административный
+            шаблон, применённый к городу с массово перемещённым населением, которое физически не могло явиться, чтобы оспорить
+            своё право.</p>
+        </div>
+
+        <div class="analysis">
+          <span class="an-k">Пример · <a href="nakhimova-82-exhibit-ru.html" target="_blank" style="color:inherit;border-bottom:1px dotted var(--stamp)">Нахимова 82</a>, этап A</span>
+          <p>Если дом был уничтожен и отстроен заново, а не признан бесхозяйным и передан через реестр, то этапы A/B к этому
+            адресу не применимы.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== B ===================== -->
+  <section class="stage" id="card-B">
+    <div class="stage-head">
+      <div class="sh-letter">B</div>
+      <div class="sh-txt"><h2>Передача через суд</h2>
+        <p class="sh-tag">Судебное «отмывание» права собственности</p></div>
+      <div class="sh-map"><span class="map-badge rd4u">RD4U A3.6</span><span class="map-badge rome">Рим 8(2)(a)(iv)</span></div>
+    </div>
+    <div class="stage-body">
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-fed">
+            <div class="inst-top"><span class="inst-cite">ГПК РФ, гл.&nbsp;33 — особое производство</span></div>
+            <div class="inst-desc">Признание права муниципальной собственности на «бесхозяйную» вещь.</div>
+            <a class="inst-src" href="http://www.consultant.ru/document/cons_doc_LAW_39570/6a751f65908edb9f9ba2b04e01af7ff5e6e2c53e/" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
-          <div class="map-row"><span class="map-badge rd4u">RD4U A3.6</span><span class="map-badge rome">Римский статут 8(2)(a)(iv)</span></div>
-          <div class="card-more">
-            <div class="note">Далее вытесняется ФКЗ-4: судебная стадия упразднена, и сама запись в реестре становится правом собственности.</div>
-            <div class="note"><a href="case-study-IV-court-docket.html">Полное досье по этому направлению (EN) — все 28 названных судей с их статистикой решений, два решения разобраны полностью →</a></div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Судебные дела</span></div>
+            <div class="inst-desc">8&nbsp;271 дело в 26 судах — каждое дело заархивировано целиком, не только со слов.</div>
+            <a class="inst-src" href="https://mar-prim--dnr.sudrf.ru" target="_blank">портал суда (пример — Приморский р-н) →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
         </div>
-      </article>
+      </div>
+      <div class="zone">
+        <div class="zone-label">Разбор</div>
+        <div class="note">С вступлением в силу ФКЗ-4 судебная стадия упразднена — сама запись в реестре становится правом
+          собственности.
+          <a href="case-study-IV-court-docket-ru.html" target="_blank">Полное досье по этому направлению</a> — все 28 названных
+          судей с их статистикой решений, два решения разобраны полностью.</div>
+      </div>
+    </div>
+  </section>
 
-      <!-- C -->
-      <article class="stage-card" id="card-C">
-        <div class="card-head"><div class="ch-letter">C</div>
-          <div class="ch-txt"><div class="ch-name">Снос</div>
-            <div class="ch-tag">Стирание дома</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-dnr st-cited"><span class="chip-label" title="«ГКО ДНР» №162">Постановление «ГКО ДНР» №&nbsp;162 &mdash; рамочный порядок</span>
-              <span class="badge b-cited">Процитирован</span></span>
-            <span class="chip tier-dnr st-cited"><span class="chip-label" title="Распоряжение «ГКО ДНР» №56 от 29.09.2022">Распоряжение «ГКО ДНР» №&nbsp;56</span>
-              <span class="chip-sub">29.09.2022</span><span class="badge b-cited">Процитирован</span></span>
-            <span class="chip tier-muni st-captured"><span class="chip-label" title="Постановления «О сносе»">Мариупольские постановления о сносе</span>
-              <span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Минстрой — реестр на снос">Реестр Минстроя на снос</span>
-              <span class="chip-sub">525 мариупольских домов</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-fed st-negative"><span class="chip-label" title="Распоряжение «ГКО ДНР» №56">Распоряжение №&nbsp;56 &mdash; федеральная копия</span>
-              <span class="chip-sub">подтверждённо отсутствует — проверено region80, нпа.днронлайн.рф и собственный архив denis-pushilin.ru (404); нигде не опубликовано</span>
-              <span class="badge b-negative">Подтверждённо отсутствует</span></span>
+  <!-- ===================== C ===================== -->
+  <section class="stage" id="card-C">
+    <div class="stage-head">
+      <div class="sh-letter">C</div>
+      <div class="sh-txt"><h2>Снос</h2>
+        <p class="sh-tag">Физическое уничтожение дома</p></div>
+      <div class="sh-map"><span class="map-badge rd4u">RD4U A3.1 / A3.3</span><span class="map-badge rome">Рим 8(2)(a)(iv)</span></div>
+    </div>
+    <div class="stage-body">
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Постановление «ГКО ДНР» №&nbsp;162</span></div>
+            <div class="inst-desc">Рамочный порядок сноса.</div>
+            <a class="inst-src" href="https://glavadnr.ru/doc/GKO/post/Post_GKO_162.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
-          <div class="map-row"><span class="map-badge rd4u">RD4U A3.1 / A3.3</span><span class="map-badge rome">Римский статут 8(2)(a)(iv)</span></div>
-          <div class="card-more">
-            <div class="case-callout"><span class="cc-k">Нахимова 82 · этап C</span>
-              <span class="cc-v">Распоряжение «ГКО ДНР» №56 от 29.09.2022 &mdash; уничтожен на 100% (сгорел в марте 2022 года).</span></div>
-            <div class="case-callout"><span class="cc-k">Снос по зонам КРТ/ППТ (найдено 06.07.2026)</span>
-              <span class="cc-v">Земельные распоряжения главы ДНР («в границах такой-то улицы и такой-то улицы») оказались не расплывчатыми описаниями &mdash; это границы официально утверждённых зон комплексного развития территории (КРТ), подтверждённые документами Минстроя ДНР по планировке территории (ППТ) за подписью начальника управления градостроительства и архитектуры <b>Александра Авдиенко</b>. Найдены как минимум три такие зоны в Мариуполе, включая ~36 га в Приморском районе (снос 9 домов, в их числе Нахимова 82) и >90 га в 12-м/13-м микрорайонах Жовтневого района (снос 19 домов). Механизм: КРТ определяет квартал целиком → ППТ разрешает снос → отдельное распоряжение передаёт расчищенный участок конкретному застройщику.</span></div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Распоряжение «ГКО ДНР» №&nbsp;56</span><span class="inst-date">29.09.2022</span></div>
+            <div class="inst-desc">Список домов под снос (177 адресов по Мариуполю). На официальных порталах ДНР (нпа.днронлайн, denis-pushilin.ru) не публиковалось — известно по независимому юридическому мирору (base.garant.ru) и по реестру Минстроя ДНР, куда его 177-адресный мариупольский список внесён построчно.</div>
+            <a class="inst-src" href="https://minstroy-dpr.gosuslugi.ru/app/uploads/2024/09/eb14dd_reestr-snosa_16_03_2026.csv" target="_blank">реестр Минстроя (строка 277 и др.) →</a>
+            <span class="badge b-cited">Процитирован</span>
+          </div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Мариупольские постановления о сносе</span></div>
+            <div class="inst-desc">Отдельные муниципальные акты «О сносе» по конкретным домам.</div>
+            <a class="inst-src" href="https://mariupol.gosuslugi.ru/dlya-zhiteley/poleznye-materialy/ownerless/" target="_blank">раздел на сайте администрации →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Минстрой ДНР — реестр зданий под снос</span></div>
+            <div class="inst-desc">525 мариупольских домов.</div>
+            <a class="inst-src" href="https://minstroy-dpr.gosuslugi.ru/app/uploads/2024/09/eb14dd_reestr-snosa_16_03_2026.csv" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
         </div>
-      </article>
+      </div>
+      <div class="zone">
+        <div class="zone-label">Свидетельства и разбор</div>
+        <div class="analysis">
+          <span class="an-k">Пример · <a href="nakhimova-82-exhibit-ru.html" target="_blank" style="color:inherit;border-bottom:1px dotted var(--stamp)">Нахимова 82</a>, этап C</span>
+          <p>Распоряжение «ГКО ДНР» №56 (29.09.2022) — дом уничтожен на 100% (сгорел в марте 2022 года).</p>
+        </div>
+        <div class="analysis">
+          <span class="an-k">Второй пример · пр-т Металлургов, 47 («Троянда-М»)</span>
+          <p>Единственный известный нам случай, когда жители попытались оспорить снос своего дома через судебную
+            систему оккупанта — и проиграли на всех инстанциях. То же распоряжение «ГКО ДНР» №56 (29.09.2022) внесло этот дом в
+            свой 177-адресный мариупольский список на снос под тем же номером строки, что и комиссионное заключение №118, признавшее
+            здание аварийным. Документальное подтверждение этому существует только потому, что дело дошло до суда.
+            <a href="case-study-troianda-metallurgov-ru.html" target="_blank">Полное досье →</a></p>
+        </div>
+        <div class="analysis">
+          <span class="an-k">Разбор · снос по зонам КРТ/ППТ</span>
+          <p>Земельные распоряжения главы ДНР («в границах такой-то улицы и такой-то улицы») — это границы официально утверждённых зон комплексного развития территории (КРТ), подтверждённые
+            документами Минстроя ДНР по планировке территории (ППТ) за подписью начальника управления градостроительства и
+            архитектуры <b>Александра Авдиенко</b>. Найдены как минимум три такие зоны в Мариуполе, включая ~36 га в Приморском
+            районе (снос 9 домов, в их числе Нахимова 82) и &gt;90 га в 12-м/13-м микрорайонах Жовтневого района (снос 19 домов).
+            Механизм: КРТ определяет границы → ППТ разрешает снос → отдельное распоряжение передаёт расчищенный участок
+            конкретному застройщику.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- D -->
-      <article class="stage-card" id="card-D">
-        <div class="card-head"><div class="ch-letter">D</div>
-          <div class="ch-txt"><div class="ch-name">Земля</div>
-            <div class="ch-tag">Расчищенная земля застройщикам, без торгов</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-fed st-cited"><span class="chip-label" title="ЗК РФ — КРТ без торгов">Земельный кодекс РФ &mdash; КРТ без торгов</span>
-              <span class="badge b-cited">Процитирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Распоряжение Главы ДНР №289">Распоряжение главы ДНР №&nbsp;289</span>
-              <span class="chip-sub" title="→ застройщик-СПВ">→ застройщик-СПВ</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Полный сверенный архив denis-pushilin.ru">Полный реестр земельных распоряжений</span>
-              <span class="chip-sub">101 сверенное распоряжение · ≈28 застройщиков-выгодоприобретателей</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Закон ДНР №39-РЗ, 29.12.2023 + Постановления №29-4/№64-4">Порядок ДНР по земле под застройку</span>
-              <span class="chip-sub">закон №39-РЗ + постановления №29-4 / №64-4</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-fed st-captured"><span class="chip-label" title="Пост. Правительства РФ №2501/№2502/№594">Федеральный режим передачи имущества</span>
-              <span class="chip-sub">№2501 (29.12.2022) + №2502 + №594 (продление до 01.01.2027)</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-cited"><span class="chip-label" title="Постановление «ГКО ДНР» №341, 29.09.2022">Перечень имущества, обращённого в собственность ДНР — №&nbsp;341</span>
-              <span class="chip-sub">терминирует частное право собственности одним включением в перечень</span><span class="badge b-cited">Процитирован</span></span>
+  <!-- ===================== D ===================== -->
+  <section class="stage" id="card-D">
+    <div class="stage-head">
+      <div class="sh-letter">D</div>
+      <div class="sh-txt"><h2>Земля</h2>
+        <p class="sh-tag">Расчищенная земля передаётся в бессрочную аренду застройщикам без торгов</p></div>
+      <div class="sh-map"><span class="map-badge rome">Рим — присвоение</span><span class="map-badge rome">названный выгодоприобретатель</span></div>
+    </div>
+    <div class="stage-body">
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-fed">
+            <div class="inst-top"><span class="inst-cite">Земельный кодекс РФ — КРТ без торгов</span></div>
+            <div class="inst-desc">Статус КРТ позволяет предоставить землю в бессрочную аренду без торгов (ст.&nbsp;39.6, 39.7, 39.8).</div>
+            <a class="inst-src" href="https://base.garant.ru/12124624/4477709aee548021b043184dadbd377a/" target="_blank">оригинал (ст. 39.6) →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
-          <div class="map-row"><span class="map-badge rome">Римский статут &mdash; присвоение</span><span class="map-badge rome">названный выгодоприобретатель</span></div>
-          <div class="card-more">
-            <div class="case-callout"><span class="cc-k">Нахимова 82 · этап D</span>
-              <span class="cc-v">Распоряжение №289 от 07.09.2023 → застройщик ООО «СЗ-1 «Порфир»» (без торгов).</span></div>
-            <div class="case-callout"><span class="cc-k">Один застройщик, много адресов (найдено 04&ndash;05.07.2026)</span>
-              <span class="cc-v">«Порфир» держит не один участок, а 9 &mdash; около 97 000&nbsp;м² в сумме, почти единым земельным массивом в Жовтневом районе &mdash; что делает его крупнейшим застройщиком-выгодоприобретателем среди всех 101 сверенных распоряжений. Из того же архива: ещё три адреса (просп. Ленина 89/87А, просп. Лунина 25) несут ту же схему «снос → повторная передача без торгов», хотя без смены адреса.</span></div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Распоряжение главы ДНР №&nbsp;289</span><span class="inst-date">07.09.2023</span></div>
+            <div class="inst-desc">Передача участка спецзастройщику без торгов (<a href="nakhimova-82-exhibit-ru.html" target="_blank" style="color:inherit;border-bottom:1px dotted var(--stamp)">Нахимова 82</a> → ООО «СЗ-1 «Порфир»»).</div>
+            <a class="inst-src" href="https://denis-pushilin.ru/doc/rasp/rasporiazhglavaN289_07092023.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Полный реестр земельных распоряжений</span></div>
+            <div class="inst-desc">101 распоряжение в архиве · ≈28 застройщиков-выгодоприобретателей — это собственная сверка проекта по всей папке /doc/rasp/ архива denis-pushilin.ru (нет единой публичной страницы-указателя; сама папка не отдаёт список без точного имени файла).</div>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Порядок ДНР по земле под застройку</span></div>
+            <div class="inst-desc">Закон №39-РЗ (29.12.2023) + постановления №29-4 / №64-4.</div>
+            <a class="inst-src" href="http://publication.pravo.gov.ru/document/8000202401040019" target="_blank">оригинал (№39-РЗ) →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-fed">
+            <div class="inst-top"><span class="inst-cite">Федеральный режим передачи имущества</span></div>
+            <div class="inst-desc">№2501 (29.12.2022) + №2502 + №594 (продление до 01.01.2027).</div>
+            <a class="inst-src" href="http://static.government.ru/media/acts/files/1202212300029.pdf" target="_blank">оригинал (№2501) →</a>
+            <a class="inst-src" href="http://static.government.ru/media/acts/files/1202212300049.pdf" target="_blank">оригинал (№2502) →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Постановление «ГКО ДНР» №&nbsp;341</span><span class="inst-date">29.09.2022</span></div>
+            <div class="inst-desc">Отменяет частное право собственности одним включением в реестр «бесхозного». Сам текст постановления не найден напрямую — известен по 18 независимым цитатам в апелляционных/кассационных решениях.</div>
+            <a class="inst-src" href="https://base.garant.ru/347080357/" target="_blank">пример — дело №8а-19519/2025 →</a>
+            <span class="badge b-cited">Процитирован</span>
           </div>
         </div>
-      </article>
+      </div>
+      <div class="zone">
+        <div class="zone-label">Свидетельства и разбор</div>
+        <div class="analysis">
+          <span class="an-k">Пример · <a href="nakhimova-82-exhibit-ru.html" target="_blank" style="color:inherit;border-bottom:1px dotted var(--stamp)">Нахимова 82</a>, этап D</span>
+          <p><a href="https://denis-pushilin.ru/doc/rasp/rasporiazhglavaN289_07092023.pdf" target="_blank">Распоряжение №289</a>
+            (07.09.2023) → застройщик ООО «СЗ-1 «<b>Порфир</b>»» (без торгов).</p>
+        </div>
+        <div class="analysis">
+          <span class="an-k">Разбор · один застройщик, много адресов</span>
+          <p>«Порфиру» выделили не один участок, а сразу девять — общей площадью почти 10 га, единым земельным массивом в
+            Жовтневом районе, — что делает его крупнейшим застройщиком-выгодоприобретателем из всех 101 известных распоряжений
+            о предоставлении земли. Ещё три адреса (просп. Ленина 89/87А, просп. Лунина 25) относятся к той же схеме «снос →
+            передача земли без торгов для коммерческой застройки», хотя и без смены адреса.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- E -->
-      <article class="stage-card" id="card-E">
-        <div class="card-head"><div class="ch-letter">E</div>
-          <div class="ch-txt"><div class="ch-name">Отстройка</div>
-            <div class="ch-tag">Новый дом, новый адрес</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-fed st-captured"><span class="chip-label" title="ЕИСЖС / наш.дом.рф">Единый реестр застройщиков</span>
-              <span class="chip-sub">91 объект</span><span class="badge b-captured">Заархивирован</span></span>
-          </div>
-          <div class="note">Несовпадение названия проекта и юридического адреса доказывает, что это то же самое место, и фиксирует разрыв в адресе.</div>
-          <div class="card-more">
-            <div class="case-callout"><span class="cc-k">Нахимова 82 · этап E</span>
-              <span class="cc-v">«Дом на Нахимова» сдан 29.12.2023 под адресом переулок Черноморский, 1Б · 51 квартира · кадастровый 93:37:0010410:173 · ~10 м от исходного места.</span></div>
+  <!-- ===================== E ===================== -->
+  <section class="stage" id="card-E">
+    <div class="stage-head">
+      <div class="sh-letter">E</div>
+      <div class="sh-txt"><h2>Новая застройка</h2>
+        <p class="sh-tag">Новый дом, новый адрес</p></div>
+    </div>
+    <div class="stage-body">
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-fed">
+            <div class="inst-top"><span class="inst-cite">ЕИСЖС / наш.дом.рф — единый реестр застройщиков</span></div>
+            <div class="inst-desc">91 объект.</div>
+            <a class="inst-src" href="https://наш.дом.рф/" target="_blank">реестр →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
         </div>
-      </article>
+      </div>
+      <div class="zone">
+        <div class="zone-label">Свидетельства и разбор</div>
+        <div class="note">Несовпадение названия проекта и юридического адреса одновременно доказывает, что это одно и то же место,
+          и фиксирует трюк со сменой адреса.</div>
+        <div class="analysis">
+          <span class="an-k">Пример · <a href="nakhimova-82-exhibit-ru.html" target="_blank" style="color:inherit;border-bottom:1px dotted var(--stamp)">Нахимова 82</a>, этап E</span>
+          <p>«Дом на Нахимова» сдан 29.12.2023 под адресом переулок Черноморский, 1Б · 51 квартира · кадастровый
+            93:37:0010410:173.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- F -->
-      <article class="stage-card grave" id="card-F">
-        <div class="card-head"><div class="ch-letter">F</div>
-          <div class="ch-txt"><div class="ch-name">Перепродажа</div>
-            <div class="ch-tag">Право собственности населению оккупанта</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-fed st-captured"><span class="chip-label" title="Пост. Правительства РФ №2565 от 31.12.2022">Федеральная льготная ипотека под 2%</span>
-              <span class="chip-sub">доступна любому гражданину РФ, без ограничения по месту жительства</span><span class="badge b-captured">Заархивирован</span></span>
-          </div>
-          <div class="map-row"><span class="map-badge grave">Римский статут 8(2)(b)(viii) &mdash; перемещение оккупантом собственного населения</span></div>
-          <div class="card-more">
-            <div class="note">Самая тяжкая ступень: льготная перепродажа российским гражданам &mdash; это и есть то перемещение населения, ради которого существует весь конвейер.</div>
-            <div class="case-callout"><span class="cc-k">Нахимова 82 · этап F</span>
-              <span class="cc-v">Продано 94,3%.</span></div>
+  <!-- ===================== F ===================== -->
+  <section class="stage grave" id="card-F">
+    <div class="stage-head">
+      <div class="sh-letter">F</div>
+      <div class="sh-txt"><h2>Перепродажа</h2>
+        <p class="sh-tag">Право собственности переходит к населению страны-оккупанта</p></div>
+      <div class="sh-map"><span class="map-badge grave">Рим 8(2)(b)(viii) — перемещение населения</span></div>
+    </div>
+    <div class="stage-body">
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-fed">
+            <div class="inst-top"><span class="inst-cite">Федеральная льготная ипотека под 2% — №&nbsp;2565</span><span class="inst-date">31.12.2022</span></div>
+            <div class="inst-desc">Доступна любому гражданину РФ, без ограничения по месту жительства.</div>
+            <a class="inst-src" href="http://publication.pravo.gov.ru/Document/View/0001202301030011" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
         </div>
-      </article>
+      </div>
+      <div class="zone">
+        <div class="zone-label">Свидетельства и разбор</div>
+        <div class="note">Самое очевидное нарушение этого пункта Римского статута: стимулирование перемещения населения
+          страны-оккупанта на оккупированные территории через льготную ипотеку для российских граждан — ради этого весь
+          конвейер и существует.</div>
+        <div class="analysis">
+          <span class="an-k">Пример · <a href="nakhimova-82-exhibit-ru.html" target="_blank" style="color:inherit;border-bottom:1px dotted var(--stamp)">Нахимова 82</a>, этап F</span>
+          <p>Продано 94,3% жилых площадей.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- G -->
-      <article class="stage-card" id="card-G">
-        <div class="card-head"><div class="ch-letter">G</div>
-          <div class="ch-txt"><div class="ch-name">Распределение жилья</div>
-            <div class="ch-tag">Параллельная ветка — питается от C / D</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-dnr st-cited"><span class="chip-label" title="служебное жильё">Служебное жильё</span>
-              <span class="chip-sub">чиновники / военные / полиция / учителя · до 01.01.2028</span><span class="badge b-cited">Процитирован</span></span>
-            <span class="chip tier-dnr st-cited"><span class="chip-label" title="маневренный фонд · постановление №493 от 05.03.2026">Манёвренный фонд · постановление №&nbsp;493</span>
-              <span class="chip-sub">05.03.2026</span><span class="badge b-cited">Процитирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Постановление «ГКО ДНР» №263 от 29.09.2022 — пополнение манёвренного фонда">Постановление «ГКО ДНР» №&nbsp;263 &mdash; принудительное изъятие</span>
-              <span class="chip-sub">29.09.2022 · 13 названных адресов, 10 внесены на карту</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-muni st-captured"><span class="chip-label">Мариупольские списки распределения</span>
-              <span class="chip-sub">5 822 в очереди / 1 889 распределено</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-muni st-captured"><span class="chip-label" title="Закон ДНР №269-РЗ от 03.04.2026, ст.6 п.2">Компенсационный лимит 25&nbsp;м²</span>
-              <span class="chip-sub">лимит превышения площади нового жилья над утраченным, не абсолютный потолок</span><span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Постановление №127-3 от 22.12.2025">Постановление №&nbsp;127-3 &mdash; расширение на дома блокированной застройки</span>
-              <span class="chip-sub">22.12.2025 · распространяет компенсацию на таунхаусы, полномочия комиссий переданы органам местного самоуправления</span><span class="badge b-captured">Заархивирован</span></span>
+  <!-- ===================== G ===================== -->
+  <section class="stage" id="card-G">
+    <div class="stage-head">
+      <div class="sh-letter">G</div>
+      <div class="sh-txt"><h2>Распределение жилья</h2>
+        <p class="sh-tag">Параллельная ветка — питается от этапов C / D</p></div>
+      <div class="sh-map"><span class="map-badge rome">Рим 8(2)(b)(viii)</span><span class="map-badge rome">распоряжение имуществом</span></div>
+    </div>
+    <div class="stage-body">
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Служебное жильё</span></div>
+            <div class="inst-desc">Чиновники / военные / полиция / учителя · до 01.01.2028. Не отдельный акт — категория, определённая в ФКЗ-4 §4(2) и законе №134-РЗ (оба заархивированы выше).</div>
+            <span class="badge b-cited">Процитирован</span>
           </div>
-          <div class="map-row"><span class="map-badge rome">Римский статут 8(2)(b)(viii)</span><span class="map-badge rome">распоряжение имуществом</span></div>
-          <div class="card-more">
-            <div class="note">Распределяет изъятый жилой фонд среди собственного персонала оккупанта &mdash; второй канал переселения населения, работающий параллельно с рынком перепродажи.</div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Манёвренный фонд — постановление №&nbsp;493</span><span class="inst-date">05.03.2026</span></div>
+            <div class="inst-desc">Передаёт содержание манёвренного и иного жилого фонда МБУ «УК «Жилсервис»»; 18 названных адресов.</div>
+            <a class="inst-src" href="https://mariupol-r897.gosweb.gosuslugi.ru/netcat_files/396/4721/p.493.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Постановление «ГКО ДНР» №&nbsp;263</span><span class="inst-date">29.09.2022</span></div>
+            <div class="inst-desc">Принудительное изъятие — 13 названных адресов, 10 внесены на карту.</div>
+            <a class="inst-src" href="https://web.archive.org/web/20240129161541/http://doc.dnronline.su/wp-content/uploads/2022/10/Postanov_GKO_N263_29092022.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Мариупольские списки распределения</span></div>
+            <div class="inst-desc">5&nbsp;822 в очереди / 1&nbsp;889 распределено.</div>
+            <a class="inst-src" href="https://mariupol-r897.gosweb.gosuslugi.ru/dlya-zhiteley/poleznye-materialy/kvartirnaya-ochered/" target="_blank">списки на сайте администрации →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Компенсационный лимит 25&nbsp;м² — №&nbsp;269-РЗ</span><span class="inst-date">03.04.2026</span></div>
+            <div class="inst-desc">Лимит превышения площади нового жилья над утраченным, не абсолютный потолок.</div>
+            <a class="inst-src" href="https://glavadnr.ru/doc/zakony/269rz.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Постановление №&nbsp;127-3</span><span class="inst-date">22.12.2025</span></div>
+            <div class="inst-desc">Распространяет компенсацию на таунхаусы; полномочия комиссий переданы органам местного самоуправления.</div>
+            <a class="inst-src" href="https://t.me/mrpl_besxozxata/76719" target="_blank">публикация →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Закон ДНР №&nbsp;137-РЗ — приоритет силовикам</span><span class="inst-date">13.12.2024</span></div>
+            <div class="inst-desc">Поправка к ст.8 закона №66-РЗ: именной список из 16 федеральных ведомств, «с отклонением от установленных норм».</div>
+            <a class="inst-src" href="https://glavadnr.ru/doc/zakony/137rz.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
           </div>
         </div>
-      </article>
+      </div>
+      <div class="zone">
+        <div class="zone-label">Свидетельства и разбор</div>
 
-      <!-- H -->
-      <article class="stage-card" id="card-H">
-        <div class="card-head"><div class="ch-letter">H</div>
-          <div class="ch-txt"><div class="ch-name">Топонимика / «отмывание» адреса</div>
-            <div class="ch-tag">Связующий слой под всем потоком</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-muni st-reported"><span class="chip-label">Переименование улиц и объектов</span>
-              <span class="chip-sub">≈75 улиц / 113 объектов</span><span class="badge b-reported">Со слов</span></span>
-            <span class="chip tier-muni st-gap"><span class="chip-label">Указы о переименовании улиц</span>
-              <span class="badge b-gap">Пробел в архиве ▶</span></span>
-          </div>
-          <div class="note">Разрывает адрес, из-за чего уничтоженный объект «больше не существует» на бумаге &mdash; лишая права на компенсацию и делая возможным разрыв адреса на этапе E.</div>
+        <div class="evidence">
+          <div class="ev-kicker">Текст закона · приоритет силовым структурам, целиком</div>
+          <blockquote>распределять бесхозяйное жильё «в приоритетном порядке»... сотрудникам: Минобороны, МВД, ФСБ, МЧС, Росгвардии, Службы внешней разведки, ФСО, таможни, Минюста, судебных приставов, ФСИН, фельдъегерской службы, прокуратуры, Следственного комитета, Росфинмониторинга, Судебного департамента при Верховном Суде</blockquote>
+          <div class="ev-cap"><span class="ev-who">Закон ДНР №137-РЗ</span><span class="ev-role">подписан Пушилиным, 13.12.2024</span>
+            <a class="ev-src" href="https://glavadnr.ru/doc/zakony/137rz.pdf" target="_blank">оригинал →</a></div>
+          <p class="ev-gloss">Отдельным пунктом для этой же категории прямо разрешено отклонение от норм жилой площади. Жильё, отобранное
+            у перемещённых мариупольцев, по закону в первую очередь закреплено за силовыми структурами и военными, непосредственно
+            вовлечёнными в оккупацию, — это буквально подпадает под текст статьи 8(2)(b)(viii) Римского статута: <em>«передача, прямо
+            или косвенно, оккупирующей державой части своего собственного гражданского населения на оккупируемую территорию»</em>.</p>
         </div>
-      </article>
 
-      <!-- I -->
-      <article class="stage-card" id="card-I">
-        <div class="card-head"><div class="ch-letter">I</div>
-          <div class="ch-txt"><div class="ch-name">Заградительный слой</div>
-            <div class="ch-tag">Единственная лазейка перекрыта: регистрация вовремя</div></div><div class="ch-exp">+</div></div>
-        <div class="card-body">
-          <div class="instr">
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Внутреннее письмо Управления Росреестра по ДНР от 17.10.2023, №2.16-00019-ЮС/23">Заморозка регистрации Росреестром ДНР</span>
-              <span class="chip-sub">17.10.2023 · подписано лично руководителем Управления Росреестра по ДНР Сироватко Ю.Н., никогда не публиковалось</span>
-              <span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-fed st-captured"><span class="chip-label" title="Указ Президента РФ №1103 → №145 → №1006">Федеральный запрет для граждан «недружественных государств»</span>
-              <span class="chip-sub">№1103 (24.12.2024) → №145 (14.03.2025) → №1006 (29.12.2025) &mdash; на 14+ месяцев позже мариупольской заморозки</span>
-              <span class="badge b-captured">Заархивирован</span></span>
-            <span class="chip tier-dnr st-captured"><span class="chip-label" title="Указ врио главы ДНР №295 от 18.08.2023">Указ №&nbsp;295 &mdash; тот же день</span>
-              <span class="chip-sub">срок признания «бесхозяйным» сокращён с года до трёх месяцев одновременно с заморозкой регистрации</span>
-              <span class="badge b-captured">Заархивирован</span></span>
+        <div class="evidence">
+          <div class="ev-kicker">Цитата · «сопоставимое жильё» — это чужая квартира</div>
+          <blockquote>«таким лицам будут предоставляться квартиры из числа иных безхозяйных, сопоставимые по площади, функционалу и внутригородскому округу»</blockquote>
+          <div class="ev-cap"><span class="ev-who">Игнат Яремчук</span><span class="ev-role">о собственниках, вернувшихся после изъятия их жилья</span>
+            <a class="ev-src" href="https://t.me/allmarinews/39282" target="_blank">видео →</a></div>
+          <p class="ev-gloss">То есть собственное определение «компенсации» — это перераспределение внутри того же изъятого фонда, а не
+            восстановление права и не новое строительство: одного лишённого жилья мариупольца селят в квартиру другого такого же.</p>
+        </div>
+
+        <div class="analysis">
+          <span class="an-k">Разбор · коммерческий наём — монетизация изъятого фонда</span>
+          <p>На рассмотрение городского совета Мариуполя внесён проект акта о двух режимах найма для тех, кто занимает бесхозяйные
+            квартиры без права собственности: социальный наём (ограниченный круг льготников, с перспективой приватизации) и новый
+            коммерческий наём — по рыночной ставке, для тех, кто под льготную категорию не подпадает. С людей, у которых нет никаких
+            прав на жильё, отобранное у перемещённых собственников, предполагается брать рыночную арендную плату. Несогласным грозит
+            формальное <em>«предписание об освобождении»</em>.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== H ===================== -->
+  <section class="stage" id="card-H">
+    <div class="stage-head">
+      <div class="sh-letter">H</div>
+      <div class="sh-txt"><h2>Топонимика / «отмывание» адреса</h2>
+        <p class="sh-tag">Связующий слой между всеми этапами</p></div>
+    </div>
+    <div class="stage-body">
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Переименование улиц и объектов</span></div>
+            <div class="inst-desc">≈75 улиц / 113 объектов.</div>
+            <span class="badge b-reported">Со слов</span>
           </div>
-          <div class="map-row"><span class="map-badge rome">RD4U A3.6</span><span class="map-badge rome">умышленное лишение права собственности</span></div>
-          <div class="card-more">
-            <div class="note">Внутреннее письмо предписывает МФЦ ДНР прекратить приём заявлений о регистрации права собственности от граждан Украины, иностранцев и лиц без гражданства &mdash; под предлогом технического «развёртывания» федеральной системы ЕГРН, без ссылки на какой-либо закон. Единственный формальный способ, которым перемещённый собственник мог остановить конвейер бесхозяйного имущества, был закрыт именно для тех, кому он был нужнее всего &mdash; более чем за год до того, как Москва вообще узаконила подобное исключение для граждан «недружественных государств».</div>
+          <div class="instrument tier-muni">
+            <div class="inst-top"><span class="inst-cite">Указы о переименовании улиц</span></div>
+            <span class="badge b-gap">Пробел в архиве</span>
           </div>
         </div>
-      </article>
+      </div>
+      <div class="zone">
+        <div class="zone-label">Разбор</div>
+        <div class="note">Адрес меняется — из-за чего уничтоженный объект как бы больше не существует на бумаге; так собственники
+          лишаются права на компенсацию на этапе E.</div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===================== I ===================== -->
+  <section class="stage" id="card-I">
+    <div class="stage-head">
+      <div class="sh-letter">I</div>
+      <div class="sh-txt"><h2>Заградительный слой</h2>
+        <p class="sh-tag">Возможность вовремя перерегистрировать право перекрыта</p></div>
+      <div class="sh-map"><span class="map-badge rd4u">RD4U A3.6</span><span class="map-badge rome">умышленное лишение права</span></div>
+    </div>
+    <div class="stage-body">
+      <div class="zone">
+        <div class="zone-label">Инструменты</div>
+        <div class="instruments">
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Заморозка регистрации Росреестром ДНР</span><span class="inst-date">17.10.2023</span></div>
+            <div class="inst-desc">Внутреннее письмо №2.16-00019-ЮС/23, подписано лично руководителем Управления Росреестра по ДНР <b>Сироватко Ю.Н.</b>, никогда не публиковалось.</div>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-fed">
+            <div class="inst-top"><span class="inst-cite">Федеральный запрет для граждан «недружественных государств»</span></div>
+            <div class="inst-desc">Указы №1103 (24.12.2024) → №145 (14.03.2025) → №1006 (29.12.2025) — на 14+ месяцев позже мариупольской неформальной заморозки.</div>
+            <a class="inst-src" href="https://www.garant.ru/products/ipo/prime/doc/411086311/" target="_blank">оригинал (№1103) →</a>
+            <a class="inst-src" href="https://rg.ru/documents/2025/03/17/yurlica-novye-regiony.html" target="_blank">текст (№145) →</a>
+            <a class="inst-src" href="https://ppt.ru/obzory/vstupaet-v-silu/ukaz-prezidenta-rf-29-12-2025-1006" target="_blank">обзор (№1006) →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+          <div class="instrument tier-dnr">
+            <div class="inst-top"><span class="inst-cite">Указ №&nbsp;295 — тот же день</span><span class="inst-date">18.08.2023</span></div>
+            <div class="inst-desc">Срок признания «бесхозяйным» сокращён с года до трёх месяцев одновременно с заморозкой регистрации «по техническим причинам».</div>
+            <a class="inst-src" href="https://web.archive.org/web/20250510015118/http://doc.dnronline.su/wp-content/uploads/2023/08/Ukaz_N295_18082023.pdf" target="_blank">оригинал →</a>
+            <span class="badge b-captured">Заархивирован</span>
+          </div>
+        </div>
+      </div>
+      <div class="zone">
+        <div class="zone-label">Разбор</div>
+        <div class="note">Внутреннее письмо предписывает МФЦ ДНР прекратить приём заявлений о регистрации права собственности от
+          граждан Украины, иностранцев и лиц без гражданства — под предлогом технического «развёртывания» федеральной системы
+          ЕГРН, без ссылки на какой-либо закон. Единственный формальный способ, которым перемещённый собственник мог остановить
+          конвейер «бесхозяйности», был закрыт именно для тех, кому он был нужнее всего — более чем за год до того, как Москва
+          вообще узаконила подобное исключение для граждан «недружественных государств».</div>
+      </div>
     </div>
   </section>
 
   <!-- ===================== ENDPOINT SUMMARY ===================== -->
-  <section>
+  <section id="summary">
     <p class="sec-label">Итоговая сводка</p>
-    <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,3vw,1.8rem);letter-spacing:-.02em;margin:.2rem 0 1.2rem;color:var(--paper)">Каждая ступень ведёт к своему основанию требования.</h2>
+    <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,3vw,1.8rem);letter-spacing:-.02em;margin:.2rem 0 1.2rem;color:var(--paper)">Каждая ступень ведёт к своему основанию реституции.</h2>
     <table class="endtable">
       <thead><tr><th>Этап</th><th>Категория RD4U</th><th>Римский статут</th></tr></thead>
       <tbody>
@@ -604,8 +954,8 @@
         <tr><td>B · Передача через суд</td><td class="ea">A3.6</td><td class="er">8(2)(a)(iv)</td></tr>
         <tr><td>C · Снос</td><td class="ea">A3.1 / A3.3</td><td class="er">8(2)(a)(iv)</td></tr>
         <tr><td>D · Земля застройщикам</td><td>—</td><td class="er">присвоение · названный выгодоприобретатель</td></tr>
-        <tr><td>E · Отстройка</td><td>—</td><td>разрыв адреса (позволяет отказать в компенсации)</td></tr>
-        <tr class="grave"><td>F · Перепродажа</td><td>—</td><td class="er">8(2)(b)(viii) &mdash; перемещение населения</td></tr>
+        <tr><td>E · Новая застройка</td><td>—</td><td>разрыв адреса (позволяет отказать в компенсации)</td></tr>
+        <tr class="grave"><td>F · Перепродажа</td><td>—</td><td class="er">8(2)(b)(viii) — перемещение населения</td></tr>
         <tr><td>G · Распределение жилья</td><td>—</td><td class="er">8(2)(b)(viii) · распоряжение имуществом</td></tr>
         <tr><td>H · Топонимика</td><td>—</td><td>лишает права на компенсацию (связующий элемент)</td></tr>
         <tr><td>I · Заградительный слой</td><td class="ea">A3.6</td><td>умышленное лишение права собственности</td></tr>
@@ -615,30 +965,28 @@
 
   <!-- ===================== PROVENANCE ===================== -->
   <footer class="prov">
-    <p>Составлено на основе документов оккупационной администрации и российского государства,
-      каждый захвачен с хеш-суммой <strong>SHA-256</strong> и меткой времени UTC (цепочка хранения
-      по протоколу Беркли). Значки статуса источника фиксируют степень доказанности каждого
-      инструмента: <strong>Заархивирован</strong> (первичный текст в архиве),
-      <strong>Процитирован</strong> (назван внутри уже захваченного документа), <strong>Со слов</strong>
-      (только вторичные источники), <strong>Пробел в архиве ▶</strong> (предстоит получить через обход region80).</p>
-    <p class="warn">Эти акты — доказательство системы изъятия, а не законное право собственности.
-      Украина их не признаёт.</p>
+    <p>Составлено на основе документов оккупационной администрации и российского государства, каждый захвачен с хеш-суммой
+      <strong>SHA-256</strong> и меткой времени UTC (цепочка хранения по протоколу Беркли). Значки статуса источника фиксируют
+      степень доказанности каждого инструмента: <strong>Заархивирован</strong> (первичный текст в архиве),
+      <strong>Процитирован</strong> (процитирован в другом документе), <strong>Со слов</strong> (только вторичные
+      источники), <strong>Пробел в архиве</strong> (оригинал до сих пор не найден).</p>
+    <p class="warn">Эти документы — доказательство существования самой системы изъятия имущества, а не законного права
+      собственности. Украина их не признаёт.</p>
   </footer>
+
   <section class="support-section">
     <h3>Поддержать проект</h3>
-    <p><a href="about.html">Автор проекта</a> расследует и документирует лишение мариупольцев имущества,
-      используя только собственное время и средства — без редакционного бюджета, без грантов, без
-      институциональной поддержки. Если эта работа для вас ценна, вы можете помочь покрыть часть
-      понесённых расходов.</p>
+    <p><a href="about.html">Автор проекта</a> тратит на него только собственные время и средства, без грантов и другой поддержки.
+      Если эта работа кажется вам важной, вы можете помочь покрыть часть понесённых расходов.</p>
     <div class="wallet-grid">
       <div class="wallet-card">
         <div class="wlabel">PayPal</div>
         <div class="waddr">kovalever@googlemail.com</div>
       </div>
       <div class="wallet-card">
-        <div class="wlabel">PayPal &mdash; для читателей в США</div>
+        <div class="wlabel">PayPal — для читателей в США</div>
         <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
-        <div class="wnote">НКО, зарегистрированная как 501(c)(3) &mdash; вычет из налогов в США</div>
+        <div class="wnote">НКО, зарегистрированная как 501(c)(3) — пожертвование можно оформить как налоговый вычет в США</div>
       </div>
       <div class="wallet-card">
         <div class="wlabel">Revolut</div>
@@ -653,35 +1001,5 @@
   </section>
 
 </div>
-
-<script>
-(function(){
-  "use strict";
-  var body = document.body;
-
-  function toggle(btn, cls){
-    var on = btn.getAttribute("aria-pressed") === "true";
-    btn.setAttribute("aria-pressed", String(!on));
-    body.classList.toggle(cls, !on);
-  }
-  document.getElementById("t-gaps").addEventListener("click", function(){ toggle(this, "gaps-on"); });
-  document.getElementById("t-trace").addEventListener("click", function(){ toggle(this, "trace-on"); });
-
-  document.querySelectorAll(".card-head").forEach(function(h){
-    h.addEventListener("click", function(){ h.closest(".stage-card").classList.toggle("open"); });
-  });
-
-  document.querySelectorAll("[data-go]").forEach(function(n){
-    n.addEventListener("click", function(){
-      var card = document.getElementById("card-" + n.getAttribute("data-go"));
-      if(!card) return;
-      card.classList.add("open");
-      card.scrollIntoView({behavior:"smooth", block:"center"});
-      card.classList.add("flash");
-      setTimeout(function(){ card.classList.remove("flash"); }, 1400);
-    });
-  });
-})();
-</script>
 </body>
 </html>
