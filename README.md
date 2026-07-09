@@ -12,7 +12,8 @@ A set of standalone, source-hashed visual exhibits is published from [`docs/`](.
 (GitHub Pages), several with a Russian-language variant (`-ru.html`, noted below): a
 [master dossier](./docs/exhibits/mariupol-master-dossier.html)
 ([RU](./docs/exhibits/mariupol-master-dossier-ru.html)), the
-[dispossession-pipeline system map](./docs/exhibits/dispossession-pipeline.html), a
+[dispossession-pipeline system map](./docs/exhibits/dispossession-pipeline.html)
+([RU](./docs/exhibits/dispossession-pipeline-ru.html)), a
 [two-property-systems](./docs/exhibits/two-property-systems.html)
 ([RU](./docs/exhibits/two-property-systems-ru.html)) explainer, an
 [interactive map](./docs/exhibits/interactive-map.html) of every documented case against
@@ -60,9 +61,15 @@ snapshot rather than authoritative. Full narrative review:
   for grant-rate methodology. The Mariupol court conveyor itself shut down first (ФКЗ-4,
   Dec 2025, abolished the court stage); the live front line is now the ownerless
   registry, re-snapshotted regularly rather than crawled once
-- Legal-mechanism catalogue (rungs [A]–[H], 40+ instruments — including a pre-invasion
-  2021 DNR-wide master template the whole ownerless-property mechanism descends from) —
-  [`docs/legal_mechanisms_review.md`](./docs/legal_mechanisms_review.md)
+- Legal-mechanism catalogue (rungs [A]–[H], 90+ instruments and growing — including a
+  pre-invasion 2021 DNR-wide master template the whole ownerless-property mechanism
+  descends from, and the DNR-wide successor statute (№272-РЗ) that eliminates the court
+  step entirely) — [`docs/legal_mechanisms_review.md`](./docs/legal_mechanisms_review.md).
+  Two occupation-official on-camera Q&As (July 2026) surfaced the project's most direct
+  admissions to date: an explicit statutory ban on property registration for citizens of
+  "unfriendly states," and a separate FSB "filtration" border-screening barrier that can
+  block a claimant from ever reaching the registration step — both corroborated
+  independently at federal scale (Rosreestr/Vedomosti reporting)
 - Stakeholder network (Пушилин→Иващенко→Моргун→Кольцов command chain dated; current
   node/edge counts computed live in the exhibit itself, not hardcoded here) —
   [`docs/stakeholder_network.md`](./docs/stakeholder_network.md)

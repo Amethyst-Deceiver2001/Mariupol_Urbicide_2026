@@ -60,6 +60,11 @@ SIGNALS = [
     # to reclaim property, screened out at Sheremetyevo/Mariupol filtration
     # checkpoints for no stated reason, independent of the citizenship gate)
     ("filtration",       True,  re.compile(r"фильтрац\w*|не пуска\w*|не пропуст\w*|не пропускают", re.I)),
+    # Rasporyazhenie No. 264 (06.06.2024) -- standing open monitoring item.
+    # Photographically attested (@mrpl_besxozxata/31910) but primary text/
+    # signature block not yet independently located; multiple residents
+    # reference it independently on door-posted notices (added 2026-07-09).
+    ("rasp_264",         True,  re.compile(r"распоряжени\w*\s*(?:№|номер|n)?\s*264\b|\b264\s*(?:от|,)", re.I)),
     # military / state builder — the Nevsky-track signal
     ("military_builder",True,  re.compile(r"военн\w*\s+строит\w*|военно[\-\s]?строит\w*|\bВСК\b|Минобороны|МО\s*РФ|Оборонспецстрой|ОборонСпецСтрой", re.I)),
     # residential complexes & new-build
