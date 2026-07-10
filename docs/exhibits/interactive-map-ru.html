@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Map — Mariupol Urbicide Project</title>
+<title>Интерактивная карта — проект «Урбицид Мариуполя»</title>
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
-<meta name="description" content="An interactive map of documented property seizures in occupied Mariupol — residential and non-residential, demolitions, developer land grants and new-builds, against the full geocoded evidence spine.">
-<meta property="og:title" content="Interactive Map — Mariupol Urbicide Project">
-<meta property="og:description" content="An interactive map of documented property seizures in occupied Mariupol — residential and non-residential, demolitions, developer land grants and new-builds, against the full geocoded evidence spine.">
+<meta name="description" content="Интерактивная карта задокументированных изъятий недвижимости в оккупированном Мариуполе — жилой и нежилой фонд, сносы, земельные наделы застройщикам и новостройки — на фоне полного геокодированного доказательного массива.">
+<meta property="og:title" content="Интерактивная карта — проект «Урбицид Мариуполя»">
+<meta property="og:description" content="Интерактивная карта задокументированных изъятий недвижимости в оккупированном Мариуполе — жилой и нежилой фонд, сносы, земельные наделы застройщикам и новостройки.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/interactive-map.html">
-<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/interactive-map-ru.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Interactive Map — Mariupol Urbicide Project">
-<meta name="twitter:description" content="An interactive map of documented property seizures in occupied Mariupol — residential and non-residential, demolitions, developer land grants and new-builds.">
-<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:title" content="Интерактивная карта — проект «Урбицид Мариуполя»">
+<meta name="twitter:description" content="Интерактивная карта задокументированных изъятий недвижимости в оккупированном Мариуполе.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
@@ -56,7 +56,6 @@
   .head .fine{color:var(--muted);font-size:12.5px;max-width:66ch}
   .head .fine b{color:var(--paper-dim)}
 
-  /* map + floating controls */
   .map-shell{position:relative}
   #map{height:76vh;min-height:520px;background:#0a0c0f;border-top:1px solid var(--rail);border-bottom:1px solid var(--rail)}
   .leaflet-container{background:#0a0c0f;font-family:var(--font-serif)}
@@ -121,43 +120,43 @@
 <body>
 
 <div class="exhibit-bar">
-  <span>Interactive map &middot; <b>property seizures, mapped</b></span>
-  <span><a href="../index.html">&larr; project home</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier.html">master dossier</a>
-    &nbsp;&middot;&nbsp; <a href="dispossession-pipeline.html">pipeline</a> &nbsp;&middot;&nbsp; <a href="sources.html">sources</a>
-    &nbsp;&middot;&nbsp; <a href="interactive-map-ru.html">Русская версия</a></span>
-  <span class="cust">Every point traces to a hashed source record</span>
+  <span>Интерактивная карта &middot; <b>изъятия недвижимости</b></span>
+  <span><a href="../index.html">&larr; на главную</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier-ru.html">основное досье</a>
+    &nbsp;&middot;&nbsp; <a href="dispossession-pipeline-ru.html">конвейер</a> &nbsp;&middot;&nbsp; <a href="sources.html">источники</a>
+    &nbsp;&middot;&nbsp; <a href="interactive-map.html">English version</a></span>
+  <span class="cust">За каждой точкой — заархивированная запись первоисточника</span>
 </div>
 
 <div class="head">
-  <p class="eyebrow">Geospatial &middot; occupied Mariupol</p>
-  <h1>The seizure, placed on the ground.</h1>
-  <p>Residential and non-residential property the occupation has moved through its pipeline &mdash; designated
-    &ldquo;ownerless,&rdquo; demolished, its land reallocated to developers, rebuilt and resold &mdash; plotted against
-    the project&rsquo;s full geocoded evidence spine. Toggle layers at right; click any marker for its record, sourcing,
-    and a link to the full exhibit where one exists.</p>
-  <p class="fine"><b>This map shows only geocoded, evidenced properties.</b> Each point carries its confidence tier in the
-    popup &mdash; claim-grade (&ge;0.80), pending verification, or unscored corroboration. Land-parcel <b>outlines</b> are
-    shown where a cadastral polygon or a street-bounded block description exists; everything else is a point. Nothing is
-    hidden &mdash; read a point&rsquo;s popup before citing it.</p>
+  <p class="eyebrow">Геопространственно &middot; оккупированный Мариуполь</p>
+  <h1>Изъятие — на местности.</h1>
+  <p>Жилая и нежилая недвижимость, которую оккупация провела через свой конвейер: признана «бесхозной», снесена,
+    земля передана застройщикам, отстроена заново и перепродана — нанесена на карту поверх полного геокодированного
+    доказательного массива проекта. Слои переключаются справа; клик по любой точке открывает запись, источники и
+    ссылку на полный экспонат, где он есть.</p>
+  <p class="fine"><b>На карте — только геокодированные, доказательно подтверждённые объекты.</b> Каждая точка несёт в
+    описании свой уровень достоверности: доказательный (&ge;0,80), требует проверки или неоцененное подтверждение.
+    <b>Контуры</b> земельных участков показаны там, где есть кадастровый полигон или описание квартала по улицам; всё
+    остальное — точка. Ничего не скрыто — перед цитированием откройте описание точки.</p>
 </div>
 
 <div class="map-shell">
-  <div id="map" role="img" aria-label="Interactive map of Mariupol property seizures."></div>
-  <div class="ctrl ctrl-toggle" id="panel-toggle">Layers &amp; basemap ▾</div>
+  <div id="map" role="img" aria-label="Интерактивная карта изъятий недвижимости в Мариуполе."></div>
+  <div class="ctrl ctrl-toggle" id="panel-toggle">Слои и подложка ▾</div>
   <div class="ctrl panel" id="panel">
-    <h3>Basemap</h3>
-    <label class="radio-row"><input type="radio" name="basemap" id="base-dark" checked> Dark (street outline)</label>
-    <label class="radio-row"><input type="radio" name="basemap" id="base-prewar"> Satellite — pre-war (2022-02-24)</label>
-    <label class="radio-row"><input type="radio" name="basemap" id="base-current"> Satellite — current (2026-05-28)</label>
+    <h3>Подложка</h3>
+    <label class="radio-row"><input type="radio" name="basemap" id="base-dark" checked> Тёмная (контур улиц)</label>
+    <label class="radio-row"><input type="radio" name="basemap" id="base-prewar"> Спутник — до войны (24.02.2022)</label>
+    <label class="radio-row"><input type="radio" name="basemap" id="base-current"> Спутник — сейчас (28.05.2026)</label>
 
-    <h3>Find an address</h3>
-    <input class="search" id="search" type="text" placeholder="street or name…" autocomplete="off">
-    <p class="search-hint" id="search-hint">Filters loaded points; Enter flies to the first match.</p>
+    <h3>Поиск по адресу</h3>
+    <input class="search" id="search" type="text" placeholder="улица или название…" autocomplete="off">
+    <p class="search-hint" id="search-hint">Фильтрует загруженные точки; Enter — перелёт к первому совпадению.</p>
 
-    <h3>Seizure layers</h3>
+    <h3>Слои изъятий</h3>
     <div id="layer-list"></div>
 
-    <h3>Context</h3>
+    <h3>Контекст</h3>
     <div id="context-list"></div>
   </div>
 </div>
@@ -173,153 +172,145 @@
 
   var map = L.map('map', {scrollWheelZoom:true, attributionControl:true}).setView([47.108, 37.55], 12);
 
-  // ---- basemaps ----
   var darkBase = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
     attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains:'abcd', maxZoom:19}).addTo(map);
-  var ESRI='Imagery: <a href="https://livingatlas.arcgis.com/wayback/">Esri Wayback</a> — Esri, Maxar, Earthstar Geographics';
+  var ESRI='Снимки: <a href="https://livingatlas.arcgis.com/wayback/">Esri Wayback</a> — Esri, Maxar, Earthstar Geographics';
   var prewarBase=L.tileLayer('https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/10312/{z}/{y}/{x}',
-    {attribution:ESRI+' (2022-02-24)',maxZoom:19,maxNativeZoom:18});
+    {attribution:ESRI+' (24.02.2022)',maxZoom:19,maxNativeZoom:18});
   var currentBase=L.tileLayer('https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/10842/{z}/{y}/{x}',
-    {attribution:ESRI+' (2026-05-28)',maxZoom:19,maxNativeZoom:18});
+    {attribution:ESRI+' (28.05.2026)',maxZoom:19,maxNativeZoom:18});
   var basemaps={dark:darkBase,prewar:prewarBase,current:currentBase}, activeBase='dark';
   function setBase(k){ if(k===activeBase)return; map.removeLayer(basemaps[activeBase]); basemaps[k].addTo(map); activeBase=k; }
   document.getElementById('base-dark').onchange=function(){setBase('dark');};
   document.getElementById('base-prewar').onchange=function(){setBase('prewar');};
   document.getElementById('base-current').onchange=function(){setBase('current');};
 
-  // ---- shared popup helpers ----
   function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
   function addressBlock(p){
     var o='';
     if(p.latin) o+='<p class="pop-title">'+esc(p.latin)+'</p>';
-    if(p.ua) o+='<p class="pop-src">UA (pre-invasion): '+esc(p.ua)+'</p>';
-    else if(p.ua_doc) o+='<p class="pop-src">UA (per toponym record): '+esc(p.ua_doc)+'</p>';
-    if(p.ru) o+='<p class="pop-src">As captured on file: '+esc(p.ru)+'</p>';
+    if(p.ua) o+='<p class="pop-src">укр. (довоенное): '+esc(p.ua)+'</p>';
+    else if(p.ua_doc) o+='<p class="pop-src">укр. (по реестру топонимов): '+esc(p.ua_doc)+'</p>';
+    if(p.ru) o+='<p class="pop-src">как в документах на учёте: '+esc(p.ru)+'</p>';
     if(!p.latin&&!p.ua&&!p.ua_doc&&!p.ru&&p.addr) o+='<p class="pop-title">'+esc(p.addr)+'</p>';
     if(p.renamed) o+='<p class="pop-src" style="color:var(--stamp)">'+esc(p.renamed)+'</p>';
     return o;
   }
   function verifBadge(p){
-    if(p.verif==='verified'||p.verif==='claim_grade') return '<p class="pop-src" style="color:#5b8fc9">Claim-grade &middot; confidence '+(p.confidence!=null?Number(p.confidence).toFixed(2):'')+'</p>';
-    if(p.verif==='pending_verification') return '<p class="pop-src" style="color:var(--evidence)">Pending verification — '+esc(p.verif_note||'')+'</p>';
-    if(p.verif==='unscored') return '<p class="pop-src" style="color:var(--stamp)">Unscored corroboration — '+esc(p.verif_note||'')+'</p>';
+    if(p.verif==='verified'||p.verif==='claim_grade') return '<p class="pop-src" style="color:#5b8fc9">Доказательный уровень &middot; достоверность '+(p.confidence!=null?Number(p.confidence).toFixed(2):'')+'</p>';
+    if(p.verif==='pending_verification') return '<p class="pop-src" style="color:var(--evidence)">Требует проверки — '+esc(p.verif_note||'')+'</p>';
+    if(p.verif==='unscored') return '<p class="pop-src" style="color:var(--stamp)">Неоцененное подтверждение — '+esc(p.verif_note||'')+'</p>';
     return '';
   }
   function searchText(p){
     return [p.latin,p.ua,p.ua_doc,p.ru,p.addr,p.beneficiary,p.dev,p.types,p.project].filter(Boolean).join(' ').toLowerCase();
   }
 
-  // ---- popup renderers ----
   function popSpine(p){
     var r='';
     if(p.stage) r+='<p class="pop-body"><b>'+esc(p.stage)+'</b>'+(p.date?' &middot; '+esc(p.date):'')+'</p>';
     if(p.basis) r+='<p class="pop-src">'+esc(p.basis)+'</p>';
-    if(p.tier==='corroboration') r+='<p class="pop-src" style="opacity:.75">Independent corroboration, not a dated decree.</p>';
-    else if(p.tier==='category_only') r+='<p class="pop-src">Categorized for restitution (RD4U); no dated event yet.</p>';
+    if(p.tier==='corroboration') r+='<p class="pop-src" style="opacity:.75">Независимое подтверждение, не датированное распоряжение.</p>';
+    else if(p.tier==='category_only') r+='<p class="pop-src">Отнесено к категории реституции (RD4U); датированного события пока нет.</p>';
     if(p.dmg_note){ var dc=p.dmg_agree===true?'#5b8fc9':(p.dmg_agree===false?'var(--evidence)':'var(--muted)'); r+='<p class="pop-src" style="color:'+dc+'">'+esc(p.dmg_note)+'</p>'; }
     r+=verifBadge(p);
-    return '<p class="pop-kicker">'+esc(p.cat_label||p.cat||'uncategorized (RD4U)')+'</p>'+addressBlock(p)+r;
+    return '<p class="pop-kicker">'+esc(p.cat_label||p.cat||'без категории (RD4U)')+'</p>'+addressBlock(p)+r;
   }
   function popDemo(p){
     var reb=p.kind==='demolished_rebuilt';
-    var h='<p class="pop-kicker">'+(reb?'Demolished &amp; rebuilt':'Demolished')+'</p>'+addressBlock(p)+
-      '<p class="pop-body"><b>Demolition</b>'+(p.demo_date?' &middot; '+esc(p.demo_date):'')+'</p>'+
+    var h='<p class="pop-kicker">'+(reb?'Снесён и отстроен заново':'Снесён')+'</p>'+addressBlock(p)+
+      '<p class="pop-body"><b>Снос</b>'+(p.demo_date?' &middot; '+esc(p.demo_date):'')+'</p>'+
       '<p class="pop-src">'+esc(p.demo_basis||'')+'</p>';
-    if(reb) h+='<p class="pop-body"><b>Reallocated to developer</b>'+(p.realloc_date?' &middot; '+esc(p.realloc_date):'')+'</p><p class="pop-src">'+esc(p.realloc_basis||'')+'</p>';
+    if(reb) h+='<p class="pop-body"><b>Земля передана застройщику</b>'+(p.realloc_date?' &middot; '+esc(p.realloc_date):'')+'</p><p class="pop-src">'+esc(p.realloc_basis||'')+'</p>';
     return h+verifBadge(p);
   }
   function popNonresOwn(p){
-    var kick=p.premises==='industrial'?'Industrial parcel — “ownerless” signs':'Commercial premises — “ownerless” signs';
+    var kick=p.premises==='industrial'?'Промплощадка — «признаки бесхозности»':'Коммерческое помещение — «признаки бесхозности»';
     var h='<p class="pop-kicker">'+kick+'</p>'+addressBlock(p);
-    if(p.count) h+='<p class="pop-body"><b>'+p.count+'</b> object'+(p.count>1?'s':'')+' flagged'+(p.district?' &middot; '+esc(p.district):'')+'</p>';
+    if(p.count) h+='<p class="pop-body"><b>'+p.count+'</b> '+(p.count>1?'объектов отмечено':'объект отмечен')+(p.district?' &middot; '+esc(p.district):'')+'</p>';
     if(p.types) h+='<p class="pop-src">'+esc(p.types)+'</p>';
-    if(p.area_ha) h+='<p class="pop-src">Parcel area: '+p.area_ha+' ha</p>';
-    if(p.cadastral) h+='<p class="pop-src">Cadastral: '+esc(p.cadastral)+'</p>';
-    h+='<p class="pop-src" style="opacity:.75">MinStroy DNR non-residential bezkhoz track (scripts/290).</p>';
+    if(p.area_ha) h+='<p class="pop-src">Площадь участка: '+p.area_ha+' га</p>';
+    if(p.cadastral) h+='<p class="pop-src">Кадастр: '+esc(p.cadastral)+'</p>';
+    h+='<p class="pop-src" style="opacity:.75">Нежилой бесхозный трек Минстроя ДНР (scripts/290).</p>';
     return h;
   }
   function popNonresDemo(p){
-    return '<p class="pop-kicker">Non-residential — slated for demolition</p>'+addressBlock(p)+
+    return '<p class="pop-kicker">Нежилой объект — под снос</p>'+addressBlock(p)+
       (p.types?'<p class="pop-body">'+esc(p.types)+'</p>':'')+
       (p.district?'<p class="pop-src">'+esc(p.district)+'</p>':'')+
-      '<p class="pop-src" style="opacity:.75">Citywide non-residential demolition list «Снос.pdf».</p>';
+      '<p class="pop-src" style="opacity:.75">Общегородской перечень нежилых объектов под снос «Снос.pdf».</p>';
   }
   function popLand(p){
-    var h='<p class="pop-kicker">Land granted to developer</p>';
+    var h='<p class="pop-kicker">Земля передана застройщику</p>';
     if(p.beneficiary) h+='<p class="pop-title">'+esc(p.beneficiary)+'</p>';
     if(p.project) h+='<p class="pop-body">'+esc(p.project)+'</p>';
     if(p.addr) h+='<p class="pop-src">'+esc(p.addr)+'</p>';
-    if(p.decree) h+='<p class="pop-src">Decree No. '+esc(p.decree)+(p.date?' &middot; '+esc(p.date):'')+'</p>';
-    if(p.area_sqm) h+='<p class="pop-src">Area: '+Math.round(p.area_sqm).toLocaleString()+' m²</p>';
-    if(p.cadastral) h+='<p class="pop-src">Cadastral: '+esc(p.cadastral)+'</p>';
-    if(p.conf!=null && p.conf<0.4) h+='<p class="pop-src" style="color:var(--evidence)">Approximate placement (block-bounded description) — see the block outline layer.</p>';
+    if(p.decree) h+='<p class="pop-src">Распоряжение № '+esc(p.decree)+(p.date?' &middot; '+esc(p.date):'')+'</p>';
+    if(p.area_sqm) h+='<p class="pop-src">Площадь: '+Math.round(p.area_sqm).toLocaleString('ru-RU')+' м²</p>';
+    if(p.cadastral) h+='<p class="pop-src">Кадастр: '+esc(p.cadastral)+'</p>';
+    if(p.conf!=null && p.conf<0.4) h+='<p class="pop-src" style="color:var(--evidence)">Приблизительная привязка (описание по границам квартала) — см. слой контуров кварталов.</p>';
     return h;
   }
   function popNewbuild(p){
-    return '<p class="pop-kicker">Replacement new-build (ЕИСЖС)</p>'+
+    return '<p class="pop-kicker">Новостройка на месте снесённого (ЕИСЖС)</p>'+
       (p.addr?'<p class="pop-title">'+esc(p.addr)+'</p>':'')+
-      (p.dev?'<p class="pop-body">Developer: <b>'+esc(p.dev)+'</b></p>':'')+
-      (p.flats?'<p class="pop-src">'+p.flats+' flats &middot; '+(p.living_sqm?Math.round(p.living_sqm).toLocaleString()+' m² living':'')+'</p>':'')+
-      (p.commissioned?'<p class="pop-src">Commissioned: '+esc(p.commissioned)+'</p>':'')+
-      (p.decree?'<p class="pop-src">Land decree No. '+esc(p.decree)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'');
+      (p.dev?'<p class="pop-body">Застройщик: <b>'+esc(p.dev)+'</b></p>':'')+
+      (p.flats?'<p class="pop-src">'+p.flats+' квартир &middot; '+(p.living_sqm?Math.round(p.living_sqm).toLocaleString('ru-RU')+' м² жилой':'')+'</p>':'')+
+      (p.commissioned?'<p class="pop-src">Введён в эксплуатацию: '+esc(p.commissioned)+'</p>':'')+
+      (p.decree?'<p class="pop-src">Земельное распоряжение № '+esc(p.decree)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'');
   }
   function popBlock(p){
-    return '<p class="pop-kicker">Land-grant block (approximate outline)</p>'+
+    return '<p class="pop-kicker">Квартал под наделом (приблизительный контур)</p>'+
       (p.beneficiary_name?'<p class="pop-title">'+esc(p.beneficiary_name)+'</p>':'')+
-      (p.decree_number?'<p class="pop-src">Decree No. '+esc(p.decree_number)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'')+
-      (p.boundary_streets?'<p class="pop-body">Bounded by: '+esc([].concat(p.boundary_streets).join(', '))+'</p>':'')+
-      '<p class="pop-src" style="color:var(--evidence)">'+esc(p.note||'Approximate outline from OSM street geometry — orientation only.')+'</p>';
+      (p.decree_number?'<p class="pop-src">Распоряжение № '+esc(p.decree_number)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'')+
+      (p.boundary_streets?'<p class="pop-body">Границы: '+esc([].concat(p.boundary_streets).join(', '))+'</p>':'')+
+      '<p class="pop-src" style="color:var(--evidence)">Приблизительный контур по геометрии улиц OSM — только для ориентировки, не кадастрово точен.</p>';
   }
   function popCadastral(p){
-    return '<p class="pop-kicker">Cadastral parcel (exact boundary)</p>'+
+    return '<p class="pop-kicker">Кадастровый участок (точная граница)</p>'+
       '<p class="pop-title">'+esc(p.cadastral_no)+'</p>'+
-      '<p class="pop-src">ЕГРН polygon via the Rosreestr Public Cadastral Map.</p>';
+      '<p class="pop-src">Полигон ЕГРН по данным Публичной кадастровой карты Росреестра.</p>';
   }
 
-  // ---- layer registry ----
   var STAMP='#c79a44', MUTED='#868d97';
   function circle(color,r,w){ return function(ll){ return L.circleMarker(ll,{radius:r||6,color:'#0c0e11',weight:w||1.2,fillColor:color,fillOpacity:.9}); }; }
   function diamond(color,r){ return function(ll){ return L.marker(ll,{icon:L.divIcon({className:'',iconSize:[r*2,r*2],
       html:'<div style="width:'+(r*1.5)+'px;height:'+(r*1.5)+'px;background:'+color+';border:1px solid #0c0e11;transform:rotate(45deg)"></div>'})}); }; }
 
   var LAYERS=[
-    {id:'case', label:'Case studies', file:'case_studies_and_casualties.geojson', group:'seizure',
+    {id:'case', label:'Кейсы (case studies)', file:'case_studies_and_casualties.geojson', group:'seizure',
      sw:'dot', color:STAMP, def:true, make:circle(STAMP,8,1.4), pop:function(p){
         return '<p class="pop-kicker">'+esc(p.case||'')+'</p><p class="pop-title">'+esc(p.name)+'</p>'+
-          '<p class="pop-body">'+esc(p.summary)+'</p><p class="pop-src">'+esc(p.source)+' &middot; confidence: '+esc(p.confidence)+'</p>'+
-          (p.href?'<a class="pop-link" href="'+esc(p.href)+'">Open the full exhibit &rarr;</a>':''); }},
-    {id:'nonres_own', label:'Commercial “ownerless”', file:'nonresidential_ownerless.geojson', group:'seizure',
+          '<p class="pop-body">'+esc(p.summary)+'</p><p class="pop-src">'+esc(p.source)+' &middot; достоверность: '+esc(p.confidence)+'</p>'+
+          (p.href?'<a class="pop-link" href="'+esc(p.href)+'">Открыть полный экспонат &rarr;</a>':''); }},
+    {id:'nonres_own', label:'Коммерческие «бесхозные»', file:'nonresidential_ownerless.geojson', group:'seizure',
      sw:'dot', color:'var(--c-commercial)', def:true, cluster:true, make:function(ll,p){
         return circle(p&&p.premises==='industrial'?'#a678d6':'#3fa7a0',6,1.1)(ll); }, pop:popNonresOwn},
-    {id:'nonres_demo', label:'Non-residential demolition', file:'nonresidential_demolition.geojson', group:'seizure',
+    {id:'nonres_demo', label:'Нежилые под снос', file:'nonresidential_demolition.geojson', group:'seizure',
      sw:'dia', color:'var(--c-nonres-demo)', def:true, make:diamond('#d98a3d',6), pop:popNonresDemo},
-    {id:'demo', label:'Residential demolition', file:'demolition_sites.geojson', group:'seizure',
+    {id:'demo', label:'Жилые под снос', file:'demolition_sites.geojson', group:'seizure',
      sw:'dia', color:'#9a4b2e', def:false, split:true, make:diamond('#9a4b2e',5), pop:popDemo},
-    {id:'land', label:'Developer land grants', file:'land_grants.geojson', group:'seizure',
+    {id:'land', label:'Земельные наделы застройщикам', file:'land_grants.geojson', group:'seizure',
      sw:'dot', color:'var(--c-land)', def:true, make:circle('#5b8fc9',6,1.1), pop:popLand},
-    {id:'newbuild', label:'Replacement new-builds', file:'newbuilds.geojson', group:'seizure',
+    {id:'newbuild', label:'Новостройки на месте снесённого', file:'newbuilds.geojson', group:'seizure',
      sw:'sq', color:'var(--c-newbuild)', def:false, make:function(ll){ return L.marker(ll,{icon:L.divIcon({className:'',iconSize:[11,11],
         html:'<div style="width:9px;height:9px;background:#5fae5a;border:1px solid #0c0e11"></div>'})}); }, pop:popNewbuild},
-    {id:'spine', label:'Full evidence spine', file:'property_spine_context.geojson', group:'seizure',
+    {id:'spine', label:'Полный доказательный массив', file:'property_spine_context.geojson', group:'seizure',
      sw:'dot', color:MUTED, def:false, cluster:true, make:circle(MUTED,3,.5), pop:popSpine},
-    // context / polygon layers
-    {id:'blocks', label:'Land-grant block outlines', file:'land_grant_blocks.geojson', group:'context',
+    {id:'blocks', label:'Контуры кварталов под наделами', file:'land_grant_blocks.geojson', group:'context',
      sw:'poly', color:'var(--c-land)', def:true, polygon:{color:'#5b8fc9',weight:2,fillOpacity:.1,dashArray:'4 3'}, pop:popBlock},
-    {id:'cadastral', label:'Cadastral parcel boundaries', file:'cadastral_parcels.geojson', group:'context',
+    {id:'cadastral', label:'Кадастровые границы участков', file:'cadastral_parcels.geojson', group:'context',
      sw:'poly', color:'var(--c-industrial)', def:true, polygon:{color:'#a678d6',weight:2,fillOpacity:.14}, pop:popCadastral},
-    {id:'hromada', label:'Mariupol hromada boundary', file:'hromada_boundary.geojson', group:'context',
+    {id:'hromada', label:'Граница Мариупольской громады', file:'hromada_boundary.geojson', group:'context',
      sw:'poly', color:'var(--muted)', def:false, polygon:{color:'#868d97',weight:1.5,fill:false,dashArray:'2 5'}, pop:null}
   ];
 
-  var registry={}; // id -> {group, features:[{marker,text}], demoSplit}
-  var allMarkers=[]; // {marker,text} for search
-
+  var registry={}, allMarkers=[];
   function makeGroup(cluster){
     return cluster ? L.markerClusterGroup({maxClusterRadius:48, disableClusteringAtZoom:16,
       spiderfyOnMaxZoom:true, chunkedLoading:true}) : L.layerGroup();
   }
-
   function loadLayer(cfg){
     return fetch(MAPDIR+cfg.file,{cache:'no-store'}).then(function(r){
       if(!r.ok) throw new Error(r.status); return r.json();
@@ -341,50 +332,42 @@
         var isReb = cfg.split && p.kind==='demolished_rebuilt';
         m.addTo(isReb?rebuiltGrp:grp);
         if(isReb) rebuiltCount++; else count++;
-        var rec={marker:m, text:searchText(p), cluster:cfg.cluster};
-        allMarkers.push(rec);
+        allMarkers.push({marker:m, text:searchText(p), cluster:cfg.cluster});
       });
       registry[cfg.id]={cfg:cfg, group:grp, rebuilt:rebuiltGrp, count:count, rebuiltCount:rebuiltCount};
       if(cfg.def) grp.addTo(map);
-      if(cfg.split && rebuiltGrp) rebuiltGrp.addTo(map); // rebuilt shown with its own row
+      if(cfg.split && rebuiltGrp) rebuiltGrp.addTo(map);
       return registry[cfg.id];
     }).catch(function(){
-      registry[cfg.id]={cfg:cfg, group:null, count:null}; // missing/unavailable
+      registry[cfg.id]={cfg:cfg, group:null, count:null};
       return null;
     });
   }
-
-  // ---- build the control rows after all layers settle ----
   function swHtml(cfg){
-    var st='';
-    if(cfg.sw==='poly'){ st='border-color:'+cfg.color; }
-    else { st='background:'+cfg.color; }
+    var st = cfg.sw==='poly' ? 'border-color:'+cfg.color : 'background:'+cfg.color;
     return '<span class="sw '+cfg.sw+'" style="'+st+'"></span>';
   }
-  function rowHtml(cfg, rec, labelOverride, idOverride){
+  function rowHtml(cfg, rec){
     var avail = rec && rec.count!==null;
-    var cnt = !avail ? 'run crawl' : (idOverride==='demo_rebuilt'? rec.rebuiltCount : rec.count);
+    var cnt = !avail ? 'нужен обход' : rec.count;
     return '<label class="row'+(avail?'':' disabled')+'">'+
-      '<input type="checkbox" id="tg-'+(idOverride||cfg.id)+'" '+(avail&&cfg.def?'checked':'')+(avail?'':' disabled')+'>'+
-      swHtml(cfg)+'<span>'+(labelOverride||cfg.label)+'</span><span class="cnt">'+cnt+'</span></label>';
+      '<input type="checkbox" id="tg-'+cfg.id+'" '+(avail&&cfg.def?'checked':'')+(avail?'':' disabled')+'>'+
+      swHtml(cfg)+'<span>'+cfg.label+'</span><span class="cnt">'+cnt+'</span></label>';
   }
-
   Promise.all(LAYERS.map(loadLayer)).then(function(){
     var seizureHtml='', contextHtml='';
     LAYERS.forEach(function(cfg){
       var rec=registry[cfg.id];
       var html=rowHtml(cfg, rec);
       if(cfg.group==='context') contextHtml+=html; else seizureHtml+=html;
-      // demolished+rebuilt gets its own row right after residential demolition
       if(cfg.split && rec && rec.count!==null){
         seizureHtml+='<label class="row"><input type="checkbox" id="tg-demo_rebuilt" checked>'+
-          '<span class="sw dia" style="background:var(--evidence)"></span><span>— of those, rebuilt</span>'+
+          '<span class="sw dia" style="background:var(--evidence)"></span><span>— из них отстроено заново</span>'+
           '<span class="cnt">'+rec.rebuiltCount+'</span></label>';
       }
     });
     document.getElementById('layer-list').innerHTML=seizureHtml;
     document.getElementById('context-list').innerHTML=contextHtml;
-
     LAYERS.forEach(function(cfg){
       var rec=registry[cfg.id]; if(!rec||rec.count===null) return;
       var cb=document.getElementById('tg-'+cfg.id);
@@ -397,26 +380,21 @@
     handleHash();
   });
 
-  // ---- search ----
-  var searchBox=document.getElementById('search');
-  var hint=document.getElementById('search-hint');
+  var searchBox=document.getElementById('search'), hint=document.getElementById('search-hint');
   function runSearch(fly){
-    var q=searchBox.value.trim().toLowerCase();
-    var matches=0, first=null;
+    var q=searchBox.value.trim().toLowerCase(), matches=0, first=null;
     allMarkers.forEach(function(rec){
       var hit = !q || rec.text.indexOf(q)>=0;
-      // opacity dim for circleMarkers; skip cluster members (can't restyle cheaply)
       if(rec.marker.setStyle && !rec.cluster){ rec.marker.setStyle({fillOpacity: hit?0.9:0.08, opacity: hit?1:0.15}); }
       if(q && hit){ matches++; if(!first) first=rec.marker; }
     });
-    if(q){ hint.textContent = matches+' match'+(matches===1?'':'es')+(matches?'':' — try a shorter term'); }
-    else { hint.textContent='Filters loaded points; Enter flies to the first match.'; }
+    if(q){ hint.textContent = 'совпадений: '+matches+(matches?'':' — попробуйте короче'); }
+    else { hint.textContent='Фильтрует загруженные точки; Enter — перелёт к первому совпадению.'; }
     if(fly && first){ var ll=first.getLatLng?first.getLatLng():null; if(ll){ map.flyTo(ll,16,{duration:.6}); first.openPopup&&setTimeout(function(){first.openPopup();},650); } }
   }
   searchBox.addEventListener('input',function(){runSearch(false);});
   searchBox.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); runSearch(true); } });
 
-  // ---- deep link (#lat,lon,zoom) ----
   function handleHash(){
     var m=(location.hash||'').match(/#(-?\d+\.?\d*),(-?\d+\.?\d*)(?:,(\d+))?/);
     if(m){ map.setView([parseFloat(m[1]),parseFloat(m[2])], m[3]?parseInt(m[3]):16); }
@@ -425,28 +403,25 @@
     var c=map.getCenter();
     history.replaceState(null,'','#'+c.lat.toFixed(4)+','+c.lng.toFixed(4)+','+map.getZoom());
   });
-
-  // ---- mobile panel toggle ----
   document.getElementById('panel-toggle').addEventListener('click',function(){
     document.getElementById('panel').classList.toggle('open');
   });
 
-  // ---- footer sourcing note ----
   document.getElementById('foot').innerHTML =
-    '<p><b>What you are looking at.</b> Every point resolves to the project&rsquo;s PostgreSQL evidence spine '+
-    '(chain-of-custody hashed) or a named parsed source. Residential and non-residential seizures share one building '+
-    'spine; a shop flagged &ldquo;ownerless&rdquo; inside a residential block is recorded against that building, its '+
-    'commercial character in the event record. <b>Non-residential coverage grows with geocoding</b> — many '+
-    'commercial/industrial addresses are not yet geocoded, so the counts shown are a floor, not the full 1,277 objects '+
-    'on file.</p>'+
-    '<p><b>Parcel outlines vs. points.</b> A land grant described as a block &ldquo;bounded by streets X, Y, Z&rdquo; is '+
-    'drawn as an approximate outline built from OpenStreetMap street geometry (dashed) — orientation only, not '+
-    'parcel-exact. Where a cadastral number is on file, the exact ЕГРН boundary is drawn from the Rosreestr Public '+
-    'Cadastral Map. A grant shown only as a low-confidence point has neither yet.</p>'+
-    '<p><b>Toponymy.</b> The post-2016 Ukrainian name is canonical for the pre-invasion period; the Latin form is built '+
-    'from it, never from the Russian spelling. Where the occupier reverted a street to its Soviet-era name, the popup '+
-    'shows both, each labeled. <b>The court docket case study has no point here by design</b> — its finding is that '+
-    'those records name no street address; see the <a href="case-study-IV-court-docket.html">full exhibit</a>.</p>';
+    '<p><b>Что вы видите.</b> Каждая точка соответствует записи доказательного массива проекта в PostgreSQL '+
+    '(с заархивированной цепочкой хранения) либо названному разобранному источнику. Жилые и нежилые изъятия делят один '+
+    'адресный массив зданий; магазин, признанный «бесхозным» внутри жилого дома, записан на это здание, а его '+
+    'коммерческий характер — в самой записи о событии. <b>Покрытие нежилого фонда растёт по мере геокодирования</b> — '+
+    'многие коммерческие/промышленные адреса ещё не геокодированы, поэтому показанные цифры — нижняя граница, а не все '+
+    '1&nbsp;277 объектов в базе.</p>'+
+    '<p><b>Контуры участков против точек.</b> Надел, описанный как квартал «в границах улиц X, Y, Z», показан '+
+    'приблизительным контуром по геометрии улиц OpenStreetMap (пунктир) — только для ориентировки, не кадастрово точно. '+
+    'Там, где есть кадастровый номер, точная граница ЕГРН взята из Публичной кадастровой карты Росреестра. Надел, '+
+    'показанный лишь точкой с низкой достоверностью, пока не имеет ни того, ни другого.</p>'+
+    '<p><b>Топонимика.</b> Каноническим для довоенного периода считается украинское название после декоммунизации 2016 '+
+    'года; латиница строится от него, а не от русского написания. Там, где оккупация вернула улице советское название, в '+
+    'описании показаны оба, с подписями. <b>Кейс о судебном реестре точки здесь не имеет — намеренно</b>: его вывод в '+
+    'том, что в тех записях не указан ни один адрес; см. <a href="case-study-IV-court-docket-ru.html">полный экспонат</a>.</p>';
 })();
 </script>
 </body>

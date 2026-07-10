@@ -140,6 +140,35 @@ where p.geom is not null
 
 TOPONYM_SQL = "select prewar_name, occupation_name from toponym where kind = 'rename'"
 
+# Non-residential ownerless-designation events (scripts/290/292): commercial +
+# industrial "признаки бесхозности" objects. One seizure_event per object, many
+# per building (e.g. four shops at one address) -> aggregated per building below.
+NONRES_OWNERLESS_SQL = """
+select
+    p.id, p.prewar_address, p.occupation_address, p.property_kind,
+    st_x(p.geom) as lon, st_y(p.geom) as lat,
+    e.detail as detail
+from property p
+join seizure_event e
+    on e.property_id = p.id
+   and e.detail->>'source' = 'nonresidential_ownerless'
+where p.geom is not null
+"""
+
+# Non-residential demolition list («Снос.pdf», scripts/291/292): shopping
+# centres, hotels, warehouses, a bakery, Дом связи, Ледо, ДОСААФ.
+NONRES_DEMOLITION_SQL = """
+select
+    p.id, p.prewar_address, p.occupation_address, p.property_kind,
+    st_x(p.geom) as lon, st_y(p.geom) as lat,
+    e.detail as detail
+from property p
+join seizure_event e
+    on e.property_id = p.id
+   and e.detail->>'source' = 'nonresidential_demolition'
+where p.geom is not null
+"""
+
 # ---------------------------------------------------------------------------
 # Transliteration — always Ukrainian-standard (this project treats the
 # Ukrainian name as canonical; the occupation/Russian spelling is evidence of
@@ -400,7 +429,15 @@ def corrob_basis(kind, detail):
 def best_event(rows):
     if not rows:
         return None
-    return min(rows, key=lambda r: (STAGE_PRIORITY.get(r["stage"], 9), r["event_date"] or "9999-99-99"))
+    # Coerce event_date to a comparable ISO string (date objects and the
+    # missing-date sentinel must not be compared directly — a NULL date on one
+    # event and a real date on another, same stage, otherwise raises
+    # "'<' not supported between 'date' and 'str'").
+    def _key(r):
+        d = r["event_date"]
+        d = d.isoformat() if hasattr(d, "isoformat") else (d or "9999-99-99")
+        return (STAGE_PRIORITY.get(r["stage"], 9), d)
+    return min(rows, key=_key)
 
 
 def best_corrob(rows):
@@ -623,6 +660,142 @@ def build_demolition_features(rows, toponym_index):
     return full, public
 
 
+_OBJ_TYPE_MAX = 8  # cap the object-type list shown in a popup
+
+
+def _aggregate_nonres(rows, toponym_index):
+    """Group per-object non-residential events into one feature per building."""
+    by_prop = {}
+    for row in rows:
+        by_prop.setdefault(row["id"], []).append(row)
+    full, public = [], []
+    for pid, group in by_prop.items():
+        first = group[0]
+        addr = address_block(first["prewar_address"], first["occupation_address"], toponym_index)
+        obj_types, cadastrals, areas, premises, districts = [], [], [], set(), set()
+        for r in group:
+            d = r["detail"] or {}
+            ot = d.get("object_type")
+            if ot and ot not in obj_types:
+                obj_types.append(ot)
+            if d.get("cadastral_no"):
+                cadastrals.append(d["cadastral_no"])
+            if d.get("parcel_area_ha"):
+                areas.append(d["parcel_area_ha"])
+            if d.get("premises_class"):
+                premises.add(d["premises_class"])
+            if d.get("district"):
+                districts.add(d["district"])
+        premises_class = ("industrial" if "industrial" in premises
+                          else "commercial" if "commercial" in premises else None)
+        full_props = {
+            "id": pid, "addr_ua": addr["ua"], "addr_ua_documented": addr["ua_documented"],
+            "addr_ru": addr["ru"], "addr_soviet": addr["soviet_name"], "addr_latin": addr["latin"],
+            "renamed_note": addr["renamed_note"],
+            "premises_class": premises_class, "property_kind": first["property_kind"],
+            "object_count": len(group), "object_types": obj_types,
+            "cadastral_nos": cadastrals or None,
+            "parcel_area_ha": round(sum(areas), 4) if areas else None,
+            "district": "; ".join(sorted(districts)) or None,
+        }
+        public_props = {
+            "ua": addr["ua"], "ua_doc": addr["ua_documented"], "ru": addr["ru"],
+            "soviet": addr["soviet_name"], "latin": addr["latin"], "renamed": addr["renamed_note"],
+            "premises": premises_class, "count": len(group),
+            "types": "; ".join(obj_types[:_OBJ_TYPE_MAX]) + (" …" if len(obj_types) > _OBJ_TYPE_MAX else ""),
+            "cadastral": "; ".join(cadastrals) if cadastrals else None,
+            "area_ha": round(sum(areas), 4) if areas else None,
+            "district": "; ".join(sorted(districts)) or None,
+        }
+        geom = {"type": "Point", "coordinates": [round(first["lon"], 5), round(first["lat"], 5)]}
+        full.append({"type": "Feature", "geometry": geom, "properties": full_props})
+        public.append({"type": "Feature", "geometry": geom, "properties": public_props})
+    return full, public
+
+
+def build_nonres_demolition_features(rows, toponym_index):
+    """One feature per building on the non-residential demolition list."""
+    by_prop = {}
+    for row in rows:
+        by_prop.setdefault(row["id"], []).append(row)
+    full, public = [], []
+    for pid, group in by_prop.items():
+        first = group[0]
+        addr = address_block(first["prewar_address"], first["occupation_address"], toponym_index)
+        obj_types = []
+        for r in group:
+            ot = (r["detail"] or {}).get("object_type")
+            if ot and ot not in obj_types:
+                obj_types.append(ot)
+        district = next((r["detail"].get("district") for r in group
+                         if (r["detail"] or {}).get("district")), None)
+        full_props = {
+            "id": pid, "addr_ua": addr["ua"], "addr_ua_documented": addr["ua_documented"],
+            "addr_ru": addr["ru"], "addr_soviet": addr["soviet_name"], "addr_latin": addr["latin"],
+            "renamed_note": addr["renamed_note"],
+            "object_types": obj_types, "district": district,
+        }
+        public_props = {
+            "ua": addr["ua"], "ua_doc": addr["ua_documented"], "ru": addr["ru"],
+            "soviet": addr["soviet_name"], "latin": addr["latin"], "renamed": addr["renamed_note"],
+            "types": "; ".join(obj_types), "district": district,
+        }
+        geom = {"type": "Point", "coordinates": [round(first["lon"], 5), round(first["lat"], 5)]}
+        full.append({"type": "Feature", "geometry": geom, "properties": full_props})
+        public.append({"type": "Feature", "geometry": geom, "properties": public_props})
+    return full, public
+
+
+def build_landgrant_public():
+    """Trim the QGIS land-grant export (scripts/68) into a public map copy.
+    Beneficiary + decree + cadastral + parcel area; drops nothing sensitive
+    (occupation officials/beneficiaries are in-scope for accountability)."""
+    src = QGIS_DIR / "land_order_grants.geojson"
+    if not src.exists():
+        log.warning("land_order_grants.geojson absent — run scripts/68 first; skipping land-grant layer")
+        return None
+    gj = json.loads(src.read_text(encoding="utf-8"))
+    feats = []
+    for f in gj["features"]:
+        p = f["properties"]
+        cads = p.get("cadastral_numbers")
+        if isinstance(cads, list):
+            cads = "; ".join(cads)
+        feats.append({
+            "type": "Feature", "geometry": f["geometry"],
+            "properties": {
+                "decree": p.get("decree_number"), "date": p.get("decree_date"),
+                "beneficiary": p.get("beneficiary_name"), "project": p.get("project_name"),
+                "addr": p.get("address_normalized") or p.get("address_raw"),
+                "area_sqm": p.get("area_sqm"), "cadastral": cads or None,
+                "conf": p.get("geocode_confidence"),
+            },
+        })
+    return feats
+
+
+def build_newbuild_public():
+    """Trim the ЕИСЖС new-build export (scripts/71) into a public map copy."""
+    src = QGIS_DIR / "eisghs_newbuilds.geojson"
+    if not src.exists():
+        log.warning("eisghs_newbuilds.geojson absent — run scripts/71 first; skipping new-build layer")
+        return None
+    gj = json.loads(src.read_text(encoding="utf-8"))
+    feats = []
+    for f in gj["features"]:
+        p = f["properties"]
+        feats.append({
+            "type": "Feature", "geometry": f["geometry"],
+            "properties": {
+                "addr": p.get("address"), "dev": p.get("dev_name_short"),
+                "flats": p.get("flat_cnt"), "living_sqm": p.get("area_sqm_living"),
+                "commissioned": p.get("commissioned_dt"),
+                "decree": p.get("decree_number"), "decree_date": p.get("decree_date"),
+            },
+        })
+    return feats
+
+
 def write_geojson(path: Path, features: list):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
@@ -653,6 +826,10 @@ def main():
             toponym_rows = cur.fetchall()
             cur.execute(DEMOLITION_SQL)
             demo_rows = cur.fetchall()
+            cur.execute(NONRES_OWNERLESS_SQL)
+            nonres_own_rows = cur.fetchall()
+            cur.execute(NONRES_DEMOLITION_SQL)
+            nonres_demo_rows = cur.fetchall()
     finally:
         conn.close()
 
@@ -667,11 +844,29 @@ def main():
 
     spine_full, spine_public = build_spine_features(prop_rows, events_by_prop, corrob_by_prop, court_props, toponym_index)
     demo_full, demo_public = build_demolition_features(demo_rows, toponym_index)
+    nonres_own_full, nonres_own_public = _aggregate_nonres(nonres_own_rows, toponym_index)
+    nonres_demo_full, nonres_demo_public = build_nonres_demolition_features(nonres_demo_rows, toponym_index)
 
     write_geojson(QGIS_DIR / "property_spine_context.geojson", spine_full)
     write_geojson(QGIS_DIR / "demolition_sites.geojson", demo_full)
+    write_geojson(QGIS_DIR / "nonresidential_ownerless.geojson", nonres_own_full)
+    write_geojson(QGIS_DIR / "nonresidential_demolition.geojson", nonres_demo_full)
     write_geojson(PUBLIC_DIR / "property_spine_context.geojson", spine_public)
     write_geojson(PUBLIC_DIR / "demolition_sites.geojson", demo_public)
+    write_geojson(PUBLIC_DIR / "nonresidential_ownerless.geojson", nonres_own_public)
+    write_geojson(PUBLIC_DIR / "nonresidential_demolition.geojson", nonres_demo_public)
+
+    # Land-grant + new-build public copies (trimmed from the scripts/68 & 71
+    # QGIS exports; these layers are geocoded outside the DB spine).
+    landgrants = build_landgrant_public()
+    if landgrants is not None:
+        write_geojson(PUBLIC_DIR / "land_grants.geojson", landgrants)
+    newbuilds = build_newbuild_public()
+    if newbuilds is not None:
+        write_geojson(PUBLIC_DIR / "newbuilds.geojson", newbuilds)
+
+    log.info("non-res ownerless buildings: %d, non-res demolition buildings: %d",
+             len(nonres_own_public), len(nonres_demo_public))
 
 
 if __name__ == "__main__":

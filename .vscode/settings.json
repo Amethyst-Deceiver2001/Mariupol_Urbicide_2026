@@ -10,5 +10,12 @@
   "files.watcherExclude": {
     "**/data/**": true
   },
+  "python.analysis.exclude": [
+    "**/data/**",
+    "**/.venv/**",
+    "**/.venv312/**",
+    "**/__pycache__/**",
+    "**/*.egg-info/**"
+  ],
   "makefile.configureOnOpen": false
 }
