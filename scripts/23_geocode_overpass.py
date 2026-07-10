@@ -35,10 +35,25 @@ Output: overwrites data/parsed/geocoded_buildings.jsonl in place, preserving
 every existing field and adding `previous_geocode` (the prior lat/lon/
 confidence/source) on any row this script upgrades.
 
-Area: the query is constrained to data/boundaries/mariupol_hromada_boundary.geojson
-(Overpass `poly:` filter on the polygon's vertices), not a hand-drawn bbox --
-override with --boundary if the file moves. Falls back to a hand-eyeballed
-bbox if the boundary file is missing.
+Area: the query is constrained to
+data/boundaries/mariupol_okrug_extended_boundary.geojson (Overpass `poly:`
+filters, one per polygon, unioned in one query) -- not a hand-drawn bbox.
+Confirmed 2026-07-10: many <0.9 buildings weren't low-precision matches in
+Mariupol proper, they were genuinely in one of the satellite settlements
+the occupation's 06.04.2023 "городской округ Мариуполь" municipal reform
+merged into the city (Сартана/Талаківка/Гнутове/Ломакине/Калинівка -- all
+pre-war part of a DIFFERENT hromada, Сартанська селищна громада -- plus the
+Старий Крим exclave, pre-war part of Mariupol's own Kalmiuskyi district but
+outside our original hand-captured boundary polygon). The original
+mariupol_hromada_boundary.geojson (pre-war Mariupol urban hromada only) is
+kept for reference/other scripts; this extended file is its union with the
+Sartana hromada polygon and the Staryi Krym polygon (both fetched from
+Nominatim, OSM relations 13285133 and the Staryi Krym neighbourhood
+relation) -- geographically disjoint from the city, so the union is a
+MultiPolygon, which is why _area_filters() returns one poly: filter per
+polygon instead of assuming a single ring. Override with --boundary if you
+need the old city-only scope. Falls back to a hand-eyeballed bbox if the
+boundary file is missing.
 
 Forensics: the Overpass response is captured (SHA-256 + sidecar,
 source_type=overpass_addr_index) and cached in
@@ -87,22 +102,20 @@ _OVERPASS_ENDPOINTS = [
     "https://overpass.kumi.systems/api/interpreter",
 ]
 
-DEFAULT_BOUNDARY = config.PROJECT_ROOT / "data" / "boundaries" / "mariupol_hromada_boundary.geojson"
+DEFAULT_BOUNDARY = config.PROJECT_ROOT / "data" / "boundaries" / "mariupol_okrug_extended_boundary.geojson"
 
 # Fallback bounding box (south, west, north, east), used only if the
 # boundary GeoJSON is missing -- a hand-eyeballed box covering greater
 # Mariupol with margin.
 _FALLBACK_BBOX = (47.05, 37.42, 47.20, 37.65)
 
-_QUERY_TEMPLATE = """
-[out:json][timeout:180];
-(
-  node["addr:housenumber"]["addr:street"]({area});
-  way["addr:housenumber"]["addr:street"]({area});
-  relation["addr:housenumber"]["addr:street"]({area});
-);
-out center tags;
-""".strip()
+_QUERY_HEADER = "[out:json][timeout:180];\n(\n"
+_QUERY_BLOCK = (
+    '  node["addr:housenumber"]["addr:street"]({area});\n'
+    '  way["addr:housenumber"]["addr:street"]({area});\n'
+    '  relation["addr:housenumber"]["addr:street"]({area});\n'
+)
+_QUERY_FOOTER = ");\nout center tags;"
 
 _FUZZY_THRESHOLD = 90
 
@@ -111,26 +124,46 @@ def _read_jsonl(path: Path) -> list[dict]:
     return [json.loads(l) for l in path.read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
-def _area_filter(boundary_path: Path) -> str:
-    """Build the Overpass spatial filter: poly:"lat lon lat lon ..." from the
-    first polygon ring in `boundary_path`, or a fallback bbox filter if the
-    file doesn't exist."""
-    if not boundary_path.exists():
-        log.warning("Boundary file %s not found -- using fallback bbox %s",
-                     boundary_path, _FALLBACK_BBOX)
-        s, w, n, e = _FALLBACK_BBOX
-        return f"{s},{w},{n},{e}"
-
-    geojson = json.loads(boundary_path.read_text(encoding="utf-8"))
-    features = geojson.get("features", [geojson])
-    geom = features[0].get("geometry", features[0])
-    ring = geom["coordinates"][0]
-    # GeoJSON rings are [lon, lat] and closed (first == last); Overpass poly:
-    # wants "lat lon lat lon ..." and doesn't need the closing duplicate.
+def _ring_to_poly_filter(ring: list) -> str:
+    """GeoJSON rings are [lon, lat] and closed (first == last); Overpass
+    poly: wants "lat lon lat lon ..." and doesn't need the closing duplicate."""
     if ring[0] == ring[-1]:
         ring = ring[:-1]
     pts = " ".join(f"{lat:.7f} {lon:.7f}" for lon, lat in ring)
     return f'poly:"{pts}"'
+
+
+def _area_filters(boundary_path: Path) -> list[str]:
+    """Build one Overpass poly: filter per outer ring in `boundary_path`
+    (every polygon of every Polygon/MultiPolygon geometry across every
+    Feature), or a single fallback bbox filter if the file doesn't exist.
+    Multiple filters are unioned by the caller inside one Overpass query --
+    needed because the satellite-village boundary extension (Sartana
+    hromada, Staryi Krym exclave) is geographically disjoint from the main
+    Mariupol hromada polygon, so their union is a MultiPolygon, not a single
+    ring -- see mariupol_okrug_extended_boundary.geojson."""
+    if not boundary_path.exists():
+        log.warning("Boundary file %s not found -- using fallback bbox %s",
+                     boundary_path, _FALLBACK_BBOX)
+        s, w, n, e = _FALLBACK_BBOX
+        return [f"{s},{w},{n},{e}"]
+
+    geojson = json.loads(boundary_path.read_text(encoding="utf-8"))
+    features = geojson.get("features", [geojson])
+    filters = []
+    for feature in features:
+        geom = feature.get("geometry", feature)
+        gtype = geom.get("type")
+        if gtype == "Polygon":
+            filters.append(_ring_to_poly_filter(geom["coordinates"][0]))
+        elif gtype == "MultiPolygon":
+            for polygon in geom["coordinates"]:
+                filters.append(_ring_to_poly_filter(polygon[0]))
+        else:
+            log.warning("Unsupported geometry type %s in %s, skipping", gtype, boundary_path)
+    if not filters:
+        raise ValueError(f"No usable polygon geometry found in {boundary_path}")
+    return filters
 
 
 def _house_matches(requested: str, returned: str | None) -> bool:
@@ -147,9 +180,10 @@ def _house_matches(requested: str, returned: str | None) -> bool:
 
 
 def _fetch_osm_elements(con, boundary_path: Path, refresh: bool) -> list[dict]:
-    area = _area_filter(boundary_path)
-    area_sha = forensics.sha256_bytes(area.encode("utf-8"))
-    query = _QUERY_TEMPLATE.format(area=area)
+    areas = _area_filters(boundary_path)
+    area_sha = forensics.sha256_bytes("|".join(areas).encode("utf-8"))
+    blocks = "".join(_QUERY_BLOCK.format(area=a) for a in areas)
+    query = _QUERY_HEADER + blocks + _QUERY_FOOTER
 
     cache_path = PARSED_DIR / ".overpass_cache.json"
     if cache_path.exists() and not refresh:

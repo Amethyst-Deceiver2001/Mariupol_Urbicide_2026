@@ -137,7 +137,7 @@
     and a link to the full exhibit where one exists.</p>
   <p class="fine"><b>This map shows only geocoded, evidenced properties.</b> Each point carries its confidence tier in the
     popup &mdash; claim-grade (&ge;0.80), pending verification, or unscored corroboration. Land-parcel <b>outlines</b> are
-    shown where a cadastral polygon or a street-bounded block description exists; everything else is a point. Nothing is
+    shown where a street-bounded block description exists; everything else is a point. Nothing is
     hidden &mdash; read a point&rsquo;s popup before citing it.</p>
 </div>
 
@@ -271,12 +271,6 @@
       (p.boundary_streets?'<p class="pop-body">Bounded by: '+esc([].concat(p.boundary_streets).join(', '))+'</p>':'')+
       '<p class="pop-src" style="color:var(--evidence)">'+esc(p.note||'Approximate outline from OSM street geometry — orientation only.')+'</p>';
   }
-  function popCadastral(p){
-    return '<p class="pop-kicker">Cadastral parcel (exact boundary)</p>'+
-      '<p class="pop-title">'+esc(p.cadastral_no)+'</p>'+
-      '<p class="pop-src">ЕГРН polygon via the Rosreestr Public Cadastral Map.</p>';
-  }
-
   // ---- layer registry ----
   var STAMP='#c79a44', MUTED='#868d97';
   function circle(color,r,w){ return function(ll){ return L.circleMarker(ll,{radius:r||6,color:'#0c0e11',weight:w||1.2,fillColor:color,fillOpacity:.9}); }; }
@@ -306,8 +300,6 @@
     // context / polygon layers
     {id:'blocks', label:'Land-grant block outlines', file:'land_grant_blocks.geojson', group:'context',
      sw:'poly', color:'var(--c-land)', def:true, polygon:{color:'#5b8fc9',weight:2,fillOpacity:.1,dashArray:'4 3'}, pop:popBlock},
-    {id:'cadastral', label:'Cadastral parcel boundaries', file:'cadastral_parcels.geojson', group:'context',
-     sw:'poly', color:'var(--c-industrial)', def:true, polygon:{color:'#a678d6',weight:2,fillOpacity:.14}, pop:popCadastral},
     {id:'hromada', label:'Mariupol hromada boundary', file:'hromada_boundary.geojson', group:'context',
      sw:'poly', color:'var(--muted)', def:false, polygon:{color:'#868d97',weight:1.5,fill:false,dashArray:'2 5'}, pop:null}
   ];
@@ -433,6 +425,13 @@
 
   // ---- footer sourcing note ----
   document.getElementById('foot').innerHTML =
+    '<p><b>This map is not yet exhaustive.</b> Points shown are restricted to addresses geocoded to claim-grade '+
+    'confidence <b>inside the original Mariupol city boundary</b>. Two things are deliberately held back: lower-'+
+    'confidence geocoding candidates still pending manual coordinate review, and the satellite villages (Сартана, '+
+    'Талаківка, Гнутове, Ломакине, Калинівка, Старий Крим) that the occupation&rsquo;s 06.04.2023 municipal reform '+
+    'folded into the same &ldquo;городской округ Мариуполь&rdquo; administratively but that sit outside this city-'+
+    'proper boundary and are not yet resolved to a comparable standard. Both will be added once verified — their '+
+    'absence here is a coverage gap, not a finding that nothing was seized there.</p>'+
     '<p><b>What you are looking at.</b> Every point resolves to the project&rsquo;s PostgreSQL evidence spine '+
     '(chain-of-custody hashed) or a named parsed source. Residential and non-residential seizures share one building '+
     'spine; a shop flagged &ldquo;ownerless&rdquo; inside a residential block is recorded against that building, its '+
@@ -441,8 +440,10 @@
     'on file.</p>'+
     '<p><b>Parcel outlines vs. points.</b> A land grant described as a block &ldquo;bounded by streets X, Y, Z&rdquo; is '+
     'drawn as an approximate outline built from OpenStreetMap street geometry (dashed) — orientation only, not '+
-    'parcel-exact. Where a cadastral number is on file, the exact ЕГРН boundary is drawn from the Rosreestr Public '+
-    'Cadastral Map. A grant shown only as a low-confidence point has neither yet.</p>'+
+    'parcel-exact. Exact ЕГРН boundaries were not obtainable: Rosreestr&rsquo;s federal cadastre (NSPD) does not carry '+
+    '&ldquo;new regions&rdquo; (annexed-territory) parcels at all — every cadastral number on file, checked directly '+
+    'against NSPD&rsquo;s own search, returns no record. A grant shown only as a low-confidence point has no street-'+
+    'boundary description on file either.</p>'+
     '<p><b>Toponymy.</b> The post-2016 Ukrainian name is canonical for the pre-invasion period; the Latin form is built '+
     'from it, never from the Russian spelling. Where the occupier reverted a street to its Soviet-era name, the popup '+
     'shows both, each labeled. <b>The court docket case study has no point here by design</b> — its finding is that '+

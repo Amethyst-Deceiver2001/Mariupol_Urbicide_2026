@@ -13,6 +13,20 @@ A property only makes the spine_context layer if it carries SOME evidentiary
 basis (rd4u_category, a seizure_event, a corroboration row, or a court_case) —
 bare geocoded address stubs with none of those (98 as of 2026-06) are excluded
 rather than shown as clickable "seized" points with nothing behind them.
+
+Public-map points are additionally restricted to the original Mariupol city
+hromada boundary (data/boundaries/mariupol_hromada_boundary.geojson) — NOT the
+extended okrug boundary scripts/23 now searches against. The satellite
+villages (Сартана/Талаківка/Гнутове/Ломакине/Калинівка/Старий Крим) merged
+into "городской округ Мариуполь" by the occupation's 06.04.2023 reform sit
+outside this polygon on purpose: as of 2026-07 their geocoding is a mix of
+0.5-confidence street-centroid matches and unresolved candidates (see
+memory/satellite_villages_geocoding_2026-07-10.md), not yet building-verified,
+so they are held off the public map rather than shown at street-level
+precision next to building-verified city points. Re-run this script (no code
+change needed) once village geocoding clears the same bar and the exhibit's
+"not yet exhaustive" note (see docs/exhibits/interactive-map.html footer) can
+be dropped.
 """
 
 import json
@@ -95,11 +109,17 @@ CORROB_PRIORITY = {
     "market_listing": 9,
 }
 
+# %s placeholder = boundary GeoJSON (city hromada polygon only, not the
+# extended okrug boundary) — public-map layers are scoped to it; see module
+# docstring. ST_Contains, not ST_Within, since we're testing points, not geoms.
+BOUNDARY_FILTER_SQL = "and ST_Contains(ST_SetSRID(ST_GeomFromGeoJSON(%s), 4326), p.geom)"
+
 PROPERTY_SQL = """
 select p.id, p.prewar_address, p.occupation_address, p.rd4u_category,
        st_x(p.geom) as lon, st_y(p.geom) as lat
 from property p
 where p.geom is not null
+{boundary}
 """
 
 SEIZURE_EVENT_SQL = """
@@ -136,6 +156,7 @@ left join lateral (
     order by event_date asc nulls last limit 1
 ) r on true
 where p.geom is not null
+{boundary}
 """
 
 TOPONYM_SQL = "select prewar_name, occupation_name from toponym where kind = 'rename'"
@@ -153,6 +174,7 @@ join seizure_event e
     on e.property_id = p.id
    and e.detail->>'source' = 'nonresidential_ownerless'
 where p.geom is not null
+{boundary}
 """
 
 # Non-residential demolition list («Снос.pdf», scripts/291/292): shopping
@@ -167,6 +189,7 @@ join seizure_event e
     on e.property_id = p.id
    and e.detail->>'source' = 'nonresidential_demolition'
 where p.geom is not null
+{boundary}
 """
 
 # ---------------------------------------------------------------------------
@@ -810,11 +833,31 @@ def group_by(rows, key):
     return out
 
 
+BOUNDARY_PATH = PROJECT_ROOT / "data" / "boundaries" / "mariupol_hromada_boundary.geojson"
+
+
+def load_boundary_geojson() -> str:
+    """City hromada boundary only (not the extended okrug boundary scripts/23
+    searches against) — see module docstring for why villages are excluded."""
+    gj = json.loads(BOUNDARY_PATH.read_text(encoding="utf-8"))
+    geom = gj["features"][0]["geometry"]
+    return json.dumps(geom)
+
+
 def main():
+    boundary_geojson = load_boundary_geojson()
+    prop_sql = PROPERTY_SQL.format(boundary=BOUNDARY_FILTER_SQL)
+    demo_sql = DEMOLITION_SQL.format(boundary=BOUNDARY_FILTER_SQL)
+    nonres_own_sql = NONRES_OWNERLESS_SQL.format(boundary=BOUNDARY_FILTER_SQL)
+    nonres_demo_sql = NONRES_DEMOLITION_SQL.format(boundary=BOUNDARY_FILTER_SQL)
+    unfiltered_prop_sql = PROPERTY_SQL.format(boundary="")
+
     conn = psycopg2.connect(DATABASE_URL, cursor_factory=psycopg2.extras.RealDictCursor)
     try:
         with conn.cursor() as cur:
-            cur.execute(PROPERTY_SQL)
+            cur.execute(unfiltered_prop_sql)
+            all_geocoded_count = len(cur.fetchall())
+            cur.execute(prop_sql, (boundary_geojson,))
             prop_rows = cur.fetchall()
             cur.execute(SEIZURE_EVENT_SQL)
             event_rows = cur.fetchall()
@@ -824,14 +867,20 @@ def main():
             court_props = {r["property_id"] for r in cur.fetchall()}
             cur.execute(TOPONYM_SQL)
             toponym_rows = cur.fetchall()
-            cur.execute(DEMOLITION_SQL)
+            cur.execute(demo_sql, (boundary_geojson,))
             demo_rows = cur.fetchall()
-            cur.execute(NONRES_OWNERLESS_SQL)
+            cur.execute(nonres_own_sql, (boundary_geojson,))
             nonres_own_rows = cur.fetchall()
-            cur.execute(NONRES_DEMOLITION_SQL)
+            cur.execute(nonres_demo_sql, (boundary_geojson,))
             nonres_demo_rows = cur.fetchall()
     finally:
         conn.close()
+
+    log.info(
+        "boundary filter: %d geocoded properties total, %d inside city hromada boundary "
+        "(%d outside — satellite villages + any other out-of-boundary points, held off the public map)",
+        all_geocoded_count, len(prop_rows), all_geocoded_count - len(prop_rows),
+    )
 
     toponym_index = build_toponym_index(toponym_rows)
     events_by_prop = group_by(event_rows, "property_id")
