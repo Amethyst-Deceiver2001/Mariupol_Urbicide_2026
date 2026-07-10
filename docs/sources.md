@@ -56,6 +56,10 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **Demolition decrees (Mariupol municipal administration)** — 20 decrees captured + MinStroy register 637 rows (525 Mariupol buildings).
 
+**Non-residential ("commercial/industrial") ownerless-signs lists (MinStroy DNR, June 2023)** — the non-residential parallel to the 12,948-row residential ownerless registry. Three captured primaries from the official Minstroy DNR channel: `Мариуполь_НЕ_ФУНКЦИОНИРУЮЩИЕ_ОБЪЕКТЫ_.xlsx` (<https://t.me/minstroydnr/3063>, 07.06.2023, 1,234 commercial premises "имеющие признаки бесхозности"; sha256 `0bb9f92bc16c8b…`), plus two dated industrial-parcel/commercial supplements `Перечень_промышленных_площадок…` (<https://t.me/minstroydnr/3227>, sha256 `10329c544204…`; <https://t.me/minstroydnr/3235>, 30.06.2023, sha256 `e6fd4ea0f13c…`) whose industrial tables carry cadastral numbers + parcel areas. Parsed by `scripts/290` → `data/parsed/nonresidential_ownerless.jsonl` (1,277 objects); loaded via `scripts/292` as `seizure_event(stage='ownerless_designation')`. A **newer combined residential+non-residential edition dated 05.06.2026** is referenced by residents (<https://t.me/mrpl_besxozxata/94813>) but held only as low-res phone-photos — `scripts/293` is the VPS crawl to capture the administration primary.
+
+**Non-residential demolition list («Снос.pdf»)** — «ПЕРЕЧЕНЬ объектов, подлежащих сносу на территории города Мариуполя», 42 non-residential objects (shopping centres, hotels, warehouses, a bakery, «Дом связи», the «Ледо» complex, a DOSAAF building), posted by the official administration channel @nmrpl (<https://t.me/nmrpl/11325>, sha256 `f865092711e7…`). Largely non-overlapping with the MKD-focused MinStroy demolition register. Parsed by `scripts/291` → `data/parsed/nonresidential_demolition.jsonl` (42 objects, 40 address-resolvable); loaded via `scripts/292` as `seizure_event(stage='demolition')`.
+
 **Russian federal damage/reconstruction tracker (XLSX)** — 1,941 buildings, contractor + destruction-% map. Via ЕИСЖС / наш.дом.рф.
 - <https://наш.дом.рф>
 

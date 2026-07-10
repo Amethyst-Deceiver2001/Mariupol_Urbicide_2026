@@ -1227,6 +1227,178 @@ def load_demolition_decrees(jsonl: str = "data/parsed/demolition_decrees.jsonl")
           f"(skipped: {skipped_addr} unparseable address)")
 
 
+def _set_property_kind(cur, property_id: int, kind: str | None) -> None:
+    """Set property.property_kind for a genuinely non-residential building,
+    but NEVER overwrite an already-set value -- COALESCE keeps the first
+    classification and, critically, never flips a residential MKD's kind when
+    an embedded ground-floor shop's ownerless designation lands on the same
+    building row (those pass kind=None). Idempotent."""
+    if not kind:
+        return
+    cur.execute(
+        "UPDATE property SET property_kind = COALESCE(property_kind, %s) WHERE id = %s",
+        (kind, property_id),
+    )
+
+
+def load_nonresidential_ownerless(
+    jsonl: str = "data/parsed/nonresidential_ownerless.jsonl",
+) -> None:
+    """Load the MinStroy commercial/industrial "ownerless-signs" lists
+    (scripts/290) as seizure_event(stage='ownerless_designation') -- the
+    non-residential parallel to the 12,948-row residential ownerless registry.
+
+    A commercial premises embedded in a residential building
+    (location_class='embedded_in_residential') attaches its event to that
+    building's property row but leaves property_kind NULL -- the building is
+    still a residential MKD; only the premises inside it is non-residential,
+    and that fact lives in the event detail. A standalone commercial/industrial
+    object sets property_kind on its own property row. Idempotent via dedup_key.
+    """
+    path = Path(config.PROJECT_ROOT / jsonl)
+    if not path.exists():
+        raise SystemExit(
+            f"{path} not found — run scripts/290_parse_nonresidential_ownerless.py first."
+        )
+
+    con = psycopg2.connect(config.DATABASE_URL)
+    cur = con.cursor()
+    loaded = skipped_addr = 0
+
+    with path.open(encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            d = json.loads(line)
+            building_id = d.get("building_id")
+            if not building_id:
+                skipped_addr += 1
+                continue
+
+            occ = d.get("address_raw")
+            cadastral = d.get("cadastral_no")
+            property_id = _find_or_create_property(
+                cur, building_id, occupation_address=occ, cadastral_no=cadastral
+            )
+            # Only mark the building itself non-residential when the object is
+            # standalone; embedded shops (in жилой дом) leave the MKD's kind NULL.
+            if d.get("location_class") == "standalone":
+                _set_property_kind(cur, property_id, d.get("premises_class"))
+
+            source_doc_id = _upsert_source_doc_by_sha(cur, d.get("source_sha256"))
+            dedup_key = (
+                f"nonres_ownerless:{d.get('source_sha256')}:{d.get('seq_no')}"
+            )
+            detail = {
+                "source": "nonresidential_ownerless",
+                "list_kind": d.get("list_kind"),
+                "premises_class": d.get("premises_class"),
+                "location_class": d.get("location_class"),
+                "object_type": d.get("object_type"),
+                "district": d.get("district"),
+                "cadastral_no": cadastral,
+                "parcel_area_ha": d.get("parcel_area_ha"),
+                "address_raw": occ,
+                "source_url": d.get("source_url"),
+            }
+            cur.execute(
+                """INSERT INTO seizure_event
+                       (property_id, stage, event_date, source_doc_id, confidence, detail, dedup_key)
+                   VALUES (%s, 'ownerless_designation'::seizure_stage,
+                           NULL, %s, %s, %s, %s)
+                   ON CONFLICT (dedup_key) DO UPDATE
+                       SET detail = EXCLUDED.detail,
+                           source_doc_id = EXCLUDED.source_doc_id""",
+                (property_id, source_doc_id, 0.8,
+                 json.dumps(detail, ensure_ascii=False), dedup_key),
+            )
+            loaded += 1
+
+    con.commit()
+    cur.close()
+    con.close()
+    log.info(
+        "load_nonresidential_ownerless: %d non-residential ownerless-designation "
+        "events (skipped %d unparseable address)", loaded, skipped_addr,
+    )
+    print(
+        f"load_nonresidential_ownerless: {loaded} events "
+        f"(skipped: {skipped_addr} unparseable address)"
+    )
+
+
+def load_nonresidential_demolition(
+    jsonl: str = "data/parsed/nonresidential_demolition.jsonl",
+) -> None:
+    """Load the citywide non-residential demolition list («Снос.pdf»,
+    scripts/291) as seizure_event(stage='demolition') on standalone
+    non-residential buildings (shops, shopping centres, hotels, warehouses,
+    a bakery, a telecoms building). Sets property_kind='nonresidential_other'
+    on the property. Idempotent via dedup_key."""
+    path = Path(config.PROJECT_ROOT / jsonl)
+    if not path.exists():
+        raise SystemExit(
+            f"{path} not found — run scripts/291_parse_nonresidential_demolition.py first."
+        )
+
+    con = psycopg2.connect(config.DATABASE_URL)
+    cur = con.cursor()
+    loaded = skipped_addr = 0
+
+    with path.open(encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            d = json.loads(line)
+            building_id = d.get("building_id")
+            if not building_id:
+                skipped_addr += 1
+                continue
+
+            occ = d.get("address_raw")
+            property_id = _find_or_create_property(cur, building_id, occupation_address=occ)
+            _set_property_kind(cur, property_id, "nonresidential_other")
+
+            source_doc_id = _upsert_source_doc_by_sha(cur, d.get("source_sha256"))
+            dedup_key = (
+                f"nonres_demolition:{d.get('source_sha256')}:{d.get('seq_no')}"
+            )
+            detail = {
+                "source": "nonresidential_demolition",
+                "list_kind": d.get("list_kind"),
+                "object_type": d.get("object_type"),
+                "district": d.get("district"),
+                "address_raw": occ,
+                "source_url": d.get("source_url"),
+            }
+            cur.execute(
+                """INSERT INTO seizure_event
+                       (property_id, stage, event_date, source_doc_id, confidence, detail, dedup_key)
+                   VALUES (%s, 'demolition'::seizure_stage,
+                           NULL, %s, %s, %s, %s)
+                   ON CONFLICT (dedup_key) DO UPDATE
+                       SET detail = EXCLUDED.detail,
+                           source_doc_id = EXCLUDED.source_doc_id""",
+                (property_id, source_doc_id, 0.85,
+                 json.dumps(detail, ensure_ascii=False), dedup_key),
+            )
+            loaded += 1
+
+    con.commit()
+    cur.close()
+    con.close()
+    log.info(
+        "load_nonresidential_demolition: %d non-residential demolition events "
+        "(skipped %d unparseable address)", loaded, skipped_addr,
+    )
+    print(
+        f"load_nonresidential_demolition: {loaded} events "
+        f"(skipped: {skipped_addr} unparseable address)"
+    )
+
+
 def _eisghs_building_key(d: dict) -> str | None:
     """Reproduce scripts/21_build_address_registry.py's _from_eisghs keying
     EXACTLY so new-build events attach to the same property rows load_buildings()

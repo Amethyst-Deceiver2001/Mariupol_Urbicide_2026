@@ -20,10 +20,22 @@ CREATE TABLE IF NOT EXISTS property (
     building_id     TEXT,                       -- groups apartments in a building
     geom            geometry(Point, 4326),      -- WGS84
     rd4u_category   TEXT,                        -- comma-separated set of A3.1/A3.2/A3.3/A3.6, or NULL (scripts/36)
+    property_kind   TEXT,                        -- NULL = residential/unknown (default, keeps the
+                                                 -- existing spine unchanged); set to
+                                                 -- 'commercial'/'industrial'/'social_infrastructure'/
+                                                 -- 'nonresidential_other' only for genuinely
+                                                 -- standalone non-residential buildings (scripts/290-292).
+                                                 -- A residential MKD with an embedded ground-floor shop
+                                                 -- keeps property_kind NULL; the shop's ownerless
+                                                 -- designation lives in seizure_event.detail instead.
     notes           TEXT,
     created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+-- Idempotent migration for pre-2026-07 deployments (CREATE TABLE above is a
+-- no-op once the table exists).
+ALTER TABLE property ADD COLUMN IF NOT EXISTS property_kind TEXT;
 CREATE INDEX IF NOT EXISTS property_geom_gix ON property USING gist (geom);
+CREATE INDEX IF NOT EXISTS property_kind_ix ON property(property_kind) WHERE property_kind IS NOT NULL;
 -- NULL building_id (court-case rows not yet linked to a building) doesn't
 -- conflict with itself under a plain UNIQUE index -- only non-null
 -- duplicates do, which is what load_buildings()'s ON CONFLICT relies on.

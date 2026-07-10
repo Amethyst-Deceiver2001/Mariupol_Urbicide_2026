@@ -45,6 +45,13 @@ def main() -> None:
     properties = q1(cur, "SELECT count(*) FROM property")
     rd4u_null = q1(cur, "SELECT count(*) FROM property WHERE rd4u_category IS NULL")
     units = q1(cur, "SELECT count(*) FROM unit")
+    nonres_buildings = q1(
+        cur, "SELECT count(*) FROM property WHERE property_kind IS NOT NULL")
+    nonres_events = q1(
+        cur,
+        "SELECT count(*) FROM seizure_event "
+        "WHERE detail->>'source' IN "
+        "('nonresidential_ownerless','nonresidential_demolition')")
     corroboration = q1(cur, "SELECT count(*) FROM corroboration")
     seizure_total = q1(cur, "SELECT count(*) FROM seizure_event")
     source_docs = q1(cur, "SELECT count(*) FROM source_document")
@@ -114,6 +121,8 @@ def main() -> None:
     A(f"| Properties on spine | **{properties:,}** |")
     A(f"| — uncategorized (RD4U) | {rd4u_null:,} |")
     A(f"| Distinct apartment-level units (ownerless registry) | {units:,} |")
+    A(f"| Non-residential buildings on spine (property_kind set) | {nonres_buildings:,} |")
+    A(f"| Non-residential seizure-event rows (commercial/industrial) | {nonres_events:,} |")
     lg = f"{legal_grade:,}" if legal_grade is not None else "?"
     ci = f"{court_islands:,}" if court_islands is not None else "?"
     ns = f"{no_source:,}" if no_source is not None else "?"
