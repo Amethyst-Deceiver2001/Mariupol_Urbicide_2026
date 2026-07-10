@@ -68,6 +68,10 @@ OCR_SOURCE_TYPES = (
     "demolition_decree_building_pdf",
     "demolition_decree_amendment_pdf",
     "demolition_decree_unknown_pdf",
+    # scripts/293's non-residential-bezkhoz search-crawl: the PDF annexes
+    # attached to each postановление detail page (the detail pages
+    # themselves are HTML, not scanned images, so they're excluded here).
+    "mariupol_gosuslugi_nonres_attachment",
 )
 
 # Canonical tool name — used in the TRANSFORM string recorded in the custody
@@ -163,8 +167,13 @@ def main() -> None:
             failed += 1
             continue
 
-        # source_type of the derivative: parent type + '_ocr'
-        derived_type = source_type.replace("_pdf", "_ocr_pdf")
+        # source_type of the derivative: parent type + '_ocr' (append '_ocr'
+        # outright when the parent type has no '_pdf' suffix to splice into,
+        # e.g. scripts/293's 'mariupol_gosuslugi_nonres_attachment').
+        derived_type = (
+            source_type.replace("_pdf", "_ocr_pdf") if source_type.endswith("_pdf")
+            else f"{source_type}_ocr"
+        )
         sha = forensics.capture_derived(
             ocr_bytes,
             derived_from=parent_sha,
