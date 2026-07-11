@@ -1,5 +1,7 @@
 # Case Study — Mass "Ownerless" Registry Inclusion → Live Apartment Resale
 
+**Accession:** MUP-CS-004 · Modality M2 — flat-by-flat registry sweep → resale · [REGISTRY.md](REGISTRY.md)
+
 **Three Mariupol apartment buildings where the occupation processed *dozens of
 individual flats* through the «bezkhozyainost'» (ownerless) registry — and where
 specific, identifiable units in those same buildings are, right now, being

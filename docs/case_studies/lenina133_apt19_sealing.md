@@ -1,5 +1,7 @@
 # Case Study — prosp. Lenina, 133, apt. 19: Registry Inclusion → Physical Sealing & Eviction
 
+**Accession:** MUP-CS-003 · Modality M5 — registry enforced (sealing/eviction) · [REGISTRY.md](REGISTRY.md)
+
 **The project's first dated, photographic evidence of the on-the-ground
 enforcement step that follows an "ownerless" registry entry — a sealed
 apartment door, a handwritten vacate deadline, and a still-resident occupant

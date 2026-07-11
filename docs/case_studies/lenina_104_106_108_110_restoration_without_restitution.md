@@ -1,5 +1,7 @@
 # Case Study — prosp. Lenina (Myru), 104/106/108/110 — Restoration Without Restitution
 
+**Accession:** MUP-CS-002 · Modality M4 — restoration without restitution · [REGISTRY.md](REGISTRY.md)
+
 **Four contiguous war-damaged buildings, all four named in one demolition
 decree, with WILDLY DIFFERENT physical fates — 106 restored in place,
 scaffolded and re-plastered with the original residents physically barred

@@ -288,3 +288,27 @@ forward, not just that one file.
   `case-study-troianda-metallurgov-ru.html`, `nakhimova-82-exhibit-ru.html`)
   have not yet been audited against these rules — treat them as a backlog,
   not as already compliant.
+## 11. Case-study identity — no ordinals; registry is authoritative (added 2026-07-11)
+
+`docs/case_studies/REGISTRY.md` is the single source of truth for case-study
+identity. The full rules live there; the display-facing consequences:
+
+- **No ordinal numbering in display chrome or prose.** Kicker lines read
+  `Case study · <modality label>` (EN) / `Дело · <метка модели>` (RU) — never
+  "Case Study IV", «Дело V», "Exhibit B"/«Дело C». Those retired labels caused
+  real collisions (two exhibits both claimed "Exhibit B") and implied a
+  reading order that never existed. Modality codes («Модель 2», M1–M7) are
+  fine in display — they classify, not enumerate.
+- **Prose cross-references use short descriptive names**, linked: "the
+  Stroiteley case study", «дело Нахимова, 82» — optionally followed by the
+  accession code in parentheses in researcher-facing docs.
+- **Every exhibited case study carries its accession code (`MUP-CS-NNN`) in
+  its provenance block.** EN wording: "Accession code MUP-CS-NNN — permanent
+  case-study identifier in the project register, docs/case_studies/REGISTRY.md."
+  RU: «Учётный код MUP-CS-NNN — постоянный идентификатор дела в каталоге
+  проекта, docs/case_studies/REGISTRY.md.»
+- **New case studies**: take the next free code in REGISTRY.md *before*
+  writing the exhibit; filename = subject slug (address or mechanism), never
+  an ordinal. Legacy numerals fossilized in published filenames
+  (`case-study-II/III/IV-*.html`) stay — URLs are immutable — but no new file
+  ever gets one.

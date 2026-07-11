@@ -1,5 +1,7 @@
 # Case Study — МКР «Невский»: the showcase where the population transfer is the point, and the title never comes
 
+**Accession:** MUP-CS-008 · Modality M7 — showcase/military reconstruction · [REGISTRY.md](REGISTRY.md)
+
 **The Russian Ministry of Defence built a 115-hectare, ~1,880-apartment
 microdistrict on ул. Куприна in occupied Mariupol, fenced it, put a
 checkpoint on the gate, and moved displaced Mariupol families in by

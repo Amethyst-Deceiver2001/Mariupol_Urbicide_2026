@@ -1,5 +1,7 @@
 # Case Study — Death Sites, Ad-Hoc Graves and New Construction
 
+**Accession:** MUP-CS-010 · Modality X — cross-cutting (victim overlay) · [REGISTRY.md](REGISTRY.md)
+
 **Cross-referencing the Mariupol deceased/missing register ("Pogibshie i
 Propavshie na Karte Razrushenii" — "the Dead and Missing on the Destruction
 Map") against the 91 EISZhS (nash.dom.rf) new-construction objects.**

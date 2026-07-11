@@ -1,5 +1,7 @@
 # Case Study — ZhSK "Brigantina" → no-tender lease to SZ "GSA Development"
 
+**Accession:** MUP-CS-009 · Modality M6 — land grant / no-tender lease · [REGISTRY.md](REGISTRY.md)
+
 **A pre-war private housing cooperative's land, already recorded as DNR state
 property with no stated transfer instrument, leased without auction to a
 Russian-registered developer building a subsidized-mortgage townhouse colony.**

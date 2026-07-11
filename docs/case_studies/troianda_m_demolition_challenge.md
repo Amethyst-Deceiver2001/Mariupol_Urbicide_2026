@@ -1,5 +1,7 @@
 # Case Study — HOA (TSZh) «Troianda-M»: the occupation's own courts wrote the demolish-and-resell playbook into the record while denying it
 
+**Accession:** MUP-CS-005 · Modality X — cross-cutting (court resistance) · [REGISTRY.md](REGISTRY.md)
+
 **Sixty-three residents and their homeowners' association spent nearly two years
 losing the same case three times in occupation courts. Along the way, a judge
 read into the record a demolition contract dated two years *after* the

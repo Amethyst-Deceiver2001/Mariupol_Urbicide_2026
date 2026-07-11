@@ -40,14 +40,14 @@
 
 | Metric | Value |
 |---|---|
-| Raw artifact files (excl. `.meta.json` sidecars) | **1,060,106** |
+| Raw artifact files (excl. `.meta.json` sidecars) | **1,060,751** |
 | Disk size | **98G** |
 
 Note the gap between this and `source_document` above: the raw store is append-only and holds *everything ever captured*; `source_document` is the subset formally loaded into Postgres with a chain-of-custody link. Historical figures like "39,061 raw artifacts" or "211,900 registered artifacts" in older docs were accurate at an earlier snapshot — they are not current and should be replaced with the figures above on next revision of those docs.
 
 ## Occupation court layer (district + appellate + cassation)
 
-**Mariupol, bezkhoz-confirmed cases only** (the authoritative rate — supersedes the legacy Case Study IV exhibit figure of 82.2%/2,666, which predates the full-population crawl and is not reproducible from any script in this repo):
+**Mariupol, bezkhoz-confirmed cases only** (the authoritative rate — supersedes the legacy court-docket exhibit (MUP-CS-007) figure of 82.2%/2,666, which predates the full-population crawl and is not reproducible from any script in this repo):
 
 - Total: 2,694 · decided: 2,684 · granted: 2,248 · **grant rate: 83.8%**
 - Rest of DNR: total 5,577 · decided 5,414 · granted 4,804 · grant rate **88.7%**

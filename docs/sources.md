@@ -67,7 +67,7 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **Occupation court dockets — 4 Mariupol district courts** (Жовтневый, Приморский, Орджоникидзевский, Ильичевский). 2,694 особое производство (бесхозяйная вещь) cases captured; see `docs/STATS.md` for current event counts. Portal addresses captured at time of crawl; geoblocked for direct access.
 
-**DNR "Supreme Court" case 33-2575/2025** (13.11.2025, reporting judge Гуридова Н.Н.) — appellate ruling upholding denial of the 60-resident Troianda-M / Metallurgov 47 collective claim; also cited re: DNR State-Committee Directive No. 56 in Case Study III (Stroiteley). Captured `scripts/223` (run from user's VPS, geoblocked portal).
+**DNR "Supreme Court" case 33-2575/2025** (13.11.2025, reporting judge Гуридова Н.Н.) — appellate ruling upholding denial of the 60-resident Troianda-M / Metallurgov 47 collective claim; also cited re: DNR State-Committee Directive No. 56 in the Stroiteley case study (MUP-CS-006). Captured `scripts/223` (run from user's VPS, geoblocked portal).
   - <https://vs--dnr.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=doc&number=2122362&delo_id=5&new=5&text_number=1>
 
 **DNR Law 66-РЗ** and related ФКЗ-4 framework instruments — enabling legislation for the ownerless-property pipeline. Full texts in `data/raw/pravo_region80/`.
@@ -93,11 +93,11 @@ All sources used across the project's research: burial sites catalogue, case stu
 - October 2023: Starokrymske cemetery expansion.
 
 **zona.media (Медиазона)** — independent Russian news.
-- «Карта разрушений. Как оккупированный Мариуполь сносят и отстраивают заново» (Alla Konstantinova, 29 January 2024) — resident (Oksana) testimony on fleeing 16.03.2022, occupation authorities inspecting/servicing her vacant flat, and being denied re-entry at the Ivangorod border crossing in Nov. 2023 ("нежелательный контакт"); Aleksandr Borman (orphan housing-queue beneficiary, 29 Героическая) denied reinstatement, told the lot was "приобретен под частную застройку"; Oct. 2022 mobile-housing-fund decree (30-day documentation deadline) and Oct. 2023 inventory procedure; demolition count 321/407 houses (Mar. 2023), 1,829 objects flagged for repair; RKS-Development resale pricing at Дом с часами (~150,000 RUB/m²; 1-bed 5M RUB, 2-bed 8.5M RUB), RKS-Development spokesperson on record disclaiming any compensation role; construction-labor testimony (Mikhail, Novosibirsk migrant worker, "Дружба" hotel-to-dormitory conversion) and the Ivan Orynchuk/«ТехнСтрой» award-then-embezzlement-arrest episode. Independent (non-occupation-aligned) corroboration of demolition-count and resale-pricing figures previously sourced only from occupation channels/developer sites. Captured `scripts/286`; Borman and RKS-Development pull-quotes added to Case Study III (Stroiteley), 2026-07-08.
+- «Карта разрушений. Как оккупированный Мариуполь сносят и отстраивают заново» (Alla Konstantinova, 29 January 2024) — resident (Oksana) testimony on fleeing 16.03.2022, occupation authorities inspecting/servicing her vacant flat, and being denied re-entry at the Ivangorod border crossing in Nov. 2023 ("нежелательный контакт"); Aleksandr Borman (orphan housing-queue beneficiary, 29 Героическая) denied reinstatement, told the lot was "приобретен под частную застройку"; Oct. 2022 mobile-housing-fund decree (30-day documentation deadline) and Oct. 2023 inventory procedure; demolition count 321/407 houses (Mar. 2023), 1,829 objects flagged for repair; RKS-Development resale pricing at Дом с часами (~150,000 RUB/m²; 1-bed 5M RUB, 2-bed 8.5M RUB), RKS-Development spokesperson on record disclaiming any compensation role; construction-labor testimony (Mikhail, Novosibirsk migrant worker, "Дружба" hotel-to-dormitory conversion) and the Ivan Orynchuk/«ТехнСтрой» award-then-embezzlement-arrest episode. Independent (non-occupation-aligned) corroboration of demolition-count and resale-pricing figures previously sourced only from occupation channels/developer sites. Captured `scripts/286`; Borman and RKS-Development pull-quotes added to the Stroiteley case study (MUP-CS-006), 2026-07-08.
   - <https://zona.media/article/2024/01/29/mariupol>
 
 **Novaya Gazeta Europe** — used for context on occupation administration.
-- «Доступное захваченное жильё» (22 February 2024) — resident denied compensation after her building was demolished and the lot bought by a private developer. Cited in Case Study III (Stroiteley); captured `scripts/222`. Also cited in the Nevsky microdistrict case study (VSK/Olimpsitistroy/Ivanov chain; социальный-наём allocation).
+- «Доступное захваченное жильё» (22 February 2024) — resident denied compensation after her building was demolished and the lot bought by a private developer. Cited in the Stroiteley case study (MUP-CS-006); captured `scripts/222`. Also cited in the Nevsky microdistrict case study (VSK/Olimpsitistroy/Ivanov chain; социальный-наём allocation).
   - <https://novayagazeta.eu/articles/2024/02/22/dostupnoe-zakhvachennoe-zhile>
 
 **Dossier Center (dossier.center)** — «Мариупольский бенефициар»: Timur Ivanov / ООО «Олимпситистрой» as the actual builder of ЖК/МКР «Невский» beneath the MoD's VSK. Cited in the Nevsky microdistrict case study.
@@ -114,7 +114,7 @@ All sources used across the project's research: burial sites catalogue, case stu
 ## 3. Ukrainian and International Journalism
 
 **Associated Press / AP Special Projects** — anchor for citywide burial scale.
-- "Russia scrubs Mariupol's Ukraine identity, builds on death" (Michael Biesecker et al., December 2022). ~10,300 new graves; Starokrymske cemetery satellite analysis; "building upon a city of death" framing; Erashova family case. Cited in Case Study III (Stroiteley); captured `scripts/222`.
+- "Russia scrubs Mariupol's Ukraine identity, builds on death" (Michael Biesecker et al., December 2022). ~10,300 new graves; Starokrymske cemetery satellite analysis; "building upon a city of death" framing; Erashova family case. Cited in the Stroiteley case study (MUP-CS-006); captured `scripts/222`.
   - <https://apnews.com/article/russia-ukraine-war-erasing-mariupol-499dceae43ed77f2ebfe750ea99b9ad9> (verified 2026-06-30; the previously listed `.../russia-ukraine-war-mariupol-graves` slug now 404s — link rot, replaced)
 - AP/Planet Labs satellite imagery of cemetery expansion.
 
@@ -231,7 +231,7 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 ## 6. Civil Society and OSINT Documentation
 
-**mariupolRIP Telegram channel** ("Погибшие и Пропавшие, Мариуполь") — civilian documentation of deaths and burials street by street, 2022. Street-by-street records used for courtyard grave corroboration. Channel root captured `scripts/222`; cited generically (no message-level link pinned down) for the Stroiteley 74–88 burial records in Case Study III.
+**mariupolRIP Telegram channel** ("Погибшие и Пропавшие, Мариуполь") — civilian documentation of deaths and burials street by street, 2022. Street-by-street records used for courtyard grave corroboration. Channel root captured `scripts/222`; cited generically (no message-level link pinned down) for the Stroiteley 74–88 burial records in the Stroiteley case study (MUP-CS-006).
   - <https://t.me/mariupolRIP>
   - Example: post 19765 (пр. Будівельників 138 burial record).
   - <https://t.me/mariupolRIP/19765>
@@ -251,7 +251,7 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **Donetsk Regional State Administration memorial (dn.gov.ua)** — victim memorial database; used for named courtyard burials (e.g. Сергій Калина, Андрій Галушко, Марія Паскаль at пр. Металургів).
 
-**Bellingcat** — Mariupol property registration documentation, including "[RENAMED · per Bellingcat — underlying Mariupol decree not yet captured]" for Case Study II.
+**Bellingcat** — Mariupol property registration documentation, including "[RENAMED · per Bellingcat — underlying Mariupol decree not yet captured]" for the registry-to-resale case study (MUP-CS-004).
   - <https://www.bellingcat.com>
 
 **OSINT4Ukraine / Project Mariupol** (Hague-based, 70+ analysts) — collaborating organisation; no specific article cited, general corroboration.
@@ -280,7 +280,7 @@ All sources used across the project's research: burial sites catalogue, case stu
 **pastvu.com** — archival street photography (e.g. проспект Нахимова 82, 1991–92), cited in the Nakhimova 82 exhibit's before/after chips.
   - <https://pastvu.com/p/948634>
 
-**Yandex Maps / Panorama** — 2012 street-level imagery of pre-destruction buildings, cited in Case Study III.
+**Yandex Maps / Panorama** — 2012 street-level imagery of pre-destruction buildings, cited in the Stroiteley case study (MUP-CS-006).
   - <https://yandex.com/maps>
 
 ---
@@ -433,9 +433,9 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **base.garant.ru** — mirrored occupation decree texts (ГКО №56, №172).
 
-**ЕГРЮЛ / egrul.nalog.ru** — Russian legal-entity register; INN/OGRN lookups for developer SPVs (СЗ-1 ПОРФИР ИНН 9310009271; ООО «РКС-НР»; МК ГРУПП; and others). **Open gap (2026-06-30):** no working rusprofile/checko/EGRUL deep-link for СЗ-1 ПОРФИР found from this environment (rusprofile search 404s); Case Study III's citation of this entity is unlinked pending a verified URL.
+**ЕГРЮЛ / egrul.nalog.ru** — Russian legal-entity register; INN/OGRN lookups for developer SPVs (СЗ-1 ПОРФИР ИНН 9310009271; ООО «РКС-НР»; МК ГРУПП; and others). **Open gap (2026-06-30):** no working rusprofile/checko/EGRUL deep-link for СЗ-1 ПОРФИР found from this environment (rusprofile search 404s); the Stroiteley case study's citation of this entity is unlinked pending a verified URL.
 
-**наш.дом.рф object records 65280, 69427, 69749, 69751, 70142, 70147** (Резиденция Селект / Резиденция II, проспект Строителей 74–88) — **open gap (2026-06-30):** the portal's per-object pages/API return HTTP 403 (WAF block) from this environment; only the registry root (<https://наш.дом.рф>) is linked in Case Study III pending a working per-object URL.
+**наш.дом.рф object records 65280, 69427, 69749, 69751, 70142, 70147** (Резиденция Селект / Резиденция II, проспект Строителей 74–88) — **open gap (2026-06-30):** the portal's per-object pages/API return HTTP 403 (WAF block) from this environment; only the registry root (<https://наш.дом.рф>) is linked in the Stroiteley case study pending a working per-object URL.
 
 **наш.дом.рф object 54284** («Дом на Нахимова» / Chernomorsky 1B) — resolves directly with a browser user-agent (unlike the 403-blocked objects above): <https://xn--80az8a.xn--d1aqf.xn--p1ai/сервисы/каталог-новостроек/объект/54284>. Live sold-out % and marketing renders. Cited in Exhibit A (Nakhimova 82).
 

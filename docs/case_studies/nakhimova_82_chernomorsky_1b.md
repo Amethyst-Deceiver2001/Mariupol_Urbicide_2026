@@ -1,5 +1,7 @@
 # Case Study — prosp. Nakhimova 82 → per. Chernomorsky 1B
 
+**Accession:** MUP-CS-001 · Modality M1 — demolition & address-laundering · [REGISTRY.md](REGISTRY.md)
+
 **The complete demolish→rebuild→resell lifecycle of a single Mariupol building,
 documented end-to-end from the Russian occupation's own records.**
 

@@ -82,7 +82,7 @@ def main() -> None:
         legal_grade, court_islands, no_source = (int(x) for x in m.groups())
 
     # district bezkhoz Mariupol grant rate (bezkhoz-filtered, the authoritative
-    # rate -- NOT the legacy Case Study IV exhibit's 82.2%/2,666, which predates
+    # rate -- NOT the legacy court-docket exhibit (MUP-CS-007)'s 82.2%/2,666, which predates
     # the full-population crawl and isn't reproducible from any script in the repo)
     import json as J
     mariupol_rate = None
@@ -167,7 +167,7 @@ def main() -> None:
     A("")
     if mariupol_rate:
         A(f"**Mariupol, bezkhoz-confirmed cases only** (the authoritative rate — "
-          f"supersedes the legacy Case Study IV exhibit figure of 82.2%/2,666, "
+          f"supersedes the legacy court-docket exhibit (MUP-CS-007) figure of 82.2%/2,666, "
           f"which predates the full-population crawl and is not reproducible "
           f"from any script in this repo):")
         A("")
