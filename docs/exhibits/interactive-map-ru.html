@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Интерактивная карта — проект «Урбицид Мариуполя»</title>
+<title>Проект «Как убивают Мариуполь» - интерактивная карта</title>
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
-<meta name="description" content="Интерактивная карта задокументированных изъятий недвижимости в оккупированном Мариуполе — жилой и нежилой фонд, сносы, земельные наделы застройщикам и новостройки — на фоне полного геокодированного доказательного массива.">
-<meta property="og:title" content="Интерактивная карта — проект «Урбицид Мариуполя»">
-<meta property="og:description" content="Интерактивная карта задокументированных изъятий недвижимости в оккупированном Мариуполе — жилой и нежилой фонд, сносы, земельные наделы застройщикам и новостройки.">
+<meta name="description" content="Интерактивная карта оккупированного Мариуполя: конфискации жилого и нежилого фонда, сносы, новостройки">
+<meta property="og:title" content="Проект «Как убивают Мариуполь» - интерактивная карта">
+<meta property="og:description" content="Интерактивная карта оккупированного Мариуполя: конфискации жилого и нежилого фонда, сносы, новостройки на могилах">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/interactive-map-ru.html">
 <meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Интерактивная карта — проект «Урбицид Мариуполя»">
-<meta name="twitter:description" content="Интерактивная карта задокументированных изъятий недвижимости в оккупированном Мариуполе.">
+<meta name="twitter:title" content="Проект «Как убивают Мариуполь» - интерактивная карта">
+<meta name="twitter:description" content="Интерактивная карта оккупированного Мариуполя: конфискации жилого и нежилого фонда, сносы, новостройки на могилах">
 <meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
@@ -120,28 +120,26 @@
 <body>
 
 <div class="exhibit-bar">
-  <span>Интерактивная карта &middot; <b>изъятия недвижимости</b></span>
+  <span>Интерактивная карта &middot; <b>разграбление оккупированного Мариуполя</b></span>
   <span><a href="../index.html">&larr; на главную</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier-ru.html">основное досье</a>
     &nbsp;&middot;&nbsp; <a href="dispossession-pipeline-ru.html">конвейер</a> &nbsp;&middot;&nbsp; <a href="sources.html">источники</a>
     &nbsp;&middot;&nbsp; <a href="interactive-map.html">English version</a></span>
-  <span class="cust">За каждой точкой — заархивированная запись первоисточника</span>
+  <span class="cust">Каждая точка на карте — это строка данных из заархивированного первоисточника</span>
 </div>
 
 <div class="head">
-  <p class="eyebrow">Геопространственно &middot; оккупированный Мариуполь</p>
-  <h1>Изъятие — на местности.</h1>
-  <p>Жилая и нежилая недвижимость, которую оккупация провела через свой конвейер: признана «бесхозной», снесена,
-    земля передана застройщикам, отстроена заново и перепродана — нанесена на карту поверх полного геокодированного
-    доказательного массива проекта. Слои переключаются справа; клик по любой точке открывает запись, источники и
-    ссылку на полный экспонат, где он есть.</p>
-  <p class="fine"><b>На карте — только геокодированные, доказательно подтверждённые объекты.</b> Каждая точка несёт в
-    описании свой уровень достоверности: доказательный (&ge;0,80), требует проверки или неоцененное подтверждение.
-    <b>Контуры</b> земельных участков показаны там, где есть кадастровый полигон или описание квартала по улицам; всё
-    остальное — точка. Ничего не скрыто — перед цитированием откройте описание точки.</p>
+  <p class="eyebrow">Геопространственный анализ оккупированного Мариуполя</p>
+  <h1>Как разграбление Мариуполя выглядит на местности.</h1>
+  <p>Жилая и нежилая недвижимость, которую оккупационные власти прогнали через свой конвейер: назвали «бесхозной», снесли,
+    землю передали застройщикам, а квартиры продали. Слои переключаются справа; клик по любой точке открывает запись, источники и
+    ссылку на полный кейс с подробным описанием, если такой уже есть.</p>
+  <p class="fine"><b>На карте — только геокодированные и подтверждённые объекты.</b> У каждой точки в описании уровень проверки: доказан через несколько источников (не менее &ge;0,80), требует проверки или непроверенный.
+    <b>Контуры</b> земельных участков показаны там, где есть описание границ участка; 
+    остальные отображаются как точка по примерному центру участка.</p>
 </div>
 
 <div class="map-shell">
-  <div id="map" role="img" aria-label="Интерактивная карта изъятий недвижимости в Мариуполе."></div>
+  <div id="map" role="img" aria-label="Интерактивная карта конфискаций и сносов недвижимости в Мариуполе."></div>
   <div class="ctrl ctrl-toggle" id="panel-toggle">Слои и подложка ▾</div>
   <div class="ctrl panel" id="panel">
     <h3>Подложка</h3>
@@ -151,7 +149,7 @@
 
     <h3>Поиск по адресу</h3>
     <input class="search" id="search" type="text" placeholder="улица или название…" autocomplete="off">
-    <p class="search-hint" id="search-hint">Фильтрует загруженные точки; Enter — перелёт к первому совпадению.</p>
+    <p class="search-hint" id="search-hint">Фильтрует загруженные точки по адресу; Enter — переход к первому совпадению.</p>
 
     <h3>Слои изъятий</h3>
     <div id="layer-list"></div>
@@ -200,7 +198,7 @@
   function verifBadge(p){
     if(p.verif==='verified'||p.verif==='claim_grade') return '<p class="pop-src" style="color:#5b8fc9">Доказательный уровень &middot; достоверность '+(p.confidence!=null?Number(p.confidence).toFixed(2):'')+'</p>';
     if(p.verif==='pending_verification') return '<p class="pop-src" style="color:var(--evidence)">Требует проверки — '+esc(p.verif_note||'')+'</p>';
-    if(p.verif==='unscored') return '<p class="pop-src" style="color:var(--stamp)">Неоцененное подтверждение — '+esc(p.verif_note||'')+'</p>';
+    if(p.verif==='unscored') return '<p class="pop-src" style="color:var(--stamp)">Без проверки — '+esc(p.verif_note||'')+'</p>';
     return '';
   }
   function searchText(p){
@@ -211,7 +209,7 @@
     var r='';
     if(p.stage) r+='<p class="pop-body"><b>'+esc(p.stage)+'</b>'+(p.date?' &middot; '+esc(p.date):'')+'</p>';
     if(p.basis) r+='<p class="pop-src">'+esc(p.basis)+'</p>';
-    if(p.tier==='corroboration') r+='<p class="pop-src" style="opacity:.75">Независимое подтверждение, не датированное распоряжение.</p>';
+    if(p.tier==='corroboration') r+='<p class="pop-src" style="opacity:.75">Подтверждение через несколько источников, но датированного документа нет.</p>';
     else if(p.tier==='category_only') r+='<p class="pop-src">Отнесено к категории реституции (RD4U); датированного события пока нет.</p>';
     if(p.dmg_note){ var dc=p.dmg_agree===true?'#5b8fc9':(p.dmg_agree===false?'var(--evidence)':'var(--muted)'); r+='<p class="pop-src" style="color:'+dc+'">'+esc(p.dmg_note)+'</p>'; }
     r+=verifBadge(p);
@@ -226,13 +224,13 @@
     return h+verifBadge(p);
   }
   function popNonresOwn(p){
-    var kick=p.premises==='industrial'?'Промплощадка — «признаки бесхозности»':'Коммерческое помещение — «признаки бесхозности»';
+    var kick=p.premises==='industrial'?'Промышленный объект — «признаки бесхозности»':'Торговое помещение — «признаки бесхозности»';
     var h='<p class="pop-kicker">'+kick+'</p>'+addressBlock(p);
     if(p.count) h+='<p class="pop-body"><b>'+p.count+'</b> '+(p.count>1?'объектов отмечено':'объект отмечен')+(p.district?' &middot; '+esc(p.district):'')+'</p>';
     if(p.types) h+='<p class="pop-src">'+esc(p.types)+'</p>';
     if(p.area_ha) h+='<p class="pop-src">Площадь участка: '+p.area_ha+' га</p>';
     if(p.cadastral) h+='<p class="pop-src">Кадастр: '+esc(p.cadastral)+'</p>';
-    h+='<p class="pop-src" style="opacity:.75">Нежилой бесхозный трек Минстроя ДНР (scripts/290).</p>';
+    h+='<p class="pop-src" style="opacity:.75">Реестр нежилых помещений Минстроя ДНР (scripts/290).</p>';
     return h;
   }
   function popNonresDemo(p){
@@ -258,21 +256,15 @@
       (p.dev?'<p class="pop-body">Застройщик: <b>'+esc(p.dev)+'</b></p>':'')+
       (p.flats?'<p class="pop-src">'+p.flats+' квартир &middot; '+(p.living_sqm?Math.round(p.living_sqm).toLocaleString('ru-RU')+' м² жилой':'')+'</p>':'')+
       (p.commissioned?'<p class="pop-src">Введён в эксплуатацию: '+esc(p.commissioned)+'</p>':'')+
-      (p.decree?'<p class="pop-src">Земельное распоряжение № '+esc(p.decree)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'');
+      (p.decree?'<p class="pop-src">Распоряжение о передаче участка № '+esc(p.decree)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'');
   }
   function popBlock(p){
     return '<p class="pop-kicker">Квартал под наделом (приблизительный контур)</p>'+
       (p.beneficiary_name?'<p class="pop-title">'+esc(p.beneficiary_name)+'</p>':'')+
       (p.decree_number?'<p class="pop-src">Распоряжение № '+esc(p.decree_number)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'')+
       (p.boundary_streets?'<p class="pop-body">Границы: '+esc([].concat(p.boundary_streets).join(', '))+'</p>':'')+
-      '<p class="pop-src" style="color:var(--evidence)">Приблизительный контур по геометрии улиц OSM — только для ориентировки, не кадастрово точен.</p>';
+      '<p class="pop-src" style="color:var(--evidence)">Приблизительный контур по геометрии улиц OSM — только для ориентировки, с точными кадастровыми границами не совпадает.</p>';
   }
-  function popCadastral(p){
-    return '<p class="pop-kicker">Кадастровый участок (точная граница)</p>'+
-      '<p class="pop-title">'+esc(p.cadastral_no)+'</p>'+
-      '<p class="pop-src">Полигон ЕГРН по данным Публичной кадастровой карты Росреестра.</p>';
-  }
-
   var STAMP='#c79a44', MUTED='#868d97';
   function circle(color,r,w){ return function(ll){ return L.circleMarker(ll,{radius:r||6,color:'#0c0e11',weight:w||1.2,fillColor:color,fillOpacity:.9}); }; }
   function diamond(color,r){ return function(ll){ return L.marker(ll,{icon:L.divIcon({className:'',iconSize:[r*2,r*2],
@@ -283,7 +275,7 @@
      sw:'dot', color:STAMP, def:true, make:circle(STAMP,8,1.4), pop:function(p){
         return '<p class="pop-kicker">'+esc(p.case||'')+'</p><p class="pop-title">'+esc(p.name)+'</p>'+
           '<p class="pop-body">'+esc(p.summary)+'</p><p class="pop-src">'+esc(p.source)+' &middot; достоверность: '+esc(p.confidence)+'</p>'+
-          (p.href?'<a class="pop-link" href="'+esc(p.href)+'">Открыть полный экспонат &rarr;</a>':''); }},
+          (p.href?'<a class="pop-link" href="'+esc(p.href)+'">Открыть полный кейс &rarr;</a>':''); }},
     {id:'nonres_own', label:'Коммерческие «бесхозные»', file:'nonresidential_ownerless.geojson', group:'seizure',
      sw:'dot', color:'var(--c-commercial)', def:true, cluster:true, make:function(ll,p){
         return circle(p&&p.premises==='industrial'?'#a678d6':'#3fa7a0',6,1.1)(ll); }, pop:popNonresOwn},
@@ -300,8 +292,6 @@
      sw:'dot', color:MUTED, def:false, cluster:true, make:circle(MUTED,3,.5), pop:popSpine},
     {id:'blocks', label:'Контуры кварталов под наделами', file:'land_grant_blocks.geojson', group:'context',
      sw:'poly', color:'var(--c-land)', def:true, polygon:{color:'#5b8fc9',weight:2,fillOpacity:.1,dashArray:'4 3'}, pop:popBlock},
-    {id:'cadastral', label:'Кадастровые границы участков', file:'cadastral_parcels.geojson', group:'context',
-     sw:'poly', color:'var(--c-industrial)', def:true, polygon:{color:'#a678d6',weight:2,fillOpacity:.14}, pop:popCadastral},
     {id:'hromada', label:'Граница Мариупольской громады', file:'hromada_boundary.geojson', group:'context',
      sw:'poly', color:'var(--muted)', def:false, polygon:{color:'#868d97',weight:1.5,fill:false,dashArray:'2 5'}, pop:null}
   ];
@@ -336,7 +326,7 @@
       });
       registry[cfg.id]={cfg:cfg, group:grp, rebuilt:rebuiltGrp, count:count, rebuiltCount:rebuiltCount};
       if(cfg.def) grp.addTo(map);
-      if(cfg.split && rebuiltGrp) rebuiltGrp.addTo(map);
+      if(cfg.def && cfg.split && rebuiltGrp) rebuiltGrp.addTo(map); // тот же дефолт, что у родительского слоя
       return registry[cfg.id];
     }).catch(function(){
       registry[cfg.id]={cfg:cfg, group:null, count:null};
@@ -361,7 +351,7 @@
       var html=rowHtml(cfg, rec);
       if(cfg.group==='context') contextHtml+=html; else seizureHtml+=html;
       if(cfg.split && rec && rec.count!==null){
-        seizureHtml+='<label class="row"><input type="checkbox" id="tg-demo_rebuilt" checked>'+
+        seizureHtml+='<label class="row"><input type="checkbox" id="tg-demo_rebuilt"'+(cfg.def?' checked':'')+'>'+
           '<span class="sw dia" style="background:var(--evidence)"></span><span>— из них отстроено заново</span>'+
           '<span class="cnt">'+rec.rebuiltCount+'</span></label>';
       }
@@ -408,20 +398,26 @@
   });
 
   document.getElementById('foot').innerHTML =
+    '<p><b>Карта пока не исчерпывающая.</b> Показаны только адреса, геокодированные с наивысшей достоверностью, и находящиеся <b>в границах довоенного города Мариуполя</b>. Намеренно не показаны две категории: '+
+    'кандидаты с низкой достоверностью геокодирования, ещё ожидающие ручной проверки координат, и посёлки-спутники '+
+    '(Сартана, Талаковка, Гнутово, Ломакино, Калиновка, Старый Крым), которые муниципальная реформа оккупационной '+
+    'администрации от 06.04.2023 административно включила в тот же «городской округ Мариуполь», но которые лежат за '+
+    'границами собственно города и пока не проверены до сопоставимого уровня. Оба массива будут добавлены после '+
+    'проверки — их отсутствие здесь означает пробел в покрытии, а не то, что там ничего не изымали и не сносили.</p>'+
     '<p><b>Что вы видите.</b> Каждая точка соответствует записи доказательного массива проекта в PostgreSQL '+
-    '(с заархивированной цепочкой хранения) либо названному разобранному источнику. Жилые и нежилые изъятия делят один '+
+    '(с заархивированной цепочкой хранения) либо опубликованному досье. Жилые и нежилые изъятия делят один '+
     'адресный массив зданий; магазин, признанный «бесхозным» внутри жилого дома, записан на это здание, а его '+
     'коммерческий характер — в самой записи о событии. <b>Покрытие нежилого фонда растёт по мере геокодирования</b> — '+
     'многие коммерческие/промышленные адреса ещё не геокодированы, поэтому показанные цифры — нижняя граница, а не все '+
     '1&nbsp;277 объектов в базе.</p>'+
-    '<p><b>Контуры участков против точек.</b> Надел, описанный как квартал «в границах улиц X, Y, Z», показан '+
+    '<p><b>Контуры участков против точек.</b> Участок под застройку, описанный как квартал «в границах улиц X, Y, Z», показан '+
     'приблизительным контуром по геометрии улиц OpenStreetMap (пунктир) — только для ориентировки, не кадастрово точно. '+
-    'Там, где есть кадастровый номер, точная граница ЕГРН взята из Публичной кадастровой карты Росреестра. Надел, '+
-    'показанный лишь точкой с низкой достоверностью, пока не имеет ни того, ни другого.</p>'+
+    'Точные границы ЕГРН получить не удалось: федеральный кадастр Росреестра (Национальная система пространственных данных) вообще не содержит участков '+
+    '«новых регионов» (аннексированных территорий Украины, кроме Крыма), поэтому ни один кадастровый номер из имеющихся в открытых источниках (например, в распоряжениях о выделении земли застройщику или опубликованных судебных решениях) при прямой проверке через '+
+    'поиск НСПД, найти не удалось. Надел, показанный лишь точкой с низкой достоверностью, не имеет и описания границ по улицам.</p>'+
     '<p><b>Топонимика.</b> Каноническим для довоенного периода считается украинское название после декоммунизации 2016 '+
-    'года; латиница строится от него, а не от русского написания. Там, где оккупация вернула улице советское название, в '+
-    'описании показаны оба, с подписями. <b>Кейс о судебном реестре точки здесь не имеет — намеренно</b>: его вывод в '+
-    'том, что в тех записях не указан ни один адрес; см. <a href="case-study-IV-court-docket-ru.html">полный экспонат</a>.</p>';
+    'года; там, где оккупанты вернули улице советское название, в '+
+    'описании показаны оба, с подписями. <b>На карте нет ни одного адреса из судебных решений об изъятии «бесхозяйного» имущества в муниципальную собственность, так как все судебные решения в системе ГАС «Правосудие» обезличены; см. <a href="case-study-IV-court-docket-ru.html">подробнее см. соответствующий раздел на сайте</a>.</p>';
 })();
 </script>
 </body>
