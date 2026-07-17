@@ -12,79 +12,23 @@ const NET_STATS = (() => {
   return { persons, orgs, relations, acts };
 })();
 
-// Language switch: the HTML shell sets window.__SN_LANG__ = "ru" before the
-// bundle loads (stakeholder-network-ru.html); default is English. One bundle
-// serves both shells so the embedded NETWORK data can never drift between
-// language versions.
-const RU = typeof window !== "undefined" && window.__SN_LANG__ === "ru";
-const L = (en, ru) => (RU ? ru : en);
-
 const TIER_META = {
-  federal:    { label: L("Federal RF", "Федеральный уровень РФ"),            short: L("Federal", "Федеральный"),     color: "#5b8fc9", order: 0 },
-  dnr:        { label: L("DNR republic", "«Республика» («ДНР»)"),            short: L("DNR", "«ДНР»"),               color: "#9b7bc9", order: 1 },
-  municipal:  { label: L("Mariupol municipal", "Муниципальный (Мариуполь)"), short: L("Municipal", "Муниципальный"), color: "#d98a3d", order: 2 },
-  judicial:   { label: L("Judicial", "Судебный"),                            short: L("Judicial", "Судебный"),       color: "#cd4f43", order: 3 },
-  commercial: { label: L("Commercial", "Коммерческий"),                      short: L("Commercial", "Коммерческий"), color: "#5aa86b", order: 4 },
-  pipeline:   { label: L("Instrument bridge", "Инструментальный мост"),      short: L("Instrument", "Инструмент"),   color: "#8a929e", order: 5 },
+  federal:    { label: "Federal RF",          short: "Federal",    color: "#5b8fc9", order: 0 },
+  dnr:        { label: "DNR republic",         short: "DNR",        color: "#9b7bc9", order: 1 },
+  municipal:  { label: "Mariupol municipal",   short: "Municipal",  color: "#d98a3d", order: 2 },
+  judicial:   { label: "Judicial",             short: "Judicial",   color: "#cd4f43", order: 3 },
+  commercial: { label: "Commercial",           short: "Commercial", color: "#5aa86b", order: 4 },
+  pipeline:   { label: "Instrument bridge",    short: "Instrument", color: "#8a929e", order: 5 },
 };
 const TIER_ORDER = ["federal", "dnr", "municipal", "judicial", "commercial"];
 
-const REL_LABEL = RU ? {
-  signed: "подписал", issued: "издал", ruled_in: "вынес решение по делу", petitioned: "подал заявление",
-  granted_land_to: "выделил землю", received_grant: "получил землю",
-  received_contract: "получил контракт", oversees: "курирует",
-  commission_member: "член комиссии", directs: "руководит",
-  subcontracted_to: "субподрядчик у", founder_of: "учредитель",
-  patron_of: "покровитель", benefited_from: "выгодоприобретатель",
-  public_statement: "публичное заявление", head_of_agency: "возглавляет ведомство",
-  executed: "исполнил", demolished: "снёс",
-} : {
+const REL_LABEL = {
   signed: "signed", issued: "issued", ruled_in: "ruled in", petitioned: "petitioned",
   granted_land_to: "granted land to", received_grant: "received grant",
   received_contract: "received contract", oversees: "oversees",
   commission_member: "commission member", directs: "directs",
   subcontracted_to: "subcontracted to", founder_of: "founder of",
   patron_of: "patron of", benefited_from: "benefited from",
-  public_statement: "public statement", head_of_agency: "heads agency",
-  executed: "executed", demolished: "demolished",
-};
-
-// Node roles / kinds are stored as English slugs in the data; the RU shell
-// renders them in Russian.
-const ROLE_RU = {
-  judge: "судья", petitioner: "заявитель", developer: "застройщик",
-  signatory_authority: "подписывающий орган", contractor: "подрядчик",
-  commission_member: "член комиссии", signing_official: "подписант",
-  director: "директор", shef_region: "регион-шеф", founder: "учредитель",
-  minister: "министр", acting_minister: "и. о. министра",
-  deputy_minister: "заместитель министра", deputy_head: "заместитель главы",
-  responsible_executor: "ответственный исполнитель", patron: "покровитель",
-  vice_premier: "вице-премьер", first_vice_premier: "первый вице-премьер",
-  former_minister: "бывший министр", head_of_agency: "глава ведомства",
-  district_head: "глава района", deputy_district_head: "заместитель главы района",
-  ceo: "гендиректор", cadastral_engineer: "кадастровый инженер",
-  demolition_contractor: "подрядчик по сносу",
-};
-const KIND_RU = { person: "человек", org: "организация", instrument_class: "класс инструментов" };
-function kindLabel(kind) { return RU ? (KIND_RU[kind] || kind) : kind; }
-function roleLabel(role) { return RU ? (ROLE_RU[role] || role) : role; }
-// Russian numeral agreement (1 связь / 2 связи / 5 связей)
-function plural(n, one, few, many) {
-  const m10 = n % 10, m100 = n % 100;
-  if (m10 === 1 && m100 !== 11) return one;
-  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
-  return many;
-}
-
-// The six instrument-bridge nodes carry English canonical names in the data;
-// the RU shell shows these instead.
-const INSTR_NAME_RU = {
-  "instr:ownerless_decree": "Распоряжения о «бесхозяйном» (ступень A)",
-  "instr:demolition_decree": "Распоряжения о сносе (ступень C)",
-  "instr:court_proceedings": "Передачи через особое производство (ступень B)",
-  "instr:dnr_land_order": "Земельные распоряжения «ДНР» (ступень D)",
-  "instr:reconstruction": "Федеральные контракты на восстановление (ступень E)",
-  "instr:dnr_normative_act": "Нормативные акты «ДНР» (каркас)",
 };
 
 // Style guide rule 1: render Cyrillic person/org names English-first via
@@ -111,7 +55,6 @@ function translit(s) {
   return out;
 }
 function enName(name) {
-  if (RU) return name; // RU shell shows the Cyrillic original directly (style guide rule 1)
   return name && /[А-Яа-яЁё]/.test(name) ? translit(name) : name;
 }
 // Researched full names (given name + patronymic), per STYLE_GUIDE.md rule 5 —
@@ -126,9 +69,7 @@ const DISPLAY_NAME_OVERRIDES = {
 };
 function nodeEnName(node) {
   if (!node) return undefined;
-  if (RU && INSTR_NAME_RU[node.node_id]) return INSTR_NAME_RU[node.node_id];
   const ov = DISPLAY_NAME_OVERRIDES[node.node_id];
-  if (RU) return ov ? ov.fio : node.canonical_name;
   return ov ? ov.en : enName(node.canonical_name);
 }
 function nodeTitle(node) {
@@ -138,11 +79,11 @@ function nodeTitle(node) {
 }
 
 const ROME_MODES = {
-  none:          { label: L("Off", "Выкл"),                                                 color: "#868d97" },
-  command:       { label: L("Command resp. 28 / 25(3)(b)", "Командная отв. 28 / 25(3)(b)"), color: "#d98a3d" },
-  appropriation: { label: L("Appropriation 8(2)(a)(iv)", "Присвоение 8(2)(a)(iv)"),         color: "#cd4f43" },
-  population:    { label: L("Population transfer 8(2)(b)(viii)", "Перемещение населения 8(2)(b)(viii)"), color: "#9b7bc9" },
-  aiding:        { label: L("Aiding/abetting 25(3)(c)", "Пособничество 25(3)(c)"),          color: "#5aa86b" },
+  none:          { label: "Off",                          color: "#868d97" },
+  command:       { label: "Command resp. 28 / 25(3)(b)",  color: "#d98a3d" },
+  appropriation: { label: "Appropriation 8(2)(a)(iv)",    color: "#cd4f43" },
+  population:    { label: "Population transfer 8(2)(b)(viii)", color: "#9b7bc9" },
+  aiding:        { label: "Aiding/abetting 25(3)(c)",     color: "#5aa86b" },
 };
 const APPROP_INSTR = new Set(["instr:ownerless_decree", "instr:court_proceedings", "instr:dnr_land_order"]);
 
@@ -318,9 +259,9 @@ export default function StakeholderNetwork() {
   const spine = useMemo(() => {
     const find = (p) => NETWORK.nodes.find((n) => n.canonical_name.startsWith(p));
     return [
-      { n: find("Иващенко"), date: "06.04.2022", note: L("first head", "первый глава") },
-      { n: find("Моргун"), date: "23.01.2023", note: L("head", "глава") },
-      { n: find("Кольцов"), date: "13.06.2025", note: L("current (врио)", "действующий (врио)") },
+      { n: find("Иващенко"), date: "06.04.2022", note: "first head" },
+      { n: find("Моргун"), date: "23.01.2023", note: "head" },
+      { n: find("Кольцов"), date: "13.06.2025", note: "current (врио)" },
     ].filter((x) => x.n);
   }, []);
   const apex = useMemo(() => NETWORK.nodes.find((n) => n.canonical_name.startsWith("Пушилин")), []);
@@ -358,17 +299,12 @@ export default function StakeholderNetwork() {
       {/* header */}
       <div style={{ padding: "16px 20px 10px", borderBottom: `1px solid ${C.rail}` }}>
         <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase",
-          color: C.stamp, marginBottom: 8 }}>{L(
-            "Exhibit C · Forensic actor map · Council of Europe RD4U / ICC Rome Statute",
-            "Экспонат C · Форензическая карта акторов · Реестр ущерба RD4U (Совет Европы) / Римский статут (МУС)")}</div>
+          color: C.stamp, marginBottom: 8 }}>Exhibit C · Forensic actor map · Council of Europe RD4U / ICC Rome Statute</div>
         <h1 style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 800, fontSize: 22,
           letterSpacing: "-0.02em", margin: "0 0 6px", lineHeight: 1.15 }}>
-          {L("Mariupol Property-Seizure Pipeline — Stakeholder Network",
-             "Конвейер изъятия недвижимости в Мариуполе — граф связей")}</h1>
+          Mariupol Property-Seizure Pipeline — Stakeholder Network</h1>
         <div style={{ fontFamily: mono, fontSize: 12, color: C.muted }}>
-          {RU
-            ? <>{NET_STATS.persons} {plural(NET_STATS.persons, "человек", "человека", "человек")} / {NET_STATS.orgs} {plural(NET_STATS.orgs, "организация", "организации", "организаций")} / {NET_STATS.relations} {plural(NET_STATS.relations, "связь", "связи", "связей")} / ~{NET_STATS.acts.toLocaleString("ru-RU")} задокументированных актов &nbsp;·&nbsp; командный поток: вершина → «республика» → муниципалитет → суды → бизнес, через инструментальные мосты</>
-            : <>{NET_STATS.persons} persons / {NET_STATS.orgs} orgs / {NET_STATS.relations} relations / ~{NET_STATS.acts.toLocaleString("en-US")} evidenced acts &nbsp;·&nbsp; command flow apex → republic → municipal → judicial → commercial, through instrument bridges</>}
+          {NET_STATS.persons} persons / {NET_STATS.orgs} orgs / {NET_STATS.relations} relations / ~{NET_STATS.acts.toLocaleString("en-US")} evidenced acts &nbsp;·&nbsp; command flow apex → republic → municipal → judicial → commercial, through instrument bridges
         </div>
       </div>
 
@@ -376,7 +312,7 @@ export default function StakeholderNetwork() {
       <div style={{ display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center",
         padding: "10px 20px", borderBottom: `1px solid ${C.rail}`, background: C.bg2 }}>
         <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-          <span style={{ fontFamily: mono, fontSize: 9.5, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }}>{L("Tiers", "Уровни")}</span>
+          <span style={{ fontFamily: mono, fontSize: 9.5, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }}>Tiers</span>
           {TIER_ORDER.map((t) => {
             const on = !hiddenTiers.has(t);
             return <button key={t} onClick={() => toggleTier(t)} style={{ fontFamily: mono, fontSize: 11,
@@ -388,7 +324,7 @@ export default function StakeholderNetwork() {
           })}
         </div>
         <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-          <span style={{ fontFamily: mono, fontSize: 9.5, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }}>{L("Rome overlay", "Оверлей Римского статута")}</span>
+          <span style={{ fontFamily: mono, fontSize: 9.5, letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }}>Rome overlay</span>
           {Object.keys(ROME_MODES).map((m) => {
             const on = rome === m;
             return <button key={m} onClick={() => setRome(m)} style={{ fontFamily: mono, fontSize: 11,
@@ -401,7 +337,7 @@ export default function StakeholderNetwork() {
         <div style={{ marginLeft: "auto", display: "flex", gap: 6 }}>
           <button onClick={() => zoom(1.2)} style={zbtn(C, mono)}>+</button>
           <button onClick={() => zoom(0.83)} style={zbtn(C, mono)}>−</button>
-          <button onClick={() => { setFitted(false); setSelected(null); }} style={zbtn(C, mono)}>{L("reset", "сброс")}</button>
+          <button onClick={() => { setFitted(false); setSelected(null); }} style={zbtn(C, mono)}>reset</button>
         </div>
       </div>
 
@@ -431,7 +367,7 @@ export default function StakeholderNetwork() {
               ))}
               {/* instrument column label */}
               <text x={layout.pos["instr:ownerless_decree"]?.x - 30} y={16} fill={C.muted}
-                fontFamily={mono} fontSize={11} fontWeight="700" letterSpacing="0.1em">{L("INSTRUMENT BRIDGES", "ИНСТРУМЕНТЫ")}</text>
+                fontFamily={mono} fontSize={11} fontWeight="700" letterSpacing="0.1em">INSTRUMENT BRIDGES</text>
               {/* edges */}
               <g>{NETWORK.edges.map((e, i) => renderEdge(e, i))}</g>
               {/* nodes */}
@@ -476,7 +412,7 @@ export default function StakeholderNetwork() {
           <div style={{ position: "absolute", left: 12, bottom: 12, background: "rgba(12,14,17,0.86)",
             border: `1px solid ${C.rail}`, borderRadius: 4, padding: "8px 10px", fontFamily: mono, fontSize: 10,
             color: C.dim, display: "flex", flexDirection: "column", gap: 4, backdropFilter: "blur(4px)" }}>
-            <div style={{ color: C.muted, letterSpacing: "0.12em" }}>{L("NODE SIZE ∝ EVIDENCED ACTS", "РАЗМЕР УЗЛА ∝ ЧИСЛО АКТОВ")}</div>
+            <div style={{ color: C.muted, letterSpacing: "0.12em" }}>NODE SIZE ∝ EVIDENCED ACTS</div>
             <div style={{ display: "flex", gap: 9, flexWrap: "wrap", maxWidth: 220 }}>
               {TIER_ORDER.map((t) => (
                 <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
@@ -484,7 +420,7 @@ export default function StakeholderNetwork() {
                   {TIER_META[t].short}</span>
               ))}
               <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
-                <span style={{ width: 10, height: 7, background: C.bg3, border: `1px solid ${C.muted}` }} />{L("Instrument", "Инструмент")}</span>
+                <span style={{ width: 10, height: 7, background: C.bg3, border: `1px solid ${C.muted}` }} />Instrument</span>
             </div>
           </div>
         </div>
@@ -494,10 +430,8 @@ export default function StakeholderNetwork() {
           overflowY: "auto", maxHeight: 620 }}>
           {!sel ? (
             <div style={{ padding: 18, fontFamily: mono, fontSize: 12, color: C.muted, lineHeight: 1.7 }}>
-              {L("Click any node to inspect its role, evidence base, counts, and the instrument bridges it acts through.",
-                 "Кликните по любому узлу, чтобы увидеть его роль, доказательную базу, число актов и инструментальные мосты, через которые он действует.")}
-              <br /><br />{L("Drag to pan · scroll to zoom · use the tier and Rome-overlay controls above.",
-                 "Перетаскивание — панорама · колесо — масштаб · выше — фильтры уровней и оверлей Римского статута.")}
+              Click any node to inspect its role, evidence base, counts, and the instrument bridges it acts through.
+              <br /><br />Drag to pan · scroll to zoom · use the tier and Rome-overlay controls above.
             </div>
           ) : <DetailPanel sel={sel} model={model} C={C} mono={mono} focusNode={focusNode} />}
         </div>
@@ -506,14 +440,14 @@ export default function StakeholderNetwork() {
       {/* command spine ribbon */}
       <div style={{ borderTop: `1px solid ${C.rail}`, background: C.bg2, padding: "12px 20px 16px" }}>
         <div style={{ fontFamily: mono, fontSize: 9.5, letterSpacing: "0.16em", textTransform: "uppercase",
-          color: C.muted, marginBottom: 10 }}>{L("Command-chain spine — every appointment personally signed by", "Командная вертикаль — каждое назначение лично подписал")}{" "}
-          <span title={apex ? nodeTitle(apex) : "Пушилин Денис Владимирович"}>{apex ? nodeEnName(apex) : L("Denis Pushilin", "Денис Пушилин")}</span></div>
+          color: C.muted, marginBottom: 10 }}>Command-chain spine — every appointment personally signed by{" "}
+          <span title={apex ? nodeTitle(apex) : "Пушилин Денис Владимирович"}>{apex ? nodeEnName(apex) : "Denis Pushilin"}</span></div>
         <div style={{ display: "flex", alignItems: "stretch", gap: 0, flexWrap: "wrap" }}>
           {apex && (
             <>
-              <SpineCard node={apex} date={L("Глава ДНР", "«глава ДНР»")} note={L("APEX signer", "вершина вертикали")} C={C} mono={mono}
+              <SpineCard node={apex} date="Глава ДНР" note="APEX signer" C={C} mono={mono}
                 color={TIER_META.dnr.color} onClick={() => focusNode(apex.node_id)} apex />
-              <SpineArrow C={C} label={L("appoints", "назначает")} />
+              <SpineArrow C={C} label="appoints" />
             </>
           )}
           {spine.map((s, i) => (
@@ -529,8 +463,10 @@ export default function StakeholderNetwork() {
       {/* provenance */}
       <div style={{ padding: "10px 20px 18px", borderTop: `1px solid ${C.rail}` }}>
         <div style={{ fontFamily: mono, fontSize: 10.5, color: C.muted, lineHeight: 1.7, maxWidth: 880 }}>
-          {L("Built from occupation / Russian-government records, each captured with a SHA-256 hash + UTC timestamp (Berkeley Protocol). Node size ∝ evidenced acts; counts and date ranges are drawn from the underlying decree, court, land-order and contract datasets. These acts evidence the seizure system, not valid title; Ukraine does not recognize them.",
-             "Построено по записям оккупационных и российских государственных органов; каждая сохранена с хэшем SHA-256 и меткой времени UTC (протокол Беркли). Размер узла пропорционален числу задокументированных актов; количества и диапазоны дат взяты из массивов распоряжений, судебных дел, земельных приказов и контрактов. Эти акты — доказательства системы изъятия, а не действительный титул; Украина их не признаёт.")}
+          Built from occupation / Russian-government records, each captured with a SHA-256 hash + UTC timestamp
+          (Berkeley Protocol). Node size ∝ evidenced acts; counts and date ranges are drawn from the underlying
+          decree, court, land-order and contract datasets. These acts evidence the seizure system, not valid title;
+          Ukraine does not recognize them.
         </div>
       </div>
     </div>
@@ -582,31 +518,31 @@ function DetailPanel({ sel, model, C, mono, focusNode }) {
         fontWeight: 700, marginBottom: 9 }}>{tm.label}</div>
       <div title={DISPLAY_NAME_OVERRIDES[sel.node_id] ? undefined : sel.canonical_name} style={{ fontFamily: mono, fontSize: 15, color: C.paper, fontWeight: 700, lineHeight: 1.3, marginBottom: 4 }}>
         {nodeEnName(sel)}</div>
-      {DISPLAY_NAME_OVERRIDES[sel.node_id] && nodeTitle(sel) !== nodeEnName(sel) && (
+      {DISPLAY_NAME_OVERRIDES[sel.node_id] && (
         <div style={{ fontFamily: mono, fontSize: 10.5, color: C.muted, marginBottom: 4 }}>{nodeTitle(sel)}</div>
       )}
       <div style={{ fontFamily: mono, fontSize: 11, color: C.muted, marginBottom: 12 }}>
-        {kindLabel(sel.kind)}{sel.roles && sel.roles.length ? " · " + sel.roles.map(roleLabel).join(", ") : ""}</div>
+        {sel.kind}{sel.roles && sel.roles.length ? " · " + sel.roles.join(", ") : ""}</div>
 
       <div style={{ background: C.bg3, border: `1px solid ${C.rail}`, borderRadius: 4, padding: "10px 12px", marginBottom: 12 }}>
         <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 800, fontSize: 26, color: tm.color, lineHeight: 1 }}>
-          {w.toLocaleString(RU ? "ru-RU" : "en-US")}</div>
-        <div style={{ fontFamily: mono, fontSize: 10, color: C.muted, letterSpacing: "0.1em", marginTop: 3 }}>{L("EVIDENCED ACTS (max in/out)", "ЗАДОКУМЕНТИРОВАННЫХ АКТОВ (макс. вх/исх)")}</div>
+          {w.toLocaleString()}</div>
+        <div style={{ fontFamily: mono, fontSize: 10, color: C.muted, letterSpacing: "0.1em", marginTop: 3 }}>EVIDENCED ACTS (max in/out)</div>
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 3, marginBottom: 12 }}>
-        <Row k={L("org", "орг.")} v={sel.org && enName(sel.org)} title={sel.org} />
-        <Row k={L("location", "адрес")} v={sel.location || sel.address} />
-        <Row k={L("INN", "ИНН")} v={sel.inn} />
-        <Row k={L("OGRN", "ОГРН")} v={sel.ogrn} />
-        <Row k={L("OGRN date", "дата ОГРН")} v={sel.ogrn_date} />
-        <Row k={L("status", "статус")} v={RU && sel.status === "active" ? "действует" : sel.status} />
+        <Row k="org" v={sel.org && enName(sel.org)} title={sel.org} />
+        <Row k="location" v={sel.location || sel.address} />
+        <Row k="INN" v={sel.inn} />
+        <Row k="OGRN" v={sel.ogrn} />
+        <Row k="OGRN date" v={sel.ogrn_date} />
+        <Row k="status" v={sel.status} />
       </div>
 
       {instrLinks.length > 0 && (
         <div style={{ marginBottom: 12 }}>
           <div style={{ fontFamily: mono, fontSize: 9.5, letterSpacing: "0.14em", textTransform: "uppercase",
-            color: C.stamp, marginBottom: 6 }}>{L("Instrument bridges", "Инструментальные мосты")}</div>
+            color: C.stamp, marginBottom: 6 }}>Instrument bridges</div>
           {instrLinks.map(({ e, dir }, i) => {
             const other = dir === "out" ? e.dst : e.src;
             const otherNode = model.byId[other];
@@ -619,7 +555,7 @@ function DetailPanel({ sel, model, C, mono, focusNode }) {
 
       <div>
         <div style={{ fontFamily: mono, fontSize: 9.5, letterSpacing: "0.14em", textTransform: "uppercase",
-          color: C.muted, marginBottom: 6 }}>{L("Relations", "Связи")} ({incid.length})</div>
+          color: C.muted, marginBottom: 6 }}>Relations ({incid.length})</div>
         {incid.map(({ e, dir }, i) => {
           const other = dir === "out" ? e.dst : e.src;
           const on = model.byId[other];
