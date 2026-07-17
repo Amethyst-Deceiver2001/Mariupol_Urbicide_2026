@@ -287,6 +287,24 @@ _L2_OT = re.compile(
     re.I,
 )
 
+# ALTERNATE column order, found 2026-07-17 (decree №1694 and others returning
+# 0 rows): some designation annexes put "от {basis_date}" INLINE on line 1
+# right after the basis ref number, instead of on line 2 -- reverse of
+# _L1_TWO/_L2_OT's assumption. Line 2 in this shape is then just the bare
+# street address, with no "от {date}" suffix at all:
+#   L1: "{seq}. {type} г.Мариуполь, {area} №{basis_ref} от {basis_date} {reg_date} {cadastral}"
+#   L2: "{street}, д.{house}, кв.{apt}"   (no trailing date)
+_L1_TWO_ALT = re.compile(
+    r"^[-\s]*(\d{1,4})[.\s]+\s*"
+    r"(.+?)\s+"
+    r"\S*Мариуполь,?\s*"
+    r"([\d,\.]+)\s+"
+    r"№\s*(\d+)\s+от\s+(\d{2}\.\d{2}\.\d{4})\s+"
+    r"(\d{2}\.\d{2}\.\d{4})\s+"
+    r"(93:\s?\d+:\s?\d+:\s?\d+)",
+    re.I,
+)
+
 
 def _rows_from_text(text: str, source_sha256: str) -> list[dict]:
     """Parse the 2-line-per-entry OCR text from scanned РЕЕСТР annexes.
@@ -323,6 +341,39 @@ def _rows_from_text(text: str, source_sha256: str) -> list[dict]:
             flags, conf = _row_flags(address or "", cad, area)
             # text_fallback goes in extract_strategy, not flags — extraction
             # method is not a data-quality defect.
+            out.append({
+                "source_sha256": source_sha256,
+                "seq_no": seq,
+                "property_type": prop_type,
+                "address_raw": address or "",
+                "area_sqm": area,
+                "rosreestr_order_ref": basis_ref,
+                "rosreestr_order_date": basis_date,
+                "rosreestr_reg_date": reg_date,
+                "cadastral_number": cad,
+                "flags": flags,
+                "row_confidence": round(max(0.0, conf - 0.2), 2),
+            })
+            i += 1
+            continue
+
+        m1alt = _L1_TWO_ALT.match(lines[i])
+        if m1alt:
+            seq = int(m1alt.group(1))
+            prop_type = m1alt.group(2).strip()
+            area = _coerce_area(m1alt.group(3))
+            basis_ref = m1alt.group(4)
+            basis_date = _parse_dot_date(m1alt.group(5))
+            reg_date = _parse_dot_date(m1alt.group(6))
+            cad = _clean_cadastral(m1alt.group(7))
+
+            # Line 2 in this shape is the bare street address, no trailing date.
+            address: str | None = None
+            if i + 1 < len(lines) and not _L1_TWO.match(lines[i + 1]) and not _L1_TWO_ALT.match(lines[i + 1]):
+                address = lines[i + 1].strip()
+                i += 1  # consume line 2
+
+            flags, conf = _row_flags(address or "", cad, area)
             out.append({
                 "source_sha256": source_sha256,
                 "seq_no": seq,
@@ -580,6 +631,58 @@ _REMOVAL_SINGLE_ADDR = re.compile(
 )
 _REMOVAL_SINGLE_TYPE = re.compile(r"жилое помещение|квартир\w+|дом\w*", re.I)
 
+# ── designation-decree ("признание бесхозяйным") SINGLE-PROPERTY prose ────────
+# Some designation decrees name exactly ONE property directly in the operative
+# paragraph, with no annex table at all -- e.g. decree №194/20.02.2026:
+#   "Признать объект недвижимого имущества расположенный по адресу:
+#    городской округ Мариуполь, город Мариуполь, проспект Строителей, дом 108
+#    квартира 1 (кадастровый номер 93:37:0010102:5044), принятым на
+#    кадастровый учет ... объектом бесхозяйного недвижимого имущества..."
+# Found 2026-07-17 while investigating why this decree (and similarly-shaped
+# ones) returned 0 rows: neither the line/text-cell table extraction nor
+# _rows_from_text's fallback expect a bare prose sentence -- both are tuned
+# for a multi-row annex. Mirrors _single_property_from_removal_text's
+# approach (same _STREET_TYPE_WORD word list, same "grab the nearest
+# cadastral number in the whole doc" strategy since there's only ever one).
+_DESIGNATION_SINGLE_ADDR = re.compile(
+    rf"по\s+адресу:.{{0,120}}?({_STREET_TYPE_WORD})\s+([А-ЯЁа-яё0-9№\-\s]+?),\s*"
+    # house captured as digits[+letter suffix] explicitly (not a lazy \S+?)
+    # to avoid ambiguity with the stray OCR page-number line (e.g. "2") that
+    # sometimes lands between the house and "квартира" from a page break
+    # mid-sentence (confirmed on decree №194: "дом 108\n2\nквартира 1").
+    r"дом\s+(\d+[А-ЯЁа-яё]?)\s*(?:\n\s*\d+\s*\n\s*)?(?:квартира\s+(\S+?))?[,\.\s]",
+    re.S | re.I,
+)
+
+
+def _single_property_from_designation_text(text: str, source_sha256: str) -> list[dict]:
+    m = _DESIGNATION_SINGLE_ADDR.search(text)
+    if not m:
+        return []
+    street = f"{m.group(1).strip()} {m.group(2).strip()}"
+    house = m.group(3).strip().rstrip(",")
+    apt = m.group(4).strip().rstrip(",") if m.group(4) else None
+    address = f"{street}, д.{house}" + (f", кв.{apt}" if apt else "")
+    cad = None
+    cm = _CADASTRAL.search(text)
+    if cm:
+        cad = _clean_cadastral(cm.group(0))
+    prop_type = "Квартира" if apt else None
+    flags, conf = _row_flags(address, cad, 0)  # area never given inline -> genuinely absent
+    return [{
+        "source_sha256": source_sha256,
+        "seq_no": 1,
+        "property_type": prop_type,
+        "address_raw": address,
+        "area_sqm": None,
+        "rosreestr_order_ref": None,
+        "rosreestr_order_date": None,
+        "rosreestr_reg_date": None,
+        "cadastral_number": cad,
+        "flags": flags,
+        "row_confidence": round(max(0.0, conf - 0.1), 2),  # single-record body extraction, slightly lower than annex
+    }]
+
 
 def _single_property_from_removal_text(text: str, source_sha256: str) -> list[dict]:
     m = _REMOVAL_SINGLE_ADDR.search(text)
@@ -725,6 +828,152 @@ def _rows_from_nonres_annex_text(text: str, source_sha256: str) -> list[dict]:
     return out
 
 
+# A fifth shape, found 2026-07-17 (decrees №785/633/579 -- "О включении
+# бесхозяйных объектов недвижимости в Реестр"): a NONRESIDENTIAL "ПЕРЕЧЕНЬ"
+# annex at the PRE-CADASTRAL designation stage -- single physical line per
+# record, no cadastral number and no rosreestr_order_ref column at all
+# (mirrors how residential _rows_from_registration_table_text has no
+# cadastral either, for the same reason: cadastral assignment hasn't
+# happened yet). Column order: "{seq}. |? {type} {street_word}? {proper
+# noun}, {house} {area} {date}", e.g.:
+#   "2. | нежилое здание улица Энгельса, 28 862,00 08.11.2024"
+#   "10. | нежилое здание улица 7 проезл, 5 12,00 12.11.2024"
+# Scoped to text after "ПЕРЕЧЕНЬ"/"Перечень" like _rows_from_nonres_annex_text,
+# to avoid matching addresses mentioned in the decree's preamble.
+_NONRES_DESIG_ROW_RE = re.compile(
+    rf"^\s*\d+\.?\s*\|?\s*(нежилое\s+(?:здание|помещение|строение))\s*_?\|?\s*"
+    rf"({_STREET_TYPE_WORD})\s+([А-ЯЁа-яё0-9№/\-\s]+?),\s*(\S+?)\s+"
+    r"([\d,\.]+)\s+"
+    r"(\d{2}\.\d{2}\.\d{4})\s*$",
+    re.I | re.M,
+)
+
+
+def _rows_from_nonres_designation_list(text: str, source_sha256: str) -> list[dict]:
+    heading = _ANNEX_HEADING_RE.search(text)
+    scope = text[heading.start():] if heading else text
+    out: list[dict] = []
+    seq = 0
+    for m in _NONRES_DESIG_ROW_RE.finditer(scope):
+        seq += 1
+        prop_type = m.group(1).strip()
+        street_word = m.group(2).strip()
+        proper_noun = m.group(3).strip()
+        house = m.group(4).strip().rstrip(",")
+        area = _coerce_area(m.group(5)) if m.group(5) else None
+        date = _parse_dot_date(m.group(6))
+        address = f"{street_word} {proper_noun}, {house}".strip()
+        flags, conf = _row_flags(address, None, area)  # cadastral genuinely absent at this stage
+        out.append({
+            "source_sha256": source_sha256,
+            "seq_no": seq,
+            "property_type": prop_type,
+            "address_raw": address,
+            "area_sqm": area,
+            "rosreestr_order_ref": None,
+            "rosreestr_order_date": None,
+            "rosreestr_reg_date": date,
+            "cadastral_number": None,
+            "flags": flags,
+            "row_confidence": round(max(0.0, conf - 0.3), 2),
+        })
+    return out
+
+
+# A sixth shape, found 2026-07-17 (decrees №633/579, siblings of №785 above
+# but naming exactly ONE nonresidential property in prose instead of a
+# ПЕРЕЧЕНЬ table): "...бесхозяйный объект недвижимости, а именно: нежилое,
+# помещение 138, расположенное по адресу: г. Мариуполь, проспект Ленина,
+# 107, площадью 20,0 кв.м, принятое на учет 31.07.2024." No cadastral number
+# (same pre-cadastral designation stage as the list form).
+_NONRES_DESIG_SINGLE_RE = re.compile(
+    r"а\s+именно:\s*(нежилое[,\s]+(?:здание|помещение|строение))\s*(?:\d+)?,?\s*"
+    r"расположенно\w*\s+по\s+адресу:\s*г\.?\s*Мариуполь,\s*"
+    # street name and house are sometimes comma-separated ("Ленина, 107,"),
+    # sometimes glued with no delimiter at all ("Победы28,," -- decree
+    # №633) -- proper_noun excludes digits so the house-digit-run always
+    # splits off correctly either way.
+    rf"({_STREET_TYPE_WORD})\s+([А-ЯЁа-яё\-\s]+?)\s*,?\s*(\d+[А-ЯЁа-яё]?)\s*,+\s*"
+    r"площадью\s*([\d,\.]+)\s*кв\.?\s*м,?\s*"
+    r"принят\w*\s+на\s+учет\s+(\d{2}\.\d{2}\.\d{4})",
+    re.I | re.S,
+)
+
+
+def _nonres_single_property_from_designation_text(text: str, source_sha256: str) -> list[dict]:
+    m = _NONRES_DESIG_SINGLE_RE.search(text)
+    if not m:
+        return []
+    prop_type = re.sub(r"[,\s]+", " ", m.group(1)).strip()
+    street_word = m.group(2).strip()
+    proper_noun = m.group(3).strip()
+    house = m.group(4).strip().rstrip(",")
+    area = _coerce_area(m.group(5))
+    date = _parse_dot_date(m.group(6))
+    address = f"{street_word} {proper_noun}, {house}".strip()
+    flags, conf = _row_flags(address, None, area)  # cadastral genuinely absent at this stage
+    return [{
+        "source_sha256": source_sha256,
+        "seq_no": 1,
+        "property_type": prop_type,
+        "address_raw": address,
+        "area_sqm": area,
+        "rosreestr_order_ref": None,
+        "rosreestr_order_date": None,
+        "rosreestr_reg_date": date,
+        "cadastral_number": None,
+        "flags": flags,
+        "row_confidence": round(max(0.0, conf - 0.3), 2),
+    }]
+
+
+# A seventh shape, found 2026-07-17 (registration-kind decrees №781/877 --
+# "О постановке на учет ... в качестве бесхозных"): a NONRESIDENTIAL
+# "ПЕРЕЧЕНЬ" annex at the registration stage, single line per record like
+# _NONRES_DESIG_ROW_RE but WITHOUT a date column at all:
+#   "1. | нежилое помещение | улица Краснофлотская, 145А 432,0"
+# (registration stage predates both cadastral assignment AND the
+# "дата выявления" date that only appears once a property reaches
+# designation -- see _rows_from_registration_table_text's residential
+# analog, which also has no cadastral for the same reason).
+_NONRES_REG_ROW_RE = re.compile(
+    rf"^\s*\d+\.?\s*\|?\s*(нежилое\s+(?:здание|помещение|строение))\s*\|?\s*"
+    rf"({_STREET_TYPE_WORD})\s+([А-ЯЁа-яё0-9№/\-\s]+?),\s*(\S+?)\s+"
+    r"([\d,\.]+)\s*$",
+    re.I | re.M,
+)
+
+
+def _rows_from_nonres_registration_list(text: str, source_sha256: str) -> list[dict]:
+    heading = _ANNEX_HEADING_RE.search(text)
+    scope = text[heading.start():] if heading else text
+    out: list[dict] = []
+    seq = 0
+    for m in _NONRES_REG_ROW_RE.finditer(scope):
+        seq += 1
+        prop_type = m.group(1).strip()
+        street_word = m.group(2).strip()
+        proper_noun = m.group(3).strip()
+        house = m.group(4).strip().rstrip(",")
+        area = _coerce_area(m.group(5)) if m.group(5) else None
+        address = f"{street_word} {proper_noun}, {house}".strip()
+        flags, conf = _row_flags(address, None, area)
+        out.append({
+            "source_sha256": source_sha256,
+            "seq_no": seq,
+            "property_type": prop_type,
+            "address_raw": address,
+            "area_sqm": area,
+            "rosreestr_order_ref": None,
+            "rosreestr_order_date": None,
+            "rosreestr_reg_date": None,
+            "cadastral_number": None,
+            "flags": flags,
+            "row_confidence": round(max(0.0, conf - 0.3), 2),
+        })
+    return out
+
+
 def _classify_removal_reason(text: str) -> str:
     # Case-insensitive on "[Нн]а основании" -- found 2026-07-03 the original
     # capital-only "На" match silently missed every decree where the phrase
@@ -839,6 +1088,11 @@ def parse_decree_pdf(pdf_path: Path, source_sha256: str, title: str = "",
         # text-fallback paths below don't fit it and silently misalign.
         rows = _rows_from_registration_table_text(full_text_probe, source_sha256)
         strategy_used = "registration_text" if rows else "none"
+        if not rows:
+            # nonresidential registration-stage list (no date column) --
+            # see _rows_from_nonres_registration_list above.
+            rows = _rows_from_nonres_registration_list(full_text_probe, source_sha256)
+            strategy_used = "nonres_registration_list" if rows else "none"
         full_text = full_text_probe
         decree_meta = _parse_title_meta(title) if title else {}
         decree_meta.update(_extract_decree_meta(full_text))
@@ -899,6 +1153,29 @@ def parse_decree_pdf(pdf_path: Path, source_sha256: str, title: str = "",
         ):
             rows = fallback_rows
             strategy_used = "text_fallback"
+
+    # (4) single-property prose fallback: some designation decrees name
+    # exactly one property directly in the operative paragraph with no annex
+    # table at all (e.g. decree №194) -- see
+    # _single_property_from_designation_text above.
+    if not rows and decree_kind == "designation":
+        rows = _single_property_from_designation_text(full_text, source_sha256)
+        if rows:
+            strategy_used = "designation_single_property"
+
+    # (5) nonresidential pre-cadastral "ПЕРЕЧЕНЬ" list (e.g. decrees №785/
+    # 633/579) -- see _rows_from_nonres_designation_list above.
+    if not rows and decree_kind == "designation":
+        rows = _rows_from_nonres_designation_list(full_text, source_sha256)
+        if rows:
+            strategy_used = "nonres_designation_list"
+
+    # (6) single-property nonresidential prose (e.g. decrees №633/579) --
+    # see _nonres_single_property_from_designation_text above.
+    if not rows and decree_kind == "designation":
+        rows = _nonres_single_property_from_designation_text(full_text, source_sha256)
+        if rows:
+            strategy_used = "nonres_designation_single_property"
 
     # Decree number/date: prefer HTML title (handwritten OCR is unreliable);
     # signing official still comes from OCR text.
