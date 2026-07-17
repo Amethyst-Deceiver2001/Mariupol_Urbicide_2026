@@ -21,6 +21,8 @@ imagery = ["rasterio>=1.3", "numpy>=1.26", "pillow>=10.0"]
 ocr = ["pytesseract>=0.3.13", "pdf2image>=1.17"]  # requires brew install tesseract tesseract-lang poppler
 media = ["yt-dlp>=2024.8.6"]  # video capture (scripts/157); also requires brew install ffmpeg
 browser = ["playwright>=1.44"]  # headless-browser capture (scripts/242); also requires: playwright install chromium
+aws = ["boto3>=1.34"]  # Rekognition photo triage (scripts/326); needs AWS creds in .env
+sunpos = ["pysolar>=0.13"]  # shadow-angle date/time verification (scripts/327)
 dev = ["pytest>=8.0", "ruff>=0.4", "mypy>=1.10"]
 
 [build-system]

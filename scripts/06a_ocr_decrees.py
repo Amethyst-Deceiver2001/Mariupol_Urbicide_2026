@@ -63,6 +63,9 @@ OCR_SOURCE_TYPES = (
     "ownerless_decree_designation_pdf",
     "ownerless_decree_removal_pdf",
     "ownerless_decree_procedure_pdf",
+    "ownerless_decree_registration_pdf",  # "постановке на учет...в качестве
+    # бесхозяйной" (registration-stage decrees, e.g. №1592) — added when
+    # scripts/346 introduced this source_type; same scanned-PDF format
     "demolition_decree_mkd_pdf",
     "demolition_decree_oks_pdf",
     "demolition_decree_building_pdf",

@@ -34,7 +34,13 @@ object/ API — individual building data:
   Warm-up: GET /сервисы/каталог-новостроек/ then /сервисы/каталог-новостроек/объект/<id>
   Key endpoints: <id>, detail/<id>, permits/<id>, documentation/<id>,
                  infrastructure/<id>, rpd/<id>, report/<id>, other/<id>,
-                 construction/progress/photo/<id>
+                 construction/progress/photo/<id> — the 'Ход строительства'
+                 monthly photo gallery; captured separately by
+                 capture_construction_progress_photos() / scripts/314, since
+                 the SSR page (capture_house_detail's eisghs_obj_page) only
+                 ships a client-side loading stub for this section, not the
+                 photos themselves. Each photo's lower-left corner carries a
+                 burned-in address+date caption — see scripts/315's OCR pass.
 
 Place ID for Mariupol: 0-1158  (confirmed from browser; beyond pos 1000 in places list)
 """
@@ -503,6 +509,95 @@ def capture_house_detail(s_obj, con, house_id: str | int, gk_name: str) -> dict 
     else:
         log.warning("object %s: no endpoints responded", house_id)
     return result
+
+
+def capture_construction_progress_photos(s_obj, con, house_id: str | int, gk_name: str) -> int:
+    """Capture the full 'Ход строительства' monthly photo gallery for one object.
+
+    Endpoint confirmed from browser DevTools (see module docstring):
+    /сервисы/api/object/construction/progress/photo/<id>. NOT covered by
+    capture_house_detail()'s sub_endpoints — the SSR page only ships a loading
+    stub for this section (initialState.kn.objectCard.constructionProgress =
+    {"loading": False} with no data), the real gallery is a client-side fetch.
+
+    Why this matters: each monthly photo carries the developer's own address +
+    date burned into the lower-left corner as red text — e.g. for id=66544:
+    "БУЛЬВАР БОГДАНА ХМЕЛЬНИЦКОГО 12А 25.11.2025" — a primary-source address
+    disclosure independent of the ЕИСЖС API's own `address` field, which for
+    many objects is street-only with no house number (confirmed 2026-07-14).
+    Combined with the object's own objLkLatitude/objLkLongitude (already
+    captured via capture_house_detail — see scripts/18's parse_detail), this
+    lets scripts/315 corroborate demolition→rebuild crosswalk candidates that
+    a bare address-string join can't resolve.
+
+    s_obj must be a cookie-warmed session (make_object_session + warm_object_session).
+    Idempotent per (house_id, photo src). Returns the number of newly-captured
+    photo images (0 if already done or endpoint returned nothing).
+    """
+    key = f"eisghs_construction_photos::{house_id}"
+    if forensics.is_done(con, key):
+        log.debug("construction photos for %s already captured", house_id)
+        return 0
+
+    url = _obj_api(f"construction/progress/photo/{house_id}")
+    r = _get(s_obj, url)
+    _polite_sleep()
+    if r is None or r.status_code != 200:
+        log.info("construction-photos %s → HTTP %s", house_id, r.status_code if r else "None")
+        forensics.mark_done(con, key)
+        return 0
+
+    _capture(con, r, r.url, "eisghs_construction_photo_list",
+             f"ЕИСЖС construction-progress photo list — {gk_name} id={house_id}",
+             f"Monthly 'Ход строительства' gallery listing for building id={house_id} "
+             f"in ЖК '{gk_name}'. Each entry carries a src URL, month/year, and post date.")
+
+    entries = _json_list(r)
+    if not entries:
+        try:
+            data = r.json()
+            if isinstance(data, list):
+                entries = data
+        except ValueError:
+            pass
+
+    n = 0
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        # Confirmed field names from the actual response envelope (2026-07-15,
+        # captured raw JSON — NOT the renderPhotos shape used elsewhere in this
+        # module, which is a different, unrelated endpoint):
+        #   objPhotoUrl, objPeriod ("12 2024 г."), objPeriodDt ("2024-12-01"),
+        #   objPhotoDttm ("09-12-2024 07:31"), objPhotoNm, ordNum.
+        src = (entry.get("objPhotoUrl") or entry.get("src")
+               or entry.get("url") or entry.get("fileUrl"))
+        if not src:
+            continue
+        period = entry.get("objPeriodDt") or entry.get("objPeriod")
+        posted = entry.get("objPhotoDttm")
+        img_key = f"eisghs_construction_photo_image::{house_id}::{src}"
+        if forensics.is_done(con, img_key):
+            continue
+        r_img = _get(s_obj, src)
+        _polite_sleep()
+        if r_img is None or r_img.status_code != 200:
+            log.info("  photo %s (%s) → HTTP %s", house_id, period,
+                      r_img.status_code if r_img else "None")
+            continue
+        _capture(con, r_img, src, "eisghs_construction_photo_image",
+                 f"ЕИСЖС construction-progress photo — {gk_name} id={house_id} {period}",
+                 f"Monthly construction-progress photo for building id={house_id} "
+                 f"'{gk_name}', period {period}, posted {posted}. Lower-left corner "
+                 "typically carries the developer's own burned-in street/house-number "
+                 "caption (confirmed Porfir-only, see scripts/315).")
+        forensics.mark_done(con, img_key)
+        n += 1
+        log.info("  captured construction photo %s %s (%d bytes)",
+                 house_id, period, len(r_img.content))
+
+    forensics.mark_done(con, key)
+    return n
 
 
 def run_by_ids(ids: list[str]) -> None:

@@ -647,16 +647,455 @@ def build_spine_features(rows, events_by_prop, corrob_by_prop, court_props, topo
     return full, public
 
 
-def build_demolition_features(rows, toponym_index):
+# Manually curated demolished-property -> eisghs_id links, for the cases where
+# the new build's own address doesn't resolve to the same property_id as its
+# demolished predecessor (letter-suffix renaming, brand-name/литера addressing,
+# a separate fragmented property row, etc.) -- so the property_id-level SQL
+# join in DEMOLITION_SQL can't catch the link automatically. Kept as a Python
+# constant, not a data/ file, since data/ is fully gitignored (raw evidence
+# store + PII) and this table needs to ship with the repo for scripts/164 to
+# be reproducible -- same convention as load.py's _ALIAS_REVIEWED.
+#
+# Add an entry ONLY when a case study states the pair explicitly -- never from
+# proximity/address-similarity alone. death_sites_new_construction.md's
+# Металлургов 96/98 finding is the cautionary example: a new-build complex on
+# the SAME street turned out to be built on a completely different, non-
+# adjacent set of demolished addresses ~50-130m away, not the ones an address-
+# proximity guess would have picked. Before adding a pair, check the DB first:
+# Case 7's five пр. Строителей 74-88 buildings looked like they'd need an
+# entry here too, but turned out to already be auto-matched (their eisghs
+# reallocation events land on the same property_id as their demolition
+# events) -- only add a pair once you've confirmed the automatic join misses it.
+DEMOLITION_NEWBUILD_CROSSWALK = [
+    {
+        "property_id": 4638,
+        "demolished_building_id": "AVENUE:строителей|70",
+        "eisghs_id": 65280,
+        "note": "Case 1 — Пр. Строителей 70 → «Резиденция II», 70Б (СЗ-1 ПОРФИР). "
+                "eisghs's reallocation event lands on a third, separate property_id "
+                "(20577) rather than 4638 (the demolished '70' row) or 28450 (a "
+                "stray '70б' row) — exactly the fragmentation this crosswalk exists "
+                "to patch.",
+        "source": "docs/case_studies/death_sites_new_construction.md#case-1",
+    },
+    # 2026-07-14 letter-suffix sweep: tested the hypothesis that some of the
+    # "unmatched" newbuild layer differs from a demolished address by a single
+    # trailing letter (X -> XБ/Xа/etc, the same pattern as Строителей 70/70Б).
+    # 10 candidates found; only these 3 held up against BOTH an independently
+    # derived signal (scripts/18's own "address_laundering" flag — INN matched
+    # a confirmed land order, but the object's address didn't fuzzy-match any
+    # demolished building) AND a plausible date sequence (demolition precedes
+    # new-build publication/commissioning). The other 7 were investigated and
+    # deliberately NOT added — see the review note below.
+    {
+        "property_id": 5774,
+        "demolished_building_id": "BOULEVARD:богдана хмельницкого|8",
+        "eisghs_id": 59762,
+        "note": "Б-р Богдана Хмельницкого 8 → «Жилой дом на Хмельницкого 8А» (СЗ-1 "
+                "ПОРФИР). Demolished under ГКО №56 (29.09.2022); new build "
+                "published 2024-05-25, commissioned 2024-11-08 — plausible "
+                "sequence. eisghs flags this object 'address_laundering' on its "
+                "own (INN matched a land order, address didn't fuzzy-match the "
+                "demolition register). Land decree №125 (2026-04-24), shared "
+                "with Нахимова 134а below — decree_address is a block-level "
+                "description ('квартал между ул…'), consistent with one decree "
+                "covering multiple buildings in the same block, not a parsing "
+                "artifact (contrast with the Жукова/Киевская case rejected below).",
+        "source": "2026-07-14 letter-suffix sweep",
+    },
+    {
+        "property_id": 5839,
+        "demolished_building_id": "AVENUE:нахимова|134",
+        "eisghs_id": 61646,
+        "note": "Пр. Нахимова 134 → «Жилой дом на Нахимова 134а» (СЗ-1 ПОРФИР). "
+                "Demolished under ГКО №56 (29.09.2022); new build published "
+                "2024-08-23, commissioned 2024-12-20. Same 'address_laundering' "
+                "flag and same shared block decree №125 as Хмельницкого 8А above.",
+        "source": "2026-07-14 letter-suffix sweep",
+    },
+    {
+        "property_id": 5139,
+        "demolished_building_id": "STREET:киевская|59",
+        "eisghs_id": 64116,
+        "note": "Ул. Киевская 59 → ЖК «Олимпийский», 59Б (СЗ РСК). Demolished under "
+                "ГКО №39 (16.09.2022); new build published 2025-01-10, "
+                "commissioned 2026-06-05. 'address_laundering' flag, and land "
+                "decree №339 (2024-09-02) whose OWN captured decree_address text "
+                "reads 'Орджоникидзевский район, улица Киевская, 59 Б' — the "
+                "decree explicitly names this address, the strongest evidentiary "
+                "basis of the three added here.",
+        "source": "2026-07-14 letter-suffix sweep",
+    },
+    # NOT added, investigated and rejected:
+    #   - Пр. Маршала Жукова 90 -> eisghs 66286 (90Б, СЗ РСК): carries the same
+    #     decree number/date/decree_address text as Киевская 59Б above ("улица
+    #     Киевская, 59 Б") despite being a different street — almost certainly
+    #     an artifact of scripts/18's INN-only matching reusing one developer's
+    #     single captured decree across every object under that INN, not a real
+    #     shared land grant. Needs the developer's actual decree history checked
+    #     by hand before this pair is added.
+    #   - Пр. Ленина 77 -> eisghs 60781 (77Б, СЗ НР-ДЕВЕЛОПМЕНТ, "Дом с часами
+    #     Корпус 2"): does NOT carry the 'address_laundering' flag -- flagged
+    #     'no_land_order_for_inn+single_source_inn_only' instead, meaning no
+    #     land order was found for this developer's INN at all. A materially
+    #     weaker evidentiary tier than the three added above.
+    #   - Б-р Богдана Хмельницкого 33 -> eisghs 62717 (33б, СЗ ТЕМП-80): the
+    #     demolished property (id 4333) already has ITS OWN reallocation event
+    #     from a different source/developer (mar_s_group_proektnaya_deklaratsiya)
+    #     and is already correctly shown as demolished_rebuilt_same. Adding a
+    #     second crosswalk link to a DIFFERENT eisghs object here would put two
+    #     competing "replacement" claims on the same demolished address --
+    #     needs a human to determine which (if either, or both, on a subdivided
+    #     plot) is correct before this is resolved either way.
+
+    # 2026-07-15: construction-progress-photo OCR sweep (scripts/314/315).
+    # СЗ-1 ПОРФИР burns a red address+date caption into every monthly photo —
+    # confirmed to be Porfir-specific, no other developer does this. Cross-
+    # referenced each OCR'd house number against (a) the nearest demolished
+    # property by coordinate and (b) whether that property already had a
+    # reallocation event from a different source (several did — see the
+    # "already resolved elsewhere" objects skipped below, not added here).
+    {
+        "property_id": 4321,
+        "demolished_building_id": "BOULEVARD:богдана хмельницкого|12",
+        "eisghs_id": 66544,
+        "note": "Б-р Богдана Хмельницкого 12 → «Дом со вкусом АУРА 1», 12А "
+                "(СЗ-1 ПОРФИР). OCR of the developer's own construction-progress "
+                "captions read 'БУЛЬВАР БОГДАНА ХМЕЛЬНИЦКОГО 12А' cleanly on "
+                "15/17 monthly photos (Jul 2025 – Feb 2026); object's own "
+                "geocoded point sits 9m from this property.",
+        "source": "2026-07-15 construction-photo OCR sweep",
+    },
+    {
+        "property_id": 4323,
+        "demolished_building_id": "BOULEVARD:богдана хмельницкого|16",
+        "eisghs_id": 66593,
+        "note": "Ул. Богдана Хмельницкого 16 → 16А (СЗ-1 ПОРФИР). OCR read "
+                "'БУЛЬВАР БОГДАНА ХМЕЛЬНИЦКОГО 16А' cleanly on 11/16 monthly "
+                "photos; object's own geocoded point sits 17m from this property.",
+        "source": "2026-07-15 construction-photo OCR sweep",
+    },
+    {
+        "property_id": 4322,
+        "demolished_building_id": "BOULEVARD:богдана хмельницкого|14",
+        "eisghs_id": 66594,
+        "note": "Б-р Богдана Хмельницкого 14 → 14А (СЗ-1 ПОРФИР). OCR was initially "
+                "split — 4 clean Jul-Aug 2025 photos read plain '...ХМЕЛЬНИЦКОГО 14' "
+                "(no suffix), 6 clean Sep 2025+ photos read '...14А', suggesting a "
+                "provisional caption before the final address was assigned. "
+                "Confirmed as 14А on the ground 2026-07-15: a March 2026 "
+                "construction photo (well after the caption stabilized) reads "
+                "'БУЛЬВАР БОГДАНА ХМЕЛЬНИЦКОГО 12А' for the neighboring 12А "
+                "object at the same late date, and a наш.дом.рф map view places "
+                "the new-build pin for this object directly on the '14' plot "
+                "(the old '12' plot one row south carries its own already-linked "
+                "marker) — both 12А and 14А confirmed occupying their respective "
+                "demolished footprints.",
+        "source": "2026-07-15 construction-photo OCR sweep + on-the-ground correction",
+    },
+    {
+        "property_id": 4649,
+        "demolished_building_id": "AVENUE:строителей|93",
+        "eisghs_id": 64690,
+        "note": "Пр. Строителей 93 → same house number, 93 (СЗ-1 ПОРФИР) — rebuilt "
+                "at the original address, not a laundered one. OCR read 'ПР. "
+                "СТРОИТЕЛЕЙ 93' on 4/8 monthly photos; object's own geocoded "
+                "point sits 3m from this property, the tightest spatial match "
+                "found in this sweep.",
+        "source": "2026-07-15 construction-photo OCR sweep",
+    },
+    {
+        "property_id": 4844,
+        "demolished_building_id": "STREET:зелинского|23",
+        "eisghs_id": 71846,
+        "note": "Ул. Зелинского 23 (pre-war 23А) → «Резиденция Концепт», 30А "
+                "(СЗ-1 ПОРФИР) — block redevelopment, NOT same-footprint rebuild "
+                "(60m+ from the demolished property, unlike every other entry "
+                "here). OCR of the caption was thin (only 2 photos exist for "
+                "this object, 1 clean 'УЛ. ЗЕЛИНСКОГО 30А'). The naming ('30А') "
+                "references a nearby INTACT building at Зелинского 30 (confirmed "
+                "still standing by on-the-ground review, 2026-07-15) — that "
+                "'30' address is NOT the demolished predecessor here — despite "
+                "minstroy_demolition_register's source CSV genuinely, explicitly "
+                "listing 'ул. Зелинского д. 30' as its own row under the same "
+                "decree (ГКО ДНР №53, 29.09.2022) that also names 27, 17Б, 19Б. "
+                "That's not a parsing error (confirmed against the raw register "
+                "row-by-row, 2026-07-15) — the decree really did order 30's "
+                "demolition. It was apparently never carried out (confirmed "
+                "still standing on the ground, 2026-07-15): a decree-vs-execution "
+                "gap, the same M4 'restoration without restitution' pattern "
+                "already documented for Ленина 106 (MUP-CS-002) — a candidate "
+                "lead for that case study, not a data bug. Predecessor/new-corpus "
+                "pairing (23↔30А vs 27↔30Б) confirmed by direct site inspection, "
+                "not by the closer-but-ambiguous 15m proximity gap alone.",
+        "source": "2026-07-15 construction-photo OCR sweep + on-the-ground correction",
+    },
+    {
+        "property_id": 4845,
+        "demolished_building_id": "STREET:зелинского|27",
+        "eisghs_id": 71848,
+        "note": "Ул. Зелинского 27 → «Резиденция Концепт», 30Б (СЗ-1 ПОРФИР). See "
+                "the 23/30А entry above for the full block-redevelopment context "
+                "— same site, same caveats (thin OCR, 63m from predecessor, "
+                "pairing confirmed on the ground rather than by coordinate alone).",
+        "source": "2026-07-15 construction-photo OCR sweep + on-the-ground correction",
+    },
+    # 2026-07-15, on-the-ground identification (user, no OCR — both developers
+    # below are non-Porfir, so the construction-photo caption technique doesn't
+    # apply; see scripts/315's docstring for that scope limit).
+    {
+        "property_id": 4945,
+        "demolished_building_id": "STREET:куприна|63",
+        "eisghs_id": 69766,
+        "note": "Ул. Куприна 63 → one new building (СЗ АНТАРЕС) spanning the "
+                "combined footprint of 63 AND 65 — see the 65 entry below for the "
+                "other half. Object's own geocoded point sits ~67m from 63 and "
+                "~34m from 65 (closer to 65's centroid, consistent with one "
+                "footprint covering both, not evidence against 63). No confirmed "
+                "final house number yet — object still under construction "
+                "(foundation stage, June 2026 progress photo) and its own ЕИСЖС "
+                "address field is still bare ('р-н Жовтневый, ул Куприна').",
+        "source": "2026-07-15 on-the-ground identification",
+    },
+    {
+        "property_id": 4946,
+        "demolished_building_id": "STREET:куприна|65",
+        "eisghs_id": 69766,
+        "note": "Ул. Куприна 65 → same new building as the 63 entry above (СЗ "
+                "АНТАРЕС) — one new construction spanning both demolished plots. "
+                "This address also carries 4 named deaths (Mariupol Destruction "
+                "and Victims Map TSV, checked 2026-07-15) — a single-building "
+                "fire: Гапонов С.В. и Гримани Т.И. (both kv.132), Овчаренко Р. "
+                "(kv.123), Овчинникова Н. (kv.120, 80y/o, jumped from the "
+                "burning apartment). See death_sites_new_construction.md, Case 3.",
+        "source": "2026-07-15 on-the-ground identification + Mariupol Destruction and Victims Map TSV",
+    },
+    {
+        "property_id": 4947,
+        "demolished_building_id": "STREET:куприна|69",
+        "eisghs_id": 66292,
+        "note": "Ул. Куприна 69 → 69Б (СЗ СИРИУС БИЛД). Object's own geocoded "
+                "point sits 5m from this property — the tightest spatial match in "
+                "this whole crosswalk alongside Строителей 93.",
+        "source": "2026-07-15 on-the-ground identification",
+    },
+    # 2026-07-15, on-the-ground identification: ЖК "Ленинградский квартал"
+    # (СЗ СУ-2007, part of the already-tracked 15-МКД complex on Металлургов —
+    # see death_sites_new_construction.md's "Meduza gravedigger cross-section"
+    # row) — one new building, two towers on a shared stylobate, named 89А,
+    # standing on the combined footprint of three demolished neighbors, all
+    # under the same demolition order (№56).
+    {
+        "property_id": 4551,
+        "demolished_building_id": "AVENUE:металлургов|91",
+        "eisghs_id": 61271,
+        "note": "Пр. Металлургов 91 → 89А (ЖК «Ленинградский квартал», литера "
+                "15, СЗ СУ-2007) — closest of the three predecessor plots (34m). "
+                "Commissioned 2025-09-26.",
+        "source": "2026-07-15 on-the-ground identification",
+    },
+    {
+        "property_id": 4550,
+        "demolished_building_id": "AVENUE:металлургов|89",
+        "eisghs_id": 61271,
+        "note": "Пр. Металлургов 89 → 89А, same building as the 91 entry above "
+                "(52m from this plot).",
+        "source": "2026-07-15 on-the-ground identification",
+    },
+    {
+        "property_id": 4548,
+        "demolished_building_id": "AVENUE:металлургов|87",
+        "eisghs_id": 61271,
+        "note": "Пр. Металлургов 87 → 89А, same building as the 91/89 entries "
+                "above — only PARTLY on this footprint per on-the-ground "
+                "identification (112m from this plot's own point, the weakest "
+                "of the three; the stylobate/podium apparently only clips this "
+                "plot's corner rather than sitting fully on it).",
+        "source": "2026-07-15 on-the-ground identification",
+    },
+    # ЖК «Нахимовский» (СЗ КОРПОРАЦИЯ СМУ-5) — the case study's "ЖК
+    # Нахимовский zone" group. Originally worked out via on-the-ground/DMS-
+    # coordinate identification (2026-07-15, see individual notes below —
+    # pure spatial matching was ambiguous/misleading, since this developer's
+    # objects report similarly-imprecise shared site coordinates that don't
+    # cleanly separate onto individual footprints). THEN independently
+    # confirmed at the strongest possible evidentiary tier: an official
+    # pro-occupation Telegram post (t.me/russkiy_mariupol/13451, 2026-07-15)
+    # quotes decree text by name — "Распоряжение №178" granting two land
+    # parcels to «Корпорация СМУ-5» explicitly "на месте бывших домов №17А,
+    # 17Б, 19Б по ул. Зелинского, №25, 27, по ул. Бахчиванджи" ("on the site
+    # of former buildings..."), describing a planned 6-building complex. Every
+    # eisghs object below carries decree_number '178' in its own record,
+    # independently matching the post. This is the same tier of evidence as
+    # the Киевская 59Б entry above (a decree naming the address directly).
+    {
+        "property_id": 4837,
+        "demolished_building_id": "STREET:зелинского|17а",
+        "eisghs_id": 66986,
+        "note": "Ул. Зелинского 17А → one new building (СЗ КОРПОРАЦИЯ СМУ-5), "
+                "part of ЖК «Нахимовский» (decree №178 — see block note above). "
+                "Identified as the corpus running parallel to Zelinskogo street "
+                "itself (single-family homes visible across the street in its "
+                "January 2026 foundation-pit photo). This footprint also covers "
+                "two smaller structures with NO property record on this spine — "
+                "a non-residential building locals describe as a boiler house, "
+                "informally also called '17Б' despite being ~90m from this "
+                "project's tracked 'Зелинского 17Б' record (see the 66989 entry "
+                "below) — a real-world address duplication, not a data error — "
+                "and a small single-family home at plain '17' (death record: "
+                "Иванов Виктор Евгеньевич, d. 13.03.2022, t.me/mariupolRIP/11748 "
+                "— his own testimony message actually reads '17а', suggesting "
+                "the TSV database dropped the letter, not a second building). "
+                "Precise DMS coordinates for 17А read off a damaged-building "
+                "photo (t.me/mariupolnow/24389, /7634) land 11.4m from this "
+                "project's own geocoding for the property. Also 2 more named "
+                "deaths at this address (Ахтырский Максим, 12, airstrike "
+                "18.03.2022; a missing-person post for Горпенко Владимир "
+                "Иванович, apt 14 or 22) — see death_sites_new_construction.md.",
+        "source": "2026-07-15 on-the-ground identification + decree №178 (t.me/russkiy_mariupol/13451)",
+    },
+    {
+        "property_id": 4841,
+        "demolished_building_id": "STREET:зелинского|19б",
+        "eisghs_id": 66987,
+        "note": "Ул. Зелинского 19Б → one new building (СЗ КОРПОРАЦИЯ СМУ-5), "
+                "part of ЖК «Нахимовский» (decree №178 — see block note above). "
+                "Identified by its flank facing the courtyard of the L-shaped "
+                "building at Зелинского 15. Precise DMS coordinates for 19Б "
+                "land 7.7m from this project's own geocoding for the property. "
+                "This was a railway-workers' dormitory (ж/д общежитие), not an "
+                "ordinary apartment building — named death: Микикечко Максим "
+                "Игоревич, killed by shrapnel 04.03.2022, body collected by "
+                "the 'Орфей' removal service, burial location unknown "
+                "(t.me/mariupolRIP/32958).",
+        "source": "2026-07-15 on-the-ground identification + decree №178 (t.me/russkiy_mariupol/13451)",
+    },
+    {
+        "property_id": 4838,
+        "demolished_building_id": "STREET:зелинского|17б",
+        "eisghs_id": 66989,
+        "note": "Ул. Зелинского 17Б → one new building (СЗ КОРПОРАЦИЯ СМУ-5), "
+                "part of ЖК «Нахимовский» (decree №178 — see block note above). "
+                "Identified by elimination once 17А (→66986) and 19Б (→66987) "
+                "above were pinned down. Precise DMS coordinates for this 17Б "
+                "(read off a damaged-building photo, t.me/mariupolnow/2584) "
+                "land 1.2m from this project's own geocoding for the property "
+                "— the tightest match in this entire crosswalk.",
+        "source": "2026-07-15 on-the-ground identification + decree №178 (t.me/russkiy_mariupol/13451)",
+    },
+    {
+        "property_id": 10640,
+        "demolished_building_id": "STREET:бахчиванджи|27",
+        "eisghs_id": 71399,
+        "note": "Ул. Бахчиванджи 27 → one new building (СЗ КОРПОРАЦИЯ СМУ-5), "
+                "part of ЖК «Нахимовский» (decree №178 — see block note above). "
+                "NOT part of the Зелинского 17А/17Б/19Б group above despite "
+                "being the same complex and originally suspected of belonging "
+                "there — its June 2026 foundation-pit photo (which also shows "
+                "the other corpuses nearby, confirming they're one project) "
+                "places it on Бахчиванджи 27's footprint instead. 91m from "
+                "this project's geocoding for that property — looser than the "
+                "Зелинского matches above, but far tighter than the 236m+ this "
+                "object sits from any of the Зелинского trio, which is what "
+                "originally made this pairing look wrong.",
+        "source": "2026-07-15 on-the-ground identification + decree №178 (t.me/russkiy_mariupol/13451)",
+    },
+    {
+        "property_id": 4778,
+        "demolished_building_id": "STREET:бахчиванджи|25",
+        "eisghs_id": 71400,
+        "note": "Ул. Бахчиванджи 25 → «ЖК Нахимовский, 2 очередь» (СЗ КОРПОРАЦИЯ "
+                "СМУ-5). Found directly from decree №178's own text (see block "
+                "note above) rather than site inspection — this object's own "
+                "record carries decree_number '178', an exact match, and its "
+                "geocoded point sits 8m from this property, the tightest "
+                "coordinate match in the whole ЖК Нахимовский group.",
+        "source": "2026-07-15 decree №178 (t.me/russkiy_mariupol/13451)",
+    },
+    # NOT added, investigated and rejected/deferred this sweep:
+    #   - Пр. Строителей 74/76/78/80/88 -> eisghs 69427/69749/69751/70147/70142:
+    #     OCR independently confirmed all five house numbers, but each demolished
+    #     property already carries its OWN reallocation event to the SAME eisghs
+    #     object via a decree/land-order path (scripts/252, source
+    #     'dnr_land_orders (reconciled)') — already correctly linked, nothing to add.
+    #   - Ул. Латышева 2/23 -> eisghs 71674/71675: only 1-2 photos exist per
+    #     object and the OCR reads were noisy/inconsistent (single-digit
+    #     fragments) — too thin to act on.
+]
+
+
+def load_crosswalk() -> dict:
+    """demolished property_id -> crosswalk entry. See DEMOLITION_NEWBUILD_CROSSWALK."""
+    return {link["property_id"]: link for link in DEMOLITION_NEWBUILD_CROSSWALK}
+
+
+def load_newbuild_lookup() -> dict:
+    """eisghs_id -> {lon, lat, addr, dev, flats, decree, decree_date, commissioned,
+    project_name} for every ЕИСЖС object -- used to enrich a linked demolition
+    point (same-address or crosswalk) with its replacement's own details, and to
+    draw a before/after connector line without a second DB round-trip."""
+    src = QGIS_DIR / "eisghs_newbuilds.geojson"
+    if not src.exists():
+        return {}
+    gj = json.loads(src.read_text(encoding="utf-8"))
+    out = {}
+    for f in gj["features"]:
+        p = f["properties"]
+        eid = p.get("eisghs_id")
+        if eid is None:
+            continue
+        coords = f["geometry"]["coordinates"] if f.get("geometry") else None
+        out[eid] = {
+            "lon": round(coords[0], 5) if coords else None,
+            "lat": round(coords[1], 5) if coords else None,
+            "addr": p.get("address"),
+            "dev": p.get("dev_name_short"),
+            "flats": p.get("flat_cnt"),
+            "decree": p.get("decree_number"),
+            "decree_date": p.get("decree_date"),
+            "commissioned": p.get("commissioned_dt"),
+            "project_name": p.get("nameObj"),
+        }
+    return out
+
+
+def build_demolition_features(rows, toponym_index, crosswalk_by_pid, newbuild_lookup):
     full, public = [], []
     for row in rows:
-        is_rebuilt = row["reallocation_date"] is not None or row["reallocation_detail"] is not None
+        realloc_eisghs_id = (row["reallocation_detail"] or {}).get("eisghs_id") if row["reallocation_detail"] else None
+        is_rebuilt_same = row["reallocation_date"] is not None or row["reallocation_detail"] is not None
+        crosswalk = None if is_rebuilt_same else crosswalk_by_pid.get(row["id"])
         demo_date = row["demolition_date"].isoformat() if row["demolition_date"] else None
         realloc_date = row["reallocation_date"].isoformat() if row["reallocation_date"] else None
-        kind = "demolished_rebuilt" if is_rebuilt else "demolished"
+
+        linked_new, link_basis = None, None
+        if is_rebuilt_same:
+            kind = "demolished_rebuilt_same"
+            link_basis = "same_address"
+            if realloc_eisghs_id is not None:
+                linked_new = newbuild_lookup.get(realloc_eisghs_id)
+        elif crosswalk is not None:
+            kind = "demolished_rebuilt_nearby"
+            link_basis = "crosswalk"
+            linked_new = newbuild_lookup.get(crosswalk["eisghs_id"])
+        else:
+            kind = "demolished"
+
         addr = address_block(row["prewar_address"], row["occupation_address"], toponym_index)
         verif_status, verif_note = verification_label(row["demolition_confidence"])
         confidence_val = float(row["demolition_confidence"]) if row["demolition_confidence"] is not None else None
+        link_fields = {
+            "link_basis": link_basis,
+            "link_note": crosswalk["note"] if crosswalk else None,
+            "linked_new_lon": linked_new["lon"] if linked_new else None,
+            "linked_new_lat": linked_new["lat"] if linked_new else None,
+            "linked_new_addr": linked_new["addr"] if linked_new else None,
+            "linked_new_dev": linked_new["dev"] if linked_new else None,
+            "linked_new_flats": linked_new["flats"] if linked_new else None,
+            "linked_new_decree": linked_new["decree"] if linked_new else None,
+            "linked_new_commissioned": linked_new["commissioned"] if linked_new else None,
+            "linked_new_project": linked_new["project_name"] if linked_new else None,
+        }
         full_props = {
             "id": row["id"], "addr_ua": addr["ua"], "addr_ua_documented": addr["ua_documented"],
             "addr_ru": addr["ru"], "addr_soviet": addr["soviet_name"], "addr_latin": addr["latin"],
@@ -665,8 +1104,9 @@ def build_demolition_features(rows, toponym_index):
             "demolition_date": demo_date,
             "demolition_basis": event_basis("demolition", row["demolition_detail"]),
             "reallocation_date": realloc_date,
-            "reallocation_basis": event_basis("reallocation", row["reallocation_detail"]) if is_rebuilt else None,
+            "reallocation_basis": event_basis("reallocation", row["reallocation_detail"]) if is_rebuilt_same else None,
             "confidence": confidence_val, "verification_status": verif_status, "verification_note": verif_note,
+            **link_fields,
         }
         public_props = {
             "ua": addr["ua"], "ua_doc": addr["ua_documented"], "ru": addr["ru"], "soviet": addr["soviet_name"],
@@ -674,8 +1114,9 @@ def build_demolition_features(rows, toponym_index):
             "demo_date": demo_date,
             "demo_basis": event_basis("demolition", row["demolition_detail"]),
             "realloc_date": realloc_date,
-            "realloc_basis": event_basis("reallocation", row["reallocation_detail"]) if is_rebuilt else None,
+            "realloc_basis": event_basis("reallocation", row["reallocation_detail"]) if is_rebuilt_same else None,
             "confidence": confidence_val, "verif": verif_status, "verif_note": verif_note,
+            **link_fields,
         }
         geom = {"type": "Point", "coordinates": [round(row["lon"], 5), round(row["lat"], 5)]}
         full.append({"type": "Feature", "geometry": geom, "properties": full_props})
@@ -797,16 +1238,29 @@ def build_landgrant_public():
     return feats
 
 
-def build_newbuild_public():
-    """Trim the ЕИСЖС new-build export (scripts/71) into a public map copy."""
+def build_newbuild_public(matched_eisghs_ids: set):
+    """Trim the ЕИСЖС new-build export (scripts/71) into a public map copy --
+    ONLY the objects with no demolished predecessor confirmed on the spine
+    (neither the automatic same-property_id match nor the curated crosswalk
+    caught them). Objects that ARE matched are not emitted here at all: they
+    already appear as the linked_new_* fields on their demolished-property
+    point (build_demolition_features), rendered as a connector line + small
+    marker by the front-end's "of those, rebuilt" layer -- showing them again
+    as a second, unrelated-looking top-level layer is exactly the confusion
+    this split exists to remove (see docs/case_studies -- "why are there two
+    layers for one real-world event" review, 2026-07-13)."""
     src = QGIS_DIR / "eisghs_newbuilds.geojson"
     if not src.exists():
         log.warning("eisghs_newbuilds.geojson absent — run scripts/71 first; skipping new-build layer")
         return None
     gj = json.loads(src.read_text(encoding="utf-8"))
     feats = []
+    n_matched = 0
     for f in gj["features"]:
         p = f["properties"]
+        if p.get("eisghs_id") in matched_eisghs_ids:
+            n_matched += 1
+            continue
         feats.append({
             "type": "Feature", "geometry": f["geometry"],
             "properties": {
@@ -816,6 +1270,8 @@ def build_newbuild_public():
                 "decree": p.get("decree_number"), "decree_date": p.get("decree_date"),
             },
         })
+    log.info("newbuilds: %d matched to a demolished predecessor (folded into the demolition layer), "
+              "%d unmatched (own layer)", n_matched, len(feats))
     return feats
 
 
@@ -891,8 +1347,12 @@ def main():
         len(prop_rows), len(event_rows), len(corrob_rows), len(demo_rows), len(toponym_rows),
     )
 
+    crosswalk_by_pid = load_crosswalk()
+    newbuild_lookup = load_newbuild_lookup()
+    log.info("demolition->newbuild crosswalk: %d curated links loaded", len(crosswalk_by_pid))
+
     spine_full, spine_public = build_spine_features(prop_rows, events_by_prop, corrob_by_prop, court_props, toponym_index)
-    demo_full, demo_public = build_demolition_features(demo_rows, toponym_index)
+    demo_full, demo_public = build_demolition_features(demo_rows, toponym_index, crosswalk_by_pid, newbuild_lookup)
     nonres_own_full, nonres_own_public = _aggregate_nonres(nonres_own_rows, toponym_index)
     nonres_demo_full, nonres_demo_public = build_nonres_demolition_features(nonres_demo_rows, toponym_index)
 
@@ -910,7 +1370,13 @@ def main():
     landgrants = build_landgrant_public()
     if landgrants is not None:
         write_geojson(PUBLIC_DIR / "land_grants.geojson", landgrants)
-    newbuilds = build_newbuild_public()
+    matched_eisghs_ids = {crosswalk["eisghs_id"] for crosswalk in crosswalk_by_pid.values()}
+    matched_eisghs_ids |= {
+        (row["reallocation_detail"] or {}).get("eisghs_id")
+        for row in demo_rows
+        if row["reallocation_detail"] and row["reallocation_detail"].get("eisghs_id") is not None
+    }
+    newbuilds = build_newbuild_public(matched_eisghs_ids)
     if newbuilds is not None:
         write_geojson(PUBLIC_DIR / "newbuilds.geojson", newbuilds)
 

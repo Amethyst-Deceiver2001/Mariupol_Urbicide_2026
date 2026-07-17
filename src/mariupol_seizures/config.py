@@ -171,4 +171,18 @@ RESULTS_TEMPLATE = os.environ.get(
     "&list=ON&page={page}&Submit=%CD%E0%E9%F2%E8",
 )
 
+# ── OSINT sweep assistant — per-source API keys / tokens (scripts/324) ─────────
+# All optional: a source module skips gracefully (with a note in its result)
+# when its key is absent, rather than failing the sweep. Set the ones you have
+# in .env. None of these are required for the local tier or the keyless network
+# sources (pastvu, commons, osm, eyesonrussia, wayback, wikidata, CDX).
+MAPILLARY_TOKEN = os.environ.get("MAPILLARY_TOKEN", "")          # graph.mapillary.com (free)
+FLICKR_API_KEY = os.environ.get("FLICKR_API_KEY", "")            # flickr.photos.search (free)
+WIKIMAPIA_KEY = os.environ.get("WIKIMAPIA_KEY", "")             # api.wikimapia.org (free)
+YANDEX_GEOCODER_KEY = os.environ.get("YANDEX_GEOCODER_KEY", "")  # geocode-maps.yandex.ru (free tier)
+VISICOM_KEY = os.environ.get("VISICOM_KEY", "")                  # api.visicom.ua Data API key
+VK_ACCESS_TOKEN = os.environ.get("VK_ACCESS_TOKEN", "")         # api.vk.com (user token; VPS)
+PLANET_API_KEY = os.environ.get("PLANET_API_KEY", "")            # api.planet.com (trial ok — search+thumbs only)
+OPENSANCTIONS_API_KEY = os.environ.get("OPENSANCTIONS_API_KEY", "")  # api.opensanctions.org (free NGO tier)
+
 RAW_DIR.mkdir(parents=True, exist_ok=True)
