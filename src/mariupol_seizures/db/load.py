@@ -641,13 +641,29 @@ def load_buildings(jsonl: str = "data/parsed/address_registry.jsonl") -> None:
 
 
 def load_ownerless_decrees(jsonl: str = "data/parsed/ownerless_decrees.jsonl") -> None:
-    """Load ownerless_decrees.jsonl rows (row_confidence >= 0.8, claim-grade
-    per CLAUDE.md) as seizure_event(stage='ownerless_designation') rows, and
-    upsert the signing official into `actor` (in scope for accountability).
-    The address is parsed into (street, house) exactly as
+    """Load ownerless_decrees.jsonl rows as seizure_event rows, and upsert
+    the signing official into `actor` (in scope for accountability). The
+    address is parsed into (street, house) exactly as
     scripts/21_build_address_registry.py's _from_ownerless_decrees does, so
     the resulting building_id matches the property row created by
-    load_buildings(). Idempotent via dedup_key."""
+    load_buildings(). Idempotent via dedup_key.
+
+    Two decree kinds load here, with DIFFERENT stages and DIFFERENT quality
+    gates:
+      - 'designation' -> stage='ownerless_designation', gated at the
+        standard row_confidence >= 0.8 (claim-grade per CLAUDE.md) since a
+        clean row of this kind normally DOES carry a cadastral number.
+      - 'registration' -> stage='ownerless_registration' (the earlier
+        Rosreestr registration act -- see db/schema.sql's enum comment).
+        These decrees structurally NEVER carry a cadastral number (it isn't
+        assigned until the later designation stage), so row_confidence caps
+        at ~0.3 by design (see _row_flags in scripts/06_parse_ownerless_
+        decrees.py) -- gating on >=0.8 would silently discard every single
+        one of these rows regardless of extraction quality. Gate instead on
+        the flags that DO indicate a real extraction problem for this kind
+        (address_suspect, area_missing, cadastral_malformed), ignoring the
+        expected-and-permanent cadastral_missing flag. Added 2026-07-17.
+    """
     path = Path(config.PROJECT_ROOT / jsonl)
     if not path.exists():
         raise SystemExit(f"{path} not found — run scripts/06_parse_ownerless_decrees.py first.")
@@ -662,16 +678,27 @@ def load_ownerless_decrees(jsonl: str = "data/parsed/ownerless_decrees.jsonl") -
             if not line:
                 continue
             d = json.loads(line)
-            # Only designation decrees are 'ownerless_designation' events.
-            # removal-kind rows («снятие с учёта») are the lifecycle-COMPLETION
-            # act (post-court-transfer de-listing) and need their own stage +
-            # loader; procedure-kind rows are machinery, not per-property acts.
-            if d.get("decree_kind") != "designation":
+            # 'designation' and 'registration' decrees are per-property
+            # ownerless-pipeline ACTS, each with its own stage below.
+            # removal-kind rows («снятие с учёта») are the lifecycle-
+            # COMPLETION act (post-court-transfer de-listing) and need their
+            # own stage + loader; procedure-kind rows are machinery, not
+            # per-property acts.
+            kind = d.get("decree_kind")
+            if kind not in ("designation", "registration"):
                 skipped_kind += 1
                 continue
-            if d.get("row_confidence", 0) < 0.8:
-                skipped_conf += 1
-                continue
+            if kind == "designation":
+                stage = "ownerless_designation"
+                if d.get("row_confidence", 0) < 0.8:
+                    skipped_conf += 1
+                    continue
+            else:
+                stage = "ownerless_registration"
+                real_flags = set(d.get("flags") or []) - {"cadastral_missing"}
+                if real_flags:
+                    skipped_conf += 1
+                    continue
 
             addr = strip_garbage_prefix(norm_commas(d.get("address_raw") or ""))
             parts = [p.strip() for p in addr.split(",")]
@@ -714,7 +741,7 @@ def load_ownerless_decrees(jsonl: str = "data/parsed/ownerless_decrees.jsonl") -
             cur.execute(
                 """INSERT INTO seizure_event
                        (property_id, stage, event_date, source_doc_id, confidence, detail, dedup_key)
-                   VALUES (%s, 'ownerless_designation'::seizure_stage, %s, %s, %s, %s, %s)
+                   VALUES (%s, %s::seizure_stage, %s, %s, %s, %s, %s)
                    ON CONFLICT (dedup_key) DO UPDATE
                        SET property_id   = EXCLUDED.property_id,
                            event_date    = EXCLUDED.event_date,
@@ -722,7 +749,7 @@ def load_ownerless_decrees(jsonl: str = "data/parsed/ownerless_decrees.jsonl") -
                            confidence    = EXCLUDED.confidence,
                            detail        = EXCLUDED.detail
                    RETURNING id""",
-                (property_id, d.get("decree_date"), source_doc_id,
+                (property_id, stage, d.get("decree_date"), source_doc_id,
                  d.get("row_confidence"), json.dumps(detail, ensure_ascii=False), dedup_key),
             )
             event_id = cur.fetchone()[0]
@@ -739,11 +766,12 @@ def load_ownerless_decrees(jsonl: str = "data/parsed/ownerless_decrees.jsonl") -
     con.commit()
     cur.close()
     con.close()
-    log.info("load_ownerless_decrees: %d events, skipped %d non-designation kind, "
-             "%d low-confidence, %d unparseable address, %d no matching property",
+    log.info("load_ownerless_decrees: %d events, skipped %d other kind (removal/procedure), "
+             "%d low-confidence/flagged, %d unparseable address, %d no matching property",
              loaded, skipped_kind, skipped_conf, skipped_addr, skipped_prop)
     print(f"load_ownerless_decrees: {loaded} events "
-          f"(skipped: {skipped_kind} non-designation kind, {skipped_conf} low-confidence, "
+          f"(skipped: {skipped_kind} other kind (removal/procedure), "
+          f"{skipped_conf} low-confidence/flagged, "
           f"{skipped_addr} unparseable address, {skipped_prop} no matching property)")
 
 

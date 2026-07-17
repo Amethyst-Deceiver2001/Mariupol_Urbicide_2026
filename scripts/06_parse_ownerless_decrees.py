@@ -317,6 +317,78 @@ def _rows_from_text(text: str, source_sha256: str) -> list[dict]:
     return out
 
 
+# ── registration-decree ("постановка на учет") table parsing ─────────────────
+# Registration decrees ("О постановке на учет недвижимой вещи в качестве
+# бесхозяйной") are the EARLIER pipeline stage, before Rosreestr assigns a
+# cadastral number — so these tables never carry a rosreestr_order_ref or
+# cadastral column at all (the 7th column literally reads "информация
+# отсутствует" for every row). Neither existing extraction path fits: the
+# cell-based _row_from_cells (via pdfplumber's text-position table detection)
+# silently misaligns columns on this shape's wrapped multi-line address cell
+# (confirmed 2026-07-17: address truncated to "г. Мар", a wrapped
+# continuation line like "Квартира" leaking into address_raw on its own
+# spurious "row" — while still returning non-empty rows, which blocked the
+# text_fallback parser below from ever running); _rows_from_text's _L1_TWO
+# regex expects a rosreestr_order_ref/cadastral on line 1, which this shape
+# never has, so it matches nothing.
+#
+# Real 3-line-per-record structure (pdfplumber extract_text(), not -layout):
+#   L1: {seq} | Квартира г. Мариуполь, {area} требует ремонтно- | {date} | информация отсутствует
+#   L2: [stray "|"/"/" noise] {street}, д.{house}, кв.{apt} восстановительных
+#   L3: работ   (wrapped tail of "восстановительных работ" — content-free, skipped)
+_REG_L1 = re.compile(
+    r"^(\d{1,4})\s*\|?\s*Квартира\s+г\.\s*Мариуполь,\s*"
+    r"([\d,\.]+)\s+требует\s+ремонтно-\s*\|?\s*"
+    r"(\d{2}\.\d{2}\.\d{4})\s*\|?\s*информация\s+отсутствует",
+    re.I,
+)
+_REG_L2 = re.compile(
+    r"^[|/‚\s]*(.+?,\s*д\.\S+?,\s*кв\.\d+)\s+восстановительных\s*$",
+    re.I,
+)
+
+
+def _rows_from_registration_table_text(text: str, source_sha256: str) -> list[dict]:
+    """Parse the 3-line-per-entry OCR text from registration-decree
+    ("постановка на учет") annexes. cadastral_number and rosreestr_order_ref
+    are always None here — genuinely absent at this pipeline stage, not a
+    parse failure — so cadastral_missing will still flag every row (an
+    accurate reflection of the decree stage, not a defect); the actual gain
+    over the generic cell/text-fallback paths is a correctly extracted
+    address_raw and area_sqm instead of truncated/empty garbage."""
+    lines = [ln.rstrip() for ln in text.splitlines()]
+    out: list[dict] = []
+    i = 0
+    while i < len(lines):
+        m1 = _REG_L1.match(lines[i].strip())
+        if m1:
+            seq = int(m1.group(1))
+            area = _coerce_area(m1.group(2))
+            reg_date = _parse_dot_date(m1.group(3))
+            address: str | None = None
+            if i + 1 < len(lines):
+                m2 = _REG_L2.match(lines[i + 1].strip())
+                if m2:
+                    address = m2.group(1).strip()
+                    i += 1  # consume line 2
+            flags, conf = _row_flags(address or "", None, area)
+            out.append({
+                "source_sha256": source_sha256,
+                "seq_no": seq,
+                "property_type": "Квартира",
+                "address_raw": address or "",
+                "area_sqm": area,
+                "rosreestr_order_ref": None,
+                "rosreestr_order_date": None,
+                "rosreestr_reg_date": reg_date,
+                "cadastral_number": None,
+                "flags": flags,
+                "row_confidence": round(max(0.0, conf - 0.2), 2),
+            })
+        i += 1
+    return out
+
+
 # ── removal-decree ("исключение из Реестра") table parsing ────────────────────
 # Removal-decree annexes use a DIFFERENT column layout than designation
 # annexes (no rosreestr_order_ref "basis" column; instead: designation date +
@@ -737,6 +809,26 @@ def parse_decree_pdf(pdf_path: Path, source_sha256: str, title: str = "",
                   decree_meta.get("removal_reason"))
         return rows
 
+    if decree_kind == "registration":
+        # Registration annexes have their own 3-line table shape (no
+        # rosreestr_order_ref/cadastral columns at all — see
+        # _rows_from_registration_table_text above); the generic cell/
+        # text-fallback paths below don't fit it and silently misalign.
+        rows = _rows_from_registration_table_text(full_text_probe, source_sha256)
+        strategy_used = "registration_text" if rows else "none"
+        full_text = full_text_probe
+        decree_meta = _parse_title_meta(title) if title else {}
+        decree_meta.update(_extract_decree_meta(full_text))
+        for row in rows:
+            row.update(decree_meta)
+            row["extract_strategy"] = strategy_used
+        clean = sum(1 for r in rows if not r["flags"])
+        log.info("%s: %d rows (%d claim-grade) via %s — decree №%s, %s",
+                  pdf_path.name, len(rows), clean, strategy_used,
+                  decree_meta.get("decree_number", "?"),
+                  decree_meta.get("decree_date", "?"))
+        return rows
+
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
             page_rows: list[dict] = []
@@ -765,10 +857,24 @@ def parse_decree_pdf(pdf_path: Path, source_sha256: str, title: str = "",
                     pdf_path.name)
         return []
 
-    # (3) text fallback if structured extraction found nothing
-    if not rows:
-        rows = _rows_from_text(full_text, source_sha256)
-        if rows:
+    # (3) text fallback if structured extraction found nothing, OR if it found
+    # rows but NONE are claim-grade — a real failure mode confirmed 2026-07-17:
+    # pdfplumber's text-position table detection can find a spurious/misaligned
+    # table (registration-decree pages have a different column layout than the
+    # designation-decree schema _row_from_cells expects: state-text and
+    # "информация отсутствует" columns instead of a basis-ref/cadastral pair),
+    # producing NON-EMPTY but garbage rows (truncated addresses like "г. Мар",
+    # every row flagged cadastral_missing+address_suspect+area_missing) that
+    # silently blocked this fallback from ever running. The 2-line text parser
+    # below handles this exact table shape correctly (confirmed: adjacent
+    # registration decrees parsed via text_fallback hit 90%+ claim-grade), so
+    # prefer it whenever the cell-based pass came back with zero clean rows.
+    if not rows or not any(not r["flags"] for r in rows):
+        fallback_rows = _rows_from_text(full_text, source_sha256)
+        if fallback_rows and (
+            not rows or sum(1 for r in fallback_rows if not r["flags"]) > 0
+        ):
+            rows = fallback_rows
             strategy_used = "text_fallback"
 
     # Decree number/date: prefer HTML title (handwritten OCR is unreliable);

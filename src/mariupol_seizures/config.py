@@ -6,7 +6,11 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+# override=True: this project's .env is authoritative. Without it, a
+# DATABASE_URL already present in the shell (e.g. Postgres.app's own default
+# export) silently wins over .env's value — the actual cause of a recurring
+# "wrong port" connection failure (shell had port 5432, .env/reality is 5433).
+load_dotenv(Path(__file__).resolve().parents[2] / ".env", override=True)
 
 PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", Path(__file__).resolve().parents[2]))
 DATA_DIR = PROJECT_ROOT / "data"
@@ -33,7 +37,7 @@ SSL_VERIFY: bool = os.environ.get("SSL_VERIFY", "false").lower() == "true"
 
 # Postgres/PostGIS
 DATABASE_URL = os.environ.get(
-    "DATABASE_URL", "postgresql://localhost:5432/mariupol_seizures"
+    "DATABASE_URL", "postgresql://localhost:5433/mariupol_seizures"
 )
 
 # ── Telegram (MTProto) — demand-side resale scan (scripts/50) ──────────────────

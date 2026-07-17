@@ -119,11 +119,22 @@ CREATE TABLE IF NOT EXISTS owner (
 -- distinct asset class under distinct substantive law. Kept as its own stage
 -- (not folded into 'ownerless_designation') so the two tracks stay
 -- distinguishable in RD4U/STATS breakdowns. Added 2026-07-05 (scripts/256).
+-- 'ownerless_registration' = "О постановке на учет недвижимой вещи в качестве
+-- бесхозяйной" -- the Rosreestr registration act (приказ Росреестра №П/0086,
+-- 218-ФЗ ст.69 §10) that PRECEDES 'ownerless_designation': a unit is entered
+-- into the ownerless-property register before any cadastral number is
+-- assigned to it, so these decrees structurally never carry a cadastral
+-- field (not a data-quality gap -- see scripts/06_parse_ownerless_decrees.py's
+-- _rows_from_registration_table_text). Kept distinct from
+-- 'ownerless_designation' so the two administrative acts don't collapse into
+-- one stage. Added 2026-07-17 (scripts/346 crawler; ALTER TYPE migration
+-- below; loader load_ownerless_decrees() branch).
 CREATE TYPE seizure_stage AS ENUM (
     'utility_cutoff', 'notice', 'inspection', 'ownerless_designation',
     'demolition', 'court_petition', 'court_transfer', 'appeal', 'entered_force',
     'reallocation', 'resale', 'registry_inclusion', 'expropriation',
-    'temporary_use', 'reclaim', 'unfinished_construction_designation'
+    'temporary_use', 'reclaim', 'unfinished_construction_designation',
+    'ownerless_registration'
 );
 
 CREATE TABLE IF NOT EXISTS seizure_event (
@@ -150,6 +161,7 @@ ALTER TABLE seizure_event ADD COLUMN IF NOT EXISTS unit_id BIGINT REFERENCES uni
 -- type exists). ADD VALUE IF NOT EXISTS is PG 12+ and safe outside a txn block.
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'reclaim';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'unfinished_construction_designation';
+ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'ownerless_registration';
 CREATE INDEX IF NOT EXISTS seizure_event_prop_ix ON seizure_event(property_id);
 CREATE INDEX IF NOT EXISTS seizure_event_stage_ix ON seizure_event(stage);
 CREATE INDEX IF NOT EXISTS seizure_event_unit_ix ON seizure_event(unit_id) WHERE unit_id IS NOT NULL;

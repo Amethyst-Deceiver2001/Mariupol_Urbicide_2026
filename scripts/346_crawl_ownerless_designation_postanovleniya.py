@@ -344,9 +344,8 @@ def main() -> None:
              len(seen_pages), len(seen_pdfs), n_residential, n_other)
     log.info("Next: PYTHONPATH=src python scripts/06a_ocr_decrees.py — extend/"
              "re-run OCR over any newly-captured ownerless_decree_designation_pdf/"
-             "ownerless_decree_registration_pdf rows (06a needs "
-             "'ownerless_decree_registration_pdf' added to its SCAN_TYPES list "
-             "first — it's a new source_type this crawler introduces).")
+             "ownerless_decree_registration_pdf rows (06a's OCR_SOURCE_TYPES "
+             "already includes 'ownerless_decree_registration_pdf').")
 
 
 if __name__ == "__main__":
