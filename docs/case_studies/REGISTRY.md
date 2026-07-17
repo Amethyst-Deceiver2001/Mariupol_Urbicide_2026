@@ -54,7 +54,7 @@ Reserved for proposed work: **M8** paper remedy / reclaim-into-the-void
 | MUP-CS-007 | The court docket — 33 judges, 2,694 rulings, no address | X (court conveyor) | *(built from `docs/dnr_district_first_instance_2026-06.md`)* | [case-study-IV-court-docket.html](../exhibits/case-study-IV-court-docket.html) | [-ru](../exhibits/case-study-IV-court-docket-ru.html) |
 | MUP-CS-008 | МКР «Невский» — ордер, не титул | M7 | [nevsky_microdistrict_ordena_not_title.md](nevsky_microdistrict_ordena_not_title.md) | — | — |
 | MUP-CS-009 | ЖСК «Бригантина» → СЗ «ГСА Девелопмент» | M6 | [brigantina_zhsk_land_lease.md](brigantina_zhsk_land_lease.md) | — | — |
-| MUP-CS-010 | Death sites & ad-hoc graves × new construction | X (victim overlay) | [death_sites_new_construction.md](death_sites_new_construction.md) | — | — |
+| MUP-CS-010 | Death sites, ad-hoc graves & collapse-entombment × new construction | X (victim overlay) | [death_sites_new_construction.md](death_sites_new_construction.md) | [death-sites-new-construction-exhibit.html](../exhibits/death-sites-new-construction-exhibit.html) | [-ru](../exhibits/death-sites-new-construction-exhibit-ru.html) |
 
 Retired display labels (for anyone holding an old citation): "Case Study II"
 = MUP-CS-004, "Case Study III" = MUP-CS-006, "Case Study IV" = MUP-CS-007,

@@ -6,9 +6,9 @@
 <title>Interactive Map — Mariupol Urbicide Project</title>
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
-<meta name="description" content="An interactive map of documented property seizures in occupied Mariupol — residential and non-residential, demolitions, developer land grants and new-builds, against the full geocoded evidence spine.">
+<meta name="description" content="An interactive map of documented property seizures in occupied Mariupol — residential and non-residential, demolitions, developer land grants and new-builds">
 <meta property="og:title" content="Interactive Map — Mariupol Urbicide Project">
-<meta property="og:description" content="An interactive map of documented property seizures in occupied Mariupol — residential and non-residential, demolitions, developer land grants and new-builds, against the full geocoded evidence spine.">
+<meta property="og:description" content="An interactive map of documented property seizures in occupied Mariupol — residential and non-residential, demolitions, developer land grants and new-builds">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/interactive-map.html">
 <meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
@@ -222,11 +222,21 @@
     return '<p class="pop-kicker">'+esc(p.cat_label||p.cat||'uncategorized (RD4U)')+'</p>'+addressBlock(p)+r;
   }
   function popDemo(p){
-    var reb=p.kind==='demolished_rebuilt';
+    var reb=p.kind==='demolished_rebuilt_same'||p.kind==='demolished_rebuilt_nearby';
+    var nearby=p.kind==='demolished_rebuilt_nearby';
     var h='<p class="pop-kicker">'+(reb?'Demolished &amp; rebuilt':'Demolished')+'</p>'+addressBlock(p)+
       '<p class="pop-body"><b>Demolition</b>'+(p.demo_date?' &middot; '+esc(p.demo_date):'')+'</p>'+
       '<p class="pop-src">'+esc(p.demo_basis||'')+'</p>';
-    if(reb) h+='<p class="pop-body"><b>Reallocated to developer</b>'+(p.realloc_date?' &middot; '+esc(p.realloc_date):'')+'</p><p class="pop-src">'+esc(p.realloc_basis||'')+'</p>';
+    if(reb){
+      h+='<p class="pop-body"><b>'+(nearby?'Replacement building nearby':'Reallocated to developer')+'</b>'+
+        (p.linked_new_project?' &middot; '+esc(p.linked_new_project):'')+'</p>';
+      if(p.linked_new_addr) h+='<p class="pop-src">'+esc(p.linked_new_addr)+'</p>';
+      if(p.linked_new_dev) h+='<p class="pop-src">Developer: <b>'+esc(p.linked_new_dev)+'</b>'+
+        (p.linked_new_flats?' &middot; '+p.linked_new_flats+' flats':'')+'</p>';
+      if(p.linked_new_commissioned) h+='<p class="pop-src">Commissioned: '+esc(p.linked_new_commissioned)+'</p>';
+      if(!nearby && p.realloc_basis) h+='<p class="pop-src">'+esc(p.realloc_basis)+'</p>';
+      if(nearby) h+='<p class="pop-src" style="opacity:.75">Linked via case-study research ('+esc(p.link_note||'address changed under occupation')+'), not an automatic address match — see the dashed connector.</p>';
+    }
     return h+verifBadge(p);
   }
   function popNonresOwn(p){
@@ -257,12 +267,24 @@
     return h;
   }
   function popNewbuild(p){
-    return '<p class="pop-kicker">Replacement new-build (ЕИСЖС)</p>'+
+    return '<p class="pop-kicker">New construction (ЕИСЖС) — no demolished predecessor confirmed</p>'+
       (p.addr?'<p class="pop-title">'+esc(p.addr)+'</p>':'')+
       (p.dev?'<p class="pop-body">Developer: <b>'+esc(p.dev)+'</b></p>':'')+
       (p.flats?'<p class="pop-src">'+p.flats+' flats &middot; '+(p.living_sqm?Math.round(p.living_sqm).toLocaleString()+' m² living':'')+'</p>':'')+
       (p.commissioned?'<p class="pop-src">Commissioned: '+esc(p.commissioned)+'</p>':'')+
-      (p.decree?'<p class="pop-src">Land decree No. '+esc(p.decree)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'');
+      (p.decree?'<p class="pop-src">Land decree No. '+esc(p.decree)+(p.decree_date?' &middot; '+esc(p.decree_date):'')+'</p>':'')+
+      '<p class="pop-src" style="opacity:.75">Built on granted land; no residential demolition record on this project\'s spine has been matched to this object.</p>';
+  }
+  function popNewbuildLinked(p){
+    // p is the DEMOLISHED point's properties (linked_new_* fields), not the
+    // newbuild's own -- this popup sits on the marker at the new build's site.
+    return '<p class="pop-kicker">Replacement building</p>'+
+      (p.linked_new_addr?'<p class="pop-title">'+esc(p.linked_new_addr)+'</p>':'')+
+      (p.linked_new_dev?'<p class="pop-body">Developer: <b>'+esc(p.linked_new_dev)+'</b></p>':'')+
+      (p.linked_new_flats?'<p class="pop-src">'+p.linked_new_flats+' flats</p>':'')+
+      (p.linked_new_commissioned?'<p class="pop-src">Commissioned: '+esc(p.linked_new_commissioned)+'</p>':'')+
+      (p.linked_new_decree?'<p class="pop-src">Land decree No. '+esc(p.linked_new_decree)+'</p>':'')+
+      '<p class="pop-src" style="opacity:.75">Built on the site of a demolished residential building — see the connected marker.</p>';
   }
   function popBlock(p){
     return '<p class="pop-kicker">Land-grant block (approximate outline)</p>'+
@@ -292,7 +314,7 @@
      sw:'dia', color:'#9a4b2e', def:false, split:true, make:diamond('#9a4b2e',5), pop:popDemo},
     {id:'land', label:'Developer land grants', file:'land_grants.geojson', group:'seizure',
      sw:'dot', color:'var(--c-land)', def:true, make:circle('#5b8fc9',6,1.1), pop:popLand},
-    {id:'newbuild', label:'Replacement new-builds', file:'newbuilds.geojson', group:'seizure',
+    {id:'newbuild', label:'New construction, no demolished predecessor confirmed', file:'newbuilds.geojson', group:'seizure',
      sw:'sq', color:'var(--c-newbuild)', def:false, make:function(ll){ return L.marker(ll,{icon:L.divIcon({className:'',iconSize:[11,11],
         html:'<div style="width:9px;height:9px;background:#5fae5a;border:1px solid #0c0e11"></div>'})}); }, pop:popNewbuild},
     {id:'spine', label:'Full evidence spine', file:'property_spine_context.geojson', group:'seizure',
@@ -330,15 +352,26 @@
         var ll=[g.coordinates[1],g.coordinates[0]];
         var m=cfg.make(ll,p);
         if(cfg.pop) m.bindPopup(cfg.pop(p),{maxWidth:300});
-        var isReb = cfg.split && p.kind==='demolished_rebuilt';
+        var isReb = cfg.split && (p.kind==='demolished_rebuilt_same'||p.kind==='demolished_rebuilt_nearby');
         m.addTo(isReb?rebuiltGrp:grp);
         if(isReb) rebuiltCount++; else count++;
+        // "nearby" rebuilds have their own coordinates for the replacement --
+        // draw a dashed before/after connector plus a small marker at the new
+        // site, both in the same toggle group as the demolished point itself.
+        if(isReb && p.kind==='demolished_rebuilt_nearby' && p.linked_new_lat!=null && p.linked_new_lon!=null){
+          var newLl=[p.linked_new_lat, p.linked_new_lon];
+          L.polyline([ll,newLl],{color:'#5fae5a',weight:1.5,dashArray:'3 4',opacity:.8}).addTo(rebuiltGrp);
+          var nm=L.marker(newLl,{icon:L.divIcon({className:'',iconSize:[11,11],
+            html:'<div style="width:9px;height:9px;background:#5fae5a;border:1px solid #0c0e11"></div>'})});
+          nm.bindPopup(popNewbuildLinked(p),{maxWidth:300});
+          nm.addTo(rebuiltGrp);
+        }
         var rec={marker:m, text:searchText(p), cluster:cfg.cluster};
         allMarkers.push(rec);
       });
       registry[cfg.id]={cfg:cfg, group:grp, rebuilt:rebuiltGrp, count:count, rebuiltCount:rebuiltCount};
       if(cfg.def) grp.addTo(map);
-      if(cfg.split && rebuiltGrp) rebuiltGrp.addTo(map); // rebuilt shown with its own row
+      if(cfg.def && cfg.split && rebuiltGrp) rebuiltGrp.addTo(map); // rebuilt shown with its own row, same default as the parent layer
       return registry[cfg.id];
     }).catch(function(){
       registry[cfg.id]={cfg:cfg, group:null, count:null}; // missing/unavailable
@@ -369,7 +402,7 @@
       if(cfg.group==='context') contextHtml+=html; else seizureHtml+=html;
       // demolished+rebuilt gets its own row right after residential demolition
       if(cfg.split && rec && rec.count!==null){
-        seizureHtml+='<label class="row"><input type="checkbox" id="tg-demo_rebuilt" checked>'+
+        seizureHtml+='<label class="row"><input type="checkbox" id="tg-demo_rebuilt"'+(cfg.def?' checked':'')+'>'+
           '<span class="sw dia" style="background:var(--evidence)"></span><span>— of those, rebuilt</span>'+
           '<span class="cnt">'+rec.rebuiltCount+'</span></label>';
       }
@@ -438,6 +471,19 @@
     'commercial character in the event record. <b>Non-residential coverage grows with geocoding</b> — many '+
     'commercial/industrial addresses are not yet geocoded, so the counts shown are a floor, not the full 1,277 objects '+
     'on file.</p>'+
+    '<p><b>Demolished, and rebuilt.</b> A demolished building and its replacement are one real-world event, so the map '+
+    'treats them as one: the &ldquo;of those, rebuilt&rdquo; row under Residential demolition shows every demolished '+
+    'property with a confirmed replacement, at the <b>original</b> address. Where the new building was registered under '+
+    'the same address (the common case), its developer/flat-count/decree details are folded straight into that one '+
+    'point&rsquo;s popup. Where occupation practice renamed the address (a letter suffix — X &rarr; X&ldquo;Б&rdquo; — or '+
+    'a brand-name/&ldquo;литера&rdquo; scheme), the new building sits at its own, different coordinates; the map draws a '+
+    'dashed connector to it rather than merging two distinct locations into one point. Those address-changed links are '+
+    'individually verified against a case study before being added — never guessed from proximity alone, since this '+
+    'project has already found a nearby new-build complex on the same street built on a completely different, non-'+
+    'adjacent set of demolished addresses. <b>New construction, no demolished predecessor confirmed</b> is a separate, '+
+    'off-by-default layer for the remaining ЕИСЖС objects: land granted and built on with no residential demolition '+
+    'record linked to it on this project&rsquo;s spine — a materially different claim from &ldquo;built on a demolished '+
+    'building,&rdquo; kept visually and legend-wise distinct on purpose.</p>'+
     '<p><b>Parcel outlines vs. points.</b> A land grant described as a block &ldquo;bounded by streets X, Y, Z&rdquo; is '+
     'drawn as an approximate outline built from OpenStreetMap street geometry (dashed) — orientation only, not '+
     'parcel-exact. Exact ЕГРН boundaries were not obtainable: Rosreestr&rsquo;s federal cadastre (NSPD) does not carry '+

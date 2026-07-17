@@ -331,6 +331,103 @@ authorized the contractor doing the (poor-quality) work.
 
 ---
 
+## A second site showing the same pattern — ul. Zelinskogo, 30 (candidate, 2026-07-15)
+
+Discovered as a side effect of unrelated work: a spatial+OCR sweep matching
+new-construction objects in the federal ЕИСЖС registry against demolished
+addresses on the spine (`scripts/314`–`316`, for the demolition→rebuild map
+crosswalk) turned up two new buildings under construction on ul. Zelinskogo,
+named **30А** and **30Б** by their developer (SZ-1 PORFIR, "Rezidentsiya
+Kontsept"). Their own construction-progress photos, OCR'd, and a direct
+Yandex-map/satellite check (2026-07-15) established:
+
+- **The two new corpuses are NOT built on 30's own footprint.** They occupy
+  the plots of two DIFFERENT, actually-demolished neighbors — ul. Zelinskogo
+  **23** (property_id **4844**) and ul. Zelinskogo **27** (property_id
+  **4845**) — and are simply *named after* the adjacent building at
+  Zelinskogo 30, the way "70Б" names itself after Stroiteley 70 elsewhere in
+  this project's crosswalk. 23↔30А and 27↔30Б, confirmed by direct
+  site/imagery inspection (proximity alone was ambiguous — both new corpuses
+  sit 60–80m from either candidate predecessor, too far for coordinate
+  distance to settle the pairing on its own).
+- **ul. Zelinskogo 30 itself (property_id 4846) is the Lenina-106 pattern
+  again.** DNR MinStroy's own demolition register lists 30 on its own line,
+  under the SAME decree as the two genuinely-demolished neighbors —
+  **State Defense Committee (GKO) DNR Directive No. 53, 29.09.2022**
+  ("g. Mariupol, ul. Zelinskogo d. 30, Mnogokvartirnyi zhiloi dom") — a
+  clean, unambiguous row in the source CSV, not a parsing artifact (checked
+  row-by-row, 2026-07-15). But satellite imagery and an on-the-ground
+  identification (2026-07-15) confirm the building is **still standing** —
+  visible as an intact, undemolished residential block, distinguishable from
+  its two razed neighbors whose footprints are now bare, graded construction
+  sites. **A demolition order on file; the building never actually razed —
+  exactly Lenina 106's contradiction, at a different address.**
+- Property 4846 already carries **27 `registry_inclusion` events** (apartments
+  processed as "ownerless" via the standard pipeline) and **one `reclaim`
+  event** (2025-06-11, source `ownerless_removals`) — i.e. at least one
+  owner/heir successfully petitioned back out of the registry, while the
+  building as a whole continued being processed as if it no longer existed.
+  This is the same uncoordinated-parallel-process signature documented for
+  106 above: demolition paperwork, registry stripping, and (here, unlike
+  106) at least one partial reclaim, none reconciled with the others or with
+  the building's actual, undamaged physical state.
+
+**The reallocation stage is ALREADY documented for 30 — better, in fact, than
+for 104/106/108 above — and shows two distinct disposition channels running
+in parallel, uncoordinated with each other:**
+
+1. **Compensation-housing pool.** The same **Resolution No. I/3-3
+   (13.02.2026)** cited above for 104/106/108 explicitly lists **two named
+   apartments at Zelinskogo 30** by cadastral number — the first row-level
+   confirmation for this document anywhere in this case study (the 104/106/108
+   counts above are still an unverified raw OCR total; these two rows were
+   read directly, 2026-07-15):
+   - apt. 13, 40.6 m², cadastral `93:37:0010101:2037`
+   - apt. 72, 39.56 m², cadastral `93:37:0010101:2042`
+
+   (The PDF had no usable text layer via `pdfplumber` — same problem noted
+   for this document above — required a fresh 23-page OCR pass, now captured
+   as a derived artifact.)
+
+2. **Open-market resale, independently.** A separate 2-room, 42.4 m²,
+   floor-2/5 apartment at Zelinskogo 30 — **"documents registered in
+   Rosreestr"** per the listing's own text — was advertised for 3.3 million
+   rubles by real-estate agency "АН «Наш город»" (contact: Anna Burnazova),
+   posted to `t.me/mariupolskiy_uezd` and reposted 3 times over 2026-05-14/15
+   (`data/parsed/realestate_offers.jsonl`). This is the same demand-side
+   resale pattern documented at scale in MUP-CS-004
+   (`mass_registry_to_resale.md`), now confirmed at this specific address.
+
+Neither channel references the other; neither references the demolition
+decree or the still-standing physical building. One building, tracked
+through this project's evidence base, shows **all four stages running
+simultaneously and independently**: a demolition order (never executed),
+apartment-by-apartment registry stripping (27 units), a formal federal
+compensation-housing redirection (≥2 named units), and open-market resale
+to a new buyer (≥1 different unit) — a more complete single-address picture
+than any other property in this case study.
+
+**Status: strong candidate, but still short of 106's full evidentiary
+depth in one respect — no resident testimony, chat corroboration, or
+siege-damage/current-condition imagery has been sourced for Zelinskogo 30
+itself yet.** Whether this becomes its own case study or a folded-in fifth
+building here is an open call.
+
+**Next steps to elevate this from lead to documented:** (1) locate a
+resident chat or channel for this building the way `@Lenina106_Mariupol`
+exists for 106; (2) confirm the registry_inclusion apartment count and dates
+(currently undated in `detail`, unlike 106's dated snapshots) and check
+whether apt. 13 or 72 (the two compensation-list units) or the resold unit
+appear among them; (3) source siege-damage and current-condition imagery of
+Zelinskogo 30 itself, not just the satellite/map check already done; (4)
+check whether the 27 registry apartments at 30 show the same
+reclaim-vs-continued-stripping split as 106's Track 3; (5) row-by-row verify
+the rest of Resolution No. I/3-3's OCR for 104/106/108 the same way just
+done here for 30's two rows, closing the "NOT manually verified" caveat that
+still applies to those counts.
+
+---
+
 ## Provenance (chain of custody)
 
 | Claim | DB ref | Source artifact | SHA-256 | Captured |
@@ -360,6 +457,10 @@ authorized the contractor doing the (poor-quality) work.
 | Courtyard-side view, 106 (less severe than 104 — consistent with restoration) | corroboration pending | YouTube fzN0pI8alEY | `867ab498…398749ae7` | cited/captured 2026-06-19 |
 | **Civilian casualty record, 6 named deceased** (shared, all 4 buildings) | `corroboration` rows, kind=`civilian_casualty`, loaded 2026-06-19 | mariupolRIP/36979, /37382 + mariupoldestruction.com Google My Maps "Pogibshie" ("the dead") layer | `5c018486…f69d`, `40fec819…d54de`, `c1f20d23…aa17f6` | events 2022, captured 2026-06-19 |
 | **Reshenie №I/3-3 (13.02.2026) — compensation-housing list, ~10/8/8 units at 104/106/108** (OCR lead, NOT manually verified) | chat_document_inventory | `Reshenie_I_3_3_ot_13.02.2026.pdf` + first-page thumbnail | `02048976…6889e215bd` | 2026-02-14, OCR'd 2026-06-19 |
+| **Zelinskogo 30 demolition decree №53** (candidate second site, see above) | event 53943 | minstroy reestr-snosa_16_03_2026.csv, row 101 (same file as decree №56 above) | `d431a530…42ea37` | 2026-06-09 (row confirmed 2026-07-15) |
+| Zelinskogo 30 still standing; 23/27 confirmed demolished; 30А/30Б new-corpus pairing | scripts/164 `DEMOLITION_NEWBUILD_CROSSWALK` (property_ids 4844, 4845) | наш.дом.рф construction-progress photo OCR + satellite/Yandex-map check | see `scripts/164_export_map_layers.py` crosswalk notes | 2026-07-15 |
+| Zelinskogo 30, apt. 13 + apt. 72 on compensation-housing list (row-verified) | chat_document_inventory | `Reshenie_I_3_3_ot_13.02.2026.pdf`, rows 258–259 — full 23-page OCR text now captured as a derived artifact (source_type `reshenie_i_3_3_ocr_text`, `derived_from` the original PDF's sha256) | derived `1a0c48ef…677871bf0`, from source `02048976…6889e215bd` | 2026-02-14, OCR'd 2026-07-15 |
+| Zelinskogo 30, separate apartment resold on open market (2-room, 42.4m², "docs registered in Rosreestr") | `data/parsed/realestate_offers.jsonl` | `t.me/mariupolskiy_uezd/247034` (+2 reposts) | `1b0649cf…c5487ddd36` | posted 2026-05-14/15, captured 2026-06-12 |
 
 *Reproducible from raw → DB. Occupation registrations/rulings/demolition
 decrees are evidence of the seizure act, NOT valid title; Ukraine does not
@@ -369,6 +470,12 @@ recognize them, and neither do we.*
 
 ## Open items / follow-up
 
+- **New candidate second site — ul. Zelinskogo, 30 (2026-07-15)**: same
+  demolition-decreed/never-razed/registry-stripped-anyway pattern as 106,
+  found via unrelated map-crosswalk work. See the dedicated section above —
+  currently a lead, not built out with resident testimony or imagery the way
+  106 is. Next: find a resident chat/channel for this building, date its
+  registry_inclusion events, and source condition imagery.
 - **Sister buildings 104, 108, 110**: now documented above (property_ids
   4417/4421/4423, decree line items, registry_inclusion counts, geocodes,
   visual evidence package). Still open: a full apartment-level temporal

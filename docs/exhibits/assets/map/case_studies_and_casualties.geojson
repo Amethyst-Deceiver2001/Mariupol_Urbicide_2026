@@ -11,46 +11,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "pr. Nakhimova 82",
-        "case": "Nakhimova 82 → Chernomorsky 1B",
-        "kind": "case_study",
-        "role": "destroyed",
-        "href": "nakhimova-82-exhibit.html",
-        "summary": "36-flat building destroyed March 2022, demolished by occupation order. Same footprint rebuilt under a new address.",
-        "source": "project spine, property_id 5865, geocode confidence high",
-        "confidence": "high"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.5125162,
-          47.076027
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "per. Chernomorsky 1B",
-        "case": "Nakhimova 82 → Chernomorsky 1B",
-        "kind": "case_study",
-        "role": "rebuilt",
-        "href": "nakhimova-82-exhibit.html",
-        "summary": "51-flat building, new address and cadastral number, ~10m from the original footprint. 94.3% sold, overwhelmingly to Russian buyers.",
-        "source": "project spine, property_id 6333, geocode confidence high",
-        "confidence": "high"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.5126,
-          47.0761
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "pr. Lenina (Myru) 104",
         "case": "Lenina 104–110",
         "kind": "case_study",
@@ -205,6 +165,26 @@
         "coordinates": [
           37.545658,
           47.099197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "pr. Nakhimova 82 / per. Chernomorsky 1B",
+        "case": "Nakhimova 82 → Chernomorsky 1B",
+        "kind": "case_study",
+        "role": "demolished_rebuilt",
+        "href": "nakhimova-82-exhibit.html",
+        "summary": "36-flat building destroyed March 2022 by occupation demolition order, replaced on the same footprint by a 51-flat building registered under a new address and cadastral number. 94.3% sold, overwhelmingly to Russian buyers.",
+        "source": "project spine, property_id 5865 (pre-war) + 6333 (post-rebuild); single site, plotted as one point — the two source rows' independently geocoded coordinates differ by only a few metres, within normal manual-placement imprecision, not a real footprint offset",
+        "confidence": "high"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5125581,
+          47.0760635
         ]
       }
     }

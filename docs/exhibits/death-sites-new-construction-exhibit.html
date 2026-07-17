@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Courtyard Was a Grave. The Building Was Declared &ldquo;Ownerless.&rdquo;</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="Three independent sources on siege-era deaths and informal burials in Mariupol, cross-referenced against every seizure event on the city's property spine. Result: 116 buildings — and at nearly two-thirds of them, no demolition ever happened. Residents simply lost title through the ownerless-property registry while a fresh grave still stood in the courtyard.">
+<meta property="og:title" content="The Courtyard Was a Grave. The Building Was Declared &ldquo;Ownerless.&rdquo;">
+<meta property="og:description" content="116 buildings citywide, three independent sources, one recurring pattern: a death and a courtyard burial first, then either demolition or a quiet ownerless-registry designation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/death-sites-new-construction-exhibit.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Courtyard Was a Grave. The Building Was Declared &ldquo;Ownerless.&rdquo;">
+<meta name="twitter:description" content="116 buildings citywide, three independent sources, one recurring pattern: a death and a courtyard burial first, then either demolition or a quiet ownerless-registry designation.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{max-width:64ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  .lead{font-size:1.15rem;color:var(--paper);max-width:64ch}
+  .mono{font-family:var(--font-mono)}
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.6rem;display:block;line-height:1.6;max-width:70ch}
+
+  .hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,5vw,3.5rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.1rem,6vw,3.9rem);line-height:1.02;margin:.4rem 0 1.4rem;max-width:22ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2.2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.blue{color:var(--s1)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:.5rem;display:block;line-height:1.4}
+
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+  .badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;border:1px solid var(--rail);border-radius:2px;
+    padding:.32rem .55rem;color:var(--muted);white-space:nowrap}
+  .badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+
+  table.data{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:1.2rem}
+  table.data th,table.data td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.data th{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  table.data td:first-child{color:var(--paper);font-weight:700}
+  table.data tbody tr:hover{background:var(--ink-2)}
+  table.data td.muted{color:var(--muted)}
+  table.data td .lose{color:var(--evidence);font-weight:700}
+
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.6rem 0;max-width:72ch}
+  .callout.hot{border-left-color:var(--evidence)}
+  .callout .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
+  .callout.hot .h{color:var(--evidence)}
+  .callout p{margin:0;font-size:15.5px}
+
+  .figcap{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.6rem 0 0;max-width:72ch}
+
+  /* ---------- transliteration (click-to-reveal original Cyrillic) ---------- */
+  .xlit{position:relative;cursor:help;border-bottom:1px dotted var(--rail-2);white-space:nowrap}
+  .xlit:hover,.xlit.open{border-bottom-color:var(--stamp)}
+  .xlit .pop{position:absolute;left:0;bottom:calc(100% + 6px);z-index:30;
+    display:none;white-space:nowrap;background:var(--ink-3);
+    border:1px solid var(--stamp-dim);border-radius:3px;
+    padding:.35rem .6rem;font-family:var(--font-serif);font-size:13px;
+    color:var(--paper);box-shadow:0 6px 18px rgba(0,0,0,.4)}
+  .xlit .pop::after{content:"";position:absolute;left:10px;top:100%;
+    border:5px solid transparent;border-top-color:var(--stamp-dim)}
+  .xlit.open .pop{display:block}
+  .xlit.wide .pop{white-space:normal;max-width:300px}
+  .xlit.wide{white-space:normal}
+  .pop-line{display:block;margin:.15rem 0;font-size:12.5px}
+  .pop-line b{color:var(--stamp);font-weight:700;font-size:10.5px;
+    letter-spacing:.04em;text-transform:uppercase;margin-right:.35rem}
+  .xlit .pop a{color:var(--stamp);text-decoration:underline;text-underline-offset:2px}
+
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.6rem 0 .4rem}
+  .who .card{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;padding:1rem 1.1rem}
+  .who .card .nm{font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--paper);line-height:1.2}
+  .who .card .fio{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);margin-top:.2rem;display:block}
+  .who .card .ro{font-size:13.5px;color:var(--paper-dim);margin-top:.55rem;line-height:1.5}
+
+  details.prov{margin-top:1rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--stamp);padding:.4rem 0}
+  .srclist{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.9rem}
+  .srclist li{border-left:2px solid var(--rail);padding-left:1rem}
+  .srclist .ty{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
+  .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
+  .srclist .ti b{color:var(--paper)}
+
+  @media(max-width:680px){
+    .who{grid-template-columns:1fr}
+  }
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;padding:.9rem 1.1rem}
+  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
+  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Case study &middot; <b>citywide</b> &middot; siege-era graves under new construction and in the registry</span>
+  <span><a href="../index.html">&larr; project home</a> &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier.html">master dossier</a>
+    &nbsp;&middot;&nbsp; <a href="death-sites-new-construction-exhibit-ru.html">русская версия</a> &nbsp;&middot;&nbsp; <a href="about.html">about</a> &middot; <a href="sources.html">sources</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="sub">116 buildings citywide &middot; three independent sources &middot; one recurring pattern</div>
+    <div class="eyebrow">A victims spreadsheet &middot; a Telegram channel &middot; a memorial site &mdash; cross-referenced for the first time</div>
+    <h1>The courtyard was a grave. The building was declared &ldquo;ownerless.&rdquo;</h1>
+    <p class="lead">Three independent sources document siege-era deaths and informal burials in
+      Mariupol: a published named-victims spreadsheet, the full text archive of the Telegram
+      channel <b>mariupolRIP</b>, and over three thousand obituaries from the Ukrainian site
+      <b>memorial.ua</b>. Every record was checked against every seizure event on this project&rsquo;s
+      property spine &mdash; demolition, ownerless-registry inclusion, ownerless designation,
+      reclaim, developer reallocation. The result is <b>116 buildings</b> where someone was buried
+      in a courtyard or basement, and the building itself later changed hands, one way or another,
+      without the knowledge of the people who lived there. At 71 of the 116, there was no demolition
+      at all &mdash; residents simply lost title through a quiet registry entry while a fresh grave
+      still stood in the courtyard.</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n">116</span><span class="l">buildings with both a documented<br>burial and a seizure event</span></div>
+      <div class="stat"><span class="n blue">3</span><span class="l">independent sources, none<br>aware of the other two</span></div>
+      <div class="stat"><span class="n red">71 / 116</span><span class="l">never demolished &mdash;<br>ownerless-registry track only</span></div>
+      <div class="stat"><span class="n">11</span><span class="l">buildings independently<br>confirmed by two sources</span></div>
+      <div class="stat"><span class="n blue">Lenina, 127</span><span class="l">flagship new lead:<br>demolition + developer reallocation</span></div>
+    </div>
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(a)(iv)</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(b)(viii)</span>
+    </div>
+  </section>
+
+  <!-- 00 -->
+  <section>
+    <div class="eyebrow">00 &middot; Method</div>
+    <h2>Three sources never built to agree with each other</h2>
+    <p>Each of the three sources is structured differently and serves a different purpose &mdash;
+      none of them was built with the others in mind, which is exactly what makes an address
+      appearing in more than one of them meaningful.</p>
+    <table class="data">
+      <thead><tr><th>Source</th><th>Volume</th><th>What it yielded</th><th>What makes it distinct</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Mariupol Destruction and Victims Map</td>
+          <td>4,517 rows</td>
+          <td>275 confirmed informal burials, 142 distinct addresses</td>
+          <td class="muted">a structured spreadsheet with separate fields for place of death and place of burial</td>
+        </tr>
+        <tr>
+          <td>Telegram channel mariupolRIP</td>
+          <td>5,961 messages</td>
+          <td>284 leads never cited by the spreadsheet above; 72 matched a seized property</td>
+          <td class="muted">the very channel the spreadsheet cites &mdash; read in full, not through its summary cells</td>
+        </tr>
+        <tr>
+          <td>memorial.ua</td>
+          <td>3,320 obituaries</td>
+          <td>464 confirmed Mariupol deaths, 7 matched a seized property</td>
+          <td class="muted">Ukrainian-language biographical writing &mdash; the only source where the address is given the way a family remembers it</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1.4rem">Free text &mdash; a spreadsheet cell, a chat message, an obituary
+      line &mdash; almost never gives the street type: it says &ldquo;Metallurgov, 47,&rdquo; not
+      &ldquo;<span class="xlit" tabindex="0">Metallurgov Avenue<span class="pop">проспект Металлургов</span></span>,
+      47.&rdquo; Rather than guess, the street type was recovered from this project&rsquo;s own
+      building inventory: if a street-name stem (&ldquo;Metallurgov,&rdquo; &ldquo;Zelinskogo&rdquo;)
+      matches only one type &mdash; street, avenue, boulevard &mdash; in the spine, that type is used;
+      if the stem exists under two types at once (Metallurgov itself is one such case &mdash; the
+      spine has both a street and an avenue by that name), the row is left unmatched rather than
+      guessed. No false match occurred across the entire run.</p>
+    <p>memorial.ua is Ukrainian-language, and this project&rsquo;s address inventory is built from
+      Russian-language occupation-administration documents. Matching the two required a small,
+      hand-verified translation table (Peremohy &rarr; Pobedy, Budivelnykiv &rarr; Stroiteley, and
+      eight more pairs) &mdash; each entry checked individually against the building inventory before
+      it was used.</p>
+  </section>
+
+  <!-- 01 -->
+  <section>
+    <div class="eyebrow">01 &middot; Zelinskogo Street and Kuprina Street</div>
+    <h2>Two parallel tracks on one street</h2>
+    <p>On
+      <span class="xlit wide" tabindex="0">Zelinskogo Street<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>вулиця Зелінського</span><span class="pop-line"><b>Occupation (RU)</b>улица Зелинского</span></span></span>,
+      two entirely different seizure mechanisms are running side by side &mdash; and both are working
+      through buildings where the dead were buried during the siege.</p>
+    <table class="data">
+      <thead><tr><th>Mechanism</th><th>Buildings</th><th>Outcome</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Demolition</td>
+          <td class="muted">д.15, 17, 19, 21, 23, 27, 30, 51, 110</td>
+          <td>DNR &ldquo;State Defense Committee&rdquo; Distributive Orders No. 53/56 and municipal administration decrees No. 144/104/149/172 &rarr; lot cleared &rarr; granted to a developer &rarr; new residential complex</td>
+        </tr>
+        <tr>
+          <td>Ownerless registry</td>
+          <td class="muted">д.1, 3, 13, 19, 30, 33, 87, 94, 96, 98А, 100&ndash;108</td>
+          <td>582 apartments designated &ldquo;ownerless&rdquo; flat by flat; the building physically stands, residents stripped of title without demolition</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1.2rem">On 15 March 2022, a shell struck directly into the basement of д.98,
+      where residents were sheltering: at least four residents of the building were killed, and a
+      separate victims.memorial record for a Sartana evacuee, Havrylo Barabul, who had taken shelter
+      <span class="xlit wide" tabindex="0">&ldquo;in the basement of a high-rise on Zelinskogo Street&rdquo;<span class="pop">«в подвале многоэтажки на улице Зелинского»</span></span>,
+      names the same date and states directly:
+      <span class="xlit wide" tabindex="0">&ldquo;at 13:00 on 15 March a tank shell hit the basement, killing 10 people&rdquo;<span class="pop">«15 марта в 13:00 попал танк в подвал, погибло 10 человек»</span></span>
+      &mdash; very likely the same strike, with a higher death toll than the building&rsquo;s own
+      four-name record. At д.110, an entire family &mdash; four members of the Kashiev family &mdash;
+      died together in a single apartment (кв.45); three members of the Tolstokorov family remain
+      listed as missing, <span class="xlit" tabindex="0">&ldquo;bodies not found&rdquo;<span class="pop">«тела не найдены»</span></span>;
+      a fourth resident, Valentina Pankina, is buried directly in the building&rsquo;s own courtyard.
+      At д.15, two people died in a fire, one of them &mdash; Nina Kotilevskaya &mdash;
+      <span class="xlit wide" tabindex="0">&ldquo;buried behind the building in the green zone&rdquo;<span class="pop">«похоронена за домом в зелёной зоне»</span></span>.</p>
+    <p>д.15, 98, and 110 are the only three buildings on the list above absent from the ownerless
+      registry entirely &mdash; they were not stripped of title flat by flat, they were demolished
+      outright. Death decided which track a building went down &mdash; demolition or the registry
+      &mdash; but not whether it went down one at all. The most recent ownerless designations on this
+      same street &mdash; 16 apartments at д.108 (December 2025) and 8 apartments at д.13 (February
+      2026) &mdash; were made while a new residential complex was already under construction a couple
+      of hundred metres away.</p>
+
+    <div class="callout hot">
+      <div class="h">Kuprina, 9A, by the heat-distribution substation: 13 names, one site</div>
+      <p>The mariupolRIP Telegram channel separately documents and photographs a mass informal burial
+        site &mdash; <span class="xlit wide" tabindex="0">&ldquo;by the heat-distribution substation&rdquo;<span class="pop">«у Теплосетей»</span></span>
+        on Kuprina Street, 9A. Thirteen people are named there: Volodymyr Belenets, Liudmyla Haidai
+        (killed by an airstrike in her own apartment), Valentyna Diakova (Vazianova), Olha Karliani,
+        Mykhailo Kutovyi, Liubov Mykhailova, Fiona Podolian, Alla Soberliak, Oleh Tarasenko, Yevheniia
+        Tereshchenkova, a resident named only as Uiutova, Vladyslav Shumilov, and one further,
+        unnamed record. Several posts separately reference
+        <span class="xlit" tabindex="0">&ldquo;photo/video of the graves&rdquo;<span class="pop">«фото видео могил»</span></span>
+        &mdash; the site was filmed, not merely described.</p>
+    </div>
+    <p>At д.19 on the same street, an airstrike killed a father, son and grandmother together
+      &mdash; <span class="xlit wide" tabindex="0">&ldquo;killed together with his father Sergei Vladimirovich, and grandmother&rdquo;<span class="pop">«погиб вместе с отцом Сергей Владимирович, и бабушкой»</span></span>,
+      all three buried in the courtyard. At д.77 &mdash; the exact address where developer
+      &ldquo;OLIMPSTROY NR&rdquo; is now building &mdash; one person
+      <span class="xlit" tabindex="0">&ldquo;burned under the rubble of the building&rdquo;<span class="pop">«сгорел под обломками дома»</span></span>.</p>
+    <p>The 2026-07-12 sweep independently confirmed the already-known burials at д.15 and д.110 and
+      added fifteen new addresses across both streets, none previously in this project&rsquo;s
+      case-study material:</p>
+    <table class="data">
+      <thead><tr><th>Address</th><th>Seizure status</th><th>Named / evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Zelinskogo, 13</td><td class="muted">ownerless registry</td><td>Ihor Parkhomenko, killed by shrapnel 15.03.2022</td></tr>
+        <tr><td>Zelinskogo, 19b</td><td class="muted">demolition</td><td>Vitalii Kononenko, d. 25.03.2022</td></tr>
+        <tr><td>Zelinskogo, 21</td><td class="muted">demolition</td><td>Olha Shabanova, bedridden, killed at this address</td></tr>
+        <tr><td>Zelinskogo, 21a</td><td class="muted">demolition</td><td>Eduard Mishchenko</td></tr>
+        <tr><td>Zelinskogo, 47</td><td class="muted">ownerless registry</td><td>Viktor Kostin</td></tr>
+        <tr><td>Zelinskogo, 106</td><td class="muted">reclaim; registry</td><td>burial recorded near this address</td></tr>
+        <tr><td>Kuprina, 5</td><td class="muted">demolition</td><td>Maiia Poddubna</td></tr>
+        <tr><td>Kuprina, 7</td><td class="muted">ownerless registry</td><td>Serhii Kapralov (b. 1936) + one further name, same post</td></tr>
+        <tr><td>Kuprina, 11</td><td class="muted">ownerless designation; registry</td><td>Zinaida Yermilova</td></tr>
+        <tr><td>Kuprina, 37</td><td class="muted">ownerless registry</td><td>Oleksandr Kudriavtsev</td></tr>
+        <tr><td>Kuprina, 39</td><td class="muted">ownerless registry</td><td>Oleksandr Stremoukhov</td></tr>
+        <tr><td>Kuprina, 41</td><td class="muted">demolition</td><td>V.M. Polikarova</td></tr>
+        <tr><td>Kuprina, 65</td><td class="muted">demolition</td><td>Nellia Ovchynnykova, age 80, d. 15.03.2022</td></tr>
+        <tr><td>Kuprina, 73</td><td class="muted">ownerless designation; reclaim; registry</td><td>first-person loss testimony, unnamed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="eyebrow">02 &middot; Shevchenko Boulevard and Latysheva Street</div>
+    <h2>A roadside grave strip, and deaths without medicine</h2>
+    <p>
+      <span class="xlit wide" tabindex="0">Shevchenko Boulevard<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>бульвар Шевченка</span><span class="pop-line"><b>Occupation (RU)</b>бульвар Шевченко</span></span></span>
+      has its own distinct burial pattern: people were buried not in courtyards, but directly in
+      <span class="xlit wide" tabindex="0">&ldquo;the green strip along the road&rdquo;<span class="pop">«зеленка на дороге»</span></span>
+      &mdash; because reaching an actual cemetery during the siege was impossible.</p>
+    <table class="data">
+      <thead><tr><th>Location</th><th>Graves</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>opposite д.270, green strip</td><td class="muted">6</td><td>with explicit coordinates given</td></tr>
+        <tr><td>д.252</td><td class="muted">5</td><td>one mariupolRIP post names several individuals at once</td></tr>
+        <tr><td>opposite д.307, green strip</td><td class="muted">1</td><td>same roadside pattern</td></tr>
+        <tr><td>д.301</td><td class="muted">3</td><td>at/near the building</td></tr>
+        <tr><td>д.305, 311, 274, 289</td><td class="muted">1 each</td><td>direct hit to an apartment; killed in the courtyard; wounded 9 March by shrapnel</td></tr>
+      </tbody>
+    </table>
+    <p>The new-build at д.276a (&ldquo;OLIMPSTROY NR&rdquo;) sits directly between the two heaviest
+      roadside grave clusters, at д.270 and д.307. Of the five burials recorded at д.252 in a single
+      post, four are named &mdash; Oleksandr Rozhkov, Mariia Rubina, Klavdiia Lastovinenko, A.A.
+      Berezantseva &mdash; and a fifth is described only as
+      <span class="xlit wide" tabindex="0">&ldquo;not herself, from somewhere around Kuprina Street&rdquo;<span class="pop">«была не в себе, где-то с ул. Куприна»</span></span>.</p>
+    <p>The 2026-07-12 sweep confirmed the already-known д.74 (not demolished after all &mdash; it
+      entered the ownerless-registry track rather than the demolition list this case originally
+      assumed) and added three new addresses: д.64a (Hrach Halstian and Volodymyr Nohash, both names
+      independently confirmed by two separate sources), д.289 (Nadiia Filippova), д.311 (Maksym
+      Trubnikov,
+      <span class="xlit wide" tabindex="0">&ldquo;killed in his own courtyard&rdquo;<span class="pop">«погиб у себя во дворе»</span></span>),
+      and д.331 (an unanswered missing-person inquiry, 13.03.2022).</p>
+
+    <p style="margin-top:1.8rem">At
+      <span class="xlit wide" tabindex="0">Latysheva Street, 35<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>вулиця Латишева</span><span class="pop-line"><b>Occupation (RU)</b>улица Латышева</span></span></span>,
+      at least two deaths are documented specifically from lack of medicine &mdash; a category of
+      harm distinct from shelling and airstrikes, directly attributable to the siege blockade:
+      <b>Daria Kvasko</b>
+      <span class="xlit" tabindex="0">&ldquo;died without insulin&rdquo;<span class="pop">«умерла без инсулина»</span></span>,
+      and <b>Dmytro Oleinyk</b>
+      <span class="xlit" tabindex="0">&ldquo;died without insulin&rdquo;<span class="pop">«умер без инсулина»</span></span>.
+      Both lived and died at this address; the burials are placed at the same courtyard or at a
+      nearby landmark &mdash; the &ldquo;Nova Poshta&rdquo; post-office branch at Latysheva, 35a,
+      where Nina Semeiko (died of pneumonia in the basement of д.31) is also buried, along with,
+      probably, two more people, Kateryna Shymko and a person recorded only as Kratenko. The sweep
+      added one further address, д.27, where a two-year memorial post records a death
+      <span class="xlit wide" tabindex="0">&ldquo;in his own apartment at Latysheva, 27&rdquo;<span class="pop">«в своей квартире по ул. Латышева, 27»</span></span>.</p>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="eyebrow">03 &middot; Eyewitness &middot; the Meduza article</div>
+    <h2>Yaroslav Dema buried his neighbours &mdash; five of his addresses are now under construction or in the registry</h2>
+    <p>On 10 June 2022 &mdash; before the occupation had even fully consolidated control of the city
+      &mdash; Meduza published
+      <span class="xlit wide" tabindex="0">&ldquo;Every day you wake up as someone new. Today you&rsquo;re a gravedigger&rdquo;<span class="pop">«Каждый день просыпаешься и ты кто-то новый. Сегодня ты могильщик»</span></span>:
+      a feature on <b>Yaroslav Dema</b>, a Mariupol resident who spent the siege burying neighbours
+      and strangers in courtyards and roadside patches across the city. The article is named,
+      addressed, and published independently, before any administrative seizure procedure began
+      &mdash; it cannot be read as reverse-engineered to fit a known outcome.</p>
+
+    <p>Dema himself lived at
+      <span class="xlit wide" tabindex="0">Peremohy Avenue, 32/42<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>проспект Перемоги, 32/42</span><span class="pop-line"><b>Occupation (RU)</b>проспект Победы, 32/42</span></span></span>
+      &mdash; the article&rsquo;s &ldquo;bank house&rdquo; &mdash; and left from there to bury the
+      dead across the city. One apartment (кв.21) in that building is now in the ownerless registry;
+      the building itself is absent from every demolition list on this avenue, though a dozen
+      neighbouring buildings on the same street were demolished. At
+      <span class="xlit wide" tabindex="0">Stroiteley Avenue, 160<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>проспект Будівельників, 160</span><span class="pop-line"><b>Occupation (RU)</b>проспект Строителей, 160</span></span></span>,
+      where Dema buried residents in the courtyard and the green zone, <b>47 apartments</b> are now
+      registered ownerless &mdash; again with no demolition; a couple of blocks away, developer
+      &ldquo;PORFIR&rdquo; has already commissioned a residential complex, &ldquo;Rezidentsiya II,&rdquo;
+      and is building a second. At Solnechnaya Street, 8, an ownerless designation is on record while
+      the two neighbouring buildings, д.1 and д.3, were demolished back in August 2022 under DNR
+      &ldquo;State Defense Committee&rdquo; Distributive Order No. 26.</p>
+
+    <div class="callout hot">
+      <div class="h">Metallurgov, 96/98: the largest single finding &mdash; 121 apartments, and a new complex across the street</div>
+      <p>The article names the people who died at
+        <span class="xlit wide" tabindex="0">Metallurgov Avenue, 96/98<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>проспект Металургів, 96/98</span><span class="pop-line"><b>Occupation (RU)</b>проспект Металлургов, 96/98</span></span></span>
+        &mdash; <b>Leonid Soshenko</b> and members of his family, buried by Dema in the building&rsquo;s
+        own courtyard. That same building now holds this project&rsquo;s single largest concentration
+        of ownerless-registry apartments at one address &mdash; <b>121 apartments</b>. Neither д.96
+        nor д.98 appears on any demolition list &mdash; the buildings demolished were across the
+        street, on the <em>odd-numbered</em> side (д.79, 81, 85, 87, 89, 91, all under DNR
+        &ldquo;State Defense Committee&rdquo; Distributive Order No. 56). It is on the footprint of
+        those six demolished buildings that a new complex, &ldquo;Leningradsky Kvartal&rdquo;
+        &mdash; 15 apartment blocks, eight already commissioned &mdash; is now standing. Geocoding
+        from confirmed anchor points (Russia&rsquo;s federal cadastral map does not cover annexed
+        territory at all) confirms the new complex sits 50&ndash;130 metres from д.96/98, on the
+        cadastral parcel of the demolished buildings, not on the parcel of the building where
+        Soshenko was buried.</p>
+    </div>
+    <p>The same pattern repeats on Azovstalskaya Street &mdash; the single street with the highest
+      ownerless-apartment count in the entire dataset: <b>537 apartments</b> designated ownerless
+      against fifteen demolished buildings on the same street. This is also where the 2026-07-12
+      sweep added the most new named evidence &mdash; seven addresses: д.7 (Dmytro Karpenko; Viktor
+      Kovalenko), д.9 (Ihor Khrystoforov; Anton Tkachov together with his mother Yevheniia Tkachova),
+      д.19 (Valentyna Kovalenko), д.22 (Anatolii Humeniuk), д.95 (Viktoriia Tonkodubova (Kuvaldina);
+      Vira Tulinova), д.164 (see below), and д.170 (Anatolii Zolotarov).</p>
+
+    <div class="callout">
+      <div class="h">Precision over drama: д.164 and two different accounts of one name</div>
+      <p>A mariupolRIP post (b. 24.02.1953,
+        <span class="xlit wide" tabindex="0">&ldquo;resident at Azovstalskaya 164, apt. 23&rdquo;<span class="pop">«Проживал Азовстальская 164 кв. 23»</span></span>)
+        gives only the residence of <b>Volodymyr Zviahintsev</b>, killed 22.03.2022 by shelling
+        &mdash;
+        <span class="xlit wide" tabindex="0">&ldquo;at the Azovstal stadium, on the Left Bank&rdquo;<span class="pop">«На стадионе Азовсталь. На Левом Берегу»</span></span>,
+        in a different part of the city &mdash; and says nothing about a burial location, ending
+        instead with an appeal about his missing son. A separate memorial.ua obituary &mdash; under
+        the name &ldquo;Volodymyr Zviahintsev,&rdquo; same death date, age 69 (consistent with the
+        24.02.1953 birth date) &mdash; tells a very different, harrowing account: five bodies buried
+        together in a shell crater with a hand-written nameplate, and
+        <span class="xlit wide" tabindex="0">&ldquo;after Russian forces occupied the city, the bodies disappeared from that site&rdquo;<span class="pop">«після того, як російські військові окупували місто, тіла вбитих звідти зникли»</span></span>
+        &mdash; the family, on returning, could find neither the body nor a new burial site. The
+        matching name, death date, and age make it very likely this is the same person &mdash; but
+        that inference is this project&rsquo;s own, not a confirmed fact, and the memorial.ua account
+        gives no address at all for the crater grave. For that reason it is not pinned to д.164 or to
+        any specific property on the spine. If the two accounts are the same person, this would be
+        the clearest case on file of the occupying authority interfering with an informal grave site
+        itself, not merely with the property around it &mdash; but proving that is missing exactly one
+        thing: a named address.</p>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="eyebrow">04 &middot; The sweep&rsquo;s result</div>
+    <h2>116 buildings, most of which were never demolished at all</h2>
+    <p>This project&rsquo;s earlier grave/new-construction material worked backward from 91 new-build
+      objects to the addresses around them. This sweep inverts the method: starting from every
+      documented informal burial, checked against <em>any</em> seizure event on file, not only
+      demolition. The method change drives the result: demolition &mdash; 59 buildings, ownerless-
+      registry inclusion &mdash; 54, ownerless designation &mdash; 17, reclaim &mdash; 11, developer
+      reallocation &mdash; 1, expropriation &mdash; 1 (the total exceeds 116 because some buildings
+      carry more than one stage). In other words, a full <b>61%</b> of the buildings in this sweep are
+      ones where looking for a construction site is pointless &mdash; the building was simply taken
+      through a registry entry and left standing.</p>
+    <p>Of the 116, seven streets overlap with the material above (Zelinskogo, Kuprina, Azovstalskaya,
+      Shevchenko, Latysheva), and one address &mdash;
+      <span class="xlit wide" tabindex="0">Metallurgov Avenue, 47<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>проспект Металургів, 47</span><span class="pop-line"><b>Occupation (RU)</b>проспект Металлургов, 47</span></span></span>
+      &mdash; overlaps with the separate &ldquo;Troianda-M&rdquo; case study (see section 06 below).
+      The rest is territory this project had not previously documented. Eleven buildings are confirmed
+      by two independent sources at once &mdash; a case where the spreadsheet and the channel (or the
+      channel and memorial.ua) name the same address without knowing about each other:</p>
+    <table class="data">
+      <thead><tr><th>Address</th><th>Sources</th><th>Seizure status</th><th>Named</th></tr></thead>
+      <tbody>
+        <tr><td>Metallurgov, 47</td><td class="muted">sheet + channel</td><td>demolition</td><td>Andrii Halushko, Mariia Paskal, Nadiia Fedorova, Nataliia Kharakoz, + Serhii Kalyna (new &mdash; see section 06)</td></tr>
+        <tr><td>Pobedy, 61</td><td class="muted">sheet + channel</td><td>demolition</td><td>Viktor Barkov</td></tr>
+        <tr><td>Shevchenko, 64a</td><td class="muted">sheet + channel</td><td>ownerless registry</td><td>Hrach Halstian, Volodymyr Nohash</td></tr>
+        <tr><td>Azovstalskaya, 9</td><td class="muted">sheet + channel</td><td>demolition</td><td>Ihor Khrystoforov</td></tr>
+        <tr><td>Stroiteley, 62</td><td class="muted">sheet + channel</td><td>ownerless registry</td><td>Tetiana Borysenko (Tserkovna)</td></tr>
+        <tr><td>Lomizova, 13</td><td class="muted">sheet + channel</td><td>demolition</td><td>Ivan Burtsev</td></tr>
+        <tr><td>Lomizova, 9</td><td class="muted">sheet + channel</td><td>demolition</td><td>Oleh Romanov</td></tr>
+        <tr><td>Vladimirskaya, 30</td><td class="muted">sheet + channel</td><td>ownerless designation; registry</td><td>&ldquo;Petr&rdquo; (given name only)</td></tr>
+        <tr><td>Gorlovskaya, 6</td><td class="muted">sheet + channel</td><td>ownerless registry</td><td>Liubov Belorusova</td></tr>
+        <tr><td>Volgodonskaya, 3</td><td class="muted">sheet + channel</td><td>ownerless registry</td><td>Ihor Okroiev</td></tr>
+        <tr><td>Metallurgov, 117</td><td class="muted">channel + memorial.ua</td><td>demolition</td><td>Borys Karhapolov, Yevhen Bondarev</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="eyebrow">05 &middot; The flagship finding</div>
+    <h2>Lenina Avenue, 127: demolition and developer reallocation, two names never before in this project</h2>
+    <p>The single strongest new lead from the entire sweep comes entirely from memorial.ua, entirely
+      in Ukrainian, and was entirely outside this project&rsquo;s view until this week. The building
+      at
+      <span class="xlit wide" tabindex="0">Lenina Avenue, 127<span class="pop"><span class="pop-line"><b>Pre-war (UA)</b>проспект Миру, 127</span><span class="pop-line"><b>Occupation (RU)</b>проспект Ленина, 127</span></span></span>
+      went through exactly the sequence already documented for Nakhimova 82 and the Lenina
+      104&ndash;110 block: demolished, the lot handed to a developer &mdash; and two deaths are
+      independently documented at the same address.</p>
+    <div class="who">
+      <div class="card">
+        <div class="nm">Hanna Hulinska</div>
+        <span class="fio">Ганна Гулінська</span>
+        <div class="ro">Sheltering in the building&rsquo;s basement with her mother and brother. The
+          building took a direct airstrike hit on the morning of 11.03.2022. Her body was never
+          recovered &mdash; only personal effects.</div>
+      </div>
+      <div class="card">
+        <div class="nm">Volodymyr Romenskyi</div>
+        <span class="fio">Володимир Роменський</span>
+        <div class="ro">Born 03.03.1977 in Mariupol. Ran a shop, &ldquo;Slavutych,&rdquo; at this
+          address. Killed the same morning, in the same building.</div>
+      </div>
+    </div>
+    <p class="figcap">Sources: <a href="https://memorial.ua/obituaries/civilians/hulinska-hanna-5417" target="_blank" rel="noopener">memorial.ua/obituaries/civilians/hulinska-hanna-5417</a>
+      and <a href="https://memorial.ua/obituaries/civilians/romenskyi-volodymyr-7067" target="_blank" rel="noopener">memorial.ua/obituaries/civilians/romenskyi-volodymyr-7067</a>.</p>
+    <p>This is the same evidentiary shape as two case studies this project has already published:
+      documented deaths at a specific address, independent of the occupation administration, followed
+      by demolition and reallocation of the same lot to a developer, by that same administration.
+      Lenina 127 is a strong standalone candidate for its own case study &mdash; what remains is to
+      find the specific land-grant decree, the receiving developer, and, where possible, a third
+      independent source.</p>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <div class="eyebrow">06 &middot; Overlap with a published case</div>
+    <h2>Metallurgov, 47: a ninth name</h2>
+    <p>The published case study on
+      <a href="case-study-troianda-metallurgov.html">Metallurgov Avenue, 47</a> &mdash; where
+      residents organized as HOA &ldquo;Troianda-M&rdquo; and lost three times running trying to
+      contest their building&rsquo;s demolition in occupation courts &mdash; already names eight
+      residents killed. Scanning the mariupolRIP channel in full for this sweep surfaces a ninth name
+      never previously in that case: <b>Serhii Kalyna</b>, killed 24.03.2022, named in two separate
+      anniversary tribute posts (2024 and 2025) that state directly he died
+      <span class="xlit wide" tabindex="0">&ldquo;at Metallurgov 47&rdquo;<span class="pop">«на Металлургов 47»</span></span>.
+      Neither post gives further detail &mdash; no cause, no burial location. The ninth name has
+      <b>not yet been added</b> to the case study or its exhibit: two tribute posts are a
+      substantially thinner source than the eight names already confirmed there, each of which has
+      its own dedicated capture. Treat this as a backport candidate, not a completed fact of the
+      case.</p>
+  </section>
+
+  <!-- 07 -->
+  <section>
+    <div class="eyebrow">07 &middot; Why this matters</div>
+    <h2>The ownerless registry is part of this picture too, not only demolition</h2>
+    <p>This project&rsquo;s five previously published grave/new-construction case studies could, by
+      construction, only ever see one scenario: a building was demolished, so check what is being
+      built on its footprint. This sweep deliberately checked for any seizure event, not only
+      demolition &mdash; and that is exactly why it found what the earlier method structurally could
+      not: 71 of the 116 buildings here were never demolished at all. People died and were buried in
+      the courtyard of a standing building, and apartments in that same building were later, one at a
+      time, without any demolition, designated ownerless. Across this project&rsquo;s full dataset,
+      registry inclusion is the single largest seizure stage by far (12,948 events against 580
+      demolitions) &mdash; so the earlier, demolition-anchored method was, by construction, sampling
+      the rarer of the two tracks.</p>
+    <p>For RD4U and Rome Statute purposes, an informal burial confirms a building was occupied
+      &mdash; residents sheltering in basements, dying at their home address &mdash; immediately
+      before it was designated &ldquo;ownerless&rdquo; or demolished. The multi-fatality shelter
+      events at Zelinskogo 98 and 110, and at Kuprina 9A, directly contradict the official label
+      &ldquo;ownerless property&rdquo;: these were occupied, active buildings, not abandoned real
+      estate.</p>
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6 &middot; loss of access to property</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(a)(iv) &middot; appropriation of property</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(b)(viii) &middot; transfer of population</span>
+    </div>
+  </section>
+
+  <!-- 08 provenance -->
+  <section>
+    <div class="eyebrow">08 &middot; Provenance</div>
+    <h2>Sourcing</h2>
+    <p>Every record from all three sources was checked directly against this project&rsquo;s own
+      property-seizure spine and its own address inventory, not through an intermediate summary. The
+      full evidence set &mdash; 160 rows across 116 buildings &mdash; is held locally and not
+      published row by row; the source catalogue below covers the method and origin of each source.</p>
+    <details class="prov">
+      <summary>Full source catalogue &amp; verification notes</summary>
+      <ul class="srclist">
+        <li><span class="ty">Registry identity</span><span class="ti">Accession code MUP-CS-010 — permanent case-study identifier in the project register, docs/case_studies/REGISTRY.md. Sections 00–06 above cover &ldquo;Case 8&rdquo; of that case study — the 2026-07-12 sweep; the material on Zelinskogo, Kuprina, Shevchenko, Latysheva, Metallurgov 96/98, Azovstalskaya, and the Meduza article extends the case study&rsquo;s original, new-build-anchored method with this independent sweep.</span></li>
+        <li><span class="ty">Primary &middot; named-victims spreadsheet</span><span class="ti">
+          <a href="https://www.mariupoldestruction.com" target="_blank" rel="noopener">Mariupol Destruction and Victims Map</a>
+          — published named-victims spreadsheet, 4,517 rows as directly re-pulled from the source
+          Google Sheet. Classified for informal-burial language (courtyard/behind the building/
+          basement, etc.) with a separate negation check &mdash; a record reading &ldquo;the body is
+          lying there, unburied&rdquo; was deliberately not counted as a grave.</span></li>
+        <li><span class="ty">Primary &middot; Telegram channel</span><span class="ti">
+          <a href="https://t.me/mariupolRIP" target="_blank" rel="noopener">t.me/mariupolRIP</a>
+          (&ldquo;Killed and Missing, Mariupol&rdquo;) &mdash; the very channel the victims spreadsheet
+          cites, read in full (5,961 messages) as a primary source rather than through the
+          spreadsheet&rsquo;s summary cells; 284 of those messages were never cited by the spreadsheet
+          at all.</span></li>
+        <li><span class="ty">Primary &middot; memorial.ua</span><span class="ti">
+          <a href="https://memorial.ua" target="_blank" rel="noopener">memorial.ua</a> — Ukrainian-
+          language biographical memorial site; 3,320 civilian and children&rsquo;s obituaries read
+          directly (not via the site&rsquo;s own search). The site&rsquo;s robots.txt explicitly names
+          and disallows ClaudeBot &mdash; the crawl was run from the project user&rsquo;s own machine,
+          not an automated agent.</span></li>
+        <li><span class="ty">Metallurgov, 47 &middot; related case</span><span class="ti">
+          Eight previously confirmed names and the full litigation chronology are in the
+          <a href="case-study-troianda-metallurgov.html">Metallurgov 47 case study</a>. A ninth name,
+          Serhii Kalyna, comes from two mariupolRIP anniversary tribute posts (2024 and 2025), not yet
+          backported into the case study itself.</span></li>
+        <li><span class="ty">Flagship finding &middot; Lenina, 127</span><span class="ti">
+          <a href="https://memorial.ua/obituaries/civilians/hulinska-hanna-5417" target="_blank" rel="noopener">memorial.ua/obituaries/civilians/hulinska-hanna-5417</a>
+          and <a href="https://memorial.ua/obituaries/civilians/romenskyi-volodymyr-7067" target="_blank" rel="noopener">memorial.ua/obituaries/civilians/romenskyi-volodymyr-7067</a>.</span></li>
+        <li><span class="ty">Azovstalskaya, 164 &middot; two accounts, one name</span><span class="ti">
+          <a href="https://t.me/mariupolRIP/28678" target="_blank" rel="noopener">t.me/mariupolRIP/28678</a>
+          (Volodymyr Zviahintsev, residence only) and a separate memorial.ua obituary describing a
+          mass grave in a shell crater and the bodies&rsquo; disappearance after occupation &mdash; the
+          crater&rsquo;s address is not given in that source, so the finding is not pinned to д.164 or
+          any other specific property on the spine.</span></li>
+        <li><span class="ty">Five addresses from the Meduza article</span><span class="ti">
+          &ldquo;Every day you wake up as someone new. Today you&rsquo;re a gravedigger&rdquo;
+          &mdash; Meduza, 10.06.2022, archived at meduza.io (independent outlet, registered outside
+          Russia). Each address in the article was checked individually against the ownerless
+          registry, the demolition register, and EISZhS (nash.dom.rf) new-build records; see the
+          sections above.</span></li>
+        <li><span class="ty">Address normalization</span><span class="ti">
+          Street-type recovery, where free text omits it, used this project&rsquo;s own building
+          inventory &mdash; only an unambiguous match was accepted; where a stem carries two possible
+          types (as &ldquo;Metallurgov&rdquo; does &mdash; both a street and an avenue by that name
+          exist in the spine), the row was left unmatched. The Ukrainian&ndash;Russian street-name
+          translation table used for memorial.ua &mdash; ten entries, each checked against the
+          building inventory before use.</span></li>
+      </ul>
+    </details>
+    <p class="figcap" style="margin-top:1.2rem">Related: the
+      <a href="case-study-III-stroiteley.html">&ldquo;Rezidentsiya&rdquo; on five courtyard graves</a>
+      case study (Stroiteley Avenue, 74&ndash;88 &mdash; the single most fully documented instance of
+      this same pattern), the <a href="case-study-troianda-metallurgov.html">Metallurgov 47</a> case
+      study, the <a href="mariupol-master-dossier.html">master dossier</a>, and the project&rsquo;s
+      <a href="stakeholder-network.html">stakeholder network</a>.</p>
+  </section>
+
+  <section class="support-section">
+    <h3>Support this project</h3>
+    <p>The project&rsquo;s <a href="about.html">author</a> investigates and documents the dispossession
+      of Mariupol&rsquo;s residents using only his own time and resources — no editorial budget,
+      no grants, no institutional backing. If you find this work valuable, you can help
+      offset some of the costs I&rsquo;ve incurred.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal &mdash; US-based readers</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">501(c)(3) registered NGO &mdash; tax-deductible in the US</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">Tron network only</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.xlit').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var wasOpen = el.classList.contains('open');
+      document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!wasOpen) el.classList.add('open');
+    });
+    el.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); el.click(); }
+    });
+  });
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
+</html>
