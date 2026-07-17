@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Из реестра «бесхозяйного» — на рынок · Мариупольское досье</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="Три жилых дома, 131 квартира, объявленная «бесхозяйной» в реестре оккупационной администрации — переход права собственности без всякого суда, — и конкретные, опознаваемые квартиры в этих же домах, которые прямо сейчас продают в российских телеграм-каналах.">
+<meta property="og:title" content="Из реестра «бесхозяйного» — на рынок · Мариупольское досье">
+<meta property="og:description" content="Три жилых дома, 131 квартира, объявленная «бесхозяйной» в реестре оккупационной администрации — переход права собственности без всякого суда, — и конкретные квартиры в этих же домах, которые прямо сейчас продают в российских телеграм-каналах.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/case-study-II-registry-resale-ru.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Из реестра «бесхозяйного» — на рынок">
+<meta name="twitter:description" content="131 квартира, объявленная «бесхозяйной» в реестре оккупационной администрации, — и конкретные квартиры в этих же домах, которые прямо сейчас продают в российских телеграм-каналах.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
+<style>
+  :root {
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9; /* строителей — синий */
+    --s2:#9b7bc9; /* ленина — фиолетовый */
+    --s3:#e8894a; /* сеченова — оранжевый (почти целый дом) */
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+  /* ── шапка ── */
+  .exhibit-bar{
+    position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+  .exhibit-bar .cust{color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:0}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{margin:0 0 1.1rem;color:var(--paper-dim)}
+  .lead{font-size:1.1rem;color:var(--paper);max-width:62ch}
+  .mono{font-family:var(--font-mono)}
+
+  /* ── статистика тезиса ── */
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;margin:2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:120px}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);
+    letter-spacing:-.03em;line-height:.9;display:block;color:var(--paper)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);display:block;margin-top:.55rem;max-width:16ch;line-height:1.5}
+  .stat.hi .n{color:var(--evidence)}
+  .stat.stamp .n{color:var(--stamp)}
+
+  /* ── плашка ФКЗ ── */
+  .fkz-strip{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;
+    background:rgba(205,64,48,.07);border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:3px;padding:.9rem 1.2rem;margin:1.8rem 0 0}
+  .fkz-strip .badge{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--evidence);white-space:nowrap}
+  .fkz-strip .body{font-family:var(--font-mono);font-size:12px;color:var(--paper-dim);line-height:1.6}
+  .fkz-strip .pivot{color:var(--paper);font-weight:700}
+  .fkz-strip a{color:var(--stamp)}
+
+  /* ── карточки трёх домов ── */
+  .building-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--rail);border-radius:4px;overflow:hidden;margin-top:.8rem}
+  .bc{background:var(--ink-2);display:flex;flex-direction:column}
+  .bc-head{padding:1.1rem 1.1rem .7rem;border-bottom:1px solid var(--rail)}
+  .bc-idx{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 .4rem}
+  .bc-addr{font-family:var(--font-display);font-weight:800;font-size:1.05rem;
+    letter-spacing:-.01em;color:var(--paper);line-height:1.2;margin:0 0 .3rem}
+  .bc-prewar{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    display:flex;align-items:center;gap:.4rem;margin:.25rem 0 0}
+  .bc-prewar .arrow{color:var(--evidence);font-size:.85rem}
+
+  .bc-body{padding:.9rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.8rem}
+
+  /* шкала разрушения */
+  .destr{display:flex;flex-direction:column;gap:.35rem}
+  .destr-label{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted)}
+  .destr-bar-wrap{height:6px;background:var(--rail-2);border-radius:3px;overflow:hidden}
+  .destr-bar{height:100%;border-radius:3px;background:var(--evidence);transition:width .3s}
+  .destr-val{font-family:var(--font-mono);font-size:11px;color:var(--paper);font-weight:700}
+  .destr-note{font-family:var(--font-mono);font-size:10px;color:var(--evidence);
+    letter-spacing:.04em;margin-top:.1rem}
+
+  /* счётчик по реестру */
+  .reg-count{display:flex;align-items:baseline;gap:.6rem}
+  .reg-count .n{font-family:var(--font-display);font-weight:800;
+    font-size:clamp(2rem,4vw,3rem);line-height:.9;letter-spacing:-.03em}
+  .reg-count .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);max-width:14ch;line-height:1.5}
+
+  /* карточки объявлений */
+  .listing{background:var(--ink-3);border:1px solid var(--rail);border-radius:3px;
+    overflow:hidden;flex:1}
+  .listing .slot{min-height:140px;background:var(--ink);border-bottom:1px solid var(--rail-2);
+    position:relative;display:flex;align-items:center;justify-content:center}
+  .listing .slot::before{content:attr(data-label);font-family:var(--font-mono);
+    font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);
+    text-align:center;padding:0 .8rem;position:absolute}
+  .listing .slot img{position:relative;width:100%;display:block;max-height:200px;object-fit:cover}
+  .listing-meta{padding:.6rem .7rem;display:flex;flex-direction:column;gap:.25rem}
+  .listing-meta .price{font-family:var(--font-display);font-weight:800;font-size:1.08rem;
+    color:var(--paper);letter-spacing:-.01em}
+  .listing-meta .specs{font-family:var(--font-mono);font-size:10.5px;color:var(--muted)}
+  .listing-meta .reposts{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;
+    color:var(--stamp);margin-top:.2rem}
+
+  /* улика-выноска */
+  .gun{border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:2px;background:rgba(205,64,48,.06);padding:.7rem .85rem;margin-top:auto}
+  .gun .gk{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--evidence);margin-bottom:.35rem}
+  .gun .gv{font-family:var(--font-mono);font-size:11px;line-height:1.6;color:var(--paper-dim)}
+  .gun .gv strong{color:var(--paper)}
+
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.5rem;display:block;line-height:1.55}
+  .src b{font-weight:700;letter-spacing:.1em;color:var(--stamp)}
+
+  /* ── панель «один продавец» ── */
+  .seller-panel{background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--s3);
+    border-radius:3px;padding:1.4rem 1.5rem;margin-top:.4rem}
+  .seller-units{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;
+    margin:1.2rem 0}
+  .unit-card{background:var(--ink-3);border:1px solid var(--rail);border-radius:3px;padding:.8rem 1rem}
+  .unit-card .ua{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+  .unit-card .up{font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:var(--paper)}
+  .unit-card .us{font-family:var(--font-mono);font-size:10.5px;color:var(--paper-dim);margin-top:.2rem}
+  .unit-connector{text-align:center}
+  .phone-badge{font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.04em;
+    color:var(--ink);background:var(--s3);padding:.35rem .75rem;border-radius:3px;white-space:nowrap}
+  .conn-label{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);display:block;margin-top:.35rem}
+
+  /* ── лента перепостов ── */
+  .cadence-wrap{margin-top:.8rem;overflow-x:auto}
+  .cadence-wrap svg{display:block;min-width:680px;width:100%}
+
+  /* ── правовые плашки ── */
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+  .map-badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
+    padding:.25rem .6rem;border-radius:3px;border:1px solid var(--rail-2);color:var(--paper-dim)}
+  .map-badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .map-badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+  .map-badge.grave{background:var(--evidence);color:var(--ink);border-color:var(--evidence);
+    font-weight:700;letter-spacing:.06em}
+
+  /* ── подвал-провенанс ── */
+  .prov{border-top:1px solid var(--rail);margin-top:1rem;padding-top:2rem}
+  .prov p{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--muted)}
+  .prov .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding-left:1rem;margin-top:1.2rem}
+
+  /* ── адаптив ── */
+  @media(max-width:820px){
+    .building-grid{grid-template-columns:1fr}
+    .seller-units{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+    .unit-connector{padding:.5rem 0}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  /* ── печать ── */
+  @media print{
+    :root{--ink:#fff;--ink-2:#fff;--ink-3:#f4f4f2;--paper:#111;--paper-dim:#222;
+      --muted:#555;--rail:#bbb;--rail-2:#999}
+    body{background:#fff;color:#111;font-size:10.5pt}
+    .exhibit-bar{position:static;background:#fff;border-color:#999;color:#444}
+    .building-grid{gap:4px}
+    .listing .slot{min-height:80px}
+    section{break-inside:avoid}
+  }
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;padding:.9rem 1.1rem}
+  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
+  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Дело · <b>Из реестра «бесхозяйного» — на рынок</b></span>
+  <span><a href="../index.html">&larr; на главную</a> &middot; <a href="mariupol-master-dossier-ru.html">основное досье</a>
+    &middot; <a href="case-study-II-registry-resale.html">English version</a> &middot; <a href="stakeholder-network-ru.html">граф связей</a> &middot; <a href="about.html">about</a> &middot; <a href="sources.html">sources</a></span>
+  <span class="cust">Каждый артефакт сохранён из первоисточника и захэширован</span>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== ТЕЗИС ===== -->
+  <section>
+    <p class="eyebrow">02 · Механизм: поквартирное административное изъятие · оккупированный Мариуполь</p>
+    <h2>Дом стоит на месте.<br>Его содержимое распродают — по одной квартире за раз.</h2>
+    <p class="lead">Три жилых дома. 131 квартира, объявленная «бесхозяйной» в реестре
+      оккупационной администрации, — а после Федерального конституционного закона №&nbsp;4
+      (ФКЗ-4, 15.12.2025) сама запись в этом реестре и есть переход права собственности:
+      никакого суда больше не нужно. И в этих же самых домах прямо сейчас, в российских
+      телеграм-каналах объявлений, продаются конкретные, опознаваемые квартиры — причём
+      кампании перепостов доказывают, что объявления живые, а не забытые. У одного из
+      трёх домов военные повреждения — 5%. Его 23 квартиры продаются так же.</p>
+
+    <div class="fkz-strip">
+      <span class="badge">ФКЗ №&nbsp;4 · 15.12.2025</span>
+      <span class="body">
+        <span class="pivot">Включение в реестр теперь само по себе означает переход права.</span>
+        Судебная стадия (<a href="dispossession-pipeline-ru.html#card-B">ступень [B]</a> конвейера изъятия) упразднена.
+        Запись в списке — сама себе закон.
+        Ниже — первые прямые, датированные, рыночные доказательства того, что за включением
+        в реестр следует распоряжение чужим имуществом.
+      </span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat hi"><span class="n">131</span><span class="l">отдельная квартира в реестре «бесхозяйного» по 3 домам</span></div>
+      <div class="stat"><span class="n">64+44+23</span><span class="l">по домам (Строителей · Ленина · Сеченова)</span></div>
+      <div class="stat stamp"><span class="n">21×</span><span class="l">рекорд перепостов — одна и та же квартира, 3 телеграм-канала + сайт агентства</span></div>
+      <div class="stat"><span class="n">225</span><span class="l">объявлений о продаже по задокументированным адресам изъятия во всём массиве</span></div>
+      <div class="stat"><span class="n">5%</span><span class="l">военные разрушения дома по Сеченова, 54 — практически целый дом</span></div>
+    </div>
+  </section>
+
+  <!-- ===== КАРТОЧКИ ТРЁХ ДОМОВ ===== -->
+  <section>
+    <p class="eyebrow">Доказательства по каждому дому</p>
+    <h2>Три дома · одна реестровая зачистка · активная перепродажа</h2>
+    <p>Все три адреса — из одной и той же июньской (2026) выгрузки реестра
+      (<span class="mono">mariupol-r897.gosweb.gosuslugi.ru</span>): у каждой строки —
+      отметка «признаки бесхозяйности» и номер конкретной квартиры. Это не записи
+      «по дому целиком» — это административные акты по каждой квартире в отдельности.</p>
+
+    <div class="building-grid">
+
+      <!-- КАРТОЧКА 1: Строителей 108 -->
+      <div class="bc">
+        <div class="bc-head" style="border-top:3px solid var(--s1)">
+          <p class="bc-idx">Дом 01 из 03 · Жовтневый район</p>
+          <p class="bc-addr" title="укр. просп. Будівельників, 108 · рус. просп. Строителей, 108">проспект Строителей, 108</p>
+          <div class="destr" style="margin-top:.7rem">
+            <span class="destr-label">Разрушения (федеральный реестр повреждений)</span>
+            <div class="destr-bar-wrap"><div class="destr-bar" style="width:70%"></div></div>
+            <span class="destr-val">70%</span>
+          </div>
+        </div>
+        <div class="bc-body">
+          <div class="reg-count">
+            <span class="n" style="color:var(--s1)">64</span>
+            <span class="l">квартиры в реестре «бесхозяйного»</span>
+          </div>
+          <span class="src"><b>Источник</b> выгрузка районного реестра, июнь 2026 · сохранена 09.06.2026 · <b>RD4U</b> A3.1, A3.6</span>
+
+          <div class="listing">
+            <div class="slot" data-label="МЕСТО ПОД СКРИНШОТ · строителей-108, квартира A · телеграм-объявление">
+              <img src="" alt="Телеграм-объявление: Строителей 108, квартира A — 59 м², 3 комнаты, этаж 3/9, 5 200 000 ₽">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">59 м² · 3 комнаты · этаж 3/9 · <em>«С МЕБЕЛЬЮ И ТЕХНИКОЙ»</em>, <em>«Все документы в порядке»</em></span>
+              <span class="price">5 200 000 ₽ <span style="font-size:.7rem;color:var(--muted)">(«Стоимость СНИЖЕНА»)</span></span>
+              <span class="reposts">↺ 2 фиксации — 12.05.2026, 22.05.2026</span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <div class="slot" data-label="МЕСТО ПОД СКРИНШОТ · строителей-108, квартира B · телеграм-объявление">
+              <img src="" alt="Телеграм-объявление: Строителей 108, квартира B — 64 м², 3 комнаты, этаж 6/9, 6 200 000 ₽">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">64 м² (44 жилая) · 3 комнаты · этаж 6/9 · <em>«выполнен качественный ремонт 2021 года, остается мебель и техника»</em> · <em>«Документы зарегистрированы в Росреестре»</em></span>
+              <span class="price">6 200 000 ₽</span>
+              <span class="reposts">↺ 8 перепостов · 14.05 → 11.06.2026 · @mariupolskiy_uezd + @Mariupol_house · АН «Наш город»</span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <div class="slot" data-label="МЕСТО ПОД СКРИНШОТ · строителей-108 на Авито · сверка между площадками">
+              <img src="assets/registry-resale/stroiteley108_avito.jpg" alt="Объявление на Авито: Строителей 108 — 63,7 м², 3 комнаты, этаж 6/9, 6 200 000 ₽; на фото — водяной знак агентства «Наш город»">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">63,7 м² · 3 комнаты · этаж 6/9 · ремонт 2021 года · 97 331 ₽ за м²</span>
+              <span class="price">6 200 000 ₽</span>
+              <span class="reposts">Avito.ru · объявление 7773746774 · сохранено 21.06.2026 — та же цена, тот же этаж, тот же год ремонта, что у квартиры B; вторая, независимая площадка. На фотографиях — водяной знак «НАШ ГОРОД · агентство недвижимости»</span>
+            </div>
+          </div>
+
+          <div class="gun">
+            <p class="gk">Доказательная заметка</p>
+            <p class="gv">Федеральный реестр повреждений фиксирует по этому адресу
+              <strong>70% разрушений</strong>. Параллельно оккупационная администрация объявляет
+              «бесхозяйными» <strong>64 отдельные квартиры</strong> и проводит их через реестр.
+              Два административных потока — учёт разрушений и изъятие собственности — идут по
+              одному и тому же дому одновременно и дают доказательства сразу по двум категориям:
+              A3.1 (повреждение) и A3.6 (утрата доступа).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- КАРТОЧКА 2: Ленина 100 -->
+      <div class="bc">
+        <div class="bc-head" style="border-top:3px solid var(--s2)">
+          <p class="bc-idx">Дом 02 из 03 · Жовтневый район</p>
+          <p class="bc-addr" title="просп. Ленина, 100">проспект Ленина, 100</p>
+          <div class="bc-prewar">
+            <span class="arrow">←</span>
+            <span>до вторжения: <strong style="color:var(--paper)" title="просп. Миру, 100">проспект Мира, 100</strong></span>
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--evidence);margin-left:.4rem">
+              [ПЕРЕИМЕНОВАН · Мира &rarr; Ленина]
+            </span>
+          </div>
+          <div class="destr" style="margin-top:.7rem">
+            <span class="destr-label">Разрушения</span>
+            <div class="destr-bar-wrap"><div class="destr-bar" style="width:0%"></div></div>
+            <span class="destr-val" style="color:var(--muted)">— в реестре повреждений не значится</span>
+          </div>
+        </div>
+        <div class="bc-body">
+          <div class="reg-count">
+            <span class="n" style="color:var(--s2)">44</span>
+            <span class="l">квартиры в реестре «бесхозяйного»</span>
+          </div>
+          <span class="src"><b>Источник</b> выгрузка районного реестра, июнь 2026 · сохранена 09.06.2026 · <b>RD4U</b> A3.6</span>
+
+          <div class="listing">
+            <div class="slot" data-label="МЕСТО ПОД СКРИНШОТ · ленина-100 · телеграм-объявление (13 перепостов)">
+              <img src="" alt="Телеграм-объявление: Ленина 100 — 55,6 м², 3 комнаты, этаж 6/9, «Документы зарегистрированы в Росреестре», 13 перепостов">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">55,6 м² (39,3 жилая) · 3 комнаты · этаж 6/9 · <em>«Квартира продается с мебелью и техникой. Документы зарегистрированы в Росреестре»</em></span>
+              <span class="price">«Стоимость: 5 300 млн» → «5 500 млн» <span style="font-size:.7rem;color:var(--muted)">[так в оригинале — очевидно, тыс. ₽; запрос вырос на 200 тысяч по ходу кампании]</span></span>
+              <span class="reposts">↺ <strong style="color:var(--stamp)">13×</strong> перепостов · 17.05 → 11.06.2026 · 6 в @mariupolskiy_uezd + 7 в @Mariupol_house · АН «Наш город»</span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <div class="slot" data-label="МЕСТО ПОД СКРИНШОТ · ленина-100 на Авито · другая квартира, та же площадка агентства">
+              <img src="assets/registry-resale/lenina100_avito.jpg" alt="Объявление на Авито: Ленина 100 — 56,1 м², 3 комнаты, этаж 3/9, 5 000 000 ₽; на фото — водяной знак агентства «Наш город»">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">56,1 м² · 3 комнаты · этаж 3/9 · кирпичный дом · с мебелью · 89 127 ₽ за м²</span>
+              <span class="price">5 000 000 ₽</span>
+              <span class="reposts">Avito.ru · объявление 8093427959 · сохранено 21.06.2026 — <em>другая</em> квартира, не та, что 13 раз перепощена в телеграме; тот же дом, та же формула про Росреестр, вторая независимая площадка. На фотографиях — тот же водяной знак «НАШ ГОРОД»</span>
+            </div>
+          </div>
+
+          <div class="gun" style="border-left-color:var(--s2);border-color:rgba(155,123,201,.34);background:rgba(155,123,201,.06)">
+            <p class="gk" style="color:var(--s2)">Двойная улика: и адрес, и «титул»</p>
+            <p class="gv">В объявлении дословно: <strong>«Документы зарегистрированы в
+              Росреестре»</strong> — регистрационный аппарат оккупации преподносит себя
+              покупателю как банковскую гарантию. Всякий, кто откликнется, получит российский
+              «титул» на квартиру, принадлежащую украинскому собственнику. Саму улицу
+              переименовали: <strong title="просп. Миру">проспект Мира</strong> стал
+              <strong title="просп. Ленина">проспектом Ленина</strong> — адресная связь с
+              довоенной украинской записью разорвана ровно так, как это описано в
+              топонимическом слое конвейера (<a href="dispossession-pipeline-ru.html#card-H" style="color:var(--s2)">ступень [H]</a>).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- КАРТОЧКА 3: Сеченова 54 -->
+      <div class="bc">
+        <div class="bc-head" style="border-top:3px solid var(--s3)">
+          <p class="bc-idx">Дом 03 из 03 · Ильичёвский район</p>
+          <p class="bc-addr" title="укр. вул. Сєченова, 54 · рус. ул. Сеченова, 54">улица Сеченова, 54</p>
+          <div class="destr" style="margin-top:.7rem">
+            <span class="destr-label">Разрушения (федеральный реестр повреждений)</span>
+            <div class="destr-bar-wrap"><div class="destr-bar" style="width:5%;background:var(--s3)"></div></div>
+            <span class="destr-val" style="color:var(--s3)">5%</span>
+            <span class="destr-note">Практически целый дом. Реестру «бесхозяйного» это безразлично.</span>
+          </div>
+        </div>
+        <div class="bc-body">
+          <div class="reg-count">
+            <span class="n" style="color:var(--s3)">23</span>
+            <span class="l">квартиры в реестре «бесхозяйного»</span>
+          </div>
+          <span class="src"><b>Источник</b> выгрузка районного реестра, июнь 2026 · сохранена 09.06.2026 · <b>RD4U</b> A3.1, A3.6</span>
+
+          <div class="listing">
+            <div class="slot" data-label="МЕСТО ПОД СКРИНШОТ · сеченова-54, квартира A (21 перепост)">
+              <img src="assets/registry-resale/sechenova54_telegram.jpg" alt="Телеграм-объявление: Сеченова 54, квартира A — 28,6 м², 1 комната, этаж 1/5, 1 700 000 ₽, ник продавца скрыт">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">28,6 м² · 1 комната · этаж 1/5 · <em>«Квартира под ремонт❗️❗️»</em></span>
+              <span class="price">1 700 000 ₽</span>
+              <span class="reposts">↺ <strong style="color:var(--s3)">21</strong> фиксация — рекорд всего массива. 9× @mariupolskiy_uezd + 11× @Mariupol_house + 1× @mariupol_nedvizhimost · 13.05 → 21.06.2026</span>
+              <span class="src">Продавец A (3 ника, 1 телефон; в базе полностью) · +7 949 •••-••-68</span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <div class="slot" data-label="МЕСТО ПОД СКРИНШОТ · сеченова-54, квартира B (тот же продавец)">
+              <img src="" alt="Телеграм-объявление: Сеченова 54, квартира B — 32 м², 1 комната, этаж 3/5, 2 300 000 ₽, тот же телефон продавца">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">32 м² · 1 комната · этаж 3/5</span>
+              <span class="price">2 300 000 ₽</span>
+              <span class="reposts">1 фиксация · 19.05.2026 · продавец B (ник скрыт) · <strong style="color:var(--s3)">+7 949 •••-••-68 ← тот же телефон</strong></span>
+            </div>
+          </div>
+
+          <div class="listing">
+            <div class="slot" data-label="МЕСТО ПОД СКРИНШОТ · сеченова-54 на rgr.ru · квартира A, лицензированное агентство">
+              <img src="assets/registry-resale/sechenova54_rgr.jpg" alt="Объявление агентства на rgr.ru: Сеченова 54, квартира A — 28,6 м², 1 комната, этаж 1/5, 1 700 000 ₽, агентство «Волна», пометки «свободная продажа», «ипотека возможна», «документы проверены»">
+            </div>
+            <div class="listing-meta">
+              <span class="specs">28,6 м² · 1 комната · этаж 1/5 · агентство недвижимости «Волна» · пометки на карточке: <em>«свободная продажа»</em>, ипотека — <em>«возможна»</em>, <em>«Документы проверены»</em></span>
+              <span class="price">1 700 000 ₽</span>
+              <span class="reposts">агрегатор rgr.ru · обновлено 18.06.2026 · сохранено 21.06.2026 · ID объявления A56C6873-594E-11F1-86C8-B4B52F561288</span>
+              <span class="src">Названный поимённо лицензированный агент · +7 949 •••-••-70 ← номер, не совпадающий с телефоном квартир A/B в телеграме</span>
+            </div>
+          </div>
+
+          <div class="gun" style="border-left-color:var(--s3);border-color:rgba(232,137,74,.34);background:rgba(232,137,74,.06)">
+            <p class="gk" style="color:var(--s3)">5% повреждений · две квартиры · два канала сбыта</p>
+            <p class="gv">В доме, <strong>практически не пострадавшем от войны</strong>, — 23
+              квартиры в реестре «бесхозяйного». Один телефонный номер ведёт квартиру A под
+              тремя никами в трёх каналах и одновременно сбывает квартиру B под четвёртым —
+              а квартиру A параллельно выставило лицензированное агентство на общероссийском
+              агрегаторе, под отдельным номером, с пометками «свободная продажа» и «ипотека
+              возможна». Кустарная перепродажа и профессиональная риелторская витрина
+              работают по одному и тому же реестровому инвентарю одновременно.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ЛЕНТА ПЕРЕПОСТОВ ===== -->
+  <section>
+    <p class="eyebrow">Лента перепостов · 12 мая – 12 июня 2026 (на графике), всего к сегодняшнему дню — 21×</p>
+    <h2>Месяц машинного повторения — доказательство, что объявления живые</h2>
+    <p>Каждая метка — одна фиксация: сообщение в телеграме, сохранённое с
+      криптографическим хэшем и меткой времени в момент захвата. Сама плотность
+      перепостов — не заброшенные объявления, а систематическое повторное продвижение
+      в двух каналах — и есть доказательство: распродажа идёт полным ходом, впритык к
+      сроку перерегистрации 1 июля 2026 года. График покрывает первый месяц кампании
+      (20 фиксаций в двух каналах); 21-я фиксация — в третьем канале, 21 июня — за
+      пределами окна графика, но в той же живой, продолжающейся серии.</p>
+
+    <div class="cadence-wrap">
+      <svg viewBox="0 0 860 210" xmlns="http://www.w3.org/2000/svg"
+           style="font-family:var(--font-mono)">
+        <defs>
+          <style>
+            .cl { fill: none; }
+            .axis { stroke: #343b46; stroke-width: 1; }
+            .grid { stroke: #262b33; stroke-width: .5; }
+            .lbl { font-size: 10px; fill: #868d97; letter-spacing: .06em; }
+            .blbl { font-size: 10.5px; font-weight: bold; letter-spacing: .02em; }
+            .tick { stroke-width: 2; stroke-linecap: round; }
+            .bar { stroke-width: 1.5; stroke-linecap: round; opacity: .55; }
+          </style>
+        </defs>
+
+        <!-- оси -->
+        <line class="axis" x1="140" y1="20" x2="840" y2="20"/>
+        <line class="axis" x1="140" y1="200" x2="840" y2="200"/>
+        <line class="grid" x1="140" y1="20" x2="140" y2="200"/>
+
+        <text class="lbl" x="140" y="14" text-anchor="middle">12 мая</text>
+        <text class="lbl" x="253" y="14" text-anchor="middle">17 мая</text>
+        <text class="lbl" x="366" y="14" text-anchor="middle">22 мая</text>
+        <text class="lbl" x="591" y="14" text-anchor="middle">1 июня</text>
+        <text class="lbl" x="817" y="14" text-anchor="middle">12 июня</text>
+
+        <line class="grid" x1="253" y1="20" x2="253" y2="200"/>
+        <line class="grid" x1="366" y1="20" x2="366" y2="200"/>
+        <line class="grid" x1="591" y1="20" x2="591" y2="200"/>
+        <line class="grid" x1="817" y1="20" x2="817" y2="200"/>
+
+        <!-- отметка срока -->
+        <line x1="840" y1="20" x2="840" y2="200" stroke="#cd4030" stroke-width="1" stroke-dasharray="3,3" opacity=".6"/>
+        <text class="lbl" x="845" y="110" fill="#cd4030" text-anchor="start" font-size="9">1 июля →</text>
+
+        <!-- ПОДПИСИ СТРОК -->
+        <text class="blbl" x="135" y="68" text-anchor="end" fill="#5b8fc9">Строителей, 108</text>
+        <text class="lbl" x="135" y="80" text-anchor="end" fill="#868d97">кв. A</text>
+        <text class="lbl" x="135" y="92" text-anchor="end" fill="#868d97">кв. B</text>
+
+        <text class="blbl" x="135" y="128" text-anchor="end" fill="#9b7bc9">Ленина, 100</text>
+        <text class="lbl" x="135" y="140" text-anchor="end" fill="#868d97">квартира</text>
+
+        <text class="blbl" x="135" y="170" text-anchor="end" fill="#e8894a">Сеченова, 54</text>
+        <text class="lbl" x="135" y="182" text-anchor="end" fill="#868d97">кв. A</text>
+        <text class="lbl" x="135" y="194" text-anchor="end" fill="#868d97">кв. B</text>
+
+        <!-- СТРОИТЕЛЕЙ 108, кв. A: 12 и 22 мая -->
+        <line class="tick" x1="140" y1="73" x2="140" y2="82" stroke="#5b8fc9"/>
+        <line class="tick" x1="366" y1="73" x2="366" y2="82" stroke="#5b8fc9"/>
+
+        <!-- СТРОИТЕЛЕЙ 108, кв. B: 14 мая + 8 перепостов до 11 июня -->
+        <line class="bar" x1="185" y1="86" x2="817" y2="86" stroke="#5b8fc9"/>
+        <line class="tick" x1="185" y1="83" x2="185" y2="92" stroke="#5b8fc9"/>
+        <line class="tick" x1="264" y1="83" x2="264" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="343" y1="83" x2="343" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="422" y1="83" x2="422" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="501" y1="83" x2="501" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="580" y1="83" x2="580" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="659" y1="83" x2="659" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="738" y1="83" x2="738" y2="92" stroke="#5b8fc9" opacity=".7"/>
+        <line class="tick" x1="817" y1="83" x2="817" y2="92" stroke="#5b8fc9"/>
+        <text class="lbl" x="820" y="91" fill="#5b8fc9" font-size="9">8×</text>
+
+        <!-- ЛЕНИНА 100: 17 мая + 13× до 11 июня -->
+        <line class="bar" x1="253" y1="136" x2="817" y2="136" stroke="#9b7bc9"/>
+        <line class="tick" x1="253" y1="133" x2="253" y2="143" stroke="#9b7bc9"/>
+        <line class="tick" x1="300" y1="133" x2="300" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="347" y1="133" x2="347" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="394" y1="133" x2="394" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="441" y1="133" x2="441" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="488" y1="133" x2="488" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="535" y1="133" x2="535" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="582" y1="133" x2="582" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="629" y1="133" x2="629" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="676" y1="133" x2="676" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="723" y1="133" x2="723" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="770" y1="133" x2="770" y2="143" stroke="#9b7bc9" opacity=".7"/>
+        <line class="tick" x1="817" y1="133" x2="817" y2="143" stroke="#9b7bc9"/>
+        <text class="lbl" x="820" y="141" fill="#9b7bc9" font-size="9">13×</text>
+
+        <!-- СЕЧЕНОВА 54, кв. A: 13 мая + 20× до 12 июня -->
+        <line class="bar" x1="163" y1="178" x2="840" y2="178" stroke="#e8894a"/>
+        <line class="tick" x1="163" y1="175" x2="163" y2="185" stroke="#e8894a"/>
+        <line class="tick" x1="199" y1="175" x2="199" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="235" y1="175" x2="235" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="271" y1="175" x2="271" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="307" y1="175" x2="307" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="343" y1="175" x2="343" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="379" y1="175" x2="379" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="415" y1="175" x2="415" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="451" y1="175" x2="451" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="487" y1="175" x2="487" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="523" y1="175" x2="523" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="559" y1="175" x2="559" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="595" y1="175" x2="595" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="631" y1="175" x2="631" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="667" y1="175" x2="667" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="703" y1="175" x2="703" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="739" y1="175" x2="739" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="775" y1="175" x2="775" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="811" y1="175" x2="811" y2="185" stroke="#e8894a" opacity=".7"/>
+        <line class="tick" x1="840" y1="175" x2="840" y2="185" stroke="#e8894a"/>
+        <text class="lbl" x="845" y="183" fill="#e8894a" font-size="9">20×</text>
+
+        <!-- СЕЧЕНОВА 54, кв. B: 19 мая, одна фиксация -->
+        <line class="tick" x1="298" y1="188" x2="298" y2="198" stroke="#e8894a"/>
+        <text class="lbl" x="303" y="197" fill="#e8894a" font-size="8.5">тот же телефон</text>
+
+        <!-- легенда -->
+        <rect x="141" y="202" width="8" height="4" rx="1" fill="#5b8fc9"/>
+        <text class="lbl" x="153" y="207">Строителей, 108</text>
+        <rect x="281" y="202" width="8" height="4" rx="1" fill="#9b7bc9"/>
+        <text class="lbl" x="293" y="207">Ленина, 100</text>
+        <rect x="401" y="202" width="8" height="4" rx="1" fill="#e8894a"/>
+        <text class="lbl" x="413" y="207">Сеченова, 54</text>
+        <text class="lbl" x="510" y="207" fill="#868d97">Каждая метка — сохранённое с хэшем сообщение</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== ОДИН ПРОДАВЕЦ ===== -->
+  <section>
+    <p class="eyebrow">Сеченова, 54 · один продавец · две квартиры, два канала сбыта</p>
+    <h2>Один номер телефона, три ника, одно агентство. Две квартиры. И 23 строки реестра по одному дому.</h2>
+    <p>Контакт продавца — номер <span class="mono" style="color:var(--s3)">+7 949 •••-••-68</span>
+      (скрыт при публикации; в базе полностью) — рекламирует квартиру A под <strong>тремя разными
+      никами в трёх телеграм-каналах</strong> и одновременно сбывает вторую квартиру, B, в том же
+      доме под четвёртым ником. Квартиру A параллельно выставило на агрегаторе недвижимости
+      лицензированное агентство — пятый контакт, другой номер, — и всё это в доме, где одной и
+      той же выгрузкой реестра «бесхозяйными» записаны 23 квартиры. Такая картина сходится с
+      работой перекупщика, разбирающего инвентарь из одного источника и кормящего сразу
+      кустарный и профессиональный каналы сбыта, — а не со случайным совпадением частных
+      продавцов в одном доме посреди реестровой зачистки.</p>
+
+    <div class="seller-panel">
+      <p class="eyebrow" title="укр. вул. Сєченова, 54 · рус. ул. Сеченова, 54" style="color:var(--s3);margin-bottom:.4rem">улица Сеченова, 54 · связка «один продавец»</p>
+      <div class="seller-units">
+        <div class="unit-card" style="border-top:2px solid var(--s3)">
+          <p class="ua">Квартира A (3 ника, скрыты)</p>
+          <p class="up">1 700 000 ₽</p>
+          <p class="us">28,6 м² · 1 комната · этаж 1/5<br>«Квартира под ремонт» · 21 перепост, 3 канала</p>
+        </div>
+        <div class="unit-connector">
+          <div class="phone-badge">+7 949 •••-••-68</div>
+          <span class="conn-label">общий контакт продавца (скрыт)</span>
+        </div>
+        <div class="unit-card" style="border-top:2px solid var(--s3)">
+          <p class="ua">Квартира B (ник скрыт)</p>
+          <p class="up">2 300 000 ₽</p>
+          <p class="us">32 м² · 1 комната · этаж 3/5<br>19.05.2026 · 1 фиксация</p>
+        </div>
+      </div>
+      <div class="seller-units" style="grid-template-columns:1fr auto 1fr;margin-top:0">
+        <div class="unit-card" style="border-top:2px solid var(--muted)">
+          <p class="ua">Квартира A — та же, у лицензированного агентства</p>
+          <p class="up">1 700 000 ₽</p>
+          <p class="us">rgr.ru · агентство недвижимости «Волна» · названный поимённо агент</p>
+        </div>
+        <div class="unit-connector">
+          <span class="conn-label" style="margin-top:0">↑ та же квартира, другой канал сбыта ↑</span>
+        </div>
+        <div class="unit-card" style="border-top:2px solid var(--muted)">
+          <p class="ua">Отдельный контакт</p>
+          <p class="up" style="font-size:1rem">+7 949 •••-••-70</p>
+          <p class="us">номер, не входящий в телеграм-связку</p>
+        </div>
+      </div>
+      <p style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted);line-height:1.7;margin:0">
+        По правилам конфиденциальности этого проекта защищённая сторона — <em>лишённый жилья
+        украинский собственник</em>, а не тот, кто этим жильём торгует. Телефоны продавцов
+        сохранены как доказательства для установления ответственности: связка «несколько
+        квартир — несколько ников — несколько площадок» указывает на коммерческого
+        перекупщика, а не на частных лиц.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== ПРАВОВАЯ ПРИВЯЗКА ===== -->
+  <section>
+    <p class="eyebrow">Конечные точки ответственности</p>
+    <h2>131 собственник. Каждое требование опирается на собственные записи оккупационной администрации.</h2>
+    <p>Выгрузка реестра, объявления о продаже и данные реестра повреждений — три независимых
+      источника, каждый из которых создан самой оккупационной системой. По двум домам
+      (Строителей, 108 и Сеченова, 54) сходятся сразу и реестр повреждений, и реестр
+      «бесхозяйного» — планка доказательности «не менее двух независимых источников»
+      взята записями самого оккупанта.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+      <div style="background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--stamp);border-radius:3px;padding:1.1rem 1.2rem">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp);margin:0 0 .8rem">Реестр ущерба RD4U (Совет Европы) · Реституция</p>
+        <div class="badges">
+          <span class="map-badge rd4u">A3.6 — утрата доступа к имуществу (все 131 собственник)</span>
+          <span class="map-badge rd4u">A3.1 — повреждение жилья (Строителей, 108 · 70%)</span>
+          <span class="map-badge rd4u">A3.1 — повреждение жилья (Сеченова, 54 · 5% ← см. заметку)</span>
+        </div>
+      </div>
+      <div style="background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--evidence);border-radius:3px;padding:1.1rem 1.2rem">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--evidence);margin:0 0 .8rem">Римский статут · Уголовная ответственность</p>
+        <div class="badges">
+          <span class="map-badge rome">8(2)(a)(iv) — присвоение имущества (реестр = административное изъятие)</span>
+          <span class="map-badge rome">8(2)(b)(xiii) — распоряжение в пользу третьих лиц (объявления о продаже)</span>
+          <span class="map-badge grave">8(2)(b)(viii) — перемещение населения (Ленина, 100 · росреестровский «титул» покупателю)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПРОВЕНАНС ===== -->
+  <footer class="prov">
+    <p>Учётный код MUP-CS-004 — постоянный идентификатор дела в каталоге проекта, docs/case_studies/REGISTRY.md.</p>
+    <p>Источник реестровых данных: июньская (2026) выгрузка реестра «бесхозяйного» имущества
+      по четырём районам, сохранена 09.06.2026 с мариупольского портала госуслуг оккупационной
+      администрации. Объявления о продаже собраны из российских телеграм-каналов; каждое
+      сообщение сохранено дословно, с хэшем SHA-256 и меткой времени UTC — до всякого разбора.
+      Полный массив: 1 243 объявления о продаже квартир; 225 из них приходятся на
+      задокументированные адреса изъятия в 66 домах; 41 — перепродажа новостроек. Каждый
+      артефакт захэширован и хранится с соблюдением цепочки хранения доказательств; полный
+      каталог источников доступен читателям с профессиональным или юридическим интересом
+      к независимой проверке.</p>
+    <p class="warn">Эти акты — доказательства системы изъятия, а не действительный титул.
+      Украина их не признаёт. О контактах продавцов: защищаемая категория — лишённый
+      жилья украинский собственник. Телефон перекупщика сохранён как доказательство
+      в отношении коммерческого актора; частные лица обезличены.</p>
+  </footer>
+  <section class="support-section">
+    <h3>Поддержать проект</h3>
+    <p>Этот проект ведёт <a href="about.html">автор</a> в одиночку — без
+      финансирования и грантов, на собственные средства и время. Если вы считаете эту
+      работу нужной, вы можете помочь мне покрыть часть расходов.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal &mdash; для читателей из США</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">НКО 501(c)(3) — пожертвование с налоговым вычетом для граждан США</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">только сеть Tron</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  // пустые слоты под скриншоты: убираем битые <img>, остаётся подпись слота
+  document.querySelectorAll('.slot img').forEach(function(img){
+    if(!(img.getAttribute('src')||'').trim()) img.remove();
+    else img.addEventListener('error', function(){ img.remove(); });
+  });
+})();
+</script>
+</body>
+</html>

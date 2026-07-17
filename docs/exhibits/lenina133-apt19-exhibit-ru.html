@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Опечатанная дверь · Мариупольское досье</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="73-летняя жительница, доверенность, которую администрация отказывается признавать, и две печатные наклейки «ОПЕЧАТАНО» на двери квартиры — первый датированный, сфотографированный акт принудительного исполнения «бесхозяйной» записи, задокументированный этим проектом.">
+<meta property="og:title" content="Опечатанная дверь · Мариупольское досье">
+<meta property="og:description" content="73-летняя жительница, доверенность, которую администрация отказывается признавать, и две печатные наклейки «ОПЕЧАТАНО» на двери квартиры — первый датированный, сфотографированный акт принудительного исполнения «бесхозяйной» записи.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/lenina133-apt19-exhibit-ru.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Опечатанная дверь">
+<meta name="twitter:description" content="73-летняя жительница, непризнанная доверенность и опечатанная дверь квартиры — задокументированное принудительное исполнение, а не просто бумажная запись.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image-ru.jpg">
+<style>
+  :root {
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --t1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+  .exhibit-bar{
+    position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+  .exhibit-bar .cust{color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:0}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.01em;
+    font-size:1.2rem;color:var(--paper);margin:0 0 .7rem}
+  p{margin:0 0 1.1rem;color:var(--paper-dim)}
+  .lead{font-size:1.1rem;color:var(--paper);max-width:62ch}
+  .mono{font-family:var(--font-mono)}
+  em{color:var(--paper);font-style:italic}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;margin:2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:120px}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);
+    letter-spacing:-.03em;line-height:.9;display:block;color:var(--paper)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);display:block;margin-top:.55rem;max-width:18ch;line-height:1.5}
+  .stat.hi .n{color:var(--evidence)}
+  .stat.stamp .n{color:var(--stamp)}
+
+  .fkz-strip{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;
+    background:rgba(205,64,48,.07);border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:3px;padding:.9rem 1.2rem;margin:1.8rem 0 0}
+  .fkz-strip .badge{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--evidence);white-space:nowrap}
+  .fkz-strip .body{font-family:var(--font-mono);font-size:12px;color:var(--paper-dim);line-height:1.6}
+  .fkz-strip .pivot{color:var(--paper);font-weight:700}
+
+  /* ── фото + панель уведомления ── */
+  .photo-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--rail);
+    border-radius:5px;overflow:hidden;margin-top:1rem}
+  .photo-cell{background:#000;position:relative;min-height:280px}
+  .photo-cell img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.04)}
+  .photo-cell .credit{position:absolute;left:0;right:0;bottom:0;padding:.55rem .8rem;
+    background:linear-gradient(transparent,rgba(6,8,11,.92));font-family:var(--font-mono);
+    font-size:9.5px;letter-spacing:.04em;color:var(--muted);line-height:1.5}
+  .notice-cell{background:var(--ink-2);padding:1.5rem 1.6rem;display:flex;flex-direction:column;justify-content:center}
+  .notice-kicker{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--evidence);margin-bottom:.8rem}
+  .notice-text{background:var(--ink-3);border:1px solid var(--rail-2);border-radius:3px;
+    padding:1rem 1.1rem;font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--paper-dim)}
+  .notice-text b{color:var(--paper)}
+  .notice-text .opechatano{color:var(--evidence);font-weight:700;letter-spacing:.08em}
+  .notice-translation{margin-top:.9rem;font-style:italic;font-family:var(--font-serif);font-size:.95rem;color:var(--paper);line-height:1.5}
+  .deadline-row{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+  .deadline-pill{font-family:var(--font-mono);font-size:11px;color:var(--ink);background:var(--evidence);
+    padding:.3rem .65rem;border-radius:3px;font-weight:700}
+  @media(max-width:760px){.photo-grid{grid-template-columns:1fr}.photo-cell{min-height:220px}}
+
+  /* ── свидетельства ── */
+  .quote-stack{display:flex;flex-direction:column;gap:1.1rem;margin-top:1rem}
+  .tq{border-left:2px solid var(--stamp);padding:.4rem 0 .4rem 1.2rem;background:var(--ink-2);
+    border-radius:0 3px 3px 0;padding-right:1.2rem;padding-top:.9rem;padding-bottom:.9rem}
+  .tq .q{font-family:var(--font-serif);font-style:italic;color:var(--paper);font-size:1rem;line-height:1.55;margin-bottom:.5rem}
+  .tq .a{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);line-height:1.6}
+  .tq .a a{color:var(--stamp);text-decoration:none;border-bottom:1px dotted var(--stamp-dim)}
+
+  /* ── что уже было в базе ── */
+  .onfile{background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--t1);
+    border-radius:4px;padding:1.3rem 1.5rem;margin-top:1rem}
+  .onfile ul{margin:0;padding-left:1.2rem}
+  .onfile li{font-size:.97rem;color:var(--paper-dim);line-height:1.7;margin-bottom:.5rem}
+  .onfile li b{color:var(--paper)}
+
+  /* ── фотолента (жизненный цикл дома) ── */
+  .lifecycle-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rail);
+    border-radius:5px;overflow:hidden;margin-top:1.2rem}
+  .lc-cell{background:var(--ink);position:relative}
+  .lc-cell img{width:100%;height:230px;object-fit:cover;display:block;filter:contrast(1.04)}
+  .lc-cap{padding:.7rem .85rem;background:var(--ink-2)}
+  .lc-cap .lcd{font-family:var(--font-mono);font-size:10.5px;color:var(--stamp);letter-spacing:.06em;margin-bottom:.3rem}
+  .lc-cap .lct{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);line-height:1.55}
+  @media(max-width:820px){.lifecycle-strip{grid-template-columns:1fr}.lc-cell img{height:200px}}
+
+  /* ── хронология ── */
+  .chrono{width:100%;border-collapse:collapse;margin-top:1.2rem;font-family:var(--font-mono);font-size:12px}
+  .chrono th{text-align:left;padding:.6rem .8rem;background:var(--ink-3);color:var(--stamp);
+    letter-spacing:.06em;text-transform:uppercase;font-size:10px;border-bottom:1px solid var(--rail-2)}
+  .chrono td{padding:.65rem .8rem;border-bottom:1px solid var(--rail);color:var(--paper-dim);vertical-align:top}
+  .chrono tr:last-child td{border-bottom:0}
+  .chrono td:first-child{color:var(--paper);white-space:nowrap;font-weight:600}
+
+
+  /* ── выноска-разрешение противоречия ── */
+  .gun{border:1px solid var(--evidence-dim);border-left:3px solid var(--evidence);
+    border-radius:2px;background:rgba(205,64,48,.06);padding:1rem 1.1rem;margin-top:1.2rem}
+  .gun .gk{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--evidence);margin-bottom:.5rem}
+  .gun .gv{font-size:.97rem;line-height:1.65;color:var(--paper-dim)}
+  .gun .gv strong{color:var(--paper)}
+
+  /* ── правовая привязка ── */
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+  .map-badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
+    padding:.25rem .6rem;border-radius:3px;border:1px solid var(--rail-2);color:var(--paper-dim)}
+  .map-badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .map-badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+
+  /* ── провенанс ── */
+  .prov{border-top:1px solid var(--rail);margin-top:1rem;padding-top:2rem}
+  .prov p{font-family:var(--font-mono);font-size:11.5px;line-height:1.75;color:var(--muted)}
+  .prov .warn{color:var(--paper-dim);border-left:2px solid var(--evidence);
+    padding-left:1rem;margin-top:1.2rem}
+  .prov details{margin-top:1.2rem}
+  .prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11px;color:var(--stamp);letter-spacing:.04em}
+  .prov table{width:100%;border-collapse:collapse;margin-top:1rem;font-family:var(--font-mono);font-size:11px}
+  .prov th{text-align:left;padding:.5rem .6rem;color:var(--stamp);border-bottom:1px solid var(--rail-2);letter-spacing:.04em}
+  .prov td{padding:.5rem .6rem;border-bottom:1px solid var(--rail);color:var(--muted)}
+
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  @media print{
+    :root{--ink:#fff;--ink-2:#fff;--ink-3:#f4f4f2;--paper:#111;--paper-dim:#222;
+      --muted:#555;--rail:#bbb;--rail-2:#999}
+    body{background:#fff;color:#111;font-size:10.5pt}
+    .exhibit-bar{position:static;background:#fff;border-color:#999;color:#444}
+    section{break-inside:avoid}
+  }
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;padding:.9rem 1.1rem}
+  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
+  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Дело · <b>Запись в реестре &rarr; опечатанная дверь</b></span>
+  <span><a href="../index.html">&larr; на главную</a> &middot; <a href="mariupol-master-dossier-ru.html">основное досье</a>
+    &middot; <a href="lenina133-apt19-exhibit.html">English version</a> &middot; <a href="stakeholder-network-ru.html">граф связей</a> &middot; <a href="about.html">about</a> &middot; <a href="sources.html">sources</a></span>
+  <span class="cust">Каждый артефакт сохранён из первоисточника и захэширован</span>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== ТЕЗИС ===== -->
+  <section>
+    <p class="eyebrow" title="просп. Ленина, 133 · до вторжения просп. Миру, 133">05 &middot; Реестр на уровне двери &middot; проспект Ленина (Мира), 133 &middot; оккупированный Мариуполь</p>
+    <h2>Запись в реестре была бумажкой. Вот как выглядит её исполнение.</h2>
+    <p class="lead">Все остальные дела этого досье документируют систему изъятия по
+      бумажному следу — распоряжениям, выгрузкам реестра, объявлениям о перепродаже.
+      Это дело документирует момент, когда бумажный след доходит до конкретной двери:
+      две печатные наклейки «ОПЕЧАТАНО», вписанный от руки срок выселения — и 73-летняя
+      женщина, которая годами живёт в этой квартире с доверенностью, которую
+      администрация отказывается принимать во внимание.</p>
+
+    <div class="fkz-strip">
+      <span class="badge">Доверенность &middot; не признана</span>
+      <span class="body">
+        Сама печатная наклейка сообщает только одно: квартира отныне —
+        <span class="pivot">муниципальная собственность</span>, вход воспрещён. На вопрос
+        «почему» жительнице ответили устно — по её собственным словам, — что всё уже решило
+        <span class="pivot">решение суда о «бесхозяйности» 2024 года</span>, хотя по закону
+        квартиру можно ставить на учёт в Росреестре до <span class="pivot">2028 года</span>.
+      </span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat hi"><span class="n">4</span><span class="l">квартиры, названные в одном посте под одним и тем же выселением, — 2, 19, 20, 33</span></div>
+      <div class="stat"><span class="n">73</span><span class="l">года — возраст жительницы опечатанной кв. 19, живущей там по доверенности от дочери</span></div>
+      <div class="stat stamp"><span class="n">2</span><span class="l">печатные наклейки «ОПЕЧАТАНО», два разных рукописных срока выселения</span></div>
+      <div class="stat"><span class="n">2024</span><span class="l">год судебного решения, на которое чиновники сослались устно, — опечатали примерно 18 месяцев спустя</span></div>
+      <div class="stat"><span class="n">2028</span><span class="l">законный срок регистрации в Росреестре — на практике перечёркнут</span></div>
+    </div>
+  </section>
+
+  <!-- ===== ФОТО + УВЕДОМЛЕНИЕ ===== -->
+  <section>
+    <p class="eyebrow">Улика &middot; 23 октября 2025</p>
+    <h2>Две наклейки, два срока, одна дверь</h2>
+    <p>Фотография опубликована в русскоязычном, критичном к оккупационной администрации
+      телеграм-канале, передающем жалобы жителей; сохранена до всякого разбора и анализа —
+      стандарт для каждого телеграм-артефакта этого проекта. На снимке — две почти
+      одинаковые печатные наклейки одна поверх другой на одной и той же двери, и на каждой
+      от руки вписан свой срок выселения. Вероятнее всего, либо наклейку обновили после
+      того, как истёк первый срок, либо опечатывали два разных проёма (дверь и окно или
+      балкон) в разные визиты. При любом прочтении активное принудительное исполнение
+      приходится ровно на неделю 20–25 октября 2025 года.</p>
+
+    <div class="photo-grid">
+      <div class="photo-cell">
+        <img src="assets/lenina133/sealed_door_apt19_oct2025.jpg" alt="Две печатные наклейки «ОПЕЧАТАНО» на двери квартиры 19 дома по проспекту Ленина, 133, с рукописными сроками выселения 22.10.2025 и 25.10.2025">
+        <span class="credit" title="укр. просп. Миру, 133 · рус. просп. Ленина, 133">проспект Ленина, 133, кв. 19 &middot; снято 23 октября 2025</span>
+      </div>
+      <div class="notice-cell">
+        <p class="notice-kicker">Текст печатного уведомления (дословно)</p>
+        <div class="notice-text">
+          Объект является муниципальной собственностью городского округа Мариуполь<br>
+          <b>пр. Ленина д. 133 кв. 19</b> [вписано от руки]<br>
+          <b>Освободить до 25.10.2025 / 22.10.2025</b> [от руки, две наклейки]<br><br>
+          ВХОД СТРОГО ВОСПРЕЩЁН!<br>
+          <span class="opechatano">ОПЕЧАТАНО</span><br><br>
+          Без представителя собственника в лице Управления имущественных и
+          земельных отношений не вскрывать. Повреждение запорных устройств, дверей,
+          окон, инженерных систем объекта, а также несанкционированное проникновение
+          повлекут ответственность, в т.ч. статьями 139, 168 УК РФ.<br><br>
+          Тел.: +7 (949) 814-63-64
+        </div>
+        <div class="deadline-row">
+          <span class="deadline-pill">Наклейка 1: освободить до 22.10.2025</span>
+          <span class="deadline-pill">Наклейка 2: освободить до 25.10.2025</span>
+        </div>
+        <p style="margin-top:1rem;font-size:.92rem">Обратите внимание, чего в уведомлении
+          <em>нет</em>: ни номера дела, ни даты решения, ни единого упоминания суда.
+          Про решение 2024 года жительнице сказали устно — на бумаге этого нет.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== СВИДЕТЕЛЬСТВА ===== -->
+  <section>
+    <p class="eyebrow">Свидетельства &middot; тот же пост, тот же канал</p>
+    <h2>«Опечатали квартиру и попросили съехать»</h2>
+    <p>Пост, в котором опубликована фотография, приводит и рассказ подписчицы от первого
+      лица — и называет квартиру 19 одной из четырёх в этом доме, проходящих через одну и
+      ту же процедуру: квартиры 2, 19, 20 и 33, по всем, как утверждается, судебные
+      решения датированы 2024 годом.</p>
+
+    <div class="quote-stack">
+      <div class="tq">
+        <p class="q">«Суды по квартирам 2, 19, 20, 33 в доме по проспекту Ленина, 133
+          прошли еще в 2024 году. Некоторые собственники не успели поставить в Росреестр,
+          кто-то не смог вернуться из Беларуси, другие — не успели оформить наследство
+          из-за очередей и затягивания со стороны нотариусов. А теперь людей С ПРОПИСКОЙ
+          выкуривают из квартир.»</p>
+        <p class="a">&mdash; текст поста, 23.10.2025 · <a href="https://t.me/ssaniaworld/3348" target="_blank" rel="noopener">оригинал</a></p>
+      </div>
+      <div class="tq">
+        <p class="q">«У нас тоже квартира в списке. Мама проживает и прописана, но
+          собственник в Беларуси. Есть доверенность, но это во внимание не берут.
+          Опечатали квартиру и попросили съехать. В квартире проживает мама 73 года.
+          Все коммунальные оплачены, даже во всех жкх составлены договора по
+          доверенности&hellip; По закону в Росреестр квартиру можно поставить до 2028 года.
+          В администрации заявили, что было решение суда по бесхозу в 2024 году и она
+          принадлежит муниципальной собственности.»</p>
+        <p class="a">&mdash; рассказ подписчицы, который приводит канал; речь именно о квартире 19</p>
+      </div>
+      <div class="tq">
+        <p class="q">«В том же доме 133 по проспекту Ленина проживают люди в квартирах
+          2, 19, 20, 33. Все они напрямую связаны с собственниками, но всем сказали
+          выселяться. Это чиновничий беспредел.»</p>
+        <p class="a">&mdash; текст поста, финальные строки</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.4rem;font-size:.92rem">Это не одинокий, ничем не подкреплённый
+      пост. Те же четыре квартиры — 2, 19, 20, 33 — и тот же 2024 год независимо называют
+      украинские издания со ссылкой на <span title="Петро Андрющенко">Петра Андрющенко</span>,
+      руководителя Центра изучения оккупации, который характеризует практику как прямое
+      рейдерство под прикрытием псевдоадминистрации. В одном из тех же сообщений отдельно
+      описан поквартирный обход с «инвентаризацией» по адресу
+      <b title="укр. вул. Чорноморська, 10 · рус. ул. Черноморская, 10">Черноморская, 10</b> —
+      тот самый адрес, который фигурирует открытой зацепкой ниже, теперь подтверждённый из
+      совершенно другого источника.</p>
+  </section>
+
+  <!-- ===== ПРОДОЛЖЕНИЕ: УГРОЗЫ И ВИЗИТ ===== -->
+  <section>
+    <p class="eyebrow">Тот же канал &middot; продолжение · 27 октября и 7 ноября 2025</p>
+    <h2>После опечатывания: угрозы «поменять ключи» и четверо мужчин в подъезде</h2>
+    <p>Историей с опечатанной дверью канал не ограничился. Четыре дня спустя — о том же
+      доме и той же квартире, где живёт 73-летняя женщина:</p>
+
+    <div class="quote-stack">
+      <div class="tq">
+        <p class="q">«Угрожают „поменять ключи и отрезать свет“. Но не приходят. Словно
+          проверяют, насколько люди готовы сопротивляться. Напоминаю: женщина прописана
+          в этой квартире. Квартира — в Росреестре. У неё больше нет жилья — её дом
+          разрушен. Была договорённость, что таких случаев касаться не будут. Но слова,
+          видимо, ничего не значат.»</p>
+        <p class="a">&mdash; тот же канал, 27.10.2025 · <a href="https://t.me/ssaniaworld/3370" target="_blank" rel="noopener">оригинал</a></p>
+      </div>
+      <div class="tq">
+        <p class="q">«К 70-летней женщине, проживающей в своем доме на проспект Ленина,
+          133, явились четверо мужчин во главе со „специалистом отдела“ Климовым
+          Вячеславом Александровичем&hellip; Под предлогом „служебной необходимости“ убедили
+          пожилую женщину открыть дверь. Начали требовать написать расписку о том, что
+          квартира принадлежит муниципалитету. Действовали по указаниям Солодухи Галины
+          Юрьевны, которая давала инструкции по телефону.»</p>
+        <p class="a">&mdash; тот же канал, 07.11.2025, со слов дочери собственницы · <a href="https://t.me/ssaniaworld/3433" target="_blank" rel="noopener">оригинал</a>
+          &middot; возраст в этом эпизоде указан иной (70, а не 73) — возможно, речь об ещё одном домохозяйстве того же дома</p>
+      </div>
+    </div>
+
+    <p style="font-size:.92rem">Имена <b>Вячеслава Александровича Климова</b> («специалист
+      отдела», по формулировке канала) и <b>Галины Юрьевны Солодухи</b> приводятся здесь в
+      том виде, в каком их называет рассказ дочери собственницы, переданный каналом, — это
+      сотрудники исполняющего органа, действующие в служебном качестве, то есть фигуранты
+      трека ответственности, а не защищаемые частные лица. Требование написать расписку
+      о принадлежности квартиры муниципалитету — без суда, без документа на руки, под
+      давлением на пожилого человека в её собственной прихожей — и есть содержание
+      процедуры, которую реестр оформляет как «выявление бесхозяйного имущества».</p>
+  </section>
+
+  <!-- ===== ЧТО УЖЕ БЫЛО ЗАДОКУМЕНТИРОВАНО ===== -->
+  <section>
+    <p class="eyebrow">Дом</p>
+    <h2>Это не случайная находка. Дом уже был в базе.</h2>
+    <p>Это дело возможно ровно потому, что фотография и свидетельство называют дом, номер
+      квартиры и административную формулу, которые проект уже задокументировал независимо, —
+      новый материал подтверждает существующую запись, а не повисает непроверяемым
+      одиночным утверждением.</p>
+
+    <div class="onfile">
+      <ul>
+        <li><b>Пять квартир</b> этого адреса уже в реестре «бесхозяйного» оккупационной
+          администрации: <b>2, 9, 14, 15, 19</b>.</li>
+        <li><b>Спутниковая оценка повреждений</b> (UNOSAT): Moderate Damage («умеренные
+          повреждения») на 12 мая 2022 года, привязка к этому дому с высокой достоверностью.</li>
+        <li><b>Российский федеральный реестр повреждений и восстановления</b> числит этот дом
+          под <b>100% разрушения</b> — под полный снос и новое строительство; как это
+          противоречие разрешилось, см. ниже.</li>
+        <li>Довоенный адрес <b title="просп. Миру, 133">проспект Мира, 133</b> &rarr;
+          оккупационный <b title="проспект Ленина, 133">проспект Ленина, 133</b> —
+          переименование, та же топонимическая схема, что и по всему досье.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== РАЗРЕШЕНИЕ «100% РАЗРУШЕНИЯ» ===== -->
+  <section>
+    <p class="eyebrow">Разрешённое противоречие &middot; сверка с чатом жильцов этого самого дома</p>
+    <h2>Федеральный реестр говорит «разрушен на 100%». Фотографии самих жильцов говорят другое.</h2>
+    <p>73-летняя жительница, живущая в доме, который собственный федеральный реестр
+      оккупанта числит стопроцентно разрушенным и подлежащим полной реконструкции, — это,
+      на первый взгляд, нонсенс. Разрешает его телеграм-чат жильцов именно этого дома,
+      который ведётся с ноября 2022 года, — и заодно поставляет собственные датированные
+      фотографии.</p>
+
+    <div class="lifecycle-strip">
+      <div class="lc-cell">
+        <img src="assets/lenina133/reglazing_25nov2022.jpg" alt="Выгоревшая балконная сторона дома по проспекту Ленина, 133, снято 25 ноября 2022 года: серьёзные, но не обрушившие дом повреждения">
+        <div class="lc-cap"><div class="lcd">25 ноября 2022</div><div class="lct">Выгоревшая балконная сторона. Тяжёлые повреждения времён штурма — но дом стоит.</div></div>
+      </div>
+      <div class="lc-cell">
+        <img src="assets/lenina133/passport_sign_09dec2022.jpg" alt="Официальный щит «ПАСПОРТ ОБЪЕКТА» на стоящем, обгоревшем фасаде дома по проспекту Ленина, 133 — застройщик, подрядчик, площадь и сроки под заголовком «СТРОИТЕЛЬСТВО»; снято 9 декабря 2022 года">
+        <div class="lc-cap"><div class="lcd">9 декабря 2022</div><div class="lct">На фасаде появляется официальный щит — застройщик, подрядчик, этажность, сроки. Заголовок — «строительство», не снос; жильцы неделями спорили, что это значит.</div></div>
+      </div>
+      <div class="lc-cell">
+        <img src="assets/lenina133/repaired_facade_10dec2022.jpg" alt="Тот же фасад дома по проспекту Ленина, 133, отремонтированный: новые окна, обновлённый козырёк подъезда; снято 10 декабря 2022 года — на следующий день после установки щита" loading="lazy">
+        <div class="lc-cap"><div class="lcd">10 декабря 2022</div><div class="lct">Тот же фасад, уже отремонтированный — новые окна, обновлённый козырёк. Через день после щита.</div></div>
+      </div>
+    </div>
+
+    <table class="chrono">
+      <tr><th>Дата</th><th>Свидетельство</th></tr>
+      <tr><td>9 мая 2022</td><td>Дом стоит целиком (спутниковый снимок).</td></tr>
+      <tr><td>весна 2022</td><td>Тяжёлое огневое поражение части фасада и балконов.</td></tr>
+      <tr><td>21&ndash;28 ноября 2022</td><td>Открывается чат жильцов — «Добро пожаловать домой!!!»; временные заплатки на крыше, замена окон по всему дому, восстановление электрики и водопровода силами стороннего подрядчика фонда капремонта.</td></tr>
+      <tr><td>9 декабря 2022</td><td>Вывешен официальный «паспорт объекта» — застройщик, подрядчик, площадь, этажность и сроки под заголовком «строительство». Слова «снос» на щите нет. Жильцы тут же спрашивают: «Начало строительства или ремонтно-восстановительных работ? Ведь две большие разницы».</td></tr>
+      <tr><td>21 декабря 2022</td><td>Жильцы приходят к выводу, что на щите действительно «строительство», и утверждают, что приезжая комиссия отдельно сослалась на слабые плиты перекрытия, — без какого-либо собрания жильцов или уведомления.</td></tr>
+      <tr><td>2022&ndash;2024</td><td>Два года подрядного «восстановления», которое жильцы всё это время оспаривают по качеству и безопасности — см. ниже.</td></tr>
+      <tr><td>сентябрь 2024</td><td>Работы официально остановлены: в несущих стенах подвала найдены трещины, утверждённого проекта нет, финансирования нет. На трещины поставлены маячки.</td></tr>
+      <tr><td>октябрь 2025</td><td>Отдельные квартиры опечатывают как «бесхоз» — одну за другой, по отдельному реестровому треку, вне всякой связи с нерешённым вопросом о конструктивной безопасности.</td></tr>
+    </table>
+
+    <div class="gun">
+      <p class="gk">Что это значит</p>
+      <p class="gv">Запись «100% разрушения» в федеральном реестре — настоящая, но она
+        фиксирует <strong>план</strong>, а не построенный факт: жильцы документируют
+        возвращение и ремонт и до, и после установки щита; та же коробка стоит по сей день;
+        а оккупационная администрация вместо анонсированного сноса занялась
+        <strong>поквартирным изъятием через реестр «бесхозяйного»</strong>. Стоит быть
+        точным в том, что есть и чего нет в документах: ни в одном из двух массивов
+        распоряжений о сносе, собранных проектом, нет номерного распоряжения по этому дому,
+        а сам щит — хотя жильцы тогда прочли его как возможное новое строительство —
+        содержит только паспортные данные проекта (застройщик, подрядчик, сроки) под
+        родовым заголовком «строительство»; слова «снос» там нет. Единственное место, где
+        звучит формула аварийности «под снос», — позднейший пересказ жильцами устной,
+        незапротоколированной оценки приезжей комиссии (см. ниже), а не что-либо печатное
+        или номерное. Снос, который реестр записал как запланированный, зримо не состоялся;
+        вместо него — поквартирное изъятие, по никак с ним не связанному треку.</p>
+    </div>
+  </section>
+
+  <!-- ===== САМ РЕМОНТ ===== -->
+  <section>
+    <p class="eyebrow">Тот же чат жильцов &middot; декабрь 2022 &ndash; октябрь 2024</p>
+    <h2>Два года «восстановления», потом остановка — из-за того же дефекта, который комиссия называла с самого начала</h2>
+    <p>Щит обещал «строительство». Что жильцы получили — и задокументировали в реальном
+      времени — это многолетний спорный ремонт, который разные ведомства описывали им
+      тремя разными и несовместимыми способами и который собственный бумажный след дома
+      в конце концов признал небезопасным.</p>
+
+    <div class="quote-stack">
+      <div class="tq">
+        <p class="q">«При выражении неблагодарности в группе-чате „РКС-НР“&hellip;&hellip;будете
+          заблокированы&hellip;&hellip;так админы этой группы поступают с теми кто говорит правду
+          о некачественном восстановлении жилья собственников г.Мариуполя»</p>
+        <p class="a">&mdash; из чата жильцов, 24.08.2023 [пунктуация оригинала сохранена]</p>
+      </div>
+      <div class="tq">
+        <p class="q">«&hellip;двери в балконном блоке (цельный), при жаре в 40°с, НЕ ОТКРЫВАЮТСЯ
+          НА ПРОВЕТРИВАНИЕ ОТ СЛОВА „СОВСЕМ“, лифт не работает&hellip;»</p>
+        <p class="a">&mdash; из чата жильцов, 05.07.2024 — о состоянии, в котором работы «сданы в удовлетворительном состоянии»</p>
+      </div>
+      <div class="tq">
+        <p class="q">«&hellip;как быть если на нашем доме признанном аварийным степень „а“ после
+          его восстановления в течение двух лет&hellip;.работы приостановлены&hellip;.проект не
+          утверждён&hellip;.финансирования нет&hellip;.⛔ в фундаменте дома выявлены трещины ⚠️
+          и установлены маячки за которыми следят ФАУ РОСКАПСТРОЙ, РКС НР, ППК ЕДИНЫЙ
+          ЗАКАЗЧИК, ГБУ МО УТНКР, ФКРМО, руководители проектов дома начиная с Татаренко В
+          и Пономарева О продолжая Белицким и Бурлаковым&hellip;»</p>
+        <p class="a">&mdash; из чата жильцов, 13.09.2024 [орфография и пунктуация оригинала сохранены]</p>
+      </div>
+    </div>
+
+    <p>По переписке самого дома, три разных ведомства дали три разных ответа на вопрос,
+      что вообще с ним происходит: <span title="Министерство строительства ДНР">минстрой
+      «ДНР»</span> осенью 2022 года говорил жильцам о капитальном ремонте; щит три месяца
+      спустя сообщил «строительство»; а позднейшее письмо
+      <span title="Государственное бюджетное учреждение Московской области «Управление технического надзора капитального ремонта»">ГБУ МО «УТНКР»</span>,
+      подмосковного органа технадзора, подключившегося к объекту, ограничилось тем, что
+      тепловой контур замкнут и дом используется как временное маневренное жильё.</p>
+
+    <p>Жильцы отдельно утверждают: ещё до того, как подрядчик —
+      <span title="МК ГРУПП">«МК Групп»</span>, работавший на
+      <span title="Фонд капитального ремонта Московской области">Фонд капитального ремонта
+      Московской области (ФКРМО)</span>, — взялся за восстановление, приезжая московская
+      комиссия уже сказала им, что плиты перекрытия слабые и дом подпадает под
+      <b>категорию аварийности «а»</b> — ту самую, по которой дома идут под снос. Работы
+      всё равно начались — без собрания жильцов и без уведомления. Руководители проекта
+      за два следующих года менялись раз за разом: <span title="Татаренко В.">Татаренко</span>,
+      затем <span title="Пономарев О.">Пономарев</span>, затем Белицкий, затем Бурлаков.</p>
+
+    <p>Работы шли около двух лет, и всё это время жильцы документировали: балконные двери,
+      не открывающиеся в сорокаградусную жару, неработающий лифт, подвал, затопленный
+      больше полугода, хроническую канализационную аварию. В <b>сентябре 2024 года</b>
+      работы официально остановили: в несущих стенах подвала нашли трещины, поставили
+      маячки, а жильцам объявили, что утверждённого проекта нет и финансирования нет.
+      Один из жильцов заметил, что диагностическое выбуривание кернов для оценки несущей
+      способности сделали, судя по всему, в <em>конце</em> двухлетних работ, а не в начале —
+      в обратном порядке относительно нормальной практики, где обследование предшествует
+      ремонту, который оно должно обосновать.</p>
+
+    <p style="font-size:.92rem">Одна жительница, написавшая 5 июля 2024 года, описала эти
+      условия как непригодные для жизни и сказала, что, по её мнению, пережитый стресс
+      приблизил смерть члена её семьи несколькими месяцами ранее, — связь, которую проект
+      никак не может проверить независимо. Эта строка приведена только затем, чтобы
+      передать, как минимум одна жительница прожила описанные выше два года, — не как
+      подтверждённое причинное утверждение.</p>
+
+    <div class="gun">
+      <p class="gk">Почему это важно для дела</p>
+      <p class="gv">Этот дом, по его же собственным бумагам, был признан конструктивно
+        аварийным — в категории кандидатов на снос — посреди двухлетнего ремонта, который
+        всё равно продолжался и который в итоге остановили из-за того же дефекта, который
+        комиссия называла до его начала. Ни одно из этих обстоятельств никак не сдвинуло
+        график реестрового трека: квартиры 2, 19, 20 и 33 прогнали через судебное решение
+        2024 года и физически опечатали в октябре 2025-го — по треку, который вопрос о
+        конструктивной безопасности вообще не упоминает. Трек ремонта и трек изъятия шли
+        параллельно, подчинялись разным ведомствам и ни разу не обязаны были свериться друг
+        с другом. Ровно так жительница с действующей доверенностью и оплаченной коммуналкой
+        оказывается опечатанной снаружи дома, о котором никто не готов сказать под запись,
+        опасен он для проживания или нет.</p>
+    </div>
+  </section>
+
+
+  <!-- ===== ПРАВОВАЯ ПРИВЯЗКА ===== -->
+  <section>
+    <p class="eyebrow">Конечные точки ответственности</p>
+    <h2>От строки в реестре до опечатанной двери: разрыв, который закрывает это дело</h2>
+    <p>Каждая другая «бесхозяйная» запись, задокументированная проектом, — это бумага:
+      административный акт без следа последствий. Здесь проект впервые может показать,
+      с датой и фотографией, как эта бумага выглядит, когда её принудительно исполняют
+      против человека, который в квартире живёт. Нормативное основание записи —
+      <span title="Закон ДНР № 66-РЗ от 21.03.2024 «Об особенностях выявления, использования и признания права на бесхозяйное недвижимое имущество»">закон «ДНР» № 66-РЗ от 21.03.2024</span>
+      «Об особенностях выявления, использования и признания права на бесхозяйное недвижимое
+      имущество». Печатная наклейка на двери не ссылается ни на что из этого — она
+      сообщает только, что квартира муниципальная.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+      <div style="background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--stamp);border-radius:3px;padding:1.1rem 1.2rem">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp);margin:0 0 .8rem">Реестр ущерба RD4U (Совет Европы) &middot; Реституция</p>
+        <div class="badges">
+          <span class="map-badge rd4u">A3.6 &mdash; утрата доступа к имуществу на оккупированной территории (теперь исполненная физически, а не только записанная)</span>
+        </div>
+      </div>
+      <div style="background:var(--ink-2);border:1px solid var(--rail);border-top:2px solid var(--evidence);border-radius:3px;padding:1.1rem 1.2rem">
+        <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--evidence);margin:0 0 .8rem">Римский статут &middot; Уголовная ответственность</p>
+        <div class="badges">
+          <span class="map-badge rome">8(2)(a)(iv) &mdash; незаконное присвоение имущества</span>
+          <span class="map-badge rome">ст. 28 &mdash; ответственность начальников (исполняющий имущественный орган)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПРОВЕНАНС ===== -->
+  <footer class="prov">
+    <p>Учётный код MUP-CS-003 — постоянный идентификатор дела в каталоге проекта, docs/case_studies/REGISTRY.md.</p>
+    <p>Каждый артефакт этого дела — пост, фотография опечатанной двери и три снимка из
+      чата жильцов выше — сохранён дословно из первоисточника, захэширован и снабжён
+      меткой времени до всякого разбора, по стандартной для проекта цепочке хранения
+      доказательств.</p>
+    <details>
+      <summary>Полный каталог источников и хэшей</summary>
+      <table>
+        <tr><th>Артефакт</th><th>SHA-256</th><th>Сохранено</th></tr>
+        <tr><td>Пост (телеграм-канал «ssaniaworld», 23.10.2025)</td><td>01adb154&hellip;e80b49</td><td>13.06.2026</td></tr>
+        <tr><td>Фото — две наклейки «ОПЕЧАТАНО»</td><td>8b354c87&hellip;07f6ae7</td><td>13.06.2026</td></tr>
+        <tr><td>Фото — огневое поражение, 25.11.2022</td><td>в хранилище проекта, индекс по медиа @Lenina133/51</td><td>13.06.2026</td></tr>
+        <tr><td>Фото — «паспорт объекта», 09.12.2022</td><td>в хранилище проекта, индекс по медиа @Lenina133/91</td><td>13.06.2026</td></tr>
+        <tr><td>Фото — отремонтированный фасад, 10.12.2022</td><td>в хранилище проекта, индекс по медиа @Lenina133/99</td><td>13.06.2026</td></tr>
+        <tr><td>Посты-продолжения об угрозах и визите (тот же канал, 27.10 и 07.11.2025)</td><td>t.me/ssaniaworld/3370, /3433 — выгрузка канала в хранилище проекта</td><td>02.07.2026</td></tr>
+        <tr><td colspan="3" style="padding-top:.6rem;color:var(--paper-dim);font-style:italic">Внешнее подтверждение (не захвачено проектом; приводится для контекста)</td></tr>
+        <tr><td>Жалобы жильцов на качество ремонта, 9 сообщений</td><td>чат @Lenina133, сообщения 70, 298, 341, 528, 533, 561, 578, 583, 627</td><td>02.12.2022 &ndash; 05.10.2024</td></tr>
+        <tr><td>Независимое сообщение о кв. 2/19/20/33 и Черноморской, 10</td><td>tribun.com.ua, comments.ua (со ссылкой на Петра Андрющенко)</td><td>&mdash;</td></tr>
+        <tr><td>Закон «ДНР» № 66-РЗ + масштаб практики (~600 действующих решений на апрель 2025)</td><td>verstka.media (со ссылкой на Олега Моргуна)</td><td>&mdash;</td></tr>
+      </table>
+    </details>
+    <p class="warn">Как и любой телеграм-материал, это первичная датированная фотография
+      плюс свидетельство от первого лица, а не независимо проверенный факт. Он
+      подтверждает, а не стоит в одиночку: пост называет тот же дом, ту же квартиру и ту
+      же административную формулу, которые проект уже задокументировал независимо.
+      Печатное уведомление — доказательство работы системы изъятия, а не действительный
+      титул; Украина его не признаёт. 73-летняя жительница из свидетельства — живое
+      частное лицо: в этом деле она обозначена только возрастом и родственной связью, её
+      имя не публикуется — в соответствии с правилами конфиденциальности проекта. Названные
+      сотрудники исполняющего органа действуют в служебном качестве и на защиту частной
+      жизни в рамках этого проекта не претендуют.</p>
+  </footer>
+
+  <section class="support-section">
+    <h3>Поддержать проект</h3>
+    <p>Этот проект ведёт <a href="about.html">автор</a> в одиночку — без
+      финансирования и грантов, на собственные средства и время. Если вы считаете эту
+      работу нужной, вы можете помочь мне покрыть часть расходов.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal &mdash; для читателей из США</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">НКО 501(c)(3) — пожертвование с налоговым вычетом для граждан США</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">только сеть Tron</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

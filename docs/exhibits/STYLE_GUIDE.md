@@ -131,16 +131,20 @@ placeholder, not the end state.
   stakeholder network, the master dossier, the interactive map), that mention
   is a hyperlink — don't leave a named cross-reference as plain prose.
   - **Language targeting.** From a **RU** exhibit, link to the target's **RU
-    version** when one exists (`*-ru.html`). RU versions currently exist for:
-    `mariupol-master-dossier`, `case-study-III-stroiteley`,
+    version** when one exists (`*-ru.html`). As of 2026-07-11, **every exhibit
+    has a RU version**: `mariupol-master-dossier`, `dispossession-pipeline`,
+    `two-property-systems`, `nakhimova-82-exhibit`,
+    `case-study-II-registry-resale`, `case-study-III-stroiteley`,
     `case-study-IV-court-docket`, `case-study-troianda-metallurgov`,
-    `two-property-systems`. Everything else is EN-only. (RU drafts of
-    `dispossession-pipeline` and `nakhimova-82-exhibit` were built 2026-07-03/04
-    but pulled offline pending review — don't re-link either until it's back.)
+    `lenina-104-106-108-110-exhibit`, `lenina133-apt19-exhibit`,
+    `interactive-map`, `stakeholder-network`. `about.html` is trilingual
+    in-page; `sources.html` is EN-only site chrome; the landing `index.html`
+    carries an in-page По-русски toggle (EN default) rather than a separate
+    RU file.
   - **EN-only target from a RU exhibit → caveat.** When a RU exhibit's
-    Russian-labeled link necessarily points at an EN-only *exhibit*
-    (dispossession-pipeline, interactive-map, stakeholder-network, nakhimova-82,
-    case-study-II, lenina-133, lenina-104…-110), append the note
+    Russian-labeled link necessarily points at an EN-only *exhibit* (currently
+    none — see the list above; the rule stays for any future exhibit that ships
+    EN-first), append the note
     `(пока нет перевода, ссылка временно ведёт на английскую версию)` right after
     the link — as a small muted `<span>` inline, or as a `display:block` note
     under a card-style `.cs-link`, styled
@@ -288,6 +292,7 @@ forward, not just that one file.
   `case-study-troianda-metallurgov-ru.html`, `nakhimova-82-exhibit-ru.html`)
   have not yet been audited against these rules — treat them as a backlog,
   not as already compliant.
+
 ## 11. Case-study identity — no ordinals; registry is authoritative (added 2026-07-11)
 
 `docs/case_studies/REGISTRY.md` is the single source of truth for case-study
