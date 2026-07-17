@@ -76,6 +76,14 @@ _TITLE_DATE_VERBAL = re.compile(
     r"от\s+(\d{1,2})\s+(\w+)\s+(\d{4})\s+года?", re.I
 )
 _TITLE_DATE_NUMERIC = re.compile(r"от\s+(\d{2})\.(\d{2})\.(\d{4})")
+# Fallback when the title has no "№" at all — found 2026-07-17 on
+# распоряжения titles from scripts/350, which are built as
+# "Распоряжение [PDF] — {filename} — {subject}" with NO number/date embedded
+# in the subject text. The filename itself usually IS the decree number
+# (matches this project's own naming convention across dozens of examples,
+# e.g. "592.pdf" = decree №592), sometimes with the date too.
+_FILENAME_NO_DATE = re.compile(r"(\d{1,5})_ot_(\d{2})\.(\d{2})\.(\d{4})", re.I)
+_FILENAME_BARE_NO = re.compile(r"[—-]\s*(?:[Pp]\.)?(\d{1,5})\.pdf\b", re.I)
 
 # Rosreestr basis cell: "№ 1781 от 21.11.2025"
 _BASIS = re.compile(r"№\s*(\d+)\s+от\s+(\d{2}\.\d{2}\.\d{4})")
@@ -142,6 +150,21 @@ def _parse_title_meta(title: str) -> dict:
                 ).isoformat()
             except ValueError:
                 pass
+    if "decree_number" not in meta or "decree_date" not in meta:
+        fm = _FILENAME_NO_DATE.search(title)
+        if fm:
+            meta.setdefault("decree_number", fm.group(1))
+            if "decree_date" not in meta:
+                try:
+                    meta["decree_date"] = date(
+                        int(fm.group(4)), int(fm.group(3)), int(fm.group(2))
+                    ).isoformat()
+                except ValueError:
+                    pass
+        elif "decree_number" not in meta:
+            fb = _FILENAME_BARE_NO.search(title)
+            if fb:
+                meta["decree_number"] = fb.group(1)
     return meta
 
 

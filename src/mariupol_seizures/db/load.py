@@ -882,6 +882,91 @@ def load_ownerless_removals(jsonl: str = "data/parsed/ownerless_decrees.jsonl") 
           f"{skipped_offspine} off-spine)")
 
 
+def load_avariinoe_designation(jsonl: str = "data/parsed/avariinoe_decrees.jsonl") -> None:
+    """Load avariinoe_decrees.jsonl 'designation' rows (scripts/354) as
+    seizure_event(stage='avariinoe_designation') rows — buildings declared
+    emergency/dilapidated ("аварийным(и) и подлежащим(и) сносу/реконструкции").
+    amendment/procedure/resettlement_program rows have no address_raw field
+    and are skipped here (metadata-only, not yet loaded to the spine — see
+    scripts/354's module docstring). Idempotent via dedup_key."""
+    path = Path(config.PROJECT_ROOT / jsonl)
+    if not path.exists():
+        raise SystemExit(f"{path} not found — run scripts/354_parse_avariinoe_decrees.py first.")
+
+    con = psycopg2.connect(config.DATABASE_URL)
+    cur = con.cursor()
+    loaded = skipped_kind = skipped_addr = skipped_prop = 0
+
+    with path.open(encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            d = json.loads(line)
+            if d.get("decree_kind") != "designation":
+                skipped_kind += 1
+                continue
+
+            addr = strip_garbage_prefix(norm_commas(d.get("address_raw") or ""))
+            parts = [p.strip() for p in addr.split(",")]
+            house = None
+            street = None
+            for i, p in enumerate(parts):
+                if re.match(r"дом\s*№?\s*\d", p, re.I):
+                    house = p
+                    street = parts[i - 1] if i > 0 else None
+                    break
+            building_id = address_to_building_key(street, house)
+            if building_id is None:
+                skipped_addr += 1
+                continue
+
+            cur.execute("SELECT id FROM property WHERE building_id = %s", (building_id,))
+            row = cur.fetchone()
+            if not row:
+                log.warning("avariinoe_decrees seq_no=%s: no property for building_id=%s "
+                            "(run load_buildings() first?)", d.get("seq_no"), building_id)
+                skipped_prop += 1
+                continue
+            property_id = row[0]
+
+            source_doc_id = _upsert_source_doc_by_sha(cur, d.get("source_sha256"))
+
+            dedup_key = f"avariinoe_decrees:{d['source_sha256']}:{d['seq_no']}"
+            detail = {
+                "source": "avariinoe_decrees",
+                "decree_number": d.get("decree_number"),
+                "decree_kind": d.get("decree_kind"),
+                "outcome": d.get("outcome"),
+                "form": d.get("form"),
+                "address_raw": d.get("address_raw"),
+            }
+            cur.execute(
+                """INSERT INTO seizure_event
+                       (property_id, stage, event_date, source_doc_id, confidence, detail, dedup_key)
+                   VALUES (%s, 'avariinoe_designation'::seizure_stage, %s, %s, %s, %s, %s)
+                   ON CONFLICT (dedup_key) DO UPDATE
+                       SET property_id   = EXCLUDED.property_id,
+                           event_date    = EXCLUDED.event_date,
+                           source_doc_id = EXCLUDED.source_doc_id,
+                           confidence    = EXCLUDED.confidence,
+                           detail        = EXCLUDED.detail""",
+                (property_id, d.get("decree_date"), source_doc_id,
+                 0.9, json.dumps(detail, ensure_ascii=False), dedup_key),
+            )
+            loaded += 1
+
+    con.commit()
+    cur.close()
+    con.close()
+    log.info("load_avariinoe_designation: %d events, skipped %d non-designation kind, "
+             "%d unparseable address, %d no matching property",
+             loaded, skipped_kind, skipped_addr, skipped_prop)
+    print(f"load_avariinoe_designation: {loaded} events "
+          f"(skipped: {skipped_kind} non-designation kind, {skipped_addr} unparseable address, "
+          f"{skipped_prop} no matching property)")
+
+
 def load_ownerless_registry(jsonl: str = "data/parsed/ownerless_registry.jsonl") -> None:
     """Load ownerless_registry.jsonl rows (row_confidence >= 0.8) as
     seizure_event(stage='registry_inclusion') rows. Per the Dec-2025 ФКЗ-4

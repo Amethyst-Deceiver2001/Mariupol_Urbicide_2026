@@ -129,12 +129,29 @@ CREATE TABLE IF NOT EXISTS owner (
 -- 'ownerless_designation' so the two administrative acts don't collapse into
 -- one stage. Added 2026-07-17 (scripts/346 crawler; ALTER TYPE migration
 -- below; loader load_ownerless_decrees() branch).
+-- 'avariinoe_designation' = "О признании ... аварийным(и) и подлежащим(и)
+-- сносу/реконструкции" (Housing Code art. 15 + Постановление Правительства РФ
+-- №47, 28.01.2006) -- a building declared emergency/dilapidated, distinct
+-- legal track from the ownerless/bezkhoz family above (different statute,
+-- different administrative act) though the same downstream risk (demolition/
+-- displacement). TWO outcomes share this one stage rather than splitting
+-- into separate enum values -- "снос" (demolition) vs "реконструкция"
+-- (reconstruction, residents go to temporary "маневренный фонд" housing,
+-- meant to return) are the SAME legal act (an аварийность recognition) with
+-- a different prescribed remedy, not two different acts; the outcome is
+-- recorded in detail->>'outcome' ('demolition'/'reconstruction'). A
+-- downstream "Переселение граждан из аварийного жилищного фонда"
+-- resettlement-program family also exists (scripts/351) but its per-building
+-- annex is a landscape-oriented OCR-garbled table not yet parseable -- no
+-- stage added for it until that's solved (see scripts/06_parse_ownerless_
+-- decrees.py's design notes and docs/legal_mechanisms_review.md). Added
+-- 2026-07-17 (scripts/351 crawler; ALTER TYPE migration below).
 CREATE TYPE seizure_stage AS ENUM (
     'utility_cutoff', 'notice', 'inspection', 'ownerless_designation',
     'demolition', 'court_petition', 'court_transfer', 'appeal', 'entered_force',
     'reallocation', 'resale', 'registry_inclusion', 'expropriation',
     'temporary_use', 'reclaim', 'unfinished_construction_designation',
-    'ownerless_registration'
+    'ownerless_registration', 'avariinoe_designation'
 );
 
 CREATE TABLE IF NOT EXISTS seizure_event (
@@ -162,6 +179,7 @@ ALTER TABLE seizure_event ADD COLUMN IF NOT EXISTS unit_id BIGINT REFERENCES uni
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'reclaim';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'unfinished_construction_designation';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'ownerless_registration';
+ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'avariinoe_designation';
 CREATE INDEX IF NOT EXISTS seizure_event_prop_ix ON seizure_event(property_id);
 CREATE INDEX IF NOT EXISTS seizure_event_stage_ix ON seizure_event(stage);
 CREATE INDEX IF NOT EXISTS seizure_event_unit_ix ON seizure_event(unit_id) WHERE unit_id IS NOT NULL;

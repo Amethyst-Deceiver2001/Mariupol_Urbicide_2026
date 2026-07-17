@@ -75,6 +75,12 @@ OCR_SOURCE_TYPES = (
     # attached to each postановление detail page (the detail pages
     # themselves are HTML, not scanned images, so they're excluded here).
     "mariupol_gosuslugi_nonres_attachment",
+    # scripts/351's "аварийное" (emergency/dilapidated building status)
+    # crawl — same scanned-PDF format, added 2026-07-17.
+    "avariinoe_designation_pdf",
+    "avariinoe_amendment_pdf",
+    "avariinoe_procedure_pdf",
+    "avariinoe_resettlement_program_pdf",
 )
 
 # Canonical tool name — used in the TRANSFORM string recorded in the custody

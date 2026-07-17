@@ -109,8 +109,26 @@ SEARCH_CC = "469"  # постановления category — confirmed working, 
 #      stage, e.g. №1592 (17.10.2025). User-flagged 2026-07-17: the
 #      original SEARCH_TERMS list only covered form (1) and would have
 #      silently under-covered form (2) even after fixing the host gap.
+#   3. REMOVAL — "О снятии с учета недвижимой вещи в качестве бесхозяйного
+#      объекта недвижимости" / "Исключить... из Реестра объектов... бесхозяйного"
+#      — a REVERSAL, not a seizure: an owner/heir proved title (often via a
+#      notary inheritance case) and the unit is struck from the register.
+#      Found 2026-07-17: this decree type was NEVER in SEARCH_TERMS at all
+#      (only found incidentally, e.g. via the generic "постановке на учет"
+#      term or as an unclassified catch-all stub) — a crawl-level gap, not
+#      just a classification gap, so an unknown population of removal
+#      decrees was likely never even fetched.
 SEARCH_TERMS = ["бесхозяйными", "бесхозяйной", "бесхозяйного недвижимого",
-                "постановке на учет"]
+                "постановке на учет", "бесхозной", "снятии с учета",
+                # bare root, broader than every specific inflection above —
+                # user-confirmed 2026-07-17 the site's own search on this
+                # single term alone returns ~146 results (curPos=80 still had
+                # more pages), a plausible superset of everything the more
+                # specific terms find individually. Kept alongside the
+                # specific terms rather than replacing them, since search
+                # engines don't always do true substring/stem matching and a
+                # redundant capture costs nothing (idempotent by SHA-256).
+                "бесхоз"]
 
 PDF_LINK_RX = re.compile(r"/netcat_files/\d+/\d+/[^\"'?#]+\.pdf", re.I)
 # landing-page pattern confirmed on BOTH hosts 2026-07-17 (user found decree
@@ -122,15 +140,31 @@ PDF_LINK_RX = re.compile(r"/netcat_files/\d+/\d+/[^\"'?#]+\.pdf", re.I)
 DOC_LINK_RX = re.compile(r"postanovleniya-administratsii-gorodskogo-okruga-mariupol_\d+\.html")
 ATTACH_RX = re.compile(r"\.(pdf|xlsx|docx|xls|doc)(\?|$)", re.I)
 NONRES_RX = re.compile(r"нежил\w*|коммерческ\w*|промышленн\w*", re.I)
-REGISTRATION_RX = re.compile(r"постановке\s+на\s+учет.{0,40}бесхозяйн\w*", re.I)
-RESIDENTIAL_OWNERLESS_RX = re.compile(r"бесхозяйн\w*", re.I)
+# бесхоз(яй)?н\w* covers both the standard root "бесхозяйн..." and the
+# short-form variant "бесхозн..." (missing the "яй" infix — e.g. decree
+# №781/877/659/711/743's "...в качестве бесхозной") some decrees actually
+# use. Found 2026-07-17: 5 registration decrees fell into the generic
+# catch-all bucket because the old regex required "бесхозяйн" literally.
+REGISTRATION_RX = re.compile(r"постановке\s+на\s+учет.{0,40}бесхоз(?:яй)?н\w*", re.I)
+# REMOVAL: "снятии с учета" (title form) or "снять с учета"/"исключить...из
+# Реестра" (operative-clause form, seen when only PDF body text — not a
+# listing title — is available to classify against).
+REMOVAL_RX = re.compile(
+    r"сняти[ия]\s+с\s+учет|сня[тл]\w*\s+с\s+учет|исключ\w*.{0,150}из\s+Реестр",
+    re.I,
+)
+RESIDENTIAL_OWNERLESS_RX = re.compile(r"бесхоз(?:яй)?н\w*", re.I)
 
 
 def _classify(text: str) -> tuple[str, str | None]:
     is_nonres = bool(NONRES_RX.search(text))
-    is_registration = bool(REGISTRATION_RX.search(text)) and not is_nonres
+    is_removal = (bool(REMOVAL_RX.search(text)) and bool(RESIDENTIAL_OWNERLESS_RX.search(text))
+                 and not is_nonres)
+    is_registration = bool(REGISTRATION_RX.search(text)) and not is_nonres and not is_removal
     is_designation = (bool(RESIDENTIAL_OWNERLESS_RX.search(text))
-                      and not is_nonres and not is_registration)
+                      and not is_nonres and not is_registration and not is_removal)
+    if is_removal:
+        return "ownerless_decree_removal_pdf", "REMOVAL (снятие с учета / исключение из Реестра)"
     if is_registration:
         return "ownerless_decree_registration_pdf", "REGISTRATION (постановка на учет)"
     if is_designation:
