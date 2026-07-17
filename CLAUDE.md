@@ -71,7 +71,11 @@ restored not razed, ownership stripped via the registry regardless). See
    inspection → designation → court petition → transfer → entry into force →
    reallocation. Directory: `src/mariupol_seizures/crawl/courts.py`. **Saturated.**
 2. **Ownerless registry + municipal decrees** (Mariupol gosuslugi) — the now-live
-   front line; 12,948 registry entries + 968 decrees.
+   front line; see `docs/STATS.md` for current registry/decree/event counts. A
+   separate, parallel legal track — **аварийное** (emergency/dilapidated building)
+   designation under Жилищный кодекс РФ ст.15 + Пост. №47 — targets buildings on a
+   condition finding rather than ownership status; see `docs/legal_mechanisms_review.md`
+   §[A3].
 3. **Federal damage/reconstruction tracker** (1,941 buildings), **demolition
    registers** (MinStroy + municipal), **DNR land-grant orders** (developer SPVs),
    **housing queue/distribution**, **ЕИСЖС** new-build registry.

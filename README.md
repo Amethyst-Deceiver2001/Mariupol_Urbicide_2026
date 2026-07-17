@@ -61,6 +61,19 @@ snapshot rather than authoritative. Full narrative review:
   for grant-rate methodology. The Mariupol court conveyor itself shut down first (ФКЗ-4,
   Dec 2025, abolished the court stage); the live front line is now the ownerless
   registry, re-snapshotted regularly rather than crawled once
+- Municipal ownerless-property decree corpus (`Постановления`/`Распоряжения`,
+  `scripts/06`/`06a`/`346`/`349`/`350`) widened its crawl coverage and, separately, its
+  parser: seven additional decree/annex table shapes are now recognized (single-property
+  prose decrees, an inverted basis-date column order, and four
+  nonresidential-property-list variants at both the pre-cadastral registration and
+  designation stages) — see `docs/STATS.md`'s `ownerless_designation` stage count for the
+  current total. A new, separate legal track — **аварийное** (emergency/dilapidated
+  building) designation under Жилищный кодекс РФ ст.15 + Пост. №47 — is also now crawled
+  and loaded (`scripts/351`/`354`, stage `avariinoe_designation`): a distinct statutory
+  basis from bezkhoz property with the same downstream demolition/displacement risk: a
+  VK-video primary-source testimony from displaced residents (Jan 2025) directly alleges
+  the two tracks converge — that "compensation" resettlement is into apartments seized via
+  the bezkhoz registry
 - Legal-mechanism catalogue (rungs [A]–[H], 90+ instruments and growing — including a
   pre-invasion 2021 DNR-wide master template the whole ownerless-property mechanism
   descends from, and the DNR-wide successor statute (№272-РЗ) that eliminates the court

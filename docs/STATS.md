@@ -6,17 +6,17 @@
 
 | Metric | Value |
 |---|---|
-| Properties on spine | **12,503** |
-| — uncategorized (RD4U) | 988 |
+| Properties on spine | **12,663** |
+| — uncategorized (RD4U) | 1,148 |
 | Distinct apartment-level units (ownerless registry) | 11,951 |
 | Non-residential buildings on spine (property_kind set) | 488 |
 | Non-residential seizure-event rows (commercial/industrial) | 1,204 |
-| Legal-grade (≥2 independent source families) | **1,289** |
+| Legal-grade (≥2 independent source families) | **1,316** |
 | Court-island properties (single-source, court only) | 8,303 |
-| No-source properties | 188 |
+| No-source properties | 199 |
 | Corroboration rows | 12,177 |
-| Seizure-event rows (all stages) | 31,243 |
-| Source-document rows (DB-registered, chain of custody) | 8,763 |
+| Seizure-event rows (all stages) | 34,890 |
+| Source-document rows (DB-registered, chain of custody) | 8,804 |
 | Distinct courts represented in source_document | 26 |
 
 `property` is the building-level spine (geocoding, corroboration, RD4U categorization, presentation); `unit` is an additive apartment-level layer underneath it, populated only from the ownerless registry (the one source that's genuinely apartment-level — every row carries an apartment number). A single `property` row can have many `unit` rows; this does not change what "Properties on spine" means above.
@@ -28,20 +28,22 @@
 | registry_inclusion | 12,948 |
 | court_petition | 8,303 |
 | court_transfer | 7,052 |
-| ownerless_designation | 1,768 |
+| ownerless_designation | 4,412 |
+| ownerless_registration | 983 |
 | demolition | 580 |
-| reclaim | 279 |
+| reclaim | 287 |
 | reallocation | 155 |
 | appeal | 143 |
 | expropriation | 13 |
+| avariinoe_designation | 12 |
 | unfinished_construction_designation | 2 |
 
 ## Raw evidence store (forensic, on disk — `data/raw/`)
 
 | Metric | Value |
 |---|---|
-| Raw artifact files (excl. `.meta.json` sidecars) | **1,060,751** |
-| Disk size | **98G** |
+| Raw artifact files (excl. `.meta.json` sidecars) | **1,367,821** |
+| Disk size | **110G** |
 
 Note the gap between this and `source_document` above: the raw store is append-only and holds *everything ever captured*; `source_document` is the subset formally loaded into Postgres with a chain-of-custody link. Historical figures like "39,061 raw artifacts" or "211,900 registered artifacts" in older docs were accurate at an earlier snapshot — they are not current and should be replaced with the figures above on next revision of those docs.
 

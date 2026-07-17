@@ -172,6 +172,42 @@ compensation language; flagged here as a named, concrete instance of a Russian
 party organ occupying private Mariupol property, not as a standalone mechanism.
 **[CAPTURED]** — glavadnr.ru `Rasp_GKO_9.pdf`, OCR'd 2026-07-05.
 
+### [A3] Аварийное designation — a third manufactured-vacancy mechanism
+
+Found 2026-07-17 via a targeted crawl of mariupol.gosuslugi.ru's document search
+(`scripts/351`/`354`). A parallel track to [A]'s "ownerless" designation and [A2]'s
+unfinished-construction designation, but grounded in a distinct federal statute:
+**Жилищный кодекс РФ ст.15** + **Постановление Правительства РФ №47 (28.01.2006)**,
+which govern declaring an inhabited building "аварийным" (emergency/dilapidated) —
+either "подлежащим сносу" (slated for demolition) or "подлежащим реконструкции"
+(reconstruction, with temporary displacement to "маневренный фонд"). Structurally
+distinct from bezkhoz designation (that mechanism targets buildings with no
+registered owner; this one applies regardless of registered ownership, on a
+building-condition finding instead), but converging on the same downstream risk:
+demolition, displacement, and — per resident testimony below — resettlement into
+housing drawn from the bezkhoz-registry stock.
+
+| Instrument | What it does | Status |
+|---|---|---|
+| **Жилищный кодекс РФ ст.15** + **Постановление Правительства РФ №47 (28.01.2006)** «Об утверждении Положения о признании помещения жилым помещением...» | Federal framework for declaring a building "аварийным и подлежащим сносу/реконструкции" via an interdepartmental commission finding. | [CAPTURED] — cited in every decree of this family; federal-level source, not Mariupol-specific |
+| Mariupol admin **«О признании многоквартирного дома аварийным и подлежащим сносу/реконструкции»** постановления | Per-building designation decree — either a multi-building "Признать аварийными..." list, or a single-building prose form. Two forms captured and loaded: decree №960 (20.05.2026, 11 addresses, demolition outcome — Московский 9/15/19, Тульский 38/42/44/45/47/48/50, Вокзальная 31 лит.А) and decree №76 (03.02.2026, пр. Ленина 97, reconstruction outcome). | **[CAPTURED + LOADED]** (`scripts/351`/`354`; `avariinoe_designation` stage, 12 events) |
+| **«Переселение граждан из аварийного жилищного фонда в 2026-2030 годах»** — municipal resettlement program (decree №1084, 08.06.2026) | Funding/scheduling program for relocating residents out of aварийное-designated buildings. ПАСПОРТ summary captured (7 residents, 2 buildings, 205.5 m², ~17.5M rubles stage-1 funding). The per-building resettlement schedule (Приложение 2/3) is a landscape-oriented scanned table; rotation-aware OCR (`scripts/355`) recovered legible funding-category headers but found only aggregate totals, not a per-building/per-apartment address list — whether specific "compensation" units are drawn from the bezkhoz registry remains unproven from this document alone. | **[CAPTURED, partially parsed]** — metadata-only row loaded; per-building annex not yet structurally parseable |
+
+**Testimony corroboration:** a VK video appeal to the Russian president from displaced
+Mariupol residents (dated 1–2 January 2025, standing at the demolished-building
+foundations on Куприна/пр. Ленина 127-129/К.Либкнехта/Зелинского/Строителей/
+Шевченко/Солнечная/Котляревская) states directly: **«Сейчас глава ДНР озвучил, что
+людей будут заселять в так называемые бесхозные квартиры. Но у каждой такой квартиры
+есть собственники и наследники»** ("The head of DNR has announced that people will be
+resettled into so-called ownerless apartments. But every such apartment has owners and
+heirs") — asserting in terms the compensation-housing/bezkhoz-registry convergence this
+mechanism entry documents structurally. The same testimony quantifies the shortfall:
+362 buildings demolished citywide, only 71 compensation units built, no further
+compensation construction ("только ипотечное" — only subsidized-mortgage housing, for
+incoming buyers, is being built on the cleared land), and residents who fall off the
+compensation queue offered a below-market cash-out (45,000 rubles/m²). Transcript
+captured 2026-07-16 (`osint_vk_flagged_post_video`, sha `188ddb5f2ac8…`).
+
 ### [B] Court transfer — the judicial laundering of title (pre-Dec-2025)
 
 | Mechanism | Role | Status |
