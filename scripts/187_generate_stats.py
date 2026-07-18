@@ -149,22 +149,25 @@ def main() -> None:
         A(f"| {stage} | {n:,} |")
     A("")
     A("**Registry vs. decree relationship:** `registry_inclusion` (12,948 "
-      "rows, `признаки бесхозяйности` — *signs* of ownerlessness) and "
-      "`ownerless_designation`/`ownerless_registration` (the individual "
-      "municipal decrees) are two different lifecycle stages, not two views "
-      "of the same act, and were confirmed NOT to be an address-matching "
-      "artifact (`scripts/360`, 2026-07-18): only 5 of 1,349 registry-only "
-      "buildings recovered under fuzzy/alias matching (now merged). Within "
-      "the 287 buildings where both sources are confirmed present, decrees "
-      "name a median of only 35.5% of the registry's apartments. 0% of "
-      "registry rows carry a cadastral number vs. ~60% of decree rows — the "
-      "registry is the pre-cadastral, undated, mass-administrative funnel; "
-      "the decree is the rarer, dated, individually-adjudicated downstream "
-      "act (and post-ФКЗ-4, registry inclusion is itself the operative "
-      "title — no individual decree is required to complete the taking). Do "
-      "not read the registry/decree count gap as an evidentiary shortfall "
-      "to close; it is the expected shape of mass administrative "
-      "dispossession without individual adjudication.")
+      "rows) is sourced from a district XLSX titled \"Перечень... с "
+      "признаками бесхозяйных\" (a candidate/screening LIST, every row "
+      "uniformly tagged `признаки бесхозяйности` — signs of ownerlessness) "
+      "-- this is the pre-decision candidate pool, NOT itself the ФКЗ-4 "
+      "title-conferring реестр (registry). The decree "
+      "(`ownerless_designation`/`ownerless_registration`) is the act that "
+      "performs the actual \"...признании... и включении в реестр\" "
+      "(recognition + registry inclusion) ФКЗ-4 makes dispositive. "
+      "`scripts/360` (2026-07-18) confirmed the low registry/decree overlap "
+      "is NOT an address-matching artifact (only 5 of 1,349 registry-only "
+      "buildings recovered under fuzzy/alias matching, now merged) and that "
+      "even within the 287 buildings where both sources are confirmed "
+      "present, decrees name a median of only 35.5% of the registry's "
+      "apartments -- but given the candidate-list/decree relationship above, "
+      "this is equally consistent with an administrative BACKLOG (most "
+      "candidates simply haven't reached their decree yet; decree dates run "
+      "Sept 2024-Feb 2026 against a later list snapshot) as with a genuine "
+      "capture gap on our end. Which of those two explains the shortfall is "
+      "still OPEN -- do not treat either reading as settled.")
     A("")
     A("## Raw evidence store (forensic, on disk — `data/raw/`)")
     A("")
