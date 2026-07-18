@@ -148,6 +148,24 @@ def main() -> None:
     for stage, n in stages:
         A(f"| {stage} | {n:,} |")
     A("")
+    A("**Registry vs. decree relationship:** `registry_inclusion` (12,948 "
+      "rows, `признаки бесхозяйности` — *signs* of ownerlessness) and "
+      "`ownerless_designation`/`ownerless_registration` (the individual "
+      "municipal decrees) are two different lifecycle stages, not two views "
+      "of the same act, and were confirmed NOT to be an address-matching "
+      "artifact (`scripts/360`, 2026-07-18): only 5 of 1,349 registry-only "
+      "buildings recovered under fuzzy/alias matching (now merged). Within "
+      "the 287 buildings where both sources are confirmed present, decrees "
+      "name a median of only 35.5% of the registry's apartments. 0% of "
+      "registry rows carry a cadastral number vs. ~60% of decree rows — the "
+      "registry is the pre-cadastral, undated, mass-administrative funnel; "
+      "the decree is the rarer, dated, individually-adjudicated downstream "
+      "act (and post-ФКЗ-4, registry inclusion is itself the operative "
+      "title — no individual decree is required to complete the taking). Do "
+      "not read the registry/decree count gap as an evidentiary shortfall "
+      "to close; it is the expected shape of mass administrative "
+      "dispossession without individual adjudication.")
+    A("")
     A("## Raw evidence store (forensic, on disk — `data/raw/`)")
     A("")
     A(f"| Metric | Value |")

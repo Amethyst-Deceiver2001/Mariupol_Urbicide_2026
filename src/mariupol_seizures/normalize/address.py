@@ -281,6 +281,20 @@ _STREET_KEY_ALIASES: dict[str, str] = {
     # registry for the same Karl Liebknecht St. geom=0.0 confirmed for all
     # 7 pairs surfaced 2026-06-16.
     "STREET:карла либнехта": "STREET:карла либкнехта",
+    # Missing letter: "50 лет СРР" (1 с) for "50 лет СССР" (50 Years of the
+    # USSR) -- same street, 5 houses collide (16,20,30,44,44а) against the
+    # far more common "ссср" spelling (49 houses). Found via scripts/360's
+    # registry/decree overlap diagnosis, 2026-07-18.
+    "STREET:50 лет сср": "STREET:50 лет ссср",
+    # Hyphenation variant: "Мамина Сибиряка" (space) vs "Мамина-Сибиряка"
+    # (hyphen, the more common form, 14 houses) -- same street (Mamin-
+    # Sibiryak). 4 houses collide (39,40,41,47). Found via scripts/360,
+    # 2026-07-18.
+    "STREET:мамина сибиряка": "STREET:мамина-сибиряка",
+    # OCR/typo л->в: "Лавицкого" (23 houses, the dominant spelling) for
+    # "Левицкого" (1 house). House 8 collides. Found via scripts/360,
+    # 2026-07-18.
+    "STREET:левицкого": "STREET:лавицкого",
     # Typo (missing 'о'): damage_assessment spells "ул. Кацюбинского" for
     # "ул. Коцюбинского" (Mykhailo Kotsiubynskyi St., the only "...юбинского"
     # street in Mariupol). "Кацюбинского 5" never geocoded at all (no
