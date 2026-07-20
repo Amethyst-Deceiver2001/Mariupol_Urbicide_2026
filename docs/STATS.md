@@ -6,17 +6,17 @@
 
 | Metric | Value |
 |---|---|
-| Properties on spine | **12,640** |
-| — uncategorized (RD4U) | 1,127 |
+| Properties on spine | **12,661** |
+| — uncategorized (RD4U) | 1,148 |
 | Distinct apartment-level units (ownerless registry) | 11,951 |
 | Non-residential buildings on spine (property_kind set) | 487 |
 | Non-residential seizure-event rows (commercial/industrial) | 1,204 |
 | Legal-grade (≥2 independent source families) | **1,315** |
 | Court-island properties (single-source, court only) | 8,303 |
-| No-source properties | 184 |
+| No-source properties | 205 |
 | Corroboration rows | 12,177 |
-| Seizure-event rows (all stages) | 34,890 |
-| Source-document rows (DB-registered, chain of custody) | 8,804 |
+| Seizure-event rows (all stages) | 37,042 |
+| Source-document rows (DB-registered, chain of custody) | 8,813 |
 | Distinct courts represented in source_document | 26 |
 
 `property` is the building-level spine (geocoding, corroboration, RD4U categorization, presentation); `unit` is an additive apartment-level layer underneath it, populated only from the ownerless registry (the one source that's genuinely apartment-level — every row carries an apartment number). A single `property` row can have many `unit` rows; this does not change what "Properties on spine" means above.
@@ -29,6 +29,7 @@
 | court_petition | 8,303 |
 | court_transfer | 7,052 |
 | ownerless_designation | 4,412 |
+| compensation_housing_listing | 2,148 |
 | ownerless_registration | 983 |
 | demolition | 580 |
 | reclaim | 287 |
@@ -36,6 +37,7 @@
 | appeal | 143 |
 | expropriation | 13 |
 | avariinoe_designation | 12 |
+| military_transfer | 4 |
 | unfinished_construction_designation | 2 |
 
 **Registry vs. decree relationship:** `registry_inclusion` (12,948 rows) is sourced from a district XLSX titled "Перечень... с признаками бесхозяйных" (a candidate/screening LIST, every row uniformly tagged `признаки бесхозяйности` — signs of ownerlessness) -- this is the pre-decision candidate pool, NOT itself the ФКЗ-4 title-conferring реестр (registry). The decree (`ownerless_designation`/`ownerless_registration`) is the act that performs the actual "...признании... и включении в реестр" (recognition + registry inclusion) ФКЗ-4 makes dispositive. `scripts/360` (2026-07-18) confirmed the low registry/decree overlap is NOT an address-matching artifact (only 5 of 1,349 registry-only buildings recovered under fuzzy/alias matching, now merged) and that even within the 287 buildings where both sources are confirmed present, decrees name a median of only 35.5% of the registry's apartments -- but given the candidate-list/decree relationship above, this is equally consistent with an administrative BACKLOG (most candidates simply haven't reached their decree yet; decree dates run Sept 2024-Feb 2026 against a later list snapshot) as with a genuine capture gap on our end. Which of those two explains the shortfall is still OPEN -- do not treat either reading as settled.
@@ -44,8 +46,8 @@
 
 | Metric | Value |
 |---|---|
-| Raw artifact files (excl. `.meta.json` sidecars) | **1,367,821** |
-| Disk size | **110G** |
+| Raw artifact files (excl. `.meta.json` sidecars) | **1,385,922** |
+| Disk size | **160G** |
 
 Note the gap between this and `source_document` above: the raw store is append-only and holds *everything ever captured*; `source_document` is the subset formally loaded into Postgres with a chain-of-custody link. Historical figures like "39,061 raw artifacts" or "211,900 registered artifacts" in older docs were accurate at an earlier snapshot — they are not current and should be replaced with the figures above on next revision of those docs.
 

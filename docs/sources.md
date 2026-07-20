@@ -452,9 +452,11 @@ All sources used across the project's research: burial sites catalogue, case stu
   - <https://www.egrul-base.ru/company/1239300004866/>
   - <https://www.rusprofile.ru/id/1239300004866> (403, unverified)
 
-**mariupol.gosuslugi.ru — Мариупольский городской совет «Решение» documents** — the city-council decision family (distinct from Администрация постановление decrees elsewhere in this catalogue), 339 documents 2024–2026, systematically captured `scripts/383` and classified by subject `scripts/387`. Covers routine council business (ТОС boundaries, land-plot procedure, устав) alongside — the subject of MUP-CS-011 — property transfers to Russian federal/military recipients.
+**mariupol.gosuslugi.ru — Мариупольский городской совет «Решение» documents** — the city-council decision family (distinct from Администрация постановление decrees elsewhere in this catalogue), 339 documents 2024–2026, systematically captured `scripts/383`, classified by subject `scripts/387`, and read through in full (2026-07-20). The bulk is routine governance (budgets, statutes, appointments, awards, ТОС boundaries); the property-dispositive minority — the subject of MUP-CS-011 rung [F2] — splits into: transfers of specific ex-bezkhoz real estate to named military/security units (в/ч 1297/76835), bulk residential transfers to the federal treasury via Росимущество (I/13-7, I/14-4), transfers of already-municipal non-residential/land to DNR-republican bodies, and «включение в Перечень компенсационных» inclusions operationalizing Закон ДНР №141-РЗ (see `docs/legal_mechanisms_review.md` rungs [F2]/[G]). The enabling instrument is Решение №I/8-1 (19.03.2024).
   - Listing root: <https://mariupol.gosuslugi.ru/glavnoe/gorodskoy-sovet/?cur_cc=6980>
-  - Example (Решение №I/1-2, 22.01.2026): <https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1655/Reshenie_I_1_2_ot_22.01.2026.pdf>
+  - Named-unit transfer (Решение №I/5-5, 12.03.2026): <https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1721/Reshenie_I_5_5_ot_12.03.2026.pdf>
+  - Federal-treasury bulk transfer (Решение №I/13-7, 10.06.2026, 11 apts): <https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1912/Reshenie_ot_10.06.2026_1_13_7.pdf>
+  - Federal-treasury bulk transfer (Решение №I/14-4, 23.10.2025, 11 apts): <https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1533/Reshenie_I_14_4_ot_23.10.2025.pdf>
 
 **наш.дом.рф object records 65280, 69427, 69749, 69751, 70142, 70147** (Резиденция Селект / Резиденция II, проспект Строителей 74–88) — **open gap (2026-06-30):** the portal's per-object pages/API return HTTP 403 (WAF block) from this environment; only the registry root (<https://наш.дом.рф>) is linked in the Stroiteley case study pending a working per-object URL.
 

@@ -37,7 +37,7 @@ modality.
 | M6 | Land grant / no-tender lease | Передача земли без торгов |
 | M7 | Showcase / military reconstruction (ордер, not title) | Витринная застройка: ордер вместо титула |
 | X | Cross-cutting (court conveyor, resistance, victim overlays) | Сквозные темы |
-| M10 | Registry sweep → transfer to a named military/security institution | Реестр «бесхозяйного» → передача войсковой части / силовому ведомству |
+| M10 | Registry sweep → transfer into federal ownership (a named military/security unit, or the federal treasury) | Реестр «бесхозяйного» → передача в федеральную собственность (войсковой части / силовому ведомству либо в казну) |
 
 Reserved for proposed work: **M8** paper remedy / reclaim-into-the-void
 (Металлургов 25), **M9** non-residential / livelihood seizures.
@@ -56,7 +56,7 @@ Reserved for proposed work: **M8** paper remedy / reclaim-into-the-void
 | MUP-CS-008 | МКР «Невский» — ордер, не титул | M7 | [nevsky_microdistrict_ordena_not_title.md](nevsky_microdistrict_ordena_not_title.md) | — | — |
 | MUP-CS-009 | ЖСК «Бригантина» → СЗ «ГСА Девелопмент» | M6 | [brigantina_zhsk_land_lease.md](brigantina_zhsk_land_lease.md) | — | — |
 | MUP-CS-010 | Death sites, ad-hoc graves & collapse-entombment × new construction | X (victim overlay) | [death_sites_new_construction.md](death_sites_new_construction.md) | [death-sites-new-construction-exhibit.html](../exhibits/death-sites-new-construction-exhibit.html) | [-ru](../exhibits/death-sites-new-construction-exhibit-ru.html) |
-| MUP-CS-011 | Чёрноморская 18 / Ленина 101 — bezkhoz flats to в/ч 1297 (FSB) | M10 | [chernomorskaya18_fsb_transfer.md](chernomorskaya18_fsb_transfer.md) | — | — |
+| MUP-CS-011 | Чёрноморская 18 / Ленина 101 → в/ч 1297 (FSB); + bulk apartments → federal treasury | M10 | [chernomorskaya18_fsb_transfer.md](chernomorskaya18_fsb_transfer.md) | — | — |
 
 Retired display labels (for anyone holding an old citation): "Case Study II"
 = MUP-CS-004, "Case Study III" = MUP-CS-006, "Case Study IV" = MUP-CS-007,

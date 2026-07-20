@@ -194,13 +194,33 @@ CREATE TABLE IF NOT EXISTS owner (
 -- deliberately NOT loaded under this stage -- they carry no property_id and
 -- their provenance (possible demolition salvage) is an open lead, not a
 -- finding; see the case study §5. Added 2026-07-20 (scripts/388 loader).
+-- 'federal_property_transfer' = the SAME council instrument as
+-- 'military_transfer' ("О согласовании безвозмездной передачи недвижимого
+-- имущества из муниципальной собственности ... в федеральную собственность")
+-- but where the recipient is the general federal treasury via a
+-- Территориальное управление Росимущества распоряжение, NOT a named
+-- military/security unit. Same signatories, same control officer (Яремчук),
+-- same Пост.№374 basis; the named-unit transfers ('military_transfer') are
+-- the security-institution SUBSET of this broader municipal->federal
+-- residential-property conveyor. Loaded only for RESIDENTIAL transfers
+-- (bulk apartments, e.g. Решение I/13-7 -- 11 apts at Куприна 25б/27а; I/14-4
+-- -- 11 apts at пр. Нахимова 25 + Якова Гугеля 29), which are housing
+-- dispossession into federal hands. Deliberately NOT used for the parallel
+-- municipal->DNR-REPUBLICAN-state transfers of already-municipal
+-- NON-residential/land assets (schools to the education ministry, a clinic
+-- to Минздрав, land parcels) -- those are intra-governmental reorganization
+-- of public assets whose private-ownership provenance is unestablished, a
+-- category error to record as a per-owner seizure; they are catalogued in
+-- docs/legal_mechanisms_review.md rung [F2] as an open, documented-only
+-- track. Added 2026-07-20 (scripts/389 loader; see MUP-CS-011 §"the wider
+-- conveyor").
 CREATE TYPE seizure_stage AS ENUM (
     'utility_cutoff', 'notice', 'inspection', 'ownerless_designation',
     'demolition', 'court_petition', 'court_transfer', 'appeal', 'entered_force',
     'reallocation', 'resale', 'registry_inclusion', 'expropriation',
     'temporary_use', 'reclaim', 'unfinished_construction_designation',
     'ownerless_registration', 'avariinoe_designation', 'compensation_housing_listing',
-    'military_transfer'
+    'military_transfer', 'federal_property_transfer'
 );
 
 CREATE TABLE IF NOT EXISTS seizure_event (
@@ -231,6 +251,7 @@ ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'ownerless_registration';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'avariinoe_designation';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'compensation_housing_listing';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'military_transfer';
+ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'federal_property_transfer';
 CREATE INDEX IF NOT EXISTS seizure_event_prop_ix ON seizure_event(property_id);
 CREATE INDEX IF NOT EXISTS seizure_event_stage_ix ON seizure_event(stage);
 CREATE INDEX IF NOT EXISTS seizure_event_unit_ix ON seizure_event(unit_id) WHERE unit_id IS NOT NULL;

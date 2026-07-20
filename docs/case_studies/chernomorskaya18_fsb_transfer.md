@@ -34,7 +34,7 @@ That single find prompted the full crawl. All 339 documents were OCR'd
 безвозмездной передачи \[движимого/недвижимого\] имущества из муниципальной
 собственности… в федеральную собственность» — a council resolution
 transferring municipal property to federal ownership. Most instances of this
-document type move construction *materials* (see §5); a minority move
+document type move construction *materials* (see §6); a minority move
 *specific, cadastral-numbered real estate*, and two of those three transfer
 occupied bezkhoz apartments to the same recipient.
 
@@ -117,7 +117,49 @@ fully-read primary source** — a caveat that should travel with any
 downstream citation of this finding until rupep.org (or an equivalent) can
 be read directly.
 
-## 5. The wider pattern: materials to at least eight more units
+## 5. The wider conveyor: 22 more apartments into federal ownership
+
+*Added 2026-07-20, after a full read-through of the 339-decision council
+corpus (not just the classifier's `federal_transfer` subset).* The named-unit
+transfers above turn out to be one corner of a larger instrument. The same
+council act — «О согласовании безвозмездной передачи недвижимого имущества из
+муниципальной собственности… в федеральную собственность», same signatories,
+same control officer (Яремчук И.И.), same Пост. №374 basis — also moves
+**residential apartments in bulk to the general federal treasury**, via a
+Территориальное управление Росимущества распоряжение, without a named
+recipient unit:
+
+| Decision | Apartments | Buildings | Route |
+|---|---|---|---|
+| **№I/13-7 (10.06.2026)** | 11 | ул. Куприна 25б (4), ул. Куприна 27а (7) | Распоряжение Росимущества ТУ ДНР 21.05.2026 №93-79-р/дсп |
+| **№I/14-4 (23.10.2025)** | 11 | пр. Нахимова 25 (9), ул. Якова Гугеля 29 (2) | Обращение Росимущества ТУ ДНР 29.09.2025 №93-03/3976-дсп |
+
+That is **22 apartments across four buildings in just two decisions** — the
+named-military-unit cases (§2–§3) are the security-institution subset of this
+broader municipal→federal housing conveyor, not a stand-alone phenomenon. пр.
+Нахимова 25 sits on the same street as the flagship demolish-and-relaunch
+case (Нахимова 82 → Черноморский 1Б, MUP-CS-001). None of the four buildings
+were previously on the project's spine. These are loaded as
+`seizure_event(stage='federal_property_transfer')` via
+`scripts/389_load_federal_property_transfers.py`, keyed on the OCR-clean
+cadastral number per unit (two Куприна apartment numbers were OCR-garbled and
+are recorded at the building level without an apartment row).
+
+A **parallel republican track** exists in the same corpus but is *not* loaded:
+the same instrument also moves already-municipal **non-residential buildings
+and land to DNR-republican state bodies** — нежилые at пр. Строителей 143 +
+пр. Металлургов 167 to Минздрав (№I/7-6); ул. Пашковского 25А + ул. Каменская
+146 under the education law (№I/6-6); ул. Киевская 41А + 49 (№I/28-7); and
+several land parcels (№I/27-1, №I/14-7, №I/1-4, incl. a 172,180 m² parcel on
+пр. 1 Мая for waste management). These are reorganization of assets that were
+*already municipal*, to republican bodies for continued public functions;
+their private-ownership provenance is unestablished, so recording them as
+per-owner seizures would overclaim. They are catalogued in
+`docs/legal_mechanisms_review.md` rung [F2] as a documented-only lead — any
+that prove to be ex-bezkhoz-seized commercial buildings would belong on the
+non-residential seizure track.
+
+## 6. The wider pattern: materials to at least eight more units
 
 The same document family — Решение горсовета, identical "…в федеральную
 собственность" operative clause, the identical named control officer
@@ -145,7 +187,7 @@ that demolition salvage is a plausible source worth checking against the
 demolition register, but this write-up does not claim that link. Kept in
 this case study as an open lead, not a finding.
 
-## 6. Fit to the project's framework
+## 7. Fit to the project's framework
 
 This sits in a new rung, **[F2]**, in `docs/legal_mechanisms_review.md` —
 distinct from [F] (civilian resale via the 2% mortgage subsidy). It
@@ -170,7 +212,7 @@ are not named or sought here — only the occupation officials and the
 receiving institution, acting in official capacity, are in scope for
 accountability (CLAUDE.md privacy rule).
 
-## 7. Evidence gaps and priority follow-ups
+## 8. Evidence gaps and priority follow-ups
 
 - **Apartment 21's missing designation record.** Every other apartment
   captured in the Ленина 101 building has a dated `ownerless_designation`
@@ -181,33 +223,49 @@ accountability (CLAUDE.md privacy rule).
 - **rupep.org re-read.** Cloudflare-blocked from this project's research
   environment; a second, independently-read source for the FSB ownership
   claim would strengthen §4 beyond OpenSanctions alone.
-- **Materials provenance.** Cross-check the lumber/rebar/slab volumes in §5
+- **Materials provenance.** Cross-check the lumber/rebar/slab volumes in §6
   against `demolition_register`/`minstroy_demolition_register` for any
   salvage-quantity correlation — currently unexamined.
-- **Load to DB — done 2026-07-20.** All 4 real-estate transfers (the three
-  addresses above, split by apartment/unit where applicable) are loaded as
-  `seizure_event(stage='military_transfer')` via `scripts/388_load_military_
-  transfer_events.py`, a hand-curated loader (only 3 of the 339 decisions
-  carry a real-estate transfer; the rest move construction materials, not
-  loaded — see §5). в/ч 1297 and в/ч 76835 are upserted into `actor`
+- **Load to DB — done 2026-07-20.** The named-unit transfers (§2–§3) are
+  loaded as `seizure_event(stage='military_transfer')` via
+  `scripts/388_load_military_transfer_events.py`; the bulk residential
+  municipal→federal-treasury transfers (§5) as
+  `seizure_event(stage='federal_property_transfer')` via
+  `scripts/389_load_federal_property_transfers.py` (22 apartments, 4
+  buildings). в/ч 1297 and в/ч 76835 are upserted into `actor`
   (role='beneficiary') with the FSB-attribution caveat from §4 carried into
-  `actor.notes`; Кольцов А.В. and Сенин Ю.А. are linked as signing
-  officials via `event_actor`.
-- **Remaining 339-decision corpus.** Only the `federal_transfer`-classified
-  subset has been read in full. `bezkhoz_related` (4 hits, one of which —
-  Решение №I/8-1, 19.03.2024 — appears to be a city-council-level primary
-  instrument establishing the bezkhoz-registration procedure itself, not yet
-  folded into `docs/legal_mechanisms_review.md` rung [A]) and the 60
-  `land_plot_procedure` / 25 `tos_boundary` / 305 `administrative_other`
-  buckets have not been individually read for further instances of this
-  pattern.
+  `actor.notes`; Кольцов А.В. and Сенин Ю.А. are linked as signing officials
+  via `event_actor`. Not loaded: the movable-materials transfers (§6, no
+  displaced owner) and the DNR-republican non-residential/land reorganization
+  track (§5, provenance unestablished).
+- **339-decision corpus — full read-through complete 2026-07-20.** Every
+  document was accounted for by theme; every property-dispositive instrument
+  (transfers out, "включение в Перечень" inclusions, the acceptance/intake
+  decrees) was read in full. Remaining open items from that pass: (a) the
+  DNR-republican non-residential/land transfers (§5) need per-address
+  provenance checks before any could join the non-residential seizure track;
+  (b) the enabling instrument **Решение №I/8-1 (19.03.2024) «Об утверждении
+  Порядка управления и распоряжения имуществом, находящимся в муниципальной
+  собственности»** is now cited in rung [F2] but its full text has not been
+  parsed clause-by-clause; (c) the ~8 council «включение в Перечень
+  компенсационных» decisions confirm the compensation-housing track but were
+  not individually cross-matched against the already-loaded
+  `compensation_housing_listing` rows for overlap/dedup. The ~300 routine
+  governance decisions (budgets, statutes, appointments, awards) contain no
+  further seizure instruments.
 
-## 8. Source register
+## 9. Source register
 
-**Primary (rank 1):**
-- [Решение №I/5-5, 12.03.2026 — Чёрноморская 18/24 → в/ч 1297](https://mariupol.gosuslugi.ru/glavnoe/gorodskoy-sovet/?cur_cc=6980) (mariupol.gosuslugi.ru, captured `scripts/383`; direct PDF URL not yet re-extracted for this citation — see `data/raw` by sha via `source_document`)
+**Primary (rank 1) — named-unit transfers (§2–§3):**
+- [Решение №I/5-5, 12.03.2026 — Чёрноморская 18/24 → в/ч 1297](https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1721/Reshenie_I_5_5_ot_12.03.2026.pdf)
 - [Решение №I/1-2, 22.01.2026 — Ленина 101/21 + Чкалова 23/25 → в/ч 1297](https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1655/Reshenie_I_1_2_ot_22.01.2026.pdf)
-- Решение №I/11-2, 14.05.2026 — Киевский 10А → в/ч 76835 (mariupol.gosuslugi.ru, captured `scripts/383`)
+- [Решение №I/11-2, 14.05.2026 — Киевский 10А → в/ч 76835](https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1832/Reshenie_ot_14.05.2026_1_11_2.pdf)
+
+**Primary (rank 1) — bulk residential municipal→federal-treasury transfers (§5):**
+- [Решение №I/13-7, 10.06.2026 — Куприна 25б/27а (11 apts) → федеральная собственность](https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1912/Reshenie_ot_10.06.2026_1_13_7.pdf)
+- [Решение №I/14-4, 23.10.2025 — Нахимова 25 / Якова Гугеля 29 (11 apts) → федеральная собственность](https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1533/Reshenie_I_14_4_ot_23.10.2025.pdf)
+
+**Primary (rank 1) — corporate identity of в/ч 1297:**
 - [OpenSanctions — ФГКУ «Войсковая часть 1297» entity page (FSB ownership, sourced from EGRUL)](https://www.opensanctions.org/entities/ru-inn-9310007740/)
 - [egrul-base.ru — ФГКУ В/Ч 1297 registration particulars](https://www.egrul-base.ru/company/1239300004866/)
 - [checko.ru — ФГКУ В/Ч 1297 company record](https://checko.ru/company/fgku-v-ch-1297-1239300004866)
