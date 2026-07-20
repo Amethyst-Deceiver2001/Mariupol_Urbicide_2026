@@ -40,6 +40,16 @@ never valid title.
 | **ООО «РКС-НР»** | Founded 05.2022; general contractor for DNR/LNR repair-restoration; director Шарипов Ильдар Радикович (also paid by Moscow's Москапстрой); confirmed physical demolition contractor link via `lenina_104_106_108_110` AND `troianda_m_demolition_challenge` (paper-trail role; physical demolition at Metallurgov 47 itself attributed to KrashMash, see Tier 4) | Roskapstroy site; appellate ruling 33-2575/2025 |
 | **Хуснуллин М.Ш.** (Marat Shakirzyanovich Khusnullin) — Deputy PM | Federal oversight of occupied-territory reconstruction generally; Russian business media associate Moscow's Москапстрой (which pays Sharipov) with his domain; prior Moscow construction deputy-mayor scheme per Dossier Center | Dossier Center "Мариупольский передел" (Echo FM mirror, `scripts/170`) — **candidate, not yet independently cross-checked against an official government source beyond government.ru's bio page** |
 
+**Recipients of institutional property transfers (rung [F2], 2026-07-20 —
+scripts/383/06a/387 gorsovet Решение classification):**
+
+| Actor | Role in pipeline | Evidence base |
+|---|---|---|
+| **ФГКУ «Войсковая часть 1297»** (ИНН 9310007740, ОГРН 1239300004866, registered 22.05.2023) — **FSB-owned** per OpenSanctions/EGRUL (owner: ФСБ России, active 22.05.2023–21.04.2026) | Recipient of **≥2 residential/garage properties** transferred from Mariupol municipal (ex-bezkhoz) ownership: пр. Ленина 101 кв.21 + ул. Чкалова 23/25 (Решение №I/1-2, 22.01.2026); ул. Черноморская 18 кв.24 (Решение №I/5-5, 12.03.2026) — the latter with a fully dated bezkhoz-designation-to-transfer chain. Acting commander of record: Ладнов Сергей Сергеевич (as of 25.08.2025) | `docs/legal_mechanisms_review.md` rung [F2]; [opensanctions.org/entities/ru-inn-9310007740](https://www.opensanctions.org/entities/ru-inn-9310007740/); Решения №I/1-2, №I/5-5 (mariupol.gosuslugi.ru, captured `scripts/383`) — **UNVERIFIED beyond OpenSanctions/EGRUL**: rupep.org's own page (cited by the user as a second FSB-affiliation source) was Cloudflare-blocked and could not be independently re-read |
+| **ФГКУ «Войсковая часть 76835»** (МО РФ) | Recipient of 430 м² non-residential municipal property, пер. Киевский 10А (Решение №I/11-2, 14.05.2026) | 〃 |
+| **Войсковые части 29506 (5th Guards Combined-Arms Army), 74854, 52245, 19288, 75245; в/ч 6960 (Росгвардия)** | Recipients of bulk construction-materials transfers (rebar, lumber, precast slabs, cable, crushed stone, water tanks) from municipal property, Dec 2024–May 2026 — provenance of materials not established, flagged as a lead | 〃 |
+| **Яремчук Игнат Игнатович** — зам. главы Администрации городского округа Мариуполь | Named control officer (Item 3, "контроль за исполнением") on nearly every 2025–2026 [F2] transfer decision | Решения №I/1-2, №I/5-5, №I/11-2, №I/11-3, №I/12-7, №I/12-8, №I/5-6 (mariupol.gosuslugi.ru) |
+
 Working hypothesis to verify: contractor assignment by district follows the
 shef-region split — joinable per-building via `damage_assessment.jsonl`
 district keys.
@@ -459,6 +469,21 @@ item 0a.)*
 - **МИЗО ДНР and ФГИ ДНР petition Mariupol courts directly** — DNR-republic
   organs acting as petitioners in what is nominally a municipal ownerless
   process, evidencing vertical integration of the pipeline.
+
+### Demand-side beneficiary lead — Николай Ишков (2026-07-18, `@NickolayOsychenko`/2620, UNVERIFIED)
+
+Single-source Telegram allegation, not independently confirmed — flagged
+here as a lead, not added to any table above. A Kursk (mainland Russia)
+resident, described as a failed local-council candidate ("активист,
+волонтер и общественник"), is alleged to be renting a house in Mariupol for
+120,000 RUB/month while using volunteer-activity framing as cover for
+"околокриминальн[ый] строительн[ый]" (construction-adjacent) interests —
+i.e. a demand-side beneficiary (occupying/profiting from seized housing
+stock) rather than a Tier 4 land-grant developer. See
+[[demand_side_architecture]] for the 4-channel demand-side model this would
+slot into. **Needs independent corroboration before use in any exhibit** —
+one Telegram post from a channel critical of the occupation is not
+sufficient sourcing on its own for a named-individual accusation.
 
 ## Known gaps / next steps
 

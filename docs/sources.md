@@ -441,6 +441,21 @@ All sources used across the project's research: burial sites catalogue, case stu
 
 **ЕГРЮЛ / egrul.nalog.ru** — Russian legal-entity register; INN/OGRN lookups for developer SPVs (СЗ-1 ПОРФИР ИНН 9310009271; ООО «РКС-НР»; МК ГРУПП; and others). **Open gap (2026-06-30):** no working rusprofile/checko/EGRUL deep-link for СЗ-1 ПОРФИР found from this environment (rusprofile search 404s); the Stroiteley case study's citation of this entity is unlinked pending a verified URL.
 
+**opensanctions.org** — structured sanctions/ownership database, sourced from EGRUL for Russian entities. Used 2026-07-20 to confirm ФСБ России listed as owner of ФГКУ «Войсковая часть 1297» (ИНН 9310007740), the recipient unit in the Чёрноморская 18 / Ленина 101 case study (MUP-CS-011). Directly accessible from this environment (unlike rupep.org/rusprofile.ru below).
+  - <https://www.opensanctions.org/entities/ru-inn-9310007740/>
+
+**rupep.org** — Ukrainian corporate/PEP-ownership database; user-cited as a second source for the FSB-ownership finding above, but returns a Cloudflare challenge to this project's fetch environment and could not be independently re-read. Cite opensanctions.org as the verified basis; note this one as user-supplied-but-unconfirmed.
+  - <https://rupep.org/ru/company/47035>
+
+**rusprofile.ru / checko.ru / egrul-base.ru** — Russian corporate-registry aggregators. rusprofile.ru returns 403 from this environment; checko.ru and egrul-base.ru are accessible and confirm ФГКУ «Войсковая часть 1297»'s registration particulars (registered 22.05.2023, ОКВЭД 84.22) but list the founder/учредитель field as access-restricted under 129-ФЗ rather than stating FSB explicitly in retrievable page content.
+  - <https://checko.ru/company/fgku-v-ch-1297-1239300004866>
+  - <https://www.egrul-base.ru/company/1239300004866/>
+  - <https://www.rusprofile.ru/id/1239300004866> (403, unverified)
+
+**mariupol.gosuslugi.ru — Мариупольский городской совет «Решение» documents** — the city-council decision family (distinct from Администрация постановление decrees elsewhere in this catalogue), 339 documents 2024–2026, systematically captured `scripts/383` and classified by subject `scripts/387`. Covers routine council business (ТОС boundaries, land-plot procedure, устав) alongside — the subject of MUP-CS-011 — property transfers to Russian federal/military recipients.
+  - Listing root: <https://mariupol.gosuslugi.ru/glavnoe/gorodskoy-sovet/?cur_cc=6980>
+  - Example (Решение №I/1-2, 22.01.2026): <https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1655/Reshenie_I_1_2_ot_22.01.2026.pdf>
+
 **наш.дом.рф object records 65280, 69427, 69749, 69751, 70142, 70147** (Резиденция Селект / Резиденция II, проспект Строителей 74–88) — **open gap (2026-06-30):** the portal's per-object pages/API return HTTP 403 (WAF block) from this environment; only the registry root (<https://наш.дом.рф>) is linked in the Stroiteley case study pending a working per-object URL.
 
 **наш.дом.рф object 54284** («Дом на Нахимова» / Chernomorsky 1B) — resolves directly with a browser user-agent (unlike the 403-blocked objects above): <https://xn--80az8a.xn--d1aqf.xn--p1ai/сервисы/каталог-новостроек/объект/54284>. Live sold-out % and marketing renders. Cited in Exhibit A (Nakhimova 82).

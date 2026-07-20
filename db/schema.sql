@@ -78,10 +78,19 @@ CREATE TABLE IF NOT EXISTS owner (
 -- ---------------------------------------------------------------------------
 -- 'ownerless_designation' = pre-petition step under the old (pre-ФКЗ-4) court
 -- process (occupation_decrees designating a property "бесхозяйное").
--- 'registry_inclusion' = the post-ФКЗ-4 (15.12.2025) mechanism, where
--- inclusion in the ownerless-property registry IS itself the title transfer
--- (the court "признание права муниципальной собственности" stage was
--- abolished). Kept distinct: same evidentiary family, different legal act.
+-- 'registry_inclusion' = loaded from the district XLSX ("Перечень... с
+-- признаками бесхозяйных") -- a PRE-DECISION CANDIDATE/SCREENING list, every
+-- row uniformly tagged "признаки бесхозяйности" (signs of ownerlessness),
+-- NOT itself the ФКЗ-4 title-conferring реестр. The decree
+-- ('ownerless_designation'/'ownerless_registration') is the act that
+-- performs the actual "...признании... и включении в реестр" (recognition +
+-- registry inclusion) ФКЗ-4 makes dispositive. CORRECTED 2026-07-18 (see
+-- memory/registry_decree_gap_resolved_2026-07-18.md) after an earlier
+-- version of this comment wrongly asserted candidate-list inclusion IS the
+-- title transfer -- don't reintroduce that conflation. Whether the low
+-- registry/decree overlap (median 35.5% of a building's registry apartments
+-- named in its decree) is administrative backlog or a real capture gap is
+-- still OPEN; see docs/STATS.md's "Registry vs. decree relationship" note.
 -- 'demolition' = the demolish->rebuild address-laundering track: a war-damaged
 -- building is placed on an administrative demolition register (ГКО/MinStroy
 -- order or Mariupol-admin "о сносе" decree) and razed, severing the address
@@ -146,12 +155,52 @@ CREATE TABLE IF NOT EXISTS owner (
 -- stage added for it until that's solved (see scripts/06_parse_ownerless_
 -- decrees.py's design notes and docs/legal_mechanisms_review.md). Added
 -- 2026-07-17 (scripts/351 crawler; ALTER TYPE migration below).
+-- 'compensation_housing_listing' = "О включении объектов недвижимого
+-- имущества муниципальной собственности ... в Перечень жилых помещений,
+-- которые могут быть предоставлены в качестве компенсационных" -- a
+-- Мариупольский городской совет РЕШЕНИЕ (city-council decision), NOT an
+-- Администрация ПОСТАНОВЛЕНИЕ. Legally the OPPOSITE direction from
+-- 'ownerless_designation': it lists property the decree's own text already
+-- treats as municipally owned, for downstream redistribution as compensation
+-- housing -- a distribution act, not a dispossession-recognition act. Found
+-- 2026-07-19 loaded (wrongly) under stage='ownerless_designation' because
+-- decree_kind was derived solely from source_type at capture time (these 6
+-- PDFs were captured under source_type='ownerless_decree_designation_pdf',
+-- since their true nature wasn't known yet); fixed via decree_kind_override
+-- in scripts/06_parse_ownerless_decrees.py's compensation_housing_list
+-- extraction branch. Session evidence (2026-07-19): 235/237 buildings on
+-- this list already carry a real 'ownerless_designation'/'ownerless_
+-- registration' event (89% exact apartment-level match via `unit`), so this
+-- looks like the NEXT pipeline stage after registry/decree processing, not a
+-- new seizure track -- but see the registry_inclusion comment above: our own
+-- 'ownerless_designation' stage is decree-backed (unlike registry_inclusion,
+-- which is candidate-list-only), so this reallocation-stage finding stands
+-- on firmer ground than the registry-decree gap does. Added 2026-07-19
+-- (scripts/380/381 captures; ALTER TYPE migration below; loader
+-- load_ownerless_decrees() branch).
+-- 'military_transfer' = "О согласовании безвозмездной передачи ...
+-- недвижимого имущества из муниципальной собственности ... в федеральную
+-- собственность" -- a Мариупольский городской совет РЕШЕНИЕ handing
+-- SPECIFIC, cadastral-numbered ex-bezkhoz real estate (an apartment, a
+-- garage, non-residential space) to a named Russian military/security unit
+-- (в/ч NNNN). Same document family as 'compensation_housing_listing'
+-- (council РЕШЕНИЕ, not Администрация ПОСТАНОВЛЕНИЕ) but the opposite
+-- recipient: an institution acting in official capacity, not a civilian on
+-- a distribution list. Found via a systematic classification pass over the
+-- 339-decision Решение corpus (scripts/387); see docs/case_studies/
+-- chernomorskaya18_fsb_transfer.md (MUP-CS-011) for the full evidentiary
+-- chain. Movable-CONSTRUCTION-MATERIALS transfers to military units (the
+-- same document family, more common than real-estate transfers) are
+-- deliberately NOT loaded under this stage -- they carry no property_id and
+-- their provenance (possible demolition salvage) is an open lead, not a
+-- finding; see the case study §5. Added 2026-07-20 (scripts/388 loader).
 CREATE TYPE seizure_stage AS ENUM (
     'utility_cutoff', 'notice', 'inspection', 'ownerless_designation',
     'demolition', 'court_petition', 'court_transfer', 'appeal', 'entered_force',
     'reallocation', 'resale', 'registry_inclusion', 'expropriation',
     'temporary_use', 'reclaim', 'unfinished_construction_designation',
-    'ownerless_registration', 'avariinoe_designation'
+    'ownerless_registration', 'avariinoe_designation', 'compensation_housing_listing',
+    'military_transfer'
 );
 
 CREATE TABLE IF NOT EXISTS seizure_event (
@@ -180,6 +229,8 @@ ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'reclaim';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'unfinished_construction_designation';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'ownerless_registration';
 ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'avariinoe_designation';
+ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'compensation_housing_listing';
+ALTER TYPE seizure_stage ADD VALUE IF NOT EXISTS 'military_transfer';
 CREATE INDEX IF NOT EXISTS seizure_event_prop_ix ON seizure_event(property_id);
 CREATE INDEX IF NOT EXISTS seizure_event_stage_ix ON seizure_event(stage);
 CREATE INDEX IF NOT EXISTS seizure_event_unit_ix ON seizure_event(unit_id) WHERE unit_id IS NOT NULL;

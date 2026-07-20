@@ -91,8 +91,9 @@ snapshot rather than authoritative. Full narrative review:
   second-order sweep of 15 further channels and a 509-document attachment pull with
   full content-level OCR/keyword triage (`scripts/230`–`267`) — see `memory/` session
   notes if using Claude Code
-- Case studies: [`docs/case_studies/`](./docs/case_studies/) — eight documented seizure
-  modalities: demolish→rebuild→resell address-laundering
+- Case studies: [`docs/case_studies/`](./docs/case_studies/) — see
+  [`REGISTRY.md`](./docs/case_studies/REGISTRY.md) for the full, authoritative list
+  (accession codes MUP-CS-001–011). Highlights: demolish→rebuild→resell address-laundering
   ([`nakhimova_82_chernomorsky_1b.md`](./docs/case_studies/nakhimova_82_chernomorsky_1b.md));
   flat-by-flat registry sweep into live resale
   ([`mass_registry_to_resale.md`](./docs/case_studies/mass_registry_to_resale.md));
@@ -109,9 +110,12 @@ snapshot rather than authoritative. Full narrative review:
   a pre-war housing cooperative's land leased without auction to a subsidized-mortgage
   developer
   ([`brigantina_zhsk_land_lease.md`](./docs/case_studies/brigantina_zhsk_land_lease.md));
-  and МКР «Невский», a Russian MoD showcase microdistrict where population transfer is
+  МКР «Невский», a Russian MoD showcase microdistrict where population transfer is
   the explicit point and residents hold a revocable warrant, not title
-  ([`nevsky_microdistrict_ordena_not_title.md`](./docs/case_studies/nevsky_microdistrict_ordena_not_title.md))
+  ([`nevsky_microdistrict_ordena_not_title.md`](./docs/case_studies/nevsky_microdistrict_ordena_not_title.md));
+  and a named FSB unit receiving specific ex-bezkhoz apartments by direct municipal
+  decision, the first non-civilian recipient the project has documented
+  ([`chernomorskaya18_fsb_transfer.md`](./docs/case_studies/chernomorskaya18_fsb_transfer.md))
 - QGIS findings layer (`data/exports/qgis/`) — gap-register, media-arc, and
   corroborated-seizure buildings
 

@@ -282,6 +282,37 @@ demolish→rebuild→reallocate principle: 8 months before the Нахимова 
 → **Rome:** art. **8(2)(b)(viii)** — transfer of the occupier's own civilian
 population into occupied territory. The subsidy law is the *instrument of policy*.
 
+### [F2] Institutional transfer — municipal (ex-bezkhoz) property handed to Russian military/security units
+
+Distinct from [F]: [F] is resale to individual incoming civilian buyers via
+the mortgage subsidy; this rung is the municipality handing specific,
+individually-addressed former-bezkhoz properties **directly to named Russian
+military/security units**, by a formal city-council instrument, with no
+market transaction at all. First identified via a systematic classification
+pass over 339 Мариупольский городской совет «Решение» documents
+(scripts/383/06a/387, 2026-07-20) that turned up a recurring document type —
+«О согласовании безвозмездной передачи \[движимого/недвижимого\] имущества из
+муниципальной собственности… в федеральную собственность» — most of which
+transfer construction *materials* (see below), but a minority transfer
+**specific, cadastral-numbered real estate**, at least twice to the same
+named recipient.
+
+| Instrument | Role | Status |
+|---|---|---|
+| **Решение Мариупольского горсовета №I/5-5 (12.03.2026)** — ул. Черноморская, 18, кв.24 (54.59 м², кадастровый №93:37:0010410:1856) → **ФГКУ «Войсковая часть 1297»** | **The clean, fully-dated instance.** The apartment's own spine record (pid 6055) shows `registry_inclusion` (candidate bezkhoz list) then a formal **`ownerless_designation` dated 2025-04-24** — i.e. the property was affirmatively designated ownerless under [A] before the unit ever asked for it. FSB unit's request letter: 29.11.2025, №23/1РЦ/б-2440 (temporary acting commander, per the decree's own text). Council approval: 12.03.2026. **Recipient identity**: ФГКУ «Войсковая часть 1297», ИНН 9310007740, ОГРН 1239300004866 (registered 22.05.2023) — OpenSanctions (sourced from EGRUL) lists **ФСБ России as owner**, active 22.05.2023–21.04.2026ǁ [opensanctions.org/entities/ru-inn-9310007740](https://www.opensanctions.org/entities/ru-inn-9310007740/). This is the first case in the project where a named security-service entity (not just "the municipality" or an unnamed developer) is the documented end-recipient of a specific bezkhoz-designated residential unit. | **[CAPTURED] + LOADED** — mariupol.gosuslugi.ru batch crawl (`scripts/383`), OCR'd (`scripts/06a`), full text extracted; loaded as `seizure_event(stage='military_transfer')` via `scripts/388_load_military_transfer_events.py` (2026-07-20) |
+| **Решение №I/1-2 (22.01.2026)** — пр. Ленина, 101, кв.21 (101.6 м², кадастровый №93:37:0010106:504) + ул. Чкалова, 23/25 (2.72 м², likely garage, кадастровый №93:37:0010313:354) → same recipient, **ФГКУ «Войсковая часть 1297»** | Second confirmed transfer to the same FSB unit. Both addresses independently on spine in `registry_inclusion` (candidate list); **no matching `ownerless_designation` event found on spine for apt 21 specifically** (other apartments in the same building do have one) — either a genuine capture gap in decree coverage, or this unit moved through a track not yet captured. Routed via Территориальное управление Росимущества в ДНР (15.12.2025) as well as the unit's own request (16.07.2025, №174-дсп). | **[CAPTURED] + LOADED**, same crawl and loader as above (2 events: apt 21 and the Чкалова garage) |
+| **Решение №I/11-2 (14.05.2026)** — пер. Киевский, 10А, non-residential, 430 м² (1st/2nd floor, кадастровый №93:37:0010313:1069) → ФГКУ «Войсковая часть 76835» (МО РФ) | A third confirmed real-estate transfer, different recipient unit, non-residential space rather than housing — pattern extends beyond one unit and beyond apartments specifically. | **[CAPTURED] + LOADED**, same crawl and loader as above (new `property` row created for this address, previously off-spine) |
+| **Movable-property transfers to at least 8 further named units (Dec 2024–May 2026)** — в/ч 29506 (5th Guards Combined-Arms Army), в/ч 74854, в/ч 52245, в/ч 6960 (Росгвардия), в/ч 19288, в/ч 75245, plus two undated-unit batches signed by врио Моргун | Bulk construction materials (reinforcing bar, sawn lumber — one decision alone moves 716+39+260 м³, precast concrete road/airfield slabs ПАГ-14/ПДН-14, roofing felt, cable, crushed stone, potable-water tanks) rather than real estate. Provenance of the materials (state stockpile vs. possible demolition salvage) is **not established** — flagged as an open lead, not a finding. Distinct phenomenon from the real-estate rows above; kept in the same rung because it shares the identical legal instrument (Решение горсовета, same "…в федеральную собственность" formula) and the same named counter-signatory on every decision (зам. главы Администрации **Яремчук Игнат Игнатович**, control officer on nearly every 2025–2026 instance). | **[CAPTURED]**, same crawl; not loaded — materials transfers are out of scope for `seizure_event` (no displaced owner), but the named-unit list is a stakeholder-network lead |
+
+→ **RD4U:** A3.6 (real-estate rows only — loss of access/control compounded by
+military/security occupancy). **Rome:** **8(2)(b)(viii)** — here the
+"population" being transferred into occupied civilian housing is not settler
+civilians but a security-service institution; also relevant to accountability
+mapping for command responsibility given the named FSB unit and its
+commander of record. Directly corroborates the Переверзева TASS statement
+already in rung [G] below ("бесхозное жилье… для силовиков") with the first
+address-specific, document-sourced instance of that stated policy.
+
 ### [G] Housing allocation (parallel) — service housing + legitimation
 
 | Instrument | Role | Status |
@@ -407,6 +438,7 @@ property*.
 | D Land grant | `reallocation` | — (enables; attaches to the *new-build* record, not the original owner's claim) | 8(2)(a)(iv) + intent/beneficiary |
 | E Rebuild | `reallocation` (new-build) | — | 8(2)(b)(viii) predicate |
 | F Resale | `resale` | — | **8(2)(b)(viii)** |
+| F2 Institutional transfer | `military_transfer` | A3.6 | **8(2)(b)(viii)** + command responsibility |
 | G Housing | `displacement_claim` (corrob) | **A3.3 + A3.6** (lost the residence *and* lost access/control) | 8(2)(b)(viii) |
 | H Toponymy | (cross-cutting) | denial mechanism | facilitation |
 
