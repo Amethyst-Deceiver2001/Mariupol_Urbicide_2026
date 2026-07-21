@@ -44,6 +44,18 @@ def main() -> None:
 
     properties = q1(cur, "SELECT count(*) FROM property")
     rd4u_null = q1(cur, "SELECT count(*) FROM property WHERE rd4u_category IS NULL")
+    # categorize_rd4u() assigns A3.6 to court_petition/court_transfer/appeal/
+    # entered_force stages regardless of address (see _A36_TRIGGER_STAGES,
+    # db/load.py) -- legally correct (a court-stripped unit IS an A3.6 loss),
+    # but the ~8,300 court-island rows this hits have zero address (see
+    # docs/legal_mechanisms_review.md "Court-island caveat") and so can never
+    # actually be submitted as an RD4U claim without an address. Surfaced
+    # separately so "categorized" is not misread as "restitution-ready".
+    rd4u_addressless = q1(
+        cur,
+        "SELECT count(*) FROM property WHERE rd4u_category IS NOT NULL "
+        "AND occupation_address IS NULL AND prewar_address IS NULL "
+        "AND building_id IS NULL")
     units = q1(cur, "SELECT count(*) FROM unit")
     nonres_buildings = q1(
         cur, "SELECT count(*) FROM property WHERE property_kind IS NOT NULL")
@@ -120,6 +132,9 @@ def main() -> None:
     A(f"|---|---|")
     A(f"| Properties on spine | **{properties:,}** |")
     A(f"| — uncategorized (RD4U) | {rd4u_null:,} |")
+    A(f"| — categorized but address-less (court-island; accountability-track "
+      f"only, NOT restitution-submittable — see `docs/legal_mechanisms_review.md` "
+      f"\"Court-island caveat\") | {rd4u_addressless:,} |")
     A(f"| Distinct apartment-level units (ownerless registry) | {units:,} |")
     A(f"| Non-residential buildings on spine (property_kind set) | {nonres_buildings:,} |")
     A(f"| Non-residential seizure-event rows (commercial/industrial) | {nonres_events:,} |")

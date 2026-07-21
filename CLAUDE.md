@@ -9,8 +9,15 @@ occupation actors**, structured to feed two downstream consumers:
 1. **Restitution** — Council of Europe Register of Damage for Ukraine (RD4U) /
    future Claims Commission. Map each property to a claim category
    (A3.1/A3.2/A3.3/A3.6 — A3.6 = loss of access to property in occupied territory).
+   An RD4U category needs an identifiable property (address or building_id) to
+   actually be submittable — a category alone is not restitution-ready. See
+   `docs/legal_mechanisms_review.md` "Court-island caveat": most of the A3.6
+   bucket is address-less court-only evidence, accountability-track only.
 2. **Criminal accountability** — Rome Statute art. 8(2)(b)(viii) (transfer of the
-   occupier's own population) and unlawful appropriation of property.
+   occupier's own population) and unlawful appropriation of property. Does NOT
+   require an address — a documented pattern (case counts, dates, courts,
+   grant rates) is itself evidence, which is where address-less court-island
+   properties belong.
 
 If a feature does not move a property toward one of those two endpoints, it is out
 of scope. Full rationale: `docs/reconceptualization_2026.md`.
@@ -122,12 +129,20 @@ accountability and are not minimized.
 
 ## Workflow conventions (carried from the project's standing rules)
 - **Generate scripts; do NOT auto-run pandas/analysis.** Let the user execute.
-  Crawling hits a geoblocked foreign state system — only the user runs it, from
-  their own Russia-routed VPS. Claude never executes the crawler.
+  Bulk/systematic crawling (capture scripts that write into the raw evidence
+  store) still goes through the user, from their own Russia-routed connection
+  (a VPN via a Russian server, not a VPS) — that discipline stays. But ad hoc
+  `WebFetch` of individual gosuslugi.ru pages/URLs
+  (e.g. browsing a news page for document links, checking whether a file
+  exists) is no longer geoblocked from Claude's own environment and Claude may
+  do this directly — it's exploratory reconnaissance, not forensic capture.
+  Anything found this way that should enter the evidence base still needs a
+  proper capture script (raw store, SHA-256, `.meta.json` sidecar) handed to
+  the user to run, per the forensic rules above.
 - Use `PROJECT_ROOT` + config (`src/mariupol_seizures/config.py`); no hardcoded paths.
 - Comprehensive error handling + logging in every script.
 - Resource envelope: 8 GB RAM, ~$0–20 total. Stream, don't batch. The one
-  justified recurring cost is the VPS for geoblocked access.
+  justified recurring cost is the Russian VPN for geoblocked access.
 - No regex-only address normalization as the final step — keep raw + normalized;
   confidence-score every fuzzy match (≥0.8 to be claim-grade); require ≥2
   independent sources for legal-grade linkage rows.
@@ -150,7 +165,8 @@ accountability and are not minimized.
   from this. If no working URL can be found at all (no public page exists
   anywhere, geoblocked or not), say so inline rather than guess or omit
   silently. Geoblocked sources still need a capture script generated for the
-  user to run from their VPS to get the artifact itself into the raw store —
+  user to run from their Russia-routed VPN connection to get the artifact
+  itself into the raw store —
   that's separate from whether the citation link belongs in the exhibit, which
   it always does. After adding a source to any exhibit, also add/update its
   entry in `docs/sources.md` — that file is the project's master source list

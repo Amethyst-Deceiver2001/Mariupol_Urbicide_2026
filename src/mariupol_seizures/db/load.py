@@ -1970,6 +1970,11 @@ def merge_duplicate_properties(
         "UNKNOWN:87526|улица межевая, 9",
         "STREET:первая слободка, дом №|165",
         "STREET:первая слободка|165",
+        # Declension: genitive "Солнечной" (resident-chat post) vs nominative
+        # "Солнечная" (32 other houses) -- see address.py _STREET_KEY_ALIASES.
+        # Reviewed 2026-07-21.
+        "STREET:солнечной|7",
+        "STREET:солнечная|7",
     })
 
     reviewed_bids: set[str] = set(_ALIAS_REVIEWED)

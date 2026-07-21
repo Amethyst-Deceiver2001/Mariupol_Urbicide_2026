@@ -301,6 +301,11 @@ _STREET_KEY_ALIASES: dict[str, str] = {
     # Nominatim match for the misspelled form); "Коцюбинского 34" geocodes
     # house-level. No house-number collision (5 vs 34). Confirmed 2026-06-15.
     "STREET:кацюбинского": "STREET:коцюбинского",
+    # Declension: a resident-chat post used the genitive "по ул. Солнечной"
+    # (STREET:солнечной) instead of the nominative "Солнечная" (STREET:
+    # солнечная, 32 other houses) -- same street, house 7 collides. Found via
+    # scripts/391/395 compensation-reallocation load, 2026-07-21.
+    "STREET:солнечной": "STREET:солнечная",
 }
 
 

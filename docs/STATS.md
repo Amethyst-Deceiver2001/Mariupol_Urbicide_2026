@@ -6,17 +6,18 @@
 
 | Metric | Value |
 |---|---|
-| Properties on spine | **12,665** |
-| — uncategorized (RD4U) | 1,152 |
+| Properties on spine | **12,849** |
+| — uncategorized (RD4U) | 1,336 |
+| — categorized but address-less (court-island; accountability-track only, NOT restitution-submittable — see `docs/legal_mechanisms_review.md` "Court-island caveat") | 8,303 |
 | Distinct apartment-level units (ownerless registry) | 11,971 |
 | Non-residential buildings on spine (property_kind set) | 487 |
 | Non-residential seizure-event rows (commercial/industrial) | 1,204 |
 | Legal-grade (≥2 independent source families) | **1,315** |
 | Court-island properties (single-source, court only) | 8,303 |
-| No-source properties | 209 |
-| Corroboration rows | 12,177 |
+| No-source properties | 393 |
+| Corroboration rows | 12,879 |
 | Seizure-event rows (all stages) | 37,064 |
-| Source-document rows (DB-registered, chain of custody) | 8,815 |
+| Source-document rows (DB-registered, chain of custody) | 8,846 |
 | Distinct courts represented in source_document | 26 |
 
 `property` is the building-level spine (geocoding, corroboration, RD4U categorization, presentation); `unit` is an additive apartment-level layer underneath it, populated only from the ownerless registry (the one source that's genuinely apartment-level — every row carries an apartment number). A single `property` row can have many `unit` rows; this does not change what "Properties on spine" means above.
@@ -47,8 +48,8 @@
 
 | Metric | Value |
 |---|---|
-| Raw artifact files (excl. `.meta.json` sidecars) | **1,387,369** |
-| Disk size | **163G** |
+| Raw artifact files (excl. `.meta.json` sidecars) | **1,964,531** |
+| Disk size | **143G** |
 
 Note the gap between this and `source_document` above: the raw store is append-only and holds *everything ever captured*; `source_document` is the subset formally loaded into Postgres with a chain-of-custody link. Historical figures like "39,061 raw artifacts" or "211,900 registered artifacts" in older docs were accurate at an earlier snapshot — they are not current and should be replaced with the figures above on next revision of those docs.
 
