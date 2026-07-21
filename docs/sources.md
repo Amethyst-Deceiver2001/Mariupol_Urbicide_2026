@@ -458,6 +458,12 @@ All sources used across the project's research: burial sites catalogue, case stu
   - Federal-treasury bulk transfer (Решение №I/13-7, 10.06.2026, 11 apts): <https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1912/Reshenie_ot_10.06.2026_1_13_7.pdf>
   - Federal-treasury bulk transfer (Решение №I/14-4, 23.10.2025, 11 apts): <https://mariupol.gosuslugi.ru/netcat_files/multifile/252/1533/Reshenie_I_14_4_ot_23.10.2025.pdf>
 
+**mariupol.gosuslugi.ru — АГО Мариуполь compensation-housing distribution & queue lists** — the Администрация городского округа Мариуполь official record of the 2026 compensation-housing mass-distribution campaign (rung [G]): which municipal apartments were distributed, plus the standing квартирная очередь. Located 2026-07-21 on the "Квартирная очередь" page; capture script `scripts/392` (user-run, Russia-routed). The primary-source counterpart to the crowd-sourced reallocation ledger (`scripts/391`).
+  - Queue page: <https://mariupol.gosuslugi.ru/dlya-zhiteley/poleznye-materialy/kvartirnaya-ochered/>
+  - Распределение жилья от 21.07.2026: <https://mariupol.gosuslugi.ru/netcat_files/602/8217/Raspredelenie_zhil_ya_ot_21.07.2026.xlsx>
+  - Распределение жилья от 27.05.2026 (stage 1): <https://mariupol.gosuslugi.ru/netcat_files/602/8696/Raspredelenie_zhil_ya_ot_27.05.2026.pdf>
+  - Квартирная очередь 27.05.2026: <https://mariupol.gosuslugi.ru/netcat_files/602/7469/Ochered_Sayt_27.05.2026.xlsx>
+
 **наш.дом.рф object records 65280, 69427, 69749, 69751, 70142, 70147** (Резиденция Селект / Резиденция II, проспект Строителей 74–88) — **open gap (2026-06-30):** the portal's per-object pages/API return HTTP 403 (WAF block) from this environment; only the registry root (<https://наш.дом.рф>) is linked in the Stroiteley case study pending a working per-object URL.
 
 **наш.дом.рф object 54284** («Дом на Нахимова» / Chernomorsky 1B) — resolves directly with a browser user-agent (unlike the 403-blocked objects above): <https://xn--80az8a.xn--d1aqf.xn--p1ai/сервисы/каталог-новостроек/объект/54284>. Live sold-out % and marketing renders. Cited in Exhibit A (Nakhimova 82).

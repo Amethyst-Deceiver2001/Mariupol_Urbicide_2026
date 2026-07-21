@@ -289,6 +289,45 @@ rather than an inferred pattern. **Next step: a structured per-row
 re-extraction (not raw `tesseract --psm 6` on a scanned table) to confirm
 exact apartment/cadastral numbers before citing this count as evidence-grade.**
 
+### The reallocation, from the other end: the new occupants looking for the old owners
+
+Решение №I/3-3 is the administration's *supply-side* record — the units it
+authorised to be handed out. The completed hand-out shows up independently on
+the *demand side*, in the words of the people who received the flats. Across
+the resident chats, new occupants (or agents acting for them) began posting a
+distinctive notice: they name the exact apartment they have just been given,
+state that it was **"distributed as compensation housing"** («квартира
+распределена как компенсационное жильё»), and ask whoever used to live there
+to come forward. A person searching for the *previous* owner of a flat they now
+hold is describing, in plain language, the moment a seized apartment changes
+hands to a different family — the endpoint this case study has been tracing.
+
+Two of these notices name units in this building group, each posted twice by
+independent accounts:
+
+- **пр. Ленина 104, кв. 124** — "Ищу собственников… Квартира распределена как
+  компенсационное жильё" ([mrpl_besxozxata, 09.06.2026](https://t.me/mrpl_besxozxata/95338)).
+- **пр. Ленина 106, кв. 61** — "Ищу собственников пр Ленина 106, кв. 61.
+  Квартира распределена как компенсационное жильё"
+  ([mrpl_besxozxata, 09.06.2026](https://t.me/mrpl_besxozxata/95320)).
+
+This is a second, independent evidentiary family for the reallocation stage,
+resting on named-unit testimony rather than on OCR of a dense table: the flat
+at **106/61** and the flat at **104/124** were not merely *listed* as eligible
+for compensation redistribution — they had, by June 2026, actually been given
+to someone else, who is now publicly hunting for the owner the registry
+erased. Both the new occupant and the dispossessed owner are living private
+individuals and are minimised here; the evidentiary content is the unit, the
+date, and the stated compensation basis, not either person's identity. These
+records load as tier-3 corroboration
+(`kind='compensation_reallocation'`, `scripts/391`→`393`), kept deliberately
+apart from the administration's own list so the two sources corroborate rather
+than merge. The same pattern recurs across at least
+[two dozen other Mariupol buildings](../../data/parsed/compensation_reallocation.jsonl)
+in the same weeks — Нахимова 196, Куприна 39, Солнечная 7, Строителей 82,
+Московская 61 and more — placing 104/106 inside a citywide compensation-
+redistribution wave, not treating them as isolated.
+
 ---
 
 ## Why this matters — a second seizure modality
@@ -314,14 +353,19 @@ authorized the contractor doing the (poor-quality) work.
   contractor, and (c) parallel administrative dispossession of 91 named
   apartments, maps to unlawful **appropriation of property** (art.
   8(2)(a)(iv)) and to the broader pattern of population transfer once the
-  restored units are reallocated. The reallocation stage is now PARTIALLY
-  documented: individual resale listings for 106/108/110 (demand-side,
-  ordinary market activity) AND — if the OCR lead above is confirmed — a
-  formal municipal decision (Решение №I/3-3, 13.02.2026) redirecting ~26
-  specific units at 104/106/108 into a compensation-housing pool for a
-  different population, which is the more direct **art. 8(2)(b)(viii)**
-  evidence (transfer of the occupier's own population into property taken
-  from the protected population) this case study has lacked so far.
+  restored units are reallocated. The reallocation stage is now documented on
+  three convergent tracks: individual resale listings for 106/108/110
+  (demand-side, ordinary market activity); a formal municipal decision
+  (Решение №I/3-3, 13.02.2026) placing ~26 specific units at 104/106/108 into a
+  compensation-housing pool for a different population (supply-side, the
+  administration's own list); and independent named-unit testimony from the new
+  occupants of **104/124** and **106/61**, who state their flats were
+  "distributed as compensation housing" and are publicly seeking the prior
+  owners (completed hand-out, demand-side). The convergence of a supply-side
+  instrument and demand-side testimony on the *same building group* is the
+  direct **art. 8(2)(b)(viii)** evidence (transfer of the occupier's own
+  population into property taken from the protected population) this case study
+  had previously only inferred.
 - **Civilian harm, independent of either paper track:** six residents of
   this building group are documented as having died during the siege and
   its aftermath (Track 4 above) while the buildings' legal status was being
@@ -460,6 +504,8 @@ still applies to those counts.
 | **Zelinskogo 30 demolition decree №53** (candidate second site, see above) | event 53943 | minstroy reestr-snosa_16_03_2026.csv, row 101 (same file as decree №56 above) | `d431a530…42ea37` | 2026-06-09 (row confirmed 2026-07-15) |
 | Zelinskogo 30 still standing; 23/27 confirmed demolished; 30А/30Б new-corpus pairing | scripts/164 `DEMOLITION_NEWBUILD_CROSSWALK` (property_ids 4844, 4845) | наш.дом.рф construction-progress photo OCR + satellite/Yandex-map check | see `scripts/164_export_map_layers.py` crosswalk notes | 2026-07-15 |
 | Zelinskogo 30, apt. 13 + apt. 72 on compensation-housing list (row-verified) | chat_document_inventory | `Reshenie_I_3_3_ot_13.02.2026.pdf`, rows 258–259 — full 23-page OCR text now captured as a derived artifact (source_type `reshenie_i_3_3_ocr_text`, `derived_from` the original PDF's sha256) | derived `1a0c48ef…677871bf0`, from source `02048976…6889e215bd` | 2026-02-14, OCR'd 2026-07-15 |
+| **Ленина 104, кв. 124 — new occupant seeking prior owner, flat "distributed as compensation housing"** (reallocation completed; demand-side testimony) | `compensation_reallocation` (scripts/391→393) | [`t.me/mrpl_besxozxata/95338`](https://t.me/mrpl_besxozxata/95338) (2 independent posts) | see `data/parsed/compensation_reallocation.jsonl` | posted 2026-06-09, parsed 2026-07-21 |
+| **Ленина 106, кв. 61 — new occupant seeking prior owner, flat "distributed as compensation housing"** (reallocation completed; demand-side testimony) | `compensation_reallocation` (scripts/391→393) | [`t.me/mrpl_besxozxata/95320`](https://t.me/mrpl_besxozxata/95320) (2 independent posts) | see `data/parsed/compensation_reallocation.jsonl` | posted 2026-06-09, parsed 2026-07-21 |
 | Zelinskogo 30, separate apartment resold on open market (2-room, 42.4m², "docs registered in Rosreestr") | `data/parsed/realestate_offers.jsonl` | `t.me/mariupolskiy_uezd/247034` (+2 reposts) | `1b0649cf…c5487ddd36` | posted 2026-05-14/15, captured 2026-06-12 |
 
 *Reproducible from raw → DB. Occupation registrations/rulings/demolition
