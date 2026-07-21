@@ -146,8 +146,14 @@ def _list_topics(client, entity) -> list:
 
 
 def _capture_message(client, con, channel: str, message, building_note: str,
-                      topic_title: str | None = None) -> bool:
-    """Capture one message (+ its media, if any). Returns True if it had media."""
+                      topic_title: str | None = None, download_media: bool = True) -> bool:
+    """Capture one message (+ its media, if any). Returns True if it had media.
+
+    download_media=False captures the message text/metadata only and skips
+    the (potentially very large) media download entirely -- for a large
+    public channel this is the difference between a text triage pass and an
+    unbounded full-archive media mirror. Default True preserves the original
+    per-building-resident-chat behavior (small chats, capture everything)."""
     url = f"https://t.me/{channel}/{message.id}"
     text = (message.message or "").strip()
     has_media = _has_media(message)
@@ -165,6 +171,8 @@ def _capture_message(client, con, channel: str, message, building_note: str,
     )
 
     if not has_media:
+        return False
+    if not download_media:
         return False
 
     try:
@@ -188,7 +196,8 @@ def _capture_message(client, con, channel: str, message, building_note: str,
     return True
 
 
-def _scan_channel(client, con, channel: str, building_note: str) -> int:
+def _scan_channel(client, con, channel: str, building_note: str,
+                   download_media: bool = True) -> int:
     from telethon import errors  # local import: optional dep
     from telethon.tl.types import Channel as TLChannel
 
@@ -200,8 +209,9 @@ def _scan_channel(client, con, channel: str, building_note: str) -> int:
 
     min_id = _max_captured_id(con, channel)
     incremental = min_id > 0
-    log.info("scanning @%s (min_id=%d, %s)", channel, min_id,
-             "incremental" if incremental else f"first run, up to {HISTORY_LIMIT} messages per topic")
+    log.info("scanning @%s (min_id=%d, %s%s)", channel, min_id,
+             "incremental" if incremental else f"first run, up to {HISTORY_LIMIT} messages per topic",
+             "" if download_media else ", TEXT ONLY -- media download disabled")
 
     n = 0
     n_media = 0
@@ -221,7 +231,7 @@ def _scan_channel(client, con, channel: str, building_note: str) -> int:
             t_n = 0
             for message in client.iter_messages(entity, reply_to=topic.id, **topic_kwargs):
                 if _capture_message(client, con, channel, message, building_note,
-                                     topic_title=topic.title):
+                                     topic_title=topic.title, download_media=download_media):
                     n_media += 1
                 n += 1
                 t_n += 1
@@ -230,7 +240,8 @@ def _scan_channel(client, con, channel: str, building_note: str) -> int:
             log.info("@%s topic %r (id=%d): %d messages", channel, topic.title, topic.id, t_n)
     else:
         for message in client.iter_messages(entity, **kwargs):
-            if _capture_message(client, con, channel, message, building_note):
+            if _capture_message(client, con, channel, message, building_note,
+                                 download_media=download_media):
                 n_media += 1
             n += 1
             if n % 200 == 0:
@@ -240,7 +251,7 @@ def _scan_channel(client, con, channel: str, building_note: str) -> int:
     return n
 
 
-def run(channels: list[str], building_note: str = "") -> None:
+def run(channels: list[str], building_note: str = "", download_media: bool = True) -> None:
     try:
         from telethon.sync import TelegramClient  # noqa: F401
     except ImportError:
@@ -262,7 +273,7 @@ def run(channels: list[str], building_note: str = "") -> None:
     try:
         for ch in channels:
             try:
-                total += _scan_channel(client, con, ch, building_note)
+                total += _scan_channel(client, con, ch, building_note, download_media=download_media)
             except Exception:  # noqa: BLE001 — one bad chat must not kill the run
                 log.exception("chat @%s failed — continuing", ch)
     finally:
