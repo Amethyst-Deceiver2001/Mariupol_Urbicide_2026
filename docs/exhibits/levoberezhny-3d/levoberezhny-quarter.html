@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Левобережный квартал — 3D reconstruction · MUP-CS-012</title>
+<meta name="ext-resource-dependency" content="uploads/levoberezhny_reconstruction.json" data-resource-id="quarterData" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+    "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js"
+  },
+  "integrity": {
+    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
+    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT",
+    "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js": "sha384-4rziNxOBZKQ69i+w+f89KJ55TCYquwchVbByQwmaOeIOXdOU2PLDn3kOfXHwIJC9",
+    "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js": "sha384-nbwtoZENJD3Vq+ACK0CuGQdPMuDWHkamC2KJD70EV5nfg6jQjfppKOea07YJN+N3",
+    "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js": "sha384-VofkvpG6HERhFCYbsUOHeNXBCqID2nfqkQqnVzE1jc/oPcz+qJ13ADdXH08hE+cQ"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Sans:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1C232B;
+    --paper: #E3E7E7;
+    --concrete: #8B8D85;
+    --blueprint: #2F4858;
+    --ash: #46433E;
+    --window: #E8A33D;
+    --civic: #6f7f74;
+    --hair: rgba(47, 72, 88, 0.45);
+    --f-sans: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+    --f-serif: "PT Serif", Georgia, serif;
+    --f-mono: "PT Mono", "Courier New", monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); overflow: hidden; }
+  a { color: var(--blueprint); text-decoration-color: var(--hair); }
+  a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+  three-d-stage:not(:defined) { visibility: hidden; }
+
+  .sheet { position: fixed; inset: 14px; border: 1px solid var(--blueprint); }
+  #stage { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .reg { position: fixed; width: 17px; height: 17px; pointer-events: none; z-index: 40; }
+  .reg::before, .reg::after { content: ""; position: absolute; background: var(--blueprint); }
+  .reg::before { left: 8px; top: 0; width: 1px; height: 17px; }
+  .reg::after { top: 8px; left: 0; height: 1px; width: 17px; }
+  .reg.tl { top: 6px;  left: 6px; }  .reg.tr { top: 6px;  right: 6px; }
+  .reg.bl { bottom: 6px; left: 6px; } .reg.br { bottom: 6px; right: 6px; }
+
+  .overlay { position: absolute; z-index: 10; pointer-events: none; }
+  .overlay > * { pointer-events: auto; }
+
+  /* header */
+  #hdr { top: 18px; left: 20px; max-width: 560px; pointer-events: none; z-index: 25; }
+  #hdr .eyebrow { font: 11px/1.4 var(--f-mono); letter-spacing: 0.08em; color: var(--blueprint); }
+  #hdr h1 { font: 700 26px/1.1 var(--f-sans); margin: 6px 0 4px; letter-spacing: 0.01em; }
+  #hdr .streets { font: 13px/1.45 var(--f-sans); color: var(--ash); max-width: 470px; }
+  #stats { display: flex; gap: 22px; margin-top: 12px; font-family: var(--f-mono); }
+  #stats .stat b { display: block; font: 700 20px/1 var(--f-sans); font-variant-numeric: tabular-nums; }
+  #stats .stat span { font: 10px/1.6 var(--f-mono); letter-spacing: 0.07em; color: var(--ash); }
+  #stats .stat .sub2 { display: block; font: 9px/1.4 var(--f-mono); color: var(--ash); letter-spacing: 0.04em; }
+  #stats .stat.human span::before { content: ""; display: inline-block; width: 7px; height: 7px; background: var(--window); margin-right: 5px; }
+
+  /* controls, top-right */
+  #ctrls { top: 18px; right: 20px; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; z-index: 25; }
+  .seg { display: flex; border: 1px solid var(--blueprint); background: var(--paper); }
+  .seg button { appearance: none; border: 0; background: transparent; color: var(--blueprint);
+    font: 11px/1 var(--f-mono); letter-spacing: 0.06em; padding: 8px 12px; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--hair); }
+  .seg button[aria-pressed="true"] { background: var(--blueprint); color: var(--paper); }
+
+  /* side panel — тех. паспорт card */
+  #panel { position: absolute; z-index: 30; top: 16px; right: 16px; bottom: 16px; width: 402px; max-width: calc(100vw - 60px);
+    background: var(--paper); border: 1px solid var(--blueprint); overflow-y: auto; overscroll-behavior: contain; }
+  #panel[hidden] { display: none; }
+  #panel .p-head { position: sticky; top: 0; background: var(--paper); border-bottom: 1px solid var(--blueprint);
+    padding: 10px 14px 9px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  #panel .p-head .kicker { font: 10px/1.4 var(--f-mono); letter-spacing: 0.1em; color: var(--blueprint); }
+  #panel .p-head h2 { font: 700 17px/1.2 var(--f-sans); margin: 3px 0 0; }
+  #panel .close { appearance: none; border: 1px solid var(--blueprint); background: transparent; color: var(--blueprint);
+    font: 14px/1 var(--f-mono); width: 26px; height: 26px; cursor: pointer; flex: none; }
+  #panel .close:hover { background: var(--blueprint); color: var(--paper); }
+  #panel section { padding: 10px 14px 12px; border-bottom: 1px solid var(--hair); }
+  #panel h3 { font: 700 11px/1.3 var(--f-sans); letter-spacing: 0.09em; margin: 0 0 8px; color: var(--blueprint); text-transform: uppercase; }
+  #panel h3.human { border-left: 3px solid var(--window); padding-left: 8px; }
+  .kv { display: grid; grid-template-columns: 128px 1fr; gap: 3px 10px; }
+  .kv .k { font: 10px/1.7 var(--f-mono); letter-spacing: 0.04em; color: var(--ash); }
+  .kv .v { font: 12px/1.5 var(--f-mono); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .kv .v.na { color: var(--concrete); }
+  .srcnote { font: italic 12px/1.5 var(--f-serif); color: var(--ash); margin: 6px 0 0; }
+  .names { list-style: none; margin: 4px 0 0; padding: 0; }
+  .names li { font: 14.5px/1.55 var(--f-serif); padding-left: 15px; position: relative; }
+  .names li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; background: var(--window); }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .chip { font: 11px/1 var(--f-mono); border: 1px solid var(--hair); padding: 5px 7px; background: transparent; color: var(--ink); }
+  button.chip { cursor: pointer; border-color: var(--window); box-shadow: inset 0 0 0 1px rgba(232,163,61,0.35); }
+  button.chip:hover { background: var(--window); color: var(--ink); }
+  .photolist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .photolist li { font: 11.5px/1.5 var(--f-mono); }
+  .backlink { appearance: none; border: 0; background: none; color: var(--blueprint); font: 11px/1.4 var(--f-mono);
+    letter-spacing: 0.05em; cursor: pointer; padding: 0; text-decoration: underline; text-decoration-color: var(--hair); }
+  .aptnarr { font: 14px/1.6 var(--f-serif); margin: 6px 0 0; }
+
+  /* list fallback */
+  #listView { position: absolute; z-index: 15; inset: 0; background: var(--paper); overflow-y: auto; padding: 130px 24px 40px; }
+  #listView[hidden] { display: none; }
+  #listView ol { list-style: none; margin: 0; padding: 0; max-width: 860px; }
+  #listView li + li { border-top: 1px solid var(--hair); }
+  #listView .rowbtn { display: grid; grid-template-columns: 1fr 128px 150px 92px; gap: 12px; align-items: baseline;
+    width: 100%; text-align: left; appearance: none; background: none; border: 0; padding: 9px 8px; cursor: pointer; color: var(--ink); }
+  #listView .rowbtn:hover, #listView .rowbtn:focus-visible { background: rgba(47,72,88,0.08); outline: 1px solid var(--blueprint); }
+  #listView .addr { font: 700 14px/1.35 var(--f-sans); }
+  #listView .addr small { display: block; font: 400 11px/1.4 var(--f-sans); color: var(--ash); }
+  #listView .addr .civictag { font: 400 10px/1 var(--f-mono); border: 1px solid var(--civic); color: var(--civic);
+    padding: 2px 5px; margin-left: 6px; letter-spacing: 0.04em; vertical-align: 2px; }
+  #listView .cell { font: 11px/1.5 var(--f-mono); color: var(--ash); font-variant-numeric: tabular-nums; }
+  #listView .cell .hum { color: var(--ink); }
+  #listView .cell .hum::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--window); margin-right: 5px; }
+  #listView .listhead { font: 10px/1.4 var(--f-mono); letter-spacing: 0.08em; color: var(--blueprint);
+    display: grid; grid-template-columns: 1fr 128px 150px 92px; gap: 12px; padding: 0 8px 6px; border-bottom: 1px solid var(--blueprint); max-width: 860px; }
+
+  #loadmsg { position: absolute; z-index: 5; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    font: 12px/1.5 var(--f-mono); color: var(--blueprint); letter-spacing: 0.08em; }
+  @media (max-width: 900px) {
+    #hdr h1 { font-size: 20px; }
+    #panel { width: min(402px, calc(100vw - 48px)); }
+    #listView .rowbtn, #listView .listhead { grid-template-columns: 1fr 90px; }
+    #listView .c3, #listView .c4 { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <three-d-stage id="stage" name="levoberezhny-quarter" background="#E3E7E7"></three-d-stage>
+    <div id="loadmsg">LOADING DATASET…</div>
+
+    <header id="hdr" class="overlay">
+      <div class="eyebrow">MARIUPOL PROPERTY-SEIZURE DOCUMENTATION · CASE STUDY MUP-CS-012 · <a href="../levoberezhny-quarter-exhibit.html" style="color:inherit">NARRATIVE EXHIBIT</a> · <a href="../../index.html" style="color:inherit">PROJECT HOME</a></div>
+      <h1>Левобережный квартал</h1>
+      <div class="streets">Ломизова / 50 лет Октября (Меотиды) / Азовстальская / Комсомольский (Морской) — Soviet worker housing, c. 1966. Demolished by the occupation authority, 2022–2023. Never rebuilt.</div>
+      <div id="stats" role="group" aria-label="Quarter totals">
+        <div class="stat"><b id="stBld">—</b><span>BUILDINGS</span><span class="sub2" id="stBldSub"></span></div>
+        <div class="stat human"><b id="stDead">—</b><span>CONFIRMED DEAD</span></div>
+        <div class="stat human"><b id="stMiss">—</b><span>MISSING</span></div>
+        <div class="stat"><b id="stClaims">—</b><span>COMPENSATION CLAIMS</span></div>
+      </div>
+    </header>
+
+    <div id="ctrls" class="overlay">
+      <div class="seg" role="group" aria-label="View">
+        <button id="btn3d" aria-pressed="true">3D VIEW</button>
+        <button id="btnList" aria-pressed="false">LIST</button>
+      </div>
+      <div class="seg" role="group" aria-label="Mode">
+        <button id="btnRecon" aria-pressed="true">RECONSTRUCTION</button>
+        <button id="btnMem" aria-pressed="false">MEMORIAL</button>
+      </div>
+    </div>
+
+    <div id="listView" hidden>
+      <div class="listhead"><span>ADDRESS</span><span>FLOORS</span><span class="c3">DEAD / MISSING</span><span class="c4">CLAIMS</span></div>
+      <ol id="listRows"></ol>
+    </div>
+
+    <aside id="panel" hidden aria-label="Building record"></aside>
+  </div>
+  <span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span>
+  <script src="three-d-stage.js"></script>
+  <script type="module" src="quarter-app.js"></script>
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" data-bg-color="#E3E7E7">
+      <rect width="400" height="280" fill="#E3E7E7"/>
+      <g stroke="#2F4858" stroke-width="3" fill="none">
+        <rect x="120" y="150" width="60" height="90"/>
+        <rect x="190" y="120" width="50" height="120"/>
+        <rect x="250" y="160" width="45" height="80"/>
+      </g>
+      <circle cx="150" cy="170" r="4" fill="#E8A33D"/>
+      <circle cx="210" cy="140" r="4" fill="#E8A33D"/>
+    </svg>
+  </template>
+</body>
+</html>

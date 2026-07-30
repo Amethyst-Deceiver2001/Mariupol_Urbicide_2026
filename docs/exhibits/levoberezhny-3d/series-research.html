@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Series dossier — Levoberezhny quarter · MUP-CS-012</title>
+<meta name="ext-resource-dependency" content="uploads/levoberezhny_reconstruction.json" data-resource-id="quarterData" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Sans:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1C232B; --paper: #E3E7E7; --page: #ECEFEE; --concrete: #8B8D85;
+    --blueprint: #2F4858; --ash: #46433E; --window: #E8A33D;
+    --hair: rgba(47, 72, 88, 0.4); --rule: rgba(47, 72, 88, 0.22);
+    --f-sans: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+    --f-serif: "PT Serif", Georgia, serif;
+    --f-mono: "PT Mono", "Courier New", monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--f-serif);
+    line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--blueprint); text-underline-offset: 2px; text-decoration-color: var(--hair); }
+  a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); }
+
+  .runhead { border-bottom: 1px solid var(--blueprint); }
+  .runhead .wrap { display: flex; justify-content: space-between; align-items: center;
+    padding-top: 12px; padding-bottom: 12px; font: 11px/1.4 var(--f-mono); letter-spacing: 0.07em; color: var(--blueprint); }
+  .runhead a { text-decoration: none; }
+  .runhead .back::before { content: "← "; }
+
+  header.mast { padding: 52px 0 30px; border-bottom: 3px double var(--blueprint); }
+  .eyebrow { font: 11px/1.5 var(--f-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--blueprint); }
+  h1.title { font: 700 clamp(38px, 6vw, 68px)/1.02 var(--f-sans); letter-spacing: -0.01em; margin: 14px 0 0;
+    text-wrap: balance; }
+  .dek { font: 400 clamp(18px, 2.4vw, 23px)/1.42 var(--f-serif); color: var(--ash); max-width: 760px; margin: 18px 0 0;
+    text-wrap: pretty; }
+  .byline { margin-top: 22px; font: 11px/1.6 var(--f-mono); letter-spacing: 0.05em; color: var(--ash);
+    display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  .byline b { color: var(--ink); font-weight: 400; }
+
+  .takeaways { background: var(--blueprint); color: var(--paper); margin-top: 0; }
+  .takeaways .wrap { padding: 34px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .tk { padding: 0 26px; border-left: 1px solid rgba(227,231,231,0.28); }
+  .tk:first-child { padding-left: 0; border-left: 0; }
+  .tk .n { font: 700 40px/1 var(--f-sans); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .tk .n small { font: 400 15px/1 var(--f-mono); color: rgba(227,231,231,0.7); letter-spacing: 0; }
+  .tk .lbl { font: 700 12px/1.4 var(--f-sans); letter-spacing: 0.02em; margin-top: 9px; }
+  .tk .sub { font: 12.5px/1.5 var(--f-serif); color: rgba(227,231,231,0.75); margin-top: 5px; }
+
+  main { padding: 8px 0 40px; }
+  section.block { padding: 40px 0; border-bottom: 1px solid var(--rule); }
+  .kicker { font: 11px/1.4 var(--f-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--blueprint);
+    display: flex; align-items: center; gap: 10px; }
+  .kicker::before { content: ""; width: 26px; height: 2px; background: var(--window); }
+  h2 { font: 700 clamp(24px, 3.4vw, 34px)/1.12 var(--f-sans); letter-spacing: -0.005em; margin: 14px 0 0; max-width: 24ch; text-wrap: balance; }
+  .lede { font: 400 19px/1.5 var(--f-serif); max-width: var(--measure, 720px); margin: 16px 0 0; }
+  .cols { columns: 2; column-gap: 42px; margin-top: 20px; max-width: 900px; }
+  .cols p { margin: 0 0 14px; font-size: 15.5px; break-inside: avoid; }
+  p, .prose { max-width: 720px; }
+  .prose p { margin: 0 0 15px; font-size: 16px; }
+  sup.fn { font-family: var(--f-mono); font-size: 0.66em; font-weight: 700; color: var(--blueprint); vertical-align: super;
+    line-height: 0; padding-left: 1px; }
+  sup.fn a { text-decoration: none; }
+  strong.term { font-weight: 700; }
+  .ru { font-family: var(--f-sans); }
+
+  .pull { border-left: 3px solid var(--window); padding: 4px 0 4px 22px; margin: 26px 0; max-width: 760px; }
+  .pull q { font: 400 22px/1.4 var(--f-serif); font-style: italic; quotes: none; }
+  .pull .attr { display: block; margin-top: 10px; font: 11px/1.5 var(--f-mono); letter-spacing: 0.04em; color: var(--ash); font-style: normal; }
+
+  .spec { border: 1px solid var(--blueprint); background: var(--paper); margin-top: 24px; }
+  .spec .spec-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    padding: 12px 16px; border-bottom: 1px solid var(--blueprint); background: var(--blueprint); color: var(--paper); }
+  .spec .spec-h .t { font: 700 14px/1.2 var(--f-sans); letter-spacing: 0.02em; }
+  .spec .spec-h .id { font: 11px/1.2 var(--f-mono); letter-spacing: 0.06em; color: rgba(227,231,231,0.8); }
+  .spec table { width: 100%; border-collapse: collapse; }
+  .spec td { padding: 8px 16px; border-top: 1px solid var(--rule); vertical-align: top; font-size: 14px; }
+  .spec tr:first-child td { border-top: 0; }
+  .spec .p { width: 210px; font: 700 12px/1.5 var(--f-sans); }
+  .spec .val { font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .spec .src { color: var(--ash); font: italic 12.5px/1.5 var(--f-serif); }
+  .spec .src a { font-style: normal; }
+
+  .tablewrap { margin-top: 22px; border: 1px solid var(--blueprint); overflow: hidden; }
+  table.data { width: 100%; border-collapse: collapse; font-family: var(--f-mono); font-size: 12px; }
+  table.data caption { text-align: left; padding: 11px 14px; background: var(--blueprint); color: var(--paper);
+    font: 700 12px/1.3 var(--f-sans); letter-spacing: 0.03em; }
+  table.data th { text-align: left; font: 700 10px/1.4 var(--f-mono); letter-spacing: 0.05em; color: var(--blueprint);
+    padding: 9px 12px; border-bottom: 1px solid var(--blueprint); background: rgba(47,72,88,0.06); position: sticky; top: 0; }
+  table.data td { padding: 7px 12px; border-top: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+  table.data td.addr { font-family: var(--f-sans); font-weight: 700; font-size: 12.5px; }
+  table.data tr:hover td { background: rgba(47,72,88,0.05); }
+  table.data .tag { display: inline-block; font-size: 10px; padding: 2px 6px; border: 1px solid var(--hair); letter-spacing: 0.03em; }
+  table.data .tag.sourced { border-color: var(--blueprint); background: var(--concrete); color: var(--ink); }
+  table.data .tag.inferred { border-color: var(--window); color: var(--ash); }
+  table.data .tag.confirmed { border-color: var(--blueprint); background: var(--blueprint); color: var(--paper); }
+  .tbl-scroll { max-height: 560px; overflow-y: auto; }
+  .tbl-note { font: italic 13px/1.55 var(--f-serif); color: var(--ash); margin: 12px 0 0; max-width: 720px; }
+
+  .callout { border: 1px solid var(--hair); border-left: 3px solid var(--blueprint); background: rgba(47,72,88,0.04);
+    padding: 16px 20px; margin: 24px 0; max-width: 760px; }
+  .callout h4 { font: 700 11px/1.4 var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--blueprint); margin: 0 0 8px; }
+  .callout p { margin: 0; font-size: 15px; }
+
+  .figrow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+  .fig { border: 1px solid var(--hair); background: var(--paper); }
+  .fig .cap { padding: 9px 11px; font: 11px/1.45 var(--f-mono); color: var(--ash); border-top: 1px solid var(--hair); }
+  .fig .cap b { color: var(--ink); font-weight: 400; }
+  .fig .diagram { aspect-ratio: 4/3; width: 100%; display: block; background: var(--page); }
+
+  section.sources { padding: 40px 0 20px; }
+  ol.srclist { list-style: none; counter-reset: s; margin: 18px 0 0; padding: 0; max-width: 900px;
+    columns: 2; column-gap: 42px; }
+  ol.srclist li { counter-increment: s; position: relative; padding-left: 30px; margin: 0 0 14px;
+    font: 13px/1.5 var(--f-serif); break-inside: avoid; }
+  ol.srclist li::before { content: counter(s); position: absolute; left: 0; top: 1px;
+    font: 700 11px/1.5 var(--f-mono); color: var(--blueprint); }
+  ol.srclist a { word-break: break-word; }
+  .srclist .meta { display: block; font: 11px/1.5 var(--f-mono); color: var(--ash); margin-top: 2px; }
+
+  footer.foot { border-top: 3px double var(--blueprint); }
+  footer.foot .wrap { padding: 26px 40px 60px; font: 12px/1.6 var(--f-mono); color: var(--ash); letter-spacing: 0.03em; }
+  footer.foot .stamp { display: inline-block; border: 1.5px solid var(--blueprint); color: var(--blueprint);
+    padding: 5px 10px; font: 700 11px/1.4 var(--f-mono); letter-spacing: 0.08em; transform: rotate(-1deg); margin-bottom: 16px; }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 0 22px; }
+    .takeaways .wrap { grid-template-columns: 1fr; gap: 22px; }
+    .tk { padding: 0; border-left: 0; border-top: 1px solid rgba(227,231,231,0.28); padding-top: 20px; }
+    .tk:first-child { border-top: 0; padding-top: 0; }
+    .cols, ol.srclist { columns: 1; }
+    .figrow { grid-template-columns: 1fr; }
+    .spec .p { width: 130px; }
+  }
+</style>
+</head>
+<body>
+  <div class="runhead">
+    <div class="wrap">
+      <a class="back" href="levoberezhny-quarter.html">3D reconstruction</a>
+      <span>MARIUPOL PROPERTY-SEIZURE DOCUMENTATION · MUP-CS-012</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header class="mast">
+      <div class="eyebrow">Series dossier · Building typology &amp; reconstruction basis</div>
+      <h1 class="title">One quarter, seven building types — and the catalogues behind them</h1>
+      <p class="dek">The Levoberezhny quarter was not designed building-by-building — it was assembled from the Soviet catalogue of standard-design housing. A citywide building-registry capture has now put real catalogue codes on eleven of its buildings: panel nine-storey slabs of series <span class="mono">1-464Д-83</span> and <span class="mono">1-439А-41</span>, a brick five-storey of series <span class="mono">1-437</span>, panel five-storeys, point-towers, one fourteen-storey tower, a dormitory, and six civic buildings. The catalogue is what lets a demolished, unsurveyed block be reconstructed at all: where a record fixes a building's floor count and series, the drawing supplies the rest.</p>
+      <div class="byline">
+        <span>METHOD <b>typological reconstruction from published series specifications</b></span>
+        <span>COMPILED <b>2026-07-22</b> · SERIES CODES CONFIRMED <b>2026-07-24 (domophoto.ru capture)</b></span>
+        <span>SOURCES <b>15 cited</b></span>
+      </div>
+    </header>
+  </div>
+
+  <div class="takeaways">
+    <div class="wrap">
+      <div class="tk">
+        <div class="n" id="tkSourced">—</div>
+        <div class="lbl">floor counts sourced</div>
+        <div class="sub">The rest are reconstructed at their family's default height — marked, throughout, as inference not survey.</div>
+      </div>
+      <div class="tk">
+        <div class="n">3<small> codes · 11 bldgs</small></div>
+        <div class="lbl">confirmed catalogue series</div>
+        <div class="sub">1-464Д-83, 1-439А-41, 1-437 — real Soviet standard-design codes, from a captured building registry, not visual guesswork.<sup class="fn"><a href="#s15">15</a></sup></div>
+      </div>
+      <div class="tk">
+        <div class="n">2.8<small> m</small></div>
+        <div class="lbl">documented storey height</div>
+        <div class="sub">Constant across the brick and panel families present here. The single number that scales every reconstructed façade.<sup class="fn"><a href="#s5">5</a></sup></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <main>
+      <section class="block">
+        <div class="kicker">The finding</div>
+        <h2>A mixed ensemble, not one catalogue</h2>
+        <p class="lede">Seen from the street, the quarter read as uniform — a repeating five-storey grid. The captured record says otherwise: this was a layered ensemble built across two decades, five-storey brick and panel walk-ups fronting the boulevards, nine-storey panel slabs on Ломизова and Комсомольский, ten-storey point-towers on the Азовстальская lot, a fourteen-storey tower at the corner, two kindergartens, a school, a rehabilitation center inside the block.</p>
+        <div class="cols">
+          <p>The confirmed codes divide the housing into families. <strong class="term">Series 1-464Д-83</strong> — the Donetsk-regional modification line of the union-wide 1-464 panel programme — accounts for the three nine-storey slabs at Ломизова 9, 11 and 13; three separate registry entries carry the same code, turning a visual "these are identical" call into a documented shared design.<sup class="fn"><a href="#s15">15</a></sup> <strong class="term">Series 1-439А-41</strong> covers the single-entrance nine-storey panel slabs at Комсомольский 30 and 36, with 38/2 independently confirmed in the same 1-439А family by its own registry photo caption.<sup class="fn"><a href="#s15">15</a></sup> <strong class="term">Series 1-437</strong> — Giprograd's Kyiv brick catalogue, sibling of 1-438<sup class="fn"><a href="#s10">10</a></sup> — is confirmed at 50 лет Октября 20, the pinkish-brick conjoined pair with №22.</p>
+          <p>For the remaining five-storeys the registry lists a category — <span class="ru">«Панельные жилые дома»</span> at 50 лет Октября 4, 6, 8 and Комсомольский 34 — or nothing at all. Where nothing survives, the regional default still applies: the brick five-storey stock of the Ukrainian SSR is overwhelmingly <strong class="term">series 1-438</strong> (Giprograd, Kyiv, 1958; <span class="ru">«практически не встречается за пределами Украины»</span>)<sup class="fn"><a href="#s2">2</a></sup> or its union-wide sibling <strong class="term">1-447</strong> (Giprogor, 1957).<sup class="fn"><a href="#s3">3</a></sup> That family remains the reconstruction's <em>hypothesis default</em> — applied only to buildings with no confirmed code, and marked as hypothesis wherever it is.</p>
+          <p>The dataset's own arithmetic still anchors the default: 77 apartments across 4 entrances at 5 floors, four to a landing, at Азовстальская 31 — squarely inside the brick family's documented four-section, 70-to-80-apartment blocks.<sup class="fn"><a href="#s1">1</a></sup></p>
+        </div>
+        <div class="pull">
+          <q>The series is based on a structural scheme of longitudinal load-bearing brick walls with six-metre spans; cross-partitions are set at steps of 2.6 and 3.2 metres.</q>
+          <span class="attr">— prawdom.ru, technical description of series 1-447<sup class="fn"><a href="#s6">6</a></sup></span>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="kicker">The registry</div>
+        <h2>Confirmed catalogue codes</h2>
+        <p class="lede">domophoto.ru — a crowd-sourced but structured Russian building registry (address, project code, floors, demolished/standing status) — was captured citywide for Mariupol: 128 streets, 809 building pages, each preserved with a SHA-256 in the project's forensic store. Eleven of its entries fall inside this quarter's roster.<sup class="fn"><a href="#s15">15</a></sup></p>
+        <div class="tablewrap">
+          <table class="data">
+            <caption>11 in-quarter registry entries — all marked demolished (снесён) on the registry's own site</caption>
+            <thead><tr><th>Building</th><th>Registry code / category</th><th>Floors</th><th>Family in this reconstruction</th></tr></thead>
+            <tbody>
+              <tr><td class="addr">Ломизова 9, 11, 13</td><td>1-464Д-83</td><td>9</td><td>panel 9-storey slab (confirmed)</td></tr>
+              <tr><td class="addr">Ломизова 17</td><td>«Панельные жилые дома»</td><td>14</td><td>14-storey tower (3rd independent floor confirmation)</td></tr>
+              <tr><td class="addr">Комсомольский 30, 36</td><td>1-439А-41</td><td>9</td><td>panel 9-storey, single entrance (confirmed)</td></tr>
+              <tr><td class="addr">Комсомольский 38/2</td><td>1-439А-41 (photo caption)</td><td>9</td><td>panel 9-storey, single entrance (confirmed)</td></tr>
+              <tr><td class="addr">Комсомольский 34</td><td>«Панельные жилые дома»</td><td>5</td><td>panel 5-storey</td></tr>
+              <tr><td class="addr">50 лет Октября 4, 6, 8</td><td>«Панельные жилые дома»</td><td>5</td><td>panel 5-storey</td></tr>
+              <tr><td class="addr">50 лет Октября 20</td><td>1-437</td><td>5</td><td>brick 5-storey, 1-437 (confirmed; pinkish-brick pair with №22)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tbl-note">Raw captures (scripts/427): sha256 5c6283c7…, e30cfa0f…, d274a9fc… (Ломизова 9/11/13); 39ba32df… (Ломизова 17); c53b1e29…, d75404da… (Комсомольский 30/36); de57fffc… (50 лет Октября 20); d8fc36a4…, 9ae024b6…, 3c96f3f4…, 5d4de807… (the panel 5-storeys). The other roster buildings are simply absent from the registry — a crowd-sourced source, not a complete census.</p>
+      </section>
+
+      <section class="block">
+        <div class="kicker">The document</div>
+        <h2>What a технический паспорт would have said</h2>
+        <div class="prose">
+          <p>No original building passport survives for the demolished blocks. But the series they were built to <em>are</em> documented — down to archival working-drawing albums. The full album of working drawings for one brick-family modification, <span class="mono">типовой проект 1-447С-43</span> (Album I, Part 1, "Drawings"), is preserved and publicly catalogued.<sup class="fn"><a href="#s14">14</a></sup> Combined with the published specifications, it lets us assemble the passport the quarter never kept — every value below carries its source. This sheet documents the <em>brick five-storey family</em>, the reconstruction's hypothesis default; the confirmed panel families follow their own module (panel seam grid at the same 2.8&nbsp;m storey pitch).</p>
+        </div>
+
+        <div class="spec" id="specsheet">
+          <div class="spec-h">
+            <div class="t">ТЕХНИЧЕСКИЙ ПАСПОРТ (реконструированный) — серия 1-447 / 1-438</div>
+            <div class="id">brick 5-storey · hypothesis-default family</div>
+          </div>
+          <table>
+            <tbody>
+              <tr><td class="p">Series family</td><td class="val">1-447 (Гипрогор, 1957) / 1-438 (Гипроград Киев, 1958)</td></tr>
+              <tr><td class="p">Wall material</td><td class="val">Unclad brick, external walls 38–40&nbsp;cm<br><span class="src">kvmeter.ru; zjs.ru<sup class="fn"><a href="#s7">7</a></sup></span></td></tr>
+              <tr><td class="p">Structural scheme</td><td class="val">Longitudinal load-bearing brick walls, 6&nbsp;m span; cross-walls at 2.6 / 3.2&nbsp;m<br><span class="src">prawdom.ru<sup class="fn"><a href="#s6">6</a></sup></span></td></tr>
+              <tr><td class="p">Storeys</td><td class="val">5 (occasionally 4)<br><span class="src">zjs.ru; apb1.ru<sup class="fn"><a href="#s4">4</a></sup></span></td></tr>
+              <tr><td class="p">Storey height / ceiling</td><td class="val">2.80&nbsp;m storey · 2.48&nbsp;m ceiling<br><span class="src">vashaplanirovka.ru<sup class="fn"><a href="#s5">5</a></sup></span></td></tr>
+              <tr><td class="p">Apartments per landing</td><td class="val">4 (rarely 3)<br><span class="src">apb1.ru; zjs.ru<sup class="fn"><a href="#s4">4</a></sup></span></td></tr>
+              <tr><td class="p">Section types</td><td class="val">End 3-1-2-1 / 1-2-2-2 · mid 3-2-1-3 / 2-3-2-2<br><span class="src">apb1.ru<sup class="fn"><a href="#s4">4</a></sup></span></td></tr>
+              <tr><td class="p">Window opening</td><td class="val">1350 × 1340&nbsp;mm (brick хрущёвка standard); balcony door 680 × 2070&nbsp;mm<br><span class="src">bezkovrov.com; okno.ogorodguru.ru<sup class="fn"><a href="#s8">8</a></sup></span></td></tr>
+              <tr><td class="p">Balconies</td><td class="val">All apartments from floor 2 upward<br><span class="src">mostpr.ru; zjs.ru<sup class="fn"><a href="#s5">5</a></sup></span></td></tr>
+              <tr><td class="p">Lifts / refuse chute</td><td class="val">None<br><span class="src">zelgorod.ru<sup class="fn"><a href="#s4">4</a></sup></span></td></tr>
+              <tr><td class="p">Build years</td><td class="val">1958–1980s (family); quarter c. 1966<br><span class="src">apb1.ru; case brief<sup class="fn"><a href="#s4">4</a></sup></span></td></tr>
+              <tr><td class="p">Archival drawings</td><td class="val">Type project 1-447С-43, Album I Pt.1 (working drawings)<br><span class="src">gostrf.com<sup class="fn"><a href="#s14">14</a></sup></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tbl-note">This is a <em>reconstructed</em> passport for the series, not a survey of any individual building. It is the parameter set the 3D reconstruction applies to raise an unresolved footprint into a façade.</p>
+      </section>
+
+      <section class="block">
+        <div class="kicker">Building by building</div>
+        <h2>From footprint to façade</h2>
+        <p class="lede">Each footprint (Visicom cadastral polygon) is measured for length, depth and area, then read against its family's bay. Sections follow from length ÷ section spacing; the window grid from the family bay; height from the sourced floor count where it exists, and from the family default where it does not — flagged accordingly.</p>
+        <div class="tablewrap">
+          <div class="tbl-scroll">
+            <table class="data" id="bldTable">
+              <caption id="bldCaption">Buildings — measured geometry &amp; series basis</caption>
+              <thead>
+                <tr>
+                  <th>Address (occupation reg.)</th>
+                  <th>Length</th>
+                  <th>Depth</th>
+                  <th>Area</th>
+                  <th>Series (record)</th>
+                  <th>Floors</th>
+                  <th>Basis</th>
+                </tr>
+              </thead>
+              <tbody id="bldRows">
+                <tr><td colspan="7" class="mono" style="color:var(--ash);padding:16px">loading footprints…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="tbl-note">Depth is the footprint area divided by its longest edge — a robust read of bar width even for L-shaped blocks. Buildings with no sourced footprint yet are listed with geometry marked "—". Civic buildings carry their institutional identity instead of a residential series.</p>
+      </section>
+
+      <section class="block">
+        <div class="kicker">How the model is built</div>
+        <h2>The reconstruction rules</h2>
+        <div class="figrow" id="figrow">
+          <div class="fig">
+            <svg class="diagram" viewBox="0 0 200 150" id="figWall" aria-label="Window grid diagram"></svg>
+            <div class="cap"><b>Window grid.</b> Family window on the family bay; sill 0.9&nbsp;m; storeys at 2.8&nbsp;m. Panel families add the seam grid.</div>
+          </div>
+          <div class="fig">
+            <svg class="diagram" viewBox="0 0 200 150" id="figSection" aria-label="Section diagram"></svg>
+            <div class="cap"><b>Sections.</b> Entrances every ~16&nbsp;m of length (brick family); single-entrance slabs (1-439А) carry one.</div>
+          </div>
+          <div class="fig">
+            <svg class="diagram" viewBox="0 0 200 150" id="figBalcony" aria-label="Balcony diagram"></svg>
+            <div class="cap"><b>Balconies.</b> Brick family from floor 2; panel 9-storeys from floor 1; dormitory — none.</div>
+          </div>
+        </div>
+        <div class="callout">
+          <h4>The honesty rule</h4>
+          <p>Sourced buildings are reconstructed solid, at their recorded height, in their confirmed family. Buildings whose floor count is <em>not yet determined</em> are raised to their family default and rendered as an explicit hypothesis — cooler in tone, capped in amber — never mixed with surveyed fact. Civic buildings are rendered as civic massing, not residential typology. Turn the reconstruction off and everything collapses back to honest placeholder stubs.</p>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="kicker">Limits</div>
+        <h2>What this cannot tell you</h2>
+        <div class="prose">
+          <p>The series fixes typology, not identity. It gives a defensible height, a real window rhythm and a correct storey pitch — but it cannot recover a specific building's exact section mix, its balcony placement, its render or paint, or any later alteration. Two buildings of the same series and length can differ in ways no catalogue records.</p>
+          <p>Series assignment itself is now confirmed for eleven buildings and photo-grounded for several more; elsewhere it is the strong regional default applied to a footprint that fits the bay. Read the reconstruction as the most disciplined approximation the surviving record allows — and as a frame that tightens, building by building, as registry pages, archival passports and photographs are located.</p>
+        </div>
+      </section>
+
+      <section class="sources" id="sources">
+        <div class="kicker">Sources</div>
+        <h2 style="margin-bottom:6px">Citations</h2>
+        <ol class="srclist">
+          <li id="s1">Levoberezhny reconstruction dataset (MUP-CS-012), <span class="mono">levoberezhny_reconstruction.json</span> — per-building footprints, floor/entrance records, casualties, compensation register.<span class="meta">Project archive · Visicom cadastral footprints</span></li>
+          <li id="s2">"Хрущевки 26. Серии I-464, 480, 438" — series 1-438 developed by Giprograd (Kyiv); "practically not found outside Ukraine."<span class="meta"><a href="https://stroitel.livejournal.com/471221.html" target="_blank" rel="noopener">stroitel.livejournal.com/471221</a></span></li>
+          <li id="s3">"Какие серии домов считаются неудобными" — Ukrainian хрущёвки predominantly series 1-464, 1-480, 1-438.<span class="meta"><a href="https://dom.ria.com/articles/kakie-serii-domov-schitayutsya-neudobnymi-5-tipov-252698.html" target="_blank" rel="noopener">dom.ria.com</a></span></li>
+          <li id="s4">Series 1-447 / 1-447С specifications — 4 apartments per landing; section apartment mixes; 5 (rarely 4) storeys; no lift.<span class="meta"><a href="https://apb1.ru/seriya-1-447.html" target="_blank" rel="noopener">apb1.ru</a> · <a href="https://zjs.ru/house/series/1-447/" target="_blank" rel="noopener">zjs.ru</a> · <a href="https://zelgorod.ru/1-447-67" target="_blank" rel="noopener">zelgorod.ru</a></span></li>
+          <li id="s5">Series 1-447 storey height 2.8&nbsp;m / ceiling 2.48&nbsp;m; balconies from the 2nd floor.<span class="meta"><a href="https://vashaplanirovka.ru/hrushchevka/1-447-seriya-domov-planirovka-s-razmerami" target="_blank" rel="noopener">vashaplanirovka.ru</a> · <a href="https://mostpr.ru/house/1-447" target="_blank" rel="noopener">mostpr.ru</a></span></li>
+          <li id="s6">Structural scheme — longitudinal load-bearing brick walls, 6&nbsp;m span, cross-walls at 2.6 / 3.2&nbsp;m.<span class="meta"><a href="https://prawdom.ru/k_seria.php?d=progjekt_docs/s1-447.php&s=3&r=99050" target="_blank" rel="noopener">prawdom.ru</a></span></li>
+          <li id="s7">External walls — unclad brick, 38–40&nbsp;cm thick.<span class="meta"><a href="https://www.kvmeter.ru/information/homes_series/1_447/" target="_blank" rel="noopener">kvmeter.ru</a> · <a href="https://zjs.ru/house/series/1-447s-5/" target="_blank" rel="noopener">zjs.ru</a></span></li>
+          <li id="s8">Standard brick-хрущёвка window 1350×1340&nbsp;mm; balcony door 680×2070&nbsp;mm.<span class="meta"><a href="https://bezkovrov.com/lodzhija-i-balkon/razmery-bloka.html" target="_blank" rel="noopener">bezkovrov.com</a> · <a href="https://okno.ogorodguru.ru/razmery-balkonnykh-blokov-okon.html" target="_blank" rel="noopener">okno.ogorodguru.ru</a></span></li>
+          <li id="s9">Series 1-438 — bearing-wall brick scheme, Giprograd Kyiv; longevity and construction notes.<span class="meta"><a href="https://vestnikstroy.ru/articles/building/6723/" target="_blank" rel="noopener">vestnikstroy.ru</a></span></li>
+          <li id="s10">Ukrainian brick/series overview — 1-437 &amp; 1-438, Giprograd (Kyiv), 1958.<span class="meta"><a href="https://tipdoma.com/2010/02/serii-1-437-i-1-438/" target="_blank" rel="noopener">tipdoma.com</a></span></li>
+          <li id="s11">Levoberezhny district, Mariupol — location east of the Kalmius, by the Azovstal industrial zone.<span class="meta"><a href="https://ru.wikipedia.org/wiki/Левобережный_район_(Мариуполь)" target="_blank" rel="noopener">ru.wikipedia.org</a></span></li>
+          <li id="s12">Komsomolsky (now Morskoy) boulevard, Mariupol — 1969 street-level views of the new nine- and five-storey micro-district.<span class="meta"><a href="https://pastvu.com/p/1640615" target="_blank" rel="noopener">pastvu.com/p/1640615</a> · <a href="https://pastvu.com/p/715454" target="_blank" rel="noopener">/p/715454</a></span></li>
+          <li id="s13">Series 1-480 (Ukrainian brick/panel five-storey) — comparator family, ceiling 248&nbsp;cm, cross-wall system.<span class="meta"><a href="https://www.kvmeter.ru/information/homes_series/1_480/" target="_blank" rel="noopener">kvmeter.ru</a></span></li>
+          <li id="s14">Type project 1-447С-43, Album I, Part 1 — "Drawings" (archival working-drawing album for a family modification).<span class="meta"><a href="https://www.gostrf.com/normadata/1/4293802/4293802324.pdf" target="_blank" rel="noopener">gostrf.com (PDF)</a></span></li>
+          <li id="s15">domophoto.ru — Mariupol citywide capture (128 streets, 809 building pages, scripts/427, 2026-07-24): confirmed codes 1-464Д-83 (Ломизова 9/11/13), 1-439А-41 (Комсомольский 30/36, +38/2 via photo caption), 1-437 (50 лет Октября 20); floor counts and demolished status for 11 in-quarter buildings.<span class="meta"><a href="https://domophoto.ru/cities/32/" target="_blank" rel="noopener">domophoto.ru/cities/32</a> · raw sha256s in the table note above</span></li>
+        </ol>
+      </section>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="stamp">SOURCED, NOT SURVEYED</div><br>
+      Levoberezhny quarter series dossier · MUP-CS-012 · companion to the 3D reconstruction.
+      Series parameters compiled from published Soviet typical-design specifications (2026-07-22);
+      catalogue codes confirmed against the captured domophoto.ru registry (2026-07-24).
+      Individual building identity is not asserted beyond the sourced fields; typology is applied as documented inference.
+    </div>
+  </footer>
+
+  <script>
+  (async function () {
+    let data;
+    try {
+      const url = (window.__resources && window.__resources.quarterData) || 'uploads/levoberezhny_reconstruction.json';
+      const r = await fetch(url);
+      data = r.ok ? await r.json() : await (await fetch('uploads/levoberezhny-3d/levoberezhny_reconstruction.json')).json();
+    } catch (e) {
+      document.getElementById('bldRows').innerHTML = '<tr><td colspan="7" style="padding:16px;color:var(--ash)">dataset unavailable</td></tr>';
+      return;
+    }
+    const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+    const N = data.buildings.length;
+
+    const lat0 = data.buildings.reduce((s,b)=>s+b.lat,0)/N;
+    const mLat = 111132, mLon = 111320*Math.cos(lat0*Math.PI/180);
+    function geom(b){
+      if (!b.footprint) return null;
+      const ring = b.footprint.coordinates[0].map(([lo,la])=>({x:(lo-b.lon)*mLon, z:-(la-b.lat)*mLat}));
+      let long=0; for(let i=0;i<ring.length-1;i++){ const l=Math.hypot(ring[i+1].x-ring[i].x, ring[i+1].z-ring[i].z); if(l>long) long=l; }
+      let A=0; for(let i=0;i<ring.length-1;i++){ A+=ring[i].x*ring[i+1].z-ring[i+1].x*ring[i].z; } A=Math.abs(A/2);
+      return { long, depth: A/long, area: A };
+    }
+
+    const rows = data.buildings.map(b=>{
+      const g = geom(b);
+      const civic = b.actual_use && b.actual_use !== 'residential';
+      const sourced = b.floors != null;
+      const confirmed = /1-4\d\d/.test(b.series || '');
+      return { b, g, civic, sourced, confirmed };
+    }).sort((a,b)=> (b.g ? b.g.long : -1) - (a.g ? a.g.long : -1));
+
+    document.getElementById('tkSourced').innerHTML =
+      data.buildings.filter(b=>b.floors!=null).length + '<small>/' + N + '</small>';
+    document.getElementById('bldCaption').textContent =
+      N + ' buildings — measured geometry & series basis';
+
+    document.getElementById('bldRows').innerHTML = rows.map(r=>{
+      const addr = r.b.address_occupation || r.b.address_prewar || r.b.building_id;
+      const seriesTxt = r.civic
+        ? (r.b.actual_use_name || r.b.actual_use)
+        : (r.b.series ? r.b.series.split('--')[0].split('—')[0].trim() : '—');
+      const basis = r.civic
+        ? '<span class="tag">civic</span>'
+        : (r.confirmed
+          ? '<span class="tag confirmed">code confirmed</span>'
+          : (r.sourced ? '<span class="tag sourced">sourced</span>' : '<span class="tag inferred">family default</span>'));
+      return `<tr>
+        <td class="addr">${esc(addr)}</td>
+        <td>${r.g ? r.g.long.toFixed(1) + ' m' : '—'}</td>
+        <td>${r.g ? r.g.depth.toFixed(1) + ' m' : '—'}</td>
+        <td>${r.g ? Math.round(r.g.area) + ' m²' : '—'}</td>
+        <td>${esc(seriesTxt).slice(0, 60)}</td>
+        <td>${r.b.floors != null ? r.b.floors : '·'}</td>
+        <td>${basis}</td>
+      </tr>`;
+    }).join('');
+
+    // ---- schematic diagrams (SVG) ----
+    const NS='http://www.w3.org/2000/svg';
+    const el=(n,a)=>{ const e=document.createElementNS(NS,n); for(const k in a) e.setAttribute(k,a[k]); return e; };
+    const ink='#2F4858', brick='#96897b', paper='#E3E7E7';
+
+    (function(){
+      const s=document.getElementById('figWall');
+      s.appendChild(el('rect',{x:0,y:0,width:200,height:150,fill:paper}));
+      const x0=24,y0=18,w=152,h=114, floors=4, cols=6;
+      s.appendChild(el('rect',{x:x0,y:y0,width:w,height:h,fill:brick,stroke:ink,'stroke-width':1.4}));
+      for(let f=1;f<floors;f++){ const y=y0+h*f/floors; s.appendChild(el('line',{x1:x0,y1:y,x2:x0+w,y2:y,stroke:ink,'stroke-width':0.5,opacity:0.4})); }
+      const cw=w/cols;
+      for(let f=0;f<floors;f++) for(let c=0;c<cols;c++){
+        const wx=x0+cw*c+cw*0.28, wy=y0+h*f/floors+h/floors*0.24, ww=cw*0.44, wh=h/floors*0.5;
+        s.appendChild(el('rect',{x:wx,y:wy,width:ww,height:wh,fill:'#26343f',stroke:paper,'stroke-width':0.6}));
+      }
+      s.appendChild(el('line',{x1:x0,y1:y0+h+9,x2:x0+cw,y2:y0+h+9,stroke:ink,'stroke-width':0.8}));
+      const t=el('text',{x:x0+cw/2,y:y0+h+20,'text-anchor':'middle',fill:ink,'font-family':'PT Mono, monospace','font-size':8}); t.textContent='3.2 m'; s.appendChild(t);
+      const t2=el('text',{x:x0-6,y:y0+h/2,'text-anchor':'middle',fill:ink,'font-family':'PT Mono, monospace','font-size':8,transform:`rotate(-90 ${x0-6} ${y0+h/2})`}); t2.textContent='2.8 m'; s.appendChild(t2);
+    })();
+
+    (function(){
+      const s=document.getElementById('figSection');
+      s.appendChild(el('rect',{x:0,y:0,width:200,height:150,fill:paper}));
+      const x0=16,y0=40,w=168,h=70, secs=4;
+      s.appendChild(el('rect',{x:x0,y:y0,width:w,height:h,fill:brick,stroke:ink,'stroke-width':1.4}));
+      const sw=w/secs;
+      for(let i=0;i<secs;i++){
+        if(i>0) s.appendChild(el('line',{x1:x0+sw*i,y1:y0,x2:x0+sw*i,y2:y0+h,stroke:ink,'stroke-width':0.6,opacity:0.5}));
+        s.appendChild(el('rect',{x:x0+sw*i+sw/2-5,y:y0+h-16,width:10,height:16,fill:'#26343f'}));
+        const t=el('text',{x:x0+sw*i+sw/2,y:y0-6,'text-anchor':'middle',fill:ink,'font-family':'PT Mono, monospace','font-size':8}); t.textContent='§'+(i+1); s.appendChild(t);
+      }
+      const t=el('text',{x:x0+w/2,y:y0+h+20,'text-anchor':'middle',fill:ink,'font-family':'PT Mono, monospace','font-size':8}); t.textContent='entrance every ~16 m'; s.appendChild(t);
+    })();
+
+    (function(){
+      const s=document.getElementById('figBalcony');
+      s.appendChild(el('rect',{x:0,y:0,width:200,height:150,fill:paper}));
+      const x0=40,y0=14,w=120,h=122, floors=5;
+      s.appendChild(el('rect',{x:x0,y:y0,width:w,height:h,fill:brick,stroke:ink,'stroke-width':1.4}));
+      for(let f=0;f<floors;f++){
+        const fy=y0+h*f/floors;
+        s.appendChild(el('rect',{x:x0+w*0.2,y:fy+h/floors*0.22,width:w*0.24,height:h/floors*0.5,fill:'#26343f'}));
+        if(f>=1){ s.appendChild(el('rect',{x:x0+w*0.52,y:fy+h/floors*0.44,width:w*0.34,height:h/floors*0.42,fill:'none',stroke:ink,'stroke-width':1.1}));
+          s.appendChild(el('rect',{x:x0+w*0.56,y:fy+h/floors*0.2,width:w*0.22,height:h/floors*0.42,fill:'#26343f'})); }
+      }
+      const t=el('text',{x:x0+w/2,y:y0+h+18,'text-anchor':'middle',fill:ink,'font-family':'PT Mono, monospace','font-size':8}); t.textContent='floors 2–5'; s.appendChild(t);
+    })();
+  })();
+  </script>
+</body>
+</html>

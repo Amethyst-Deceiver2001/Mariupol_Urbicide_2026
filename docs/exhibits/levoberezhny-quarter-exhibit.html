@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>They Demolished the Whole Quarter. They Never Built Anything Back.</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<meta name="description" content="A city block on Mariupol's left bank — Lomizova, 50 let Oktyabrya, Azovstalskaya, Komsomolsky — carries 174 documented deaths and disappearances across 56 buildings, the densest casualty cluster in this project. It was fully demolished by late 2022. Three years later, a federal highway decree explains why the land stayed empty — but nothing has ever been rebuilt for the people who lived there.">
+<meta property="og:title" content="They Demolished the Whole Quarter. They Never Built Anything Back.">
+<meta property="og:description" content="56 buildings, 174 documented dead and missing, one demolition order, zero reconstruction — confirmed by the administration's own words, not just a satellite photo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/levoberezhny-quarter-exhibit.html">
+<meta property="og:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="They Demolished the Whole Quarter. They Never Built Anything Back.">
+<meta name="twitter:description" content="56 buildings, 174 documented dead and missing, one demolition order, zero reconstruction.">
+<meta name="twitter:image" content="https://amethyst-deceiver2001.github.io/Mariupol_Urbicide_2026/exhibits/assets/og-image.jpg">
+<style>
+  :root{
+    --ink:#0c0e11; --ink-2:#14171c; --ink-3:#1b1f26;
+    --rail:#262b33; --rail-2:#343b46;
+    --paper:#e9e7e1; --paper-dim:#c5c3bd; --muted:#868d97;
+    --evidence:#cd4030; --evidence-dim:rgba(205,64,48,.34);
+    --stamp:#c79a44; --stamp-dim:rgba(199,154,68,.34);
+    --s1:#5b8fc9;
+    --font-display:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --font-serif:Georgia,"Times New Roman",serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--font-serif);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--evidence);color:var(--ink)}
+  a{color:var(--stamp)}
+
+  .exhibit-bar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;flex-wrap:wrap;
+    align-items:center;gap:.5rem 1rem;padding:.6rem clamp(1rem,4vw,2.4rem);
+    background:rgba(8,10,13,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--rail);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .exhibit-bar b{color:var(--paper-dim);font-weight:600}
+  .exhibit-bar a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .exhibit-bar a:hover{color:var(--paper);border-color:var(--stamp)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem) 6rem}
+  section{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--rail)}
+  section:first-of-type{border-top:none}
+  h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.08;margin:0 0 1rem}
+  p{max-width:64ch}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--stamp);margin:0 0 1.2rem}
+  .lead{font-size:1.15rem;color:var(--paper);max-width:64ch}
+  .mono{font-family:var(--font-mono)}
+  .src{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;
+    color:var(--stamp);margin-top:.6rem;display:block;line-height:1.6;max-width:70ch}
+
+  .hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,5vw,3.5rem)}
+  .hero h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.1rem,6vw,3.9rem);line-height:1.02;margin:.4rem 0 1.4rem;max-width:22ch}
+  .hero .sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem 1rem;margin:2.2rem 0 0}
+  .stat{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;
+    padding:.9rem 1.2rem;min-width:130px;flex:1}
+  .stat .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;
+    line-height:1;display:block;color:var(--paper)}
+  .stat .n.red{color:var(--evidence)} .stat .n.blue{color:var(--s1)}
+  .stat .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:.5rem;display:block;line-height:1.4}
+
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+  .badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;border:1px solid var(--rail);border-radius:2px;
+    padding:.32rem .55rem;color:var(--muted);white-space:nowrap}
+  .badge.rd4u{border-color:var(--stamp-dim);color:var(--stamp)}
+  .badge.rome{border-color:var(--evidence-dim);color:var(--evidence)}
+
+  table.data{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12px;margin-top:1.2rem}
+  table.data th,table.data td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rail);vertical-align:top}
+  table.data th{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  table.data td:first-child{color:var(--paper);font-weight:700}
+  table.data tbody tr:hover{background:var(--ink-2)}
+  table.data td.muted{color:var(--muted)}
+  table.data td .lose{color:var(--evidence);font-weight:700}
+
+  .callout{background:var(--ink-2);border:1px solid var(--rail);border-left:3px solid var(--stamp);
+    border-radius:3px;padding:1.1rem 1.3rem;margin:1.6rem 0;max-width:72ch}
+  .callout.hot{border-left-color:var(--evidence)}
+  .callout .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);margin-bottom:.5rem}
+  .callout.hot .h{color:var(--evidence)}
+  .callout p{margin:0;font-size:15.5px}
+
+  .figcap{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+    letter-spacing:.04em;line-height:1.6;margin:.6rem 0 0;max-width:72ch}
+
+  /* ---------- transliteration (click-to-reveal original Cyrillic) ---------- */
+  .xlit{position:relative;cursor:help;border-bottom:1px dotted var(--rail-2);white-space:nowrap}
+  .xlit:hover,.xlit.open{border-bottom-color:var(--stamp)}
+  .xlit .pop{position:absolute;left:0;bottom:calc(100% + 6px);z-index:30;
+    display:none;white-space:nowrap;background:var(--ink-3);
+    border:1px solid var(--stamp-dim);border-radius:3px;
+    padding:.35rem .6rem;font-family:var(--font-serif);font-size:13px;
+    color:var(--paper);box-shadow:0 6px 18px rgba(0,0,0,.4)}
+  .xlit .pop::after{content:"";position:absolute;left:10px;top:100%;
+    border:5px solid transparent;border-top-color:var(--stamp-dim)}
+  .xlit.open .pop{display:block}
+  .xlit.wide .pop{white-space:normal;max-width:300px}
+  .xlit.wide{white-space:normal}
+  .pop-line{display:block;margin:.15rem 0;font-size:12.5px}
+  .pop-line b{color:var(--stamp);font-weight:700;font-size:10.5px;
+    letter-spacing:.04em;text-transform:uppercase;margin-right:.35rem}
+  .xlit .pop a{color:var(--stamp);text-decoration:underline;text-underline-offset:2px}
+
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.6rem 0 .4rem}
+  .who .card{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;padding:1rem 1.1rem}
+  .who .card .nm{font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--paper);line-height:1.2}
+  .who .card .fio{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);margin-top:.2rem;display:block}
+  .who .card .ro{font-size:13.5px;color:var(--paper-dim);margin-top:.55rem;line-height:1.5}
+
+  details.prov{margin-top:1rem}
+  details.prov summary{cursor:pointer;font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--stamp);padding:.4rem 0}
+  .srclist{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.9rem}
+  .srclist li{border-left:2px solid var(--rail);padding-left:1rem}
+  .srclist .ty{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:.2rem}
+  .srclist .ti{font-size:14.5px;color:var(--paper-dim);line-height:1.5}
+  .srclist .ti b{color:var(--paper)}
+
+  .series-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem;margin-top:1.2rem}
+  .series-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;padding:.9rem 1.05rem}
+  .series-card .code{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--stamp);display:block}
+  .series-card .addr{font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--paper);margin-top:.3rem;display:block}
+  .series-card .desc{font-size:12.5px;color:var(--paper-dim);margin-top:.4rem;line-height:1.5}
+
+  .who2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem;margin:1.6rem 0 .4rem}
+  .who2 .card{background:var(--ink-2);border:1px solid var(--rail);border-radius:3px;padding:1rem 1.1rem}
+  .who2 .card .nm{font-family:var(--font-display);font-weight:800;font-size:.98rem;color:var(--paper);line-height:1.25}
+  .who2 .card .ro{font-size:13px;color:var(--paper-dim);margin-top:.5rem;line-height:1.5}
+
+  @media(max-width:680px){
+    .who{grid-template-columns:1fr}
+  }
+  .support-section{border-top:1px solid var(--rail);margin-top:2.4rem;padding-top:2rem}
+  .support-section h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+  .support-section p{font-size:14px;line-height:1.75;color:var(--paper-dim);margin:0 0 1.4rem}
+  .support-section p a{color:var(--paper-dim);text-decoration:underline;text-underline-offset:3px}
+  .wallet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;margin-top:1rem}
+  .wallet-card{background:var(--ink-2);border:1px solid var(--rail);border-radius:4px;padding:.9rem 1.1rem}
+  .wlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .waddr{font-size:14px;color:var(--paper);word-break:break-all}
+  .wnote{font-size:12px;color:var(--muted);margin-top:.3rem}
+</style>
+</head>
+<body>
+
+<div class="exhibit-bar">
+  <span>Case study &middot; demolish-and-abandon (land held empty/reserved) &middot; a demolished quarter, never rebuilt</span>
+  <span><a href="../index.html">&larr; project home</a> &nbsp;&middot;&nbsp; <a href="levoberezhny-3d/levoberezhny-quarter.html">3D reconstruction</a>
+    &nbsp;&middot;&nbsp; <a href="mariupol-master-dossier.html">master dossier</a>
+    &nbsp;&middot;&nbsp; <a href="death-sites-new-construction-exhibit.html">death sites &amp; new construction</a> &nbsp;&middot;&nbsp; <a href="about.html">about</a> &middot; <a href="sources.html">sources</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="sub">56 buildings (48 residential &middot; 8 civic and commercial) &middot; 174 documented dead and missing &middot; one demolition order &middot; zero reconstruction</div>
+    <div class="eyebrow">Levoberezhny district, left bank &middot; Lomizova &middot; 50 let Oktyabrya &middot; Azovstalskaya &middot; Komsomolsky</div>
+    <h1>They demolished the whole quarter. They never built anything back.</h1>
+    <p class="lead">A city block on Mariupol&rsquo;s left bank &mdash; bounded by four streets, roughly
+      four hundred metres on a side &mdash; carries one of the single densest concentrations of
+      documented civilian deaths and disappearances anywhere on this project&rsquo;s spine:
+      <b>174 records across 56 buildings</b> &mdash; a full residential quarter of nine-storey panel
+      slabs, five-storey brick khrushchyovkas, a fourteen-storey corner tower, two kindergartens, and a
+      school &mdash; cross-referenced against a citywide named-victims dataset and confirmed, address
+      by address, against this project&rsquo;s own independent reconciliation. A single
+      DNR &ldquo;State Defense Committee&rdquo; distributive order cleared the block by the end of 2022.
+      Checked against every new-build record this project tracks, nothing has ever been built here. Not a
+      rumor, not a marketing page, not a rebuilt address. A federal highway-planning decree, approved
+      three years after the demolition, is the closest thing to an explanation on file &mdash; and even
+      that explains only why the ground stayed empty, not why the people who lived here were never
+      offered a way back.</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n red">174</span><span class="l">documented dead (109)<br>and missing (65)</span></div>
+      <div class="stat"><span class="n">56</span><span class="l">buildings on the confirmed<br>quarter footprint</span></div>
+      <div class="stat"><span class="n blue">46 / 56</span><span class="l">also on the occupier&rsquo;s own<br>compensation-housing &ldquo;lost dwelling&rdquo; list</span></div>
+      <div class="stat"><span class="n">608</span><span class="l">apartment-level claims<br>on that list, this quarter alone</span></div>
+      <div class="stat"><span class="n red">0</span><span class="l">new-build matches &mdash;<br>checked three separate ways</span></div>
+    </div>
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(a)(iv)</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(b)(viii)</span>
+    </div>
+  </section>
+
+  <!-- 00 -->
+  <section>
+    <div class="eyebrow">00 &middot; The block</div>
+    <h2>Four streets, one demolition order</h2>
+    <p>The quarter is bounded by ул.
+      <span class="xlit" tabindex="0">Azovstalskaya Street<span class="pop">улица Азовстальская</span></span>,
+      бульвар
+      <span class="xlit wide" tabindex="0">50 let Oktyabrya<span class="pop"><span class="pop-line"><b>Also known as</b>бульвар Меотиды &mdash; the same boulevard carries both names on this stretch, confirmed by cadastral cross-check</span></span></span>,
+      бульвар
+      <span class="xlit wide" tabindex="0">Komsomolsky<span class="pop"><span class="pop-line"><b>Also known as</b>бульвар Морской &mdash; residents use both names interchangeably; confirmed by geocoding both onto the same coordinate range</span></span></span>,
+      and ул.
+      <span class="xlit" tabindex="0">Lomizova<span class="pop">улица Ломизова</span></span>.
+      A single instrument covers the demolition: <b>DNR &ldquo;State Defense Committee&rdquo;
+      Distributive Order No. 54, 29 September 2022</b>, naming ул. Lomizova, 3&ndash;19 and бульвар
+      50 let Oktyabrya, 4/6/8/10 directly (&ldquo;многоквартирный жилой дом&rdquo;). Demolition itself
+      followed in stages, precisely dated by residents in their own building chats and by a demolition
+      contractor&rsquo;s own posted list: the Минстрой ДНР demolition list published 24 October 2022,
+      Azovstalskaya 33 torn down the same day, Azovstalskaya 31 fenced off four days later &mdash;
+      <em><span class="xlit wide" tabindex="0">&ldquo;Дом простоял 56 лет&rdquo;<span class="pop">the building had stood 56 years</span></span></em>,
+      one resident wrote &mdash; Azovstalskaya 7/9/13/15/17 confirmed demolished together by 10 December
+      2022, and Komsomolsky (Morskoy), 20а fenced off and cleared by 21 December 2022. Clearance
+      proceeded, in another resident&rsquo;s words,
+      <em><span class="xlit wide" tabindex="0">&ldquo;от угла... в сторону стадиона&rdquo;<span class="pop">corner-first, toward the stadium</span></span></em>.</p>
+    <p>The quarter was identified as a case-study candidate after a satellite-image comparison showed
+      it as one of the very few blocks in the city that is fully razed <em>and</em> still visibly
+      empty &mdash; not mid-construction, not fenced for a future project, just gone. Every claim in
+      this exhibit was built to test that first visual impression against the administrative and
+      documentary record, not to confirm it by assumption. A companion
+      <a href="levoberezhny-3d/levoberezhny-quarter.html">block-by-block 3D reconstruction</a>
+      of the quarter, built from the same sourced dataset as this exhibit, lets you walk the block
+      building by building, in a documentary-reconstruction view or a memorial view.</p>
+  </section>
+
+  <!-- 01 -->
+  <section>
+    <div class="eyebrow">01 &middot; What stood here</div>
+    <h2>A full residential quarter, not a vacant lot with a rumor attached</h2>
+    <p>Four confirmed Soviet standard-design series &mdash; independently sourced from
+      <a href="https://domophoto.ru/cities/32/" target="_blank" rel="noopener">domophoto.ru</a>&rsquo;s
+      building-photography catalogue, cross-checked against resident dashcam footage, a Yandex Street
+      View panorama, and apartment-number testimony &mdash; account for the eleven best-documented
+      buildings; the rest of the residential stock is a mix of five-storey brick khrushchyovkas (the
+      areal default for the quarter, evidenced by nearby geo-tagged photographs), point towers, and one
+      dormitory block with no balconies.</p>
+    <div class="series-grid">
+      <div class="series-card"><span class="code">1-464Д-83</span><span class="addr">Lomizova, 9 / 11 / 13</span><span class="desc">9-storey panel slab, flat roof, plain rectangular massing</span></div>
+      <div class="series-card"><span class="code">no code &mdash; 14-storey tower</span><span class="addr">Lomizova, 17</span><span class="desc">the quarter&rsquo;s tallest building, a rounded-corner corner tower &mdash; 3 independent sources agree on 14 floors</span></div>
+      <div class="series-card"><span class="code">1-437</span><span class="addr">50 let Oktyabrya, 20</span><span class="desc">5-storey brick khrushchyovka, pinkish/red-brick facade variant</span></div>
+      <div class="series-card"><span class="code">1-439А-41</span><span class="addr">Komsomolsky, 30 / 36</span><span class="desc">9-storey grey panel slab, single entrance</span></div>
+      <div class="series-card"><span class="code">panel point-tower</span><span class="addr">Azovstalskaya, 19/1, 19/2, 21</span><span class="desc">точечный дом &mdash; 10-storey point block, distinct from the khrushchyovka majority</span></div>
+      <div class="series-card"><span class="code">dormitory</span><span class="addr">Azovstalskaya, 27</span><span class="desc">5-storey общежитие, no balconies</span></div>
+    </div>
+    <p class="figcap">Series codes and floor counts folded into this project&rsquo;s per-building
+      reconstruction dataset; full sourcing (capture hashes, dashcam video, panorama coordinates) in
+      the case-study research log.</p>
+    <p style="margin-top:1.6rem">Two of the quarter&rsquo;s residential-looking addresses on the original
+      geographic sweep were not homes at all. Four independent resident video-appeals to Vladimir Putin,
+      recorded 2024&ndash;2025 from the quarter&rsquo;s own foundation pits, converge on the same claim in
+      different words &mdash; <em>&ldquo;48 многоквартирных домов&rdquo;</em> demolished, plus a small
+      cluster of civic buildings the residents count differently each time (two kindergartens, a school,
+      and a rehabilitation center in one telling; three kindergartens and a school in another). This
+      project&rsquo;s own address-by-address check resolves six of those civic losses to specific,
+      geocoded buildings:</p>
+    <div class="who2">
+      <div class="card"><span class="nm">Школа №56</span><span class="ro">Komsomolsky (Morskoy), 8 &mdash; confirmed via an independent Mariupol business-directory listing after an earlier geocoding pass mismatched the address entirely.</span></div>
+      <div class="card"><span class="nm">Детский сад №91</span><span class="ro">Lomizova, 7 &mdash; confirmed via a historical-layer map object naming the kindergarten and its operating phone number directly.</span></div>
+      <div class="card"><span class="nm">Детский сад №103, &laquo;Аленький цветочек&raquo;</span><span class="ro">Komsomolsky (Morskoy), 9 &mdash; confirmed via three independent contemporary business directories, correcting an earlier crowd-sourced mistag that placed it on Azovstalskaya.</span></div>
+      <div class="card"><span class="nm">Rehabilitation center for children with disabilities</span><span class="ro">50 let Oktyabrya (Meotidy), 20А &mdash; confirmed via a pre-war Mariupol news article giving the institution&rsquo;s own street address.</span></div>
+      <div class="card"><span class="nm">Commercial premises</span><span class="ro">50 let Oktyabrya, 14 and Komsomolsky, 18 &mdash; ground-floor/standalone commercial buildings, not residential, per the same address-correction pass.</span></div>
+      <div class="card"><span class="nm">Unresolved civic structure</span><span class="ro">Azovstalskaya, 19 and 31В &mdash; visually non-residential in every reviewed source, but not yet identified by name; kept out of the residential and casualty counts pending further research.</span></div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="eyebrow">02 &middot; The casualty tally</div>
+    <h2>One of the most casualty-dense blocks this project has documented</h2>
+    <p>Cross-referencing the <a href="https://www.mariupoldestruction.com" target="_blank" rel="noopener">Mariupol
+      Destruction and Victims Map</a>&rsquo;s citywide named-victims spreadsheet against this quarter&rsquo;s
+      confirmed 56-building footprint (not merely the same street name elsewhere in the city &mdash; both
+      Azovstalskaya and Komsomolsky/Morskoy run for kilometres, and house numbers that geocoded outside
+      this specific block were deliberately excluded), extended with resident building-chat testimony
+      naming casualties not yet in the spreadsheet, yields <b>109 confirmed dead and 65 people listed
+      missing</b>, across <b>40 of the 56 buildings</b>. The project&rsquo;s own independent three-source
+      reconciliation (built from a separate channel scan and memorial.ua, with no knowledge of this
+      quarter as a candidate) names the same individuals at every property it covers here &mdash;
+      nothing this exhibit relies on rests on a single source.</p>
+    <table class="data">
+      <thead><tr><th>Building</th><th>Dead</th><th>Missing</th></tr></thead>
+      <tbody>
+        <tr><td>Komsomolsky (Morskoy), 20</td><td class="lose">18</td><td class="muted">5</td></tr>
+        <tr><td>50 let Oktyabrya (Meotidy), 8</td><td class="lose">7</td><td class="muted">8</td></tr>
+        <tr><td>Komsomolsky (Morskoy), 26</td><td class="lose">6</td><td class="muted">7</td></tr>
+        <tr><td>Komsomolsky (Morskoy), 28</td><td class="lose">8</td><td class="muted">4</td></tr>
+        <tr><td>Azovstalskaya, 19</td><td class="lose">3</td><td class="muted">9</td></tr>
+        <tr><td>50 let Oktyabrya (Meotidy), 12</td><td class="lose">2</td><td class="muted">8</td></tr>
+        <tr><td>Komsomolsky (Morskoy), 12</td><td class="lose">5</td><td class="muted">0</td></tr>
+        <tr><td>Azovstalskaya, 25</td><td class="lose">0</td><td class="muted">5</td></tr>
+      </tbody>
+    </table>
+    <p class="figcap">Eight of forty buildings carrying at least one casualty record shown; the full
+      56-building tally is held in this project&rsquo;s spine database.
+      &ldquo;Missing&rdquo; (без вести) is the source spreadsheet&rsquo;s own category &mdash;
+      disappeared, not confirmed dead &mdash; kept distinct from confirmed deaths throughout.</p>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="eyebrow">03 &middot; Resident testimony</div>
+    <h2>&ldquo;Достали 6 тел, трое остались так же возле дома&rdquo;</h2>
+    <p>Two of this project&rsquo;s already-mined resident Telegram chats sit directly inside this
+      quarter &mdash; including the building chat for Komsomolsky (Morskoy), 20, the single
+      heaviest-casualty address in the tally above. Residents&rsquo; own words, in real time, both
+      confirm and extend the spreadsheet-derived tally:</p>
+    <div class="callout hot">
+      <div class="h">Komsomolsky (Morskoy), 20 &middot; the body count, from a resident who called MChS directly</div>
+      <p><em><span class="xlit wide" tabindex="0">&ldquo;Сейчас разговаривала с мчс, сказали достали тела с 28 и 20 дома, в 26 еще не добрались до подвалов&rdquo;<span class="pop">I just spoke with MChS [emergency services] &mdash; they said they&rsquo;ve pulled bodies from buildings 28 and 20, haven&rsquo;t reached 26&rsquo;s basements yet.</span></span></em>
+        Days later, from the same building: <em><span class="xlit wide" tabindex="0">&ldquo;20 сегодня разобрали, достали 6 тел, трое остались так же возле дома&rdquo;<span class="pop">Building 20 was cleared today, 6 bodies pulled out, three more still lying beside the building.</span></span></em></p>
+    </div>
+    <p>A follow-up message names four of the dead directly &mdash; <b>Oleg</b> (apt. 3), <b>Oksana</b>
+      and <b>Nikolai</b> (apt. 27), and a nine-year-old girl, <b>Anya</b>, described as the daughter of
+      a resident named &ldquo;Yana&rdquo; &mdash; in reply to a woman searching for her missing mother,
+      <b>Valentina Khilobok</b> (b. 1952, apt. 29), whom the same resident confirms was <em>not</em>
+      among the basement dead. Separately, a woman searching for information about her acquaintance&rsquo;s
+      mother, who lived at Komsomolsky (Morskoy), 10, was told the body
+      <em><span class="xlit wide" tabindex="0">&ldquo;пролежала 40 суток, после чего завернули в ковер&rdquo;<span class="pop">lay there for forty days, after which it was wrapped in a carpet</span></span></em>
+      &mdash; with no further information on what happened after that.</p>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="eyebrow">04 &middot; The administration&rsquo;s own words</div>
+    <h2>&ldquo;Компенсационное жилье строиться не будет&rdquo;</h2>
+    <p>The strongest evidence that this quarter was left empty is not a satellite photograph &mdash;
+      it is the district administration&rsquo;s own recorded responses to direct questions from
+      residents:</p>
+    <div class="callout">
+      <div class="h">District administration, in response to a resident&rsquo;s question, 22 June 2023</div>
+      <p><em><span class="xlit wide" tabindex="0">&ldquo;Ответ от администрации на вопрос о сроках строительства новых домов на месте снесённого 2го участка. На 2023 год - не предусмотрено&rdquo;<span class="pop">Response from the administration on the timeline for new construction on the site of the demolished &ldquo;2nd plot.&rdquo; Not planned for 2023.</span></span></em></p>
+    </div>
+    <p>Eighteen months later, at a resident meeting captured in a second video-appeal, the head of the
+      Mariupol occupation administration went further than &ldquo;not planned&rdquo; &mdash; he told
+      residents the compensation-housing track itself was being abandoned in favor of the ownerless-
+      registry pipeline:</p>
+    <div class="callout hot">
+      <div class="h">Resident video-appeal, January 2025, quoting Oleg Morgun</div>
+      <p><em><span class="xlit wide" tabindex="0">&ldquo;На последней встрече с нашим мэром города Олег Валерьевич сообщил, что компенсационное жилье строиться не будет. Нам всем выдадут бесхозные квартиры, но мы не хотим чужое жилье.&rdquo;<span class="pop">At our last meeting with our city mayor, Oleg Valeryevich told us that compensation housing will not be built. We will all be issued ownerless apartments instead, but we do not want someone else&rsquo;s home.</span></span></em></p>
+    </div>
+    <p>A separate message, from two months before the June 2023 statement, catches the compensation-
+      housing bureaucracy processing this exact quarter address by address:
+      <em><span class="xlit wide" tabindex="0">&ldquo;мне вчера звонили из администрации по поводу Меотиды 4 (люди уехали до весны), что им готов акт&rdquo;<span class="pop">Administration called yesterday about 50 let Oktyabrya (Meotidy), 4 &mdash; people who&rsquo;d left until spring &mdash; saying their demolition certificate was ready.</span></span></em>
+      50 let Oktyabrya, 4 carries two confirmed deaths of its own: <b>Olha Bukhtoiarova</b> (b.
+      06.08.1939), burned alive in the building&rsquo;s basement when it caught fire the morning of 20
+      March 2022, and a neighbour, <b>Halyna Semykina</b>, who died the same day, same entrance, also
+      from smoke.</p>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="eyebrow">05 &middot; Compensation, on paper</div>
+    <h2>608 apartments, a resale ban, and a benefit that cancels every other one</h2>
+    <p>Cross-checked against this project&rsquo;s own record of the occupation administration&rsquo;s
+      compensation-housing distribution list (built from a separate apartment-level dataset,
+      Постановление &laquo;ГКО ДНР&raquo; No. 175 / Решение No. 61-1), <b>46 of this quarter&rsquo;s 56
+      buildings are independently listed</b> as the source of one or more &ldquo;lost&rdquo;
+      (&laquo;утраченное&raquo;) dwellings &mdash; <b>608 apartment-level claims</b> in total, largely
+      separate from the death-and-burial tally above (39 buildings carry both a casualty record and a
+      compensation claim, a genuine but not universal overlap). Heaviest: Lomizova, 15 and Lomizova, 5
+      (21 apartments each), Komsomolsky (Morskoy), 20А (20 apartments).</p>
+    <p>The compensation law itself &mdash; <b>Закон ДНР № 141-РЗ</b> (18 December 2024), amended by
+      <b>№ 161-РЗ</b> (21 February 2025) &mdash; makes the terms explicit in its own text, not just in
+      how it is applied: Art. 2 §4 states plainly that receiving this law&rsquo;s housing benefit
+      forfeits eligibility for any other DNR support measure, and vice versa &mdash; the choice is
+      mutually exclusive by law. Art. 2 §3(3) further requires the claimant to sign a formal
+      <em><span class="xlit wide" tabindex="0">&ldquo;обязательство об отчуждении&rdquo;<span class="pop">a binding written commitment to transfer ownership of the destroyed dwelling and its land parcel to the municipality</span></span></em>
+      before compensation housing can be issued at all &mdash; a precondition, not a formality. Eligible
+      unit size is capped at 33&nbsp;m&sup2; for a single occupant regardless of the lost dwelling&rsquo;s
+      actual size, and the replacement unit carries a resale ban once title transfers.</p>
+    <p>A fourth resident appeal, filmed from the quarter&rsquo;s own foundation pits, ties two of these
+      decree numbers directly to a quantified shortfall: citing Постановление 175 and Решение 61-1,
+      residents state compensation was set at
+      <em><span class="xlit wide" tabindex="0">&ldquo;45 тысяч рублей за квадратный метр&rdquo;<span class="pop">45,000 rubles per square metre</span></span></em>
+      against a stated market rate of 120,000 rubles &mdash; roughly a 2.7&times; gap, an independent,
+      first-person figure that corroborates, from the resident side, decree numbers this project had
+      already surfaced from the administration&rsquo;s own announcement channel.</p>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <div class="eyebrow">06 &middot; Renaming as mechanism</div>
+    <h2>The street that carried their address doesn&rsquo;t exist anymore</h2>
+    <p>Residents were not merely told nothing would be rebuilt &mdash; the administrative record of
+      where they used to live was itself altered. One of this quarter&rsquo;s own boundary streets,
+      Azovstalskaya, was renamed
+      <span class="xlit wide" tabindex="0">Tulsky Avenue<span class="pop">Проспект Тульский</span></span>
+      &mdash; residents in the fourth video-appeal describe the causal link between the two in their
+      own words:</p>
+    <div class="callout hot">
+      <div class="h">Fourth resident video-appeal, June 2024</div>
+      <p><em><span class="xlit wide" tabindex="0">&ldquo;переименовали улицу... оставив нас без прописки, а также открыли себе дорогу под застрой ипотеки на действие наших снесенных домов&rdquo;<span class="pop">they renamed the street... leaving us without registration, and also opened the way for mortgage-financed construction on the site of our demolished homes.</span></span></em></p>
+    </div>
+    <p>Residents challenged the renaming in occupation courts &mdash; and lost, definitively, on
+      7 August 2025, after fourteen separate hearing dates across three courts (the case bounced back
+      to first instance once for re-hearing). In the plaintiffs&rsquo; own account, the Mariupol
+      prosecutor&rsquo;s office <b>reversed its own position mid-case</b> &mdash; having supported the
+      residents&rsquo; claim in earlier hearings, it asked the court to reject it in full at the final
+      session. Five months earlier, the administration had already stated plainly why the old name
+      would not return:</p>
+    <div class="callout">
+      <div class="h">Mariupol administration Resolution No. 273, 26 February 2025</div>
+      <p><em><span class="xlit wide" tabindex="0">&ldquo;Отмена предыдущего постановления и принятие нового документа связано с адаптацией законодательства ДНР с законодательством РФ&rdquo;<span class="pop">The repeal of the previous resolution and adoption of the new one is due to adapting DNR legislation to RF legislation.</span></span></em></p>
+    </div>
+    <p>The same resolution keeps &ldquo;Тульский проспект&rdquo; permanently, framed as gratitude to
+      &ldquo;friends from the Tula region&rdquo; for reconstruction assistance, with a vague promise
+      that a <em>different</em> left-bank street will eventually be named for Azovstal &mdash; pending
+      &ldquo;public hearings&rdquo; that have not, as of this exhibit, produced a street.</p>
+    <p style="margin-top:1.4rem">Residents pushed back through official channels too, not just the
+      courts. A message in the Komsomolsky, 20 building chat, September 2023, describes the dispute
+      over mortgage-scheme apartments escalating past the district administration entirely:</p>
+    <div class="callout">
+      <div class="h">Komsomolsky, 20 building chat, 6 September 2023</div>
+      <p><em><span class="xlit wide" tabindex="0">&ldquo;Этим всем сейчас занимается прокуратура, так как много жителей хотят жить на своих местах, где было утрачено жилье!&rdquo;<span class="pop">The prosecutor&rsquo;s office is handling all of this now, because a lot of residents want to live at their own former sites, where their housing was lost!</span></span></em></p>
+    </div>
+    <p>This is the same evidentiary shape as the residents&rsquo; association &ldquo;Troianda-M,&rdquo;
+      at <a href="case-study-troianda-metallurgov.html">Metallurgov Avenue, 47</a>, who lost three times
+      running trying to contest their own building&rsquo;s demolition in occupation courts. Given the
+      administration&rsquo;s own June 2023 statement that nothing was planned, the renaming court loss,
+      and the block&rsquo;s continued emptiness today, neither the prosecutor&rsquo;s-office complaint
+      nor the renaming challenge appears to have changed the outcome.</p>
+  </section>
+
+  <!-- 07 -->
+  <section>
+    <div class="eyebrow">07 &middot; Why nothing was built here</div>
+    <h2>A federal highway decree, three years after the fact</h2>
+    <p>The closest thing to an official explanation for this quarter&rsquo;s continued emptiness surfaced
+      only in 2025, in a planning instrument that has nothing to do with the original demolition order.
+      <b>Приказ № 186-од</b> (Минстрой ДНР, 14 August 2025) approves a new 1.5-kilometre highway
+      overpass and interchange across the former Azovstal port waters and the Kalmius river mouth,
+      connecting to the Р-280 &ldquo;Novorossiya&rdquo; federal highway. The decreed route runs directly
+      along this quarter&rsquo;s own south-east edge &mdash; a named 0.74&nbsp;km segment of Komsomolsky
+      boulevard <em>&ldquo;от улицы Ломизова до бул. 50 лет Октября&rdquo;</em> (from Lomizova street to
+      50 let Oktyabrya boulevard) &mdash; the quarter&rsquo;s own corner-to-corner edge &mdash; plus a
+      separate 0.06&nbsp;km segment of Lomizova street itself.</p>
+    <p>Approved three years after this quarter&rsquo;s 2022 demolition, the decree is not the original
+      cause &mdash; but it is a documented, dated reason the land was never reallocated to housing in
+      the interim: territory earmarked for a future transport corridor is being held for that purpose,
+      not simply neglected. The planning documents behind the decree were developed by a Russian federal
+      institute, <b>ФАУ &laquo;Единый научно-исследовательский и проектный институт пространственного
+      планирования Российской Федерации&raquo;</b>, commissioned by Russia&rsquo;s federal Ministry of
+      Construction, not a DNR-local body &mdash; the reconstruction planning for this stretch of the
+      former Azovstal territory runs through Moscow. One passage in the decree&rsquo;s own supporting
+      materials is a striking admission in its own right:</p>
+    <div class="callout">
+      <div class="h">Territory-use documentation, §2.1.3 &ldquo;Снос объектов капитального строительства&rdquo;</div>
+      <p><em><span class="xlit wide" tabindex="0">&ldquo;В предоставленных данных от Федеральной службы государственной регистрации, кадастра и картографии (Росреестр) отсутствует информация о землепользователях и строениях, расположенных на земельных участках в границах ППТ ЛО&rdquo;<span class="pop">Data supplied by the Federal Service for State Registration, Cadastre and Cartography (Rosreestr) contains no information on landowners or structures within the planning territory&rsquo;s boundaries.</span></span></em></p>
+    </div>
+    <p>Russia&rsquo;s own federal property register, in other words, has no record at all of who owned
+      what on this land &mdash; buildings needing demolition were identified from a city-supplied
+      topographic plan and OpenStreetMap instead. Occupation planning bodies are, by their own
+      admission, working from a cadastre that does not know who lived here.</p>
+  </section>
+
+  <!-- 08 -->
+  <section>
+    <div class="eyebrow">08 &middot; Memorial</div>
+    <h2>What is remembered, and what is not yet identified</h2>
+    <p>On 26 March 2026, the independent exiled Russian outlet <b>ASTRA</b> reported that residents of
+      the &ldquo;Стадион&rdquo; district &mdash; this quarter&rsquo;s own colloquial name &mdash; held a
+      memorial at a foundation pit for <b>sixteen people who died in a single building entrance during
+      the March 2022 siege</b>. The report&rsquo;s own stills show an overgrown cleared lot, distant
+      apartment blocks on the skyline, and a small group tying flowers to a burnt tree trunk in the
+      rubble field &mdash; no address or building number visible in frame.</p>
+    <p>Checked against every casualty record already loaded for this quarter, no single building&rsquo;s
+      count is exactly sixteen. The closest candidate is <b>Komsomolsky (Morskoy), 20</b> &mdash;
+      already the quarter&rsquo;s heaviest-casualty building, and the only address with an independently
+      documented single-building MChS body-recovery report (&sect;03 above). This project does not track
+      entrance-level (подъезд) granularity, so ASTRA&rsquo;s sixteen could be a subset of Komsomolsky
+      20&rsquo;s recorded dead, or a genuinely different, still-unidentified building.
+      <b>This match is not confirmed</b> &mdash; it is recorded here as an open lead, not folded into any
+      tally, pending either a building identification from fuller footage or an independent source
+      naming the address directly.</p>
+    <p>A different kind of memory survives at the quarter&rsquo;s north end. <b>Lomizova, 15</b> &mdash;
+      a five-storey khrushchyovka, since demolished &mdash; was the rented-apartment filming location for
+      the 1988 Soviet film <a href="https://en.wikipedia.org/wiki/Little_Vera" target="_blank" rel="noopener"><em>Little Vera</em></a>
+      (<span class="xlit" tabindex="0">Malenkaya Vera<span class="pop">Маленькая Вера</span></span>),
+      per a 2012 Ukrainian arts-press profile of the production. The building carries its own casualty
+      record and, separately, twenty-one apartment-level compensation claims &mdash; the heaviest
+      compensation load of any address in the quarter. A pre-demolition walkthrough video and a later
+      post-demolition ground-view video of the same block, both independently captured for this project,
+      sit either side of the building&rsquo;s final months.</p>
+  </section>
+
+  <!-- 09 -->
+  <section>
+    <div class="eyebrow">09 &middot; What makes this quarter different</div>
+    <h2>Not address-laundering. Not a new complex on someone else&rsquo;s grave. Nothing at all.</h2>
+    <p>This project has already published two case studies built on the same underlying mechanism seen
+      elsewhere in Mariupol: a building is demolished or its title stripped through the ownerless
+      registry, and a new residential complex rises on or near the same footprint, sold to buyers with
+      no connection to the people who lived there before &mdash;
+      <a href="nakhimova-82-exhibit.html">Nakhimova, 82 &rarr; Chernomorsky, 1B</a>, and the
+      <a href="case-study-III-stroiteley.html">&ldquo;Rezidentsiya&rdquo; complex on five courtyard
+      graves</a> at Stroiteley Avenue. This quarter was checked against the same possibility three
+      separate ways &mdash; the project&rsquo;s dedicated new-build-matching corroboration, a raw
+      geographic proximity check against every geocoded newbuild object this project tracks, and the
+      administration&rsquo;s own June 2023 statement &mdash; and all three came back the same way:
+      nothing.</p>
+    <p>That makes this quarter&rsquo;s evidentiary shape closer to the citywide
+      <a href="death-sites-new-construction-exhibit.html">death-sites sweep</a>&rsquo;s finding that
+      most burial-adjacent properties in Mariupol were never demolished at all, just quietly stripped of
+      title while standing &mdash; except inverted: here, the demolition happened, on schedule,
+      thoroughly documented, and then simply stopped. No registry sweep of standing apartments, no
+      developer, no reconstruction. A block of the city, cleared of its buildings and most of its
+      residents, held empty for a highway interchange that will not restore a single home.</p>
+    <div class="badges">
+      <span class="badge rd4u">RD4U &middot; A3.6 &middot; loss of access to property</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(a)(iv) &middot; appropriation of property</span>
+      <span class="badge rome">Rome Statute &middot; 8(2)(b)(viii) &middot; transfer of population</span>
+    </div>
+  </section>
+
+  <!-- 10 provenance -->
+  <section>
+    <div class="eyebrow">10 &middot; Provenance</div>
+    <h2>Sourcing</h2>
+    <p>The demolition order, the casualty tally, the compensation-list cross-match, the renaming-
+      litigation record, the highway decree, and the resident chat and video testimony were each
+      independently verified before being combined here; none of this exhibit&rsquo;s claims rest on a
+      single source.</p>
+    <details class="prov">
+      <summary>Full source catalogue &amp; verification notes</summary>
+      <ul class="srclist">
+        <li><span class="ty">Registry identity</span><span class="ti">Accession code MUP-CS-012 &mdash; permanent case-study identifier in the project register, docs/case_studies/REGISTRY.md.</span></li>
+        <li><span class="ty">Demolition order</span><span class="ti">DNR &ldquo;State Defense Committee&rdquo; Distributive Order No. 54, 29 September 2022.</span></li>
+        <li><span class="ty">Primary &middot; named-victims spreadsheet</span><span class="ti">
+          <a href="https://www.mariupoldestruction.com" target="_blank" rel="noopener">Mariupol Destruction and Victims Map</a>
+          &mdash; citywide TSV export, cross-referenced against this project&rsquo;s own geocoded
+          property spine, restricted to addresses resolving inside this quarter&rsquo;s confirmed
+          56-building footprint.</span></li>
+        <li><span class="ty">Independent cross-check</span><span class="ti">This project&rsquo;s own
+          three-source citywide grave-site reconciliation (mariupoldestruction.com spreadsheet, the
+          full <a href="https://t.me/mariupolRIP" target="_blank" rel="noopener">t.me/mariupolRIP</a>
+          channel scan, and memorial.ua), built independently and reconciled against the same-quarter
+          rows &mdash; no name found there that was not already in the spreadsheet-derived tally.</span></li>
+        <li><span class="ty">Resident testimony</span><span class="ti">Two building-resident Telegram
+          chats sit inside this quarter, part of this project&rsquo;s deep-mined chat corpus: the
+          Azovstalskaya, 31 building chat and the Komsomolsky (Morskoy), 20 building chat, plus a
+          district-level channel, @mariupol_left.</span></li>
+        <li><span class="ty">Resident video-appeals</span><span class="ti">Four independent video
+          appeals to the Russian president, recorded by different resident groups between June 2024 and
+          February 2025 (YouTube: <code style="font-size:11px">18iOWPkcs9I</code>, rutube:
+          <code style="font-size:11px">a2b592ea8c3a6b60c71c7a103fc2b804</code>, YouTube:
+          <code style="font-size:11px">JsGi1qQ1C9w</code>, YouTube:
+          <code style="font-size:11px">c1nmNcv5FRw</code>), Whisper-transcribed and cross-checked
+          against each other and against decree text. A fifth video pair (pre- and post-demolition
+          walkthroughs, YouTube <code style="font-size:11px">KtkZFcUcEKQ</code> and
+          <code style="font-size:11px">cjlmLUJ4NX4</code>) documents the block&rsquo;s physical state
+          either side of demolition.</span></li>
+        <li><span class="ty">Compensation-list cross-match</span><span class="ti">Occupation
+          administration compensation-housing distribution list (Постановление &laquo;ГКО ДНР&raquo;
+          No. 175 / Решение No. 61-1), apartment-level, separately captured and loaded onto this
+          project&rsquo;s property spine; the underlying compensation law, Закон ДНР № 141-РЗ
+          (18.12.2024) and its amendment № 161-РЗ (21.02.2025), captured and read in full from
+          publication.pravo.gov.ru.</span></li>
+        <li><span class="ty">Renaming litigation</span><span class="ti">Mariupol administration
+          Resolution No. 273 (26.02.2025, Oleg Morgun&rsquo;s own channel), and the plaintiffs&rsquo;
+          own account of the final first-instance court rejection (07.08.2025), both via @mariupol_left
+          and @morgun_ov.</span></li>
+        <li><span class="ty">Highway/land-use decree</span><span class="ti">Приказ № 186-од (Минстрой
+          ДНР, 14.08.2025) and its four supporting ППТ/ПМТ volumes, captured in full; independently
+          corroborated by Ukrainian press (Telegraf.com.ua, 05.09.2025).</span></li>
+        <li><span class="ty">Building typology</span><span class="ti"><a href="https://domophoto.ru/cities/32/" target="_blank" rel="noopener">domophoto.ru</a>
+          citywide building-photography catalogue, 11 in-quarter address matches confirming 4 Soviet
+          standard-design series codes.</span></li>
+        <li><span class="ty">Cultural note</span><span class="ti">kp.ua, &ldquo;Для съемок
+          &lsquo;Маленькой Веры&rsquo; выбрали мариупольскую хрущевку,&rdquo; 09.11.2012, identifying
+          Lomizova, 15 as the <em>Little Vera</em> (1988) filming location.</span></li>
+        <li><span class="ty">Memorial corroboration</span><span class="ti"><a href="https://t.me/astrapress/108112" target="_blank" rel="noopener">ASTRA
+          (@astrapress/108112)</a>, 26.03.2026, independent editorial report of a 16-person memorial at
+          this quarter&rsquo;s foundation pits; building not yet identified.</span></li>
+        <li><span class="ty">New-build non-match</span><span class="ti">Checked against every geocoded
+          ЕИСЖС (nash.dom.rf) new-construction object this project tracks, and against this
+          project&rsquo;s dedicated new-build-to-old-property matching corroboration (a separate
+          mechanism from the raw distance check, built for the
+          <a href="death-sites-new-construction-exhibit.html">death-sites sweep</a> above) &mdash;
+          zero matches by either method.</span></li>
+      </ul>
+    </details>
+    <p class="figcap" style="margin-top:1.2rem">Related: the
+      <a href="death-sites-new-construction-exhibit.html">death sites &amp; new construction</a>
+      citywide sweep, the <a href="case-study-troianda-metallurgov.html">Troianda-M / Metallurgov 47</a>
+      case study, the <a href="mariupol-master-dossier.html">master dossier</a>.</p>
+  </section>
+
+  <section class="support-section">
+    <h3>Support this project</h3>
+    <p>The project&rsquo;s <a href="about.html">author</a> investigates and documents the dispossession
+      of Mariupol&rsquo;s residents using only his own time and resources — no editorial budget,
+      no grants, no institutional backing. If you find this work valuable, you can help
+      offset some of the costs I&rsquo;ve incurred.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card">
+        <div class="wlabel">PayPal</div>
+        <div class="waddr">kovalever@googlemail.com</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">PayPal &mdash; US-based readers</div>
+        <div class="waddr"><a href="https://www.paypal.com/donate/?hosted_button_id=TQ6VZ7CFSHTHW" target="_blank" style="color:var(--paper);text-decoration:underline;text-underline-offset:3px">Building Democracy Foundation</a></div>
+        <div class="wnote">501(c)(3) registered NGO &mdash; tax-deductible in the US</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">Revolut</div>
+        <div class="waddr">@alexeypklg</div>
+      </div>
+      <div class="wallet-card">
+        <div class="wlabel">USDT (TRC20)</div>
+        <div class="waddr">TGQwaGQsBJbFy2nqCm4YVC76cjFRwFaduS</div>
+        <div class="wnote">Tron network only</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.xlit').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var wasOpen = el.classList.contains('open');
+      document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!wasOpen) el.classList.add('open');
+    });
+    el.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); el.click(); }
+    });
+  });
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.xlit.open').forEach(function(o){ o.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
+</html>

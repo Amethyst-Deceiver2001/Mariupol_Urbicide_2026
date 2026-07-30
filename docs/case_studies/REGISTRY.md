@@ -38,6 +38,7 @@ modality.
 | M7 | Showcase / military reconstruction (ордер, not title) | Витринная застройка: ордер вместо титула |
 | X | Cross-cutting (court conveyor, resistance, victim overlays) | Сквозные темы |
 | M10 | Registry sweep → transfer into federal ownership (a named military/security unit, or the federal treasury) | Реестр «бесхозяйного» → передача в федеральную собственность (войсковой части / силовому ведомству либо в казну) |
+| M11 | Demolish-and-abandon (land held empty/reserved, no redevelopment) | Снос и заброшенность (земля не застроена, зарезервирована) |
 
 Reserved for proposed work: **M8** paper remedy / reclaim-into-the-void
 (Металлургов 25), **M9** non-residential / livelihood seizures.
@@ -57,6 +58,7 @@ Reserved for proposed work: **M8** paper remedy / reclaim-into-the-void
 | MUP-CS-009 | ЖСК «Бригантина» → СЗ «ГСА Девелопмент» | M6 | [brigantina_zhsk_land_lease.md](brigantina_zhsk_land_lease.md) | — | — |
 | MUP-CS-010 | Death sites, ad-hoc graves & collapse-entombment × new construction | X (victim overlay) | [death_sites_new_construction.md](death_sites_new_construction.md) | [death-sites-new-construction-exhibit.html](../exhibits/death-sites-new-construction-exhibit.html) | [-ru](../exhibits/death-sites-new-construction-exhibit-ru.html) |
 | MUP-CS-011 | Чёрноморская 18 / Ленина 101 → в/ч 1297 (FSB); + bulk apartments → federal treasury | M10 | [chernomorskaya18_fsb_transfer.md](chernomorskaya18_fsb_transfer.md) | — | — |
+| MUP-CS-012 | Levoberezhny quarter — Ломизова / 50 лет Октября (Меотиды) / Азовстальская / Комсомольский (Морской) — demolished, never rebuilt | M11 (a 2025 federal highway-planning decree reserving the site for a road interchange is the only documented reason on file for the continued emptiness — see the case-study doc's "№186-од" section) | [levoberezhny_quarter_demolish_and_abandon.md](levoberezhny_quarter_demolish_and_abandon.md) | [levoberezhny-quarter-exhibit.html](../exhibits/levoberezhny-quarter-exhibit.html) | — |
 
 Retired display labels (for anyone holding an old citation): "Case Study II"
 = MUP-CS-004, "Case Study III" = MUP-CS-006, "Case Study IV" = MUP-CS-007,
